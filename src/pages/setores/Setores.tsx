@@ -81,12 +81,15 @@ const Setores = () => {
           </div>
 
           {/* Industry Pills/Tags */}
+          <p className="text-background/60 text-sm mb-4">
+            {filteredIndustries.length} setores disponíveis
+          </p>
           <div className="flex flex-wrap gap-3">
             {filteredIndustries.map((industry) => (
               <Link key={industry.slug} to={`/setores/${industry.slug}`}>
                 <Button
                   variant="outline"
-                  className="border-background/20 text-background hover:bg-background hover:text-foreground transition-all"
+                  className="bg-background text-foreground border-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
                 >
                   {industry.name}
                 </Button>
