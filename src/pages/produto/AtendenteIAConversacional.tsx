@@ -7,15 +7,13 @@ import {
   Clock,
   Calendar,
   Users,
-  TrendingUp,
   CheckCircle,
   ArrowRight,
-  Bot,
-  Smartphone,
   Zap,
   Globe,
   BarChart3,
 } from "lucide-react";
+import heroChatAi from "@/assets/hero-chat-ai.jpg";
 
 const features = [
   {
@@ -72,7 +70,7 @@ const AtendenteIAConversacional = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/30 py-20 md:py-32">
+      <section className="relative overflow-hidden py-20 md:py-32">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -99,11 +97,12 @@ const AtendenteIAConversacional = () => {
                 </Button>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-primary/20 to-accent/40 rounded-2xl p-8 flex items-center justify-center min-h-[400px]">
-              <div className="text-center">
-                <Bot className="h-24 w-24 text-primary mx-auto mb-4" />
-                <p className="text-muted-foreground">Demonstração de Chat IA</p>
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={heroChatAi} 
+                alt="IA Conversacional em múltiplos canais de mensagem" 
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </div>
