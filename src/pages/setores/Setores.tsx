@@ -3,14 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
 import { ArrowRight } from "lucide-react";
+import industryCleaning from "@/assets/industry-cleaning.jpg";
+import industryConstruction from "@/assets/industry-construction.jpg";
+import industryHvac from "@/assets/industry-hvac.jpg";
+import industryPlumbing from "@/assets/industry-plumbing.jpg";
+import industryElectrical from "@/assets/industry-electrical.jpg";
+import industryLandscaping from "@/assets/industry-landscaping.jpg";
 
 const industries = [
-  { name: "Empresas de Limpeza", slug: "limpeza", icon: "🧹", description: "Limpeza residencial e comercial" },
-  { name: "Construção & Reformas", slug: "construcao", icon: "🏗️", description: "Construtoras e empreiteiras" },
-  { name: "HVAC / Climatização", slug: "hvac", icon: "❄️", description: "Ar condicionado e refrigeração" },
-  { name: "Encanamento", slug: "encanamento", icon: "🔧", description: "Serviços hidráulicos" },
-  { name: "Serviços Elétricos", slug: "eletrica", icon: "⚡", description: "Eletricistas e instalações" },
-  { name: "Paisagismo", slug: "paisagismo", icon: "🌳", description: "Jardinagem e paisagismo" },
+  { name: "Empresas de Limpeza", slug: "limpeza", image: industryCleaning, description: "Limpeza residencial e comercial" },
+  { name: "Construção & Reformas", slug: "construcao", image: industryConstruction, description: "Construtoras e empreiteiras" },
+  { name: "HVAC / Climatização", slug: "hvac", image: industryHvac, description: "Ar condicionado e refrigeração" },
+  { name: "Encanamento", slug: "encanamento", image: industryPlumbing, description: "Serviços hidráulicos" },
+  { name: "Serviços Elétricos", slug: "eletrica", image: industryElectrical, description: "Eletricistas e instalações" },
+  { name: "Paisagismo", slug: "paisagismo", image: industryLandscaping, description: "Jardinagem e paisagismo" },
 ];
 
 const Setores = () => {
@@ -27,11 +33,17 @@ const Setores = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((industry) => (
               <Link key={industry.slug} to={`/setores/${industry.slug}`}>
-                <Card className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer h-full">
-                  <CardContent className="pt-6">
-                    <span className="text-5xl mb-4 block">{industry.icon}</span>
-                    <h3 className="text-xl font-semibold mb-2">{industry.name}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">{industry.description}</p>
+                <Card className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer h-full overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={industry.image} 
+                      alt={industry.name} 
+                      className="w-full h-full object-cover transition-transform hover:scale-105"
+                    />
+                  </div>
+                  <CardContent className="pt-4">
+                    <h3 className="text-xl font-semibold mb-1">{industry.name}</h3>
+                    <p className="text-muted-foreground text-sm mb-3">{industry.description}</p>
                     <span className="text-primary font-medium text-sm flex items-center gap-1">
                       Saiba mais <ArrowRight className="h-4 w-4" />
                     </span>

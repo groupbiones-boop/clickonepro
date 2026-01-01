@@ -12,18 +12,24 @@ import {
   CheckCircle,
   ArrowRight,
   Smartphone,
-  Headphones,
   Bot,
-  Zap,
 } from "lucide-react";
+import heroHome from "@/assets/hero-home.jpg";
+import mobileApp from "@/assets/mobile-app.jpg";
+import industryCleaning from "@/assets/industry-cleaning.jpg";
+import industryConstruction from "@/assets/industry-construction.jpg";
+import industryHvac from "@/assets/industry-hvac.jpg";
+import industryPlumbing from "@/assets/industry-plumbing.jpg";
+import industryElectrical from "@/assets/industry-electrical.jpg";
+import industryLandscaping from "@/assets/industry-landscaping.jpg";
 
 const industries = [
-  { name: "Empresas de Limpeza", slug: "limpeza", icon: "🧹" },
-  { name: "Construção & Reformas", slug: "construcao", icon: "🏗️" },
-  { name: "HVAC / Climatização", slug: "hvac", icon: "❄️" },
-  { name: "Encanamento", slug: "encanamento", icon: "🔧" },
-  { name: "Serviços Elétricos", slug: "eletrica", icon: "⚡" },
-  { name: "Paisagismo", slug: "paisagismo", icon: "🌳" },
+  { name: "Empresas de Limpeza", slug: "limpeza", image: industryCleaning },
+  { name: "Construção & Reformas", slug: "construcao", image: industryConstruction },
+  { name: "HVAC / Climatização", slug: "hvac", image: industryHvac },
+  { name: "Encanamento", slug: "encanamento", image: industryPlumbing },
+  { name: "Serviços Elétricos", slug: "eletrica", image: industryElectrical },
+  { name: "Paisagismo", slug: "paisagismo", image: industryLandscaping },
 ];
 
 const features = [
@@ -85,8 +91,14 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/30 py-20 md:py-32">
-        <div className="container">
+      <section className="relative overflow-hidden py-20 md:py-32">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroHome})` }}
+        >
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+        </div>
+        <div className="container relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
               Nunca Perca Uma Ligação.{" "}
@@ -276,11 +288,12 @@ const Index = () => {
                 <Link to="/agendar-demo">Saiba Mais</Link>
               </Button>
             </div>
-            <div className="bg-gradient-to-br from-primary/20 to-accent/40 rounded-2xl p-8 flex items-center justify-center min-h-[400px]">
-              <div className="text-center">
-                <Smartphone className="h-24 w-24 text-primary mx-auto mb-4" />
-                <p className="text-muted-foreground">Visualização do App</p>
-              </div>
+            <div className="relative rounded-2xl overflow-hidden">
+              <img 
+                src={mobileApp} 
+                alt="Aplicativo mobile ClickOne AI mostrando notificações e agenda" 
+                className="w-full h-auto rounded-2xl"
+              />
             </div>
           </div>
         </div>
@@ -300,13 +313,17 @@ const Index = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((industry, index) => (
               <Link key={index} to={`/setores/${industry.slug}`}>
-                <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
-                  <CardContent className="pt-6 flex items-center gap-4">
-                    <span className="text-4xl">{industry.icon}</span>
-                    <div>
-                      <h3 className="text-lg font-semibold">{industry.name}</h3>
-                      <span className="text-sm text-primary">Saiba mais →</span>
-                    </div>
+                <Card className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer h-full overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={industry.image} 
+                      alt={industry.name} 
+                      className="w-full h-full object-cover transition-transform hover:scale-105"
+                    />
+                  </div>
+                  <CardContent className="pt-4">
+                    <h3 className="text-lg font-semibold">{industry.name}</h3>
+                    <span className="text-sm text-primary">Saiba mais →</span>
                   </CardContent>
                 </Card>
               </Link>

@@ -3,19 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
 import {
-  Phone,
   Clock,
   Calendar,
   Users,
-  TrendingUp,
   CheckCircle,
   ArrowRight,
-  Headphones,
-  MessageSquare,
-  BarChart3,
   Globe,
   Mic,
+  BarChart3,
 } from "lucide-react";
+import heroVoiceAi from "@/assets/hero-voice-ai.jpg";
 
 const features = [
   {
@@ -63,7 +60,7 @@ const RecepcionistaIAVoz = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/30 py-20 md:py-32">
+      <section className="relative overflow-hidden py-20 md:py-32">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -90,11 +87,12 @@ const RecepcionistaIAVoz = () => {
                 </Button>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-primary/20 to-accent/40 rounded-2xl p-8 flex items-center justify-center min-h-[400px]">
-              <div className="text-center">
-                <Headphones className="h-24 w-24 text-primary mx-auto mb-4" />
-                <p className="text-muted-foreground">Demonstração de Voz IA</p>
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={heroVoiceAi} 
+                alt="Recepcionista virtual com IA atendendo chamadas" 
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </div>
