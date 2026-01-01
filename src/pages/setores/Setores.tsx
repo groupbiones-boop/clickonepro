@@ -13,6 +13,17 @@ import industryLandscaping from "@/assets/industry-landscaping.jpg";
 import industryPool from "@/assets/industry-pool.jpg";
 import industryMoving from "@/assets/industry-moving.jpg";
 import industryRoofing from "@/assets/industry-roofing.jpg";
+import industryPestControl from "@/assets/industry-pest-control.jpg";
+import industryLocksmith from "@/assets/industry-locksmith.jpg";
+import industryPainters from "@/assets/industry-painters.jpg";
+import industryDentist from "@/assets/industry-dentist.jpg";
+import industryChiropractor from "@/assets/industry-chiropractor.jpg";
+import industryVeterinary from "@/assets/industry-veterinary.jpg";
+import industryMedicalClinic from "@/assets/industry-medical-clinic.jpg";
+import industryHairSalon from "@/assets/industry-hair-salon.jpg";
+import industrySpaMassage from "@/assets/industry-spa-massage.jpg";
+import industryHomeInspection from "@/assets/industry-home-inspection.jpg";
+import industryFlooring from "@/assets/industry-flooring.jpg";
 
 const industries = [
   { name: "Empresas de Limpeza", slug: "limpeza", image: industryCleaning, description: "Limpeza residencial e comercial" },
@@ -24,6 +35,17 @@ const industries = [
   { name: "Serviços de Piscina", slug: "piscinas", image: industryPool, description: "Manutenção e limpeza de piscinas" },
   { name: "Empresas de Mudança", slug: "mudancas", image: industryMoving, description: "Mudanças residenciais e comerciais" },
   { name: "Serviços de Telhado", slug: "telhados", image: industryRoofing, description: "Reparos e instalação de telhados" },
+  { name: "Controle de Pragas", slug: "controle-pragas", image: industryPestControl, description: "Exterminação e prevenção de pragas" },
+  { name: "Chaveiro", slug: "chaveiro", image: industryLocksmith, description: "Serviços de chaveiro 24h" },
+  { name: "Pintores", slug: "pintores", image: industryPainters, description: "Pintura residencial e comercial" },
+  { name: "Dentistas", slug: "dentistas", image: industryDentist, description: "Clínicas odontológicas" },
+  { name: "Quiropráticos", slug: "quiropraticos", image: industryChiropractor, description: "Clínicas de quiropraxia" },
+  { name: "Veterinários", slug: "veterinarios", image: industryVeterinary, description: "Clínicas veterinárias" },
+  { name: "Clínicas Médicas", slug: "clinicas-medicas", image: industryMedicalClinic, description: "Clínicas de saúde e bem-estar" },
+  { name: "Salões de Cabelo", slug: "saloes-cabelo", image: industryHairSalon, description: "Salões de beleza e cabeleireiros" },
+  { name: "Spas e Massagens", slug: "spas-massagens", image: industrySpaMassage, description: "Spas e terapias de relaxamento" },
+  { name: "Inspeção Residencial", slug: "inspecao-residencial", image: industryHomeInspection, description: "Inspeções de imóveis" },
+  { name: "Pisos", slug: "pisos", image: industryFlooring, description: "Instalação e reparo de pisos" },
 ];
 
 const Setores = () => {
