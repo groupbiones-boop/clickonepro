@@ -12,6 +12,13 @@ import {
   Zap,
   Globe,
   BarChart3,
+  Smartphone,
+  MessageCircle,
+  Instagram,
+  Facebook,
+  Monitor,
+  Search,
+  type LucideIcon,
 } from "lucide-react";
 import heroChatAi from "@/assets/hero-chat-ai.jpg";
 
@@ -48,13 +55,13 @@ const features = [
   },
 ];
 
-const channels = [
-  { name: "SMS", emoji: "📱" },
-  { name: "WhatsApp", emoji: "💬" },
-  { name: "Instagram DM", emoji: "📸" },
-  { name: "Facebook Messenger", emoji: "👤" },
-  { name: "Website Chat", emoji: "💻" },
-  { name: "Google Business", emoji: "🔍" },
+const channels: { name: string; icon: LucideIcon }[] = [
+  { name: "SMS", icon: Smartphone },
+  { name: "WhatsApp", icon: MessageCircle },
+  { name: "Instagram DM", icon: Instagram },
+  { name: "Facebook Messenger", icon: Facebook },
+  { name: "Website Chat", icon: Monitor },
+  { name: "Google Business", icon: Search },
 ];
 
 const benefits = [
@@ -123,7 +130,9 @@ const AtendenteIAConversacional = () => {
             {channels.map((channel, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
-                  <span className="text-4xl mb-3 block">{channel.emoji}</span>
+                  <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+                    <channel.icon className="h-8 w-8 text-muted-foreground" />
+                  </div>
                   <span className="font-medium text-sm">{channel.name}</span>
                 </CardContent>
               </Card>
