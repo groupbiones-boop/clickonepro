@@ -970,46 +970,39 @@ const SetorDetalhe = () => {
         </div>
       </section>
 
-      {/* Secondary Image Section */}
-      <section className="bg-muted/30">
-        <div className="container py-0">
-          <div className="rounded-2xl overflow-hidden shadow-xl mx-auto max-w-5xl">
-            <img 
-              src={data.secondaryImage} 
-              alt={`Profissional de ${data.name.toLowerCase()} trabalhando`}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Solution Section */}
       <section id="recursos" className="py-16 md:py-24 bg-muted/30">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left: Image */}
+            <div className="order-2 lg:order-1">
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img 
+                  src={data.secondaryImage} 
+                  alt={`Profissional de ${data.name.toLowerCase()} trabalhando`}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+            
+            {/* Right: Content */}
+            <div className="order-1 lg:order-2">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {data.solutionTitle}
               </h2>
               <p className="text-muted-foreground text-lg mb-8">
                 {data.solutionDescription}
               </p>
-              <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img 
-                  src={data.image} 
-                  alt={data.name}
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-6">O que torna a ClickOne AI diferente:</h3>
-              <ul className="space-y-4">
+              
+              <h3 className="text-lg font-semibold mb-5 text-foreground">
+                O que torna a ClickOne AI diferente:
+              </h3>
+              <ul className="space-y-3">
                 {data.solutions.map((solution, index) => (
-                  <li key={index} className="flex items-start gap-4">
-                    <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-semibold">{solution.title}</span>
+                      <span className="font-semibold text-foreground">{solution.title}</span>
                       <span className="text-muted-foreground"> — {solution.description}</span>
                     </div>
                   </li>
