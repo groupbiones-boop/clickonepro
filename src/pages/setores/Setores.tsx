@@ -9,6 +9,9 @@ import industryHvac from "@/assets/industry-hvac.jpg";
 import industryPlumbing from "@/assets/industry-plumbing.jpg";
 import industryElectrical from "@/assets/industry-electrical.jpg";
 import industryLandscaping from "@/assets/industry-landscaping.jpg";
+import industryPool from "@/assets/industry-pool.jpg";
+import industryMoving from "@/assets/industry-moving.jpg";
+import industryRoofing from "@/assets/industry-roofing.jpg";
 
 const industries = [
   { name: "Empresas de Limpeza", slug: "limpeza", image: industryCleaning, description: "Limpeza residencial e comercial" },
@@ -17,6 +20,9 @@ const industries = [
   { name: "Encanamento", slug: "encanamento", image: industryPlumbing, description: "Serviços hidráulicos" },
   { name: "Serviços Elétricos", slug: "eletrica", image: industryElectrical, description: "Eletricistas e instalações" },
   { name: "Paisagismo", slug: "paisagismo", image: industryLandscaping, description: "Jardinagem e paisagismo" },
+  { name: "Serviços de Piscina", slug: "piscinas", image: industryPool, description: "Manutenção e limpeza de piscinas" },
+  { name: "Empresas de Mudança", slug: "mudancas", image: industryMoving, description: "Mudanças residenciais e comerciais" },
+  { name: "Serviços de Telhado", slug: "telhados", image: industryRoofing, description: "Reparos e instalação de telhados" },
 ];
 
 const Setores = () => {

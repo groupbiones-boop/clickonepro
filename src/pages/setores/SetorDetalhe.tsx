@@ -30,12 +30,18 @@ import industryHvac from "@/assets/industry-hvac.jpg";
 import industryPlumbing from "@/assets/industry-plumbing.jpg";
 import industryElectrical from "@/assets/industry-electrical.jpg";
 import industryLandscaping from "@/assets/industry-landscaping.jpg";
+import industryPool from "@/assets/industry-pool.jpg";
+import industryMoving from "@/assets/industry-moving.jpg";
+import industryRoofing from "@/assets/industry-roofing.jpg";
 import industryCleaning2 from "@/assets/industry-cleaning-2.jpg";
 import industryConstruction2 from "@/assets/industry-construction-2.jpg";
 import industryHvac2 from "@/assets/industry-hvac-2.jpg";
 import industryPlumbing2 from "@/assets/industry-plumbing-2.jpg";
 import industryElectrical2 from "@/assets/industry-electrical-2.jpg";
 import industryLandscaping2 from "@/assets/industry-landscaping-2.jpg";
+import industryPool2 from "@/assets/industry-pool-2.jpg";
+import industryMoving2 from "@/assets/industry-moving-2.jpg";
+import industryRoofing2 from "@/assets/industry-roofing-2.jpg";
 
 interface Testimonial {
   quote: string;
@@ -614,6 +620,279 @@ const industryData: Record<string, IndustryData> = {
       {
         question: "A IA pode fornecer estimativas de preço?",
         answer: "Com base no tamanho do terreno e tipo de serviço, a IA fornece faixas de preço. Para orçamentos detalhados, ela agenda uma visita técnica."
+      }
+    ]
+  },
+  piscinas: {
+    name: "Serviços de Piscina",
+    heroTitle: "Recepcionista IA para Pool Services",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA PISCINAS",
+    heroDescription: "Atendimento inteligente para empresas de manutenção, limpeza e reparos de piscinas. Gerencie manutenções recorrentes e emergências com IA.",
+    image: industryPool,
+    secondaryImage: industryPool2,
+    problemTitle: "Piscinas precisam de atenção constante.",
+    problemDescription: "A água verde não espera. Clientes ligam desesperados com problemas de química, bombas quebradas ou piscinas sujas para festas. Você está em outra manutenção e não pode atender. Nossa IA prioriza emergências e gerencia sua agenda.",
+    problems: [
+      "Emergências de água verde ou equipamento quebrado",
+      "Manutenções recorrentes difíceis de gerenciar",
+      "Picos de demanda na primavera e verão",
+      "Clientes querem resposta imediata antes de festas",
+      "Dificuldade em vender contratos de manutenção"
+    ],
+    solutionTitle: "Limpe piscinas enquanto gerenciamos sua agenda.",
+    solutionDescription: "Nossa IA identifica emergências (água verde, bomba quebrada) e prioriza automaticamente. Para manutenções regulares, gerencia toda sua agenda de clientes recorrentes e vende novos contratos.",
+    solutions: [
+      { title: "Triagem de emergências", description: "Água verde e equipamentos quebrados são prioridade" },
+      { title: "Gestão de recorrentes", description: "Agenda automática de manutenções semanais/mensais" },
+      { title: "Venda de contratos", description: "IA oferece planos de manutenção preventiva" },
+      { title: "Atendimento 24/7", description: "Emergências antes de festas e eventos" },
+      { title: "Coleta de informações", description: "Tipo de piscina, tamanho, sintomas do problema" },
+      { title: "Lembretes automáticos", description: "Notifica clientes sobre visitas agendadas" }
+    ],
+    features: [
+      { icon: Zap, title: "Emergências Priorizadas", description: "Água verde e bombas são urgência máxima" },
+      { icon: Calendar, title: "Manutenção Recorrente", description: "Gestão automática de clientes mensais" },
+      { icon: Phone, title: "Atendimento Instantâneo", description: "Resposta imediata a cada chamada" },
+      { icon: Users, title: "Qualificação de Serviços", description: "Coleta tipo e tamanho da piscina" },
+      { icon: BarChart3, title: "Contratos de Serviço", description: "Venda planos de manutenção" },
+      { icon: MessageSquare, title: "Multi-Canal", description: "Telefone, SMS e WhatsApp integrados" }
+    ],
+    stats: [
+      { value: "85%", label: "dos clientes de piscina querem resposta no mesmo dia" },
+      { value: "70%", label: "da receita vem de contratos de manutenção recorrente" },
+      { value: "3x", label: "aumento de chamadas na primavera e verão" }
+    ],
+    useCases: [
+      { title: "Água Verde Urgente", description: "Priorize e acione imediatamente" },
+      { title: "Manutenção Semanal", description: "Gerencie toda a agenda recorrente" },
+      { title: "Reparos de Equipamento", description: "Qualifique problemas de bombas e filtros" },
+      { title: "Abertura de Temporada", description: "Campanhas de primavera automáticas" }
+    ],
+    testimonials: [
+      {
+        quote: "Na primavera, as ligações triplicam. A IA atende todas e eu foco nas piscinas. Minha receita subiu 45%.",
+        author: "Rafael Santos",
+        role: "Proprietário",
+        company: "Crystal Clear Pool Service",
+        location: "Phoenix, AZ"
+      },
+      {
+        quote: "A IA vende contratos de manutenção automaticamente. Aumentamos clientes recorrentes em 60%.",
+        author: "Maria Gonzalez",
+        role: "Gerente",
+        company: "AquaPro Services LLC",
+        location: "Miami, FL"
+      },
+      {
+        quote: "Emergências de água verde são atendidas na hora. Meus clientes adoram a resposta rápida.",
+        author: "Carlos Oliveira",
+        role: "Técnico Sênior",
+        company: "Blue Wave Pools",
+        location: "Las Vegas, NV"
+      }
+    ],
+    faqs: [
+      {
+        question: "Como a IA identifica emergências de piscina?",
+        answer: "A IA pergunta sobre a cor da água, funcionamento da bomba e se há evento marcado. Água verde ou equipamento parado são classificados como emergência."
+      },
+      {
+        question: "A IA pode vender contratos de manutenção?",
+        answer: "Sim! Quando um cliente liga para serviço avulso, a IA oferece planos mensais explicando os benefícios e economia a longo prazo."
+      },
+      {
+        question: "Como funciona a gestão de manutenções recorrentes?",
+        answer: "A IA gerencia toda a agenda de clientes com contrato, envia lembretes, permite reagendamentos e coleta feedback após cada visita."
+      },
+      {
+        question: "Funciona para serviços comerciais de piscina?",
+        answer: "Sim! A IA qualifica piscinas residenciais e comerciais, coletando informações específicas como tamanho, tipo de filtragem e frequência necessária."
+      },
+      {
+        question: "A IA pode lidar com picos sazonais?",
+        answer: "Absolutamente! A IA escala para atender qualquer volume de chamadas e pode reativar clientes antigos no início da temporada."
+      }
+    ]
+  },
+  mudancas: {
+    name: "Empresas de Mudança",
+    heroTitle: "Recepcionista IA para Moving Companies",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA MUDANÇAS",
+    heroDescription: "Atendimento inteligente para empresas de mudança residencial e comercial. Qualifique projetos, forneça estimativas e agende visitas automaticamente.",
+    image: industryMoving,
+    secondaryImage: industryMoving2,
+    problemTitle: "Orçamentos de mudança são complexos.",
+    problemDescription: "Cada mudança é única. O cliente liga querendo preço imediato, mas você precisa saber quantos cômodos, distância, itens especiais. Você está no caminhão e não pode fazer orçamento. Nossa IA qualifica tudo antes.",
+    problems: [
+      "Orçamentos complexos requerem muitas informações",
+      "Ligações durante mudanças em andamento",
+      "Clientes querem preço imediato por telefone",
+      "Alta concorrência — primeiro a responder ganha",
+      "Dificuldade em qualificar mudanças grandes vs pequenas"
+    ],
+    solutionTitle: "Carregue caminhões enquanto qualificamos leads.",
+    solutionDescription: "Nossa IA coleta todas as informações necessárias — número de cômodos, endereço de origem e destino, itens especiais, data desejada — e fornece estimativas ou agenda visitas para orçamentos detalhados.",
+    solutions: [
+      { title: "Qualificação completa", description: "Coleta cômodos, distância, itens especiais" },
+      { title: "Estimativas automáticas", description: "Faixas de preço baseadas nas informações" },
+      { title: "Agendamento de visitas", description: "Marca visitas para orçamentos presenciais" },
+      { title: "Resposta imediata", description: "Primeiro a responder ganha o cliente" },
+      { title: "Triagem por tamanho", description: "Separa mudanças pequenas de grandes projetos" },
+      { title: "Follow-up de propostas", description: "Acompanha orçamentos enviados" }
+    ],
+    features: [
+      { icon: Phone, title: "Resposta Instantânea", description: "Primeiro a atender ganha" },
+      { icon: Users, title: "Qualificação Completa", description: "Cômodos, distância, itens especiais" },
+      { icon: Calendar, title: "Agendamento de Visitas", description: "Orçamentos presenciais" },
+      { icon: BarChart3, title: "Estimativas Automáticas", description: "Faixas de preço por telefone" },
+      { icon: Zap, title: "Follow-up Automático", description: "Acompanha propostas enviadas" },
+      { icon: MessageSquare, title: "Multi-Canal", description: "Telefone, SMS e WhatsApp" }
+    ],
+    stats: [
+      { value: "78%", label: "dos clientes escolhem a primeira empresa que responde" },
+      { value: "60%", label: "das propostas são perdidas por falta de follow-up" },
+      { value: "5min", label: "é o tempo máximo para responder e ganhar o cliente" }
+    ],
+    useCases: [
+      { title: "Mudanças Residenciais", description: "Qualifique tamanho e forneça estimativas" },
+      { title: "Mudanças Comerciais", description: "Colete especificações de projetos grandes" },
+      { title: "Mudanças de Longa Distância", description: "Calcule distância e complexidade" },
+      { title: "Follow-up de Propostas", description: "Acompanhe orçamentos automaticamente" }
+    ],
+    testimonials: [
+      {
+        quote: "Antes eu perdia 50% dos leads durante mudanças. Agora a IA qualifica tudo e eu só ligo para fechar.",
+        author: "Roberto Martinez",
+        role: "Proprietário",
+        company: "Martinez Moving LLC",
+        location: "Houston, TX"
+      },
+      {
+        quote: "A IA fornece estimativas por telefone. Minha taxa de conversão subiu 40% porque respondemos primeiro.",
+        author: "Andre Silva",
+        role: "Gerente Comercial",
+        company: "Fast Move Services",
+        location: "Atlanta, GA"
+      },
+      {
+        quote: "O follow-up automático recupera clientes indecisos. Fechamos 25% mais contratos.",
+        author: "Jose Hernandez",
+        role: "Diretor",
+        company: "Hernandez Movers Inc",
+        location: "Dallas, TX"
+      }
+    ],
+    faqs: [
+      {
+        question: "Como a IA qualifica mudanças complexas?",
+        answer: "A IA faz perguntas estruturadas: número de cômodos, itens especiais (piano, cofre), distância entre endereços, data desejada e requisitos de acesso (escadas, elevador)."
+      },
+      {
+        question: "A IA pode fornecer preços por telefone?",
+        answer: "Sim! Com base nas informações coletadas, a IA fornece faixas de preço. Para orçamentos exatos, ela agenda uma visita presencial."
+      },
+      {
+        question: "Como funciona para mudanças de longa distância?",
+        answer: "A IA coleta endereços de origem e destino, calcula a distância e ajusta as estimativas. Para mudanças interestaduais, qualifica requisitos especiais."
+      },
+      {
+        question: "A IA diferencia mudanças pequenas de grandes?",
+        answer: "Sim! Apartamentos de 1 quarto são tratados diferente de casas de 5 quartos. A IA prioriza projetos grandes que geram mais receita."
+      },
+      {
+        question: "Como funciona o follow-up de propostas?",
+        answer: "Após enviar um orçamento, a IA entra em contato automaticamente em 24-48 horas para verificar interesse e responder dúvidas."
+      }
+    ]
+  },
+  telhados: {
+    name: "Serviços de Telhado",
+    heroTitle: "Recepcionista IA para Roofing Companies",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA TELHADOS",
+    heroDescription: "Atendimento inteligente para empresas de reparos, substituição e manutenção de telhados. Gerencie emergências pós-tempestade e projetos de instalação com IA.",
+    image: industryRoofing,
+    secondaryImage: industryRoofing2,
+    problemTitle: "Tempestades trazem picos de demanda.",
+    problemDescription: "Após uma tempestade, as ligações explodem. Goteiras, telhas arrancadas, danos estruturais. Você está em um telhado e não pode atender. Nossa IA escala com a demanda e prioriza emergências.",
+    problems: [
+      "Picos de demanda após tempestades",
+      "Emergências de goteiras ativas",
+      "Projetos de substituição são complexos de orçar",
+      "Trabalho em altura impede atender telefone",
+      "Alta concorrência por projetos de seguro"
+    ],
+    solutionTitle: "Cubra telhados enquanto cobrimos suas ligações.",
+    solutionDescription: "Nossa IA identifica emergências (goteira ativa, dano de tempestade) e prioriza. Para projetos de instalação, qualifica tipo de telhado, metragem e orçamento antes da visita.",
+    solutions: [
+      { title: "Triagem de emergências", description: "Goteiras ativas e danos de tempestade" },
+      { title: "Escalabilidade ilimitada", description: "Atende picos pós-tempestade" },
+      { title: "Qualificação de projetos", description: "Tipo de telhado, metragem, orçamento" },
+      { title: "Projetos de seguro", description: "Coleta informações para claims" },
+      { title: "Agendamento de inspeções", description: "Visitas para orçamentos detalhados" },
+      { title: "Follow-up automático", description: "Acompanha propostas enviadas" }
+    ],
+    features: [
+      { icon: Zap, title: "Emergências Priorizadas", description: "Goteiras e danos de tempestade" },
+      { icon: Shield, title: "Projetos de Seguro", description: "Qualifica claims de seguradoras" },
+      { icon: Calendar, title: "Inspeções Agendadas", description: "Visitas para orçamento no local" },
+      { icon: Users, title: "Qualificação Técnica", description: "Tipo, metragem e material" },
+      { icon: BarChart3, title: "Gestão de Demanda", description: "Escala em picos de tempestade" },
+      { icon: Phone, title: "Atendimento 24/7", description: "Emergências noturnas e fins de semana" }
+    ],
+    stats: [
+      { value: "10x", label: "aumento de chamadas após tempestades severas" },
+      { value: "90%", label: "dos clientes com goteira querem resposta imediata" },
+      { value: "65%", label: "dos projetos grandes vêm de claims de seguro" }
+    ],
+    useCases: [
+      { title: "Emergências de Goteira", description: "Priorize e acione imediatamente" },
+      { title: "Danos de Tempestade", description: "Escale atendimento pós-tempestade" },
+      { title: "Substituição de Telhado", description: "Qualifique projetos completos" },
+      { title: "Claims de Seguro", description: "Colete informações para seguradoras" }
+    ],
+    testimonials: [
+      {
+        quote: "Após a última tempestade, recebemos 200 ligações em um dia. A IA atendeu todas e priorizou as emergências reais.",
+        author: "Miguel Rocha",
+        role: "Proprietário",
+        company: "Rocha Roofing LLC",
+        location: "Orlando, FL"
+      },
+      {
+        quote: "A IA qualifica projetos de seguro perfeitamente. Economizo horas em cada claim.",
+        author: "David Santos",
+        role: "Gerente de Projetos",
+        company: "Santos Roofing Services",
+        location: "Denver, CO"
+      },
+      {
+        quote: "Trabalhar no telhado e atender telefone é impossível. A IA resolve isso e nunca perdemos um lead.",
+        author: "Fernando Costa",
+        role: "Instalador Sênior",
+        company: "Costa Roofing Inc",
+        location: "Charlotte, NC"
+      }
+    ],
+    faqs: [
+      {
+        question: "Como a IA lida com picos pós-tempestade?",
+        answer: "A IA escala automaticamente para atender qualquer volume de chamadas, triando emergências reais (goteiras ativas) de inspeções que podem esperar."
+      },
+      {
+        question: "A IA pode qualificar projetos de seguro?",
+        answer: "Sim! A IA coleta informações específicas para claims: data do dano, número da apólice, tipo de dano e fotos via WhatsApp."
+      },
+      {
+        question: "Como funciona para substituições de telhado?",
+        answer: "A IA qualifica tipo de telhado atual, metragem aproximada, material desejado e orçamento, permitindo que você chegue preparado para a visita."
+      },
+      {
+        question: "A IA prioriza emergências de goteira?",
+        answer: "Sim! Goteiras ativas são classificadas como prioridade máxima. A IA pode orientar o cliente a colocar baldes enquanto você está a caminho."
+      },
+      {
+        question: "Como funciona o follow-up de orçamentos?",
+        answer: "Após enviar uma proposta, a IA entra em contato automaticamente para responder dúvidas e ajudar no processo de decisão."
       }
     ]
   }
