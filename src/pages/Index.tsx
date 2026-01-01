@@ -15,7 +15,7 @@ import {
   Bot,
 } from "lucide-react";
 import heroHome from "@/assets/hero-home.jpg";
-import mobileApp from "@/assets/mobile-app.jpg";
+import mobileApp from "@/assets/mobile-app-clickone.jpg";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
 import industryConstruction from "@/assets/industry-construction.jpg";
 import industryHvac from "@/assets/industry-hvac.jpg";
