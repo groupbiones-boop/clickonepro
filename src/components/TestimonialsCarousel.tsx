@@ -8,6 +8,7 @@ interface Testimonial {
   author: string;
   company: string;
   role?: string;
+  location?: string;
 }
 
 interface TestimonialsCarouselProps {
@@ -114,6 +115,9 @@ const TestimonialsCarousel = ({ testimonials, industry }: TestimonialsCarouselPr
                           <p className="text-muted-foreground text-sm">{testimonial.role}</p>
                         )}
                         <p className="text-primary font-medium">{testimonial.company}</p>
+                        {testimonial.location && (
+                          <p className="text-muted-foreground text-sm">{testimonial.location}</p>
+                        )}
                       </div>
                     </CardContent>
                   </Card>

@@ -30,6 +30,7 @@ interface Testimonial {
   author: string;
   company: string;
   role?: string;
+  location?: string;
 }
 
 interface IndustryData {
@@ -98,21 +99,24 @@ const industryData: Record<string, IndustryData> = {
     testimonials: [
       {
         quote: "A ClickOne AI transformou nosso atendimento. Antes perdíamos 60% das ligações quando estávamos em serviço. Agora capturamos 100% dos leads.",
-        author: "Maria Santos",
+        author: "Lucia Fernandes",
         role: "Proprietária",
-        company: "Limpeza Brilhante"
+        company: "BrightClean Pro Services",
+        location: "Houston, TX"
       },
       {
         quote: "Agora minha equipe foca 100% na limpeza. A IA agenda, confirma e até coleta feedback dos clientes automaticamente.",
-        author: "Roberto Mendes",
+        author: "Carlos Rodriguez",
         role: "Gerente de Operações",
-        company: "CleanPro Services"
+        company: "Rodriguez Cleaning Solutions",
+        location: "Miami, FL"
       },
       {
         quote: "Triplicamos nossos clientes recorrentes em 6 meses. O follow-up automático faz toda a diferença.",
-        author: "Fernanda Costa",
+        author: "Ana Paula Silva",
         role: "Fundadora",
-        company: "Brilho Total"
+        company: "Premier Home Services",
+        location: "Orlando, FL"
       }
     ]
   },
@@ -163,21 +167,24 @@ const industryData: Record<string, IndustryData> = {
     testimonials: [
       {
         quote: "Antes eu perdia horas no telefone. Agora a IA qualifica os projetos e eu só falo com clientes realmente interessados.",
-        author: "Carlos Oliveira",
+        author: "Roberto Oliveira",
         role: "Proprietário",
-        company: "Oliveira Construções"
+        company: "Oliveira Construction LLC",
+        location: "Los Angeles, CA"
       },
       {
         quote: "A IA agenda visitas técnicas automaticamente. Minha produtividade no canteiro aumentou 40%.",
-        author: "José Ferreira",
+        author: "Marco Antonio",
         role: "Engenheiro Civil",
-        company: "Ferreira Reformas"
+        company: "MA Builders Inc",
+        location: "Newark, NJ"
       },
       {
         quote: "Fechamos 30% mais contratos desde que a IA começou a fazer follow-up nas propostas.",
-        author: "Marcos Lima",
+        author: "Diego Hernandez",
         role: "Diretor Comercial",
-        company: "Lima Construções"
+        company: "Hernandez Renovations",
+        location: "Atlanta, GA"
       }
     ]
   },
@@ -228,21 +235,24 @@ const industryData: Record<string, IndustryData> = {
     testimonials: [
       {
         quote: "No último verão atendemos 3x mais chamados sem contratar ninguém. A IA triou as emergências e agendou o resto.",
-        author: "Roberto Souza",
+        author: "Paulo Mendes",
         role: "Proprietário",
-        company: "Frio & Ar Climatização"
+        company: "Mendes HVAC Solutions",
+        location: "Phoenix, AZ"
       },
       {
         quote: "Vendemos 50% mais contratos de manutenção preventiva. A IA oferece automaticamente para quem liga.",
-        author: "Paulo Andrade",
+        author: "Miguel Santos",
         role: "Gerente Comercial",
-        company: "AC Master"
+        company: "Cool Air Services LLC",
+        location: "Houston, TX"
       },
       {
         quote: "Emergências noturnas eram um pesadelo. Agora a IA filtra e só me aciona quando é realmente urgente.",
-        author: "Ricardo Martins",
+        author: "Eduardo Lima",
         role: "Técnico Sênior",
-        company: "Clima Control"
+        company: "Lima Climate Control",
+        location: "Dallas, TX"
       }
     ]
   },
@@ -293,21 +303,24 @@ const industryData: Record<string, IndustryData> = {
     testimonials: [
       {
         quote: "Antes eu perdia 70% das emergências noturnas. Agora a IA me acorda só para vazamentos reais e agenda o resto.",
-        author: "João Silva",
+        author: "Jose Roberto",
         role: "Proprietário",
-        company: "Silva Encanamento"
+        company: "JR Plumbing Services",
+        location: "Miami, FL"
       },
       {
         quote: "A IA coleta fotos do problema pelo WhatsApp. Chego preparado com as peças certas.",
-        author: "Antonio Rocha",
+        author: "Fernando Rocha",
         role: "Encanador",
-        company: "Rocha Serviços Hidráulicos"
+        company: "Reliable Plumbing LLC",
+        location: "Tampa, FL"
       },
       {
         quote: "Meus clientes adoram a resposta instantânea. Minha taxa de conversão subiu 85%.",
-        author: "Fernando Dias",
+        author: "Antonio Gomes",
         role: "Gerente",
-        company: "Dias Encanamentos"
+        company: "Gomes Plumbing Co",
+        location: "Chicago, IL"
       }
     ]
   },
@@ -358,21 +371,24 @@ const industryData: Record<string, IndustryData> = {
     testimonials: [
       {
         quote: "A IA instrui clientes a desligar o disjuntor enquanto eu termino o serviço atual. Isso já evitou acidentes.",
-        author: "Pedro Costa",
+        author: "Pedro Almeida",
         role: "Proprietário",
-        company: "Costa Elétrica"
+        company: "Almeida Electric LLC",
+        location: "Boston, MA"
       },
       {
         quote: "Instalações comerciais exigem foco total. A IA qualifica tudo antes e eu só preciso orçar.",
-        author: "Luiz Araújo",
+        author: "Luis Morales",
         role: "Eletricista Industrial",
-        company: "Araújo Instalações"
+        company: "Morales Electrical Services",
+        location: "San Antonio, TX"
       },
       {
         quote: "Dobramos nossa carteira de clientes em 8 meses. A IA nunca perde uma oportunidade.",
-        author: "Marcos Pereira",
+        author: "Ricardo Costa",
         role: "Diretor",
-        company: "MP Elétrica"
+        company: "RC Electric Solutions",
+        location: "Denver, CO"
       }
     ]
   },
@@ -423,21 +439,24 @@ const industryData: Record<string, IndustryData> = {
     testimonials: [
       {
         quote: "Minha agenda de manutenções recorrentes cresceu 200% depois que a IA começou a gerenciar os follow-ups.",
-        author: "Ana Lima",
-        role: "Proprietária",
-        company: "Verde & Arte Paisagismo"
+        author: "Marcelo Green",
+        role: "Proprietário",
+        company: "Green Touch Landscaping",
+        location: "San Diego, CA"
       },
       {
         quote: "Na primavera, as ligações triplicam. A IA atende todas e eu foco nos jardins.",
-        author: "Carlos Jardim",
+        author: "Patricia Jardim",
         role: "Paisagista",
-        company: "Jardim & Cia"
+        company: "Jardim Landscaping LLC",
+        location: "Orlando, FL"
       },
       {
         quote: "A IA envia meu portfólio automaticamente. Os clientes já chegam apaixonados pelo meu trabalho.",
-        author: "Patricia Flores",
+        author: "Carlos Vega",
         role: "Designer de Jardins",
-        company: "Flores Paisagismo"
+        company: "Vega Outdoor Services",
+        location: "Austin, TX"
       }
     ]
   }
