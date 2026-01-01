@@ -1928,7 +1928,7 @@ const SetorDetalhe = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center">
+      <section className="relative min-h-[80vh] flex items-center animate-fade-in">
         <div className="absolute inset-0 grid lg:grid-cols-2">
           <div className="bg-foreground" />
           <div 
@@ -1938,16 +1938,16 @@ const SetorDetalhe = () => {
         </div>
         <div className="container relative z-10">
           <div className="lg:w-1/2 lg:pr-12">
-            <span className="inline-block text-primary text-sm font-semibold tracking-wider mb-4">
+            <span className="inline-block text-primary text-sm font-semibold tracking-wider mb-4 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
               {data.heroSubtitle}
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
               {data.heroTitle}
             </h1>
-            <p className="text-lg text-background/80 mb-8 max-w-xl">
+            <p className="text-lg text-background/80 mb-8 max-w-xl animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
               {data.heroDescription}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
               <Button size="lg" variant="default" asChild>
                 <Link to="/agendar-demo">
                   Começar Agora
@@ -1971,7 +1971,7 @@ const SetorDetalhe = () => {
       <section className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 {data.problemTitle}
               </h2>
@@ -1982,7 +1982,11 @@ const SetorDetalhe = () => {
             <div>
               <ul className="space-y-4">
                 {data.problems.map((problem, index) => (
-                  <li key={index} className="flex items-start gap-4 bg-destructive/5 rounded-lg p-4">
+                  <li 
+                    key={index} 
+                    className="flex items-start gap-4 bg-destructive/5 rounded-lg p-4 animate-fade-in"
+                    style={{ animationDelay: `${0.2 + index * 0.1}s`, animationFillMode: 'both' }}
+                  >
                     <span className="text-destructive text-xl font-bold">✗</span>
                     <span className="text-foreground">{problem}</span>
                   </li>
@@ -1998,7 +2002,7 @@ const SetorDetalhe = () => {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Image */}
-            <div className="order-2 lg:order-1">
+            <div className="order-2 lg:order-1 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img 
                   src={data.secondaryImage} 
@@ -2009,7 +2013,7 @@ const SetorDetalhe = () => {
             </div>
             
             {/* Right: Content */}
-            <div className="order-1 lg:order-2">
+            <div className="order-1 lg:order-2 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {data.solutionTitle}
               </h2>
@@ -2022,7 +2026,11 @@ const SetorDetalhe = () => {
               </h3>
               <ul className="space-y-3">
                 {data.solutions.map((solution, index) => (
-                  <li key={index} className="flex items-start gap-3">
+                  <li 
+                    key={index} 
+                    className="flex items-start gap-3 animate-fade-in"
+                    style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'both' }}
+                  >
                     <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
                       <span className="font-semibold text-foreground">{solution.title}</span>
@@ -2039,7 +2047,7 @@ const SetorDetalhe = () => {
       {/* Stats Section */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Inteligência de chamadas para vantagem competitiva
             </h2>
@@ -2049,7 +2057,11 @@ const SetorDetalhe = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {data.stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <div 
+                key={index} 
+                className="text-center animate-scale-in"
+                style={{ animationDelay: `${0.2 + index * 0.15}s`, animationFillMode: 'both' }}
+              >
                 <span className="text-5xl md:text-6xl font-bold block mb-4">{stat.value}</span>
                 <p className="text-primary-foreground/80">{stat.label}</p>
               </div>
@@ -2061,7 +2073,7 @@ const SetorDetalhe = () => {
       {/* Features Grid */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Recursos especializados para {data.name.toLowerCase()}
             </h2>
@@ -2071,7 +2083,11 @@ const SetorDetalhe = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.features.map((feature, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card 
+                key={index} 
+                className="hover:shadow-lg transition-shadow animate-fade-in hover-scale"
+                style={{ animationDelay: `${0.15 + index * 0.1}s`, animationFillMode: 'both' }}
+              >
                 <CardContent className="pt-6">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <feature.icon className="h-6 w-6 text-primary" />
@@ -2088,7 +2104,7 @@ const SetorDetalhe = () => {
       {/* Use Cases */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Casos de uso para {data.name.toLowerCase()}
             </h2>
@@ -2098,7 +2114,11 @@ const SetorDetalhe = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {data.useCases.map((useCase, index) => (
-              <div key={index} className="bg-background rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div 
+                key={index} 
+                className="bg-background rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow animate-fade-in hover-scale"
+                style={{ animationDelay: `${0.15 + index * 0.1}s`, animationFillMode: 'both' }}
+              >
                 <h4 className="font-semibold mb-2">{useCase.title}</h4>
                 <p className="text-muted-foreground text-sm">{useCase.description}</p>
               </div>
@@ -2114,7 +2134,7 @@ const SetorDetalhe = () => {
       <section className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
               <span className="text-primary text-sm font-semibold tracking-wider mb-2 block">
                 INTEGRAÇÕES COMPLETAS
               </span>
@@ -2125,25 +2145,25 @@ const SetorDetalhe = () => {
                 Chamadas, agendamentos e pagamentos são automaticamente registrados nos seus sistemas. Sincronização em tempo real com mais de 50 integrações.
               </p>
               <ul className="space-y-3">
-                <li className="flex items-center gap-3">
+                <li className="flex items-center gap-3 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>WhatsApp Business, Instagram e Facebook</span>
                 </li>
-                <li className="flex items-center gap-3">
+                <li className="flex items-center gap-3 animate-fade-in" style={{ animationDelay: '0.25s', animationFillMode: 'both' }}>
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>E-mail e SMS automatizados</span>
                 </li>
-                <li className="flex items-center gap-3">
+                <li className="flex items-center gap-3 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>Stripe, PayPal e sistemas de pagamento</span>
                 </li>
-                <li className="flex items-center gap-3">
+                <li className="flex items-center gap-3 animate-fade-in" style={{ animationDelay: '0.35s', animationFillMode: 'both' }}>
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>Google Calendar e Outlook</span>
                 </li>
               </ul>
             </div>
-            <div className="bg-muted/50 rounded-2xl p-8">
+            <div className="bg-muted/50 rounded-2xl p-8 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
               <h3 className="text-xl font-semibold mb-6">Agende uma consulta</h3>
               <p className="text-muted-foreground mb-6">
                 Melhore a experiência do cliente com atendimento 24/7 alimentado por IA, desenvolvido especificamente para {data.name.toLowerCase()}.
@@ -2177,7 +2197,7 @@ const SetorDetalhe = () => {
       {/* FAQ Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
             <span className="text-primary text-sm font-semibold tracking-wider mb-2 block">
               PERGUNTAS FREQUENTES
             </span>
@@ -2189,7 +2209,7 @@ const SetorDetalhe = () => {
             </p>
           </div>
           
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             <Accordion type="single" collapsible className="w-full">
               {data.faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`faq-${index}`} className="border-b border-border">
@@ -2204,7 +2224,7 @@ const SetorDetalhe = () => {
             </Accordion>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
             <p className="text-muted-foreground mb-4">
               Ainda tem dúvidas? Fale com nossa equipe.
             </p>
@@ -2217,7 +2237,7 @@ const SetorDetalhe = () => {
 
       {/* Final CTA */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container text-center">
+        <div className="container text-center animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Pronto para transformar o atendimento da sua empresa?
           </h2>
