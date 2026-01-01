@@ -42,6 +42,28 @@ import industryLandscaping2 from "@/assets/industry-landscaping-2.jpg";
 import industryPool2 from "@/assets/industry-pool-2.jpg";
 import industryMoving2 from "@/assets/industry-moving-2.jpg";
 import industryRoofing2 from "@/assets/industry-roofing-2.jpg";
+import industryPestControl from "@/assets/industry-pest-control.jpg";
+import industryPestControl2 from "@/assets/industry-pest-control-2.jpg";
+import industryLocksmith from "@/assets/industry-locksmith.jpg";
+import industryLocksmith2 from "@/assets/industry-locksmith-2.jpg";
+import industryPainters from "@/assets/industry-painters.jpg";
+import industryPainters2 from "@/assets/industry-painters-2.jpg";
+import industryDentist from "@/assets/industry-dentist.jpg";
+import industryDentist2 from "@/assets/industry-dentist-2.jpg";
+import industryChiropractor from "@/assets/industry-chiropractor.jpg";
+import industryChiropractor2 from "@/assets/industry-chiropractor-2.jpg";
+import industryVeterinary from "@/assets/industry-veterinary.jpg";
+import industryVeterinary2 from "@/assets/industry-veterinary-2.jpg";
+import industryMedicalClinic from "@/assets/industry-medical-clinic.jpg";
+import industryMedicalClinic2 from "@/assets/industry-medical-clinic-2.jpg";
+import industryHairSalon from "@/assets/industry-hair-salon.jpg";
+import industryHairSalon2 from "@/assets/industry-hair-salon-2.jpg";
+import industrySpaMassage from "@/assets/industry-spa-massage.jpg";
+import industrySpaMassage2 from "@/assets/industry-spa-massage-2.jpg";
+import industryHomeInspection from "@/assets/industry-home-inspection.jpg";
+import industryHomeInspection2 from "@/assets/industry-home-inspection-2.jpg";
+import industryFlooring from "@/assets/industry-flooring.jpg";
+import industryFlooring2 from "@/assets/industry-flooring-2.jpg";
 
 interface Testimonial {
   quote: string;
@@ -893,6 +915,1007 @@ const industryData: Record<string, IndustryData> = {
       {
         question: "Como funciona o follow-up de orçamentos?",
         answer: "Após enviar uma proposta, a IA entra em contato automaticamente para responder dúvidas e ajudar no processo de decisão."
+      }
+    ]
+  },
+  "controle-pragas": {
+    name: "Controle de Pragas",
+    heroTitle: "Recepcionista IA para Pest Control",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA CONTROLE DE PRAGAS",
+    heroDescription: "Atendimento inteligente para empresas de controle de pragas. Gerencie emergências de infestação, tratamentos preventivos e agendamentos com IA.",
+    image: industryPestControl,
+    secondaryImage: industryPestControl2,
+    problemTitle: "Pragas não esperam horário comercial.",
+    problemDescription: "Quando um cliente encontra cupins, baratas ou ratos, ele precisa de resposta imediata. Você está em tratamento e não pode atender. Nossa IA recebe emergências 24/7, qualifica a infestação e agenda o tratamento.",
+    problems: [
+      "Emergências de infestação a qualquer hora",
+      "Sazonalidade de pragas cria picos de demanda",
+      "Clientes ansiosos querem resposta imediata",
+      "Técnico em tratamento não pode atender telefone",
+      "Perda de clientes para concorrentes mais rápidos"
+    ],
+    solutionTitle: "Extermine enquanto capturamos leads.",
+    solutionDescription: "Nossa IA identifica emergências de infestação ativa e prioriza. Coleta tipo de praga, gravidade e localização para você chegar preparado com os tratamentos corretos.",
+    solutions: [
+      { title: "Triagem de emergências", description: "Infestações ativas são prioridade máxima" },
+      { title: "Atendimento 24/7", description: "Emergências noturnas e de fim de semana" },
+      { title: "Qualificação da infestação", description: "Tipo de praga, gravidade e área afetada" },
+      { title: "Tratamentos preventivos", description: "Agenda planos de manutenção recorrente" },
+      { title: "Follow-up pós-tratamento", description: "Verifica eficácia e agenda reforços" },
+      { title: "Orçamentos automatizados", description: "Estimativas baseadas no tipo de tratamento" }
+    ],
+    features: [
+      { icon: Zap, title: "Emergências 24/7", description: "Infestações ativas priorizadas" },
+      { icon: Phone, title: "Atendimento Instantâneo", description: "Resposta imediata a cada chamada" },
+      { icon: Shield, title: "Identificação de Pragas", description: "Coleta sintomas e localização" },
+      { icon: Calendar, title: "Tratamentos Recorrentes", description: "Planos de prevenção agendados" },
+      { icon: MessageSquare, title: "Coleta de Fotos", description: "Recebe imagens via WhatsApp" },
+      { icon: BarChart3, title: "Métricas de Serviço", description: "Taxa de resolução e satisfação" }
+    ],
+    stats: [
+      { value: "93%", label: "dos clientes com infestação ativa ligam para várias empresas" },
+      { value: "5min", label: "é o tempo máximo de espera aceitável em emergências" },
+      { value: "70%", label: "escolhem a primeira empresa que responde" }
+    ],
+    useCases: [
+      { title: "Emergências de Infestação", description: "Priorize e acione imediatamente" },
+      { title: "Tratamentos Preventivos", description: "Agende manutenções recorrentes" },
+      { title: "Inspeções Residenciais", description: "Qualifique e agende visitas" },
+      { title: "Contratos Comerciais", description: "Gerencie clientes empresariais" }
+    ],
+    testimonials: [
+      {
+        quote: "Quando há uma infestação, cada minuto conta. A IA captura 100% das emergências e já tenho as informações antes de chegar.",
+        author: "Roberto Andrade",
+        role: "Proprietário",
+        company: "Andrade Pest Control",
+        location: "Miami, FL"
+      },
+      {
+        quote: "No verão as ligações triplicam por causa de formigas e baratas. A IA atende todas sem eu perder nenhuma.",
+        author: "Carlos Medeiros",
+        role: "Técnico",
+        company: "Medeiros Exterminators LLC",
+        location: "Houston, TX"
+      },
+      {
+        quote: "Os tratamentos preventivos cresceram 80% desde que a IA faz follow-up automático com clientes antigos.",
+        author: "Patricia Santos",
+        role: "Gerente",
+        company: "Santos Pest Solutions",
+        location: "Orlando, FL"
+      }
+    ],
+    faqs: [
+      {
+        question: "Como a IA identifica emergências de infestação?",
+        answer: "A IA pergunta sobre tipo de praga, quantidade visível, área afetada e se há crianças ou animais. Infestações ativas graves são classificadas como prioridade máxima."
+      },
+      {
+        question: "A IA pode coletar fotos da infestação?",
+        answer: "Sim! Via WhatsApp, a IA solicita fotos das pragas e danos, ajudando você a identificar o problema e levar os tratamentos corretos."
+      },
+      {
+        question: "Funciona para tratamentos preventivos?",
+        answer: "Sim! A IA gerencia planos de prevenção, envia lembretes de manutenção e agenda tratamentos periódicos automaticamente."
+      },
+      {
+        question: "A IA pode fornecer estimativas de preço?",
+        answer: "Com base no tipo de praga e área afetada, a IA fornece faixas de preço. Para orçamentos detalhados, ela agenda uma inspeção."
+      },
+      {
+        question: "Como funciona para empresas comerciais?",
+        answer: "A IA gerencia contratos comerciais com múltiplas unidades, agenda inspeções regulares e gera relatórios de conformidade."
+      }
+    ]
+  },
+  chaveiro: {
+    name: "Chaveiro",
+    heroTitle: "Recepcionista IA para Locksmiths",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA CHAVEIROS",
+    heroDescription: "Atendimento inteligente para chaveiros e empresas de segurança. Gerencie emergências de lockout, instalações e serviços 24/7 com IA.",
+    image: industryLocksmith,
+    secondaryImage: industryLocksmith2,
+    problemTitle: "Emergências acontecem a qualquer hora.",
+    problemDescription: "Cliente trancado do lado de fora às 2h da manhã. Chave quebrada na fechadura. Arrombamento recente. São situações de estresse que exigem resposta imediata. Nossa IA atende 24/7 e qualifica cada emergência.",
+    problems: [
+      "90% das chamadas são emergências",
+      "Lockouts acontecem a qualquer hora",
+      "Clientes em pânico precisam de calma",
+      "Mãos ocupadas durante o trabalho",
+      "Concorrência por velocidade de resposta"
+    ],
+    solutionTitle: "Destranque enquanto capturamos clientes.",
+    solutionDescription: "Nossa IA avalia cada situação — lockout, instalação, cópia de chaves — e prioriza emergências. Coleta localização exata e tipo de fechadura para você chegar preparado.",
+    solutions: [
+      { title: "Triagem de urgência", description: "Lockouts e arrombamentos são prioridade máxima" },
+      { title: "Atendimento 24/7", description: "Emergências noturnas e de fim de semana" },
+      { title: "Localização exata", description: "Coleta endereço e referências" },
+      { title: "Tipo de fechadura", description: "Qualifica para você levar ferramentas certas" },
+      { title: "Acalmar clientes", description: "Tom profissional em situações de estresse" },
+      { title: "Estimativas de preço", description: "Faixas de preço antes da chegada" }
+    ],
+    features: [
+      { icon: Zap, title: "Emergências 24/7", description: "Lockouts priorizados imediatamente" },
+      { icon: Phone, title: "Resposta Instantânea", description: "Cada chamada atendida em segundos" },
+      { icon: Shield, title: "Avaliação de Segurança", description: "Identifica arrombamentos para polícia" },
+      { icon: Clock, title: "ETA Preciso", description: "Informa tempo estimado de chegada" },
+      { icon: Users, title: "Qualificação Técnica", description: "Tipo de fechadura e situação" },
+      { icon: MessageSquare, title: "Multi-Canal", description: "Telefone, WhatsApp e chat" }
+    ],
+    stats: [
+      { value: "95%", label: "dos clientes em lockout ligam para 2+ chaveiros simultaneamente" },
+      { value: "2min", label: "é o tempo máximo de espera aceitável em emergências" },
+      { value: "85%", label: "escolhem quem atende primeiro e dá ETA" }
+    ],
+    useCases: [
+      { title: "Lockouts Residenciais", description: "Priorize e responda em segundos" },
+      { title: "Lockouts Automotivos", description: "Carros trancados com chave dentro" },
+      { title: "Instalação de Fechaduras", description: "Qualifique e agende" },
+      { title: "Pós-Arrombamento", description: "Emergências de segurança" }
+    ],
+    testimonials: [
+      {
+        quote: "Em emergências de lockout, quem responde primeiro leva o cliente. A IA me coloca sempre em primeiro lugar.",
+        author: "Jose Ribeiro",
+        role: "Proprietário",
+        company: "Ribeiro Locksmith Services",
+        location: "New York, NY"
+      },
+      {
+        quote: "Às 3h da manhã eu estou dormindo, mas a IA está atendendo. Ela me acorda só para emergências reais.",
+        author: "Miguel Torres",
+        role: "Chaveiro",
+        company: "Torres 24/7 Locksmith",
+        location: "Chicago, IL"
+      },
+      {
+        quote: "A IA acalma clientes em pânico e coleta todas as informações. Chego preparado e o cliente já está mais tranquilo.",
+        author: "Fernando Lopes",
+        role: "Técnico",
+        company: "Lopes Lock & Key",
+        location: "Los Angeles, CA"
+      }
+    ],
+    faqs: [
+      {
+        question: "Como a IA lida com emergências de lockout?",
+        answer: "A IA responde em segundos, confirma a localização exata, pergunta sobre o tipo de fechadura e informa o tempo estimado de chegada, mantendo o cliente informado."
+      },
+      {
+        question: "A IA pode identificar situações de arrombamento?",
+        answer: "Sim! Quando há sinais de arrombamento, a IA orienta o cliente a chamar a polícia primeiro e coordena sua chegada para troca de fechadura."
+      },
+      {
+        question: "Funciona para lockouts automotivos?",
+        answer: "Sim! A IA coleta marca, modelo e ano do veículo, além de perguntar se a chave está dentro do carro, preparando você com as ferramentas certas."
+      },
+      {
+        question: "A IA informa preços?",
+        answer: "Sim! Com base no tipo de serviço, a IA fornece faixas de preço, evitando surpresas e construindo confiança antes mesmo de você chegar."
+      },
+      {
+        question: "Como a IA me aciona em emergências noturnas?",
+        answer: "Emergências reais geram alerta imediato no seu celular. A IA filtra ligações não urgentes para você dormir tranquilo."
+      }
+    ]
+  },
+  pintores: {
+    name: "Pintores",
+    heroTitle: "Recepcionista IA para Painting Companies",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA PINTORES",
+    heroDescription: "Atendimento inteligente para empresas de pintura residencial e comercial. Qualifique orçamentos, agende visitas e gerencie projetos com IA.",
+    image: industryPainters,
+    secondaryImage: industryPainters2,
+    problemTitle: "Você está na escada, não no telefone.",
+    problemDescription: "Pintar exige concentração e mãos ocupadas. Enquanto você transforma ambientes, leads ligam pedindo orçamentos. Nossa IA captura cada lead, qualifica o projeto e agenda visitas para orçamento.",
+    problems: [
+      "Mãos ocupadas durante todo o trabalho",
+      "Orçamentos exigem muitas informações",
+      "Leads perdidos por demora no retorno",
+      "Projetos variam muito de complexidade",
+      "Follow-up de propostas esquecido"
+    ],
+    solutionTitle: "Pinte enquanto qualificamos projetos.",
+    solutionDescription: "Nossa IA coleta todas as informações para orçamento — metragem, tipo de superfície, cores, acabamento — e agenda visitas. Você só precisa medir e orçar.",
+    solutions: [
+      { title: "Qualificação completa", description: "Metragem, cômodos, tipo de pintura" },
+      { title: "Agendamento de visitas", description: "Marca horários para orçamento presencial" },
+      { title: "Envio de portfólio", description: "Compartilha trabalhos anteriores" },
+      { title: "Follow-up de propostas", description: "Acompanha orçamentos enviados" },
+      { title: "Pintura comercial", description: "Qualifica projetos empresariais" },
+      { title: "Estimativas iniciais", description: "Faixas de preço baseadas em área" }
+    ],
+    features: [
+      { icon: Phone, title: "Atendimento no Trabalho", description: "Resposta profissional enquanto pinta" },
+      { icon: Users, title: "Qualificação de Projetos", description: "Coleta todas as especificações" },
+      { icon: Calendar, title: "Agenda de Visitas", description: "Marcação para orçamento" },
+      { icon: MessageSquare, title: "Envio de Portfólio", description: "Trabalhos anteriores via WhatsApp" },
+      { icon: BarChart3, title: "Pipeline de Vendas", description: "Acompanhe leads e propostas" },
+      { icon: Zap, title: "Follow-up Automático", description: "Acompanhamento de orçamentos" }
+    ],
+    stats: [
+      { value: "65%", label: "dos projetos de pintura são fechados após visita presencial" },
+      { value: "80%", label: "dos leads querem ver portfólio antes de agendar" },
+      { value: "3x", label: "mais conversões com follow-up em 24 horas" }
+    ],
+    useCases: [
+      { title: "Pintura Residencial", description: "Interior e exterior de casas" },
+      { title: "Pintura Comercial", description: "Escritórios e estabelecimentos" },
+      { title: "Renovação de Fachadas", description: "Projetos externos" },
+      { title: "Acabamentos Especiais", description: "Texturas e efeitos decorativos" }
+    ],
+    testimonials: [
+      {
+        quote: "A IA coleta todas as medidas aproximadas e especificações. Chego para visitar já sabendo exatamente o que o cliente quer.",
+        author: "Ricardo Gomes",
+        role: "Proprietário",
+        company: "Gomes Painting LLC",
+        location: "Boston, MA"
+      },
+      {
+        quote: "Meu portfólio é enviado automaticamente para cada lead. Quando ligo, o cliente já está impressionado com meu trabalho.",
+        author: "Andre Nascimento",
+        role: "Pintor",
+        company: "Nascimento Pro Painters",
+        location: "Philadelphia, PA"
+      },
+      {
+        quote: "Fechamos 40% mais projetos desde que a IA faz follow-up automático nas propostas.",
+        author: "Paula Ferreira",
+        role: "Gerente Comercial",
+        company: "Ferreira Color Works",
+        location: "Atlanta, GA"
+      }
+    ],
+    faqs: [
+      {
+        question: "A IA consegue qualificar projetos de pintura?",
+        answer: "Sim! A IA coleta número de cômodos, metragem aproximada, tipo de pintura (látex, esmalte, textura), cores desejadas e condição das paredes."
+      },
+      {
+        question: "Como funciona o envio de portfólio?",
+        answer: "Quando um cliente demonstra interesse, a IA envia automaticamente seu portfólio via WhatsApp com projetos similares ao que ele deseja."
+      },
+      {
+        question: "A IA pode fornecer estimativas de preço?",
+        answer: "Com base na metragem e tipo de pintura, a IA fornece faixas de preço. Para orçamentos detalhados, ela agenda uma visita técnica."
+      },
+      {
+        question: "Funciona para projetos comerciais?",
+        answer: "Sim! A IA qualifica projetos comerciais coletando metragem total, horários disponíveis para execução e requisitos especiais."
+      },
+      {
+        question: "Como funciona o follow-up de propostas?",
+        answer: "Após enviar um orçamento, a IA entra em contato automaticamente em 24-48 horas para verificar interesse e responder dúvidas."
+      }
+    ]
+  },
+  dentistas: {
+    name: "Dentistas",
+    heroTitle: "Recepcionista IA para Dental Offices",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA DENTISTAS",
+    heroDescription: "Atendimento inteligente para clínicas odontológicas. Agende consultas, gerencie emergências dentárias e reduza no-shows com IA.",
+    image: industryDentist,
+    secondaryImage: industryDentist2,
+    problemTitle: "Recepção ocupada, pacientes perdidos.",
+    problemDescription: "Enquanto sua recepcionista atende pacientes presenciais, ligações tocam e vão para caixa postal. Novos pacientes desistem. Emergências dentárias ficam sem resposta. Nossa IA nunca perde uma chamada.",
+    problems: [
+      "Recepcionista sobrecarregada",
+      "Emergências dentárias fora do horário",
+      "Alto índice de no-shows",
+      "Dificuldade em agendar novos pacientes",
+      "Lembretes manuais consomem tempo"
+    ],
+    solutionTitle: "Atenda pacientes enquanto gerenciamos agenda.",
+    solutionDescription: "Nossa IA agenda consultas, envia lembretes automáticos, reduz no-shows e identifica emergências dentárias. Sua equipe foca no atendimento presencial.",
+    solutions: [
+      { title: "Agendamento inteligente", description: "Marca consultas respeitando sua agenda" },
+      { title: "Lembretes automáticos", description: "SMS e WhatsApp antes de cada consulta" },
+      { title: "Triagem de emergências", description: "Dor intensa, abscessos, traumas" },
+      { title: "Novos pacientes", description: "Qualifica e agenda primeira consulta" },
+      { title: "Reagendamentos", description: "Permite mudanças sem ligar para clínica" },
+      { title: "Lista de espera", description: "Preenche horários cancelados" }
+    ],
+    features: [
+      { icon: Calendar, title: "Agenda Inteligente", description: "Otimiza horários da clínica" },
+      { icon: Clock, title: "Lembretes Automáticos", description: "Reduz no-shows em até 70%" },
+      { icon: Zap, title: "Emergências 24/7", description: "Triagem de urgências odontológicas" },
+      { icon: Users, title: "Novos Pacientes", description: "Qualificação e agendamento" },
+      { icon: Phone, title: "Atendimento Sempre", description: "Nunca perca uma chamada" },
+      { icon: BarChart3, title: "Métricas de Clínica", description: "Taxa de ocupação e no-shows" }
+    ],
+    stats: [
+      { value: "30%", label: "de redução em no-shows com lembretes automáticos" },
+      { value: "40%", label: "das chamadas de clínicas são para agendamento" },
+      { value: "65%", label: "dos novos pacientes escolhem a clínica que agenda primeiro" }
+    ],
+    useCases: [
+      { title: "Agendamento de Consultas", description: "Marque horários automaticamente" },
+      { title: "Emergências Dentárias", description: "Triagem e priorização" },
+      { title: "Lembretes de Retorno", description: "Convoque pacientes atrasados" },
+      { title: "Lista de Espera", description: "Preencha cancelamentos" }
+    ],
+    testimonials: [
+      {
+        quote: "Nossos no-shows caíram 60% com lembretes automáticos. A IA confirmou mais de 200 consultas no primeiro mês.",
+        author: "Dra. Maria Helena",
+        role: "Dentista",
+        company: "Helena Dental Care",
+        location: "Miami, FL"
+      },
+      {
+        quote: "Emergências às 11h da noite são raras, mas quando acontecem, a IA me aciona. Salva dentes e conquista pacientes para sempre.",
+        author: "Dr. Carlos Eduardo",
+        role: "Cirurgião Dentista",
+        company: "Eduardo Dental Clinic",
+        location: "Orlando, FL"
+      },
+      {
+        quote: "A recepcionista agora foca 100% nos pacientes da clínica. A IA cuida de todas as ligações.",
+        author: "Ana Cristina",
+        role: "Gerente Clínica",
+        company: "Smile Plus Dentistry",
+        location: "Houston, TX"
+      }
+    ],
+    faqs: [
+      {
+        question: "Como a IA identifica emergências dentárias?",
+        answer: "A IA pergunta sobre nível de dor (1-10), inchaço, trauma e sangramento. Casos graves são classificados como emergência e você é notificado imediatamente."
+      },
+      {
+        question: "A IA pode agendar direto na minha agenda?",
+        answer: "Sim! A IA se integra com sistemas de gestão de clínicas e Google Calendar, agendando consultas em horários disponíveis automaticamente."
+      },
+      {
+        question: "Como funcionam os lembretes automáticos?",
+        answer: "A IA envia lembretes 48h e 2h antes de cada consulta via SMS e WhatsApp, permitindo confirmação ou reagendamento com um clique."
+      },
+      {
+        question: "A IA qualifica novos pacientes?",
+        answer: "Sim! Ela coleta informações sobre queixa principal, último tratamento, convênio e agenda a primeira consulta com todas as informações necessárias."
+      },
+      {
+        question: "Funciona com meu sistema de gestão atual?",
+        answer: "Sim! Integramos com os principais softwares de gestão de clínicas odontológicas do mercado, como Dental Office, Clinicorp e outros."
+      }
+    ]
+  },
+  quiropraticos: {
+    name: "Quiropráticos",
+    heroTitle: "Recepcionista IA para Chiropractors",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA QUIROPRÁTICOS",
+    heroDescription: "Atendimento inteligente para clínicas de quiropraxia. Agende avaliações, gerencie pacientes recorrentes e qualifique novos pacientes com IA.",
+    image: industryChiropractor,
+    secondaryImage: industryChiropractor2,
+    problemTitle: "Tratamentos exigem sua presença total.",
+    problemDescription: "Durante ajustes e tratamentos, você precisa de concentração total no paciente. Ligações perdidas significam novos pacientes indo para a concorrência. Nossa IA garante que ninguém fique sem resposta.",
+    problems: [
+      "Tratamentos exigem foco exclusivo",
+      "Novos pacientes precisam de qualificação",
+      "Agenda complexa de múltiplos tipos de consulta",
+      "Follow-up de tratamentos recorrentes",
+      "Pacientes não retornam sem lembrete"
+    ],
+    solutionTitle: "Ajuste pacientes enquanto gerenciamos sua clínica.",
+    solutionDescription: "Nossa IA qualifica novos pacientes, agenda avaliações iniciais, gerencia retornos de tratamento e envia lembretes. Você foca no que faz de melhor.",
+    solutions: [
+      { title: "Qualificação de pacientes", description: "Queixa, histórico e expectativas" },
+      { title: "Avaliações iniciais", description: "Primeira consulta para novos pacientes" },
+      { title: "Tratamentos recorrentes", description: "Agenda sessões de acompanhamento" },
+      { title: "Lembretes inteligentes", description: "Reduz faltas e no-shows" },
+      { title: "Reativação de pacientes", description: "Contata quem parou de vir" },
+      { title: "Pacotes de tratamento", description: "Oferece planos e pacotes" }
+    ],
+    features: [
+      { icon: Users, title: "Qualificação de Pacientes", description: "Avalia queixa e histórico" },
+      { icon: Calendar, title: "Agenda Inteligente", description: "Diferentes tipos de consulta" },
+      { icon: Clock, title: "Lembretes de Sessão", description: "Reduz faltas em tratamentos" },
+      { icon: TrendingUp, title: "Reativação", description: "Recupera pacientes inativos" },
+      { icon: Phone, title: "Atendimento Sempre", description: "Nunca perca novos pacientes" },
+      { icon: Star, title: "Pacotes e Planos", description: "Oferece tratamentos completos" }
+    ],
+    stats: [
+      { value: "75%", label: "dos pacientes de quiropraxia precisam de sessões recorrentes" },
+      { value: "50%", label: "abandonam tratamento por falta de lembretes" },
+      { value: "3x", label: "mais retenção com acompanhamento ativo" }
+    ],
+    useCases: [
+      { title: "Avaliação Inicial", description: "Qualifique e agende novos pacientes" },
+      { title: "Sessões de Tratamento", description: "Gerencie agenda recorrente" },
+      { title: "Reativação de Pacientes", description: "Recupere quem parou" },
+      { title: "Venda de Pacotes", description: "Ofereça planos de tratamento" }
+    ],
+    testimonials: [
+      {
+        quote: "Novos pacientes são qualificados pela IA antes de chegar. Sei exatamente qual é a queixa e expectativa.",
+        author: "Dr. Paulo Marques",
+        role: "Quiroprático",
+        company: "Marques Chiropractic Center",
+        location: "Los Angeles, CA"
+      },
+      {
+        quote: "A taxa de retorno subiu 80% desde que a IA envia lembretes e reativa pacientes inativos.",
+        author: "Dra. Fernanda Lima",
+        role: "Quiroprata",
+        company: "Lima Spine & Wellness",
+        location: "San Diego, CA"
+      },
+      {
+        quote: "Vendo 3x mais pacotes de tratamento porque a IA oferece automaticamente após a avaliação inicial.",
+        author: "Dr. Roberto Nunes",
+        role: "Diretor Clínico",
+        company: "Nunes Chiropractic LLC",
+        location: "Phoenix, AZ"
+      }
+    ],
+    faqs: [
+      {
+        question: "Como a IA qualifica novos pacientes?",
+        answer: "A IA coleta queixa principal (dor nas costas, pescoço, etc.), duração dos sintomas, tratamentos anteriores e expectativas, preparando você para a consulta."
+      },
+      {
+        question: "A IA gerencia sessões recorrentes?",
+        answer: "Sim! Ela agenda automaticamente as próximas sessões do tratamento, envia lembretes e permite reagendamentos sem você precisar intervir."
+      },
+      {
+        question: "Como funciona a reativação de pacientes?",
+        answer: "A IA contata pacientes que não vêm há mais de 30 dias, pergunta como estão se sentindo e oferece agendar uma sessão de acompanhamento."
+      },
+      {
+        question: "A IA pode oferecer pacotes de tratamento?",
+        answer: "Sim! Após a avaliação inicial, a IA apresenta opções de pacotes de sessões, explicando benefícios e agendando se o paciente aceitar."
+      },
+      {
+        question: "Funciona com meu sistema de gestão?",
+        answer: "Integramos com os principais sistemas de gestão de clínicas de quiropraxia e também com Google Calendar e Outlook."
+      }
+    ]
+  },
+  veterinarios: {
+    name: "Veterinários",
+    heroTitle: "Recepcionista IA para Veterinary Clinics",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA VETERINÁRIOS",
+    heroDescription: "Atendimento inteligente para clínicas veterinárias. Gerencie emergências de pets, vacinas recorrentes e consultas com IA.",
+    image: industryVeterinary,
+    secondaryImage: industryVeterinary2,
+    problemTitle: "Donos preocupados ligam a qualquer hora.",
+    problemDescription: "Quando um pet está doente, donos ficam ansiosos e querem resposta imediata. Emergências acontecem às 3h da manhã. Vacinas precisam de lembretes. Nossa IA cuida de tudo enquanto você cuida dos animais.",
+    problems: [
+      "Emergências de pets a qualquer hora",
+      "Donos ansiosos precisam de calma",
+      "Vacinas atrasadas por falta de lembrete",
+      "Consultas de rotina esquecidas",
+      "Triagem de urgência é complexa"
+    ],
+    solutionTitle: "Cuide de pets enquanto cuidamos das ligações.",
+    solutionDescription: "Nossa IA avalia emergências veterinárias, identifica sintomas graves, acalma donos ansiosos e agenda consultas. Você recebe pacientes já qualificados.",
+    solutions: [
+      { title: "Triagem de emergências", description: "Sintomas graves priorizados" },
+      { title: "Atendimento 24/7", description: "Emergências noturnas de pets" },
+      { title: "Calendário de vacinas", description: "Lembretes automáticos" },
+      { title: "Consultas de rotina", description: "Check-ups agendados" },
+      { title: "Acalmar donos", description: "Tom profissional em crises" },
+      { title: "Coleta de sintomas", description: "Prepara você para o atendimento" }
+    ],
+    features: [
+      { icon: Zap, title: "Emergências 24/7", description: "Pets em risco priorizados" },
+      { icon: Calendar, title: "Vacinas Programadas", description: "Lembretes automáticos" },
+      { icon: Phone, title: "Atendimento Sempre", description: "Donos nunca sem resposta" },
+      { icon: Headphones, title: "Suporte Empático", description: "Acalma donos preocupados" },
+      { icon: Shield, title: "Triagem Veterinária", description: "Avalia gravidade de sintomas" },
+      { icon: Users, title: "Histórico de Pets", description: "Informações de cada animal" }
+    ],
+    stats: [
+      { value: "88%", label: "dos donos querem resposta imediata em emergências de pets" },
+      { value: "45%", label: "das vacinas atrasam por falta de lembrete" },
+      { value: "70%", label: "escolhem a clínica que responde primeiro" }
+    ],
+    useCases: [
+      { title: "Emergências de Pets", description: "Avalie e priorize rapidamente" },
+      { title: "Vacinas e Vermífugos", description: "Lembretes automáticos" },
+      { title: "Check-ups de Rotina", description: "Agende consultas periódicas" },
+      { title: "Pós-Cirúrgico", description: "Acompanhamento de recuperação" }
+    ],
+    testimonials: [
+      {
+        quote: "Emergências de madrugada são comuns. A IA filtra os casos reais e só me aciona quando é urgente de verdade.",
+        author: "Dra. Claudia Moreira",
+        role: "Veterinária",
+        company: "Moreira Pet Clinic",
+        location: "Miami, FL"
+      },
+      {
+        quote: "As vacinas dos pets estão sempre em dia. A IA envia lembretes e os donos já chegam prontos para vacinar.",
+        author: "Dr. Eduardo Pereira",
+        role: "Veterinário",
+        company: "Pereira Animal Hospital",
+        location: "Orlando, FL"
+      },
+      {
+        quote: "Donos ansiosos são acalmados pela IA antes de chegar. O ambiente da clínica ficou muito mais tranquilo.",
+        author: "Ana Paula Vieira",
+        role: "Gerente",
+        company: "Vieira Veterinary Care",
+        location: "Houston, TX"
+      }
+    ],
+    faqs: [
+      {
+        question: "Como a IA avalia emergências de pets?",
+        answer: "A IA pergunta sobre sintomas específicos: vômito, diarreia, dificuldade respiratória, trauma. Sintomas graves são classificados como emergência e você é notificado imediatamente."
+      },
+      {
+        question: "A IA gerencia calendário de vacinas?",
+        answer: "Sim! Ela envia lembretes automáticos antes de cada vacina vencer, permitindo que donos agendem com um clique."
+      },
+      {
+        question: "Funciona para emergências noturnas?",
+        answer: "Sim! A IA atende 24/7 e avalia se a situação exige atendimento imediato ou pode esperar até a manhã seguinte."
+      },
+      {
+        question: "A IA consegue acalmar donos ansiosos?",
+        answer: "Sim! Com um tom profissional e empático, a IA orienta donos sobre primeiros socorros e os acalma enquanto prepara o atendimento."
+      },
+      {
+        question: "Funciona para múltiplos pets do mesmo dono?",
+        answer: "Sim! A IA mantém registro de cada pet com vacinas, histórico e tratamentos, facilitando o acompanhamento de toda a família pet."
+      }
+    ]
+  },
+  "clinicas-medicas": {
+    name: "Clínicas Médicas",
+    heroTitle: "Recepcionista IA para Medical Clinics",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA CLÍNICAS MÉDICAS",
+    heroDescription: "Atendimento inteligente para clínicas de saúde e bem-estar. Agende consultas, faça triagem de sintomas e gerencie pacientes com IA.",
+    image: industryMedicalClinic,
+    secondaryImage: industryMedicalClinic2,
+    problemTitle: "Volume alto de ligações, equipe limitada.",
+    problemDescription: "Clínicas médicas recebem dezenas de ligações por hora. Agendamentos, dúvidas, resultados, emergências. Sua equipe não consegue atender tudo. Nossa IA escala com a demanda.",
+    problems: [
+      "Alto volume de ligações",
+      "Recepcionistas sobrecarregadas",
+      "Pacientes esperando na linha",
+      "Triagem de sintomas por telefone",
+      "No-shows frequentes"
+    ],
+    solutionTitle: "Atenda pacientes enquanto gerenciamos ligações.",
+    solutionDescription: "Nossa IA agenda consultas, faz triagem básica de sintomas, envia lembretes e libera sua equipe para atendimento presencial de qualidade.",
+    solutions: [
+      { title: "Agendamento inteligente", description: "Múltiplos médicos e especialidades" },
+      { title: "Triagem de sintomas", description: "Avalia urgência antes da consulta" },
+      { title: "Lembretes automáticos", description: "Reduz no-shows significativamente" },
+      { title: "Resultados de exames", description: "Notifica quando estão prontos" },
+      { title: "Confirmação de convênios", description: "Verifica cobertura antecipadamente" },
+      { title: "Escalabilidade", description: "Atende picos de demanda" }
+    ],
+    features: [
+      { icon: Calendar, title: "Agenda Multi-Médicos", description: "Organiza múltiplas agendas" },
+      { icon: Shield, title: "Triagem de Sintomas", description: "Avalia urgência da consulta" },
+      { icon: Clock, title: "Lembretes SMS/WhatsApp", description: "Reduz no-shows em 40%" },
+      { icon: Users, title: "Gestão de Pacientes", description: "Histórico e preferências" },
+      { icon: Phone, title: "Atendimento Ilimitado", description: "Escala com a demanda" },
+      { icon: BarChart3, title: "Analytics de Clínica", description: "Métricas de operação" }
+    ],
+    stats: [
+      { value: "40%", label: "das ligações de clínicas são perdidas por linha ocupada" },
+      { value: "25%", label: "de no-shows sem sistema de lembretes" },
+      { value: "3x", label: "mais pacientes atendidos com automação" }
+    ],
+    useCases: [
+      { title: "Agendamento de Consultas", description: "Múltiplos médicos e especialidades" },
+      { title: "Triagem de Sintomas", description: "Avalie urgência por telefone" },
+      { title: "Resultados de Exames", description: "Notifique automaticamente" },
+      { title: "Lembretes de Retorno", description: "Convoque para check-ups" }
+    ],
+    testimonials: [
+      {
+        quote: "Atendemos 3x mais ligações sem contratar ninguém. A IA cuida dos agendamentos e nossa equipe foca nos pacientes.",
+        author: "Dr. Marcus Oliveira",
+        role: "Diretor Clínico",
+        company: "Oliveira Medical Center",
+        location: "Atlanta, GA"
+      },
+      {
+        quote: "Os no-shows caíram 50% com lembretes automáticos. Cada horário vago era prejuízo.",
+        author: "Dra. Renata Silva",
+        role: "Médica",
+        company: "Silva Family Medicine",
+        location: "Dallas, TX"
+      },
+      {
+        quote: "A triagem por telefone identifica urgências antes de chegar. Organizamos melhor a agenda.",
+        author: "Luciana Fernandes",
+        role: "Gerente Administrativa",
+        company: "Fernandes Health Clinic",
+        location: "Phoenix, AZ"
+      }
+    ],
+    faqs: [
+      {
+        question: "Como a IA faz triagem de sintomas?",
+        answer: "A IA pergunta sobre sintomas principais, intensidade, duração e fatores de risco, classificando a urgência e priorizando consultas quando necessário."
+      },
+      {
+        question: "Funciona com múltiplos médicos e especialidades?",
+        answer: "Sim! A IA gerencia agendas de múltiplos profissionais, respeitando especializações, horários e preferências de cada médico."
+      },
+      {
+        question: "A IA pode verificar convênios?",
+        answer: "Sim! Ela confirma o convênio do paciente e verifica cobertura básica antes de agendar, evitando surpresas no atendimento."
+      },
+      {
+        question: "Como funcionam os lembretes?",
+        answer: "Lembretes são enviados 48h e 2h antes de cada consulta via SMS e WhatsApp, com opção de confirmar ou reagendar com um clique."
+      },
+      {
+        question: "Integra com sistemas de prontuário?",
+        answer: "Sim! Integramos com os principais sistemas de gestão de clínicas e prontuários eletrônicos do mercado."
+      }
+    ]
+  },
+  "saloes-cabelo": {
+    name: "Salões de Cabelo",
+    heroTitle: "Recepcionista IA para Hair Salons",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA SALÕES",
+    heroDescription: "Atendimento inteligente para salões de beleza e cabeleireiros. Agende horários, gerencie múltiplos profissionais e reduza no-shows com IA.",
+    image: industryHairSalon,
+    secondaryImage: industryHairSalon2,
+    problemTitle: "Mãos ocupadas, telefone tocando.",
+    problemDescription: "Enquanto você corta, pinta e transforma cabelos, o telefone não para. Clientes querem agendar, confirmar, reagendar. Nossa IA cuida de tudo enquanto você foca na arte.",
+    problems: [
+      "Mãos ocupadas durante atendimentos",
+      "Alto volume de remarcações",
+      "No-shows frequentes",
+      "Múltiplos profissionais para coordenar",
+      "Clientes querem resposta imediata"
+    ],
+    solutionTitle: "Corte e transforme enquanto gerenciamos agenda.",
+    solutionDescription: "Nossa IA agenda com múltiplos profissionais, envia lembretes, gerencia remarcações e mantém sua cadeira sempre ocupada.",
+    solutions: [
+      { title: "Agenda multi-profissionais", description: "Coordena vários cabeleireiros" },
+      { title: "Lembretes automáticos", description: "Reduz no-shows drasticamente" },
+      { title: "Remarcações fáceis", description: "Cliente reagenda sem ligar" },
+      { title: "Serviços e duração", description: "Conhece tempo de cada serviço" },
+      { title: "Preferências de cliente", description: "Lembra profissional favorito" },
+      { title: "Lista de espera", description: "Preenche horários cancelados" }
+    ],
+    features: [
+      { icon: Calendar, title: "Agenda Inteligente", description: "Múltiplos profissionais" },
+      { icon: Clock, title: "Lembretes Automáticos", description: "Reduz no-shows em 60%" },
+      { icon: Users, title: "Preferências de Cliente", description: "Profissional e serviços favoritos" },
+      { icon: Phone, title: "Agendamento 24/7", description: "Clientes agendam qualquer hora" },
+      { icon: MessageSquare, title: "Remarcação Fácil", description: "Sem precisar ligar" },
+      { icon: Star, title: "Lista de Espera", description: "Preenche cancelamentos" }
+    ],
+    stats: [
+      { value: "35%", label: "de no-shows em salões sem lembretes" },
+      { value: "60%", label: "das marcações são feitas fora do horário comercial" },
+      { value: "80%", label: "dos clientes preferem agendar sem ligar" }
+    ],
+    useCases: [
+      { title: "Agendamento de Cortes", description: "Qualquer serviço, qualquer profissional" },
+      { title: "Remarcações", description: "Fácil e sem fricção" },
+      { title: "Lembretes", description: "Reduza no-shows" },
+      { title: "Lista de Espera", description: "Preencha cancelamentos" }
+    ],
+    testimonials: [
+      {
+        quote: "60% das minhas marcações chegam de madrugada. A IA agenda enquanto durmo e acordo com agenda cheia.",
+        author: "Juliana Costa",
+        role: "Proprietária",
+        company: "Costa Hair Studio",
+        location: "Miami, FL"
+      },
+      {
+        quote: "Os no-shows acabaram com lembretes automáticos. Minha cadeira está sempre ocupada agora.",
+        author: "Carla Rodrigues",
+        role: "Cabeleireira",
+        company: "Rodrigues Beauty Salon",
+        location: "Houston, TX"
+      },
+      {
+        quote: "Com 5 profissionais, gerenciar agenda era caos. A IA organiza tudo perfeitamente.",
+        author: "Marcela Santos",
+        role: "Gerente",
+        company: "Santos Hair & Beauty",
+        location: "Los Angeles, CA"
+      }
+    ],
+    faqs: [
+      {
+        question: "A IA funciona com múltiplos profissionais?",
+        answer: "Sim! Ela gerencia agendas de todos os cabeleireiros, respeitando especialidades, horários e preferências de cada profissional."
+      },
+      {
+        question: "Como funcionam os lembretes?",
+        answer: "Lembretes são enviados 24h e 2h antes de cada horário via SMS e WhatsApp, com opção de confirmar ou reagendar."
+      },
+      {
+        question: "Clientes podem escolher profissional?",
+        answer: "Sim! A IA lembra as preferências de cada cliente e oferece o profissional favorito quando disponível."
+      },
+      {
+        question: "Como funciona a lista de espera?",
+        answer: "Quando um horário é cancelado, a IA contata automaticamente clientes da lista de espera para preencher o espaço."
+      },
+      {
+        question: "A IA conhece a duração de cada serviço?",
+        answer: "Sim! Você configura a duração de cada serviço e a IA agenda respeitando o tempo necessário para cada procedimento."
+      }
+    ]
+  },
+  "spas-massagens": {
+    name: "Spas e Massagens",
+    heroTitle: "Recepcionista IA para Spas & Massage",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA SPAS",
+    heroDescription: "Atendimento inteligente para spas, centros de massagem e bem-estar. Agende tratamentos, venda pacotes e gerencie terapeutas com IA.",
+    image: industrySpaMassage,
+    secondaryImage: industrySpaMassage2,
+    problemTitle: "Ambiente tranquilo, telefone insistente.",
+    problemDescription: "Seu spa é um refúgio de paz. O telefone tocando quebra a atmosfera. Clientes em tratamento e você precisa atender. Nossa IA cuida das ligações enquanto você cuida do bem-estar.",
+    problems: [
+      "Telefone quebra atmosfera do spa",
+      "Terapeutas em sessão não podem atender",
+      "Coordenação de múltiplas salas",
+      "Venda de pacotes requer tempo",
+      "Clientes querem reservar fora do horário"
+    ],
+    solutionTitle: "Relaxe clientes enquanto gerenciamos reservas.",
+    solutionDescription: "Nossa IA agenda tratamentos, coordena salas e terapeutas, vende pacotes e mantém a tranquilidade do seu spa intacta.",
+    solutions: [
+      { title: "Agendamento silencioso", description: "Sem telefones tocando no spa" },
+      { title: "Coordenação de salas", description: "Otimiza uso de espaços" },
+      { title: "Múltiplos terapeutas", description: "Gerencia disponibilidade" },
+      { title: "Venda de pacotes", description: "Oferece combos e séries" },
+      { title: "Lembretes relaxantes", description: "Tom suave e apropriado" },
+      { title: "Reservas 24/7", description: "Clientes reservam qualquer hora" }
+    ],
+    features: [
+      { icon: Calendar, title: "Agenda de Tratamentos", description: "Todos os serviços organizados" },
+      { icon: Users, title: "Gestão de Terapeutas", description: "Múltiplos profissionais" },
+      { icon: Star, title: "Venda de Pacotes", description: "Combos e séries de sessões" },
+      { icon: Clock, title: "Lembretes Suaves", description: "Tom apropriado para spa" },
+      { icon: Phone, title: "Reservas 24/7", description: "Sem interromper ambiente" },
+      { icon: Shield, title: "Coordenação de Salas", description: "Otimiza espaços" }
+    ],
+    stats: [
+      { value: "70%", label: "das reservas de spa são feitas fora do horário comercial" },
+      { value: "55%", label: "dos clientes compram pacotes quando oferecidos" },
+      { value: "40%", label: "mais receita com venda automatizada de pacotes" }
+    ],
+    useCases: [
+      { title: "Massagens", description: "Todos os tipos e durações" },
+      { title: "Tratamentos Faciais", description: "Protocolos diversos" },
+      { title: "Day Spa", description: "Combos de serviços" },
+      { title: "Pacotes de Sessões", description: "Venda de séries" }
+    ],
+    testimonials: [
+      {
+        quote: "O telefone não toca mais no spa. A atmosfera melhorou e os clientes adoram a tranquilidade.",
+        author: "Isabela Monteiro",
+        role: "Proprietária",
+        company: "Monteiro Day Spa",
+        location: "Scottsdale, AZ"
+      },
+      {
+        quote: "A venda de pacotes automatizada aumentou nossa receita em 45%. A IA oferece na hora certa.",
+        author: "Patricia Campos",
+        role: "Gerente",
+        company: "Campos Wellness Center",
+        location: "San Francisco, CA"
+      },
+      {
+        quote: "Coordenar 4 salas e 6 terapeutas era impossível. A IA organiza tudo sem conflitos.",
+        author: "Renata Lima",
+        role: "Diretora",
+        company: "Lima Spa & Wellness",
+        location: "Las Vegas, NV"
+      }
+    ],
+    faqs: [
+      {
+        question: "A IA pode vender pacotes de sessões?",
+        answer: "Sim! Ela oferece pacotes de massagens, tratamentos faciais e combos, explicando benefícios e aplicando descontos automaticamente."
+      },
+      {
+        question: "Como funciona a coordenação de salas?",
+        answer: "A IA conhece cada sala e seus equipamentos, agendando tratamentos nas salas apropriadas e evitando conflitos de uso."
+      },
+      {
+        question: "Funciona com múltiplos terapeutas?",
+        answer: "Sim! Gerencia disponibilidade de cada terapeuta, especialidades e preferências dos clientes."
+      },
+      {
+        question: "Os lembretes têm tom apropriado para spa?",
+        answer: "Sim! As mensagens são redigidas com tom calmo e relaxante, mantendo a identidade do seu spa."
+      },
+      {
+        question: "A IA pode coordenar day spas completos?",
+        answer: "Sim! Ela agenda combos de tratamentos sequenciais, coordenando salas e terapeutas para uma experiência contínua."
+      }
+    ]
+  },
+  "inspecao-residencial": {
+    name: "Inspeção Residencial",
+    heroTitle: "Recepcionista IA para Home Inspectors",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA INSPEÇÃO",
+    heroDescription: "Atendimento inteligente para inspetores residenciais. Agende inspeções pré-compra, coordene com corretores e gere relatórios com IA.",
+    image: industryHomeInspection,
+    secondaryImage: industryHomeInspection2,
+    problemTitle: "Transações imobiliárias não esperam.",
+    problemDescription: "Compradores precisam de inspeção rápida para fechar negócio. Corretores coordenam múltiplas partes. Você está em inspeção e não pode atender. Nossa IA garante que você nunca perca uma oportunidade.",
+    problems: [
+      "Prazos apertados de transações",
+      "Coordenação com corretores complexa",
+      "Inspeções demoram horas",
+      "Relatórios pendentes atrasam fechamento",
+      "Ligações perdidas viram oportunidades perdidas"
+    ],
+    solutionTitle: "Inspecione enquanto gerenciamos sua agenda.",
+    solutionDescription: "Nossa IA agenda inspeções coordenando com corretores e compradores, envia relatórios e mantém todos informados sobre status.",
+    solutions: [
+      { title: "Agendamento urgente", description: "Resposta rápida para transações" },
+      { title: "Coordenação com corretores", description: "Comunicação profissional" },
+      { title: "Confirmação multi-partes", description: "Todos alinhados no horário" },
+      { title: "Tipos de inspeção", description: "Completa, focada, reavaliação" },
+      { title: "Envio de relatórios", description: "Notifica quando pronto" },
+      { title: "Follow-up de fechamento", description: "Acompanha transação" }
+    ],
+    features: [
+      { icon: Clock, title: "Resposta Rápida", description: "Urgência de transações" },
+      { icon: Users, title: "Coordenação Multi-Partes", description: "Corretor, comprador, vendedor" },
+      { icon: Calendar, title: "Agenda Otimizada", description: "Roteiro por região" },
+      { icon: Phone, title: "Atendimento 24/7", description: "Transações não esperam" },
+      { icon: MessageSquare, title: "Notificações", description: "Status para todos envolvidos" },
+      { icon: BarChart3, title: "Pipeline de Inspeções", description: "Acompanhe tudo" }
+    ],
+    stats: [
+      { value: "80%", label: "das inspeções precisam ser agendadas em 48h" },
+      { value: "65%", label: "dos corretores escolhem inspetor pela rapidez de resposta" },
+      { value: "3x", label: "mais inspeções com coordenação automatizada" }
+    ],
+    useCases: [
+      { title: "Inspeção Pré-Compra", description: "Agende rapidamente" },
+      { title: "Inspeção de Reavaliação", description: "Verifique reparos" },
+      { title: "Coordenação com Corretores", description: "Comunicação fluida" },
+      { title: "Entrega de Relatórios", description: "Notificação automática" }
+    ],
+    testimonials: [
+      {
+        quote: "Corretores me indicam porque respondo em minutos. A IA nunca perde uma ligação.",
+        author: "Ricardo Melo",
+        role: "Inspetor",
+        company: "Melo Home Inspections",
+        location: "Tampa, FL"
+      },
+      {
+        quote: "A coordenação com corretores era caótica. A IA mantém todos alinhados automaticamente.",
+        author: "Eduardo Alves",
+        role: "Proprietário",
+        company: "Alves Property Inspection",
+        location: "Austin, TX"
+      },
+      {
+        quote: "Triplicamos o número de inspeções porque a IA agenda enquanto estou trabalhando.",
+        author: "Paulo Martins",
+        role: "Inspetor Certificado",
+        company: "Martins Inspection Services",
+        location: "Denver, CO"
+      }
+    ],
+    faqs: [
+      {
+        question: "A IA entende a urgência de transações imobiliárias?",
+        answer: "Sim! Ela prioriza inspeções com prazos curtos e responde rapidamente para não atrasar fechamentos."
+      },
+      {
+        question: "Como funciona a coordenação com corretores?",
+        answer: "A IA comunica diretamente com corretores sobre disponibilidade, confirma horários com todas as partes e envia atualizações de status."
+      },
+      {
+        question: "A IA pode notificar sobre relatórios prontos?",
+        answer: "Sim! Quando você finaliza um relatório, a IA notifica automaticamente comprador, corretor e outras partes interessadas."
+      },
+      {
+        question: "Funciona para diferentes tipos de inspeção?",
+        answer: "Sim! Inspeção completa, focada (elétrica, hidráulica), reavaliação pós-reparo — cada tipo com duração e preço apropriados."
+      },
+      {
+        question: "A IA otimiza roteiro de inspeções?",
+        answer: "Sim! Ela agrupa inspeções por região para otimizar seu tempo de deslocamento e aumentar produtividade."
+      }
+    ]
+  },
+  pisos: {
+    name: "Pisos",
+    heroTitle: "Recepcionista IA para Flooring Companies",
+    heroSubtitle: "ATENDIMENTO 24/7 PARA PISOS",
+    heroDescription: "Atendimento inteligente para empresas de instalação de pisos. Qualifique projetos, agende visitas e gerencie instalações com IA.",
+    image: industryFlooring,
+    secondaryImage: industryFlooring2,
+    problemTitle: "Instalação exige concentração total.",
+    problemDescription: "Instalar pisos é trabalho meticuloso. Cada tábua precisa de atenção. Enquanto você trabalha, leads ligam pedindo orçamentos. Nossa IA captura cada oportunidade.",
+    problems: [
+      "Trabalho meticuloso exige foco",
+      "Orçamentos dependem de metragem exata",
+      "Múltiplos tipos de piso para explicar",
+      "Visitas técnicas são essenciais",
+      "Follow-up de propostas esquecido"
+    ],
+    solutionTitle: "Instale pisos enquanto qualificamos projetos.",
+    solutionDescription: "Nossa IA coleta informações do projeto — tipo de piso, metragem, condição do contrapiso — e agenda visitas para medição e orçamento preciso.",
+    solutions: [
+      { title: "Qualificação de projetos", description: "Tipo de piso, área, condição atual" },
+      { title: "Agendamento de visitas", description: "Medição e orçamento presencial" },
+      { title: "Tipos de piso", description: "Explica opções disponíveis" },
+      { title: "Envio de portfólio", description: "Trabalhos anteriores por tipo" },
+      { title: "Follow-up de propostas", description: "Acompanha orçamentos" },
+      { title: "Comercial e residencial", description: "Ambos segmentos" }
+    ],
+    features: [
+      { icon: Phone, title: "Atendimento no Trabalho", description: "Captura leads enquanto instala" },
+      { icon: Users, title: "Qualificação de Projetos", description: "Área, tipo, condição" },
+      { icon: Calendar, title: "Visitas de Medição", description: "Agenda automaticamente" },
+      { icon: MessageSquare, title: "Envio de Portfólio", description: "Por tipo de piso" },
+      { icon: BarChart3, title: "Pipeline de Vendas", description: "Acompanhe propostas" },
+      { icon: Zap, title: "Follow-up Automático", description: "Nunca perca oportunidade" }
+    ],
+    stats: [
+      { value: "75%", label: "dos projetos de piso são fechados após visita presencial" },
+      { value: "60%", label: "dos clientes querem ver amostras antes de decidir" },
+      { value: "3x", label: "mais conversões com follow-up em 24 horas" }
+    ],
+    useCases: [
+      { title: "Pisos de Madeira", description: "Instalação e restauração" },
+      { title: "Pisos Laminados", description: "Residencial e comercial" },
+      { title: "Pisos Vinílicos", description: "Opções modernas" },
+      { title: "Porcelanatos", description: "Instalação profissional" }
+    ],
+    testimonials: [
+      {
+        quote: "A IA qualifica projetos perguntando tudo que preciso saber. Chego para medir já sabendo exatamente o que o cliente quer.",
+        author: "Roberto Cunha",
+        role: "Instalador",
+        company: "Cunha Flooring LLC",
+        location: "Atlanta, GA"
+      },
+      {
+        quote: "O portfólio por tipo de piso impressiona. Clientes escolhem madeira, laminado ou vinílico já vendo exemplos reais.",
+        author: "Carlos Machado",
+        role: "Proprietário",
+        company: "Machado Floor Solutions",
+        location: "Charlotte, NC"
+      },
+      {
+        quote: "Fechamos 50% mais projetos com follow-up automático. A IA não deixa nenhuma proposta esfriar.",
+        author: "Andre Vieira",
+        role: "Gerente Comercial",
+        company: "Vieira Premium Floors",
+        location: "Nashville, TN"
+      }
+    ],
+    faqs: [
+      {
+        question: "A IA entende diferentes tipos de piso?",
+        answer: "Sim! Madeira maciça, laminado, vinílico, porcelanato — a IA explica características, vantagens e coleta preferências do cliente."
+      },
+      {
+        question: "Como funciona a qualificação de projetos?",
+        answer: "A IA pergunta metragem aproximada, tipo de piso atual, condição do contrapiso e preferência de material, preparando você para a visita."
+      },
+      {
+        question: "A IA pode enviar portfólio segmentado?",
+        answer: "Sim! Ela envia exemplos de trabalhos organizados por tipo de piso, ajudando o cliente a visualizar o resultado."
+      },
+      {
+        question: "Funciona para projetos comerciais?",
+        answer: "Sim! A IA qualifica projetos comerciais coletando metragem total, tipo de uso e requisitos de tráfego."
+      },
+      {
+        question: "Como funciona o follow-up de orçamentos?",
+        answer: "Após enviar uma proposta, a IA contata automaticamente em 24-48 horas para responder dúvidas e ajudar na decisão."
       }
     ]
   }
