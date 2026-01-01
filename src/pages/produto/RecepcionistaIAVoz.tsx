@@ -1,0 +1,221 @@
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import Layout from "@/components/layout/Layout";
+import {
+  Phone,
+  Clock,
+  Calendar,
+  Users,
+  TrendingUp,
+  CheckCircle,
+  ArrowRight,
+  Headphones,
+  MessageSquare,
+  BarChart3,
+  Globe,
+  Mic,
+} from "lucide-react";
+
+const features = [
+  {
+    icon: Mic,
+    title: "Voz Natural e Humanizada",
+    description: "IA conversacional com voz natural que seus clientes não vão perceber que é um robô.",
+  },
+  {
+    icon: Clock,
+    title: "Disponível 24/7",
+    description: "Atendimento ininterrupto, incluindo noites, fins de semana e feriados.",
+  },
+  {
+    icon: Calendar,
+    title: "Agendamento Automático",
+    description: "Integra com sua agenda e marca serviços automaticamente.",
+  },
+  {
+    icon: Users,
+    title: "Qualificação de Leads",
+    description: "Coleta informações essenciais antes de transferir para você.",
+  },
+  {
+    icon: Globe,
+    title: "Múltiplos Idiomas",
+    description: "Atendimento em português, inglês, espanhol e outros idiomas.",
+  },
+  {
+    icon: BarChart3,
+    title: "Analytics Detalhados",
+    description: "Dashboard completo com métricas de chamadas e conversões.",
+  },
+];
+
+const benefits = [
+  "Redução de 80% em chamadas perdidas",
+  "Aumento de 40% na taxa de conversão",
+  "Economia de até 70% comparado a recepcionistas tradicionais",
+  "Configuração em menos de 24 horas",
+  "Integração com mais de 50 ferramentas",
+  "Suporte técnico dedicado",
+];
+
+const RecepcionistaIAVoz = () => {
+  return (
+    <Layout>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/30 py-20 md:py-32">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+                Recepcionista IA de Voz
+              </span>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                Atendimento Telefônico Inteligente{" "}
+                <span className="text-primary">24 Horas por Dia</span>
+              </h1>
+              <p className="text-lg text-muted-foreground mb-8">
+                Nossa IA de voz atende chamadas, qualifica leads e agenda serviços
+                automaticamente. Nunca mais perca um cliente por não atender o telefone.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" asChild>
+                  <Link to="/agendar-demo">
+                    Agendar Demo Grátis
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link to="/setores">Ver Setores Atendidos</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-primary/20 to-accent/40 rounded-2xl p-8 flex items-center justify-center min-h-[400px]">
+              <div className="text-center">
+                <Headphones className="h-24 w-24 text-primary mx-auto mb-4" />
+                <p className="text-muted-foreground">Demonstração de Voz IA</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Recursos Avançados de Voz
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Tecnologia de ponta para um atendimento telefônico impecável.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <Card key={index}>
+                <CardContent className="pt-6">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <feature.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-muted-foreground text-sm">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Como Funciona o Atendimento por Voz
+              </h2>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Cliente Liga para Seu Número</h3>
+                    <p className="text-muted-foreground text-sm">
+                      A chamada é automaticamente direcionada para nossa IA.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">IA Atende com Voz Natural</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Saudação personalizada e conversa fluida como um humano.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Qualifica e Coleta Informações</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Tipo de serviço, endereço, disponibilidade e urgência.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                    4
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-1">Agenda ou Transfere</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Marca na sua agenda ou transfere para você se necessário.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-accent/50 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-6">Benefícios Comprovados</h3>
+              <ul className="space-y-4">
+                {benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+        <div className="container text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Pronto para Automatizar Seu Atendimento Telefônico?
+          </h2>
+          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
+            Agende uma demonstração gratuita e ouça nossa IA em ação.
+          </p>
+          <Button size="lg" variant="secondary" asChild>
+            <Link to="/agendar-demo">
+              Agendar Demo Grátis
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+    </Layout>
+  );
+};
+
+export default RecepcionistaIAVoz;
