@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { 
   CheckCircle, 
   ArrowRight, 
@@ -33,6 +39,11 @@ interface Testimonial {
   location?: string;
 }
 
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
 interface IndustryData {
   name: string;
   heroTitle: string;
@@ -49,6 +60,7 @@ interface IndustryData {
   stats: Array<{ value: string; label: string }>;
   useCases: Array<{ title: string; description: string }>;
   testimonials: Testimonial[];
+  faqs: FAQ[];
 }
 
 const industryData: Record<string, IndustryData> = {
@@ -118,6 +130,28 @@ const industryData: Record<string, IndustryData> = {
         company: "Premier Home Services",
         location: "Orlando, FL"
       }
+    ],
+    faqs: [
+      {
+        question: "A IA consegue lidar com pedidos específicos de limpeza?",
+        answer: "Sim! Nossa IA é treinada para coletar todas as informações necessárias, incluindo tipo de imóvel, tamanho, frequência desejada e serviços específicos como limpeza de janelas, deep cleaning ou limpeza pós-obra."
+      },
+      {
+        question: "Como funciona o agendamento de limpezas recorrentes?",
+        answer: "A IA gerencia automaticamente sua agenda de clientes recorrentes, enviando lembretes antes de cada serviço e permitindo reagendamentos sem sua intervenção manual."
+      },
+      {
+        question: "A IA pode fornecer orçamentos?",
+        answer: "A IA coleta todas as informações necessárias e pode fornecer estimativas baseadas nos seus parâmetros de preço. Para orçamentos personalizados, ela agenda uma ligação com você."
+      },
+      {
+        question: "Funciona com WhatsApp e mensagens de texto?",
+        answer: "Sim! Além de ligações telefônicas, nossa IA responde mensagens de WhatsApp, SMS e chat do site, tudo integrado em uma única plataforma."
+      },
+      {
+        question: "Quanto tempo leva para configurar?",
+        answer: "A configuração inicial leva cerca de 30 minutos. Nossa equipe de implementação trabalha com você para personalizar as respostas e integrar com suas ferramentas existentes."
+      }
     ]
   },
   construcao: {
@@ -185,6 +219,28 @@ const industryData: Record<string, IndustryData> = {
         role: "Diretor Comercial",
         company: "Hernandez Renovations",
         location: "Atlanta, GA"
+      }
+    ],
+    faqs: [
+      {
+        question: "A IA consegue qualificar projetos de construção complexos?",
+        answer: "Sim! A IA coleta informações detalhadas como tipo de obra, metragem, orçamento estimado, prazo desejado e especificações técnicas antes de agendar uma visita técnica."
+      },
+      {
+        question: "Como a IA diferencia emergências de projetos planejados?",
+        answer: "Nossa IA faz perguntas específicas para identificar a urgência. Reparos urgentes são priorizados e encaminhados imediatamente, enquanto projetos maiores são agendados para visita técnica."
+      },
+      {
+        question: "Posso receber chamadas de fornecedores também?",
+        answer: "Sim! A IA identifica chamadas de fornecedores e pode coletar informações sobre entregas, prazos e orçamentos, organizando tudo para você revisar depois."
+      },
+      {
+        question: "A IA funciona quando estou no canteiro de obras?",
+        answer: "Exatamente para isso que foi projetada! Você pode trabalhar focado enquanto a IA atende todas as ligações e organiza sua agenda de visitas."
+      },
+      {
+        question: "Como funciona o follow-up de propostas?",
+        answer: "A IA acompanha automaticamente propostas enviadas, entra em contato com clientes que não responderam e agenda ligações de fechamento com você."
       }
     ]
   },
@@ -254,6 +310,28 @@ const industryData: Record<string, IndustryData> = {
         company: "Lima Climate Control",
         location: "Dallas, TX"
       }
+    ],
+    faqs: [
+      {
+        question: "Como a IA lida com picos de demanda no verão?",
+        answer: "Nossa IA escala automaticamente para atender qualquer volume de chamadas. Ela triagem urgências (AC parado no calor) das manutenções preventivas, garantindo que você atenda primeiro quem mais precisa."
+      },
+      {
+        question: "A IA pode vender contratos de manutenção preventiva?",
+        answer: "Sim! Quando um cliente liga para um reparo, a IA oferece automaticamente um plano de manutenção preventiva, explicando os benefícios e agendando se o cliente aceitar."
+      },
+      {
+        question: "Funciona para emergências noturnas e de fim de semana?",
+        answer: "Sim! A IA atende 24/7. Para emergências reais (como AC parado em dia quente), ela aciona você imediatamente. Para outros casos, agenda para o próximo horário disponível."
+      },
+      {
+        question: "A IA coleta informações técnicas do equipamento?",
+        answer: "Sim! Ela pergunta marca, modelo, idade do equipamento e sintomas do problema, permitindo que você chegue preparado com as peças certas."
+      },
+      {
+        question: "Como a IA organiza chamados por região?",
+        answer: "A IA agrupa chamados por localização geográfica, otimizando suas rotas e permitindo que você atenda mais clientes por dia."
+      }
     ]
   },
   encanamento: {
@@ -321,6 +399,28 @@ const industryData: Record<string, IndustryData> = {
         role: "Gerente",
         company: "Gomes Plumbing Co",
         location: "Chicago, IL"
+      }
+    ],
+    faqs: [
+      {
+        question: "Como a IA identifica vazamentos urgentes?",
+        answer: "A IA faz perguntas específicas: 'Há água vazando agora?', 'A água já foi fechada no registro?'. Vazamentos ativos são classificados como prioridade máxima e você é acionado imediatamente."
+      },
+      {
+        question: "A IA pode coletar fotos do problema?",
+        answer: "Sim! Via WhatsApp, a IA solicita fotos e vídeos do problema, permitindo que você avalie a situação antes de chegar e leve as peças corretas."
+      },
+      {
+        question: "Funciona para emergências às 2h da manhã?",
+        answer: "Sim! A IA atende 24/7. Ela avalia a urgência real do problema e decide se aciona você imediatamente ou agenda para a manhã seguinte."
+      },
+      {
+        question: "A IA pode orientar o cliente a fechar a água?",
+        answer: "Sim! Em casos de vazamento ativo, a IA orienta o cliente a localizar e fechar o registro principal enquanto você está a caminho."
+      },
+      {
+        question: "Como funciona o agendamento de serviços não urgentes?",
+        answer: "Para entupimentos leves, instalações e manutenções, a IA coleta as informações, fornece uma estimativa de preço e agenda no melhor horário disponível."
       }
     ]
   },
@@ -390,6 +490,28 @@ const industryData: Record<string, IndustryData> = {
         company: "RC Electric Solutions",
         location: "Denver, CO"
       }
+    ],
+    faqs: [
+      {
+        question: "Como a IA avalia o perigo de emergências elétricas?",
+        answer: "A IA pergunta sobre sintomas específicos: faíscas, cheiro de queimado, disjuntores desarmando. Situações de risco são classificadas como prioridade máxima e você é acionado imediatamente."
+      },
+      {
+        question: "A IA pode orientar o cliente a desligar o disjuntor?",
+        answer: "Sim! Em casos de risco, a IA orienta o cliente a localizar o quadro elétrico e desligar o disjuntor principal enquanto você está a caminho, evitando acidentes."
+      },
+      {
+        question: "Funciona para projetos de instalação comercial?",
+        answer: "Sim! A IA coleta especificações técnicas, metragem, número de pontos e requisitos especiais, qualificando projetos comerciais antes de você visitar."
+      },
+      {
+        question: "A IA diferencia emergências de serviços programados?",
+        answer: "Sim! Queda de energia total ou faíscas são emergências. Instalação de tomadas adicionais ou projetos são agendados normalmente."
+      },
+      {
+        question: "Como funciona o acompanhamento de projetos em andamento?",
+        answer: "A IA atende chamadas de clientes com projetos ativos, responde dúvidas sobre prazos e agenda visitas de acompanhamento quando necessário."
+      }
     ]
   },
   paisagismo: {
@@ -457,6 +579,28 @@ const industryData: Record<string, IndustryData> = {
         role: "Designer de Jardins",
         company: "Vega Outdoor Services",
         location: "Austin, TX"
+      }
+    ],
+    faqs: [
+      {
+        question: "A IA consegue qualificar projetos de paisagismo?",
+        answer: "Sim! A IA coleta tamanho do terreno, estilo desejado (moderno, tropical, mediterrâneo), orçamento estimado e prazo, qualificando projetos antes da visita técnica."
+      },
+      {
+        question: "Como funciona o envio de portfólio?",
+        answer: "Quando um cliente demonstra interesse, a IA envia automaticamente seu portfólio via WhatsApp ou email, mostrando projetos similares ao que ele deseja."
+      },
+      {
+        question: "A IA gerencia manutenções recorrentes?",
+        answer: "Sim! Para clientes com contrato de manutenção, a IA gerencia toda a agenda, envia lembretes, permite reagendamentos e coleta feedback após cada visita."
+      },
+      {
+        question: "Funciona para campanhas sazonais de primavera?",
+        answer: "Sim! A IA pode reativar clientes antigos na primavera, oferecendo serviços sazonais como preparação de jardins, plantio de flores e limpeza de inverno."
+      },
+      {
+        question: "A IA pode fornecer estimativas de preço?",
+        answer: "Com base no tamanho do terreno e tipo de serviço, a IA fornece faixas de preço. Para orçamentos detalhados, ela agenda uma visita técnica."
       }
     ]
   }
@@ -705,6 +849,47 @@ const SetorDetalhe = () => {
                 <Link to="/agendar-demo">Fale Conosco</Link>
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container">
+          <div className="text-center mb-12">
+            <span className="text-primary text-sm font-semibold tracking-wider mb-2 block">
+              PERGUNTAS FREQUENTES
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Dúvidas sobre IA para {data.name}?
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Respostas para as perguntas mais comuns sobre como a ClickOne AI pode ajudar seu negócio.
+            </p>
+          </div>
+          
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              {data.faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`faq-${index}`} className="border-b border-border">
+                  <AccordionTrigger className="text-left text-lg font-medium hover:text-primary py-6">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base pb-6">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-4">
+              Ainda tem dúvidas? Fale com nossa equipe.
+            </p>
+            <Button variant="outline" asChild>
+              <Link to="/contato">Entrar em Contato</Link>
+            </Button>
           </div>
         </div>
       </section>
