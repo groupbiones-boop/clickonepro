@@ -30,6 +30,12 @@ import industryHvac from "@/assets/industry-hvac.jpg";
 import industryPlumbing from "@/assets/industry-plumbing.jpg";
 import industryElectrical from "@/assets/industry-electrical.jpg";
 import industryLandscaping from "@/assets/industry-landscaping.jpg";
+import industryCleaning2 from "@/assets/industry-cleaning-2.jpg";
+import industryConstruction2 from "@/assets/industry-construction-2.jpg";
+import industryHvac2 from "@/assets/industry-hvac-2.jpg";
+import industryPlumbing2 from "@/assets/industry-plumbing-2.jpg";
+import industryElectrical2 from "@/assets/industry-electrical-2.jpg";
+import industryLandscaping2 from "@/assets/industry-landscaping-2.jpg";
 
 interface Testimonial {
   quote: string;
@@ -50,6 +56,7 @@ interface IndustryData {
   heroSubtitle: string;
   heroDescription: string;
   image: string;
+  secondaryImage: string;
   problemTitle: string;
   problemDescription: string;
   problems: string[];
@@ -70,6 +77,7 @@ const industryData: Record<string, IndustryData> = {
     heroSubtitle: "ATENDIMENTO 24/7 PARA LIMPEZA",
     heroDescription: "Como uma solução de atendimento inteligente para empresas de limpeza residencial e comercial, a ClickOne AI combina atendimento telefônico automatizado com suporte profissional disponível 24 horas por dia.",
     image: industryCleaning,
+    secondaryImage: industryCleaning2,
     problemTitle: "Ligações chegam a qualquer momento.",
     problemDescription: "Você está limpando uma casa ou escritório e o telefone toca. É um novo cliente em potencial, mas você não pode atender. Nós capturamos leads, agendamos serviços, coletamos informações e registramos tudo no seu sistema. Gerenciamos suas chamadas para que você possa focar no que só você pode fazer: entregar serviços de limpeza excepcionais.",
     problems: [
@@ -160,6 +168,7 @@ const industryData: Record<string, IndustryData> = {
     heroSubtitle: "ATENDIMENTO 24/7 PARA CONSTRUÇÃO",
     heroDescription: "Solução de atendimento inteligente para construtoras, empreiteiras e empresas de reforma. A ClickOne AI atende chamadas, qualifica projetos e agenda visitas técnicas automaticamente.",
     image: industryConstruction,
+    secondaryImage: industryConstruction2,
     problemTitle: "O canteiro de obras não para.",
     problemDescription: "Você está no canteiro supervisionando a obra e o telefone não para de tocar. São clientes pedindo orçamentos, fornecedores confirmando entregas, clientes atuais com dúvidas. Nós gerenciamos todas as chamadas para que você possa focar na execução dos projetos.",
     problems: [
@@ -250,6 +259,7 @@ const industryData: Record<string, IndustryData> = {
     heroSubtitle: "ATENDIMENTO 24/7 PARA CLIMATIZAÇÃO",
     heroDescription: "Atendimento inteligente especializado para empresas de ar condicionado, refrigeração e climatização. Gerencie picos de demanda e emergências com IA.",
     image: industryHvac,
+    secondaryImage: industryHvac2,
     problemTitle: "Verão chega e as ligações explodem.",
     problemDescription: "Na temporada de calor, as ligações não param. Ar condicionado quebrado, instalações urgentes, manutenções preventivas. Você não consegue atender todos e perde clientes para a concorrência. Nossa IA escala com sua demanda.",
     problems: [
@@ -340,6 +350,7 @@ const industryData: Record<string, IndustryData> = {
     heroSubtitle: "ATENDIMENTO 24/7 PARA ENCANAMENTO",
     heroDescription: "Atendimento inteligente para encanadores e empresas de serviços hidráulicos. Atenda emergências de vazamentos e qualifique serviços automaticamente.",
     image: industryPlumbing,
+    secondaryImage: industryPlumbing2,
     problemTitle: "Vazamentos não esperam.",
     problemDescription: "Quando um cano estoura às 2h da manhã, o cliente precisa de resposta imediata. Você está dormindo ou em outro serviço. Nossa IA atende emergências 24/7, qualifica a urgência e aciona você quando necessário.",
     problems: [
@@ -430,6 +441,7 @@ const industryData: Record<string, IndustryData> = {
     heroSubtitle: "ATENDIMENTO 24/7 PARA ELÉTRICA",
     heroDescription: "Atendimento inteligente para eletricistas e empresas de instalações elétricas. Gerencie emergências, instalações e manutenções com IA.",
     image: industryElectrical,
+    secondaryImage: industryElectrical2,
     problemTitle: "Emergências elétricas são perigosas.",
     problemDescription: "Falta de energia, curto-circuito, cheiro de queimado — emergências elétricas não podem esperar. Você está em uma instalação complexa e não pode atender. Nossa IA identifica a urgência e age.",
     problems: [
@@ -520,6 +532,7 @@ const industryData: Record<string, IndustryData> = {
     heroSubtitle: "ATENDIMENTO 24/7 PARA PAISAGISMO",
     heroDescription: "Atendimento inteligente para empresas de jardinagem, paisagismo e manutenção de áreas verdes. Qualifique projetos e agende manutenções automaticamente.",
     image: industryLandscaping,
+    secondaryImage: industryLandscaping2,
     problemTitle: "Você está no jardim, não no escritório.",
     problemDescription: "Seu trabalho é ao ar livre, longe do telefone. Enquanto você planta, poda e transforma jardins, leads estão ligando e não conseguem falar com você. Nossa IA cuida das chamadas enquanto você cuida dos jardins.",
     problems: [
@@ -674,6 +687,19 @@ const SetorDetalhe = () => {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Secondary Image Section */}
+      <section className="bg-muted/30">
+        <div className="container py-0">
+          <div className="rounded-2xl overflow-hidden shadow-xl mx-auto max-w-5xl">
+            <img 
+              src={data.secondaryImage} 
+              alt={`Profissional de ${data.name.toLowerCase()} trabalhando`}
+              className="w-full h-auto object-cover"
+            />
           </div>
         </div>
       </section>
