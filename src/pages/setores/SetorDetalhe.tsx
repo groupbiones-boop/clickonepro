@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { 
   CheckCircle, 
   ArrowRight, 
@@ -24,6 +25,13 @@ import industryPlumbing from "@/assets/industry-plumbing.jpg";
 import industryElectrical from "@/assets/industry-electrical.jpg";
 import industryLandscaping from "@/assets/industry-landscaping.jpg";
 
+interface Testimonial {
+  quote: string;
+  author: string;
+  company: string;
+  role?: string;
+}
+
 interface IndustryData {
   name: string;
   heroTitle: string;
@@ -39,7 +47,7 @@ interface IndustryData {
   features: Array<{ icon: typeof Phone; title: string; description: string }>;
   stats: Array<{ value: string; label: string }>;
   useCases: Array<{ title: string; description: string }>;
-  testimonial: { quote: string; author: string; company: string };
+  testimonials: Testimonial[];
 }
 
 const industryData: Record<string, IndustryData> = {
@@ -87,11 +95,26 @@ const industryData: Record<string, IndustryData> = {
       { title: "Confirmação de Serviços", description: "Envie lembretes automáticos antes de cada limpeza" },
       { title: "Coleta de Avaliações", description: "Solicite feedback após cada serviço concluído" }
     ],
-    testimonial: {
-      quote: "A ClickOne AI transformou nosso atendimento. Antes perdíamos 60% das ligações quando estávamos em serviço. Agora capturamos 100% dos leads.",
-      author: "Maria Santos",
-      company: "Limpeza Brilhante"
-    }
+    testimonials: [
+      {
+        quote: "A ClickOne AI transformou nosso atendimento. Antes perdíamos 60% das ligações quando estávamos em serviço. Agora capturamos 100% dos leads.",
+        author: "Maria Santos",
+        role: "Proprietária",
+        company: "Limpeza Brilhante"
+      },
+      {
+        quote: "Agora minha equipe foca 100% na limpeza. A IA agenda, confirma e até coleta feedback dos clientes automaticamente.",
+        author: "Roberto Mendes",
+        role: "Gerente de Operações",
+        company: "CleanPro Services"
+      },
+      {
+        quote: "Triplicamos nossos clientes recorrentes em 6 meses. O follow-up automático faz toda a diferença.",
+        author: "Fernanda Costa",
+        role: "Fundadora",
+        company: "Brilho Total"
+      }
+    ]
   },
   construcao: {
     name: "Construção & Reformas",
@@ -137,11 +160,26 @@ const industryData: Record<string, IndustryData> = {
       { title: "Acompanhamento de Obras", description: "Responda dúvidas sobre andamento" },
       { title: "Reparos Urgentes", description: "Identifique e priorize emergências" }
     ],
-    testimonial: {
-      quote: "Antes eu perdia horas no telefone. Agora a IA qualifica os projetos e eu só falo com clientes realmente interessados.",
-      author: "Carlos Oliveira",
-      company: "Oliveira Construções"
-    }
+    testimonials: [
+      {
+        quote: "Antes eu perdia horas no telefone. Agora a IA qualifica os projetos e eu só falo com clientes realmente interessados.",
+        author: "Carlos Oliveira",
+        role: "Proprietário",
+        company: "Oliveira Construções"
+      },
+      {
+        quote: "A IA agenda visitas técnicas automaticamente. Minha produtividade no canteiro aumentou 40%.",
+        author: "José Ferreira",
+        role: "Engenheiro Civil",
+        company: "Ferreira Reformas"
+      },
+      {
+        quote: "Fechamos 30% mais contratos desde que a IA começou a fazer follow-up nas propostas.",
+        author: "Marcos Lima",
+        role: "Diretor Comercial",
+        company: "Lima Construções"
+      }
+    ]
   },
   hvac: {
     name: "HVAC / Climatização",
@@ -187,11 +225,26 @@ const industryData: Record<string, IndustryData> = {
       { title: "Instalações Novas", description: "Qualifique projetos de instalação" },
       { title: "Picos de Demanda", description: "Escale atendimento sem contratar" }
     ],
-    testimonial: {
-      quote: "No último verão atendemos 3x mais chamados sem contratar ninguém. A IA triou as emergências e agendou o resto.",
-      author: "Roberto Souza",
-      company: "Frio & Ar Climatização"
-    }
+    testimonials: [
+      {
+        quote: "No último verão atendemos 3x mais chamados sem contratar ninguém. A IA triou as emergências e agendou o resto.",
+        author: "Roberto Souza",
+        role: "Proprietário",
+        company: "Frio & Ar Climatização"
+      },
+      {
+        quote: "Vendemos 50% mais contratos de manutenção preventiva. A IA oferece automaticamente para quem liga.",
+        author: "Paulo Andrade",
+        role: "Gerente Comercial",
+        company: "AC Master"
+      },
+      {
+        quote: "Emergências noturnas eram um pesadelo. Agora a IA filtra e só me aciona quando é realmente urgente.",
+        author: "Ricardo Martins",
+        role: "Técnico Sênior",
+        company: "Clima Control"
+      }
+    ]
   },
   encanamento: {
     name: "Encanamento",
@@ -237,11 +290,26 @@ const industryData: Record<string, IndustryData> = {
       { title: "Instalações", description: "Colete especificações do projeto" },
       { title: "Manutenção Preventiva", description: "Agende inspeções regulares" }
     ],
-    testimonial: {
-      quote: "Antes eu perdia 70% das emergências noturnas. Agora a IA me acorda só para vazamentos reais e agenda o resto.",
-      author: "João Silva",
-      company: "Silva Encanamento"
-    }
+    testimonials: [
+      {
+        quote: "Antes eu perdia 70% das emergências noturnas. Agora a IA me acorda só para vazamentos reais e agenda o resto.",
+        author: "João Silva",
+        role: "Proprietário",
+        company: "Silva Encanamento"
+      },
+      {
+        quote: "A IA coleta fotos do problema pelo WhatsApp. Chego preparado com as peças certas.",
+        author: "Antonio Rocha",
+        role: "Encanador",
+        company: "Rocha Serviços Hidráulicos"
+      },
+      {
+        quote: "Meus clientes adoram a resposta instantânea. Minha taxa de conversão subiu 85%.",
+        author: "Fernando Dias",
+        role: "Gerente",
+        company: "Dias Encanamentos"
+      }
+    ]
   },
   eletrica: {
     name: "Serviços Elétricos",
@@ -287,11 +355,26 @@ const industryData: Record<string, IndustryData> = {
       { title: "Manutenção Preventiva", description: "Agende inspeções elétricas" },
       { title: "Projetos Comerciais", description: "Colete especificações técnicas" }
     ],
-    testimonial: {
-      quote: "A IA instrui clientes a desligar o disjuntor enquanto eu termino o serviço atual. Isso já evitou acidentes.",
-      author: "Pedro Costa",
-      company: "Costa Elétrica"
-    }
+    testimonials: [
+      {
+        quote: "A IA instrui clientes a desligar o disjuntor enquanto eu termino o serviço atual. Isso já evitou acidentes.",
+        author: "Pedro Costa",
+        role: "Proprietário",
+        company: "Costa Elétrica"
+      },
+      {
+        quote: "Instalações comerciais exigem foco total. A IA qualifica tudo antes e eu só preciso orçar.",
+        author: "Luiz Araújo",
+        role: "Eletricista Industrial",
+        company: "Araújo Instalações"
+      },
+      {
+        quote: "Dobramos nossa carteira de clientes em 8 meses. A IA nunca perde uma oportunidade.",
+        author: "Marcos Pereira",
+        role: "Diretor",
+        company: "MP Elétrica"
+      }
+    ]
   },
   paisagismo: {
     name: "Paisagismo",
@@ -337,11 +420,26 @@ const industryData: Record<string, IndustryData> = {
       { title: "Podas e Limpezas", description: "Serviços pontuais agendados" },
       { title: "Reativação Sazonal", description: "Campanhas de primavera" }
     ],
-    testimonial: {
-      quote: "Minha agenda de manutenções recorrentes cresceu 200% depois que a IA começou a gerenciar os follow-ups.",
-      author: "Ana Lima",
-      company: "Verde & Arte Paisagismo"
-    }
+    testimonials: [
+      {
+        quote: "Minha agenda de manutenções recorrentes cresceu 200% depois que a IA começou a gerenciar os follow-ups.",
+        author: "Ana Lima",
+        role: "Proprietária",
+        company: "Verde & Arte Paisagismo"
+      },
+      {
+        quote: "Na primavera, as ligações triplicam. A IA atende todas e eu foco nos jardins.",
+        author: "Carlos Jardim",
+        role: "Paisagista",
+        company: "Jardim & Cia"
+      },
+      {
+        quote: "A IA envia meu portfólio automaticamente. Os clientes já chegam apaixonados pelo meu trabalho.",
+        author: "Patricia Flores",
+        role: "Designer de Jardins",
+        company: "Flores Paisagismo"
+      }
+    ]
   }
 };
 
@@ -506,42 +604,27 @@ const SetorDetalhe = () => {
       {/* Use Cases */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Casos de uso para {data.name.toLowerCase()}
-              </h2>
-              <p className="text-muted-foreground text-lg mb-8">
-                Veja como empresas do seu setor estão usando a ClickOne AI para crescer.
-              </p>
-              <div className="space-y-4">
-                {data.useCases.map((useCase, index) => (
-                  <div key={index} className="bg-background rounded-lg p-5 shadow-sm">
-                    <h4 className="font-semibold mb-1">{useCase.title}</h4>
-                    <p className="text-muted-foreground text-sm">{useCase.description}</p>
-                  </div>
-                ))}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Casos de uso para {data.name.toLowerCase()}
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Veja como empresas do seu setor estão usando a ClickOne AI para crescer.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {data.useCases.map((useCase, index) => (
+              <div key={index} className="bg-background rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                <h4 className="font-semibold mb-2">{useCase.title}</h4>
+                <p className="text-muted-foreground text-sm">{useCase.description}</p>
               </div>
-            </div>
-            <div className="bg-accent/50 rounded-2xl p-8">
-              <div className="flex items-center gap-2 mb-6">
-                <Star className="h-5 w-5 text-primary fill-primary" />
-                <Star className="h-5 w-5 text-primary fill-primary" />
-                <Star className="h-5 w-5 text-primary fill-primary" />
-                <Star className="h-5 w-5 text-primary fill-primary" />
-                <Star className="h-5 w-5 text-primary fill-primary" />
-              </div>
-              <blockquote className="text-xl italic mb-6">
-                "{data.testimonial.quote}"
-              </blockquote>
-              <div>
-                <p className="font-semibold">{data.testimonial.author}</p>
-                <p className="text-muted-foreground text-sm">{data.testimonial.company}</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Testimonials Carousel */}
+      <TestimonialsCarousel testimonials={data.testimonials} industry={data.name} />
 
       {/* Integrations */}
       <section className="py-16 md:py-24 bg-background">
