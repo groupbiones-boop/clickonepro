@@ -1938,24 +1938,29 @@ const SetorDetalhe = () => {
         </div>
         <div className="container relative z-10">
           <div className="lg:w-1/2 lg:pr-12">
-            <span className="inline-block text-primary text-sm font-semibold tracking-wider mb-4 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+            <span className="inline-block text-primary text-sm font-semibold tracking-wider mb-4">
               {data.heroSubtitle}
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6">
               {data.heroTitle}
             </h1>
-            <p className="text-lg text-background/80 mb-8 max-w-xl animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+            <p className="text-lg text-background/80 mb-8 max-w-xl">
               {data.heroDescription}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" variant="default" asChild>
                 <Link to="/agendar-demo">
                   Começar Agora
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-background/30 text-background hover:bg-background/10" asChild>
-                <Link to="#recursos">Saiba Mais</Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-background/30 text-background hover:bg-background/10"
+                asChild
+              >
+                <a href="#recursos">Saiba Mais</a>
               </Button>
             </div>
           </div>
@@ -1968,10 +1973,10 @@ const SetorDetalhe = () => {
       </section>
 
       {/* Problem Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-background animate-fade-in">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+            <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 {data.problemTitle}
               </h2>
@@ -1982,11 +1987,7 @@ const SetorDetalhe = () => {
             <div>
               <ul className="space-y-4">
                 {data.problems.map((problem, index) => (
-                  <li 
-                    key={index} 
-                    className="flex items-start gap-4 bg-destructive/5 rounded-lg p-4 animate-fade-in"
-                    style={{ animationDelay: `${0.2 + index * 0.1}s`, animationFillMode: 'both' }}
-                  >
+                  <li key={index} className="flex items-start gap-4 bg-destructive/5 rounded-lg p-4">
                     <span className="text-destructive text-xl font-bold">✗</span>
                     <span className="text-foreground">{problem}</span>
                   </li>
@@ -1998,11 +1999,11 @@ const SetorDetalhe = () => {
       </section>
 
       {/* Solution Section */}
-      <section id="recursos" className="py-16 md:py-24 bg-muted/30">
+      <section id="recursos" className="py-16 md:py-24 bg-muted/30 animate-fade-in">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Image */}
-            <div className="order-2 lg:order-1 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+            <div className="order-2 lg:order-1">
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img 
                   src={data.secondaryImage} 
@@ -2013,7 +2014,7 @@ const SetorDetalhe = () => {
             </div>
             
             {/* Right: Content */}
-            <div className="order-1 lg:order-2 animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+            <div className="order-1 lg:order-2">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 {data.solutionTitle}
               </h2>
@@ -2026,11 +2027,7 @@ const SetorDetalhe = () => {
               </h3>
               <ul className="space-y-3">
                 {data.solutions.map((solution, index) => (
-                  <li 
-                    key={index} 
-                    className="flex items-start gap-3 animate-fade-in"
-                    style={{ animationDelay: `${0.3 + index * 0.1}s`, animationFillMode: 'both' }}
-                  >
+                  <li key={index} className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
                       <span className="font-semibold text-foreground">{solution.title}</span>
@@ -2045,9 +2042,9 @@ const SetorDetalhe = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+      <section className="py-16 md:py-24 bg-primary text-primary-foreground animate-fade-in">
         <div className="container">
-          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Inteligência de chamadas para vantagem competitiva
             </h2>
@@ -2057,11 +2054,7 @@ const SetorDetalhe = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {data.stats.map((stat, index) => (
-              <div 
-                key={index} 
-                className="text-center animate-scale-in"
-                style={{ animationDelay: `${0.2 + index * 0.15}s`, animationFillMode: 'both' }}
-              >
+              <div key={index} className="text-center animate-scale-in">
                 <span className="text-5xl md:text-6xl font-bold block mb-4">{stat.value}</span>
                 <p className="text-primary-foreground/80">{stat.label}</p>
               </div>
@@ -2071,9 +2064,9 @@ const SetorDetalhe = () => {
       </section>
 
       {/* Features Grid */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-background animate-fade-in">
         <div className="container">
-          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Recursos especializados para {data.name.toLowerCase()}
             </h2>
@@ -2083,11 +2076,7 @@ const SetorDetalhe = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.features.map((feature, index) => (
-              <Card 
-                key={index} 
-                className="hover:shadow-lg transition-shadow animate-fade-in hover-scale"
-                style={{ animationDelay: `${0.15 + index * 0.1}s`, animationFillMode: 'both' }}
-              >
+              <Card key={index} className="hover:shadow-lg transition-shadow hover-scale">
                 <CardContent className="pt-6">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <feature.icon className="h-6 w-6 text-primary" />
@@ -2102,9 +2091,9 @@ const SetorDetalhe = () => {
       </section>
 
       {/* Use Cases */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-muted/30 animate-fade-in">
         <div className="container">
-          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Casos de uso para {data.name.toLowerCase()}
             </h2>
@@ -2114,11 +2103,7 @@ const SetorDetalhe = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {data.useCases.map((useCase, index) => (
-              <div 
-                key={index} 
-                className="bg-background rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow animate-fade-in hover-scale"
-                style={{ animationDelay: `${0.15 + index * 0.1}s`, animationFillMode: 'both' }}
-              >
+              <div key={index} className="bg-background rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow hover-scale">
                 <h4 className="font-semibold mb-2">{useCase.title}</h4>
                 <p className="text-muted-foreground text-sm">{useCase.description}</p>
               </div>
