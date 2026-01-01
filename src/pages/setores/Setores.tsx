@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
 import industryConstruction from "@/assets/industry-construction.jpg";
 import industryHvac from "@/assets/industry-hvac.jpg";
@@ -26,46 +27,92 @@ const industries = [
 ];
 
 const Setores = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredIndustries = industries.filter((industry) =>
+    industry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    industry.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <Layout>
-      <section className="py-20 md:py-32 bg-gradient-to-br from-primary/5 via-background to-accent/30">
+      {/* Hero Section */}
+      <section className="py-16 md:py-24 bg-foreground">
         <div className="container">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Setores que Atendemos</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Soluções de IA personalizadas para cada tipo de negócio de serviços.
-            </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6">
+            Setores em que atuamos
+          </h1>
+          <p className="text-lg md:text-xl text-background/70 max-w-2xl mb-10">
+            Soluções baseadas em IA para atender às necessidades específicas do seu negócio.
+          </p>
+
+          {/* Search Input */}
+          <div className="relative max-w-lg mb-12">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Pesquisar setores..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-12 py-6 text-base bg-background border-0 rounded-lg"
+            />
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry) => (
+
+          {/* Industry Pills/Tags */}
+          <div className="flex flex-wrap gap-3">
+            {filteredIndustries.map((industry) => (
               <Link key={industry.slug} to={`/setores/${industry.slug}`}>
-                <Card className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer h-full overflow-hidden">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={industry.image} 
-                      alt={industry.name} 
-                      className="w-full h-full object-cover transition-transform hover:scale-105"
-                    />
-                  </div>
-                  <CardContent className="pt-4">
-                    <h3 className="text-xl font-semibold mb-1">{industry.name}</h3>
-                    <p className="text-muted-foreground text-sm mb-3">{industry.description}</p>
-                    <span className="text-primary font-medium text-sm flex items-center gap-1">
-                      Saiba mais <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </CardContent>
-                </Card>
+                <Button
+                  variant="outline"
+                  className="border-background/20 text-background hover:bg-background hover:text-foreground transition-all"
+                >
+                  {industry.name}
+                </Button>
               </Link>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Industry Cards Grid */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredIndustries.map((industry) => (
+              <Link 
+                key={industry.slug} 
+                to={`/setores/${industry.slug}`}
+                className="group block"
+              >
+                <div className="overflow-hidden rounded-xl mb-4">
+                  <img 
+                    src={industry.image} 
+                    alt={industry.name} 
+                    className="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground flex items-center gap-2 group-hover:text-primary transition-colors">
+                  {industry.name}
+                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                </h3>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-6">Não encontrou seu setor?</h2>
-          <p className="text-primary-foreground/80 mb-8">Entre em contato e criaremos uma solução personalizada.</p>
+          <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
+            Entre em contato e criaremos uma solução personalizada para o seu negócio.
+          </p>
           <Button size="lg" variant="secondary" asChild>
-            <Link to="/contato">Fale Conosco</Link>
+            <Link to="/contato">
+              Fale Conosco
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </section>
