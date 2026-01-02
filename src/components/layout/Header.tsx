@@ -95,19 +95,19 @@ const Header = () => {
         { name: t("sectors.electrical"), slug: "eletrica", icon: Zap },
         { name: t("sectors.landscaping"), slug: "paisagismo", icon: TreeDeciduous },
         { name: t("sectors.pool"), slug: "piscinas", icon: Waves },
-        { name: t("sectors.painters"), slug: "pintores", icon: PaintBucket },
+        { name: t("sectors.painters"), slug: "pintura", icon: PaintBucket },
         { name: t("sectors.flooring"), slug: "pisos", icon: Grid3X3 },
       ]
     },
     {
       title: t("megaMenu.sectors.healthWellness"),
       items: [
-        { name: t("sectors.medicalClinic"), slug: "clinicas-medicas", icon: Stethoscope },
-        { name: t("sectors.dentist"), slug: "dentistas", icon: Smile },
-        { name: t("sectors.chiropractor"), slug: "quiropraticos", icon: PersonStanding },
-        { name: t("sectors.veterinary"), slug: "veterinarios", icon: PawPrint },
-        { name: t("sectors.hairSalon"), slug: "saloes-de-cabelo", icon: Scissors },
-        { name: t("sectors.spaMassage"), slug: "spas-massagens", icon: Flower2 },
+        { name: t("sectors.medicalClinic"), slug: "clinica-medica", icon: Stethoscope },
+        { name: t("sectors.dentist"), slug: "dentista", icon: Smile },
+        { name: t("sectors.chiropractor"), slug: "quiropraxia", icon: PersonStanding },
+        { name: t("sectors.veterinary"), slug: "veterinario", icon: PawPrint },
+        { name: t("sectors.hairSalon"), slug: "salao-beleza", icon: Scissors },
+        { name: t("sectors.spaMassage"), slug: "spa-massagem", icon: Flower2 },
       ]
     },
     {
@@ -116,7 +116,7 @@ const Header = () => {
         { name: t("sectors.construction"), slug: "construcao", icon: HardHat },
         { name: t("sectors.roofing"), slug: "telhados", icon: Home },
         { name: t("sectors.moving"), slug: "mudancas", icon: Truck },
-        { name: t("sectors.pestControl"), slug: "controle-de-pragas", icon: Bug },
+        { name: t("sectors.pestControl"), slug: "controle-pragas", icon: Bug },
         { name: t("sectors.locksmith"), slug: "chaveiro", icon: Key },
         { name: t("sectors.homeInspection"), slug: "inspecao-residencial", icon: ClipboardCheck },
       ]
