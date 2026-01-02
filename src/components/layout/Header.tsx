@@ -2,7 +2,39 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
+import { 
+  Menu, 
+  X, 
+  ChevronDown, 
+  Phone, 
+  MessageSquare, 
+  Plug2, 
+  Award,
+  Sparkles,
+  Wind,
+  Wrench,
+  Zap,
+  TreeDeciduous,
+  Waves,
+  PaintBucket,
+  Grid3X3,
+  Stethoscope,
+  Smile,
+  PersonStanding,
+  PawPrint,
+  Scissors,
+  Flower2,
+  HardHat,
+  Home,
+  Truck,
+  Bug,
+  Key,
+  ClipboardCheck,
+  Building,
+  Building2,
+  MapPin,
+  ArrowRight
+} from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -24,21 +56,77 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
   const isActivePrefix = (prefix: string) => location.pathname.startsWith(prefix);
 
-  const industries = [
-    { name: t("nav.cleaning"), slug: "limpeza", highlight: true },
-    { name: t("nav.construction"), slug: "construcao" },
-    { name: t("industries.hvac"), slug: "hvac" },
-    { name: t("industries.plumbing"), slug: "encanamento" },
-    { name: t("nav.electrical"), slug: "eletrica" },
-    { name: t("industries.landscaping"), slug: "paisagismo" },
-    { name: t("sectors.medicalClinic"), slug: "clinicas-medicas" },
-    { name: t("nav.viewAll"), slug: "", isViewAll: true },
+  // Product menu items with icons
+  const productItems = [
+    { 
+      name: t("nav.voiceReceptionist"), 
+      desc: t("megaMenu.product.voiceDesc"),
+      slug: "/produto/recepcionista-ia-voz", 
+      icon: Phone 
+    },
+    { 
+      name: t("nav.chatAttendant"), 
+      desc: t("megaMenu.product.chatDesc"),
+      slug: "/produto/atendente-ia-conversacional", 
+      icon: MessageSquare 
+    },
+    { 
+      name: t("megaMenu.product.integrations"), 
+      desc: t("megaMenu.product.integrationsDesc"),
+      slug: "/produto/recepcionista-ia-voz#integrations", 
+      icon: Plug2 
+    },
+    { 
+      name: t("megaMenu.product.whyClickone"), 
+      desc: t("megaMenu.product.whyClickoneDesc"),
+      slug: "/sobre", 
+      icon: Award 
+    },
+  ];
+
+  // Sectors organized by category
+  const sectorCategories = [
+    {
+      title: t("megaMenu.sectors.homeServices"),
+      items: [
+        { name: t("sectors.cleaning"), slug: "limpeza", icon: Sparkles },
+        { name: t("sectors.hvac"), slug: "hvac", icon: Wind },
+        { name: t("sectors.plumbing"), slug: "encanamento", icon: Wrench },
+        { name: t("sectors.electrical"), slug: "eletrica", icon: Zap },
+        { name: t("sectors.landscaping"), slug: "paisagismo", icon: TreeDeciduous },
+        { name: t("sectors.pool"), slug: "piscinas", icon: Waves },
+        { name: t("sectors.painters"), slug: "pintores", icon: PaintBucket },
+        { name: t("sectors.flooring"), slug: "pisos", icon: Grid3X3 },
+      ]
+    },
+    {
+      title: t("megaMenu.sectors.healthWellness"),
+      items: [
+        { name: t("sectors.medicalClinic"), slug: "clinicas-medicas", icon: Stethoscope },
+        { name: t("sectors.dentist"), slug: "dentistas", icon: Smile },
+        { name: t("sectors.chiropractor"), slug: "quiropraticos", icon: PersonStanding },
+        { name: t("sectors.veterinary"), slug: "veterinarios", icon: PawPrint },
+        { name: t("sectors.hairSalon"), slug: "saloes-de-cabelo", icon: Scissors },
+        { name: t("sectors.spaMassage"), slug: "spas-massagens", icon: Flower2 },
+      ]
+    },
+    {
+      title: t("megaMenu.sectors.constructionOthers"),
+      items: [
+        { name: t("sectors.construction"), slug: "construcao", icon: HardHat },
+        { name: t("sectors.roofing"), slug: "telhados", icon: Home },
+        { name: t("sectors.moving"), slug: "mudancas", icon: Truck },
+        { name: t("sectors.pestControl"), slug: "controle-de-pragas", icon: Bug },
+        { name: t("sectors.locksmith"), slug: "chaveiro", icon: Key },
+        { name: t("sectors.homeInspection"), slug: "inspecao-residencial", icon: ClipboardCheck },
+      ]
+    }
   ];
 
   const businessTypes = [
-    { name: t("nav.smallBusiness"), description: "1-10", slug: "/empresas/pequena-empresa" },
-    { name: t("nav.mediumBusiness"), description: "11-50", slug: "/empresas/media-empresa" },
-    { name: t("nav.localBusiness"), slug: "/empresas/negocios-locais" },
+    { name: t("nav.smallBusiness"), slug: "/empresas/pequena-empresa", icon: Building },
+    { name: t("nav.mediumBusiness"), slug: "/empresas/media-empresa", icon: Building2 },
+    { name: t("nav.localBusiness"), slug: "/empresas/negocios-locais", icon: MapPin },
   ];
 
   return (
@@ -61,7 +149,7 @@ const Header = () => {
             Home
           </Link>
           
-          {/* Produto Dropdown */}
+          {/* Produto Mega Menu */}
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -81,44 +169,55 @@ const Header = () => {
                   </span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[300px] gap-2 p-4 bg-primary backdrop-blur-lg border border-primary-foreground/20 shadow-xl rounded-md">
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          to="/produto/recepcionista-ia-voz"
-                          className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-foreground/10 text-primary-foreground ${
-                            isActive("/produto/recepcionista-ia-voz") ? "bg-primary-foreground/15 border-l-2 border-primary-foreground" : ""
-                          }`}
-                        >
-                          <div className="text-sm font-medium leading-none">{t("nav.voiceReceptionist")}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-primary-foreground/70">
-                            {t("voiceProduct.subtitle")}
-                          </p>
+                  <div className="flex w-[600px] shadow-2xl rounded-lg overflow-hidden">
+                    {/* Left Panel - CTA */}
+                    <div className="w-1/3 bg-primary p-6 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-lg font-bold text-primary-foreground mb-2">
+                          {t("megaMenu.product.title")}
+                        </h3>
+                        <p className="text-sm text-primary-foreground/80 mb-6">
+                          {t("megaMenu.product.description")}
+                        </p>
+                      </div>
+                      <Button asChild size="sm" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full">
+                        <Link to="/agendar-demo" className="flex items-center gap-2">
+                          {t("megaMenu.product.cta")}
+                          <ArrowRight className="h-4 w-4" />
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          to="/produto/atendente-ia-conversacional"
-                          className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-foreground/10 text-primary-foreground ${
-                            isActive("/produto/atendente-ia-conversacional") ? "bg-primary-foreground/15 border-l-2 border-primary-foreground" : ""
-                          }`}
-                        >
-                          <div className="text-sm font-medium leading-none">{t("nav.chatAttendant")}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-primary-foreground/70">
-                            {t("chatProduct.subtitle")}
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
+                      </Button>
+                    </div>
+                    
+                    {/* Right Grid - Products */}
+                    <div className="w-2/3 bg-background p-4">
+                      <div className="grid grid-cols-2 gap-2">
+                        {productItems.map((item) => (
+                          <NavigationMenuLink asChild key={item.slug}>
+                            <Link
+                              to={item.slug}
+                              className={`flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-primary/5 group ${
+                                isActive(item.slug) ? "bg-primary/10" : ""
+                              }`}
+                            >
+                              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                                <item.icon className="h-5 w-5 text-primary" />
+                              </div>
+                              <div>
+                                <div className="text-sm font-semibold text-foreground">{item.name}</div>
+                                <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
+                              </div>
+                            </Link>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
-          {/* A quem servimos - Mega Menu */}
+          {/* Setores Mega Menu */}
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -138,65 +237,74 @@ const Header = () => {
                   </span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid grid-cols-2 w-[520px] bg-primary backdrop-blur-lg border border-primary-foreground/20 shadow-xl rounded-md">
-                    {/* Indústrias Column */}
-                    <div className="p-5 border-r border-primary-foreground/20">
-                      <h3 className="text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider mb-4">
-                        {t("nav.sectors")}
-                      </h3>
-                      <ul className="space-y-1">
-                        {industries.map((industry) => (
-                          <li key={industry.slug || 'view-all'}>
-                            <NavigationMenuLink asChild>
+                  <div className="flex w-[900px] shadow-2xl rounded-lg overflow-hidden">
+                    {/* Left Panel - CTA */}
+                    <div className="w-1/4 bg-primary p-6 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-lg font-bold text-primary-foreground mb-2">
+                          {t("megaMenu.sectors.title")}
+                        </h3>
+                        <p className="text-sm text-primary-foreground/80 mb-6">
+                          {t("megaMenu.sectors.description")}
+                        </p>
+                      </div>
+                      <div className="space-y-3">
+                        <Button asChild size="sm" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full">
+                          <Link to="/setores" className="flex items-center gap-2">
+                            {t("megaMenu.sectors.cta")}
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                        
+                        {/* Business Types */}
+                        <div className="pt-4 border-t border-primary-foreground/20">
+                          <p className="text-xs text-primary-foreground/60 uppercase tracking-wider mb-3">{t("nav.companies")}</p>
+                          <div className="space-y-2">
+                            {businessTypes.map((type) => (
                               <Link
-                                to={industry.isViewAll ? "/setores" : `/setores/${industry.slug}`}
-                                className={`flex items-center justify-between py-2 px-3 rounded-md text-sm transition-colors hover:bg-primary-foreground/10 text-primary-foreground ${
-                                  industry.highlight 
-                                    ? "font-medium bg-primary-foreground/5" 
-                                    : ""
-                                } ${industry.isViewAll ? "font-medium mt-2" : ""} ${
-                                  isActive(`/setores/${industry.slug}`) || (industry.isViewAll && isActive("/setores"))
-                                    ? "bg-primary-foreground/15 border-l-2 border-primary-foreground" 
-                                    : ""
-                                }`}
-                              >
-                                {industry.name}
-                                {industry.highlight && <ChevronRight className="h-4 w-4" />}
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Tipos de Empresa Column */}
-                    <div className="p-5">
-                      <h3 className="text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider mb-4">
-                        {t("nav.companies")}
-                      </h3>
-                      <ul className="space-y-1">
-                        {businessTypes.map((type) => (
-                          <li key={type.name}>
-                            <NavigationMenuLink asChild>
-                              <Link
+                                key={type.slug}
                                 to={type.slug}
-                                className={`block py-2 px-3 rounded-md transition-colors hover:bg-primary-foreground/10 ${
-                                  isActive(type.slug) ? "bg-primary-foreground/15 border-l-2 border-primary-foreground" : ""
+                                className={`flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors ${
+                                  isActive(type.slug) ? "text-primary-foreground font-medium" : ""
                                 }`}
                               >
-                                <div className={`text-sm font-medium text-primary-foreground ${isActive(type.slug) ? "font-semibold" : ""}`}>
-                                  {type.name}
-                                </div>
-                                {type.description && (
-                                  <p className="text-xs text-primary-foreground/70">
-                                    {type.description}
-                                  </p>
-                                )}
+                                <type.icon className="h-4 w-4" />
+                                {type.name}
                               </Link>
-                            </NavigationMenuLink>
-                          </li>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Right Grid - Sectors by Category */}
+                    <div className="w-3/4 bg-background p-5">
+                      <div className="grid grid-cols-3 gap-6">
+                        {sectorCategories.map((category) => (
+                          <div key={category.title}>
+                            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
+                              {category.title}
+                            </h4>
+                            <div className="space-y-1">
+                              {category.items.map((item) => (
+                                <NavigationMenuLink asChild key={item.slug}>
+                                  <Link
+                                    to={`/setores/${item.slug}`}
+                                    className={`flex items-center gap-2.5 py-2 px-2 rounded-md transition-colors hover:bg-primary/5 group ${
+                                      isActive(`/setores/${item.slug}`) ? "bg-primary/10" : ""
+                                    }`}
+                                  >
+                                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                                      <item.icon className="h-3.5 w-3.5 text-primary" />
+                                    </div>
+                                    <span className="text-sm text-foreground">{item.name}</span>
+                                  </Link>
+                                </NavigationMenuLink>
+                              ))}
+                            </div>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   </div>
                 </NavigationMenuContent>
@@ -275,29 +383,22 @@ const Header = () => {
                 <ChevronDown className={`h-4 w-4 transition-transform ${productDropdownOpen ? "rotate-180" : ""}`} />
               </button>
               {productDropdownOpen && (
-                <div className="pl-6 flex flex-col gap-2 mt-2">
-                  <Link
-                    to="/produto/recepcionista-ia-voz"
-                    className={`text-sm py-2 border-l-2 pl-3 ${
-                      isActive("/produto/recepcionista-ia-voz") 
-                        ? "text-primary-foreground border-primary-foreground font-medium" 
-                        : "text-primary-foreground/70 border-transparent"
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {t("nav.voiceReceptionist")}
-                  </Link>
-                  <Link
-                    to="/produto/atendente-ia-conversacional"
-                    className={`text-sm py-2 border-l-2 pl-3 ${
-                      isActive("/produto/atendente-ia-conversacional") 
-                        ? "text-primary-foreground border-primary-foreground font-medium" 
-                        : "text-primary-foreground/70 border-transparent"
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {t("nav.chatAttendant")}
-                  </Link>
+                <div className="pl-4 flex flex-col gap-1 mt-2">
+                  {productItems.map((item) => (
+                    <Link
+                      key={item.slug}
+                      to={item.slug}
+                      className={`flex items-center gap-3 text-sm py-2 pl-3 border-l-2 ${
+                        isActive(item.slug) 
+                          ? "text-primary-foreground border-primary-foreground font-medium" 
+                          : "text-primary-foreground/70 border-transparent"
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <item.icon className="h-4 w-4" />
+                      {item.name}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
@@ -316,50 +417,57 @@ const Header = () => {
                 <ChevronDown className={`h-4 w-4 transition-transform ${whoWeServeDropdownOpen ? "rotate-180" : ""}`} />
               </button>
               {whoWeServeDropdownOpen && (
-                <div className="pl-6 flex flex-col gap-2 mt-2">
-                  <span className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wider py-2">
-                    {t("nav.sectors")}
-                  </span>
-                  {industries.slice(0, 5).map((industry) => (
-                    <Link
-                      key={industry.slug}
-                      to={`/setores/${industry.slug}`}
-                      className={`text-sm py-2 border-l-2 pl-3 ${
-                        isActive(`/setores/${industry.slug}`) 
-                          ? "text-primary-foreground border-primary-foreground font-medium" 
-                          : "text-primary-foreground/70 border-transparent"
-                      }`}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {industry.name}
-                    </Link>
+                <div className="pl-4 flex flex-col gap-2 mt-2">
+                  {sectorCategories.map((category) => (
+                    <div key={category.title}>
+                      <span className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wider py-1 pl-3 block">
+                        {category.title}
+                      </span>
+                      {category.items.slice(0, 3).map((item) => (
+                        <Link
+                          key={item.slug}
+                          to={`/setores/${item.slug}`}
+                          className={`flex items-center gap-3 text-sm py-2 pl-3 border-l-2 ${
+                            isActive(`/setores/${item.slug}`) 
+                              ? "text-primary-foreground border-primary-foreground font-medium" 
+                              : "text-primary-foreground/70 border-transparent"
+                          }`}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          <item.icon className="h-4 w-4" />
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
                   ))}
                   <Link
                     to="/setores"
-                    className={`text-sm font-medium py-2 border-l-2 pl-3 ${
+                    className={`flex items-center gap-2 text-sm font-medium py-2 pl-3 border-l-2 mt-2 ${
                       isActive("/setores") 
                         ? "text-primary-foreground border-primary-foreground" 
                         : "text-primary-foreground border-transparent"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
+                    <ArrowRight className="h-4 w-4" />
                     {t("nav.viewAll")}
                   </Link>
                   
-                  <span className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wider py-2 mt-2">
+                  <span className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wider py-2 pl-3 mt-2 block">
                     {t("nav.companies")}
                   </span>
                   {businessTypes.map((type) => (
                     <Link
-                      key={type.name}
+                      key={type.slug}
                       to={type.slug}
-                      className={`text-sm py-2 border-l-2 pl-3 ${
+                      className={`flex items-center gap-3 text-sm py-2 pl-3 border-l-2 ${
                         isActive(type.slug) 
                           ? "text-primary-foreground border-primary-foreground font-medium" 
                           : "text-primary-foreground/70 border-transparent"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
+                      <type.icon className="h-4 w-4" />
                       {type.name}
                     </Link>
                   ))}

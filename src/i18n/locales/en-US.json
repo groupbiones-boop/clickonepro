@@ -22,6 +22,27 @@
     "bookDemo": "Book Demo",
     "login": "Login"
   },
+  "megaMenu": {
+    "product": {
+      "title": "See ClickOne in Action",
+      "description": "Discover how ClickOne AI transforms every call into opportunity.",
+      "cta": "Book Demo",
+      "voiceDesc": "Answer calls 24/7 with natural voice",
+      "chatDesc": "Convert visitors via intelligent chat",
+      "integrations": "Integrations",
+      "integrationsDesc": "Connect with your favorite tools",
+      "whyClickone": "Why ClickOne?",
+      "whyClickoneDesc": "Cutting-edge technology, dedicated support"
+    },
+    "sectors": {
+      "title": "Solutions for Your Industry",
+      "description": "AI specifically trained for your market segment.",
+      "cta": "View All Industries",
+      "homeServices": "Home Services",
+      "healthWellness": "Health & Wellness",
+      "constructionOthers": "Construction & Others"
+    }
+  },
   "hero": {
     "badge": "AI Receptionist for Service Businesses",
     "title1": "Never Miss A Call.",

@@ -22,6 +22,27 @@
     "bookDemo": "Agendar Demo",
     "login": "Conecte-se"
   },
+  "megaMenu": {
+    "product": {
+      "title": "Veja a ClickOne em Ação",
+      "description": "Descubra como a ClickOne AI transforma cada ligação em oportunidade.",
+      "cta": "Agendar Demo",
+      "voiceDesc": "Atenda ligações 24/7 com voz natural",
+      "chatDesc": "Converta visitantes via chat inteligente",
+      "integrations": "Integrações",
+      "integrationsDesc": "Conecte com suas ferramentas favoritas",
+      "whyClickone": "Por que ClickOne?",
+      "whyClickoneDesc": "Tecnologia de ponta, suporte dedicado"
+    },
+    "sectors": {
+      "title": "Soluções para Seu Setor",
+      "description": "IA treinada especificamente para o seu segmento de mercado.",
+      "cta": "Ver Todos os Setores",
+      "homeServices": "Serviços Domésticos",
+      "healthWellness": "Saúde e Bem-estar",
+      "constructionOthers": "Construção e Outros"
+    }
+  },
   "hero": {
     "badge": "Recepcionista IA para Empresas de Serviços",
     "title1": "Nunca Perca Uma Ligação.",
