@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CheckCircle, Loader2 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
@@ -8,23 +8,9 @@ const Obrigado = () => {
   const { t } = useTranslation();
   const [isWidgetLoading, setIsWidgetLoading] = useState(true);
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://beta.leadconnectorhq.com/loader.js";
-    script.setAttribute("data-resources-url", "https://beta.leadconnectorhq.com/chat-widget/loader.js");
-    script.setAttribute("data-widget-id", "689a6e0381758b3ba63c1230");
-    script.async = true;
-    script.onload = () => {
-      setTimeout(() => setIsWidgetLoading(false), 1500);
-    };
-    document.body.appendChild(script);
-
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+  const handleIframeLoad = () => {
+    setTimeout(() => setIsWidgetLoading(false), 500);
+  };
 
   return (
     <Layout>
@@ -71,7 +57,7 @@ const Obrigado = () => {
                 {t("thankYou.ctaButton")}
               </h3>
               
-              <div className="relative bg-card border border-border/50 rounded-2xl shadow-xl overflow-hidden min-h-[500px]">
+              <div className="relative bg-card border border-border/50 rounded-2xl shadow-xl overflow-hidden" style={{ height: "600px" }}>
                 {isWidgetLoading && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-card z-10">
                     <Loader2 className="h-8 w-8 animate-spin text-primary mb-4" />
@@ -79,11 +65,12 @@ const Obrigado = () => {
                   </div>
                 )}
                 
-                <div 
-                  data-chat-widget 
-                  data-widget-id="689a6e0381758b3ba63c1230" 
-                  data-location-id="yUk5li3I0wg4YGcbKlSF"
-                  className="w-full h-full min-h-[500px]"
+                <iframe
+                  src="https://widgets.leadconnectorhq.com/widget/chat-widget/chatV2?locationId=yUk5li3I0wg4YGcbKlSF&widgetId=689a6e0381758b3ba63c1230"
+                  className="w-full h-full border-0"
+                  title="Chat com Bia"
+                  onLoad={handleIframeLoad}
+                  allow="microphone; camera"
                 />
               </div>
             </div>
