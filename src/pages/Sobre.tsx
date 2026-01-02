@@ -26,6 +26,10 @@ import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import logoClutch from "@/assets/logo-clutch.svg";
+import logoG2 from "@/assets/logo-g2.svg";
+import logoCapterra from "@/assets/logo-capterra.svg";
+import logoTrustpilot from "@/assets/logo-trustpilot.svg";
 
 const Sobre = () => {
   const { t } = useTranslation();
@@ -160,6 +164,47 @@ const Sobre = () => {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Social Proof Logos */}
+      <section className="py-12 bg-background border-y border-border/50">
+        <div className="container">
+          <AnimatedSection animation="fade-up">
+            <div className="text-center mb-8">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider font-medium">
+                {t("whyClickone.trustedBy")}
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
+              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                <img src={logoClutch} alt="Clutch" className="h-8 md:h-10 w-auto" />
+              </div>
+              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                <img src={logoG2} alt="G2" className="h-8 md:h-10 w-auto" />
+              </div>
+              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                <img src={logoCapterra} alt="Capterra" className="h-8 md:h-10 w-auto" />
+              </div>
+              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
+                <img src={logoTrustpilot} alt="Trustpilot" className="h-8 md:h-10 w-auto" />
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50">
+                <Star className="h-4 w-4 fill-primary text-primary" />
+                <span className="text-sm font-medium">4.9/5 Clutch</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50">
+                <Star className="h-4 w-4 fill-primary text-primary" />
+                <span className="text-sm font-medium">4.8/5 G2</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50">
+                <Award className="h-4 w-4 text-primary" />
+                <span className="text-sm font-medium">{t("whyClickone.topRated")}</span>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
