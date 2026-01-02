@@ -21,6 +21,8 @@ import PequenaEmpresa from "./pages/empresas/PequenaEmpresa";
 import MediaEmpresa from "./pages/empresas/MediaEmpresa";
 import NegociosLocais from "./pages/empresas/NegociosLocais";
 import GenerateDemoAudio from "./pages/admin/GenerateDemoAudio";
+import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
+import TermsOfService from "./pages/legal/TermsOfService";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +49,8 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/obrigado" element={<Obrigado />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/admin/generate-audio" element={<GenerateDemoAudio />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
