@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import MobileSidebar from "./components/MobileSidebar";
 import DateRangePicker from "./components/DateRangePicker";
 import NotificationCenter from "./components/NotificationCenter";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import DashboardTab from "./components/DashboardTab";
 import OverviewTab from "./components/OverviewTab";
 import SiteTab from "./components/SiteTab";
@@ -97,6 +98,7 @@ const DashboardContent = () => {
               endDate={endDate}
               onDateChange={handleDateChange}
             />
+            <DarkModeToggle />
             <NotificationCenter />
           </div>
         </header>

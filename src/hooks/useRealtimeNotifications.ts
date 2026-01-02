@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -13,10 +13,40 @@ export interface Notification {
   created_at: string;
 }
 
+// Notification sound - simple beep using Web Audio API
+const playNotificationSound = () => {
+  try {
+    const audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = 800;
+    oscillator.type = "sine";
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.3);
+  } catch (error) {
+    console.log("Could not play notification sound:", error);
+  }
+};
+
 export const useRealtimeNotifications = () => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [unreadCount, setUnreadCount] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const { toast } = useToast();
+  const hasNewNotification = useRef(false);
+
+  const triggerAnimation = useCallback(() => {
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 2000);
+  }, []);
 
   // Fetch initial notifications
   useEffect(() => {
@@ -54,6 +84,10 @@ export const useRealtimeNotifications = () => {
           const newNotification = payload.new as Notification;
           setNotifications((prev) => [newNotification, ...prev]);
           setUnreadCount((prev) => prev + 1);
+          
+          // Play sound and trigger animation
+          playNotificationSound();
+          triggerAnimation();
 
           // Show toast
           const variant =
@@ -75,7 +109,7 @@ export const useRealtimeNotifications = () => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [toast]);
+  }, [toast, triggerAnimation]);
 
   // Subscribe to new leads
   useEffect(() => {
@@ -90,8 +124,13 @@ export const useRealtimeNotifications = () => {
         },
         (payload) => {
           const newLead = payload.new as { email: string; name?: string; source?: string };
+          
+          // Play sound and trigger animation
+          playNotificationSound();
+          triggerAnimation();
+          
           toast({
-            title: "🎉 New Lead!",
+            title: "🎉 Novo Lead!",
             description: `${newLead.name || newLead.email} via ${newLead.source || "website"}`,
           });
         }
@@ -101,7 +140,7 @@ export const useRealtimeNotifications = () => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [toast]);
+  }, [toast, triggerAnimation]);
 
   const markAsRead = async (id: string) => {
     const { error } = await supabase
@@ -132,6 +171,7 @@ export const useRealtimeNotifications = () => {
   return {
     notifications,
     unreadCount,
+    isAnimating,
     markAsRead,
     markAllAsRead,
   };
