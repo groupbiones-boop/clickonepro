@@ -39,8 +39,8 @@ const LanguageSwitcher = () => {
         className="flex items-center gap-1.5 px-2 py-1.5 rounded-md hover:bg-background/10 transition-colors text-background"
         aria-label="Select language"
       >
-        <span className="text-xl leading-none">{currentLanguage.flag}</span>
-        <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <span className="text-2xl leading-none">{currentLanguage.flag}</span>
+        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (
@@ -53,7 +53,7 @@ const LanguageSwitcher = () => {
                 currentLanguage.code === lang.code ? 'bg-muted' : ''
               }`}
             >
-              <span className="text-xl leading-none">{lang.flag}</span>
+              <span className="text-2xl leading-none">{lang.flag}</span>
               <span>{lang.name}</span>
             </button>
           ))}

@@ -156,9 +156,6 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Link to="/blog" className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">
-            Blog
-          </Link>
           <Link to="/sobre" className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">
             Sobre
           </Link>
@@ -279,13 +276,6 @@ const Header = () => {
               )}
             </div>
 
-            <Link
-              to="/blog"
-              className="text-sm font-medium py-2 text-primary-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Blog
-            </Link>
             <Link
               to="/sobre"
               className="text-sm font-medium py-2 text-primary-foreground"
