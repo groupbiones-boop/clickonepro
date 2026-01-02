@@ -180,49 +180,49 @@ const Index = () => {
       {/* Social Proof Ratings */}
       <section className="bg-foreground py-8 border-y border-border/20">
         <div className="container">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 lg:gap-24">
             {/* Clutch */}
             <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-2xl">4.8</span>
+              <span className="text-background/90 font-bold text-xl">4.8</span>
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
                 ))}
               </div>
-              <img src={logoClutch} alt="Clutch" className="h-6" />
+              <img src={logoClutch} alt="Clutch" className="h-8" />
             </div>
             
             {/* G2 */}
             <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-2xl">4.9</span>
+              <span className="text-background/90 font-bold text-xl">4.9</span>
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
                 ))}
               </div>
-              <img src={logoG2} alt="G2" className="h-7" />
+              <img src={logoG2} alt="G2" className="h-8" />
             </div>
             
             {/* Capterra */}
             <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-2xl">4.8</span>
+              <span className="text-background/90 font-bold text-xl">4.8</span>
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
                 ))}
               </div>
-              <img src={logoCapterra} alt="Capterra" className="h-6" />
+              <img src={logoCapterra} alt="Capterra" className="h-8" />
             </div>
             
             {/* Trustpilot */}
             <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-2xl">4.3</span>
+              <span className="text-background/90 font-bold text-xl">4.3</span>
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className={`h-4 w-4 ${i < 4 ? 'fill-green-500 text-green-500' : 'fill-green-500/30 text-green-500/30'}`} />
                 ))}
               </div>
-              <img src={logoTrustpilot} alt="Trustpilot" className="h-6" />
+              <img src={logoTrustpilot} alt="Trustpilot" className="h-7" />
             </div>
           </div>
         </div>
