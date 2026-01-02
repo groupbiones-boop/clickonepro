@@ -33,21 +33,21 @@ const Login = () => {
         const { error } = await signUp(email, password);
         if (error) {
           toast({
-            title: "Error",
+            title: "Erro",
             description: error.message,
             variant: "destructive",
           });
         } else {
           toast({
-            title: "Account created",
-            description: "Please contact an administrator to grant you admin access.",
+            title: "Conta criada",
+            description: "Entre em contato com um administrador para conceder acesso.",
           });
         }
       } else {
         const { error } = await signIn(email, password);
         if (error) {
           toast({
-            title: "Error",
+            title: "Erro",
             description: error.message,
             variant: "destructive",
           });
@@ -55,8 +55,8 @@ const Login = () => {
       }
     } catch (error) {
       toast({
-        title: "Error",
-        description: "An unexpected error occurred",
+        title: "Erro",
+        description: "Ocorreu um erro inesperado",
         variant: "destructive",
       });
     } finally {
@@ -81,26 +81,26 @@ const Login = () => {
               <Lock className="h-8 w-8 text-primary-foreground" />
             </div>
           </div>
-          <CardTitle className="text-2xl">Admin Dashboard</CardTitle>
+          <CardTitle className="text-2xl">Painel Administrativo</CardTitle>
           <CardDescription>
-            {isSignUp ? "Create an admin account" : "Sign in to access the dashboard"}
+            {isSignUp ? "Criar uma conta de administrador" : "Entre para acessar o painel"}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">E-mail</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="admin@example.com"
+                placeholder="admin@exemplo.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">Senha</Label>
               <Input
                 id="password"
                 type="password"
@@ -115,12 +115,12 @@ const Login = () => {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  {isSignUp ? "Creating account..." : "Signing in..."}
+                  {isSignUp ? "Criando conta..." : "Entrando..."}
                 </>
               ) : isSignUp ? (
-                "Create Account"
+                "Criar Conta"
               ) : (
-                "Sign In"
+                "Entrar"
               )}
             </Button>
           </form>
@@ -131,8 +131,8 @@ const Login = () => {
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               {isSignUp
-                ? "Already have an account? Sign in"
-                : "Need an account? Sign up"}
+                ? "Já tem uma conta? Entre"
+                : "Não tem conta? Cadastre-se"}
             </button>
           </div>
         </CardContent>
