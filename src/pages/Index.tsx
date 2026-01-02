@@ -351,9 +351,8 @@ const Index = () => {
                   <span className="w-8 h-[2px] bg-destructive" />
                   O Problema
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
-                  Ligações Perdidas = <br />
-                  <span className="text-destructive">Dinheiro Perdido</span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 leading-tight">
+                  <span className="whitespace-nowrap">Ligações Perdidas</span> = <span className="text-destructive whitespace-nowrap">Dinheiro Perdido</span>
                 </h2>
                 <ul className="space-y-5">
                   <li className="flex items-start gap-4 group/item">
