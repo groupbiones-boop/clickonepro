@@ -57,8 +57,8 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
     clientes: data.clientes,
   };
 
-  // Width percentages for each stage (decreasing)
-  const widthPercentages = [100, 85, 70, 55, 40];
+  // Width percentages for each stage (much more dramatic narrowing)
+  const widthPercentages = [100, 75, 55, 40, 28];
 
   return (
     <Card className="h-full">
@@ -66,7 +66,7 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
         <CardTitle className="text-lg">Funil de Conversão</CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
-        <div className="space-y-3">
+        <div className="space-y-1">
           {FUNNEL_STAGES.map((stage, index) => {
             const Icon = stage.icon;
             const value = values[stage.key];
@@ -78,23 +78,30 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
                 className="flex items-center gap-3 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Funnel Bar with Icon */}
+                {/* Funnel Bar - trapezoid shape wider at top, narrower at bottom */}
                 <div 
-                  className="relative flex items-center justify-between px-4 py-3 rounded-r-full transition-all duration-300 hover:opacity-90"
+                  className="relative flex items-center justify-between px-4 py-4 transition-all duration-300 hover:opacity-90 mx-auto"
                   style={{ 
                     width: `${widthPercent}%`,
                     backgroundColor: stage.color,
-                    clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%)",
+                    clipPath: "polygon(8px 0, calc(100% - 8px) 0, 100% 100%, 0 100%)",
                   }}
                 >
-                  <Icon className="h-5 w-5 text-white" />
-                  <span className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center w-7 h-7 rounded-full bg-white/20 text-white font-bold text-sm">
+                  {/* Icon in white rounded square */}
+                  <div className="flex items-center justify-center w-8 h-8 bg-white rounded-lg">
+                    <Icon className="h-4 w-4" style={{ color: stage.color }} />
+                  </div>
+                  {/* Number in white circle */}
+                  <span 
+                    className="flex items-center justify-center w-7 h-7 rounded-full bg-white font-bold text-sm"
+                    style={{ color: stage.color }}
+                  >
                     {index + 1}
                   </span>
                 </div>
 
                 {/* Connector Line */}
-                <div className="flex-1 border-t-2 border-dashed border-muted-foreground/30 min-w-[20px]" />
+                <div className="flex-1 border-t-2 border-muted-foreground/30 min-w-[20px]" />
 
                 {/* Label and Value */}
                 <div className="text-right min-w-[140px]">
