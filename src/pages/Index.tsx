@@ -177,6 +177,57 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
+      {/* Social Proof Ratings */}
+      <section className="bg-foreground py-8 border-y border-border/20">
+        <div className="container">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+            {/* Clutch */}
+            <div className="flex items-center gap-3">
+              <span className="text-background/90 font-bold text-2xl">4.8</span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
+                ))}
+              </div>
+              <img src={logoClutch} alt="Clutch" className="h-6" />
+            </div>
+            
+            {/* G2 */}
+            <div className="flex items-center gap-3">
+              <span className="text-background/90 font-bold text-2xl">4.9</span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
+                ))}
+              </div>
+              <img src={logoG2} alt="G2" className="h-7" />
+            </div>
+            
+            {/* Capterra */}
+            <div className="flex items-center gap-3">
+              <span className="text-background/90 font-bold text-2xl">4.8</span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
+                ))}
+              </div>
+              <img src={logoCapterra} alt="Capterra" className="h-6" />
+            </div>
+            
+            {/* Trustpilot */}
+            <div className="flex items-center gap-3">
+              <span className="text-background/90 font-bold text-2xl">4.3</span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className={`h-4 w-4 ${i < 4 ? 'fill-green-500 text-green-500' : 'fill-green-500/30 text-green-500/30'}`} />
+                ))}
+              </div>
+              <img src={logoTrustpilot} alt="Trustpilot" className="h-6" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Audio Demo Section */}
       <section className="py-16 md:py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.05),transparent_50%)]" />
@@ -229,58 +280,6 @@ const Index = () => {
           </AnimatedSection>
         </div>
       </section>
-
-      {/* Social Proof Ratings */}
-      <section className="bg-foreground py-8 border-y border-border/20">
-        <div className="container">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
-            {/* Clutch */}
-            <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-2xl">4.8</span>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
-                ))}
-              </div>
-              <img src={logoClutch} alt="Clutch" className="h-6" />
-            </div>
-            
-            {/* G2 */}
-            <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-2xl">4.9</span>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
-                ))}
-              </div>
-              <img src={logoG2} alt="G2" className="h-7" />
-            </div>
-            
-            {/* Capterra */}
-            <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-2xl">4.8</span>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
-                ))}
-              </div>
-              <img src={logoCapterra} alt="Capterra" className="h-6" />
-            </div>
-            
-            {/* Trustpilot */}
-            <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-2xl">4.3</span>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className={`h-4 w-4 ${i < 4 ? 'fill-green-500 text-green-500' : 'fill-green-500/30 text-green-500/30'}`} />
-                ))}
-              </div>
-              <img src={logoTrustpilot} alt="Trustpilot" className="h-6" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Problem & Solution - Enhanced */}
       <section className="py-20 md:py-32 bg-background relative overflow-hidden">
         {/* Subtle Background Pattern */}
