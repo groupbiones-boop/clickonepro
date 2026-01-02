@@ -1,4 +1,7 @@
 {
+  "common": {
+    "bookFreeDemo": "Book Free Demo"
+  },
   "nav": {
     "product": "Product",
     "voiceReceptionist": "AI Voice Receptionist",

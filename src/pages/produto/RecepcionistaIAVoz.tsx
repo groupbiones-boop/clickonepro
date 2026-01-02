@@ -23,43 +23,43 @@ const RecepcionistaIAVoz = () => {
   const features = [
     {
       icon: Mic,
-      title: t("recepcionistaVoz.features.naturalVoice.title"),
-      description: t("recepcionistaVoz.features.naturalVoice.description"),
+      title: t("voiceProduct.feature1Title"),
+      description: t("voiceProduct.feature1Desc"),
     },
     {
       icon: Clock,
-      title: t("recepcionistaVoz.features.available247.title"),
-      description: t("recepcionistaVoz.features.available247.description"),
+      title: t("voiceProduct.feature2Title"),
+      description: t("voiceProduct.feature2Desc"),
     },
     {
       icon: Calendar,
-      title: t("recepcionistaVoz.features.autoScheduling.title"),
-      description: t("recepcionistaVoz.features.autoScheduling.description"),
+      title: t("voiceProduct.feature3Title"),
+      description: t("voiceProduct.feature3Desc"),
     },
     {
       icon: Users,
-      title: t("recepcionistaVoz.features.leadQualification.title"),
-      description: t("recepcionistaVoz.features.leadQualification.description"),
+      title: t("voiceProduct.feature4Title"),
+      description: t("voiceProduct.feature4Desc"),
     },
     {
       icon: Globe,
-      title: t("recepcionistaVoz.features.multiLanguage.title"),
-      description: t("recepcionistaVoz.features.multiLanguage.description"),
+      title: t("voiceProduct.feature5Title"),
+      description: t("voiceProduct.feature5Desc"),
     },
     {
       icon: BarChart3,
-      title: t("recepcionistaVoz.features.analytics.title"),
-      description: t("recepcionistaVoz.features.analytics.description"),
+      title: t("voiceProduct.feature6Title"),
+      description: t("voiceProduct.feature6Desc"),
     },
   ];
 
   const benefits = [
-    t("recepcionistaVoz.benefits.missedCalls"),
-    t("recepcionistaVoz.benefits.conversionRate"),
-    t("recepcionistaVoz.benefits.savings"),
-    t("recepcionistaVoz.benefits.setup"),
-    t("recepcionistaVoz.benefits.integrations"),
-    t("recepcionistaVoz.benefits.support"),
+    t("voiceProduct.benefit1"),
+    t("voiceProduct.benefit2"),
+    t("voiceProduct.benefit3"),
+    t("voiceProduct.benefit4"),
+    t("voiceProduct.benefit5"),
+    t("voiceProduct.benefit6"),
   ];
 
   return (
@@ -70,14 +70,14 @@ const RecepcionistaIAVoz = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection animation="fade-left">
               <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-                {t("recepcionistaVoz.hero.badge")}
+                {t("voiceProduct.badge")}
               </span>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                {t("recepcionistaVoz.hero.title")}{" "}
-                <span className="text-primary">{t("recepcionistaVoz.hero.titleHighlight")}</span>
+                {t("voiceProduct.title")}{" "}
+                <span className="text-primary">{t("voiceProduct.titleHighlight")}</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                {t("recepcionistaVoz.hero.subtitle")}
+                {t("voiceProduct.subtitle")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
@@ -87,7 +87,7 @@ const RecepcionistaIAVoz = () => {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/setores">{t("recepcionistaVoz.hero.viewSectors")}</Link>
+                  <Link to="/setores">{t("voiceProduct.ctaSecondary")}</Link>
                 </Button>
               </div>
             </AnimatedSection>
@@ -95,7 +95,7 @@ const RecepcionistaIAVoz = () => {
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src={heroVoiceAi} 
-                  alt={t("recepcionistaVoz.hero.imageAlt")} 
+                  alt={t("voiceProduct.title")} 
                   className="w-full h-auto"
                 />
               </div>
@@ -112,25 +112,25 @@ const RecepcionistaIAVoz = () => {
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={80} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("recepcionistaVoz.stats.lessMissedCalls")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("voiceProduct.lessMissedCalls")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={100}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={40} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("recepcionistaVoz.stats.moreConversions")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("voiceProduct.moreConversions")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={200}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={24} suffix="h" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("recepcionistaVoz.stats.quickSetup")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("voiceProduct.quickSetup")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={300}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={50} suffix="+" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("recepcionistaVoz.stats.integrations")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("voiceProduct.integrations")}</p>
             </AnimatedSection>
           </div>
         </div>
@@ -141,10 +141,10 @@ const RecepcionistaIAVoz = () => {
         <div className="container">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("recepcionistaVoz.featuresSection.title")}
+              {t("voiceProduct.featuresTitle")}
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              {t("recepcionistaVoz.featuresSection.subtitle")}
+              {t("voiceProduct.featuresSubtitle")}
             </p>
           </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -171,7 +171,7 @@ const RecepcionistaIAVoz = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection animation="fade-left">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                {t("recepcionistaVoz.howItWorks.title")}
+                {t("voiceProduct.howItWorksTitle")}
               </h2>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -179,9 +179,9 @@ const RecepcionistaIAVoz = () => {
                     1
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("recepcionistaVoz.howItWorks.step1.title")}</h3>
+                    <h3 className="font-semibold mb-1">{t("voiceProduct.step1Title")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      {t("recepcionistaVoz.howItWorks.step1.description")}
+                      {t("voiceProduct.step1Desc")}
                     </p>
                   </div>
                 </div>
@@ -190,9 +190,9 @@ const RecepcionistaIAVoz = () => {
                     2
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("recepcionistaVoz.howItWorks.step2.title")}</h3>
+                    <h3 className="font-semibold mb-1">{t("voiceProduct.step2Title")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      {t("recepcionistaVoz.howItWorks.step2.description")}
+                      {t("voiceProduct.step2Desc")}
                     </p>
                   </div>
                 </div>
@@ -201,9 +201,9 @@ const RecepcionistaIAVoz = () => {
                     3
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("recepcionistaVoz.howItWorks.step3.title")}</h3>
+                    <h3 className="font-semibold mb-1">{t("voiceProduct.step3Title")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      {t("recepcionistaVoz.howItWorks.step3.description")}
+                      {t("voiceProduct.step3Desc")}
                     </p>
                   </div>
                 </div>
@@ -212,9 +212,9 @@ const RecepcionistaIAVoz = () => {
                     4
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("recepcionistaVoz.howItWorks.step4.title")}</h3>
+                    <h3 className="font-semibold mb-1">{t("voiceProduct.step4Title")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      {t("recepcionistaVoz.howItWorks.step4.description")}
+                      {t("voiceProduct.step4Desc")}
                     </p>
                   </div>
                 </div>
@@ -222,7 +222,7 @@ const RecepcionistaIAVoz = () => {
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={200}>
               <div className="bg-accent/50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-6">{t("recepcionistaVoz.benefitsSection.title")}</h3>
+                <h3 className="text-2xl font-bold mb-6">{t("voiceProduct.benefitsTitle")}</h3>
                 <ul className="space-y-4">
                   {benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -242,10 +242,10 @@ const RecepcionistaIAVoz = () => {
         <div className="container text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {t("recepcionistaVoz.cta.title")}
+              {t("voiceProduct.ctaTitle")}
             </h2>
             <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-              {t("recepcionistaVoz.cta.subtitle")}
+              {t("voiceProduct.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" asChild>
               <Link to="/agendar-demo">

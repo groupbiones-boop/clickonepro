@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { useTranslation } from "react-i18next";
+import heroLocalBusiness from "@/assets/hero-local-business.jpg";
 
 const NegociosLocais = () => {
   const { t } = useTranslation();
@@ -60,13 +61,10 @@ const NegociosLocais = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-primary/5 via-background to-accent/30 relative overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
-        
-        <div className="container relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <AnimatedSection animation="fade-up">
+      <section className="relative overflow-hidden py-20 md:py-32">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <AnimatedSection animation="fade-left">
               <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
                 {t("localBusiness.badge")}
               </span>
@@ -76,7 +74,7 @@ const NegociosLocais = () => {
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
                 {t("localBusiness.subtitle")}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
                   <Link to="/agendar-demo">
                     {t("localBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
@@ -85,6 +83,15 @@ const NegociosLocais = () => {
                 <Button size="lg" variant="outline" asChild>
                   <Link to="/contato">{t("localBusiness.ctaSecondary")}</Link>
                 </Button>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-right" delay={200}>
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src={heroLocalBusiness} 
+                  alt={t("localBusiness.title")} 
+                  className="w-full h-auto"
+                />
               </div>
             </AnimatedSection>
           </div>
