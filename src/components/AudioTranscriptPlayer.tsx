@@ -161,7 +161,7 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
   const displayProgress = (currentTime / displayDuration) * 100;
 
   return (
-    <div className="grid md:grid-cols-2 gap-6 bg-card rounded-2xl border border-border/50 overflow-hidden shadow-lg">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 bg-card rounded-2xl border border-border/50 overflow-hidden shadow-lg">
       {/* Left side - Image and Player */}
       <div className="flex flex-col">
         <div className="relative aspect-[4/3] overflow-hidden">
@@ -241,7 +241,7 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
       </div>
       
       {/* Right side - Transcript */}
-      <div className="flex flex-col h-[400px]">
+      <div className="flex flex-col h-[300px] md:h-[400px]">
         <div className="p-4 border-b border-border/50 flex-shrink-0">
           <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
             Real-Time Transcript
