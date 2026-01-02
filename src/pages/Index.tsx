@@ -242,7 +242,7 @@ const Index = () => {
                   <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
                 ))}
               </div>
-              <img src={logoClutch} alt="Clutch" className="h-6 brightness-0 invert" />
+              <img src={logoClutch} alt="Clutch" className="h-6" />
             </div>
             
             {/* G2 */}
