@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { ArrowRight, Search } from "lucide-react";
@@ -26,31 +27,32 @@ import industrySpaMassage from "@/assets/industry-spa-massage.jpg";
 import industryHomeInspection from "@/assets/industry-home-inspection.jpg";
 import industryFlooring from "@/assets/industry-flooring.jpg";
 
-const industries = [
-  { name: "Empresas de Limpeza", slug: "limpeza", image: industryCleaning, description: "Limpeza residencial e comercial" },
-  { name: "Construção & Reformas", slug: "construcao", image: industryConstruction, description: "Construtoras e empreiteiras" },
-  { name: "HVAC / Climatização", slug: "hvac", image: industryHvac, description: "Ar condicionado e refrigeração" },
-  { name: "Encanamento", slug: "encanamento", image: industryPlumbing, description: "Serviços hidráulicos" },
-  { name: "Serviços Elétricos", slug: "eletrica", image: industryElectrical, description: "Eletricistas e instalações" },
-  { name: "Paisagismo", slug: "paisagismo", image: industryLandscaping, description: "Jardinagem e paisagismo" },
-  { name: "Serviços de Piscina", slug: "piscinas", image: industryPool, description: "Manutenção e limpeza de piscinas" },
-  { name: "Empresas de Mudança", slug: "mudancas", image: industryMoving, description: "Mudanças residenciais e comerciais" },
-  { name: "Serviços de Telhado", slug: "telhados", image: industryRoofing, description: "Reparos e instalação de telhados" },
-  { name: "Controle de Pragas", slug: "controle-pragas", image: industryPestControl, description: "Exterminação e prevenção de pragas" },
-  { name: "Chaveiro", slug: "chaveiro", image: industryLocksmith, description: "Serviços de chaveiro 24h" },
-  { name: "Pintores", slug: "pintores", image: industryPainters, description: "Pintura residencial e comercial" },
-  { name: "Dentistas", slug: "dentistas", image: industryDentist, description: "Clínicas odontológicas" },
-  { name: "Quiropráticos", slug: "quiropraticos", image: industryChiropractor, description: "Clínicas de quiropraxia" },
-  { name: "Veterinários", slug: "veterinarios", image: industryVeterinary, description: "Clínicas veterinárias" },
-  { name: "Clínicas Médicas", slug: "clinicas-medicas", image: industryMedicalClinic, description: "Clínicas de saúde e bem-estar" },
-  { name: "Salões de Cabelo", slug: "saloes-cabelo", image: industryHairSalon, description: "Salões de beleza e cabeleireiros" },
-  { name: "Spas e Massagens", slug: "spas-massagens", image: industrySpaMassage, description: "Spas e terapias de relaxamento" },
-  { name: "Inspeção Residencial", slug: "inspecao-residencial", image: industryHomeInspection, description: "Inspeções de imóveis" },
-  { name: "Pisos", slug: "pisos", image: industryFlooring, description: "Instalação e reparo de pisos" },
-];
-
 const Setores = () => {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState("");
+
+  const industries = [
+    { name: t("sectors.cleaning"), slug: "limpeza", image: industryCleaning, description: t("sectors.cleaningDesc") },
+    { name: t("sectors.construction"), slug: "construcao", image: industryConstruction, description: t("sectors.constructionDesc") },
+    { name: t("sectors.hvac"), slug: "hvac", image: industryHvac, description: t("sectors.hvacDesc") },
+    { name: t("sectors.plumbing"), slug: "encanamento", image: industryPlumbing, description: t("sectors.plumbingDesc") },
+    { name: t("sectors.electrical"), slug: "eletrica", image: industryElectrical, description: t("sectors.electricalDesc") },
+    { name: t("sectors.landscaping"), slug: "paisagismo", image: industryLandscaping, description: t("sectors.landscapingDesc") },
+    { name: t("sectors.pool"), slug: "piscinas", image: industryPool, description: t("sectors.poolDesc") },
+    { name: t("sectors.moving"), slug: "mudancas", image: industryMoving, description: t("sectors.movingDesc") },
+    { name: t("sectors.roofing"), slug: "telhados", image: industryRoofing, description: t("sectors.roofingDesc") },
+    { name: t("sectors.pestControl"), slug: "controle-pragas", image: industryPestControl, description: t("sectors.pestControlDesc") },
+    { name: t("sectors.locksmith"), slug: "chaveiro", image: industryLocksmith, description: t("sectors.locksmithDesc") },
+    { name: t("sectors.painters"), slug: "pintores", image: industryPainters, description: t("sectors.paintersDesc") },
+    { name: t("sectors.dentist"), slug: "dentistas", image: industryDentist, description: t("sectors.dentistDesc") },
+    { name: t("sectors.chiropractor"), slug: "quiropraticos", image: industryChiropractor, description: t("sectors.chiropractorDesc") },
+    { name: t("sectors.veterinary"), slug: "veterinarios", image: industryVeterinary, description: t("sectors.veterinaryDesc") },
+    { name: t("sectors.medicalClinic"), slug: "clinicas-medicas", image: industryMedicalClinic, description: t("sectors.medicalClinicDesc") },
+    { name: t("sectors.hairSalon"), slug: "saloes-cabelo", image: industryHairSalon, description: t("sectors.hairSalonDesc") },
+    { name: t("sectors.spaMassage"), slug: "spas-massagens", image: industrySpaMassage, description: t("sectors.spaMassageDesc") },
+    { name: t("sectors.homeInspection"), slug: "inspecao-residencial", image: industryHomeInspection, description: t("sectors.homeInspectionDesc") },
+    { name: t("sectors.flooring"), slug: "pisos", image: industryFlooring, description: t("sectors.flooringDesc") },
+  ];
 
   const filteredIndustries = industries.filter((industry) =>
     industry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -59,25 +61,23 @@ const Setores = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
       <section className="py-16 md:py-24 bg-foreground">
         <div className="container">
           <AnimatedSection animation="fade-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6">
-              Setores em que atuamos
+              {t("sectors.title")}
             </h1>
             <p className="text-lg md:text-xl text-background/70 max-w-2xl mb-10">
-              Soluções baseadas em IA para atender às necessidades específicas do seu negócio.
+              {t("sectors.subtitle")}
             </p>
           </AnimatedSection>
 
-          {/* Search Input */}
           <AnimatedSection animation="fade-up" delay={100}>
             <div className="relative max-w-lg mb-12">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Pesquisar setores..."
+                placeholder={t("sectors.searchPlaceholder")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-12 py-6 text-base bg-background border-0 rounded-lg"
@@ -85,10 +85,9 @@ const Setores = () => {
             </div>
           </AnimatedSection>
 
-          {/* Industry Pills/Tags */}
           <AnimatedSection animation="fade-up" delay={200}>
             <p className="text-background/60 text-sm mb-4">
-              {filteredIndustries.length} setores disponíveis
+              {filteredIndustries.length} {t("sectors.available")}
             </p>
             <div className="flex flex-wrap gap-3">
               {filteredIndustries.map((industry) => (
@@ -106,7 +105,6 @@ const Setores = () => {
         </div>
       </section>
 
-      {/* Industry Cards Grid */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -134,17 +132,16 @@ const Setores = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container text-center">
           <AnimatedSection>
-            <h2 className="text-3xl font-bold mb-6">Não encontrou seu setor?</h2>
+            <h2 className="text-3xl font-bold mb-6">{t("sectors.ctaTitle")}</h2>
             <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-              Entre em contato e criaremos uma solução personalizada para o seu negócio.
+              {t("sectors.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" asChild>
               <Link to="/contato">
-                Fale Conosco
+                {t("sectors.ctaButton")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Phone, Mail, MapPin } from "lucide-react";
 import clickoneLogoNew from "@/assets/clickone-logo-new.png";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-foreground text-background">
       <div className="container py-12 md:py-16">
@@ -11,22 +14,22 @@ const Footer = () => {
           <div className="space-y-4">
             <img src={clickoneLogoNew} alt="ClickOne AI" className="h-8 md:h-10 w-auto" />
             <p className="text-background/70 text-sm">
-              Transformando o atendimento ao cliente com inteligência artificial de voz e conversacional.
+              {t("footer.description")}
             </p>
           </div>
 
           {/* Produto */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Produto</h3>
+            <h3 className="font-semibold text-lg">{t("footer.product")}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/produto/recepcionista-ia-voz" className="text-background/70 hover:text-background text-sm transition-colors">
-                  Recepcionista IA de Voz
+                  {t("nav.voiceReceptionist")}
                 </Link>
               </li>
               <li>
                 <Link to="/produto/atendente-ia-conversacional" className="text-background/70 hover:text-background text-sm transition-colors">
-                  Atendente IA Conversacional
+                  {t("nav.chatAttendant")}
                 </Link>
               </li>
             </ul>
@@ -34,31 +37,31 @@ const Footer = () => {
 
           {/* Setores */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Setores</h3>
+            <h3 className="font-semibold text-lg">{t("footer.sectors")}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/setores/limpeza" className="text-background/70 hover:text-background text-sm transition-colors">
-                  Empresas de Limpeza
+                  {t("industries.cleaning")}
                 </Link>
               </li>
               <li>
                 <Link to="/setores/construcao" className="text-background/70 hover:text-background text-sm transition-colors">
-                  Construção & Reformas
+                  {t("industries.construction")}
                 </Link>
               </li>
               <li>
                 <Link to="/setores/hvac" className="text-background/70 hover:text-background text-sm transition-colors">
-                  HVAC / Climatização
+                  {t("industries.hvac")}
                 </Link>
               </li>
               <li>
                 <Link to="/setores/encanamento" className="text-background/70 hover:text-background text-sm transition-colors">
-                  Encanamento
+                  {t("industries.plumbing")}
                 </Link>
               </li>
               <li>
                 <Link to="/setores" className="text-primary hover:text-primary/80 text-sm transition-colors font-medium">
-                  Ver todos os setores →
+                  {t("footer.viewAllSectors")}
                 </Link>
               </li>
             </ul>
@@ -66,7 +69,7 @@ const Footer = () => {
 
           {/* Contato */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Contato</h3>
+            <h3 className="font-semibold text-lg">{t("footer.contact")}</h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-background/70 text-sm">
                 <Phone className="h-4 w-4" />
@@ -86,17 +89,17 @@ const Footer = () => {
 
         <div className="border-t border-background/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-background/60 text-sm">
-            © {new Date().getFullYear()} ClickOne AI. Todos os direitos reservados.
+            © {new Date().getFullYear()} ClickOne AI. {t("footer.rights")}
           </p>
           <div className="flex gap-6">
             <Link to="/sobre" className="text-background/60 hover:text-background text-sm transition-colors">
-              Sobre
+              {t("footer.about")}
             </Link>
             <Link to="/blog" className="text-background/60 hover:text-background text-sm transition-colors">
-              Blog
+              {t("footer.blog")}
             </Link>
             <Link to="/contato" className="text-background/60 hover:text-background text-sm transition-colors">
-              Contato
+              {t("footer.contact")}
             </Link>
           </div>
         </div>

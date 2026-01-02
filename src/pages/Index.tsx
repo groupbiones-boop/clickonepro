@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
@@ -33,72 +34,73 @@ import logoG2 from "@/assets/logo-g2.svg";
 import logoCapterra from "@/assets/logo-capterra.svg";
 import logoTrustpilot from "@/assets/logo-trustpilot.svg";
 
-const industries = [
-  { name: "Empresas de Limpeza", slug: "limpeza", image: industryCleaning },
-  { name: "Construção & Reformas", slug: "construcao", image: industryConstruction },
-  { name: "HVAC / Climatização", slug: "hvac", image: industryHvac },
-  { name: "Encanamento", slug: "encanamento", image: industryPlumbing },
-  { name: "Serviços Elétricos", slug: "eletrica", image: industryElectrical },
-  { name: "Paisagismo", slug: "paisagismo", image: industryLandscaping },
-];
-
-const features = [
-  {
-    icon: Clock,
-    title: "Atendimento 24/7",
-    description: "Nunca perca uma chamada, mesmo fora do horário comercial.",
-  },
-  {
-    icon: Calendar,
-    title: "Agendamento Automático",
-    description: "A IA agenda serviços diretamente na sua agenda.",
-  },
-  {
-    icon: Users,
-    title: "Qualificação de Leads",
-    description: "Identifica e prioriza os melhores clientes automaticamente.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Aumento de Conversões",
-    description: "Mais leads convertidos em clientes pagantes.",
-  },
-];
-
-const channels = [
-  { name: "Telefone", icon: Phone },
-  { name: "SMS", icon: MessageSquare },
-  { name: "WhatsApp", icon: Smartphone },
-  { name: "Instagram", icon: MessageSquare },
-  { name: "Facebook", icon: MessageSquare },
-  { name: "Website Chat", icon: Bot },
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "Cliente Liga",
-    description: "Seu cliente liga ou envia mensagem a qualquer hora.",
-  },
-  {
-    number: "02",
-    title: "IA Atende",
-    description: "Nossa IA atende instantaneamente, sem tempo de espera.",
-  },
-  {
-    number: "03",
-    title: "Qualifica & Agenda",
-    description: "A IA coleta informações e agenda o serviço.",
-  },
-  {
-    number: "04",
-    title: "Você Recebe",
-    description: "Você recebe o lead qualificado e agendado.",
-  },
-];
-
 const Index = () => {
+  const { t } = useTranslation();
   const [selectedDemo, setSelectedDemo] = useState(audioDemos[0]);
+
+  const industries = [
+    { name: t("industries.cleaning"), slug: "limpeza", image: industryCleaning },
+    { name: t("industries.construction"), slug: "construcao", image: industryConstruction },
+    { name: t("industries.hvac"), slug: "hvac", image: industryHvac },
+    { name: t("industries.plumbing"), slug: "encanamento", image: industryPlumbing },
+    { name: t("industries.electrical"), slug: "eletrica", image: industryElectrical },
+    { name: t("industries.landscaping"), slug: "paisagismo", image: industryLandscaping },
+  ];
+
+  const features = [
+    {
+      icon: Clock,
+      title: t("features.feature1Title"),
+      description: t("features.feature1Desc"),
+    },
+    {
+      icon: Calendar,
+      title: t("features.feature2Title"),
+      description: t("features.feature2Desc"),
+    },
+    {
+      icon: Users,
+      title: t("features.feature3Title"),
+      description: t("features.feature3Desc"),
+    },
+    {
+      icon: TrendingUp,
+      title: t("features.feature4Title"),
+      description: t("features.feature4Desc"),
+    },
+  ];
+
+  const channels = [
+    { name: t("omnichannel.phone"), icon: Phone },
+    { name: t("omnichannel.sms"), icon: MessageSquare },
+    { name: t("omnichannel.whatsapp"), icon: Smartphone },
+    { name: "Instagram", icon: MessageSquare },
+    { name: "Facebook", icon: MessageSquare },
+    { name: t("omnichannel.webchat"), icon: Bot },
+  ];
+
+  const steps = [
+    {
+      number: "01",
+      title: t("howItWorks.step1Title"),
+      description: t("howItWorks.step1Desc"),
+    },
+    {
+      number: "02",
+      title: t("howItWorks.step2Title"),
+      description: t("howItWorks.step2Desc"),
+    },
+    {
+      number: "03",
+      title: t("howItWorks.step3Title"),
+      description: t("howItWorks.step3Desc"),
+    },
+    {
+      number: "04",
+      title: t("howItWorks.step4Title"),
+      description: t("howItWorks.step4Desc"),
+    },
+  ];
 
   return (
     <Layout>
@@ -125,33 +127,32 @@ const Index = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2 mb-8 animate-fade-in">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm text-primary-foreground/90 font-medium">Recepcionista IA para Empresas de Serviços</span>
+              <span className="text-sm text-primary-foreground/90 font-medium">{t("hero.badge")}</span>
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-background leading-tight">
-              Nunca Perca Uma Ligação.{" "}
+              {t("hero.title1")}{" "}
               <span className="relative">
                 <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
-                  Nunca Perca Um Cliente.
+                  {t("hero.title2")}
                 </span>
                 <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full" />
               </span>
             </h1>
             
             <p className="text-lg md:text-xl text-background/70 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Recepcionista virtual com inteligência artificial que atende chamadas,
-              qualifica leads e agenda serviços 24 horas por dia, 7 dias por semana.
+              {t("hero.subtitle")}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="group text-base px-8 py-6 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all" asChild>
                 <Link to="/agendar-demo">
-                  Agendar Demo Grátis
+                  {t("hero.cta")}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="text-base px-8 py-6 bg-background/10 border-background/30 text-background hover:bg-background/20 hover:border-background/50 backdrop-blur-sm" asChild>
-                <Link to="/setores">Ver Setores Atendidos</Link>
+                <Link to="/setores">{t("hero.ctaSecondary")}</Link>
               </Button>
             </div>
             
@@ -159,15 +160,15 @@ const Index = () => {
             <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-background/50">
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="text-sm">Setup em 24h</span>
+                <span className="text-sm">{t("hero.trust1")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="text-sm">Sem contrato longo</span>
+                <span className="text-sm">{t("hero.trust2")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="text-sm">Suporte em português</span>
+                <span className="text-sm">{t("hero.trust3")}</span>
               </div>
             </div>
           </div>
@@ -291,13 +292,13 @@ const Index = () => {
           <AnimatedSection className="text-center mb-10">
             <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
               <Headphones className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Demonstração ao Vivo</span>
+              <span className="text-sm font-medium text-primary">{t("audioDemo.badge")}</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ouça Nossa IA em Ação
+              {t("audioDemo.title")}
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Escute demonstrações reais de como a ClickOne AI atende chamadas e qualifica leads para diferentes tipos de negócios.
+              {t("audioDemo.subtitle")}
             </p>
           </AnimatedSection>
 
@@ -324,11 +325,11 @@ const Index = () => {
 
           <AnimatedSection animation="fade-up" delay={300} className="text-center mt-10">
             <p className="text-muted-foreground mb-4">
-              Impressionado? Veja como isso pode funcionar para seu negócio.
+              {t("audioDemo.impressed")}
             </p>
             <Button asChild>
               <Link to="/agendar-demo">
-                Agendar Minha Demo Personalizada
+                {t("audioDemo.cta")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -349,28 +350,28 @@ const Index = () => {
               <div className="relative bg-card rounded-2xl p-8 md:p-10 border border-border/50 h-full">
                 <div className="inline-flex items-center gap-2 text-destructive text-sm font-semibold mb-6 uppercase tracking-wide">
                   <span className="w-8 h-[2px] bg-destructive" />
-                  O Problema
+                  {t("problem.label")}
                 </div>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 leading-tight">
-                  <span className="whitespace-nowrap">Ligações Perdidas</span> = <span className="text-destructive whitespace-nowrap">Dinheiro Perdido</span>
+                  <span className="whitespace-nowrap">{t("problem.title")}</span> = <span className="text-destructive whitespace-nowrap">{t("problem.titleHighlight")}</span>
                 </h2>
                 <ul className="space-y-5">
                   <li className="flex items-start gap-4 group/item">
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold text-sm">✗</span>
                     <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
-                      <strong className="text-foreground">62%</strong> das chamadas para pequenas empresas não são atendidas
+                      <strong className="text-foreground">62%</strong> {t("problem.stat1")}
                     </span>
                   </li>
                   <li className="flex items-start gap-4 group/item">
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold text-sm">✗</span>
                     <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
-                      <strong className="text-foreground">85%</strong> dos clientes não ligam de volta após uma chamada perdida
+                      <strong className="text-foreground">85%</strong> {t("problem.stat2")}
                     </span>
                   </li>
                   <li className="flex items-start gap-4 group/item">
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold text-sm">✗</span>
                     <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
-                      Você está no trabalho e <strong className="text-foreground">não pode atender</strong> o telefone
+                      {t("problem.stat3")} <strong className="text-foreground">{t("problem.stat3Bold")}</strong> {t("problem.stat3End")}
                     </span>
                   </li>
                 </ul>
@@ -385,11 +386,11 @@ const Index = () => {
               <div className="relative bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl p-8 md:p-10 border border-primary/20 h-full">
                 <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-6 uppercase tracking-wide">
                   <span className="w-8 h-[2px] bg-primary" />
-                  A Solução
+                  {t("solution.label")}
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
-                  ClickOne AI <br />
-                  <span className="text-primary">Trabalha Por Você</span>
+                  {t("solution.title")} <br />
+                  <span className="text-primary">{t("solution.titleHighlight")}</span>
                 </h3>
                 <ul className="space-y-5">
                   <li className="flex items-start gap-4 group/item">
@@ -397,7 +398,7 @@ const Index = () => {
                       <CheckCircle className="h-5 w-5 text-primary" />
                     </span>
                     <span className="text-foreground group-hover/item:text-primary transition-colors">
-                      Atendimento instantâneo <strong>24/7</strong>, sem espera
+                      {t("solution.benefit1")} <strong>{t("solution.benefit1Bold")}</strong>{t("solution.benefit1End")}
                     </span>
                   </li>
                   <li className="flex items-start gap-4 group/item">
@@ -405,7 +406,7 @@ const Index = () => {
                       <CheckCircle className="h-5 w-5 text-primary" />
                     </span>
                     <span className="text-foreground group-hover/item:text-primary transition-colors">
-                      <strong>Qualificação automática</strong> de leads
+                      <strong>{t("solution.benefit2Bold")}</strong> {t("solution.benefit2End")}
                     </span>
                   </li>
                   <li className="flex items-start gap-4 group/item">
@@ -413,7 +414,7 @@ const Index = () => {
                       <CheckCircle className="h-5 w-5 text-primary" />
                     </span>
                     <span className="text-foreground group-hover/item:text-primary transition-colors">
-                      Agendamento <strong>integrado à sua agenda</strong>
+                      {t("solution.benefit3")} <strong>{t("solution.benefit3Bold")}</strong>
                     </span>
                   </li>
                   <li className="flex items-start gap-4 group/item">
@@ -421,7 +422,7 @@ const Index = () => {
                       <CheckCircle className="h-5 w-5 text-primary" />
                     </span>
                     <span className="text-foreground group-hover/item:text-primary transition-colors">
-                      Você trabalha enquanto a <strong>IA atende</strong>
+                      {t("solution.benefit4")} <strong>{t("solution.benefit4Bold")}</strong>
                     </span>
                   </li>
                 </ul>
@@ -430,7 +431,7 @@ const Index = () => {
                 <div className="mt-8 pt-6 border-t border-primary/20">
                   <Button className="w-full group" asChild>
                     <Link to="/agendar-demo">
-                      Começar Agora
+                      {t("solution.cta")}
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </Button>
@@ -446,9 +447,9 @@ const Index = () => {
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container">
           <AnimatedSection className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Como Funciona</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("howItWorks.title")}</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Em 4 passos simples, você transforma cada ligação em uma oportunidade de negócio.
+              {t("howItWorks.subtitle")}
             </p>
           </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -472,10 +473,10 @@ const Index = () => {
         <div className="container">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Recursos Poderosos de IA
+              {t("features.title")}
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Tecnologia de ponta para maximizar seu atendimento e conversões.
+              {t("features.subtitle")}
             </p>
           </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -501,10 +502,10 @@ const Index = () => {
         <div className="container">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Atendimento Omnichannel
+              {t("omnichannel.title")}
             </h2>
             <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-              Esteja presente em todos os canais onde seus clientes estão.
+              {t("omnichannel.subtitle")}
             </p>
           </AnimatedSection>
           <AnimatedSection animation="fade-up">
@@ -529,32 +530,31 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <AnimatedSection animation="fade-left">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Aplicativo Mobile para Profissionais em Campo
+                {t("mobileApp.title")}
               </h2>
               <p className="text-muted-foreground text-lg mb-6">
-                Receba notificações instantâneas de novos leads, gerencie agendamentos
-                e acompanhe métricas em tempo real, tudo na palma da sua mão.
+                {t("mobileApp.subtitle")}
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Notificações push de novos leads</span>
+                  <span>{t("mobileApp.feature1")}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Gestão de agenda em tempo real</span>
+                  <span>{t("mobileApp.feature2")}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Histórico de conversas com clientes</span>
+                  <span>{t("mobileApp.feature3")}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Dashboard de métricas e performance</span>
+                  <span>{t("mobileApp.feature4")}</span>
                 </li>
               </ul>
               <Button asChild>
-                <Link to="/agendar-demo">Saiba Mais</Link>
+                <Link to="/agendar-demo">{t("mobileApp.cta")}</Link>
               </Button>
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={200}>
@@ -575,10 +575,10 @@ const Index = () => {
         <div className="container">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Setores que Atendemos
+              {t("industries.title")}
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Soluções personalizadas para cada tipo de negócio de serviços.
+              {t("industries.subtitle")}
             </p>
           </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -595,7 +595,7 @@ const Index = () => {
                     </div>
                     <CardContent className="pt-4">
                       <h3 className="text-lg font-semibold">{industry.name}</h3>
-                      <span className="text-sm text-primary">Saiba mais →</span>
+                      <span className="text-sm text-primary">{t("industries.learnMore")}</span>
                     </CardContent>
                   </Card>
                 </Link>
@@ -604,7 +604,7 @@ const Index = () => {
           </div>
           <div className="text-center mt-8">
             <Button variant="outline" asChild>
-              <Link to="/setores">Ver Todos os Setores</Link>
+              <Link to="/setores">{t("industries.viewAll")}</Link>
             </Button>
           </div>
         </div>
@@ -614,15 +614,14 @@ const Index = () => {
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Pronto para Transformar Seu Atendimento?
+            {t("finalCta.title")}
           </h2>
           <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-            Agende uma demonstração gratuita e veja como a ClickOne AI pode
-            aumentar suas conversões em até 40%.
+            {t("finalCta.subtitle")}
           </p>
           <Button size="lg" variant="secondary" asChild>
             <Link to="/agendar-demo">
-              Agendar Demo Grátis
+              {t("finalCta.cta")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
