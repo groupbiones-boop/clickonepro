@@ -50,16 +50,44 @@ const Sobre = () => (
       <div className="container max-w-3xl">
         <AnimatedSection animation="fade-up">
           <h2 className="text-2xl font-bold mb-4">Nossa Missão</h2>
-          <p className="text-muted-foreground mb-8">Ajudar empresas de serviços a nunca mais perder uma ligação ou lead, utilizando tecnologia de IA de ponta para automatizar o atendimento ao cliente.</p>
+          <p className="text-muted-foreground mb-8">Ajudar empresas de serviço a atender, responder e acompanhar clientes de forma automática e inteligente, utilizando inteligência artificial para aumentar eficiência, organização e conversão.</p>
+        </AnimatedSection>
+        
+        <AnimatedSection animation="fade-up" delay={100}>
+          <h2 className="text-2xl font-bold mb-4">Nossa Visão</h2>
+          <p className="text-muted-foreground mb-8">Ser a principal plataforma de inteligência artificial para atendimento e operação de empresas de serviço, eliminando falhas humanas no processo de resposta, acompanhamento e agendamento.</p>
         </AnimatedSection>
         
         <AnimatedSection animation="fade-up" delay={200}>
-          <h2 className="text-2xl font-bold mb-4">Nossos Valores</h2>
-          <ul className="space-y-3">
-            {["Inovação constante", "Foco no cliente", "Simplicidade e eficiência", "Resultados mensuráveis"].map((v, i) => (
+          <h2 className="text-2xl font-bold mb-4">O que orienta nossas decisões</h2>
+          <ul className="space-y-3 mb-8">
+            {["Atendimento imediato e contínuo", "Uso prático de inteligência artificial", "Simplicidade operacional", "Resultados mensuráveis"].map((v, i) => (
               <li key={i} className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-primary" /><span>{v}</span></li>
             ))}
           </ul>
+        </AnimatedSection>
+        
+        <AnimatedSection animation="fade-up" delay={300}>
+          <h2 className="text-2xl font-bold mb-4">Como colocamos isso em prática</h2>
+          <p className="text-muted-foreground mb-4">A ClickOne AI automatiza:</p>
+          <ul className="space-y-2 mb-8 text-muted-foreground">
+            {["Atendimento multicanal", "Respostas em tempo real", "Qualificação de leads", "Agendamentos", "Follow-up contínuo"].map((item, i) => (
+              <li key={i} className="flex items-center gap-3">
+                <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-muted-foreground">Tudo integrado em uma única plataforma, criada para operar no ritmo de empresas de serviço.</p>
+        </AnimatedSection>
+        
+        <AnimatedSection animation="fade-up" delay={400}>
+          <h2 className="text-2xl font-bold mb-4 mt-8">O resultado</h2>
+          <p className="text-lg text-muted-foreground">
+            Menos esforço operacional.<br />
+            Mais controle.<br />
+            Mais conversões.
+          </p>
         </AnimatedSection>
       </div>
     </section>
