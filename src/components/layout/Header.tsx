@@ -25,10 +25,10 @@ const industries = [
 ];
 
 const businessTypes = [
-  { name: "Pequena empresa", description: "1-10 funcionários" },
-  { name: "Média empresa", description: "11-50 funcionários" },
-  { name: "Negócios locais", description: "Uma ou várias localizações" },
-  { name: "Rede de franquias", description: "Múltiplas unidades" },
+  { name: "Pequena empresa", description: "1-10 funcionários", slug: "pequena-empresa" },
+  { name: "Média empresa", description: "11-50 funcionários", slug: "media-empresa" },
+  { name: "Negócios locais", description: "Uma ou várias localizações", slug: "negocios-locais" },
+  { name: "Rede de franquias", description: "Múltiplas unidades", slug: "rede-franquias" },
 ];
 
 const Header = () => {
@@ -135,7 +135,7 @@ const Header = () => {
                           <li key={type.name}>
                             <NavigationMenuLink asChild>
                               <Link
-                                to="/agendar-demo"
+                                to={`/empresas/${type.slug}`}
                                 className="block py-2 px-3 rounded-md transition-colors hover:bg-primary-foreground/10"
                               >
                                 <div className="text-sm font-medium text-primary-foreground">
@@ -268,7 +268,7 @@ const Header = () => {
                   {businessTypes.map((type) => (
                     <Link
                       key={type.name}
-                      to="/agendar-demo"
+                      to={`/empresas/${type.slug}`}
                       className="text-sm text-primary-foreground/70 py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
