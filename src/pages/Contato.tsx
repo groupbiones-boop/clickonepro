@@ -31,7 +31,7 @@ const Contato = () => {
             <p className="text-lg text-muted-foreground">{t("contact.subtitle")}</p>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
-            <AnimatedSection animation="fade-left">
+            <AnimatedSection animation="fade-left" className="order-2 md:order-1">
               <div className="space-y-6">
                 <div className="flex items-center gap-4 p-4 bg-card rounded-lg border border-border/50 hover:border-primary/50 transition-colors">
                   <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
@@ -53,7 +53,7 @@ const Contato = () => {
                 </div>
               </div>
             </AnimatedSection>
-            <AnimatedSection animation="fade-right" delay={200}>
+            <AnimatedSection animation="fade-right" delay={200} className="order-1 md:order-2">
               <div className="bg-card p-6 rounded-2xl shadow-xl border border-border relative overflow-hidden">
                 {/* Loading state */}
                 {isLoading && (
