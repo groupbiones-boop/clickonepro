@@ -44,17 +44,16 @@ const LanguageSwitcher = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 bg-card border border-border rounded-lg shadow-lg overflow-hidden z-50 min-w-[140px]">
+        <div className="absolute right-0 top-full mt-2 bg-card border border-border rounded-lg shadow-lg overflow-hidden z-50 min-w-[64px]">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
-              className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors ${
+              className={`w-full flex items-center justify-center px-3 py-2.5 hover:bg-muted transition-colors ${
                 currentLanguage.code === lang.code ? 'bg-muted' : ''
               }`}
             >
               <span className="text-2xl leading-none">{lang.flag}</span>
-              <span>{lang.name}</span>
             </button>
           ))}
         </div>

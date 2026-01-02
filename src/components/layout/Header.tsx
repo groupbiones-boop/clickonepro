@@ -136,8 +136,8 @@ const Header = () => {
           <img src={clickoneLogoNew} alt="ClickOne AI" className="h-8 md:h-10 w-auto" />
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        {/* Desktop Navigation - Center Menu */}
+        <nav className="hidden md:flex flex-1 items-center justify-center gap-8">
           <Link 
             to="/" 
             className={`text-sm font-medium transition-colors relative ${
@@ -332,15 +332,17 @@ const Header = () => {
           >
             {t("nav.contact")}
           </Link>
-          <LanguageSwitcher />
         </nav>
+
+        {/* Desktop Right Group - Buttons + Flag */}
         <div className="hidden md:flex items-center gap-3">
-          <Button asChild variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+          <Button asChild variant="secondary" className="min-w-[120px] h-10 justify-center bg-primary-foreground text-primary hover:bg-primary-foreground/90">
             <Link to="/agendar-demo">{t("nav.bookDemo")}</Link>
           </Button>
-          <Button asChild variant="ghost" className="bg-primary-foreground/15 border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/25 hover:border-primary-foreground/60">
+          <Button asChild variant="ghost" className="min-w-[120px] h-10 justify-center bg-primary-foreground/15 border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/25 hover:border-primary-foreground/60">
             <a href="https://app.clickonepro.com/" target="_blank" rel="noopener noreferrer">{t("nav.login")}</a>
           </Button>
+          <LanguageSwitcher />
         </div>
 
         {/* Mobile Menu Button */}
