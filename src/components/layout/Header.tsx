@@ -36,15 +36,15 @@ const Header = () => {
   const [whoWeServeDropdownOpen, setWhoWeServeDropdownOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full bg-primary">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <img src={clickoneLogo} alt="ClickOne AI" className="h-10 w-auto" />
+          <img src={clickoneLogo} alt="ClickOne AI" className="h-10 w-auto brightness-0 invert" />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-6">
-          <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+          <Link to="/" className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">
             Home
           </Link>
           
@@ -52,19 +52,19 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-sm font-medium text-foreground/80 hover:text-foreground bg-transparent">
+                <NavigationMenuTrigger className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground bg-transparent hover:bg-primary-foreground/10 data-[state=open]:bg-primary-foreground/10">
                   Produto
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[300px] gap-2 p-4 bg-background">
+                  <ul className="grid w-[300px] gap-2 p-4 bg-primary/95 backdrop-blur-sm border border-primary-foreground/20">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
                           to="/produto/recepcionista-ia-voz"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-foreground/10 text-primary-foreground"
                         >
                           <div className="text-sm font-medium leading-none">Recepcionista IA de Voz</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          <p className="line-clamp-2 text-sm leading-snug text-primary-foreground/70">
                             Atendimento telefônico automatizado 24/7
                           </p>
                         </Link>
@@ -74,10 +74,10 @@ const Header = () => {
                       <NavigationMenuLink asChild>
                         <Link
                           to="/produto/atendente-ia-conversacional"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-foreground/10 text-primary-foreground"
                         >
                           <div className="text-sm font-medium leading-none">Atendente IA Conversacional</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          <p className="line-clamp-2 text-sm leading-snug text-primary-foreground/70">
                             Automação de chat e mensagens de texto
                           </p>
                         </Link>
@@ -93,14 +93,14 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-sm font-medium text-foreground/80 hover:text-foreground bg-transparent">
+                <NavigationMenuTrigger className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground bg-transparent hover:bg-primary-foreground/10 data-[state=open]:bg-primary-foreground/10">
                   A quem servimos
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid grid-cols-2 w-[520px] bg-background">
+                  <div className="grid grid-cols-2 w-[520px] bg-primary/95 backdrop-blur-sm border border-primary-foreground/20">
                     {/* Indústrias Column */}
-                    <div className="p-5 border-r border-border">
-                      <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
+                    <div className="p-5 border-r border-primary-foreground/20">
+                      <h3 className="text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider mb-4">
                         Indústrias
                       </h3>
                       <ul className="space-y-1">
@@ -109,11 +109,11 @@ const Header = () => {
                             <NavigationMenuLink asChild>
                               <Link
                                 to={industry.isViewAll ? "/setores" : `/setores/${industry.slug}`}
-                                className={`flex items-center justify-between py-2 px-3 rounded-md text-sm transition-colors hover:bg-accent hover:text-accent-foreground ${
+                                className={`flex items-center justify-between py-2 px-3 rounded-md text-sm transition-colors hover:bg-primary-foreground/10 text-primary-foreground ${
                                   industry.highlight 
-                                    ? "text-primary font-medium bg-primary/5" 
-                                    : "text-foreground"
-                                } ${industry.isViewAll ? "text-primary font-medium mt-2" : ""}`}
+                                    ? "font-medium bg-primary-foreground/5" 
+                                    : ""
+                                } ${industry.isViewAll ? "font-medium mt-2" : ""}`}
                               >
                                 {industry.name}
                                 {industry.highlight && <ChevronRight className="h-4 w-4" />}
@@ -126,7 +126,7 @@ const Header = () => {
 
                     {/* Tipos de Empresa Column */}
                     <div className="p-5">
-                      <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
+                      <h3 className="text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider mb-4">
                         Empresas
                       </h3>
                       <ul className="space-y-1">
@@ -135,12 +135,12 @@ const Header = () => {
                             <NavigationMenuLink asChild>
                               <Link
                                 to="/agendar-demo"
-                                className="block py-2 px-3 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground"
+                                className="block py-2 px-3 rounded-md transition-colors hover:bg-primary-foreground/10"
                               >
-                                <div className="text-sm font-medium text-foreground">
+                                <div className="text-sm font-medium text-primary-foreground">
                                   {type.name}
                                 </div>
-                                <p className="text-xs text-muted-foreground">
+                                <p className="text-xs text-primary-foreground/70">
                                   {type.description}
                                 </p>
                               </Link>
@@ -155,32 +155,32 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Link to="/blog" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+          <Link to="/blog" className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">
             Blog
           </Link>
-          <Link to="/sobre" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+          <Link to="/sobre" className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">
             Sobre
           </Link>
-          <Link to="/contato" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+          <Link to="/contato" className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">
             Contato
           </Link>
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Button variant="ghost" size="sm" asChild>
+          <Button variant="ghost" size="sm" asChild className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
             <a href="https://app.clickone.ai" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               <LogIn className="h-4 w-4" />
               Acesso
             </a>
           </Button>
-          <Button asChild>
+          <Button asChild variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
             <Link to="/agendar-demo">Agendar Demo</Link>
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden p-2"
+          className="lg:hidden p-2 text-primary-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -190,11 +190,11 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-border bg-background">
+        <div className="lg:hidden bg-primary/95 backdrop-blur-sm border-t border-primary-foreground/20">
           <nav className="container py-4 flex flex-col gap-4">
             <Link
               to="/"
-              className="text-sm font-medium py-2"
+              className="text-sm font-medium py-2 text-primary-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
@@ -203,7 +203,7 @@ const Header = () => {
             {/* Produto Dropdown Mobile */}
             <div>
               <button
-                className="flex items-center justify-between w-full text-sm font-medium py-2"
+                className="flex items-center justify-between w-full text-sm font-medium py-2 text-primary-foreground"
                 onClick={() => setProductDropdownOpen(!productDropdownOpen)}
               >
                 Produto
@@ -213,14 +213,14 @@ const Header = () => {
                 <div className="pl-4 flex flex-col gap-2 mt-2">
                   <Link
                     to="/produto/recepcionista-ia-voz"
-                    className="text-sm text-muted-foreground py-2"
+                    className="text-sm text-primary-foreground/70 py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Recepcionista IA de Voz
                   </Link>
                   <Link
                     to="/produto/atendente-ia-conversacional"
-                    className="text-sm text-muted-foreground py-2"
+                    className="text-sm text-primary-foreground/70 py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Atendente IA Conversacional
@@ -232,7 +232,7 @@ const Header = () => {
             {/* A quem servimos Dropdown Mobile */}
             <div>
               <button
-                className="flex items-center justify-between w-full text-sm font-medium py-2"
+                className="flex items-center justify-between w-full text-sm font-medium py-2 text-primary-foreground"
                 onClick={() => setWhoWeServeDropdownOpen(!whoWeServeDropdownOpen)}
               >
                 A quem servimos
@@ -240,14 +240,14 @@ const Header = () => {
               </button>
               {whoWeServeDropdownOpen && (
                 <div className="pl-4 flex flex-col gap-2 mt-2">
-                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider py-2">
+                  <span className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wider py-2">
                     Indústrias
                   </span>
                   {industries.slice(0, 5).map((industry) => (
                     <Link
                       key={industry.slug}
                       to={`/setores/${industry.slug}`}
-                      className="text-sm text-muted-foreground py-2"
+                      className="text-sm text-primary-foreground/70 py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {industry.name}
@@ -255,20 +255,20 @@ const Header = () => {
                   ))}
                   <Link
                     to="/setores"
-                    className="text-sm text-primary font-medium py-2"
+                    className="text-sm text-primary-foreground font-medium py-2"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Ver todos os setores
                   </Link>
                   
-                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider py-2 mt-2">
+                  <span className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wider py-2 mt-2">
                     Empresas
                   </span>
                   {businessTypes.map((type) => (
                     <Link
                       key={type.name}
                       to="/agendar-demo"
-                      className="text-sm text-muted-foreground py-2"
+                      className="text-sm text-primary-foreground/70 py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {type.name}
@@ -280,28 +280,28 @@ const Header = () => {
 
             <Link
               to="/blog"
-              className="text-sm font-medium py-2"
+              className="text-sm font-medium py-2 text-primary-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
               Blog
             </Link>
             <Link
               to="/sobre"
-              className="text-sm font-medium py-2"
+              className="text-sm font-medium py-2 text-primary-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
               Sobre
             </Link>
             <Link
               to="/contato"
-              className="text-sm font-medium py-2"
+              className="text-sm font-medium py-2 text-primary-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contato
             </Link>
 
             <div className="flex flex-col gap-2 mt-2">
-              <Button variant="outline" asChild>
+              <Button variant="outline" asChild className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
                 <a 
                   href="https://app.clickone.ai" 
                   target="_blank" 
@@ -313,7 +313,7 @@ const Header = () => {
                   Acesso
                 </a>
               </Button>
-              <Button asChild>
+              <Button asChild variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                 <Link to="/agendar-demo" onClick={() => setMobileMenuOpen(false)}>
                   Agendar Demo
                 </Link>
