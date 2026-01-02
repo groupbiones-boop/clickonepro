@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useFunnelData } from "@/hooks/useFunnelData";
-import { Users, Eye, UserCheck, Calendar, Trophy } from "lucide-react";
+import { Binoculars, Lightbulb, MessageCircle, MousePointer, Trophy } from "lucide-react";
 
 interface ConversionFunnelProps {
   filters: {
@@ -10,11 +10,11 @@ interface ConversionFunnelProps {
 }
 
 const FUNNEL_STAGES = [
-  { key: "visitors", label: "Visitantes", icon: Users, color: "#1e3a5f" },
-  { key: "pageviews", label: "Pageviews", icon: Eye, color: "#2d5a87" },
-  { key: "leads", label: "Leads", icon: UserCheck, color: "#4a9079" },
-  { key: "agendamentos", label: "Agendamentos", icon: Calendar, color: "#6ab193" },
-  { key: "clientes", label: "Clientes", icon: Trophy, color: "#8ecfb0" },
+  { key: "visitors", label: "Prospecting", icon: Binoculars, color: "#0a4d68" },
+  { key: "pageviews", label: "Outreach", icon: Lightbulb, color: "#3d7ea6" },
+  { key: "leads", label: "Discovery & Qualification", icon: MessageCircle, color: "#5ba3b8" },
+  { key: "agendamentos", label: "Demo", icon: MousePointer, color: "#4cb8a5" },
+  { key: "clientes", label: "Closing", icon: Trophy, color: "#7ed9a4" },
 ];
 
 const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
@@ -57,13 +57,13 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
     clientes: data.clientes,
   };
 
-  // Width percentages for each stage (much more dramatic narrowing)
-  const widthPercentages = [100, 75, 55, 40, 28];
+  // Width percentages for each stage (SaaS funnel narrowing)
+  const widthPercentages = [100, 82, 66, 52, 40];
 
   return (
     <Card className="h-full">
       <CardHeader className="pb-2">
-        <CardTitle className="text-lg">Funil de Conversão</CardTitle>
+        <CardTitle className="text-lg">The SaaS Sales Funnel</CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
         <div className="space-y-1">
@@ -118,14 +118,14 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
         {/* Summary Metrics */}
         <div className="mt-6 pt-4 border-t border-border grid grid-cols-2 gap-4 text-center">
           <div>
-            <p className="text-xs text-muted-foreground">Visitante → Lead</p>
-            <p className="text-lg font-bold text-primary">
+            <p className="text-xs text-muted-foreground">Prospect → Qualified</p>
+            <p className="text-lg font-bold" style={{ color: "#0a4d68" }}>
               {data.visitors > 0 ? ((data.leads / data.visitors) * 100).toFixed(1) : 0}%
             </p>
           </div>
           <div>
-            <p className="text-xs text-muted-foreground">Lead → Cliente</p>
-            <p className="text-lg font-bold" style={{ color: "#4a9079" }}>
+            <p className="text-xs text-muted-foreground">Demo → Closed</p>
+            <p className="text-lg font-bold" style={{ color: "#4cb8a5" }}>
               {data.leads > 0 ? ((data.clientes / data.leads) * 100).toFixed(1) : 0}%
             </p>
           </div>
