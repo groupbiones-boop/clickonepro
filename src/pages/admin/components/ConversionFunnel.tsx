@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useFunnelData } from "@/hooks/useFunnelData";
-import { Users, Eye, UserPlus, Calendar, Trophy, ArrowRight } from "lucide-react";
+import { Users, Eye, UserPlus, Calendar, Trophy } from "lucide-react";
 
 interface ConversionFunnelProps {
   filters: {
@@ -10,11 +10,11 @@ interface ConversionFunnelProps {
 }
 
 const FUNNEL_STAGES = [
-  { key: "visitors", label: "Visitantes", icon: Users, color: "hsl(266, 86%, 45%)" },
-  { key: "pageviews", label: "Pageviews", icon: Eye, color: "hsl(240, 80%, 55%)" },
-  { key: "leads", label: "Leads", icon: UserPlus, color: "hsl(210, 80%, 50%)" },
-  { key: "agendamentos", label: "Agendamentos", icon: Calendar, color: "hsl(180, 70%, 45%)" },
-  { key: "clientes", label: "Clientes", icon: Trophy, color: "hsl(142, 70%, 45%)" },
+  { key: "visitors", label: "Visitantes", icon: Users, color: "hsl(221, 83%, 53%)" },
+  { key: "pageviews", label: "Pageviews", icon: Eye, color: "hsl(199, 89%, 48%)" },
+  { key: "leads", label: "Leads", icon: UserPlus, color: "hsl(142, 71%, 45%)" },
+  { key: "agendamentos", label: "Agendamentos", icon: Calendar, color: "hsl(38, 92%, 50%)" },
+  { key: "clientes", label: "Clientes", icon: Trophy, color: "hsl(0, 84%, 60%)" },
 ];
 
 const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
@@ -22,12 +22,12 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
 
   if (isLoading) {
     return (
-      <Card>
-        <CardHeader>
+      <Card className="h-full">
+        <CardHeader className="pb-2">
           <CardTitle className="text-lg">Funil de Conversão</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="h-[200px] flex items-center justify-center">
+          <div className="h-[300px] flex items-center justify-center">
             <div className="animate-pulse text-muted-foreground">Carregando...</div>
           </div>
         </CardContent>
@@ -52,96 +52,72 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
   const values = [data.visitors, data.pageviews, data.leads, data.agendamentos, data.clientes];
   const maxValue = Math.max(...values, 1);
 
-  const conversionRates = [
-    null, // No rate for first stage
-    data.rates.visitorsToPageviews,
-    data.rates.pageviewsToLeads,
-    data.rates.leadsToAgendamentos,
-    data.rates.agendamentosToClientes,
-  ];
+  // Calculate widths as percentages (min 20% for visibility)
+  const widths = values.map((v) => Math.max((v / maxValue) * 100, 20));
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-lg flex items-center gap-2">
-          <Trophy className="h-5 w-5 text-primary" />
-          Funil de Conversão Premium
-        </CardTitle>
+    <Card className="h-full">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-lg">Funil de Conversão</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      <CardContent className="pt-0">
+        {/* Funnel Shape */}
+        <div className="flex flex-col items-center gap-0">
           {FUNNEL_STAGES.map((stage, index) => {
             const value = values[index];
-            const percentage = (value / maxValue) * 100;
+            const width = widths[index];
+            const prevValue = index > 0 ? values[index - 1] : value;
+            const conversionRate = prevValue > 0 ? ((value / prevValue) * 100).toFixed(1) : "0";
             const Icon = stage.icon;
-            const rate = conversionRates[index];
+
+            // Create trapezoid shape with clip-path
+            const topWidth = index === 0 ? 100 : widths[index - 1];
+            const bottomWidth = width;
+            const topLeft = (100 - topWidth) / 2;
+            const topRight = topLeft + topWidth;
+            const bottomLeft = (100 - bottomWidth) / 2;
+            const bottomRight = bottomLeft + bottomWidth;
 
             return (
-              <div key={stage.key} className="relative">
-                {/* Conversion rate indicator */}
-                {rate !== null && index > 0 && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 flex items-center gap-1 text-xs text-muted-foreground">
-                    <ArrowRight className="h-3 w-3" />
-                    <span className="font-medium">{rate.toFixed(1)}%</span>
-                  </div>
-                )}
-                
-                <div className="flex items-center gap-4">
-                  {/* Icon and label */}
-                  <div className="flex items-center gap-2 w-32 flex-shrink-0">
-                    <div
-                      className="p-2 rounded-lg"
-                      style={{ backgroundColor: `${stage.color}20` }}
-                    >
-                      <Icon className="h-4 w-4" style={{ color: stage.color }} />
-                    </div>
-                    <span className="text-sm font-medium">{stage.label}</span>
-                  </div>
-
-                  {/* Bar */}
-                  <div className="flex-1 h-10 bg-muted rounded-lg overflow-hidden relative">
-                    <div
-                      className="h-full rounded-lg transition-all duration-1000 ease-out flex items-center justify-end pr-3"
-                      style={{
-                        width: `${Math.max(percentage, 5)}%`,
-                        background: `linear-gradient(90deg, ${stage.color}90, ${stage.color})`,
-                      }}
-                    >
-                      <span className="text-sm font-bold text-white drop-shadow-sm">
-                        {value.toLocaleString("pt-BR")}
-                      </span>
-                    </div>
+              <div key={stage.key} className="w-full relative group">
+                {/* Trapezoid Layer */}
+                <div
+                  className="h-14 flex items-center justify-center transition-all duration-500 ease-out relative overflow-hidden"
+                  style={{
+                    clipPath: `polygon(${topLeft}% 0%, ${topRight}% 0%, ${bottomRight}% 100%, ${bottomLeft}% 100%)`,
+                    backgroundColor: stage.color,
+                  }}
+                >
+                  <div className="flex items-center gap-2 text-white z-10">
+                    <Icon className="h-4 w-4" />
+                    <span className="font-semibold text-sm">{stage.label}</span>
+                    <span className="text-xs opacity-90">({value.toLocaleString("pt-BR")})</span>
                   </div>
                 </div>
+
+                {/* Conversion Rate Badge (between layers) */}
+                {index > 0 && (
+                  <div className="absolute -top-2.5 right-4 z-20 bg-background border border-border rounded-full px-2 py-0.5 text-xs font-medium shadow-sm">
+                    {conversionRate}%
+                  </div>
+                )}
               </div>
             );
           })}
         </div>
 
-        {/* Summary metrics */}
-        <div className="mt-6 pt-4 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="text-center">
+        {/* Summary Metrics */}
+        <div className="mt-4 pt-3 border-t border-border grid grid-cols-2 gap-3 text-center">
+          <div>
             <p className="text-xs text-muted-foreground">Visitante → Lead</p>
-            <p className="text-lg font-bold text-primary">
+            <p className="text-base font-bold text-primary">
               {data.visitors > 0 ? ((data.leads / data.visitors) * 100).toFixed(2) : 0}%
             </p>
           </div>
-          <div className="text-center">
-            <p className="text-xs text-muted-foreground">Lead → Agendamento</p>
-            <p className="text-lg font-bold text-chart-2">
-              {data.rates.leadsToAgendamentos.toFixed(1)}%
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-xs text-muted-foreground">Agendamento → Cliente</p>
-            <p className="text-lg font-bold text-chart-4">
-              {data.rates.agendamentosToClientes.toFixed(1)}%
-            </p>
-          </div>
-          <div className="text-center">
-            <p className="text-xs text-muted-foreground">Taxa Geral</p>
-            <p className="text-lg font-bold text-green-500">
-              {data.visitors > 0 ? ((data.clientes / data.visitors) * 100).toFixed(2) : 0}%
+          <div>
+            <p className="text-xs text-muted-foreground">Lead → Cliente</p>
+            <p className="text-base font-bold text-green-500">
+              {data.leads > 0 ? ((data.clientes / data.leads) * 100).toFixed(2) : 0}%
             </p>
           </div>
         </div>
