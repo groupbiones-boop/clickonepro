@@ -712,48 +712,11 @@
     "ctaSubtitle": "Agende uma demonstração e veja como a ClickOne AI centraliza toda sua operação."
   },
   "thankYou": {
-    "title": "Obrigado pelo Contato!",
-    "titleDemo": "Demo Agendada com Sucesso!",
-    "subtitle": "Recebemos sua mensagem com sucesso.",
-    "subtitleDemo": "Estamos ansiosos para mostrar a ClickOne AI em ação.",
-    "responseTime": "Nossa equipe entrará em contato em até 24 horas",
-    "responseTimeDemo": "Você receberá um e-mail de confirmação em breve",
-    "nextStepsTitle": "Próximos Passos",
-    "nextStepsDescription": "Veja o que acontece agora que você entrou em contato conosco.",
-    "stepLabel": "Passo {{number}}",
-    "steps": {
-      "contact": {
-        "title": "Análise da Solicitação",
-        "description": "Nossa equipe irá analisar sua solicitação e preparar uma proposta personalizada."
-      },
-      "demo": {
-        "title": "Demonstração Personalizada",
-        "description": "Agendaremos uma demo exclusiva para mostrar como a ClickOne AI funciona para seu negócio."
-      },
-      "setup": {
-        "title": "Implementação Rápida",
-        "description": "Em até 72 horas após o onboarding, sua IA estará pronta para atender seus clientes."
-      }
-    },
-    "exploreTitle": "Enquanto Isso, Explore",
-    "exploreDescription": "Conheça mais sobre nossas soluções e como podemos ajudar seu negócio.",
-    "explore": {
-      "sectors": {
-        "title": "Setores Atendidos",
-        "description": "Descubra como a ClickOne AI transforma o atendimento em diversos segmentos.",
-        "cta": "Ver Setores"
-      },
-      "voice": {
-        "title": "Recepcionista IA por Voz",
-        "description": "Conheça nossa solução de atendimento telefônico inteligente 24/7.",
-        "cta": "Saiba Mais"
-      },
-      "chat": {
-        "title": "Atendente IA Conversacional",
-        "description": "Veja como automatizamos conversas em WhatsApp, Instagram e mais.",
-        "cta": "Conhecer"
-      }
-    },
-    "backHome": "Voltar para a Página Inicial"
+    "title": "Recebemos sua solicitação! ✅",
+    "subtitle": "Obrigado por agendar sua demo com a ClickOne AI.",
+    "mainMessage": "Nossa equipe já recebeu seus dados e entrará em contato com você o mais breve possível para confirmar os detalhes da sua demonstração. Enquanto isso, se quiser adiantar o atendimento e tirar dúvidas agora, você pode falar imediatamente com a nossa Atendente Virtual ClickOne, disponível para entender seu negócio e ajudar no que for necessário.",
+    "ctaButton": "Falar agora com a Atendente Virtual",
+    "valueReinforcement": "Isso ajuda a tornar sua demo mais rápida, personalizada e objetiva.",
+    "reassurance": "Fique tranquilo. Nossa equipe está preparada para ajudar sua empresa a responder mais rápido, organizar seus leads e fechar mais negócios."
   }
 }
