@@ -1,4 +1,7 @@
 {
+  "common": {
+    "bookFreeDemo": "Agendar Demo Grátis"
+  },
   "nav": {
     "product": "Produto",
     "voiceReceptionist": "Recepcionista IA de Voz",

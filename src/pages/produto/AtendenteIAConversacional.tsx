@@ -31,70 +31,70 @@ const AtendenteIAConversacional = () => {
   const features = [
     {
       icon: MessageSquare,
-      title: t("atendenteConversacional.features.multiChannel.title"),
-      description: t("atendenteConversacional.features.multiChannel.description"),
+      title: t("chatProduct.feature1Title"),
+      description: t("chatProduct.feature1Desc"),
     },
     {
       icon: Zap,
-      title: t("atendenteConversacional.features.instantResponses.title"),
-      description: t("atendenteConversacional.features.instantResponses.description"),
+      title: t("chatProduct.feature2Title"),
+      description: t("chatProduct.feature2Desc"),
     },
     {
       icon: Calendar,
-      title: t("atendenteConversacional.features.chatScheduling.title"),
-      description: t("atendenteConversacional.features.chatScheduling.description"),
+      title: t("chatProduct.feature3Title"),
+      description: t("chatProduct.feature3Desc"),
     },
     {
       icon: Users,
-      title: t("atendenteConversacional.features.autoFollowUp.title"),
-      description: t("atendenteConversacional.features.autoFollowUp.description"),
+      title: t("chatProduct.feature4Title"),
+      description: t("chatProduct.feature4Desc"),
     },
     {
       icon: Globe,
-      title: t("atendenteConversacional.features.multiLanguage.title"),
-      description: t("atendenteConversacional.features.multiLanguage.description"),
+      title: t("chatProduct.feature5Title"),
+      description: t("chatProduct.feature5Desc"),
     },
     {
       icon: BarChart3,
-      title: t("atendenteConversacional.features.realTimeMetrics.title"),
-      description: t("atendenteConversacional.features.realTimeMetrics.description"),
+      title: t("chatProduct.feature6Title"),
+      description: t("chatProduct.feature6Desc"),
     },
   ];
 
   const channels: { name: string; icon: LucideIcon }[] = [
-    { name: "SMS", icon: Smartphone },
-    { name: "WhatsApp", icon: MessageCircle },
-    { name: "Instagram DM", icon: Instagram },
-    { name: "Facebook Messenger", icon: Facebook },
-    { name: t("atendenteConversacional.channels.websiteChat"), icon: Monitor },
-    { name: "Google Business", icon: Search },
+    { name: t("chatProduct.sms"), icon: Smartphone },
+    { name: t("chatProduct.whatsapp"), icon: MessageCircle },
+    { name: t("chatProduct.instagramDm"), icon: Instagram },
+    { name: t("chatProduct.facebookMessenger"), icon: Facebook },
+    { name: t("chatProduct.websiteChat"), icon: Monitor },
+    { name: t("chatProduct.googleBusiness"), icon: Search },
   ];
 
   const benefits = [
-    t("atendenteConversacional.benefits.responseRate"),
-    t("atendenteConversacional.benefits.leadEngagement"),
-    t("atendenteConversacional.benefits.conversionTime"),
-    t("atendenteConversacional.benefits.crmIntegration"),
-    t("atendenteConversacional.benefits.customTemplates"),
-    t("atendenteConversacional.benefits.unlimitedScalability"),
+    t("chatProduct.benefit1"),
+    t("chatProduct.benefit2"),
+    t("chatProduct.benefit3"),
+    t("chatProduct.benefit4"),
+    t("chatProduct.benefit5"),
+    t("chatProduct.benefit6"),
   ];
 
   const useCases = [
     {
-      title: t("atendenteConversacional.useCases.autoLeadResponse.title"),
-      description: t("atendenteConversacional.useCases.autoLeadResponse.description"),
+      title: t("chatProduct.useCase1Title"),
+      description: t("chatProduct.useCase1Desc"),
     },
     {
-      title: t("atendenteConversacional.useCases.clientReactivation.title"),
-      description: t("atendenteConversacional.useCases.clientReactivation.description"),
+      title: t("chatProduct.useCase2Title"),
+      description: t("chatProduct.useCase2Desc"),
     },
     {
-      title: t("atendenteConversacional.useCases.bookingConfirmation.title"),
-      description: t("atendenteConversacional.useCases.bookingConfirmation.description"),
+      title: t("chatProduct.useCase3Title"),
+      description: t("chatProduct.useCase3Desc"),
     },
     {
-      title: t("atendenteConversacional.useCases.reviewCollection.title"),
-      description: t("atendenteConversacional.useCases.reviewCollection.description"),
+      title: t("chatProduct.useCase4Title"),
+      description: t("chatProduct.useCase4Desc"),
     },
   ];
 
@@ -106,14 +106,14 @@ const AtendenteIAConversacional = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection animation="fade-left">
               <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-                {t("atendenteConversacional.hero.badge")}
+                {t("chatProduct.badge")}
               </span>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                {t("atendenteConversacional.hero.title")}{" "}
-                <span className="text-primary">{t("atendenteConversacional.hero.titleHighlight")}</span>
+                {t("chatProduct.title")}{" "}
+                <span className="text-primary">{t("chatProduct.titleHighlight")}</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                {t("atendenteConversacional.hero.subtitle")}
+                {t("chatProduct.subtitle")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
@@ -123,7 +123,7 @@ const AtendenteIAConversacional = () => {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/setores">{t("atendenteConversacional.hero.viewSectors")}</Link>
+                  <Link to="/setores">{t("chatProduct.ctaSecondary")}</Link>
                 </Button>
               </div>
             </AnimatedSection>
@@ -131,7 +131,7 @@ const AtendenteIAConversacional = () => {
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src={heroChatAi} 
-                  alt={t("atendenteConversacional.hero.imageAlt")} 
+                  alt={t("chatProduct.title")} 
                   className="w-full h-auto"
                 />
               </div>
@@ -148,25 +148,25 @@ const AtendenteIAConversacional = () => {
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={100} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("atendenteConversacional.stats.responseRate")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("chatProduct.responseRate")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={100}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={3} suffix="s" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("atendenteConversacional.stats.responseTime")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("chatProduct.responseTime")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={200}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={60} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("atendenteConversacional.stats.moreEngagement")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("chatProduct.moreEngagement")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={300}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={6} suffix="+" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("atendenteConversacional.stats.integratedChannels")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("chatProduct.integratedChannels")}</p>
             </AnimatedSection>
           </div>
         </div>
@@ -177,10 +177,10 @@ const AtendenteIAConversacional = () => {
         <div className="container">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("atendenteConversacional.channelsSection.title")}
+              {t("chatProduct.channelsTitle")}
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              {t("atendenteConversacional.channelsSection.subtitle")}
+              {t("chatProduct.channelsSubtitle")}
             </p>
           </AnimatedSection>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -205,10 +205,10 @@ const AtendenteIAConversacional = () => {
         <div className="container">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("atendenteConversacional.featuresSection.title")}
+              {t("chatProduct.featuresTitle")}
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              {t("atendenteConversacional.featuresSection.subtitle")}
+              {t("chatProduct.featuresSubtitle")}
             </p>
           </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -235,7 +235,7 @@ const AtendenteIAConversacional = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection animation="fade-left">
               <div className="bg-accent/50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-6">{t("atendenteConversacional.useCasesSection.title")}</h3>
+                <h3 className="text-2xl font-bold mb-6">{t("chatProduct.useCasesTitle")}</h3>
                 <div className="space-y-4">
                   {useCases.map((useCase, index) => (
                     <div key={index} className="bg-background rounded-lg p-4">
@@ -250,7 +250,7 @@ const AtendenteIAConversacional = () => {
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={200}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                {t("atendenteConversacional.benefitsSection.title")}
+                {t("chatProduct.benefitsTitle")}
               </h2>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -262,7 +262,7 @@ const AtendenteIAConversacional = () => {
               </ul>
               <Button className="mt-8" asChild>
                 <Link to="/agendar-demo">
-                  {t("atendenteConversacional.benefitsSection.viewDemo")}
+                  {t("chatProduct.viewDemo")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -276,10 +276,10 @@ const AtendenteIAConversacional = () => {
         <div className="container text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {t("atendenteConversacional.cta.title")}
+              {t("chatProduct.ctaTitle")}
             </h2>
             <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-              {t("atendenteConversacional.cta.subtitle")}
+              {t("chatProduct.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" asChild>
               <Link to="/agendar-demo">
