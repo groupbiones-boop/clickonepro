@@ -1,4 +1,4 @@
-import industryPlumbing from "@/assets/industry-plumbing.jpg";
+import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
 import officeImage from "@/assets/office-tech.jpg";
 
