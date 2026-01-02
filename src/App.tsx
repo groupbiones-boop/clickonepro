@@ -16,6 +16,7 @@ import Contato from "./pages/Contato";
 import AgendarDemo from "./pages/AgendarDemo";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Obrigado from "./pages/Obrigado";
 import PequenaEmpresa from "./pages/empresas/PequenaEmpresa";
 import MediaEmpresa from "./pages/empresas/MediaEmpresa";
 import NegociosLocais from "./pages/empresas/NegociosLocais";
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/agendar-demo" element={<AgendarDemo />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/obrigado" element={<Obrigado />} />
           <Route path="/admin/generate-audio" element={<GenerateDemoAudio />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
