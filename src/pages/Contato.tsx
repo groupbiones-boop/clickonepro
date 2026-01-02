@@ -41,13 +41,25 @@ const Contato = () => {
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={200}>
-              <form className="space-y-4 bg-card p-6 rounded-xl border border-border/50">
-                <Input placeholder={t("contact.name")} />
-                <Input type="email" placeholder={t("contact.email")} />
-                <Input placeholder={t("contact.phone")} />
-                <Textarea placeholder={t("contact.message")} rows={4} />
-                <Button type="submit" className="w-full">{t("contact.submit")}</Button>
-              </form>
+              <div className="bg-card rounded-xl border border-border/50 overflow-hidden">
+                <iframe
+                  src="https://links.clickonepro.com/widget/form/EtFZ7nEHXqyEHsV4eKbq"
+                  style={{ width: '100%', height: '500px', border: 'none' }}
+                  id="inline-EtFZ7nEHXqyEHsV4eKbq"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Contact Form"
+                  data-height="500"
+                  data-layout-iframe-id="inline-EtFZ7nEHXqyEHsV4eKbq"
+                  data-form-id="EtFZ7nEHXqyEHsV4eKbq"
+                  title="Contact Form"
+                />
+              </div>
             </AnimatedSection>
           </div>
         </div>
