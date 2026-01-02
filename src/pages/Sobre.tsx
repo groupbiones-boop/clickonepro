@@ -1,36 +1,9 @@
 import Layout from "@/components/layout/Layout";
-import { CheckCircle, Calendar, Rocket, Users, Zap } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
 import teamOffice from "@/assets/team-office.jpg";
 import officeTech from "@/assets/office-tech.jpg";
-
-const timelineEvents = [
-  {
-    year: "2021",
-    title: "O Início",
-    description: "A ClickOne AI nasceu da própria necessidade do fundador. Com mais de 30 anos na indústria de controle de pragas e outras empresas do setor de serviços, ele viveu na pele a falta de atendimento e padronização, perdendo muitos clientes por não ter uma solução inteligente e viável para atendimento e vendas.",
-    icon: Rocket,
-  },
-  {
-    year: "2022",
-    title: "Primeira Versão",
-    description: "Começamos a ajudar empresas de serviço usando tecnologia de atendimento automatizado por voz, atendendo 50 empresas piloto.",
-    icon: Zap,
-  },
-  {
-    year: "2023",
-    title: "Expansão Multicanal",
-    description: "Integramos WhatsApp, Instagram, Facebook e SMS em uma única plataforma de atendimento.",
-    icon: Users,
-  },
-  {
-    year: "2025",
-    title: "Crescimento Acelerado",
-    description: "Ultrapassamos 500 clientes ativos e 1 milhão de chamadas atendidas com 98% de satisfação.",
-    icon: Calendar,
-  },
-];
 
 const Sobre = () => (
   <Layout>
@@ -98,46 +71,6 @@ const Sobre = () => (
             </div>
           </div>
         </AnimatedSection>
-      </div>
-    </section>
-
-    {/* Timeline Section */}
-    <section className="py-16 bg-background">
-      <div className="container max-w-4xl">
-        <AnimatedSection animation="fade-up">
-          <h2 className="text-3xl font-bold mb-12 text-center">Nossa História</h2>
-        </AnimatedSection>
-        
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform md:-translate-x-1/2" />
-          
-          {timelineEvents.map((event, index) => (
-            <AnimatedSection 
-              key={event.year} 
-              animation={index % 2 === 0 ? "fade-right" : "fade-left"} 
-              delay={index * 150}
-            >
-              <div className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center transform -translate-x-1/2 z-10 shadow-lg">
-                  <event.icon className="w-4 h-4 text-primary-foreground" />
-                </div>
-                
-                {/* Content */}
-                <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
-                  <div className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                    <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-3">
-                      {event.year}
-                    </span>
-                    <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-                    <p className="text-muted-foreground">{event.description}</p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
       </div>
     </section>
 
