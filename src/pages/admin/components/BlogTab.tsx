@@ -33,21 +33,21 @@ interface BlogTabProps {
 
 // Mock reading retention data
 const retentionData = [
-  { name: "Started", value: 1000, fill: "hsl(var(--chart-1))" },
-  { name: "25% Read", value: 750, fill: "hsl(var(--chart-2))" },
-  { name: "50% Read", value: 500, fill: "hsl(var(--chart-3))" },
-  { name: "75% Read", value: 350, fill: "hsl(var(--chart-4))" },
-  { name: "Completed", value: 250, fill: "hsl(var(--chart-5))" },
+  { name: "Iniciou", value: 1000, fill: "hsl(var(--chart-1))" },
+  { name: "25% Lido", value: 750, fill: "hsl(var(--chart-2))" },
+  { name: "50% Lido", value: 500, fill: "hsl(var(--chart-3))" },
+  { name: "75% Lido", value: 350, fill: "hsl(var(--chart-4))" },
+  { name: "Concluído", value: 250, fill: "hsl(var(--chart-5))" },
 ];
 
 // Mock blog views trend
 const blogViewsTrend = [
-  { date: "Week 1", views: 120 },
-  { date: "Week 2", views: 180 },
-  { date: "Week 3", views: 150 },
-  { date: "Week 4", views: 220 },
-  { date: "Week 5", views: 280 },
-  { date: "Week 6", views: 350 },
+  { date: "Sem 1", views: 120 },
+  { date: "Sem 2", views: 180 },
+  { date: "Sem 3", views: 150 },
+  { date: "Sem 4", views: 220 },
+  { date: "Sem 5", views: 280 },
+  { date: "Sem 6", views: 350 },
 ];
 
 const BlogTab = ({ filters }: BlogTabProps) => {
@@ -59,29 +59,33 @@ const BlogTab = ({ filters }: BlogTabProps) => {
     .sort((a, b) => (b.views || 0) - (a.views || 0))
     .slice(0, 10) || [];
 
+  const getStatusLabel = (status: string) => {
+    return status === "published" ? "Publicado" : "Rascunho";
+  };
+
   return (
     <div className="space-y-6">
       {/* Stats Cards */}
       <div className="grid gap-4 md:grid-cols-4">
         <StatsCard
-          title="Total Posts"
+          title="Posts Totais"
           value={blogStats?.totalPosts || 0}
           icon={FileText}
         />
         <StatsCard
-          title="Total Views"
+          title="Total de Visualizações"
           value={blogStats?.totalViews || 0}
           changePercent={25.4}
           icon={Eye}
         />
         <StatsCard
-          title="Avg. Read Time"
+          title="Tempo Médio de Leitura"
           value={(blogStats?.avgReadTime || 0) * 60}
           format="time"
           icon={Clock}
         />
         <StatsCard
-          title="Completion Rate"
+          title="Taxa de Conclusão"
           value={25}
           format="percent"
           changePercent={5.2}
@@ -94,7 +98,7 @@ const BlogTab = ({ filters }: BlogTabProps) => {
         {/* Top Posts */}
         <Card>
           <CardHeader>
-            <CardTitle>Top 10 Posts by Views</CardTitle>
+            <CardTitle>Top 10 Posts por Visualizações</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64">
@@ -129,7 +133,7 @@ const BlogTab = ({ filters }: BlogTabProps) => {
         {/* Blog Views Trend */}
         <Card>
           <CardHeader>
-            <CardTitle>Blog Views Over Time</CardTitle>
+            <CardTitle>Visualizações do Blog ao Longo do Tempo</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64">
@@ -168,7 +172,7 @@ const BlogTab = ({ filters }: BlogTabProps) => {
       {/* Reading Retention Funnel */}
       <Card>
         <CardHeader>
-          <CardTitle>Reading Retention Funnel</CardTitle>
+          <CardTitle>Funil de Retenção de Leitura</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="h-64">
@@ -198,16 +202,16 @@ const BlogTab = ({ filters }: BlogTabProps) => {
       {/* Posts Table */}
       <Card>
         <CardHeader>
-          <CardTitle>All Posts Performance</CardTitle>
+          <CardTitle>Desempenho de Todos os Posts</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Title</TableHead>
+                <TableHead>Título</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead className="text-right">Views</TableHead>
-                <TableHead className="text-right">Read Time</TableHead>
+                <TableHead className="text-right">Visualizações</TableHead>
+                <TableHead className="text-right">Tempo de Leitura</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -218,7 +222,7 @@ const BlogTab = ({ filters }: BlogTabProps) => {
                   </TableCell>
                   <TableCell>
                     <Badge variant={post.status === "published" ? "default" : "secondary"}>
-                      {post.status}
+                      {getStatusLabel(post.status || "draft")}
                     </Badge>
                   </TableCell>
                   <TableCell className="text-right">{post.views?.toLocaleString() || 0}</TableCell>

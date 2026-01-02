@@ -24,6 +24,7 @@ import {
   Bar,
 } from "recharts";
 import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 interface OverviewTabProps {
   filters: AnalyticsFilters;
@@ -52,34 +53,34 @@ const OverviewTab = ({ filters }: OverviewTabProps) => {
       {/* Stats Cards */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatsCard
-          title="Total Visitors"
+          title="Visitantes Totais"
           value={visitorStats?.current || 0}
           changePercent={visitorStats?.changePercent}
-          comparePeriod="vs previous period"
+          comparePeriod="vs período anterior"
           icon={Users}
           sparklineData={sparklineData}
         />
         <StatsCard
-          title="Pageviews"
+          title="Visualizações"
           value={pageviewStats?.current || 0}
           changePercent={pageviewStats?.changePercent}
-          comparePeriod="vs previous period"
+          comparePeriod="vs período anterior"
           icon={Eye}
           sparklineData={sparklineData}
         />
         <StatsCard
-          title="Avg. Time on Site"
+          title="Tempo Médio no Site"
           value={145}
           changePercent={8.5}
-          comparePeriod="vs previous period"
+          comparePeriod="vs período anterior"
           icon={Clock}
           format="time"
         />
         <StatsCard
-          title="Bounce Rate"
+          title="Taxa de Rejeição"
           value={32.4}
           changePercent={-5.2}
-          comparePeriod="vs previous period"
+          comparePeriod="vs período anterior"
           icon={MousePointerClick}
           format="percent"
         />
@@ -88,7 +89,7 @@ const OverviewTab = ({ filters }: OverviewTabProps) => {
       {/* Timeline Chart */}
       <Card>
         <CardHeader>
-          <CardTitle>Traffic Overview</CardTitle>
+          <CardTitle>Visão Geral do Tráfego</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="h-80">
@@ -107,7 +108,7 @@ const OverviewTab = ({ filters }: OverviewTabProps) => {
                 <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
                 <XAxis
                   dataKey="date"
-                  tickFormatter={(value) => format(new Date(value), "MMM d")}
+                  tickFormatter={(value) => format(new Date(value), "d MMM", { locale: ptBR })}
                   className="text-muted-foreground"
                 />
                 <YAxis className="text-muted-foreground" />
@@ -117,7 +118,7 @@ const OverviewTab = ({ filters }: OverviewTabProps) => {
                     border: "1px solid hsl(var(--border))",
                     borderRadius: "8px",
                   }}
-                  labelFormatter={(value) => format(new Date(value), "MMMM d, yyyy")}
+                  labelFormatter={(value) => format(new Date(value), "d 'de' MMMM 'de' yyyy", { locale: ptBR })}
                 />
                 <Area
                   type="monotone"
@@ -125,7 +126,7 @@ const OverviewTab = ({ filters }: OverviewTabProps) => {
                   stroke="hsl(var(--chart-1))"
                   fill="url(#colorVisitors)"
                   strokeWidth={2}
-                  name="Visitors"
+                  name="Visitantes"
                 />
                 <Area
                   type="monotone"
@@ -133,7 +134,7 @@ const OverviewTab = ({ filters }: OverviewTabProps) => {
                   stroke="hsl(var(--chart-2))"
                   fill="url(#colorPageviews)"
                   strokeWidth={2}
-                  name="Pageviews"
+                  name="Visualizações"
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -146,7 +147,7 @@ const OverviewTab = ({ filters }: OverviewTabProps) => {
         {/* Device Distribution */}
         <Card>
           <CardHeader>
-            <CardTitle>Device Distribution</CardTitle>
+            <CardTitle>Distribuição por Dispositivo</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64">
@@ -176,7 +177,7 @@ const OverviewTab = ({ filters }: OverviewTabProps) => {
         {/* Top Pages */}
         <Card>
           <CardHeader>
-            <CardTitle>Top Pages</CardTitle>
+            <CardTitle>Páginas Mais Visitadas</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64">

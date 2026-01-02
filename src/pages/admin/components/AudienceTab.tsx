@@ -46,24 +46,24 @@ const AudienceTab = ({ filters }: AudienceTabProps) => {
       {/* Stats Cards */}
       <div className="grid gap-4 md:grid-cols-4">
         <StatsCard
-          title="New Users"
+          title="Novos Usuários"
           value={1234}
           changePercent={12.5}
           icon={UserPlus}
         />
         <StatsCard
-          title="Returning Users"
+          title="Usuários Recorrentes"
           value={3456}
           changePercent={8.3}
           icon={Users}
         />
         <StatsCard
-          title="Countries"
+          title="Países"
           value={countryData?.length || 0}
           icon={Globe}
         />
         <StatsCard
-          title="Device Types"
+          title="Tipos de Dispositivo"
           value={deviceData?.length || 0}
           icon={Monitor}
         />
@@ -74,7 +74,7 @@ const AudienceTab = ({ filters }: AudienceTabProps) => {
         {/* Countries */}
         <Card>
           <CardHeader>
-            <CardTitle>Traffic by Country</CardTitle>
+            <CardTitle>Tráfego por País</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64">
@@ -106,7 +106,7 @@ const AudienceTab = ({ filters }: AudienceTabProps) => {
         {/* US States */}
         <Card>
           <CardHeader>
-            <CardTitle>Traffic by US State</CardTitle>
+            <CardTitle>Tráfego por Estado (EUA)</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64">
@@ -141,7 +141,7 @@ const AudienceTab = ({ filters }: AudienceTabProps) => {
         {/* Devices */}
         <Card>
           <CardHeader>
-            <CardTitle>Devices</CardTitle>
+            <CardTitle>Dispositivos</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-48">
@@ -183,7 +183,7 @@ const AudienceTab = ({ filters }: AudienceTabProps) => {
         {/* Browsers */}
         <Card>
           <CardHeader>
-            <CardTitle>Browsers</CardTitle>
+            <CardTitle>Navegadores</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-48">
@@ -225,7 +225,7 @@ const AudienceTab = ({ filters }: AudienceTabProps) => {
         {/* Operating Systems */}
         <Card>
           <CardHeader>
-            <CardTitle>Operating Systems</CardTitle>
+            <CardTitle>Sistemas Operacionais</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-48">

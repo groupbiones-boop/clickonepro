@@ -9,6 +9,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import { formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { useRealtimeNotifications, Notification } from "@/hooks/useRealtimeNotifications";
 
 const severityIcons = {
@@ -49,7 +50,7 @@ const NotificationCenter = () => {
       </PopoverTrigger>
       <PopoverContent className="w-80 p-0" align="end">
         <div className="flex items-center justify-between p-4 border-b border-border">
-          <h4 className="font-semibold">Notifications</h4>
+          <h4 className="font-semibold">Notificações</h4>
           {unreadCount > 0 && (
             <Button
               variant="ghost"
@@ -58,14 +59,14 @@ const NotificationCenter = () => {
               className="text-xs"
             >
               <CheckCheck className="h-4 w-4 mr-1" />
-              Mark all read
+              Marcar tudo como lido
             </Button>
           )}
         </div>
         <ScrollArea className="h-80">
           {notifications.length === 0 ? (
             <div className="p-4 text-center text-muted-foreground">
-              No notifications yet
+              Nenhuma notificação ainda
             </div>
           ) : (
             <div className="divide-y divide-border">
@@ -94,6 +95,7 @@ const NotificationCenter = () => {
                         <p className="text-xs text-muted-foreground mt-1">
                           {formatDistanceToNow(new Date(notification.created_at), {
                             addSuffix: true,
+                            locale: ptBR,
                           })}
                         </p>
                       </div>

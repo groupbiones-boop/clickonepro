@@ -7,7 +7,6 @@ import {
   TrendingUp,
   FileText,
   Bell,
-  Settings,
   LogOut,
   PenSquare,
 } from "lucide-react";
@@ -20,12 +19,12 @@ interface SidebarProps {
 }
 
 const menuItems = [
-  { id: "overview", label: "Overview", icon: LayoutDashboard },
+  { id: "overview", label: "Visão Geral", icon: LayoutDashboard },
   { id: "site", label: "Site", icon: Globe },
-  { id: "audience", label: "Audience", icon: Users },
-  { id: "acquisition", label: "Acquisition", icon: TrendingUp },
-  { id: "blog", label: "Blog Analytics", icon: FileText },
-  { id: "alerts", label: "Alerts", icon: Bell },
+  { id: "audience", label: "Audiência", icon: Users },
+  { id: "acquisition", label: "Aquisição", icon: TrendingUp },
+  { id: "blog", label: "Analytics do Blog", icon: FileText },
+  { id: "alerts", label: "Alertas", icon: Bell },
 ];
 
 const Sidebar = ({ activeTab, onTabChange }: SidebarProps) => {
@@ -33,8 +32,8 @@ const Sidebar = ({ activeTab, onTabChange }: SidebarProps) => {
   const location = useLocation();
 
   return (
-    <aside className="w-64 bg-card border-r border-border min-h-screen flex flex-col">
-      <div className="p-6 border-b border-border">
+    <aside className="w-64 bg-primary min-h-screen flex flex-col">
+      <div className="p-6 border-b border-primary-foreground/20">
         <Link to="/" className="flex items-center gap-2">
           <img src={logoWhite} alt="ClickOne" className="h-8" />
         </Link>
@@ -48,8 +47,8 @@ const Sidebar = ({ activeTab, onTabChange }: SidebarProps) => {
             className={cn(
               "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
               activeTab === item.id
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                ? "bg-primary-foreground text-primary"
+                : "text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground"
             )}
           >
             <item.icon className="h-5 w-5" />
@@ -57,29 +56,29 @@ const Sidebar = ({ activeTab, onTabChange }: SidebarProps) => {
           </button>
         ))}
 
-        <div className="pt-4 border-t border-border mt-4">
+        <div className="pt-4 border-t border-primary-foreground/20 mt-4">
           <Link
             to="/admin/blog"
             className={cn(
               "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
               location.pathname === "/admin/blog"
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                ? "bg-primary-foreground text-primary"
+                : "text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground"
             )}
           >
             <PenSquare className="h-5 w-5" />
-            Blog Manager
+            Gerenciar Blog
           </Link>
         </div>
       </nav>
 
-      <div className="p-4 border-t border-border">
+      <div className="p-4 border-t border-primary-foreground/20">
         <button
           onClick={signOut}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:bg-destructive/10 hover:text-destructive transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-primary-foreground/80 hover:bg-destructive/20 hover:text-destructive-foreground transition-colors"
         >
           <LogOut className="h-5 w-5" />
-          Sign Out
+          Sair
         </button>
       </div>
     </aside>

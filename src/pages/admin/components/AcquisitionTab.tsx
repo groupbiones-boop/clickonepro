@@ -37,21 +37,21 @@ const COLORS = [
 
 // Mock data
 const trafficSourcesData = [
-  { name: "Direct", value: 4500 },
-  { name: "Organic Search", value: 3200 },
+  { name: "Direto", value: 4500 },
+  { name: "Busca Orgânica", value: 3200 },
   { name: "Social", value: 2100 },
-  { name: "Referral", value: 1500 },
-  { name: "Email", value: 800 },
+  { name: "Referência", value: 1500 },
+  { name: "E-mail", value: 800 },
 ];
 
 const trafficTrendData = [
-  { date: "Jan 1", direct: 150, organic: 120, social: 80 },
-  { date: "Jan 2", direct: 180, organic: 130, social: 90 },
-  { date: "Jan 3", direct: 200, organic: 150, social: 100 },
-  { date: "Jan 4", direct: 170, organic: 140, social: 85 },
-  { date: "Jan 5", direct: 220, organic: 160, social: 110 },
-  { date: "Jan 6", direct: 250, organic: 180, social: 120 },
-  { date: "Jan 7", direct: 230, organic: 170, social: 115 },
+  { date: "1 Jan", direct: 150, organic: 120, social: 80 },
+  { date: "2 Jan", direct: 180, organic: 130, social: 90 },
+  { date: "3 Jan", direct: 200, organic: 150, social: 100 },
+  { date: "4 Jan", direct: 170, organic: 140, social: 85 },
+  { date: "5 Jan", direct: 220, organic: 160, social: 110 },
+  { date: "6 Jan", direct: 250, organic: 180, social: 120 },
+  { date: "7 Jan", direct: 230, organic: 170, social: 115 },
 ];
 
 const utmCampaigns = [
@@ -68,13 +68,13 @@ const AcquisitionTab = ({ filters }: AcquisitionTabProps) => {
       {/* Stats Cards */}
       <div className="grid gap-4 md:grid-cols-4">
         <StatsCard
-          title="Direct"
+          title="Direto"
           value={4500}
           changePercent={15.2}
           icon={Link}
         />
         <StatsCard
-          title="Organic Search"
+          title="Busca Orgânica"
           value={3200}
           changePercent={22.8}
           icon={Search}
@@ -86,7 +86,7 @@ const AcquisitionTab = ({ filters }: AcquisitionTabProps) => {
           icon={Share2}
         />
         <StatsCard
-          title="Email"
+          title="E-mail"
           value={800}
           changePercent={18.9}
           icon={Mail}
@@ -98,7 +98,7 @@ const AcquisitionTab = ({ filters }: AcquisitionTabProps) => {
         {/* Traffic Sources Pie */}
         <Card>
           <CardHeader>
-            <CardTitle>Traffic Sources</CardTitle>
+            <CardTitle>Fontes de Tráfego</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64">
@@ -128,7 +128,7 @@ const AcquisitionTab = ({ filters }: AcquisitionTabProps) => {
         {/* Traffic Trend */}
         <Card>
           <CardHeader>
-            <CardTitle>Traffic Trend by Source</CardTitle>
+            <CardTitle>Tendência de Tráfego por Fonte</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64">
@@ -164,7 +164,7 @@ const AcquisitionTab = ({ filters }: AcquisitionTabProps) => {
                     stroke="hsl(var(--chart-1))"
                     fill="url(#colorDirect)"
                     strokeWidth={2}
-                    name="Direct"
+                    name="Direto"
                   />
                   <Area
                     type="monotone"
@@ -172,7 +172,7 @@ const AcquisitionTab = ({ filters }: AcquisitionTabProps) => {
                     stroke="hsl(var(--chart-2))"
                     fill="url(#colorOrganic)"
                     strokeWidth={2}
-                    name="Organic"
+                    name="Orgânico"
                   />
                   <Area
                     type="monotone"
@@ -192,18 +192,18 @@ const AcquisitionTab = ({ filters }: AcquisitionTabProps) => {
       {/* UTM Campaigns Table */}
       <Card>
         <CardHeader>
-          <CardTitle>UTM Campaigns</CardTitle>
+          <CardTitle>Campanhas UTM</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Source</TableHead>
-                <TableHead>Medium</TableHead>
-                <TableHead>Campaign</TableHead>
-                <TableHead className="text-right">Visitors</TableHead>
-                <TableHead className="text-right">Conversions</TableHead>
-                <TableHead className="text-right">Conv. Rate</TableHead>
+                <TableHead>Fonte</TableHead>
+                <TableHead>Meio</TableHead>
+                <TableHead>Campanha</TableHead>
+                <TableHead className="text-right">Visitantes</TableHead>
+                <TableHead className="text-right">Conversões</TableHead>
+                <TableHead className="text-right">Taxa de Conv.</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
