@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
@@ -16,9 +16,13 @@ import clickoneLogoNew from "@/assets/clickone-logo-new.png";
 
 const Header = () => {
   const { t } = useTranslation();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productDropdownOpen, setProductDropdownOpen] = useState(false);
   const [whoWeServeDropdownOpen, setWhoWeServeDropdownOpen] = useState(false);
+
+  const isActive = (path: string) => location.pathname === path;
+  const isActivePrefix = (prefix: string) => location.pathname.startsWith(prefix);
 
   const industries = [
     { name: t("nav.cleaning"), slug: "limpeza", highlight: true },
@@ -47,7 +51,14 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+          <Link 
+            to="/" 
+            className={`text-sm font-medium transition-colors relative ${
+              isActive("/") 
+                ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
+                : "text-primary-foreground/80 hover:text-primary-foreground"
+            }`}
+          >
             Home
           </Link>
           
@@ -55,8 +66,20 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground bg-transparent hover:bg-primary-foreground/10 data-[state=open]:bg-primary-foreground/10">
-                  {t("nav.product")}
+                <NavigationMenuTrigger 
+                  className={`text-sm font-medium bg-transparent hover:bg-primary-foreground/10 data-[state=open]:bg-primary-foreground/10 ${
+                    isActivePrefix("/produto") 
+                      ? "text-primary-foreground" 
+                      : "text-primary-foreground/80 hover:text-primary-foreground"
+                  }`}
+                >
+                  <span className={`relative ${
+                    isActivePrefix("/produto") 
+                      ? "after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
+                      : ""
+                  }`}>
+                    {t("nav.product")}
+                  </span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[300px] gap-2 p-4 bg-primary backdrop-blur-lg border border-primary-foreground/20 shadow-xl rounded-md">
@@ -64,7 +87,9 @@ const Header = () => {
                       <NavigationMenuLink asChild>
                         <Link
                           to="/produto/recepcionista-ia-voz"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-foreground/10 text-primary-foreground"
+                          className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-foreground/10 text-primary-foreground ${
+                            isActive("/produto/recepcionista-ia-voz") ? "bg-primary-foreground/15 border-l-2 border-primary-foreground" : ""
+                          }`}
                         >
                           <div className="text-sm font-medium leading-none">{t("nav.voiceReceptionist")}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-primary-foreground/70">
@@ -77,7 +102,9 @@ const Header = () => {
                       <NavigationMenuLink asChild>
                         <Link
                           to="/produto/atendente-ia-conversacional"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-foreground/10 text-primary-foreground"
+                          className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-foreground/10 text-primary-foreground ${
+                            isActive("/produto/atendente-ia-conversacional") ? "bg-primary-foreground/15 border-l-2 border-primary-foreground" : ""
+                          }`}
                         >
                           <div className="text-sm font-medium leading-none">{t("nav.chatAttendant")}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-primary-foreground/70">
@@ -96,8 +123,20 @@ const Header = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground bg-transparent hover:bg-primary-foreground/10 data-[state=open]:bg-primary-foreground/10">
-                  {t("nav.sectors")}
+                <NavigationMenuTrigger 
+                  className={`text-sm font-medium bg-transparent hover:bg-primary-foreground/10 data-[state=open]:bg-primary-foreground/10 ${
+                    isActivePrefix("/setores") || isActivePrefix("/empresas")
+                      ? "text-primary-foreground" 
+                      : "text-primary-foreground/80 hover:text-primary-foreground"
+                  }`}
+                >
+                  <span className={`relative ${
+                    isActivePrefix("/setores") || isActivePrefix("/empresas")
+                      ? "after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
+                      : ""
+                  }`}>
+                    {t("nav.sectors")}
+                  </span>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid grid-cols-2 w-[520px] bg-primary backdrop-blur-lg border border-primary-foreground/20 shadow-xl rounded-md">
@@ -116,7 +155,11 @@ const Header = () => {
                                   industry.highlight 
                                     ? "font-medium bg-primary-foreground/5" 
                                     : ""
-                                } ${industry.isViewAll ? "font-medium mt-2" : ""}`}
+                                } ${industry.isViewAll ? "font-medium mt-2" : ""} ${
+                                  isActive(`/setores/${industry.slug}`) || (industry.isViewAll && isActive("/setores"))
+                                    ? "bg-primary-foreground/15 border-l-2 border-primary-foreground" 
+                                    : ""
+                                }`}
                               >
                                 {industry.name}
                                 {industry.highlight && <ChevronRight className="h-4 w-4" />}
@@ -138,9 +181,11 @@ const Header = () => {
                             <NavigationMenuLink asChild>
                               <Link
                                 to={type.slug}
-                                className="block py-2 px-3 rounded-md transition-colors hover:bg-primary-foreground/10"
+                                className={`block py-2 px-3 rounded-md transition-colors hover:bg-primary-foreground/10 ${
+                                  isActive(type.slug) ? "bg-primary-foreground/15 border-l-2 border-primary-foreground" : ""
+                                }`}
                               >
-                                <div className="text-sm font-medium text-primary-foreground">
+                                <div className={`text-sm font-medium text-primary-foreground ${isActive(type.slug) ? "font-semibold" : ""}`}>
                                   {type.name}
                                 </div>
                                 {type.description && (
@@ -160,10 +205,24 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Link to="/sobre" className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+          <Link 
+            to="/sobre" 
+            className={`text-sm font-medium transition-colors relative ${
+              isActive("/sobre") 
+                ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
+                : "text-primary-foreground/80 hover:text-primary-foreground"
+            }`}
+          >
             {t("nav.about")}
           </Link>
-          <Link to="/contato" className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">
+          <Link 
+            to="/contato" 
+            className={`text-sm font-medium transition-colors relative ${
+              isActive("/contato") 
+                ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
+                : "text-primary-foreground/80 hover:text-primary-foreground"
+            }`}
+          >
             {t("nav.contact")}
           </Link>
           <LanguageSwitcher />
@@ -190,7 +249,11 @@ const Header = () => {
           <nav className="container py-4 flex flex-col gap-4">
             <Link
               to="/"
-              className="text-sm font-medium py-2 text-primary-foreground"
+              className={`text-sm font-medium py-2 border-l-2 pl-3 ${
+                isActive("/") 
+                  ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
+                  : "text-primary-foreground/80 border-transparent"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
@@ -199,24 +262,36 @@ const Header = () => {
             {/* Produto Dropdown Mobile */}
             <div>
               <button
-                className="flex items-center justify-between w-full text-sm font-medium py-2 text-primary-foreground"
+                className={`flex items-center justify-between w-full text-sm font-medium py-2 border-l-2 pl-3 ${
+                  isActivePrefix("/produto") 
+                    ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
+                    : "text-primary-foreground/80 border-transparent"
+                }`}
                 onClick={() => setProductDropdownOpen(!productDropdownOpen)}
               >
                 {t("nav.product")}
                 <ChevronDown className={`h-4 w-4 transition-transform ${productDropdownOpen ? "rotate-180" : ""}`} />
               </button>
               {productDropdownOpen && (
-                <div className="pl-4 flex flex-col gap-2 mt-2">
+                <div className="pl-6 flex flex-col gap-2 mt-2">
                   <Link
                     to="/produto/recepcionista-ia-voz"
-                    className="text-sm text-primary-foreground/70 py-2"
+                    className={`text-sm py-2 border-l-2 pl-3 ${
+                      isActive("/produto/recepcionista-ia-voz") 
+                        ? "text-primary-foreground border-primary-foreground font-medium" 
+                        : "text-primary-foreground/70 border-transparent"
+                    }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {t("nav.voiceReceptionist")}
                   </Link>
                   <Link
                     to="/produto/atendente-ia-conversacional"
-                    className="text-sm text-primary-foreground/70 py-2"
+                    className={`text-sm py-2 border-l-2 pl-3 ${
+                      isActive("/produto/atendente-ia-conversacional") 
+                        ? "text-primary-foreground border-primary-foreground font-medium" 
+                        : "text-primary-foreground/70 border-transparent"
+                    }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {t("nav.chatAttendant")}
@@ -228,14 +303,18 @@ const Header = () => {
             {/* A quem servimos Dropdown Mobile */}
             <div>
               <button
-                className="flex items-center justify-between w-full text-sm font-medium py-2 text-primary-foreground"
+                className={`flex items-center justify-between w-full text-sm font-medium py-2 border-l-2 pl-3 ${
+                  isActivePrefix("/setores") || isActivePrefix("/empresas")
+                    ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
+                    : "text-primary-foreground/80 border-transparent"
+                }`}
                 onClick={() => setWhoWeServeDropdownOpen(!whoWeServeDropdownOpen)}
               >
                 {t("nav.sectors")}
                 <ChevronDown className={`h-4 w-4 transition-transform ${whoWeServeDropdownOpen ? "rotate-180" : ""}`} />
               </button>
               {whoWeServeDropdownOpen && (
-                <div className="pl-4 flex flex-col gap-2 mt-2">
+                <div className="pl-6 flex flex-col gap-2 mt-2">
                   <span className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wider py-2">
                     {t("nav.sectors")}
                   </span>
@@ -243,7 +322,11 @@ const Header = () => {
                     <Link
                       key={industry.slug}
                       to={`/setores/${industry.slug}`}
-                      className="text-sm text-primary-foreground/70 py-2"
+                      className={`text-sm py-2 border-l-2 pl-3 ${
+                        isActive(`/setores/${industry.slug}`) 
+                          ? "text-primary-foreground border-primary-foreground font-medium" 
+                          : "text-primary-foreground/70 border-transparent"
+                      }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {industry.name}
@@ -251,7 +334,11 @@ const Header = () => {
                   ))}
                   <Link
                     to="/setores"
-                    className="text-sm text-primary-foreground font-medium py-2"
+                    className={`text-sm font-medium py-2 border-l-2 pl-3 ${
+                      isActive("/setores") 
+                        ? "text-primary-foreground border-primary-foreground" 
+                        : "text-primary-foreground border-transparent"
+                    }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {t("nav.viewAll")}
@@ -264,7 +351,11 @@ const Header = () => {
                     <Link
                       key={type.name}
                       to={type.slug}
-                      className="text-sm text-primary-foreground/70 py-2"
+                      className={`text-sm py-2 border-l-2 pl-3 ${
+                        isActive(type.slug) 
+                          ? "text-primary-foreground border-primary-foreground font-medium" 
+                          : "text-primary-foreground/70 border-transparent"
+                      }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {type.name}
@@ -276,14 +367,22 @@ const Header = () => {
 
             <Link
               to="/sobre"
-              className="text-sm font-medium py-2 text-primary-foreground"
+              className={`text-sm font-medium py-2 border-l-2 pl-3 ${
+                isActive("/sobre") 
+                  ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
+                  : "text-primary-foreground/80 border-transparent"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               {t("nav.about")}
             </Link>
             <Link
               to="/contato"
-              className="text-sm font-medium py-2 text-primary-foreground"
+              className={`text-sm font-medium py-2 border-l-2 pl-3 ${
+                isActive("/contato") 
+                  ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
+                  : "text-primary-foreground/80 border-transparent"
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               {t("nav.contact")}
