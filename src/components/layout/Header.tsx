@@ -41,7 +41,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-primary">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 z-10">
           <img src={clickoneLogoNew} alt="ClickOne AI" className="h-8 md:h-10 w-auto" />
         </Link>
 
@@ -59,7 +59,7 @@ const Header = () => {
                   {t("nav.product")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[300px] gap-2 p-4 bg-primary/60 backdrop-blur-lg border border-primary-foreground/10 shadow-xl">
+                  <ul className="grid w-[300px] gap-2 p-4 bg-primary backdrop-blur-lg border border-primary-foreground/20 shadow-xl rounded-md">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
@@ -100,7 +100,7 @@ const Header = () => {
                   {t("nav.sectors")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid grid-cols-2 w-[520px] bg-primary/60 backdrop-blur-lg border border-primary-foreground/10 shadow-xl">
+                  <div className="grid grid-cols-2 w-[520px] bg-primary backdrop-blur-lg border border-primary-foreground/20 shadow-xl rounded-md">
                     {/* Indústrias Column */}
                     <div className="p-5 border-r border-primary-foreground/20">
                       <h3 className="text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider mb-4">
