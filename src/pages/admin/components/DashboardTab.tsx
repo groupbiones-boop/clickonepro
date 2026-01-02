@@ -59,8 +59,7 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
 
   return (
     <div className="space-y-6">
-      {/* Conversion Funnel - Featured */}
-      <ConversionFunnel filters={filters} />
+      {/* Conversion Cards Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="bg-primary/5 border-primary/20">
           <CardContent className="p-4">
@@ -183,8 +182,11 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
         </Card>
       </div>
 
-      {/* Charts Row 1 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Charts Row 1 - Funil + Gráficos */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Funil de Conversão */}
+        <ConversionFunnel filters={filters} />
+
         <Card>
           <CardHeader>
             <CardTitle className="text-lg">Conversões por Dia</CardTitle>
