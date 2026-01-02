@@ -8,7 +8,15 @@ const corsHeaders = {
 
 // Voice IDs
 const AI_VOICE = "EXAVITQu4vr4xnSDxMaL"; // Sarah - female for AI receptionist
-const CLIENT_VOICE = "nPczCjzI2devNBz1zQrb"; // Brian - male for client
+
+// Different client voices for each demo - variety in tone and gender
+const CLIENT_VOICES: Record<string, string> = {
+  "plumbing": "nPczCjzI2devNBz1zQrb",    // Brian - male, urgent/worried tone
+  "law-office": "cgSgspJ2msm6clMCkdW9",  // Jessica - female, professional/concerned
+  "cleaning": "pFZP5JQG7iQjIQuC4Bku",    // Lily - female, friendly/casual
+};
+
+const DEFAULT_CLIENT_VOICE = "nPczCjzI2devNBz1zQrb"; // Brian as fallback
 
 interface TranscriptMessage {
   speaker: "ai" | "client";
@@ -65,6 +73,9 @@ serve(async (req) => {
       transcript: TranscriptMessage[];
     };
 
+    // Select the appropriate client voice for this demo
+    const clientVoice = CLIENT_VOICES[demoId] || DEFAULT_CLIENT_VOICE;
+
     const ELEVENLABS_API_KEY = Deno.env.get("ELEVENLABS_API_KEY_1") || Deno.env.get("ELEVENLABS_API_KEY");
     const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
     const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -84,7 +95,7 @@ serve(async (req) => {
     
     for (let i = 0; i < transcript.length; i++) {
       const msg = transcript[i];
-      const voiceId = msg.speaker === "ai" ? AI_VOICE : CLIENT_VOICE;
+      const voiceId = msg.speaker === "ai" ? AI_VOICE : clientVoice;
       
       try {
         const audioBuffer = await generateSingleAudio(msg.text, voiceId, ELEVENLABS_API_KEY);
