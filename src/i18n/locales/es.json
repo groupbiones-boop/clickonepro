@@ -174,7 +174,7 @@
     "subtitle": "Ve ClickOne AI en acción y descubre cómo podemos transformar tu atención. Nunca más pierdas un cliente por falta de respuesta.",
     "formTitle": "Completa el formulario",
     "formSubtitle": "Nuestro equipo te contactará en 24 horas.",
-    "formPlaceholder": "Área reservada para formulario ClickOne",
+    
     "benefit1": "Demo personalizada de 30 min",
     "benefit2": "100% gratis",
     "benefit3": "Sin compromiso",
@@ -510,8 +510,7 @@
     },
     "form": {
       "title": "Completa el formulario",
-      "subtitle": "Nuestro equipo te contactará en 24 horas.",
-      "placeholder": "Área reservada para formulario ClickOne"
+      "subtitle": "Nuestro equipo te contactará en 24 horas."
     },
     "quickBenefits": {
       "demo30min": "Demo personalizada de 30 min",
