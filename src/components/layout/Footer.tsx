@@ -82,11 +82,11 @@ const Footer = () => {
               </li>
               <li>
                 <a 
-                  href="mailto:contato@clickonepro.com" 
+                  href="mailto:info@clickonepro.com" 
                   className="flex items-center gap-2 text-background/70 hover:text-background text-sm transition-colors"
                 >
                   <Mail className="h-4 w-4" />
-                  <span>contato@clickonepro.com</span>
+                  <span>info@clickonepro.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-2 text-background/70 text-sm">
@@ -107,9 +107,6 @@ const Footer = () => {
             </Link>
             <Link to="/blog" className="text-background/60 hover:text-background text-sm transition-colors">
               {t("footer.blog")}
-            </Link>
-            <Link to="/contato" className="text-background/60 hover:text-background text-sm transition-colors">
-              {t("footer.contact")}
             </Link>
             <Link to="/privacy-policy" className="text-background/60 hover:text-background text-sm transition-colors">
               Privacy Policy
