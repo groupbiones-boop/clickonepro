@@ -133,13 +133,14 @@ const AgendarDemo = () => {
           {/* Main CTA Button */}
           <AnimatedSection animation="fade-up" delay={150}>
             <div className="flex justify-center mb-10">
-              <Button asChild size="lg" className="h-16 px-10 text-lg gap-3">
+              <Button asChild size="lg" className="h-16 px-16 text-lg tracking-wide">
                 <a 
                   href="https://links.clickonepro.com/widget/bookings/clickoneus" 
                   target="_blank" 
                   rel="noopener noreferrer"
+                  className="flex items-center gap-3"
                 >
-                  {t("agendarDemo.cta") || t("nav.bookDemo")}
+                  Agende uma Demo Agora
                   <ArrowRight className="h-5 w-5" />
                 </a>
               </Button>
