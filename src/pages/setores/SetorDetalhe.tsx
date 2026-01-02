@@ -111,14 +111,14 @@ const featureIcons: Record<string, typeof Phone> = {
 const defaultFeatureIcons = [Phone, Calendar, Users, BarChart3, MessageSquare, Zap];
 
 const SetorDetalhe = () => {
-  const { setor } = useParams();
+  const { slug } = useParams();
   const { t } = useTranslation('industries');
 
-  // Check if industry exists in translations
-  const industryKey = setor || '';
-  const industryExists = t(`${industryKey}.name`, { defaultValue: '' }) !== '';
+  // Check if industry exists using the images map
+  const industryKey = slug || '';
+  const images = industryImages[industryKey];
 
-  if (!industryExists) {
+  if (!images) {
     return (
       <Layout>
         <div className="container py-24 text-center">
@@ -131,8 +131,7 @@ const SetorDetalhe = () => {
     );
   }
 
-  // Get images for industry
-  const images = industryImages[industryKey] || industryImages.limpeza;
+  // images already defined above from the check
 
   // Get translated data
   const name = t(`${industryKey}.name`);
