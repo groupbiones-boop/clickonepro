@@ -305,9 +305,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Audio Demo Section */}
+      {/* Audio Demo Section - Hidden for now */}
+      {/* 
       <section className="py-16 md:py-24 bg-background relative overflow-hidden">
-        {/* Subtle Background */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.05),transparent_50%)]" />
         
         <div className="container relative">
@@ -324,7 +324,6 @@ const Index = () => {
             </p>
           </AnimatedSection>
 
-          {/* Sector Selection Buttons */}
           <AnimatedSection animation="fade-up" delay={100}>
             <div className="flex flex-wrap justify-center gap-3 mb-8">
               {audioDemos.map((demo) => (
@@ -340,14 +339,12 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          {/* Audio Player */}
           <AnimatedSection animation="fade-up" delay={200}>
             <div className="max-w-4xl mx-auto">
               <AudioTranscriptPlayer demo={selectedDemo} />
             </div>
           </AnimatedSection>
 
-          {/* CTA */}
           <AnimatedSection animation="fade-up" delay={300} className="text-center mt-10">
             <p className="text-muted-foreground mb-4">
               Impressionado? Veja como isso pode funcionar para seu negócio.
@@ -361,6 +358,7 @@ const Index = () => {
           </AnimatedSection>
         </div>
       </section>
+      */}
 
       {/* Features */}
       <section className="py-16 md:py-24 bg-background">
