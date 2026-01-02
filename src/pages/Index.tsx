@@ -133,10 +133,10 @@ const Index = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-background leading-tight">
               {t("hero.title1")}{" "}
               <span className="relative inline-block">
-                <span className="text-primary font-extrabold drop-shadow-[0_0_20px_hsl(var(--primary)/0.5)]">
+                <span className="text-white font-extrabold [text-shadow:0_0_30px_hsl(var(--primary)),0_0_60px_hsl(var(--primary)/0.5)]">
                   {t("hero.title2")}
                 </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-1.5 bg-primary rounded-full shadow-[0_0_15px_hsl(var(--primary)/0.6)]" />
+                <span className="absolute -bottom-2 left-0 right-0 h-1.5 bg-white rounded-full shadow-[0_0_20px_hsl(var(--primary))]" />
               </span>
             </h1>
             
