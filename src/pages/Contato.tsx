@@ -3,10 +3,24 @@ import { useTranslation } from "react-i18next";
 import Layout from "@/components/layout/Layout";
 import { Phone, Mail, MapPin, Loader2 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Contato = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
+
+  const faqs = [
+    { question: t("contact.faq1Question"), answer: t("contact.faq1Answer") },
+    { question: t("contact.faq2Question"), answer: t("contact.faq2Answer") },
+    { question: t("contact.faq3Question"), answer: t("contact.faq3Answer") },
+    { question: t("contact.faq4Question"), answer: t("contact.faq4Answer") },
+    { question: t("contact.faq5Question"), answer: t("contact.faq5Answer") },
+  ];
 
   return (
     <Layout>
@@ -72,6 +86,33 @@ const Contato = () => {
               </div>
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container max-w-3xl">
+          <AnimatedSection className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold">{t("contact.faqTitle")}</h2>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up" delay={100}>
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="bg-card border border-border rounded-lg px-6"
+                >
+                  <AccordionTrigger className="text-left font-medium hover:no-underline">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </AnimatedSection>
         </div>
       </section>
     </Layout>
