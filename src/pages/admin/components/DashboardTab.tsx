@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Eye, MousePointerClick, MessageCircle, Clock, Percent, Globe, Monitor, Smartphone, Tablet } from "lucide-react";
 import { useVisitorStats, usePageviewStats, useTimelineData, useDeviceStats, useTopPages, useCountryStats } from "@/hooks/useAnalytics";
 import { useLeadsStats, useConversionRate, useAgendamentosCount, useLeadsTimeline } from "@/hooks/useLeadsStats";
+import ConversionFunnel from "./ConversionFunnel";
 import {
   AreaChart,
   Area,
@@ -58,7 +59,8 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
 
   return (
     <div className="space-y-6">
-      {/* Conversion Cards Row */}
+      {/* Conversion Funnel - Featured */}
+      <ConversionFunnel filters={filters} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="bg-primary/5 border-primary/20">
           <CardContent className="p-4">
