@@ -241,11 +241,11 @@ const SetorDetalhe = () => {
                     {problemLabel}
                   </span>
                   <h2 className="text-2xl md:text-3xl font-bold mb-6">{problemTitle}</h2>
-                  <ul className="space-y-4 flex-grow">
+                  <ul className="space-y-4">
                     {Array.isArray(problems) && problems.map((problem, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <XCircle className="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">{problem}</span>
+                        <span className="text-muted-foreground text-base leading-relaxed">{problem}</span>
                       </li>
                     ))}
                   </ul>
@@ -262,13 +262,13 @@ const SetorDetalhe = () => {
                   </span>
                   <h2 className="text-2xl md:text-3xl font-bold mb-4">{solutionTitle}</h2>
                   <p className="text-muted-foreground mb-6">{solutionDescription}</p>
-                  <div className="grid sm:grid-cols-2 gap-4 flex-grow">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     {Array.isArray(solutions) && solutions.map((solution, index) => (
                       <div key={index} className="flex items-start gap-3">
                         <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                         <div>
                           <span className="font-medium block">{solution.title}</span>
-                          <span className="text-sm text-muted-foreground">{solution.description}</span>
+                          <span className="text-base text-muted-foreground leading-relaxed">{solution.description}</span>
                         </div>
                       </div>
                     ))}
@@ -321,7 +321,7 @@ const SetorDetalhe = () => {
                         <Icon className="h-6 w-6 text-primary" />
                       </div>
                       <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground text-sm">{step.description}</p>
+                      <p className="text-muted-foreground text-base leading-relaxed">{step.description}</p>
                     </CardContent>
                   </Card>
                 </AnimatedSection>
@@ -355,7 +355,7 @@ const SetorDetalhe = () => {
                         <Icon className="h-6 w-6 text-primary" />
                       </div>
                       <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                      <p className="text-muted-foreground text-sm">{feature.description}</p>
+                      <p className="text-muted-foreground text-base leading-relaxed">{feature.description}</p>
                     </CardContent>
                   </Card>
                 </AnimatedSection>
@@ -435,8 +435,8 @@ const SetorDetalhe = () => {
                   <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                     <MessageSquare className="h-5 w-5 text-primary" />
                   </div>
-                  <h4 className="font-semibold mb-2">{useCase.title}</h4>
-                  <p className="text-muted-foreground text-sm">{useCase.description}</p>
+                  <h4 className="text-lg font-semibold mb-2">{useCase.title}</h4>
+                  <p className="text-muted-foreground text-base leading-relaxed">{useCase.description}</p>
                 </div>
               </AnimatedSection>
             ))}

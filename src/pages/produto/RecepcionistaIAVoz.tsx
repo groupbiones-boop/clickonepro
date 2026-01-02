@@ -156,7 +156,7 @@ const RecepcionistaIAVoz = () => {
                       <feature.icon className="h-6 w-6 text-primary" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-muted-foreground text-sm">{feature.description}</p>
+                    <p className="text-muted-foreground text-base leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               </AnimatedSection>
@@ -179,8 +179,8 @@ const RecepcionistaIAVoz = () => {
                     1
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("voiceProduct.step1Title")}</h3>
-                    <p className="text-muted-foreground text-sm">
+                    <h3 className="text-lg font-semibold mb-2">{t("voiceProduct.step1Title")}</h3>
+                    <p className="text-muted-foreground text-base leading-relaxed">
                       {t("voiceProduct.step1Desc")}
                     </p>
                   </div>
@@ -190,8 +190,8 @@ const RecepcionistaIAVoz = () => {
                     2
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("voiceProduct.step2Title")}</h3>
-                    <p className="text-muted-foreground text-sm">
+                    <h3 className="text-lg font-semibold mb-2">{t("voiceProduct.step2Title")}</h3>
+                    <p className="text-muted-foreground text-base leading-relaxed">
                       {t("voiceProduct.step2Desc")}
                     </p>
                   </div>
@@ -201,8 +201,8 @@ const RecepcionistaIAVoz = () => {
                     3
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("voiceProduct.step3Title")}</h3>
-                    <p className="text-muted-foreground text-sm">
+                    <h3 className="text-lg font-semibold mb-2">{t("voiceProduct.step3Title")}</h3>
+                    <p className="text-muted-foreground text-base leading-relaxed">
                       {t("voiceProduct.step3Desc")}
                     </p>
                   </div>
@@ -212,8 +212,8 @@ const RecepcionistaIAVoz = () => {
                     4
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("voiceProduct.step4Title")}</h3>
-                    <p className="text-muted-foreground text-sm">
+                    <h3 className="text-lg font-semibold mb-2">{t("voiceProduct.step4Title")}</h3>
+                    <p className="text-muted-foreground text-base leading-relaxed">
                       {t("voiceProduct.step4Desc")}
                     </p>
                   </div>
@@ -227,7 +227,7 @@ const RecepcionistaIAVoz = () => {
                   {benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>{benefit}</span>
+                      <span className="text-base leading-relaxed">{benefit}</span>
                     </li>
                   ))}
                 </ul>

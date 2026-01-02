@@ -220,7 +220,7 @@ const AtendenteIAConversacional = () => {
                       <feature.icon className="h-6 w-6 text-primary" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-muted-foreground text-sm">{feature.description}</p>
+                    <p className="text-muted-foreground text-base leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               </AnimatedSection>
@@ -239,8 +239,8 @@ const AtendenteIAConversacional = () => {
                 <div className="space-y-4">
                   {useCases.map((useCase, index) => (
                     <div key={index} className="bg-background rounded-lg p-4">
-                      <h4 className="font-semibold mb-1">{useCase.title}</h4>
-                      <p className="text-muted-foreground text-sm">
+                      <h4 className="text-lg font-semibold mb-2">{useCase.title}</h4>
+                      <p className="text-muted-foreground text-base leading-relaxed">
                         {useCase.description}
                       </p>
                     </div>
@@ -256,7 +256,7 @@ const AtendenteIAConversacional = () => {
                 {benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span>{benefit}</span>
+                    <span className="text-base leading-relaxed">{benefit}</span>
                   </li>
                 ))}
               </ul>
