@@ -28,6 +28,10 @@ import industryHvac from "@/assets/industry-hvac.jpg";
 import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
 import industryElectrical from "@/assets/industry-electrical.jpg";
 import industryLandscaping from "@/assets/industry-landscaping.jpg";
+import logoClutch from "@/assets/logo-clutch.svg";
+import logoG2 from "@/assets/logo-g2.svg";
+import logoCapterra from "@/assets/logo-capterra.svg";
+import logoTrustpilot from "@/assets/logo-trustpilot.svg";
 
 const industries = [
   { name: "Empresas de Limpeza", slug: "limpeza", image: industryCleaning },
@@ -185,7 +189,7 @@ const Index = () => {
                   <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
                 ))}
               </div>
-              <span className="text-background font-bold text-lg tracking-tight">Clutch</span>
+              <img src={logoClutch} alt="Clutch" className="h-6 brightness-0 invert" />
             </div>
             
             {/* G2 */}
@@ -196,7 +200,7 @@ const Index = () => {
                   <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
                 ))}
               </div>
-              <span className="text-background font-bold text-lg">G2</span>
+              <img src={logoG2} alt="G2" className="h-7" />
             </div>
             
             {/* Capterra */}
@@ -207,7 +211,7 @@ const Index = () => {
                   <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
                 ))}
               </div>
-              <span className="text-background font-bold text-lg">Capterra</span>
+              <img src={logoCapterra} alt="Capterra" className="h-6" />
             </div>
             
             {/* Trustpilot */}
@@ -218,7 +222,7 @@ const Index = () => {
                   <Star key={i} className={`h-4 w-4 ${i < 4 ? 'fill-green-500 text-green-500' : 'fill-green-500/30 text-green-500/30'}`} />
                 ))}
               </div>
-              <span className="text-background font-bold text-lg">Trustpilot</span>
+              <img src={logoTrustpilot} alt="Trustpilot" className="h-6" />
             </div>
           </div>
         </div>
