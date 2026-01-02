@@ -71,13 +71,23 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-semibold text-lg">{t("footer.contact")}</h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-background/70 text-sm">
-                <Phone className="h-4 w-4" />
-                <span>+1 (770) 501-7321</span>
+              <li>
+                <a 
+                  href="tel:+17705017321" 
+                  className="flex items-center gap-2 text-background/70 hover:text-background text-sm transition-colors"
+                >
+                  <Phone className="h-4 w-4" />
+                  <span>+1 (770) 501-7321</span>
+                </a>
               </li>
-              <li className="flex items-center gap-2 text-background/70 text-sm">
-                <Mail className="h-4 w-4" />
-                <span>contato@clickonepro.com</span>
+              <li>
+                <a 
+                  href="mailto:contato@clickonepro.com" 
+                  className="flex items-center gap-2 text-background/70 hover:text-background text-sm transition-colors"
+                >
+                  <Mail className="h-4 w-4" />
+                  <span>contato@clickonepro.com</span>
+                </a>
               </li>
               <li className="flex items-start gap-2 text-background/70 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5" />
