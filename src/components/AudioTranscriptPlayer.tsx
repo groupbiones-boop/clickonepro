@@ -241,8 +241,8 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
       </div>
       
       {/* Right side - Transcript */}
-      <div className="flex flex-col h-full max-h-[400px] md:max-h-none">
-        <div className="p-4 border-b border-border/50">
+      <div className="flex flex-col h-[400px]">
+        <div className="p-4 border-b border-border/50 flex-shrink-0">
           <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
             Real-Time Transcript
           </h4>
@@ -250,7 +250,7 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
         
         <div 
           ref={transcriptRef}
-          className="flex-1 p-4 space-y-3 overflow-y-auto scroll-smooth"
+          className="flex-1 p-4 space-y-3 overflow-y-auto scroll-smooth min-h-0"
         >
           {visibleMessages.length === 0 ? (
             <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
