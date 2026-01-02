@@ -64,33 +64,42 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
         <CardTitle className="text-lg">Funil de Conversão</CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
-        <div className="flex gap-4">
-          {/* SVG Funnel */}
+        <div className="flex items-start gap-2">
+          {/* Left side - Percentages with "Despesas" labels */}
+          <div className="flex flex-col justify-between h-[260px] pt-2 text-right">
+            {FUNNEL_STAGES.map((stage, index) => {
+              const percent = percentages[index];
+              return (
+                <div key={stage.key} className="flex flex-col items-end" style={{ height: "48px" }}>
+                  <span className="text-sm font-bold text-foreground">{percent}%</span>
+                  <span className="text-[10px] text-muted-foreground">Despesas</span>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* SVG Funnel - True cone shape */}
           <div className="flex-shrink-0">
-            <svg width="140" height="280" viewBox="0 0 140 280">
-              {/* Funnel layers with curved sides */}
+            <svg width="120" height="280" viewBox="0 0 120 280">
+              {/* Funnel layers with curved 3D effect */}
               {FUNNEL_STAGES.map((stage, index) => {
-                const totalLayers = FUNNEL_STAGES.length;
-                const layerHeight = 50;
-                const y = index * layerHeight;
+                const layerHeight = 48;
+                const y = index * layerHeight + 5;
                 
-                // Calculate widths - wider at top, narrower at bottom
-                const topWidthPercent = 1 - (index * 0.18);
-                const bottomWidthPercent = 1 - ((index + 1) * 0.18);
+                // Progressive narrowing
+                const topWidth = 110 - (index * 18);
+                const bottomWidth = 110 - ((index + 1) * 18);
                 
-                const topWidth = 130 * topWidthPercent;
-                const bottomWidth = 130 * bottomWidthPercent;
+                const topX = (120 - topWidth) / 2;
+                const bottomX = (120 - bottomWidth) / 2;
                 
-                const topX = (140 - topWidth) / 2;
-                const bottomX = (140 - bottomWidth) / 2;
-                
-                // Create curved path
-                const curveOffset = 5;
+                // Curved sides for 3D effect
+                const curveDepth = 8;
                 const path = `
                   M ${topX} ${y}
-                  Q ${topX - curveOffset} ${y + layerHeight / 2} ${bottomX} ${y + layerHeight}
-                  L ${140 - bottomX} ${y + layerHeight}
-                  Q ${140 - topX + curveOffset} ${y + layerHeight / 2} ${140 - topX} ${y}
+                  C ${topX - curveDepth} ${y + layerHeight * 0.5}, ${bottomX - curveDepth} ${y + layerHeight * 0.5}, ${bottomX} ${y + layerHeight}
+                  L ${120 - bottomX} ${y + layerHeight}
+                  C ${120 - bottomX + curveDepth} ${y + layerHeight * 0.5}, ${120 - topX + curveDepth} ${y + layerHeight * 0.5}, ${120 - topX} ${y}
                   Z
                 `;
 
@@ -99,6 +108,8 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
                     key={stage.key}
                     d={path}
                     fill={stage.color}
+                    stroke={stage.color}
+                    strokeWidth="0.5"
                     className="transition-all duration-500"
                   />
                 );
@@ -106,31 +117,22 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
               
               {/* Bottom cone tip */}
               <path
-                d="M 47 250 Q 40 265 70 280 Q 100 265 93 250 Z"
+                d="M 38 245 C 30 260, 50 278, 60 280 C 70 278, 90 260, 82 245 Z"
                 fill="#8b5cf6"
-                className="transition-all duration-500"
               />
             </svg>
           </div>
 
-          {/* Labels */}
-          <div className="flex flex-col justify-between py-1 flex-1">
+          {/* Right side - Labels with descriptions */}
+          <div className="flex flex-col justify-between h-[260px] pt-2 flex-1">
             {FUNNEL_STAGES.map((stage, index) => {
               const value = values[index];
-              const percent = percentages[index];
-
               return (
-                <div key={stage.key} className="flex items-center gap-2">
-                  <span 
-                    className="text-sm font-bold min-w-[40px]"
-                    style={{ color: stage.color }}
-                  >
-                    {percent}%
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm font-semibold text-foreground">{stage.label}</p>
-                    <p className="text-xs text-muted-foreground">{value.toLocaleString("pt-BR")}</p>
-                  </div>
+                <div key={stage.key} style={{ height: "48px" }}>
+                  <p className="text-sm font-bold text-foreground">{stage.label}</p>
+                  <p className="text-[10px] text-muted-foreground leading-tight">
+                    {stage.desc} ({value.toLocaleString("pt-BR")})
+                  </p>
                 </div>
               );
             })}
@@ -138,7 +140,7 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
         </div>
 
         {/* Summary Metrics */}
-        <div className="mt-4 pt-3 border-t border-border grid grid-cols-2 gap-3 text-center">
+        <div className="mt-3 pt-3 border-t border-border grid grid-cols-2 gap-3 text-center">
           <div>
             <p className="text-xs text-muted-foreground">Visitante → Lead</p>
             <p className="text-base font-bold text-primary">
