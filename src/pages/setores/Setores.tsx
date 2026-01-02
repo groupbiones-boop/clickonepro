@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import { ArrowRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
 import industryConstruction from "@/assets/industry-construction.jpg";
 import industryHvac from "@/assets/industry-hvac.jpg";
@@ -61,41 +62,47 @@ const Setores = () => {
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-foreground">
         <div className="container">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6">
-            Setores em que atuamos
-          </h1>
-          <p className="text-lg md:text-xl text-background/70 max-w-2xl mb-10">
-            Soluções baseadas em IA para atender às necessidades específicas do seu negócio.
-          </p>
+          <AnimatedSection animation="fade-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-6">
+              Setores em que atuamos
+            </h1>
+            <p className="text-lg md:text-xl text-background/70 max-w-2xl mb-10">
+              Soluções baseadas em IA para atender às necessidades específicas do seu negócio.
+            </p>
+          </AnimatedSection>
 
           {/* Search Input */}
-          <div className="relative max-w-lg mb-12">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            <Input
-              type="text"
-              placeholder="Pesquisar setores..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-12 py-6 text-base bg-background border-0 rounded-lg"
-            />
-          </div>
+          <AnimatedSection animation="fade-up" delay={100}>
+            <div className="relative max-w-lg mb-12">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Pesquisar setores..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-12 py-6 text-base bg-background border-0 rounded-lg"
+              />
+            </div>
+          </AnimatedSection>
 
           {/* Industry Pills/Tags */}
-          <p className="text-background/60 text-sm mb-4">
-            {filteredIndustries.length} setores disponíveis
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {filteredIndustries.map((industry) => (
-              <Link key={industry.slug} to={`/setores/${industry.slug}`}>
-                <Button
-                  variant="outline"
-                  className="bg-background text-foreground border-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
-                >
-                  {industry.name}
-                </Button>
-              </Link>
-            ))}
-          </div>
+          <AnimatedSection animation="fade-up" delay={200}>
+            <p className="text-background/60 text-sm mb-4">
+              {filteredIndustries.length} setores disponíveis
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {filteredIndustries.map((industry) => (
+                <Link key={industry.slug} to={`/setores/${industry.slug}`}>
+                  <Button
+                    variant="outline"
+                    className="bg-background text-foreground border-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
+                  >
+                    {industry.name}
+                  </Button>
+                </Link>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -103,24 +110,25 @@ const Setores = () => {
       <section className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredIndustries.map((industry) => (
-              <Link 
-                key={industry.slug} 
-                to={`/setores/${industry.slug}`}
-                className="group block"
-              >
-                <div className="overflow-hidden rounded-xl mb-4">
-                  <img 
-                    src={industry.image} 
-                    alt={industry.name} 
-                    className="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground flex items-center gap-2 group-hover:text-primary transition-colors">
-                  {industry.name}
-                  <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                </h3>
-              </Link>
+            {filteredIndustries.map((industry, index) => (
+              <AnimatedSection key={industry.slug} animation="fade-up" delay={index % 6 * 100}>
+                <Link 
+                  to={`/setores/${industry.slug}`}
+                  className="group block"
+                >
+                  <div className="overflow-hidden rounded-xl mb-4">
+                    <img 
+                      src={industry.image} 
+                      alt={industry.name} 
+                      className="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground flex items-center gap-2 group-hover:text-primary transition-colors">
+                    {industry.name}
+                    <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                  </h3>
+                </Link>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -129,16 +137,18 @@ const Setores = () => {
       {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-6">Não encontrou seu setor?</h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Entre em contato e criaremos uma solução personalizada para o seu negócio.
-          </p>
-          <Button size="lg" variant="secondary" asChild>
-            <Link to="/contato">
-              Fale Conosco
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <AnimatedSection>
+            <h2 className="text-3xl font-bold mb-6">Não encontrou seu setor?</h2>
+            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
+              Entre em contato e criaremos uma solução personalizada para o seu negócio.
+            </p>
+            <Button size="lg" variant="secondary" asChild>
+              <Link to="/contato">
+                Fale Conosco
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </AnimatedSection>
         </div>
       </section>
     </Layout>
