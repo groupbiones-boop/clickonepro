@@ -56,7 +56,7 @@ const Header = () => {
                   Produto
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[300px] gap-2 p-4 bg-primary/80 backdrop-blur-md border border-primary-foreground/10">
+                  <ul className="grid w-[300px] gap-2 p-4 bg-primary/60 backdrop-blur-lg border border-primary-foreground/10 shadow-xl">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
@@ -97,7 +97,7 @@ const Header = () => {
                   A quem servimos
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid grid-cols-2 w-[520px] bg-primary/80 backdrop-blur-md border border-primary-foreground/10">
+                  <div className="grid grid-cols-2 w-[520px] bg-primary/60 backdrop-blur-lg border border-primary-foreground/10 shadow-xl">
                     {/* Indústrias Column */}
                     <div className="p-5 border-r border-primary-foreground/20">
                       <h3 className="text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider mb-4">
