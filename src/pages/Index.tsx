@@ -177,52 +177,107 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
-      {/* Social Proof Ratings */}
-      <section className="bg-foreground py-8 border-y border-border/20">
-        <div className="container">
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 lg:gap-24">
-            {/* Clutch */}
-            <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-xl">4.8</span>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
-                ))}
+      {/* Social Proof Ratings - Animated Marquee */}
+      <section className="bg-foreground py-6 border-y border-border/20 overflow-hidden">
+        <div className="relative">
+          {/* Gradient masks for smooth edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-foreground to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-foreground to-transparent z-10" />
+          
+          {/* Scrolling container */}
+          <div className="flex animate-marquee">
+            {/* First set of items */}
+            <div className="flex items-center gap-12 md:gap-16 lg:gap-20 shrink-0 px-8">
+              {/* Clutch */}
+              <div className="flex items-center gap-3">
+                <span className="text-background/90 font-bold text-lg">4.8</span>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
+                  ))}
+                </div>
+                <img src={logoClutch} alt="Clutch" className="h-7" />
               </div>
-              <img src={logoClutch} alt="Clutch" className="h-8" />
+              
+              {/* G2 */}
+              <div className="flex items-center gap-3">
+                <span className="text-background/90 font-bold text-lg">4.9</span>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
+                  ))}
+                </div>
+                <img src={logoG2} alt="G2" className="h-7" />
+              </div>
+              
+              {/* Capterra */}
+              <div className="flex items-center gap-3">
+                <span className="text-background/90 font-bold text-lg">4.8</span>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
+                  ))}
+                </div>
+                <img src={logoCapterra} alt="Capterra" className="h-7" />
+              </div>
+              
+              {/* Trustpilot */}
+              <div className="flex items-center gap-3">
+                <span className="text-background/90 font-bold text-lg">4.3</span>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`h-3.5 w-3.5 ${i < 4 ? 'fill-green-500 text-green-500' : 'fill-green-500/30 text-green-500/30'}`} />
+                  ))}
+                </div>
+                <img src={logoTrustpilot} alt="Trustpilot" className="h-7" />
+              </div>
             </div>
-            
-            {/* G2 */}
-            <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-xl">4.9</span>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
-                ))}
+
+            {/* Duplicate set for seamless loop */}
+            <div className="flex items-center gap-12 md:gap-16 lg:gap-20 shrink-0 px-8">
+              {/* Clutch */}
+              <div className="flex items-center gap-3">
+                <span className="text-background/90 font-bold text-lg">4.8</span>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
+                  ))}
+                </div>
+                <img src={logoClutch} alt="Clutch" className="h-7" />
               </div>
-              <img src={logoG2} alt="G2" className="h-8" />
-            </div>
-            
-            {/* Capterra */}
-            <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-xl">4.8</span>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
-                ))}
+              
+              {/* G2 */}
+              <div className="flex items-center gap-3">
+                <span className="text-background/90 font-bold text-lg">4.9</span>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
+                  ))}
+                </div>
+                <img src={logoG2} alt="G2" className="h-7" />
               </div>
-              <img src={logoCapterra} alt="Capterra" className="h-8" />
-            </div>
-            
-            {/* Trustpilot */}
-            <div className="flex items-center gap-3">
-              <span className="text-background/90 font-bold text-xl">4.3</span>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className={`h-4 w-4 ${i < 4 ? 'fill-green-500 text-green-500' : 'fill-green-500/30 text-green-500/30'}`} />
-                ))}
+              
+              {/* Capterra */}
+              <div className="flex items-center gap-3">
+                <span className="text-background/90 font-bold text-lg">4.8</span>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
+                  ))}
+                </div>
+                <img src={logoCapterra} alt="Capterra" className="h-7" />
               </div>
-              <img src={logoTrustpilot} alt="Trustpilot" className="h-7" />
+              
+              {/* Trustpilot */}
+              <div className="flex items-center gap-3">
+                <span className="text-background/90 font-bold text-lg">4.3</span>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`h-3.5 w-3.5 ${i < 4 ? 'fill-green-500 text-green-500' : 'fill-green-500/30 text-green-500/30'}`} />
+                  ))}
+                </div>
+                <img src={logoTrustpilot} alt="Trustpilot" className="h-7" />
+              </div>
             </div>
           </div>
         </div>
