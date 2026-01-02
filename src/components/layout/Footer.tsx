@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
-import clickoneLogo from "@/assets/clickone-logo.png";
+import clickoneLogoNew from "@/assets/clickone-logo-new.png";
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <img src={clickoneLogo} alt="ClickOne AI" className="h-10 w-auto brightness-0 invert" />
+            <img src={clickoneLogoNew} alt="ClickOne AI" className="h-10 w-auto" />
             <p className="text-background/70 text-sm">
               Transformando o atendimento ao cliente com inteligência artificial de voz e conversacional.
             </p>
