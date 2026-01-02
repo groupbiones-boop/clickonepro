@@ -1976,10 +1976,10 @@ const SetorDetalhe = () => {
       {/* Problem & Solution Section */}
       <section className="py-12 md:py-20 lg:py-24 bg-background">
         <div className="container px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8 md:space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {/* Problem Card */}
-            <Card className="border-destructive/20 shadow-lg animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-              <CardContent className="p-5 sm:p-6 md:p-8 lg:p-10">
+            <Card className="border-destructive/20 shadow-lg animate-fade-in h-full" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+              <CardContent className="p-5 sm:p-6 md:p-8 lg:p-10 h-full flex flex-col">
                 <div className="flex items-center gap-2 mb-4 md:mb-6">
                   <div className="h-[2px] w-6 md:w-8 bg-destructive"></div>
                   <span className="text-destructive font-semibold tracking-wide text-xs md:text-sm uppercase">O PROBLEMA</span>
@@ -1989,7 +1989,7 @@ const SetorDetalhe = () => {
                     i > 2 ? <span key={i} className="text-destructive">{word} </span> : `${word} `
                   )}
                 </h2>
-                <ul className="space-y-3 md:space-y-4">
+                <ul className="space-y-3 md:space-y-4 flex-grow">
                   {data.problems.map((problem, index) => (
                     <li 
                       key={index} 
@@ -2005,8 +2005,8 @@ const SetorDetalhe = () => {
             </Card>
 
             {/* Solution Card */}
-            <Card className="bg-primary/5 border-primary/20 shadow-lg animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
-              <CardContent className="p-5 sm:p-6 md:p-8 lg:p-10">
+            <Card className="bg-primary/5 border-primary/20 shadow-lg animate-fade-in h-full" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+              <CardContent className="p-5 sm:p-6 md:p-8 lg:p-10 h-full flex flex-col">
                 <div className="flex items-center gap-2 mb-4 md:mb-6">
                   <div className="h-[2px] w-6 md:w-8 bg-primary"></div>
                   <span className="text-primary font-semibold tracking-wide text-xs md:text-sm uppercase">A SOLUÇÃO</span>
@@ -2017,12 +2017,12 @@ const SetorDetalhe = () => {
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-4 md:mb-6">
                   {data.solutionTitle}
                 </h3>
-                <ul className="space-y-3 md:space-y-4">
+                <ul className="space-y-3 md:space-y-4 flex-grow">
                   {data.solutions.slice(0, 4).map((solution, index) => (
                     <li 
                       key={index} 
                       className="flex items-start gap-3 md:gap-4 animate-fade-in"
-                      style={{ animationDelay: `${0.35 + index * 0.08}s`, animationFillMode: 'both' }}
+                      style={{ animationDelay: `${0.25 + index * 0.08}s`, animationFillMode: 'both' }}
                     >
                       <span className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary/10 flex items-center justify-center">
                         <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-primary" />
