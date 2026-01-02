@@ -18,7 +18,6 @@ import BlogPost from "./pages/BlogPost";
 import PequenaEmpresa from "./pages/empresas/PequenaEmpresa";
 import MediaEmpresa from "./pages/empresas/MediaEmpresa";
 import NegociosLocais from "./pages/empresas/NegociosLocais";
-import RedeFranquias from "./pages/empresas/RedeFranquias";
 import GenerateDemoAudio from "./pages/admin/GenerateDemoAudio";
 
 const queryClient = new QueryClient();
@@ -39,7 +38,6 @@ const App = () => (
           <Route path="/empresas/pequena-empresa" element={<PequenaEmpresa />} />
           <Route path="/empresas/media-empresa" element={<MediaEmpresa />} />
           <Route path="/empresas/negocios-locais" element={<NegociosLocais />} />
-          <Route path="/empresas/rede-franquias" element={<RedeFranquias />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/contato" element={<Contato />} />
           <Route path="/agendar-demo" element={<AgendarDemo />} />
