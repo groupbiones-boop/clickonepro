@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <img src={clickoneLogoNew} alt="ClickOne AI" className="h-10 w-auto" />
+            <img src={clickoneLogoNew} alt="ClickOne AI" className="h-8 md:h-10 w-auto" />
             <p className="text-background/70 text-sm">
               Transformando o atendimento ao cliente com inteligência artificial de voz e conversacional.
             </p>
