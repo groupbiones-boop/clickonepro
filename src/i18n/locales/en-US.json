@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "product": "Product",
+    "voiceReceptionist": "AI Voice Receptionist",
+    "chatAttendant": "AI Chat Attendant",
+    "sectors": "Industries",
+    "viewAll": "View All",
+    "cleaning": "Cleaning",
+    "construction": "Construction",
+    "electrical": "Electrical",
+    "companies": "Companies",
+    "smallBusiness": "Small Business",
+    "mediumBusiness": "Medium Business",
+    "localBusiness": "Local Business",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookDemo": "Book Demo"
+  },
+  "hero": {
+    "badge": "AI Receptionist for Service Businesses",
+    "title1": "Never Miss A Call.",
+    "title2": "Never Lose A Customer.",
+    "subtitle": "Virtual receptionist powered by artificial intelligence that answers calls, qualifies leads and schedules services 24 hours a day, 7 days a week.",
+    "cta": "Book Free Demo",
+    "ctaSecondary": "View Industries Served",
+    "trust1": "Setup in 24h",
+    "trust2": "No long contracts",
+    "trust3": "English support"
+  },
+  "audioDemo": {
+    "badge": "Live Demonstration",
+    "title": "Hear Our AI in Action",
+    "subtitle": "Listen to real demonstrations of how ClickOne AI answers calls and qualifies leads for different types of businesses.",
+    "impressed": "Impressed? See how this can work for your business.",
+    "cta": "Schedule My Personalized Demo"
+  },
+  "problem": {
+    "label": "The Problem",
+    "title": "Missed Calls",
+    "titleHighlight": "Lost Revenue",
+    "stat1": "of calls to small businesses go unanswered",
+    "stat2": "of customers don't call back after a missed call",
+    "stat3": "You're at work and",
+    "stat3Bold": "can't answer",
+    "stat3End": "the phone"
+  },
+  "solution": {
+    "label": "The Solution",
+    "title": "ClickOne AI",
+    "titleHighlight": "Works For You",
+    "benefit1": "Instant response",
+    "benefit1Bold": "24/7",
+    "benefit1End": ", no waiting",
+    "benefit2Bold": "Automatic qualification",
+    "benefit2End": "of leads",
+    "benefit3": "Scheduling",
+    "benefit3Bold": "integrated with your calendar",
+    "benefit4": "You work while the",
+    "benefit4Bold": "AI answers",
+    "cta": "Get Started"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "In 4 simple steps, you turn every call into a business opportunity.",
+    "step1Title": "Customer Calls",
+    "step1Desc": "Your customer calls or sends a message at any time.",
+    "step2Title": "AI Answers",
+    "step2Desc": "Our AI answers instantly, with no wait time.",
+    "step3Title": "Qualifies & Schedules",
+    "step3Desc": "The AI collects information and schedules the service.",
+    "step4Title": "You Receive",
+    "step4Desc": "You receive the qualified and scheduled lead."
+  },
+  "features": {
+    "title": "Powerful AI Features",
+    "subtitle": "Cutting-edge technology to maximize your customer service and conversions.",
+    "feature1Title": "24/7 Service",
+    "feature1Desc": "Never miss a call, even outside business hours.",
+    "feature2Title": "Auto Scheduling",
+    "feature2Desc": "AI schedules services directly to your calendar.",
+    "feature3Title": "Lead Qualification",
+    "feature3Desc": "Automatically identifies and prioritizes the best customers.",
+    "feature4Title": "Increased Conversions",
+    "feature4Desc": "More leads converted into paying customers."
+  },
+  "omnichannel": {
+    "title": "Omnichannel Service",
+    "subtitle": "Be present on all channels where your customers are.",
+    "phone": "Phone",
+    "sms": "SMS",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "webchat": "Website Chat"
+  },
+  "mobileApp": {
+    "title": "Mobile App for Field Professionals",
+    "subtitle": "Receive instant notifications of new leads, manage schedules and track metrics in real time, all in the palm of your hand.",
+    "feature1": "Push notifications for new leads",
+    "feature2": "Real-time schedule management",
+    "feature3": "Customer conversation history",
+    "feature4": "Metrics and performance dashboard",
+    "cta": "Learn More"
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "subtitle": "Customized solutions for every type of service business.",
+    "cleaning": "Cleaning Companies",
+    "construction": "Construction & Remodeling",
+    "hvac": "HVAC",
+    "plumbing": "Plumbing",
+    "electrical": "Electrical Services",
+    "landscaping": "Landscaping",
+    "learnMore": "Learn more →",
+    "viewAll": "View All Industries"
+  },
+  "finalCta": {
+    "title": "Ready to Transform Your Customer Service?",
+    "subtitle": "Schedule a free demo and see how ClickOne AI can increase your conversions by up to 40%.",
+    "cta": "Book Free Demo"
+  },
+  "footer": {
+    "description": "Transforming customer service with artificial intelligence for service businesses.",
+    "product": "Product",
+    "sectors": "Industries",
+    "contact": "Contact",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "rights": "All rights reserved.",
+    "about": "About",
+    "blog": "Blog"
+  }
+}
