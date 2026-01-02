@@ -140,7 +140,7 @@ const AgendarDemo = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"
                 >
-                  Agende uma Demo Agora
+                  {t("agendarDemo.ctaButton")}
                   <ArrowRight className="h-5 w-5" />
                 </a>
               </Button>
