@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "product": "Produto",
+    "voiceReceptionist": "Recepcionista IA de Voz",
+    "chatAttendant": "Atendente IA Conversacional",
+    "sectors": "Setores",
+    "viewAll": "Ver Todos",
+    "cleaning": "Limpeza",
+    "construction": "Construção",
+    "electrical": "Elétrica",
+    "companies": "Empresas",
+    "smallBusiness": "Pequena Empresa",
+    "mediumBusiness": "Média Empresa",
+    "localBusiness": "Negócios Locais",
+    "about": "Sobre",
+    "blog": "Blog",
+    "contact": "Contato",
+    "bookDemo": "Agendar Demo"
+  },
+  "hero": {
+    "badge": "Recepcionista IA para Empresas de Serviços",
+    "title1": "Nunca Perca Uma Ligação.",
+    "title2": "Nunca Perca Um Cliente.",
+    "subtitle": "Recepcionista virtual com inteligência artificial que atende chamadas, qualifica leads e agenda serviços 24 horas por dia, 7 dias por semana.",
+    "cta": "Agendar Demo Grátis",
+    "ctaSecondary": "Ver Setores Atendidos",
+    "trust1": "Setup em 24h",
+    "trust2": "Sem contrato longo",
+    "trust3": "Suporte em português"
+  },
+  "audioDemo": {
+    "badge": "Demonstração ao Vivo",
+    "title": "Ouça Nossa IA em Ação",
+    "subtitle": "Escute demonstrações reais de como a ClickOne AI atende chamadas e qualifica leads para diferentes tipos de negócios.",
+    "impressed": "Impressionado? Veja como isso pode funcionar para seu negócio.",
+    "cta": "Agendar Minha Demo Personalizada"
+  },
+  "problem": {
+    "label": "O Problema",
+    "title": "Ligações Perdidas",
+    "titleHighlight": "Dinheiro Perdido",
+    "stat1": "das chamadas para pequenas empresas não são atendidas",
+    "stat2": "dos clientes não ligam de volta após uma chamada perdida",
+    "stat3": "Você está no trabalho e",
+    "stat3Bold": "não pode atender",
+    "stat3End": "o telefone"
+  },
+  "solution": {
+    "label": "A Solução",
+    "title": "ClickOne AI",
+    "titleHighlight": "Trabalha Por Você",
+    "benefit1": "Atendimento instantâneo",
+    "benefit1Bold": "24/7",
+    "benefit1End": ", sem espera",
+    "benefit2Bold": "Qualificação automática",
+    "benefit2End": "de leads",
+    "benefit3": "Agendamento",
+    "benefit3Bold": "integrado à sua agenda",
+    "benefit4": "Você trabalha enquanto a",
+    "benefit4Bold": "IA atende",
+    "cta": "Começar Agora"
+  },
+  "howItWorks": {
+    "title": "Como Funciona",
+    "subtitle": "Em 4 passos simples, você transforma cada ligação em uma oportunidade de negócio.",
+    "step1Title": "Cliente Liga",
+    "step1Desc": "Seu cliente liga ou envia mensagem a qualquer hora.",
+    "step2Title": "IA Atende",
+    "step2Desc": "Nossa IA atende instantaneamente, sem tempo de espera.",
+    "step3Title": "Qualifica & Agenda",
+    "step3Desc": "A IA coleta informações e agenda o serviço.",
+    "step4Title": "Você Recebe",
+    "step4Desc": "Você recebe o lead qualificado e agendado."
+  },
+  "features": {
+    "title": "Recursos Poderosos de IA",
+    "subtitle": "Tecnologia de ponta para maximizar seu atendimento e conversões.",
+    "feature1Title": "Atendimento 24/7",
+    "feature1Desc": "Nunca perca uma chamada, mesmo fora do horário comercial.",
+    "feature2Title": "Agendamento Automático",
+    "feature2Desc": "A IA agenda serviços diretamente na sua agenda.",
+    "feature3Title": "Qualificação de Leads",
+    "feature3Desc": "Identifica e prioriza os melhores clientes automaticamente.",
+    "feature4Title": "Aumento de Conversões",
+    "feature4Desc": "Mais leads convertidos em clientes pagantes."
+  },
+  "omnichannel": {
+    "title": "Atendimento Omnichannel",
+    "subtitle": "Esteja presente em todos os canais onde seus clientes estão.",
+    "phone": "Telefone",
+    "sms": "SMS",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "webchat": "Website Chat"
+  },
+  "mobileApp": {
+    "title": "Aplicativo Mobile para Profissionais em Campo",
+    "subtitle": "Receba notificações instantâneas de novos leads, gerencie agendamentos e acompanhe métricas em tempo real, tudo na palma da sua mão.",
+    "feature1": "Notificações push de novos leads",
+    "feature2": "Gestão de agenda em tempo real",
+    "feature3": "Histórico de conversas com clientes",
+    "feature4": "Dashboard de métricas e performance",
+    "cta": "Saiba Mais"
+  },
+  "industries": {
+    "title": "Setores que Atendemos",
+    "subtitle": "Soluções personalizadas para cada tipo de negócio de serviços.",
+    "cleaning": "Empresas de Limpeza",
+    "construction": "Construção & Reformas",
+    "hvac": "HVAC / Climatização",
+    "plumbing": "Encanamento",
+    "electrical": "Serviços Elétricos",
+    "landscaping": "Paisagismo",
+    "learnMore": "Saiba mais →",
+    "viewAll": "Ver Todos os Setores"
+  },
+  "finalCta": {
+    "title": "Pronto para Transformar Seu Atendimento?",
+    "subtitle": "Agende uma demonstração gratuita e veja como a ClickOne AI pode aumentar suas conversões em até 40%.",
+    "cta": "Agendar Demo Grátis"
+  },
+  "footer": {
+    "description": "Transformando atendimento ao cliente com inteligência artificial para empresas de serviços.",
+    "product": "Produto",
+    "sectors": "Setores",
+    "contact": "Contato",
+    "phone": "Telefone",
+    "email": "Email",
+    "location": "Localização",
+    "rights": "Todos os direitos reservados.",
+    "about": "Sobre",
+    "blog": "Blog"
+  }
+}
