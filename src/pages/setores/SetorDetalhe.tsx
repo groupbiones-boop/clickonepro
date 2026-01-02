@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import { AnimatedSection } from "@/hooks/use-scroll-animation";
+import { AnimatedCounter } from "@/hooks/use-count-animation";
 import {
   Accordion,
   AccordionContent,
@@ -2051,25 +2053,39 @@ const SetorDetalhe = () => {
       {/* Stats Section */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container">
-          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+          <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Inteligência de chamadas para vantagem competitiva
             </h2>
             <p className="text-primary-foreground/80 max-w-2xl mx-auto">
               Tome melhores decisões de negócio com dados de chamadas em tempo real, visualizados no dashboard da ClickOne AI.
             </p>
-          </div>
+          </AnimatedSection>
           <div className="grid md:grid-cols-3 gap-8">
-            {data.stats.map((stat, index) => (
-              <div 
-                key={index} 
-                className="text-center animate-scale-in"
-                style={{ animationDelay: `${0.2 + index * 0.1}s`, animationFillMode: 'both' }}
-              >
-                <span className="text-5xl md:text-6xl font-bold block mb-4">{stat.value}</span>
-                <p className="text-primary-foreground/80">{stat.label}</p>
-              </div>
-            ))}
+            {data.stats.map((stat, index) => {
+              // Parse the stat value to extract number and suffix
+              const numericMatch = stat.value.match(/^(\d+\.?\d*)(.*)$/);
+              const numericValue = numericMatch ? parseFloat(numericMatch[1]) : 0;
+              const suffix = numericMatch ? numericMatch[2] : stat.value;
+              
+              return (
+                <AnimatedSection 
+                  key={index} 
+                  animation="scale"
+                  delay={index * 150}
+                  className="text-center"
+                >
+                  <span className="text-5xl md:text-6xl font-bold block mb-4">
+                    {numericValue > 0 ? (
+                      <AnimatedCounter end={numericValue} suffix={suffix} duration={2500} />
+                    ) : (
+                      stat.value
+                    )}
+                  </span>
+                  <p className="text-primary-foreground/80">{stat.label}</p>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
