@@ -15,50 +15,53 @@ import {
   BarChart3,
 } from "lucide-react";
 import heroVoiceAi from "@/assets/hero-voice-ai.jpg";
-
-const features = [
-  {
-    icon: Mic,
-    title: "Voz Natural e Humanizada",
-    description: "IA conversacional com voz natural que seus clientes não vão perceber que é um robô.",
-  },
-  {
-    icon: Clock,
-    title: "Disponível 24/7",
-    description: "Atendimento ininterrupto, incluindo noites, fins de semana e feriados.",
-  },
-  {
-    icon: Calendar,
-    title: "Agendamento Automático",
-    description: "Integra com sua agenda e marca serviços automaticamente.",
-  },
-  {
-    icon: Users,
-    title: "Qualificação de Leads",
-    description: "Coleta informações essenciais antes de transferir para você.",
-  },
-  {
-    icon: Globe,
-    title: "Múltiplos Idiomas",
-    description: "Atendimento em português, inglês, espanhol e outros idiomas.",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics Detalhados",
-    description: "Dashboard completo com métricas de chamadas e conversões.",
-  },
-];
-
-const benefits = [
-  "Redução de 80% em chamadas perdidas",
-  "Aumento de 40% na taxa de conversão",
-  "Economia de até 70% comparado a recepcionistas tradicionais",
-  "Configuração em menos de 24 horas",
-  "Integração com mais de 50 ferramentas",
-  "Suporte técnico dedicado",
-];
+import { useTranslation } from "react-i18next";
 
 const RecepcionistaIAVoz = () => {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      icon: Mic,
+      title: t("recepcionistaVoz.features.naturalVoice.title"),
+      description: t("recepcionistaVoz.features.naturalVoice.description"),
+    },
+    {
+      icon: Clock,
+      title: t("recepcionistaVoz.features.available247.title"),
+      description: t("recepcionistaVoz.features.available247.description"),
+    },
+    {
+      icon: Calendar,
+      title: t("recepcionistaVoz.features.autoScheduling.title"),
+      description: t("recepcionistaVoz.features.autoScheduling.description"),
+    },
+    {
+      icon: Users,
+      title: t("recepcionistaVoz.features.leadQualification.title"),
+      description: t("recepcionistaVoz.features.leadQualification.description"),
+    },
+    {
+      icon: Globe,
+      title: t("recepcionistaVoz.features.multiLanguage.title"),
+      description: t("recepcionistaVoz.features.multiLanguage.description"),
+    },
+    {
+      icon: BarChart3,
+      title: t("recepcionistaVoz.features.analytics.title"),
+      description: t("recepcionistaVoz.features.analytics.description"),
+    },
+  ];
+
+  const benefits = [
+    t("recepcionistaVoz.benefits.missedCalls"),
+    t("recepcionistaVoz.benefits.conversionRate"),
+    t("recepcionistaVoz.benefits.savings"),
+    t("recepcionistaVoz.benefits.setup"),
+    t("recepcionistaVoz.benefits.integrations"),
+    t("recepcionistaVoz.benefits.support"),
+  ];
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -67,25 +70,24 @@ const RecepcionistaIAVoz = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection animation="fade-left">
               <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-                Recepcionista IA de Voz
+                {t("recepcionistaVoz.hero.badge")}
               </span>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                Atendimento Telefônico Inteligente{" "}
-                <span className="text-primary">24 Horas por Dia</span>
+                {t("recepcionistaVoz.hero.title")}{" "}
+                <span className="text-primary">{t("recepcionistaVoz.hero.titleHighlight")}</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                Nossa IA de voz atende chamadas, qualifica leads e agenda serviços
-                automaticamente. Nunca mais perca um cliente por não atender o telefone.
+                {t("recepcionistaVoz.hero.subtitle")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
                   <Link to="/agendar-demo">
-                    Agendar Demo Grátis
+                    {t("common.bookFreeDemo")}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/setores">Ver Setores Atendidos</Link>
+                  <Link to="/setores">{t("recepcionistaVoz.hero.viewSectors")}</Link>
                 </Button>
               </div>
             </AnimatedSection>
@@ -93,7 +95,7 @@ const RecepcionistaIAVoz = () => {
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src={heroVoiceAi} 
-                  alt="Recepcionista virtual com IA atendendo chamadas" 
+                  alt={t("recepcionistaVoz.hero.imageAlt")} 
                   className="w-full h-auto"
                 />
               </div>
@@ -110,25 +112,25 @@ const RecepcionistaIAVoz = () => {
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={80} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">Menos Chamadas Perdidas</p>
+              <p className="text-primary-foreground/80 text-sm">{t("recepcionistaVoz.stats.lessMissedCalls")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={100}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={40} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">Mais Conversões</p>
+              <p className="text-primary-foreground/80 text-sm">{t("recepcionistaVoz.stats.moreConversions")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={200}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={24} suffix="h" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">Setup Rápido</p>
+              <p className="text-primary-foreground/80 text-sm">{t("recepcionistaVoz.stats.quickSetup")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={300}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={50} suffix="+" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">Integrações</p>
+              <p className="text-primary-foreground/80 text-sm">{t("recepcionistaVoz.stats.integrations")}</p>
             </AnimatedSection>
           </div>
         </div>
@@ -139,10 +141,10 @@ const RecepcionistaIAVoz = () => {
         <div className="container">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Recursos Avançados de Voz
+              {t("recepcionistaVoz.featuresSection.title")}
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Tecnologia de ponta para um atendimento telefônico impecável.
+              {t("recepcionistaVoz.featuresSection.subtitle")}
             </p>
           </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -169,7 +171,7 @@ const RecepcionistaIAVoz = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection animation="fade-left">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Como Funciona o Atendimento por Voz
+                {t("recepcionistaVoz.howItWorks.title")}
               </h2>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -177,9 +179,9 @@ const RecepcionistaIAVoz = () => {
                     1
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Cliente Liga para Seu Número</h3>
+                    <h3 className="font-semibold mb-1">{t("recepcionistaVoz.howItWorks.step1.title")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      A chamada é automaticamente direcionada para nossa IA.
+                      {t("recepcionistaVoz.howItWorks.step1.description")}
                     </p>
                   </div>
                 </div>
@@ -188,9 +190,9 @@ const RecepcionistaIAVoz = () => {
                     2
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">IA Atende com Voz Natural</h3>
+                    <h3 className="font-semibold mb-1">{t("recepcionistaVoz.howItWorks.step2.title")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      Saudação personalizada e conversa fluida como um humano.
+                      {t("recepcionistaVoz.howItWorks.step2.description")}
                     </p>
                   </div>
                 </div>
@@ -199,9 +201,9 @@ const RecepcionistaIAVoz = () => {
                     3
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Qualifica e Coleta Informações</h3>
+                    <h3 className="font-semibold mb-1">{t("recepcionistaVoz.howItWorks.step3.title")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      Tipo de serviço, endereço, disponibilidade e urgência.
+                      {t("recepcionistaVoz.howItWorks.step3.description")}
                     </p>
                   </div>
                 </div>
@@ -210,9 +212,9 @@ const RecepcionistaIAVoz = () => {
                     4
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Agenda ou Transfere</h3>
+                    <h3 className="font-semibold mb-1">{t("recepcionistaVoz.howItWorks.step4.title")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      Marca na sua agenda ou transfere para você se necessário.
+                      {t("recepcionistaVoz.howItWorks.step4.description")}
                     </p>
                   </div>
                 </div>
@@ -220,7 +222,7 @@ const RecepcionistaIAVoz = () => {
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={200}>
               <div className="bg-accent/50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-6">Benefícios Comprovados</h3>
+                <h3 className="text-2xl font-bold mb-6">{t("recepcionistaVoz.benefitsSection.title")}</h3>
                 <ul className="space-y-4">
                   {benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-3">
@@ -240,14 +242,14 @@ const RecepcionistaIAVoz = () => {
         <div className="container text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Pronto para Automatizar Seu Atendimento Telefônico?
+              {t("recepcionistaVoz.cta.title")}
             </h2>
             <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-              Agende uma demonstração gratuita e ouça nossa IA em ação.
+              {t("recepcionistaVoz.cta.subtitle")}
             </p>
             <Button size="lg" variant="secondary" asChild>
               <Link to="/agendar-demo">
-                Agendar Demo Grátis
+                {t("common.bookFreeDemo")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
