@@ -8,7 +8,7 @@ import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
 import industryConstruction from "@/assets/industry-construction.jpg";
 import industryHvac from "@/assets/industry-hvac.jpg";
-import industryPlumbing from "@/assets/industry-plumbing.jpg";
+import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
 import industryElectrical from "@/assets/industry-electrical.jpg";
 import industryLandscaping from "@/assets/industry-landscaping.jpg";
 import industryPool from "@/assets/industry-pool.jpg";
