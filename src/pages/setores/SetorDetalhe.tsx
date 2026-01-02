@@ -1974,30 +1974,30 @@ const SetorDetalhe = () => {
       </section>
 
       {/* Problem & Solution Section */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container">
-          <div className="space-y-12">
+      <section className="py-12 md:py-20 lg:py-24 bg-background">
+        <div className="container px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8 md:space-y-12">
             {/* Problem Card */}
-            <Card className="border-destructive/20 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-              <CardContent className="p-8">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="h-[2px] w-8 bg-destructive"></div>
-                  <span className="text-destructive font-semibold tracking-wide text-sm">O PROBLEMA</span>
+            <Card className="border-destructive/20 shadow-lg animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+              <CardContent className="p-5 sm:p-6 md:p-8 lg:p-10">
+                <div className="flex items-center gap-2 mb-4 md:mb-6">
+                  <div className="h-[2px] w-6 md:w-8 bg-destructive"></div>
+                  <span className="text-destructive font-semibold tracking-wide text-xs md:text-sm uppercase">O PROBLEMA</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight">
                   {data.problemTitle.split(' ').map((word, i) => 
                     i > 2 ? <span key={i} className="text-destructive">{word} </span> : `${word} `
                   )}
                 </h2>
-                <ul className="space-y-4">
+                <ul className="space-y-3 md:space-y-4">
                   {data.problems.map((problem, index) => (
                     <li 
                       key={index} 
-                      className="flex items-start gap-4 animate-fade-in"
+                      className="flex items-start gap-3 md:gap-4 animate-fade-in"
                       style={{ animationDelay: `${0.15 + index * 0.08}s`, animationFillMode: 'both' }}
                     >
-                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold">✗</span>
-                      <span className="text-foreground pt-1">{problem}</span>
+                      <span className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold text-sm md:text-base">✗</span>
+                      <span className="text-foreground text-sm md:text-base pt-0.5 md:pt-1">{problem}</span>
                     </li>
                   ))}
                 </ul>
@@ -2005,31 +2005,31 @@ const SetorDetalhe = () => {
             </Card>
 
             {/* Solution Card */}
-            <Card className="bg-primary/5 border-primary/20 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
-              <CardContent className="p-8">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="h-[2px] w-8 bg-primary"></div>
-                  <span className="text-primary font-semibold tracking-wide text-sm">A SOLUÇÃO</span>
+            <Card className="bg-primary/5 border-primary/20 shadow-lg animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+              <CardContent className="p-5 sm:p-6 md:p-8 lg:p-10">
+                <div className="flex items-center gap-2 mb-4 md:mb-6">
+                  <div className="h-[2px] w-6 md:w-8 bg-primary"></div>
+                  <span className="text-primary font-semibold tracking-wide text-xs md:text-sm uppercase">A SOLUÇÃO</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 md:mb-2">
                   ClickOne AI
                 </h2>
-                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-4 md:mb-6">
                   {data.solutionTitle}
                 </h3>
-                <ul className="space-y-4">
+                <ul className="space-y-3 md:space-y-4">
                   {data.solutions.slice(0, 4).map((solution, index) => (
                     <li 
                       key={index} 
-                      className="flex items-start gap-4 animate-fade-in"
+                      className="flex items-start gap-3 md:gap-4 animate-fade-in"
                       style={{ animationDelay: `${0.35 + index * 0.08}s`, animationFillMode: 'both' }}
                     >
-                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                        <CheckCircle className="h-5 w-5 text-primary" />
+                      <span className="flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                        <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-primary" />
                       </span>
-                      <div className="pt-1">
-                        <span className="font-semibold text-foreground">{solution.title}</span>
-                        <span className="text-muted-foreground"> — {solution.description}</span>
+                      <div className="pt-0.5 md:pt-1">
+                        <span className="font-semibold text-foreground text-sm md:text-base">{solution.title}</span>
+                        <span className="text-muted-foreground text-sm md:text-base"> — {solution.description}</span>
                       </div>
                     </li>
                   ))}
