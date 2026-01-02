@@ -14,6 +14,10 @@ import Sobre from "./pages/Sobre";
 import Contato from "./pages/Contato";
 import AgendarDemo from "./pages/AgendarDemo";
 import Blog from "./pages/Blog";
+import PequenaEmpresa from "./pages/empresas/PequenaEmpresa";
+import MediaEmpresa from "./pages/empresas/MediaEmpresa";
+import NegociosLocais from "./pages/empresas/NegociosLocais";
+import RedeFranquias from "./pages/empresas/RedeFranquias";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +34,10 @@ const App = () => (
           <Route path="/produto/atendente-ia-conversacional" element={<AtendenteIAConversacional />} />
           <Route path="/setores" element={<Setores />} />
           <Route path="/setores/:slug" element={<SetorDetalhe />} />
+          <Route path="/empresas/pequena-empresa" element={<PequenaEmpresa />} />
+          <Route path="/empresas/media-empresa" element={<MediaEmpresa />} />
+          <Route path="/empresas/negocios-locais" element={<NegociosLocais />} />
+          <Route path="/empresas/rede-franquias" element={<RedeFranquias />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/contato" element={<Contato />} />
           <Route path="/agendar-demo" element={<AgendarDemo />} />
