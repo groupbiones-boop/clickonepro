@@ -229,7 +229,7 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
 
         <Card>
           <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Page Views</p>
+            <p className="text-sm text-muted-foreground">Visualizações</p>
             <p className="text-2xl font-bold">{pageviewStats?.current || 0}</p>
             <p className={`text-xs ${(pageviewStats?.changePercent || 0) >= 0 ? "text-green-500" : "text-red-500"}`}>
               {formatChange(pageviewStats?.changePercent)}

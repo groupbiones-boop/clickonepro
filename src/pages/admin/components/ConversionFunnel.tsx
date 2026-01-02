@@ -1,3 +1,4 @@
+// ConversionFunnel - Funil de Vendas SaaS em Português
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -33,11 +34,11 @@ export interface FunnelRef {
 }
 
 const FUNNEL_STAGES = [
-  { key: "visitors", label: "Prospecting", icon: Binoculars, color: "#500daa" },
-  { key: "pageviews", label: "Outreach", icon: Lightbulb, color: "#6b2fb8" },
-  { key: "leads", label: "Discovery & Qualification", icon: MessageCircle, color: "#8651c6" },
-  { key: "agendamentos", label: "Demo", icon: MousePointer, color: "#a173d4" },
-  { key: "clientes", label: "Closing", icon: Trophy, color: "#bc95e2" },
+  { key: "visitors", label: "Prospecção", icon: Binoculars, color: "#500daa" },
+  { key: "pageviews", label: "Alcance", icon: Lightbulb, color: "#6b2fb8" },
+  { key: "leads", label: "Descoberta e Qualificação", icon: MessageCircle, color: "#8651c6" },
+  { key: "agendamentos", label: "Demonstração", icon: MousePointer, color: "#a173d4" },
+  { key: "clientes", label: "Fechamento", icon: Trophy, color: "#bc95e2" },
 ];
 
 const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters }, ref) => {
@@ -118,17 +119,17 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
 
   const getTooltipContent = (index: number): string => {
     if (index >= FUNNEL_STAGES.length - 1) {
-      return `${FUNNEL_STAGES[index].label}: ${values[FUNNEL_STAGES[index].key].toLocaleString("pt-BR")} closed deals`;
+      return `${FUNNEL_STAGES[index].label}: ${values[FUNNEL_STAGES[index].key].toLocaleString("pt-BR")} negócios fechados`;
     }
     const nextStage = FUNNEL_STAGES[index + 1];
     const rate = getConversionRate(index);
-    return `${rate} convert to ${nextStage.label}`;
+    return `${rate} convertem para ${nextStage.label}`;
   };
 
   return (
     <Card className="h-full">
       <CardHeader className="pb-2">
-        <CardTitle className="text-lg">The SaaS Sales Funnel</CardTitle>
+        <CardTitle className="text-lg">Funil de Vendas SaaS</CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
         <TooltipProvider>
@@ -177,7 +178,7 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
                           {stage.label}
                         </p>
                         <p className="text-muted-foreground">
-                          {value.toLocaleString("pt-BR")} contacts
+                          {value.toLocaleString("pt-BR")} contatos
                         </p>
                         {index < FUNNEL_STAGES.length - 1 && (
                           <p className="mt-1 font-medium" style={{ color: FUNNEL_STAGES[index + 1].color }}>
@@ -200,16 +201,16 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
           </div>
         </TooltipProvider>
 
-        {/* Summary Metrics */}
+        {/* Métricas Resumidas */}
         <div className="mt-6 pt-4 border-t border-border grid grid-cols-2 gap-4 text-center">
           <div>
-            <p className="text-xs text-muted-foreground">Prospect → Qualified</p>
+            <p className="text-xs text-muted-foreground">Prospecto → Qualificado</p>
             <p className="text-lg font-bold" style={{ color: "#500daa" }}>
               {data.visitors > 0 ? ((data.leads / data.visitors) * 100).toFixed(1) : 0}%
             </p>
           </div>
           <div>
-            <p className="text-xs text-muted-foreground">Demo → Closed</p>
+            <p className="text-xs text-muted-foreground">Demo → Fechado</p>
             <p className="text-lg font-bold" style={{ color: "#a173d4" }}>
               {data.leads > 0 ? ((data.clientes / data.leads) * 100).toFixed(1) : 0}%
             </p>
