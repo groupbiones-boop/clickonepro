@@ -101,7 +101,7 @@ const Footer = () => {
           <p className="text-background/60 text-sm">
             © {new Date().getFullYear()} ClickOne AI. {t("footer.rights")}
           </p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             <Link to="/sobre" className="text-background/60 hover:text-background text-sm transition-colors">
               {t("footer.about")}
             </Link>
@@ -110,6 +110,12 @@ const Footer = () => {
             </Link>
             <Link to="/contato" className="text-background/60 hover:text-background text-sm transition-colors">
               {t("footer.contact")}
+            </Link>
+            <Link to="/privacy-policy" className="text-background/60 hover:text-background text-sm transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="text-background/60 hover:text-background text-sm transition-colors">
+              Terms of Service
             </Link>
           </div>
         </div>
