@@ -1,0 +1,897 @@
+{
+  "common": {
+    "problemLabel": "O PROBLEMA",
+    "solutionLabel": "A SOLUÇÃO",
+    "getStarted": "Começar Agora",
+    "learnMore": "Saiba Mais",
+    "whatMakesDifferent": "O que torna a ClickOne AI diferente",
+    "keyFeatures": "Recursos Principais",
+    "marketStats": "Estatísticas do Mercado",
+    "popularUseCases": "Casos de Uso Populares",
+    "whatClientsSay": "O que nossos clientes dizem",
+    "faq": "Perguntas Frequentes",
+    "readyToTransform": "Pronto para Transformar Seu Atendimento?",
+    "scheduleDemo": "Agende uma demonstração gratuita e veja como a ClickOne AI pode revolucionar o atendimento da sua empresa.",
+    "bookFreeDemo": "Agendar Demo Grátis"
+  },
+  "limpeza": {
+    "name": "Empresas de Limpeza",
+    "heroTitle": "Recepcionista IA para Empresas de Limpeza",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA LIMPEZA",
+    "heroDescription": "Como uma solução de atendimento inteligente para empresas de limpeza residencial e comercial, a ClickOne AI combina atendimento telefônico automatizado com suporte profissional disponível 24 horas por dia.",
+    "problemTitle": "Ligações chegam a qualquer momento.",
+    "problems": [
+      "Ligações perdidas enquanto você está em serviço",
+      "Clientes desistem se não conseguem falar com alguém",
+      "Dificuldade em agendar limpezas recorrentes",
+      "Perda de leads por demora na resposta",
+      "Falta de tempo para follow-up com clientes"
+    ],
+    "solutionTitle": "Limpe enquanto cuidamos das ligações.",
+    "solutionDescription": "A Recepcionista IA da ClickOne atende cada ligação profissionalmente e coleta informações essenciais através de perguntas estruturadas. Ao coletar dados importantes antecipadamente — como tipo e tamanho do imóvel, frequência de limpeza necessária e serviços específicos requeridos — o sistema ajuda a identificar e priorizar leads qualificados.",
+    "solutions": [
+      { "title": "Configuração personalizada", "description": "IA treinada especificamente para as necessidades do seu negócio de limpeza" },
+      { "title": "Cobertura 24/7", "description": "Atendimento inteligente com transferência quando necessário" },
+      { "title": "Agendamento completo", "description": "Marcação de horários, processamento de pagamentos e conversas sensíveis" },
+      { "title": "Integração avançada", "description": "Conexão com mais de 50 ferramentas e automação de fluxos de trabalho" },
+      { "title": "Suporte dedicado", "description": "Equipe de implementação garantindo configuração otimizada" },
+      { "title": "Representação profissional", "description": "IA que se adapta à voz da sua marca" }
+    ],
+    "features": [
+      { "title": "Atendimento Instantâneo", "description": "Resposta imediata a cada chamada, sem espera" },
+      { "title": "Agendamento Automático", "description": "Marcação de limpezas recorrentes e pontuais" },
+      { "title": "Qualificação de Leads", "description": "Coleta tipo de imóvel, tamanho e serviços necessários" },
+      { "title": "Analytics em Tempo Real", "description": "Dashboard com métricas de chamadas e conversões" },
+      { "title": "Multi-Canal", "description": "Telefone, SMS, WhatsApp e chat integrados" },
+      { "title": "Follow-up Automático", "description": "Lembretes e reativação de clientes" }
+    ],
+    "stats": [
+      { "value": "82%", "label": "dos consumidores esperam resposta imediata a uma consulta" },
+      { "value": "50%", "label": "dos orçamentos de leads são desperdiçados com leads nunca contatados" },
+      { "value": "67%", "label": "dos clientes que recebem excelente serviço gastam até 14% a mais" }
+    ],
+    "useCases": [
+      { "title": "Orçamentos de Limpeza", "description": "Colete informações do imóvel e forneça estimativas automaticamente" },
+      { "title": "Agendamento Recorrente", "description": "Configure limpezas semanais, quinzenais ou mensais" },
+      { "title": "Confirmação de Serviços", "description": "Envie lembretes automáticos antes de cada limpeza" },
+      { "title": "Coleta de Avaliações", "description": "Solicite feedback após cada serviço concluído" }
+    ],
+    "testimonials": [
+      {
+        "quote": "A ClickOne AI transformou nosso atendimento. Antes perdíamos 60% das ligações quando estávamos em serviço. Agora capturamos 100% dos leads.",
+        "author": "Lucia Fernandes",
+        "role": "Proprietária",
+        "company": "BrightClean Pro Services",
+        "location": "Houston, TX"
+      },
+      {
+        "quote": "Agora minha equipe foca 100% na limpeza. A IA agenda, confirma e até coleta feedback dos clientes automaticamente.",
+        "author": "Carlos Rodriguez",
+        "role": "Gerente de Operações",
+        "company": "Rodriguez Cleaning Solutions",
+        "location": "Miami, FL"
+      },
+      {
+        "quote": "Triplicamos nossos clientes recorrentes em 6 meses. O follow-up automático faz toda a diferença.",
+        "author": "Ana Paula Silva",
+        "role": "Fundadora",
+        "company": "Premier Home Services",
+        "location": "Orlando, FL"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A IA consegue lidar com pedidos específicos de limpeza?",
+        "answer": "Sim! Nossa IA é treinada para coletar todas as informações necessárias, incluindo tipo de imóvel, tamanho, frequência desejada e serviços específicos como limpeza de janelas, deep cleaning ou limpeza pós-obra."
+      },
+      {
+        "question": "Como funciona o agendamento de limpezas recorrentes?",
+        "answer": "A IA gerencia automaticamente sua agenda de clientes recorrentes, enviando lembretes antes de cada serviço e permitindo reagendamentos sem sua intervenção manual."
+      },
+      {
+        "question": "A IA pode fornecer orçamentos?",
+        "answer": "A IA coleta todas as informações necessárias e pode fornecer estimativas baseadas nos seus parâmetros de preço. Para orçamentos personalizados, ela agenda uma ligação com você."
+      },
+      {
+        "question": "Funciona com WhatsApp e mensagens de texto?",
+        "answer": "Sim! Além de ligações telefônicas, nossa IA responde mensagens de WhatsApp, SMS e chat do site, tudo integrado em uma única plataforma."
+      },
+      {
+        "question": "Quanto tempo leva para configurar?",
+        "answer": "A configuração inicial leva cerca de 30 minutos. Nossa equipe de implementação trabalha com você para personalizar as respostas e integrar com suas ferramentas existentes."
+      }
+    ]
+  },
+  "construcao": {
+    "name": "Construção & Reformas",
+    "heroTitle": "Recepcionista IA para Construtoras e Reformas",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA CONSTRUÇÃO",
+    "heroDescription": "Solução de atendimento inteligente para construtoras, empreiteiras e empresas de reforma. A ClickOne AI atende chamadas, qualifica projetos e agenda visitas técnicas automaticamente.",
+    "problemTitle": "O canteiro de obras não para.",
+    "problems": [
+      "Ligações perdidas no canteiro de obras",
+      "Orçamentos demoram para serem respondidos",
+      "Clientes sem retorno adequado sobre andamento",
+      "Dificuldade em qualificar projetos por telefone",
+      "Perda de oportunidades por falta de resposta rápida"
+    ],
+    "solutionTitle": "Construa enquanto qualificamos seus projetos.",
+    "solutionDescription": "Nossa IA coleta informações essenciais sobre cada projeto — tipo de construção, metragem, orçamento estimado, prazo desejado — e agenda visitas técnicas automaticamente. Você recebe leads já qualificados prontos para orçamento.",
+    "solutions": [
+      { "title": "Qualificação de projetos", "description": "Coleta metragem, tipo de obra, orçamento e prazo" },
+      { "title": "Agendamento de visitas", "description": "Marca visitas técnicas na sua agenda automaticamente" },
+      { "title": "Triagem de urgência", "description": "Identifica reparos urgentes vs projetos planejados" },
+      { "title": "Follow-up de orçamentos", "description": "Acompanha propostas enviadas automaticamente" },
+      { "title": "Gestão de fornecedores", "description": "Recebe e direciona chamadas de fornecedores" },
+      { "title": "Atualização de clientes", "description": "Responde dúvidas sobre andamento de obras" }
+    ],
+    "features": [
+      { "title": "Atendimento no Canteiro", "description": "Resposta profissional enquanto você trabalha" },
+      { "title": "Agenda de Visitas", "description": "Marcação automática de visitas técnicas" },
+      { "title": "Qualificação de Projetos", "description": "Coleta escopo, orçamento e prazos" },
+      { "title": "Pipeline de Vendas", "description": "Acompanhe leads e propostas em tempo real" },
+      { "title": "Triagem Inteligente", "description": "Separa urgências de projetos planejados" },
+      { "title": "Follow-up Automático", "description": "Acompanhamento de propostas enviadas" }
+    ],
+    "stats": [
+      { "value": "73%", "label": "dos clientes de construção escolhem a primeira empresa que responde" },
+      { "value": "45%", "label": "das propostas são perdidas por falta de follow-up" },
+      { "value": "3.5x", "label": "mais conversões com resposta em menos de 5 minutos" }
+    ],
+    "useCases": [
+      { "title": "Orçamentos de Obras", "description": "Qualifique projetos e colete informações para orçamento" },
+      { "title": "Visitas Técnicas", "description": "Agende visitas para avaliação de projetos" },
+      { "title": "Acompanhamento de Obras", "description": "Responda dúvidas sobre andamento" },
+      { "title": "Reparos Urgentes", "description": "Identifique e priorize emergências" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Antes eu perdia horas no telefone. Agora a IA qualifica os projetos e eu só falo com clientes realmente interessados.",
+        "author": "Roberto Oliveira",
+        "role": "Proprietário",
+        "company": "Oliveira Construction LLC",
+        "location": "Los Angeles, CA"
+      },
+      {
+        "quote": "A IA agenda visitas técnicas automaticamente. Minha produtividade no canteiro aumentou 40%.",
+        "author": "Marco Antonio",
+        "role": "Engenheiro Civil",
+        "company": "MA Builders Inc",
+        "location": "Newark, NJ"
+      },
+      {
+        "quote": "Fechamos 30% mais contratos desde que a IA começou a fazer follow-up nas propostas.",
+        "author": "Diego Hernandez",
+        "role": "Diretor Comercial",
+        "company": "Hernandez Renovations",
+        "location": "Atlanta, GA"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A IA consegue qualificar projetos de construção complexos?",
+        "answer": "Sim! A IA coleta informações detalhadas como tipo de obra, metragem, orçamento estimado, prazo desejado e especificações técnicas antes de agendar uma visita técnica."
+      },
+      {
+        "question": "Como a IA diferencia emergências de projetos planejados?",
+        "answer": "Nossa IA faz perguntas específicas para identificar a urgência. Reparos urgentes são priorizados e encaminhados imediatamente, enquanto projetos maiores são agendados para visita técnica."
+      },
+      {
+        "question": "Posso receber chamadas de fornecedores também?",
+        "answer": "Sim! A IA identifica chamadas de fornecedores e pode coletar informações sobre entregas, prazos e orçamentos, organizando tudo para você revisar depois."
+      },
+      {
+        "question": "A IA funciona quando estou no canteiro de obras?",
+        "answer": "Exatamente para isso que foi projetada! Você pode trabalhar focado enquanto a IA atende todas as ligações e organiza sua agenda de visitas."
+      },
+      {
+        "question": "Como funciona o follow-up de propostas?",
+        "answer": "A IA acompanha automaticamente propostas enviadas, entra em contato com clientes que não responderam e agenda ligações de fechamento com você."
+      }
+    ]
+  },
+  "hvac": {
+    "name": "HVAC / Climatização",
+    "heroTitle": "Recepcionista IA para Empresas de HVAC",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA CLIMATIZAÇÃO",
+    "heroDescription": "Atendimento inteligente especializado para empresas de ar condicionado, refrigeração e climatização. Gerencie picos de demanda e emergências com IA.",
+    "problemTitle": "Verão chega e as ligações explodem.",
+    "problems": [
+      "Picos de demanda em épocas de calor/frio",
+      "Emergências fora do horário comercial",
+      "Dificuldade em triagem de chamados por urgência",
+      "Técnicos em campo não podem atender telefone",
+      "Perda de contratos de manutenção preventiva"
+    ],
+    "solutionTitle": "Instale enquanto gerenciamos sua demanda.",
+    "solutionDescription": "Nossa IA identifica a urgência de cada chamado — ar condicionado parado no verão é prioridade máxima. Agenda manutenções preventivas, qualifica instalações e garante que emergências cheguem a você imediatamente.",
+    "solutions": [
+      { "title": "Triagem por urgência", "description": "Prioriza emergências vs manutenções agendadas" },
+      { "title": "Escalabilidade ilimitada", "description": "Atende picos de demanda sem contratar" },
+      { "title": "Contratos de manutenção", "description": "Vende e agenda manutenções preventivas" },
+      { "title": "Atendimento 24/7", "description": "Emergências noturnas e de fim de semana" },
+      { "title": "Qualificação técnica", "description": "Coleta modelo, sintomas e localização" },
+      { "title": "Roteirização inteligente", "description": "Agrupa chamados por região" }
+    ],
+    "features": [
+      { "title": "Resposta a Emergências", "description": "Priorização automática de urgências" },
+      { "title": "Atendimento 24/7", "description": "Noites, fins de semana e feriados" },
+      { "title": "Manutenção Preventiva", "description": "Agendamento de contratos recorrentes" },
+      { "title": "Gestão de Demanda", "description": "Escale atendimento em picos" },
+      { "title": "Qualificação Técnica", "description": "Coleta modelo e sintomas do equipamento" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat integrados" }
+    ],
+    "stats": [
+      { "value": "89%", "label": "dos clientes com ar quebrado no verão querem solução no mesmo dia" },
+      { "value": "4x", "label": "aumento de chamadas em ondas de calor" },
+      { "value": "35%", "label": "de receita adicional com contratos de manutenção preventiva" }
+    ],
+    "useCases": [
+      { "title": "Emergências de AC", "description": "Priorize chamados urgentes automaticamente" },
+      { "title": "Manutenção Preventiva", "description": "Venda e agende contratos recorrentes" },
+      { "title": "Instalações Novas", "description": "Qualifique projetos de instalação" },
+      { "title": "Picos de Demanda", "description": "Escale atendimento sem contratar" }
+    ],
+    "testimonials": [
+      {
+        "quote": "No último verão atendemos 3x mais chamados sem contratar ninguém. A IA triou as emergências e agendou o resto.",
+        "author": "Paulo Mendes",
+        "role": "Proprietário",
+        "company": "Mendes HVAC Solutions",
+        "location": "Phoenix, AZ"
+      },
+      {
+        "quote": "Vendemos 50% mais contratos de manutenção preventiva. A IA oferece automaticamente para quem liga.",
+        "author": "Miguel Santos",
+        "role": "Gerente Comercial",
+        "company": "Cool Air Services LLC",
+        "location": "Houston, TX"
+      },
+      {
+        "quote": "Emergências noturnas eram um pesadelo. Agora a IA filtra e só me aciona quando é realmente urgente.",
+        "author": "Eduardo Lima",
+        "role": "Técnico Sênior",
+        "company": "Lima Climate Control",
+        "location": "Dallas, TX"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como a IA lida com picos de demanda no verão?",
+        "answer": "Nossa IA escala automaticamente para atender qualquer volume de chamadas. Ela triagem urgências (AC parado no calor) das manutenções preventivas, garantindo que você atenda primeiro quem mais precisa."
+      },
+      {
+        "question": "A IA pode vender contratos de manutenção preventiva?",
+        "answer": "Sim! Quando um cliente liga para um reparo, a IA oferece automaticamente um plano de manutenção preventiva, explicando os benefícios e agendando se o cliente aceitar."
+      },
+      {
+        "question": "Funciona para emergências noturnas e de fim de semana?",
+        "answer": "Sim! A IA atende 24/7. Para emergências reais (como AC parado em dia quente), ela aciona você imediatamente. Para outros casos, agenda para o próximo horário disponível."
+      },
+      {
+        "question": "A IA coleta informações técnicas do equipamento?",
+        "answer": "Sim! Ela pergunta marca, modelo, idade do equipamento e sintomas do problema, permitindo que você chegue preparado com as peças certas."
+      },
+      {
+        "question": "Como a IA organiza chamados por região?",
+        "answer": "A IA agrupa chamados por localização geográfica, otimizando suas rotas e permitindo que você atenda mais clientes por dia."
+      }
+    ]
+  },
+  "encanamento": {
+    "name": "Encanamento",
+    "heroTitle": "Recepcionista IA para Encanadores",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA ENCANAMENTO",
+    "heroDescription": "Atendimento inteligente para encanadores e empresas de serviços hidráulicos. Atenda emergências de vazamentos e qualifique serviços automaticamente.",
+    "problemTitle": "Vazamentos não esperam.",
+    "problems": [
+      "Emergências de vazamento a qualquer hora",
+      "Mãos molhadas durante o trabalho",
+      "Clientes impacientes esperando retorno",
+      "Dificuldade em priorizar chamados urgentes",
+      "Perda de serviços por demora na resposta"
+    ],
+    "solutionTitle": "Conserte enquanto atendemos suas chamadas.",
+    "solutionDescription": "Nossa IA prioriza emergências de vazamento automaticamente e coleta informações essenciais — localização do vazamento, gravidade, tipo de imóvel — para você chegar preparado.",
+    "solutions": [
+      { "title": "Priorização de emergências", "description": "Vazamentos e entupimentos urgentes primeiro" },
+      { "title": "Qualificação detalhada", "description": "Coleta localização, tipo de problema e gravidade" },
+      { "title": "Atendimento 24/7", "description": "Emergências noturnas e de fim de semana" },
+      { "title": "Agendamento inteligente", "description": "Organiza sua agenda otimizando rotas" },
+      { "title": "Follow-up automático", "description": "Acompanha orçamentos enviados" },
+      { "title": "Multi-canal", "description": "Telefone, WhatsApp e chat integrados" }
+    ],
+    "features": [
+      { "title": "Emergências 24/7", "description": "Atendimento de vazamentos a qualquer hora" },
+      { "title": "Triagem Automática", "description": "Priorização por urgência do problema" },
+      { "title": "Qualificação Técnica", "description": "Coleta detalhes do problema antes da visita" },
+      { "title": "Agendamento Otimizado", "description": "Organização de rotas por região" },
+      { "title": "Orçamentos Rápidos", "description": "Coleta informações para estimativas" },
+      { "title": "Follow-up de Serviços", "description": "Acompanhamento pós-serviço automático" }
+    ],
+    "stats": [
+      { "value": "94%", "label": "dos clientes com vazamento querem atendimento no mesmo dia" },
+      { "value": "78%", "label": "das emergências acontecem fora do horário comercial" },
+      { "value": "3x", "label": "mais conversões com resposta em menos de 5 minutos" }
+    ],
+    "useCases": [
+      { "title": "Emergências de Vazamento", "description": "Priorize e atenda vazamentos urgentes" },
+      { "title": "Desentupimentos", "description": "Qualifique tipo e localização do entupimento" },
+      { "title": "Instalações", "description": "Agende instalações de equipamentos" },
+      { "title": "Manutenção Preventiva", "description": "Ofereça contratos de manutenção" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Vazamentos não esperam. Agora a IA atende emergências 24/7 e só me aciona para casos realmente urgentes.",
+        "author": "José Carlos",
+        "role": "Proprietário",
+        "company": "JC Plumbing Services",
+        "location": "San Diego, CA"
+      },
+      {
+        "quote": "Minha taxa de conversão subiu 40% desde que comecei a responder em menos de 1 minuto com a IA.",
+        "author": "Fernando Souza",
+        "role": "Encanador Master",
+        "company": "Souza Plumbing LLC",
+        "location": "Tampa, FL"
+      },
+      {
+        "quote": "A IA coleta todas as informações antes da visita. Chego preparado com as peças certas.",
+        "author": "Ricardo Santos",
+        "role": "Técnico Sênior",
+        "company": "Santos Drain Solutions",
+        "location": "Austin, TX"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como a IA prioriza emergências de vazamento?",
+        "answer": "A IA faz perguntas específicas sobre a gravidade do vazamento, localização e se há risco de danos. Emergências graves são encaminhadas imediatamente para você."
+      },
+      {
+        "question": "A IA coleta informações técnicas?",
+        "answer": "Sim! Ela pergunta sobre o tipo de problema, localização exata, se há acesso ao registro de água e detalhes que ajudam você a chegar preparado."
+      },
+      {
+        "question": "Funciona para entupimentos também?",
+        "answer": "Sim! A IA qualifica entupimentos coletando informações sobre localização (pia, vaso, ralo), frequência do problema e se já tentaram algo."
+      },
+      {
+        "question": "Como organiza chamados por região?",
+        "answer": "A IA agrupa chamados por localização geográfica, permitindo que você otimize suas rotas e atenda mais clientes por dia."
+      },
+      {
+        "question": "Posso receber chamadas de madrugada?",
+        "answer": "Sim! A IA atende 24/7 e classifica a urgência. Para emergências graves, ela pode acioná-lo imediatamente. Para outros casos, agenda para o próximo horário."
+      }
+    ]
+  },
+  "eletrica": {
+    "name": "Serviços Elétricos",
+    "heroTitle": "Recepcionista IA para Eletricistas",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA ELÉTRICA",
+    "heroDescription": "Atendimento inteligente para eletricistas e empresas de serviços elétricos. Priorize emergências e qualifique projetos automaticamente.",
+    "problemTitle": "Problemas elétricos são urgentes.",
+    "problems": [
+      "Emergências elétricas a qualquer hora",
+      "Trabalhando com as mãos ocupadas",
+      "Clientes preocupados com segurança",
+      "Dificuldade em qualificar projetos complexos",
+      "Perda de orçamentos por demora no retorno"
+    ],
+    "solutionTitle": "Instale enquanto qualificamos seus projetos.",
+    "solutionDescription": "Nossa IA prioriza emergências elétricas (curtos, quedas de energia) e qualifica projetos maiores coletando informações sobre tipo de serviço, amperagem e especificações técnicas.",
+    "solutions": [
+      { "title": "Priorização de emergências", "description": "Curtos e quedas de energia primeiro" },
+      { "title": "Qualificação técnica", "description": "Coleta amperagem, tipo de painel e especificações" },
+      { "title": "Atendimento 24/7", "description": "Emergências noturnas e de fim de semana" },
+      { "title": "Agendamento de visitas", "description": "Marca visitas técnicas automaticamente" },
+      { "title": "Follow-up de orçamentos", "description": "Acompanha propostas enviadas" },
+      { "title": "Segurança prioritária", "description": "Orienta clientes sobre segurança básica" }
+    ],
+    "features": [
+      { "title": "Emergências Elétricas", "description": "Priorização de curtos e quedas de energia" },
+      { "title": "Qualificação Técnica", "description": "Coleta especificações antes da visita" },
+      { "title": "Atendimento 24/7", "description": "Disponível noites e fins de semana" },
+      { "title": "Orientação de Segurança", "description": "Instruções básicas para o cliente" },
+      { "title": "Agendamento de Projetos", "description": "Visitas técnicas organizadas" },
+      { "title": "Follow-up Automático", "description": "Acompanhamento de orçamentos" }
+    ],
+    "stats": [
+      { "value": "91%", "label": "dos clientes com problema elétrico querem solução no mesmo dia" },
+      { "value": "65%", "label": "das emergências acontecem fora do horário comercial" },
+      { "value": "4x", "label": "mais conversões com resposta imediata" }
+    ],
+    "useCases": [
+      { "title": "Emergências Elétricas", "description": "Curtos, quedas de energia e faíscas" },
+      { "title": "Instalações Novas", "description": "Qualifique projetos de instalação" },
+      { "title": "Upgrades de Painel", "description": "Colete especificações técnicas" },
+      { "title": "Manutenção Preventiva", "description": "Ofereça contratos de manutenção" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Emergências elétricas precisam de resposta rápida. A IA atende em segundos e coleta tudo que preciso saber.",
+        "author": "Anderson Lima",
+        "role": "Proprietário",
+        "company": "Lima Electrical Services",
+        "location": "Denver, CO"
+      },
+      {
+        "quote": "A IA orienta clientes sobre segurança básica enquanto estou a caminho. Isso salva vidas.",
+        "author": "Rafael Costa",
+        "role": "Eletricista Master",
+        "company": "Costa Electric LLC",
+        "location": "Seattle, WA"
+      },
+      {
+        "quote": "Projetos grandes precisam de qualificação detalhada. A IA coleta tudo antes da visita técnica.",
+        "author": "Bruno Almeida",
+        "role": "Diretor Técnico",
+        "company": "Almeida Power Solutions",
+        "location": "Portland, OR"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como a IA lida com emergências elétricas?",
+        "answer": "A IA identifica emergências graves (faíscas, cheiro de queimado, queda total de energia) e pode orientar o cliente a desligar o disjuntor enquanto você está a caminho."
+      },
+      {
+        "question": "A IA coleta especificações técnicas?",
+        "answer": "Sim! Para projetos maiores, ela pergunta sobre amperagem atual, tipo de painel, idade da instalação e o que o cliente precisa instalar."
+      },
+      {
+        "question": "Funciona para projetos comerciais?",
+        "answer": "Sim! A IA qualifica projetos comerciais coletando informações sobre metragem, carga elétrica necessária e requisitos específicos."
+      },
+      {
+        "question": "A IA pode agendar visitas técnicas?",
+        "answer": "Sim! Para projetos que precisam de avaliação presencial, a IA agenda visitas técnicas diretamente na sua agenda."
+      },
+      {
+        "question": "Como funciona o follow-up de orçamentos?",
+        "answer": "Após enviar um orçamento, a IA entra em contato automaticamente em 24-48 horas para responder dúvidas e ajudar no fechamento."
+      }
+    ]
+  },
+  "paisagismo": {
+    "name": "Paisagismo",
+    "heroTitle": "Recepcionista IA para Paisagismo",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA PAISAGISMO",
+    "heroDescription": "Atendimento inteligente para empresas de jardinagem e paisagismo. Qualifique projetos e agende manutenções recorrentes automaticamente.",
+    "problemTitle": "O jardim não espera você atender.",
+    "problems": [
+      "Ligações perdidas enquanto trabalha no jardim",
+      "Dificuldade em qualificar projetos por telefone",
+      "Clientes querendo orçamentos imediatos",
+      "Gestão de manutenções recorrentes",
+      "Perda de contratos por demora no retorno"
+    ],
+    "solutionTitle": "Cuide do jardim enquanto cuidamos das ligações.",
+    "solutionDescription": "Nossa IA qualifica projetos de paisagismo coletando informações sobre tamanho do terreno, tipo de serviço desejado e orçamento estimado. Também gerencia manutenções recorrentes.",
+    "solutions": [
+      { "title": "Qualificação de projetos", "description": "Coleta tamanho, tipo de serviço e orçamento" },
+      { "title": "Manutenção recorrente", "description": "Gerencia contratos semanais/mensais" },
+      { "title": "Agendamento sazonal", "description": "Organiza serviços por temporada" },
+      { "title": "Orçamentos automatizados", "description": "Estimativas baseadas em metragem" },
+      { "title": "Follow-up de projetos", "description": "Acompanha propostas enviadas" },
+      { "title": "Reativação de clientes", "description": "Lembra clientes sobre manutenção" }
+    ],
+    "features": [
+      { "title": "Qualificação de Projetos", "description": "Coleta detalhes antes da visita" },
+      { "title": "Contratos Recorrentes", "description": "Gestão de manutenções semanais" },
+      { "title": "Agendamento Sazonal", "description": "Organização por temporada" },
+      { "title": "Orçamentos Rápidos", "description": "Estimativas por metragem" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" },
+      { "title": "Reativação de Clientes", "description": "Lembretes de manutenção" }
+    ],
+    "stats": [
+      { "value": "76%", "label": "dos clientes preferem contratos de manutenção recorrente" },
+      { "value": "58%", "label": "dos projetos são perdidos por demora na resposta" },
+      { "value": "3x", "label": "mais contratos com follow-up automático" }
+    ],
+    "useCases": [
+      { "title": "Projetos de Paisagismo", "description": "Qualifique projetos completos" },
+      { "title": "Manutenção de Jardim", "description": "Gerencie contratos recorrentes" },
+      { "title": "Serviços Sazonais", "description": "Organize por temporada" },
+      { "title": "Orçamentos", "description": "Colete informações para estimativas" }
+    ],
+    "testimonials": [
+      {
+        "quote": "A IA gerencia todos os meus contratos de manutenção. Receita recorrente garantida.",
+        "author": "Pedro Vieira",
+        "role": "Proprietário",
+        "company": "Vieira Landscaping",
+        "location": "San Jose, CA"
+      },
+      {
+        "quote": "Projetos grandes precisam de qualificação. A IA coleta tudo antes da visita técnica.",
+        "author": "Lucas Martins",
+        "role": "Designer de Paisagismo",
+        "company": "Martins Garden Design",
+        "location": "Scottsdale, AZ"
+      },
+      {
+        "quote": "Clientes esquecem de agendar manutenção. A IA lembra automaticamente.",
+        "author": "Thiago Costa",
+        "role": "Gerente de Operações",
+        "company": "Costa Green Services",
+        "location": "Las Vegas, NV"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A IA gerencia contratos de manutenção recorrente?",
+        "answer": "Sim! A IA agenda manutenções semanais, quinzenais ou mensais, envia lembretes para os clientes e reagenda automaticamente se necessário."
+      },
+      {
+        "question": "Como funciona a qualificação de projetos?",
+        "answer": "A IA coleta informações sobre tamanho do terreno, tipo de serviço desejado (jardim, gramado, irrigação), orçamento estimado e prazo."
+      },
+      {
+        "question": "A IA pode fornecer orçamentos?",
+        "answer": "Sim! Com base na metragem e tipo de serviço, a IA fornece estimativas. Para projetos complexos, agenda uma visita técnica."
+      },
+      {
+        "question": "Funciona para serviços sazonais?",
+        "answer": "Sim! A IA organiza serviços por temporada (limpeza de outono, preparação de primavera) e contata clientes proativamente."
+      },
+      {
+        "question": "Como a IA reativa clientes inativos?",
+        "answer": "Clientes que não agendam há tempo recebem lembretes automáticos oferecendo manutenção, aproveitando a sazonalidade."
+      }
+    ]
+  },
+  "piscina": {
+    "name": "Serviços de Piscina",
+    "heroTitle": "Recepcionista IA para Piscinas",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA PISCINAS",
+    "heroDescription": "Atendimento inteligente para empresas de manutenção e limpeza de piscinas. Gerencie contratos recorrentes e emergências.",
+    "problemTitle": "Piscina verde não espera segunda.",
+    "problems": [
+      "Emergências de piscina verde/turva",
+      "Gestão de contratos de manutenção",
+      "Ligações durante serviços em andamento",
+      "Clientes querendo resposta imediata",
+      "Dificuldade em escalar no verão"
+    ],
+    "solutionTitle": "Limpe piscinas enquanto cuidamos das ligações.",
+    "solutionDescription": "Nossa IA prioriza emergências (piscina verde, vazamentos) e gerencia contratos de manutenção recorrente. Escala automaticamente no verão quando a demanda aumenta.",
+    "solutions": [
+      { "title": "Emergências priorizadas", "description": "Piscina verde e vazamentos primeiro" },
+      { "title": "Contratos recorrentes", "description": "Gestão de manutenção semanal" },
+      { "title": "Escalabilidade sazonal", "description": "Atende picos de demanda no verão" },
+      { "title": "Qualificação técnica", "description": "Coleta tipo, tamanho e problema" },
+      { "title": "Follow-up automático", "description": "Lembra clientes sobre serviços" },
+      { "title": "Vendas de contratos", "description": "Oferece manutenção preventiva" }
+    ],
+    "features": [
+      { "title": "Emergências de Piscina", "description": "Água verde, vazamentos, equipamentos" },
+      { "title": "Contratos Recorrentes", "description": "Manutenção semanal/quinzenal" },
+      { "title": "Escalabilidade", "description": "Atenda mais no verão" },
+      { "title": "Qualificação", "description": "Coleta detalhes do problema" },
+      { "title": "Vendas Automáticas", "description": "Oferece contratos de manutenção" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
+    ],
+    "stats": [
+      { "value": "85%", "label": "dos donos de piscina preferem contratos de manutenção" },
+      { "value": "5x", "label": "mais chamadas no início do verão" },
+      { "value": "92%", "label": "de retenção com follow-up automático" }
+    ],
+    "useCases": [
+      { "title": "Emergências", "description": "Piscina verde, vazamentos" },
+      { "title": "Manutenção Semanal", "description": "Contratos recorrentes" },
+      { "title": "Abertura de Temporada", "description": "Prepare piscinas para o verão" },
+      { "title": "Reparos de Equipamentos", "description": "Bombas, filtros, aquecedores" }
+    ],
+    "testimonials": [
+      {
+        "quote": "No verão as ligações triplicam. A IA atende todas e prioriza emergências.",
+        "author": "Marcelo Silva",
+        "role": "Proprietário",
+        "company": "Silva Pool Services",
+        "location": "Fort Lauderdale, FL"
+      },
+      {
+        "quote": "Contratos de manutenção são nossa receita principal. A IA vende automaticamente.",
+        "author": "André Gomes",
+        "role": "Gerente Comercial",
+        "company": "Gomes Pool Care",
+        "location": "Boca Raton, FL"
+      },
+      {
+        "quote": "Clientes com piscina verde precisam de resposta imediata. A IA resolve.",
+        "author": "Felipe Santos",
+        "role": "Técnico Sênior",
+        "company": "Santos Aquatic Solutions",
+        "location": "Palm Beach, FL"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como a IA lida com piscina verde?",
+        "answer": "Emergências como piscina verde são priorizadas automaticamente. A IA coleta informações sobre tamanho, última manutenção e gravidade."
+      },
+      {
+        "question": "A IA vende contratos de manutenção?",
+        "answer": "Sim! Quando um cliente liga para um serviço avulso, a IA oferece automaticamente um contrato de manutenção regular."
+      },
+      {
+        "question": "Funciona para reparos de equipamentos?",
+        "answer": "Sim! A IA coleta informações sobre o equipamento (bomba, filtro, aquecedor), sintomas do problema e marca/modelo."
+      },
+      {
+        "question": "Como escala no verão?",
+        "answer": "A IA atende qualquer volume de chamadas. No verão, quando a demanda aumenta 5x, ela gerencia tudo sem você contratar mais gente."
+      },
+      {
+        "question": "A IA lembra clientes sobre manutenção?",
+        "answer": "Sim! Clientes com contratos recebem lembretes antes de cada visita. Clientes avulsos são contatados periodicamente."
+      }
+    ]
+  },
+  "mudancas": {
+    "name": "Empresas de Mudança",
+    "heroTitle": "Recepcionista IA para Mudanças",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA MUDANÇAS",
+    "heroDescription": "Atendimento inteligente para empresas de mudança residencial e comercial. Qualifique mudanças e forneça orçamentos automaticamente.",
+    "problemTitle": "Orçamentos de mudança são complexos.",
+    "problems": [
+      "Orçamentos demoram para serem respondidos",
+      "Muitas informações para coletar",
+      "Clientes comparando múltiplas empresas",
+      "Dificuldade em qualificar por telefone",
+      "Perda de leads por demora na resposta"
+    ],
+    "solutionTitle": "Mude enquanto qualificamos seus leads.",
+    "solutionDescription": "Nossa IA coleta todas as informações para orçamento — origem, destino, inventário, data desejada, acessos especiais — e fornece estimativas automaticamente.",
+    "solutions": [
+      { "title": "Qualificação completa", "description": "Coleta origem, destino, inventário" },
+      { "title": "Orçamentos automáticos", "description": "Estimativas baseadas em volume" },
+      { "title": "Disponibilidade imediata", "description": "Verifica datas disponíveis" },
+      { "title": "Serviços adicionais", "description": "Oferece embalagem, armazenamento" },
+      { "title": "Follow-up de propostas", "description": "Acompanha orçamentos enviados" },
+      { "title": "Confirmação de mudança", "description": "Lembretes automáticos" }
+    ],
+    "features": [
+      { "title": "Qualificação Completa", "description": "Coleta todos os detalhes da mudança" },
+      { "title": "Orçamentos Rápidos", "description": "Estimativas automáticas" },
+      { "title": "Verificação de Agenda", "description": "Confirma disponibilidade" },
+      { "title": "Serviços Adicionais", "description": "Upsell de embalagem e armazenamento" },
+      { "title": "Follow-up Automático", "description": "Acompanhamento de propostas" },
+      { "title": "Confirmações", "description": "Lembretes antes da mudança" }
+    ],
+    "stats": [
+      { "value": "87%", "label": "dos clientes pedem orçamento de múltiplas empresas" },
+      { "value": "68%", "label": "fecham com quem responde primeiro" },
+      { "value": "45%", "label": "aceitam serviços adicionais quando oferecidos" }
+    ],
+    "useCases": [
+      { "title": "Mudança Residencial", "description": "Qualifique e orçe mudanças de casa" },
+      { "title": "Mudança Comercial", "description": "Escritórios e empresas" },
+      { "title": "Longa Distância", "description": "Mudanças interestaduais" },
+      { "title": "Serviços Adicionais", "description": "Embalagem e armazenamento" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Clientes pedem orçamento de 5 empresas. Quem responde primeiro fecha. A IA responde em segundos.",
+        "author": "Ricardo Torres",
+        "role": "Proprietário",
+        "company": "Torres Moving LLC",
+        "location": "Charlotte, NC"
+      },
+      {
+        "quote": "A IA coleta tudo que preciso para orçar: inventário, acessos, datas. Chego preparado.",
+        "author": "Gustavo Rocha",
+        "role": "Gerente de Operações",
+        "company": "Rocha Relocations",
+        "location": "Raleigh, NC"
+      },
+      {
+        "quote": "Vendemos 40% mais serviços de embalagem desde que a IA começou a oferecer.",
+        "author": "Leonardo Pereira",
+        "role": "Diretor Comercial",
+        "company": "Pereira Moving Services",
+        "location": "Nashville, TN"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A IA coleta inventário da mudança?",
+        "answer": "Sim! A IA pergunta sobre quantidade de cômodos, itens grandes (piano, cofre), desmontagem de móveis e qualquer item especial."
+      },
+      {
+        "question": "Como funciona o orçamento automático?",
+        "answer": "Com base no volume estimado e distância, a IA fornece uma faixa de preço. Para orçamentos precisos, agenda uma vistoria."
+      },
+      {
+        "question": "A IA oferece serviços adicionais?",
+        "answer": "Sim! Ela oferece embalagem, desembalagem, armazenamento temporário e outros serviços que aumentam seu ticket médio."
+      },
+      {
+        "question": "Funciona para mudanças comerciais?",
+        "answer": "Sim! A IA qualifica mudanças comerciais coletando informações sobre metragem, equipamentos e requisitos especiais."
+      },
+      {
+        "question": "Como o follow-up funciona?",
+        "answer": "Após enviar um orçamento, a IA contata o cliente em 24-48 horas para responder dúvidas e ajudar no fechamento."
+      }
+    ]
+  },
+  "telhados": {
+    "name": "Serviços de Telhado",
+    "heroTitle": "Recepcionista IA para Telhados",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA TELHADOS",
+    "heroDescription": "Atendimento inteligente para empresas de reparos e instalação de telhados. Priorize emergências e qualifique projetos automaticamente.",
+    "problemTitle": "Goteiras não esperam horário comercial.",
+    "problems": [
+      "Emergências de goteira a qualquer hora",
+      "Projetos grandes precisam de qualificação",
+      "Temporada de tempestades aumenta demanda",
+      "Dificuldade em priorizar chamados",
+      "Perda de orçamentos por demora"
+    ],
+    "solutionTitle": "Cubra telhados enquanto qualificamos projetos.",
+    "solutionDescription": "Nossa IA prioriza emergências de goteira e danos por tempestade, enquanto qualifica projetos maiores de substituição e instalação de telhados.",
+    "solutions": [
+      { "title": "Emergências priorizadas", "description": "Goteiras e danos por tempestade primeiro" },
+      { "title": "Qualificação de projetos", "description": "Tipo de telhado, metragem, material" },
+      { "title": "Inspeções agendadas", "description": "Marca visitas técnicas automaticamente" },
+      { "title": "Seguros e claims", "description": "Coleta informações de seguro" },
+      { "title": "Follow-up de orçamentos", "description": "Acompanha propostas enviadas" },
+      { "title": "Escalabilidade sazonal", "description": "Atende picos pós-tempestade" }
+    ],
+    "features": [
+      { "title": "Emergências", "description": "Goteiras e danos por tempestade" },
+      { "title": "Qualificação de Projetos", "description": "Tipo, metragem e material" },
+      { "title": "Inspeções", "description": "Agendamento automático" },
+      { "title": "Claims de Seguro", "description": "Coleta informações relevantes" },
+      { "title": "Follow-up", "description": "Acompanhamento de propostas" },
+      { "title": "Escalabilidade", "description": "Atenda mais pós-tempestade" }
+    ],
+    "stats": [
+      { "value": "10x", "label": "mais chamadas após tempestades" },
+      { "value": "72%", "label": "dos projetos envolvem seguro" },
+      { "value": "89%", "label": "fecham com quem responde primeiro após tempestade" }
+    ],
+    "useCases": [
+      { "title": "Emergências de Goteira", "description": "Reparos urgentes" },
+      { "title": "Danos por Tempestade", "description": "Avaliação e reparo" },
+      { "title": "Substituição de Telhado", "description": "Projetos completos" },
+      { "title": "Claims de Seguro", "description": "Apoio com documentação" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Após tempestades, as ligações explodem. A IA atende todas e prioriza emergências.",
+        "author": "Henrique Lima",
+        "role": "Proprietário",
+        "company": "Lima Roofing LLC",
+        "location": "Oklahoma City, OK"
+      },
+      {
+        "quote": "Projetos de substituição precisam de qualificação. A IA coleta tudo antes da inspeção.",
+        "author": "Daniel Costa",
+        "role": "Gerente de Projetos",
+        "company": "Costa Roofing Solutions",
+        "location": "Kansas City, MO"
+      },
+      {
+        "quote": "Claims de seguro são complexos. A IA coleta as informações certas.",
+        "author": "Fabio Santos",
+        "role": "Diretor Comercial",
+        "company": "Santos Storm Repair",
+        "location": "Tulsa, OK"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como a IA lida com emergências pós-tempestade?",
+        "answer": "A IA prioriza chamados por gravidade. Goteiras ativas e danos estruturais são encaminhados imediatamente."
+      },
+      {
+        "question": "A IA coleta informações de seguro?",
+        "answer": "Sim! Para claims, a IA pergunta sobre seguradora, número da apólice e se já fizeram contato com o seguro."
+      },
+      {
+        "question": "Funciona para projetos de substituição?",
+        "answer": "Sim! A IA qualifica projetos grandes coletando tipo de telhado atual, metragem, material desejado e orçamento."
+      },
+      {
+        "question": "Como escala após tempestades?",
+        "answer": "A IA atende qualquer volume de chamadas. Após tempestades, quando as ligações aumentam 10x, ela gerencia tudo."
+      },
+      {
+        "question": "A IA agenda inspeções?",
+        "answer": "Sim! Para projetos que precisam de avaliação presencial, a IA agenda inspeções diretamente na sua agenda."
+      }
+    ]
+  },
+  "controle-pragas": {
+    "name": "Controle de Pragas",
+    "heroTitle": "Recepcionista IA para Controle de Pragas",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA PRAGAS",
+    "heroDescription": "Atendimento inteligente para empresas de dedetização e controle de pragas. Priorize emergências e venda contratos preventivos.",
+    "problemTitle": "Pragas não esperam horário comercial.",
+    "problems": [
+      "Emergências de pragas a qualquer hora",
+      "Clientes em pânico querendo solução imediata",
+      "Dificuldade em vender contratos preventivos",
+      "Gestão de serviços recorrentes",
+      "Perda de leads por demora na resposta"
+    ],
+    "solutionTitle": "Elimine pragas enquanto vendemos prevenção.",
+    "solutionDescription": "Nossa IA prioriza emergências (infestações graves, animais perigosos) e automaticamente oferece contratos de prevenção para todos os clientes.",
+    "solutions": [
+      { "title": "Emergências priorizadas", "description": "Infestações graves e animais perigosos" },
+      { "title": "Venda de contratos", "description": "Oferece prevenção automaticamente" },
+      { "title": "Qualificação de pragas", "description": "Identifica tipo e gravidade" },
+      { "title": "Serviços recorrentes", "description": "Gestão de contratos mensais" },
+      { "title": "Follow-up automático", "description": "Lembra clientes sobre prevenção" },
+      { "title": "Atendimento 24/7", "description": "Emergências noturnas e fins de semana" }
+    ],
+    "features": [
+      { "title": "Emergências de Pragas", "description": "Infestações e animais perigosos" },
+      { "title": "Venda de Contratos", "description": "Prevenção automatizada" },
+      { "title": "Qualificação", "description": "Tipo de praga e gravidade" },
+      { "title": "Serviços Recorrentes", "description": "Gestão de contratos" },
+      { "title": "Follow-up", "description": "Lembretes de prevenção" },
+      { "title": "Atendimento 24/7", "description": "Disponível sempre" }
+    ],
+    "stats": [
+      { "value": "78%", "label": "dos clientes aceitam contrato preventivo quando oferecido" },
+      { "value": "65%", "label": "das emergências acontecem fora do horário comercial" },
+      { "value": "4x", "label": "mais receita recorrente com contratos preventivos" }
+    ],
+    "useCases": [
+      { "title": "Emergências de Pragas", "description": "Infestações graves" },
+      { "title": "Contratos Preventivos", "description": "Manutenção mensal/trimestral" },
+      { "title": "Animais Silvestres", "description": "Remoção segura" },
+      { "title": "Inspeções", "description": "Avaliação de imóveis" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Clientes com infestação precisam de resposta imediata. A IA atende em segundos.",
+        "author": "Adriano Mendes",
+        "role": "Proprietário",
+        "company": "Mendes Pest Control",
+        "location": "Jacksonville, FL"
+      },
+      {
+        "quote": "Vendemos 3x mais contratos preventivos desde que a IA começou a oferecer.",
+        "author": "Sergio Ribeiro",
+        "role": "Gerente Comercial",
+        "company": "Ribeiro Exterminators",
+        "location": "Orlando, FL"
+      },
+      {
+        "quote": "A IA qualifica o tipo de praga e gravidade antes da visita. Chego preparado.",
+        "author": "Marcio Alves",
+        "role": "Técnico Sênior",
+        "company": "Alves Pest Solutions",
+        "location": "Tampa, FL"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como a IA lida com emergências de pragas?",
+        "answer": "A IA identifica emergências graves (infestações, animais perigosos, pragas em áreas de comida) e prioriza esses chamados."
+      },
+      {
+        "question": "A IA vende contratos preventivos?",
+        "answer": "Sim! Após cada serviço avulso, a IA oferece automaticamente um contrato de prevenção, explicando benefícios e preços."
+      },
+      {
+        "question": "Funciona para animais silvestres?",
+        "answer": "Sim! A IA coleta informações sobre o tipo de animal, localização e comportamento para você planejar a remoção."
+      },
+      {
+        "question": "Como gerencia contratos recorrentes?",
+        "answer": "A IA agenda visitas de manutenção, envia lembretes aos clientes e reagenda automaticamente quando necessário."
+      },
+      {
+        "question": "Atende emergências noturnas?",
+        "answer": "Sim! A IA atende 24/7. Para emergências graves, pode acioná-lo imediatamente ou agendar para o próximo horário."
+      }
+    ]
+  }
+}
