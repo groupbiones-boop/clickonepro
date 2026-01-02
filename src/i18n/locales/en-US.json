@@ -15,6 +15,7 @@
     "smallBusiness": "Small Business",
     "mediumBusiness": "Medium Business",
     "localBusiness": "Local Business",
+    "franchiseNetwork": "Franchise Network",
     "about": "About",
     "blog": "Blog",
     "contact": "Contact",
@@ -459,5 +460,101 @@
     "testimonialsTitle": "Local businesses dominating their regions",
     "ctaTitle": "Dominate your region's market",
     "ctaSubtitle": "Schedule a free demo and see how ClickOne AI can make you be the first to respond, always."
+  },
+  "franchiseNetwork": {
+    "badge": "Enterprise solutions for multiple locations",
+    "title": "AI Service for",
+    "titleHighlight": "Franchise Networks",
+    "subtitle": "Standardize service across your entire network. Centralized control, guaranteed quality at each location.",
+    "cta": "Schedule Enterprise Demo",
+    "ctaSecondary": "Talk to Specialist",
+    "networksServed": "Networks served",
+    "uptime": "Guaranteed uptime",
+    "satisfactionIncrease": "Satisfaction increase",
+    "dedicatedSupport": "Dedicated support",
+    "problemTitle": "The challenge of managing multiple locations",
+    "problemSubtitle": "Each franchise is an extension of your brand. Inconsistent service affects the entire network.",
+    "withoutStandard": "Without standardization",
+    "challenge1": "Service quality varies between locations",
+    "challenge2": "Difficult to monitor each franchise's performance",
+    "challenge3": "Inconsistent operational costs",
+    "challenge4": "Constant employee training",
+    "withClickOneEnterprise": "With ClickOne AI Enterprise",
+    "solution1": "Identical service at all locations",
+    "solution2": "Centralized dashboard with metrics by branch",
+    "solution3": "Predictable and scalable cost",
+    "solution4": "Zero training, immediate quality",
+    "benefitsTitle": "Enterprise Features",
+    "benefit1Title": "Standardized service",
+    "benefit1Desc": "Same quality at all locations, ensuring brand consistency.",
+    "benefit2Title": "Centralized dashboard",
+    "benefit2Desc": "Complete view of all locations' performance in real time.",
+    "benefit3Title": "Quality control",
+    "benefit3Desc": "Monitor and ensure service standards across the entire network.",
+    "benefit4Title": "Dedicated support",
+    "benefit4Desc": "Exclusive account manager and priority support for your network.",
+    "enterpriseFeaturesTitle": "Features included in Enterprise plan",
+    "enterpriseFeature1": "Centralized configuration for entire network",
+    "enterpriseFeature2": "Custom scripts by location or region",
+    "enterpriseFeature3": "Consolidated and per-branch reports",
+    "enterpriseFeature4": "Integration with franchise systems",
+    "enterpriseFeature5": "Training and onboarding for franchisees",
+    "enterpriseFeature6": "Guaranteed SLA with 99.9% uptime",
+    "testimonialsTitle": "Networks that trust ClickOne AI",
+    "testimonial1": "Managing service for 15 locations was a nightmare. With ClickOne AI, we have standards at all franchises and full visibility in one dashboard.",
+    "testimonial2": "Our franchisees loved it. They focus on service while AI handles customer service. Customer satisfaction increased 40% across the network.",
+    "ctaTitle": "Ready to standardize your network?",
+    "ctaSubtitle": "Schedule an enterprise demo and discover how ClickOne AI can transform service across your entire franchise network."
+  },
+  "agendarDemo": {
+    "hero": {
+      "badge": "Transform your service today",
+      "title": "Schedule Your",
+      "titleHighlight": "Free Demo",
+      "subtitle": "See ClickOne AI in action and discover how we can transform your service. Never lose a customer due to lack of response again."
+    },
+    "form": {
+      "title": "Fill out the form",
+      "subtitle": "Our team will contact you within 24 hours.",
+      "placeholder": "Area reserved for ClickOne form"
+    },
+    "quickBenefits": {
+      "demo30min": "30-minute personalized demo",
+      "free": "100% free",
+      "noCommitment": "No commitment"
+    },
+    "benefits": {
+      "personalizedDemo": {
+        "title": "30-minute personalized demo",
+        "description": "A specialist will understand your business and show how AI can help."
+      },
+      "noCommitment": {
+        "title": "No commitment",
+        "description": "Get to know the platform without any obligation."
+      },
+      "seeAiInAction": {
+        "title": "See AI in action",
+        "description": "Real simulation of how ClickOne AI would serve your customers."
+      }
+    },
+    "benefitsSection": {
+      "title": "What you'll receive in the demo"
+    },
+    "testimonialsSection": {
+      "badge": "Satisfied customers",
+      "title": "What our customers say"
+    },
+    "testimonials": {
+      "carlos": "The demo was amazing! In 30 minutes, I understood exactly how AI would work for my cleaning company.",
+      "roberto": "After the demo, it became clear how much I was losing in unanswered calls. I signed up the same day.",
+      "ana": "The team was very attentive and the demo was super personalized for my business.",
+      "diego": "I never thought automating my service would be so simple. The demo convinced me!"
+    },
+    "stats": {
+      "companiesServed": "Companies served",
+      "callsAutomated": "Calls automated",
+      "satisfaction": "Customer satisfaction",
+      "activeSupport": "Active support"
+    }
   }
 }
