@@ -60,7 +60,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/setores" className="text-primary hover:text-primary/80 text-sm transition-colors font-medium">
+                <Link to="/setores" className="text-background font-bold hover:text-background/80 text-sm transition-colors">
                   {t("footer.viewAllSectors")}
                 </Link>
               </li>
