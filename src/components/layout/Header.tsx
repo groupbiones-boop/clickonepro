@@ -230,7 +230,7 @@ const Header = () => {
           <Button asChild variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
             <Link to="/agendar-demo">{t("nav.bookDemo")}</Link>
           </Button>
-          <Button asChild variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+          <Button asChild variant="ghost" className="bg-primary-foreground/15 border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/25 hover:border-primary-foreground/60">
             <a href="https://app.clickonepro.com/" target="_blank" rel="noopener noreferrer">{t("nav.login")}</a>
           </Button>
         </div>
@@ -401,7 +401,7 @@ const Header = () => {
                   {t("nav.bookDemo")}
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
+              <Button asChild variant="ghost" className="bg-primary-foreground/15 border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/25 hover:border-primary-foreground/60">
                 <a href="https://app.clickonepro.com/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                   {t("nav.login")}
                 </a>
