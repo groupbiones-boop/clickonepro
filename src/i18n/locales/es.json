@@ -165,12 +165,7 @@
   },
   "contact": {
     "title": "Contáctanos",
-    "subtitle": "Estamos listos para ayudar a tu negocio a crecer.",
-    "name": "Tu nombre",
-    "email": "Tu correo",
-    "phone": "Teléfono",
-    "message": "Tu mensaje",
-    "submit": "Enviar Mensaje"
+    "subtitle": "Estamos listos para ayudar a tu negocio a crecer."
   },
   "bookDemo": {
     "badge": "Transforma tu atención hoy",

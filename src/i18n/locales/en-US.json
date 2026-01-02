@@ -165,12 +165,7 @@
   },
   "contact": {
     "title": "Contact Us",
-    "subtitle": "We're ready to help your business grow.",
-    "name": "Your name",
-    "email": "Your email",
-    "phone": "Phone",
-    "message": "Your message",
-    "submit": "Send Message"
+    "subtitle": "We're ready to help your business grow."
   },
   "bookDemo": {
     "badge": "Transform your service today",
