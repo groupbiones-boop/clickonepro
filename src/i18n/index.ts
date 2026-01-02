@@ -6,10 +6,23 @@ import ptBR from './locales/pt-BR.json';
 import enUS from './locales/en-US.json';
 import es from './locales/es.json';
 
+import industriesPtBR from './locales/industries/pt-BR.json';
+import industriesEnUS from './locales/industries/en-US.json';
+import industriesEs from './locales/industries/es.json';
+
 const resources = {
-  'pt-BR': { translation: ptBR },
-  'en-US': { translation: enUS },
-  'es': { translation: es },
+  'pt-BR': { 
+    translation: ptBR,
+    industries: industriesPtBR
+  },
+  'en-US': { 
+    translation: enUS,
+    industries: industriesEnUS
+  },
+  'es': { 
+    translation: es,
+    industries: industriesEs
+  },
 };
 
 i18n
@@ -18,6 +31,8 @@ i18n
   .init({
     resources,
     fallbackLng: 'pt-BR',
+    ns: ['translation', 'industries'],
+    defaultNS: 'translation',
     interpolation: {
       escapeValue: false,
     },
