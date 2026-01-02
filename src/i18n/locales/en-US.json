@@ -641,8 +641,9 @@
       "companiesServed": "Companies served",
       "callsAutomated": "Calls automated",
       "satisfaction": "Customer satisfaction",
-    "activeSupport": "Active support"
-    }
+      "activeSupport": "Active support"
+    },
+    "ctaButton": "Schedule a Demo Now"
   },
   "verticalInfra": {
     "badge": "Complete Ecosystem",

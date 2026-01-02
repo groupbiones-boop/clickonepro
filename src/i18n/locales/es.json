@@ -641,8 +641,9 @@
       "companiesServed": "Empresas atendidas",
       "callsAutomated": "Llamadas automatizadas",
       "satisfaction": "Satisfacción del cliente",
-    "activeSupport": "Atención activa"
-    }
+      "activeSupport": "Atención activa"
+    },
+    "ctaButton": "Agenda una Demo Ahora"
   },
   "verticalInfra": {
     "badge": "Ecosistema Completo",
