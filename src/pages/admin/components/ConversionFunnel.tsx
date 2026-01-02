@@ -1,8 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { useFunnelData } from "@/hooks/useFunnelData";
-import type { FunnelData } from "@/hooks/useFunnelData";
+import { useFunnelData } from "@/hooks/use-funnel-data";
 import { Binoculars, Lightbulb, MessageCircle, MousePointer, Trophy } from "lucide-react";
 import html2canvas from "html2canvas";
 
@@ -13,9 +12,24 @@ interface ConversionFunnelProps {
   };
 }
 
+// Local interface to avoid circular dependencies
+interface FunnelDataLocal {
+  visitors: number;
+  pageviews: number;
+  leads: number;
+  agendamentos: number;
+  clientes: number;
+  rates?: {
+    visitorsToPageviews: number;
+    pageviewsToLeads: number;
+    leadsToAgendamentos: number;
+    agendamentosToClientes: number;
+  };
+}
+
 export interface FunnelRef {
   captureAsImage: () => Promise<string>;
-  getData: () => FunnelData | null;
+  getData: () => FunnelDataLocal | null;
 }
 
 const FUNNEL_STAGES = [
@@ -31,7 +45,7 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
   const { data: funnelData, isLoading } = useFunnelData(filters);
 
   // Mock data for demonstration when no real data exists
-  const mockData: FunnelData = {
+  const mockData: FunnelDataLocal = {
     visitors: 2847,
     pageviews: 4521,
     leads: 342,
@@ -62,7 +76,7 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
         return "";
       }
     },
-    getData: () => data,
+    getData: () => data as FunnelDataLocal,
   }));
 
   if (isLoading) {
@@ -127,7 +141,7 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
               return (
                 <div 
                   key={stage.key} 
-                  className="flex flex-col items-center w-full opacity-0 animate-fade-in"
+                  className="flex flex-col items-center w-full animate-fade-in"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <Tooltip>

@@ -6,7 +6,9 @@ interface AnalyticsFilters {
   endDate: Date;
 }
 
-export interface FunnelData {
+// Interface is intentionally NOT exported to prevent circular dependencies
+// Each consuming file should define its own local interface
+interface FunnelData {
   visitors: number;
   pageviews: number;
   leads: number;
