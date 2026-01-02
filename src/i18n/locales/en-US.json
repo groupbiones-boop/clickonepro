@@ -718,5 +718,178 @@
     "ctaButton": "Talk now with Bia",
     "valueReinforcement": "This helps make your demo faster, more personalized, and more focused.",
     "reassurance": "Rest assured. Our team is ready to help your company respond faster, organize your leads, and close more deals."
+  },
+  "legal": {
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "lastUpdated": "Last Updated",
+    "contactUs": "Contact Us",
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": {
+        "title": "1. Introduction",
+        "p1": "ClickOne AI (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website clickonepro.com and use our AI-powered communication services (collectively, the \"Services\"). This policy is designed to comply with applicable U.S. federal and state privacy laws, including the California Consumer Privacy Act (CCPA), California Privacy Rights Act (CPRA), and other applicable regulations.",
+        "p2": "By accessing or using our Services, you agree to this Privacy Policy. If you do not agree with our policies and practices, please do not use our Services."
+      },
+      "collection": {
+        "title": "2. Information We Collect",
+        "personal": "2.1 Personal Information You Provide",
+        "personalDesc": "We collect information you voluntarily provide when using our Services, including:",
+        "personalItems": ["Contact information (name, email address, phone number)", "Business information (company name, industry, company size)", "Account credentials (username and password)", "Communication preferences", "Information provided through our contact forms, demo requests, or customer support inquiries"],
+        "automatic": "2.2 Information Collected Automatically",
+        "automaticDesc": "When you access our Services, we automatically collect certain information, including:",
+        "automaticItems": ["Device information (IP address, browser type, operating system)", "Usage data (pages visited, time spent, click patterns)", "Cookies and similar tracking technologies", "Referral source and navigation patterns"],
+        "thirdParty": "2.3 Information from Third Parties",
+        "thirdPartyDesc": "We may receive information about you from third-party sources, including business partners, marketing partners, and publicly available sources."
+      },
+      "use": {
+        "title": "3. How We Use Your Information",
+        "desc": "We use the collected information for the following purposes:",
+        "items": ["To provide, maintain, and improve our Services", "To process transactions and send related information", "To send promotional communications (with your consent where required)", "To respond to your inquiries and provide customer support", "To analyze usage patterns and improve user experience", "To detect, prevent, and address technical issues or fraud", "To comply with legal obligations", "To enforce our Terms of Service"]
+      },
+      "disclosure": {
+        "title": "4. Disclosure of Your Information",
+        "desc": "We may share your information in the following circumstances:",
+        "items": ["Service Providers: Third-party vendors who perform services on our behalf (hosting, analytics, payment processing)", "Business Transfers: In connection with a merger, acquisition, or sale of assets", "Legal Requirements: When required by law, court order, or governmental authority", "Protection of Rights: To protect our rights, privacy, safety, or property", "With Your Consent: When you have given us permission to share your information"],
+        "noSell": "We do not sell your personal information to third parties for their direct marketing purposes."
+      },
+      "security": {
+        "title": "5. Data Security",
+        "desc": "We implement appropriate technical and organizational security measures designed to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include encryption, firewalls, secure server infrastructure, and access controls. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security."
+      },
+      "retention": {
+        "title": "6. Data Retention",
+        "desc": "We retain your personal information for as long as necessary to fulfill the purposes for which it was collected, comply with our legal obligations, resolve disputes, and enforce our agreements. When we no longer need your information, we will securely delete or anonymize it."
+      },
+      "rights": {
+        "title": "7. Your Privacy Rights",
+        "desc": "Depending on your location, you may have the following rights regarding your personal information:",
+        "items": ["Right to Know: Request information about the categories and specific pieces of personal information we have collected", "Right to Delete: Request deletion of your personal information, subject to certain exceptions", "Right to Correct: Request correction of inaccurate personal information", "Right to Opt-Out: Opt out of the sale or sharing of your personal information", "Right to Non-Discrimination: Exercise your rights without discriminatory treatment"],
+        "contact": "To exercise these rights, please contact us at contato@clickonepro.com or call +1 (770) 501-7321."
+      },
+      "california": {
+        "title": "8. California Privacy Rights (CCPA/CPRA)",
+        "desc": "If you are a California resident, you have specific rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA). These include the right to know what personal information we collect, the right to delete your information, and the right to opt-out of the sale of your personal information. We do not sell personal information as defined under CCPA/CPRA. To make a request, please contact us using the information provided in this policy."
+      },
+      "cookies": {
+        "title": "9. Cookies and Tracking Technologies",
+        "desc": "We use cookies and similar tracking technologies to collect and track information and to improve our Services. Types of cookies we use include:",
+        "items": ["Essential Cookies: Necessary for the website to function properly", "Analytics Cookies: Help us understand how visitors interact with our website", "Marketing Cookies: Used to deliver relevant advertisements"],
+        "control": "You can control cookies through your browser settings. However, disabling cookies may affect the functionality of our Services."
+      },
+      "thirdPartyLinks": {
+        "title": "10. Third-Party Links",
+        "desc": "Our Services may contain links to third-party websites or services. We are not responsible for the privacy practices of these third parties. We encourage you to review the privacy policies of any third-party sites you visit."
+      },
+      "children": {
+        "title": "11. Children's Privacy",
+        "desc": "Our Services are not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13, we will take steps to delete that information as soon as possible. If you believe a child has provided us with personal information, please contact us."
+      },
+      "international": {
+        "title": "12. International Data Transfers",
+        "desc": "Your information may be transferred to and processed in countries other than your country of residence. These countries may have different data protection laws. By using our Services, you consent to the transfer of your information to the United States and other jurisdictions where we operate."
+      },
+      "changes": {
+        "title": "13. Changes to This Privacy Policy",
+        "desc": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last Updated\" date. We encourage you to review this Privacy Policy periodically for any changes."
+      },
+      "contact": {
+        "title": "14. Contact Us",
+        "desc": "If you have any questions about this Privacy Policy or our privacy practices, please contact us at:"
+      }
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "acceptance": {
+        "title": "1. Acceptance of Terms",
+        "p1": "Welcome to ClickOne AI. These Terms of Service (\"Terms\") govern your access to and use of the ClickOne AI website (clickonepro.com), software-as-a-service platform, and related services (collectively, the \"Services\") provided by ClickOne AI (\"Company,\" \"we,\" \"our,\" or \"us\").",
+        "p2": "By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use the Services. If you are using the Services on behalf of a business or organization, you represent and warrant that you have the authority to bind that entity to these Terms."
+      },
+      "description": {
+        "title": "2. Description of Services",
+        "desc": "ClickOne AI provides AI-powered communication and customer service automation solutions, including but not limited to:",
+        "items": ["AI Voice Receptionist for automated phone call handling", "Conversational AI Attendant for multi-channel messaging", "Automated appointment scheduling and management", "Customer relationship management integrations", "Analytics and reporting dashboards"],
+        "note": "The specific features and functionalities available to you depend on your subscription plan and may be modified by us from time to time."
+      },
+      "account": {
+        "title": "3. Account Registration and Security",
+        "desc": "To access certain features of our Services, you must register for an account. When registering, you agree to:",
+        "items": ["Provide accurate, current, and complete information", "Maintain and promptly update your account information", "Keep your login credentials confidential and secure", "Notify us immediately of any unauthorized access to your account", "Accept responsibility for all activities under your account"],
+        "note": "We reserve the right to suspend or terminate accounts that violate these Terms or for any other reason at our sole discretion."
+      },
+      "subscription": {
+        "title": "4. Subscription and Payments",
+        "plans": "4.1 Subscription Plans",
+        "plansDesc": "Access to our Services requires a paid subscription. Subscription plans, pricing, and features are described during the registration process or provided to you directly by our sales team. We reserve the right to modify pricing and features upon reasonable notice.",
+        "payment": "4.2 Payment Terms",
+        "paymentDesc": "By subscribing to our Services, you agree to pay all applicable fees. Payment terms include:",
+        "paymentItems": ["Fees are billed in advance on a monthly or annual basis", "All payments are non-refundable unless otherwise specified", "You authorize us to charge your payment method on file", "Failed payments may result in service suspension"],
+        "cancellation": "4.3 Cancellation",
+        "cancellationDesc": "You may cancel your subscription at any time through your account settings or by contacting customer support. Cancellation will be effective at the end of the current billing period. No refunds will be provided for partial periods."
+      },
+      "acceptable": {
+        "title": "5. Acceptable Use Policy",
+        "desc": "You agree to use our Services only for lawful purposes and in accordance with these Terms. You agree NOT to:",
+        "items": ["Violate any applicable federal, state, local, or international law or regulation", "Send unsolicited communications (spam) or violate TCPA, CAN-SPAM, or similar laws", "Impersonate or attempt to impersonate another person or entity", "Engage in any conduct that restricts or inhibits anyone's use of the Services", "Use the Services to transmit malware, viruses, or harmful code", "Attempt to gain unauthorized access to our systems or other users' accounts", "Collect or harvest user information without consent", "Use automated scripts to collect information or interact with the Services", "Interfere with or disrupt the integrity or performance of the Services"]
+      },
+      "ip": {
+        "title": "6. Intellectual Property Rights",
+        "our": "6.1 Our Intellectual Property",
+        "ourDesc": "The Services, including all content, features, and functionality (including but not limited to software, algorithms, text, displays, images, video, and audio), are owned by ClickOne AI and are protected by United States and international copyright, trademark, patent, trade secret, and other intellectual property laws.",
+        "your": "6.2 Your Content",
+        "yourDesc": "You retain ownership of any content you submit, post, or display through the Services (\"Your Content\"). By providing Your Content, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, and display Your Content solely for the purpose of providing and improving the Services.",
+        "feedback": "6.3 Feedback",
+        "feedbackDesc": "If you provide us with feedback, suggestions, or ideas regarding the Services, you grant us the right to use such feedback without restriction or compensation to you."
+      },
+      "privacy": {
+        "title": "7. Privacy and Data Protection",
+        "p1": "Your use of the Services is also governed by our Privacy Policy, which is incorporated into these Terms by reference. By using the Services, you consent to the collection, use, and disclosure of your information as described in our Privacy Policy.",
+        "p2": "You are responsible for obtaining appropriate consents from your customers and end-users before using our Services to communicate with them or process their personal information."
+      },
+      "confidentiality": {
+        "title": "8. Confidentiality",
+        "desc": "\"Confidential Information\" means any non-public information disclosed by either party that is designated as confidential or that reasonably should be understood to be confidential. Each party agrees to protect the other party's Confidential Information using the same degree of care it uses to protect its own confidential information, but in no event less than reasonable care."
+      },
+      "availability": {
+        "title": "9. Service Availability and Support",
+        "p1": "We strive to provide reliable Services but do not guarantee uninterrupted availability. We may perform scheduled maintenance and updates, which may temporarily affect service availability. We will make reasonable efforts to notify you in advance of any planned maintenance.",
+        "p2": "Technical support is available according to your subscription plan. Support hours and response times may vary based on the plan selected."
+      },
+      "disclaimer": {
+        "title": "10. Disclaimer of Warranties",
+        "p1": "THE SERVICES ARE PROVIDED \"AS IS\" AND \"AS AVAILABLE\" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND TITLE. WE DO NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, OR COMPLETELY SECURE.",
+        "p2": "WE DO NOT GUARANTEE ANY SPECIFIC RESULTS FROM THE USE OF OUR SERVICES. AI-GENERATED RESPONSES AND AUTOMATION MAY NOT ALWAYS BE ACCURATE OR APPROPRIATE FOR EVERY SITUATION."
+      },
+      "liability": {
+        "title": "11. Limitation of Liability",
+        "p1": "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, CLICKONE AI AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES.",
+        "p2": "IN NO EVENT SHALL OUR AGGREGATE LIABILITY EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED DOLLARS ($100)."
+      },
+      "indemnification": {
+        "title": "12. Indemnification",
+        "desc": "You agree to indemnify, defend, and hold harmless ClickOne AI and its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys' fees) arising out of or in any way connected with: (a) your access to or use of the Services; (b) your violation of these Terms; (c) your violation of any third-party rights; or (d) Your Content."
+      },
+      "governing": {
+        "title": "13. Governing Law and Dispute Resolution",
+        "p1": "These Terms shall be governed by and construed in accordance with the laws of the State of Georgia, United States, without regard to its conflict of law provisions. Any dispute arising from these Terms or the Services shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association, except that either party may seek injunctive relief in any court of competent jurisdiction.",
+        "p2": "You agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action."
+      },
+      "termination": {
+        "title": "14. Termination",
+        "desc": "We may terminate or suspend your access to the Services immediately, without prior notice or liability, for any reason, including if you breach these Terms. Upon termination, your right to use the Services will cease immediately. Provisions of these Terms that by their nature should survive termination shall survive, including ownership provisions, warranty disclaimers, indemnity, and limitations of liability."
+      },
+      "changes": {
+        "title": "15. Changes to Terms",
+        "desc": "We reserve the right to modify these Terms at any time. We will provide notice of material changes by posting the new Terms on our website or by sending you an email. Your continued use of the Services after such modifications constitutes your acceptance of the updated Terms."
+      },
+      "general": {
+        "title": "16. General Provisions",
+        "items": ["Entire Agreement: These Terms, together with the Privacy Policy, constitute the entire agreement between you and ClickOne AI.", "Severability: If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions will continue in full force and effect.", "Waiver: Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.", "Assignment: You may not assign or transfer these Terms without our prior written consent. We may assign these Terms without restriction.", "Force Majeure: We shall not be liable for any failure to perform due to causes beyond our reasonable control."]
+      },
+      "contact": {
+        "title": "17. Contact Information",
+        "desc": "If you have any questions about these Terms, please contact us at:"
+      }
+    }
   }
 }

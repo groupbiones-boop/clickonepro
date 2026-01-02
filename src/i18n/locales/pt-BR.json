@@ -718,5 +718,178 @@
     "ctaButton": "Falar agora com a Bia",
     "valueReinforcement": "Isso ajuda a tornar sua demo mais rápida, personalizada e objetiva.",
     "reassurance": "Fique tranquilo. Nossa equipe está preparada para ajudar sua empresa a responder mais rápido, organizar seus leads e fechar mais negócios."
+  },
+  "legal": {
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Uso",
+    "lastUpdated": "Última Atualização",
+    "contactUs": "Entre em Contato",
+    "privacy": {
+      "title": "Política de Privacidade",
+      "intro": {
+        "title": "1. Introdução",
+        "p1": "A ClickOne AI (\"nós\", \"nosso\" ou \"nos\") está comprometida em proteger sua privacidade. Esta Política de Privacidade explica como coletamos, usamos, divulgamos e protegemos suas informações quando você visita nosso site clickonepro.com e utiliza nossos serviços de comunicação com inteligência artificial (coletivamente, os \"Serviços\"). Esta política foi elaborada para cumprir as leis federais e estaduais de privacidade dos EUA, incluindo a Lei de Privacidade do Consumidor da Califórnia (CCPA), Lei de Direitos de Privacidade da Califórnia (CPRA) e outras regulamentações aplicáveis.",
+        "p2": "Ao acessar ou usar nossos Serviços, você concorda com esta Política de Privacidade. Se você não concordar com nossas políticas e práticas, por favor não use nossos Serviços."
+      },
+      "collection": {
+        "title": "2. Informações que Coletamos",
+        "personal": "2.1 Informações Pessoais Fornecidas por Você",
+        "personalDesc": "Coletamos informações que você fornece voluntariamente ao usar nossos Serviços, incluindo:",
+        "personalItems": ["Informações de contato (nome, endereço de e-mail, número de telefone)", "Informações comerciais (nome da empresa, setor, tamanho da empresa)", "Credenciais de conta (nome de usuário e senha)", "Preferências de comunicação", "Informações fornecidas através de nossos formulários de contato, solicitações de demonstração ou consultas de suporte ao cliente"],
+        "automatic": "2.2 Informações Coletadas Automaticamente",
+        "automaticDesc": "Quando você acessa nossos Serviços, coletamos automaticamente certas informações, incluindo:",
+        "automaticItems": ["Informações do dispositivo (endereço IP, tipo de navegador, sistema operacional)", "Dados de uso (páginas visitadas, tempo gasto, padrões de cliques)", "Cookies e tecnologias de rastreamento similares", "Fonte de referência e padrões de navegação"],
+        "thirdParty": "2.3 Informações de Terceiros",
+        "thirdPartyDesc": "Podemos receber informações sobre você de fontes de terceiros, incluindo parceiros comerciais, parceiros de marketing e fontes publicamente disponíveis."
+      },
+      "use": {
+        "title": "3. Como Usamos Suas Informações",
+        "desc": "Usamos as informações coletadas para os seguintes propósitos:",
+        "items": ["Fornecer, manter e melhorar nossos Serviços", "Processar transações e enviar informações relacionadas", "Enviar comunicações promocionais (com seu consentimento quando necessário)", "Responder às suas consultas e fornecer suporte ao cliente", "Analisar padrões de uso e melhorar a experiência do usuário", "Detectar, prevenir e resolver problemas técnicos ou fraudes", "Cumprir obrigações legais", "Fazer cumprir nossos Termos de Uso"]
+      },
+      "disclosure": {
+        "title": "4. Divulgação de Suas Informações",
+        "desc": "Podemos compartilhar suas informações nas seguintes circunstâncias:",
+        "items": ["Provedores de Serviços: Fornecedores terceirizados que realizam serviços em nosso nome (hospedagem, análises, processamento de pagamentos)", "Transferências Comerciais: Em conexão com uma fusão, aquisição ou venda de ativos", "Requisitos Legais: Quando exigido por lei, ordem judicial ou autoridade governamental", "Proteção de Direitos: Para proteger nossos direitos, privacidade, segurança ou propriedade", "Com Seu Consentimento: Quando você nos deu permissão para compartilhar suas informações"],
+        "noSell": "Não vendemos suas informações pessoais a terceiros para seus propósitos de marketing direto."
+      },
+      "security": {
+        "title": "5. Segurança dos Dados",
+        "desc": "Implementamos medidas de segurança técnicas e organizacionais apropriadas projetadas para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição. Essas medidas incluem criptografia, firewalls, infraestrutura de servidor segura e controles de acesso. No entanto, nenhum método de transmissão pela Internet ou armazenamento eletrônico é 100% seguro, e não podemos garantir segurança absoluta."
+      },
+      "retention": {
+        "title": "6. Retenção de Dados",
+        "desc": "Retemos suas informações pessoais pelo tempo necessário para cumprir os propósitos para os quais foram coletadas, cumprir nossas obrigações legais, resolver disputas e fazer cumprir nossos acordos. Quando não precisarmos mais de suas informações, as excluiremos ou anonimizaremos de forma segura."
+      },
+      "rights": {
+        "title": "7. Seus Direitos de Privacidade",
+        "desc": "Dependendo da sua localização, você pode ter os seguintes direitos em relação às suas informações pessoais:",
+        "items": ["Direito de Saber: Solicitar informações sobre as categorias e peças específicas de informações pessoais que coletamos", "Direito de Exclusão: Solicitar a exclusão de suas informações pessoais, sujeito a certas exceções", "Direito de Correção: Solicitar a correção de informações pessoais imprecisas", "Direito de Opt-Out: Optar por não participar da venda ou compartilhamento de suas informações pessoais", "Direito à Não-Discriminação: Exercer seus direitos sem tratamento discriminatório"],
+        "contact": "Para exercer esses direitos, entre em contato conosco em contato@clickonepro.com ou ligue para +1 (770) 501-7321."
+      },
+      "california": {
+        "title": "8. Direitos de Privacidade da Califórnia (CCPA/CPRA)",
+        "desc": "Se você é residente da Califórnia, você tem direitos específicos sob a Lei de Privacidade do Consumidor da Califórnia (CCPA) e a Lei de Direitos de Privacidade da Califórnia (CPRA). Estes incluem o direito de saber quais informações pessoais coletamos, o direito de excluir suas informações e o direito de optar por não participar da venda de suas informações pessoais. Não vendemos informações pessoais conforme definido pelo CCPA/CPRA. Para fazer uma solicitação, entre em contato conosco usando as informações fornecidas nesta política."
+      },
+      "cookies": {
+        "title": "9. Cookies e Tecnologias de Rastreamento",
+        "desc": "Usamos cookies e tecnologias de rastreamento similares para coletar e rastrear informações e melhorar nossos Serviços. Os tipos de cookies que usamos incluem:",
+        "items": ["Cookies Essenciais: Necessários para o funcionamento adequado do site", "Cookies de Análise: Nos ajudam a entender como os visitantes interagem com nosso site", "Cookies de Marketing: Usados para entregar anúncios relevantes"],
+        "control": "Você pode controlar cookies através das configurações do seu navegador. No entanto, desabilitar cookies pode afetar a funcionalidade de nossos Serviços."
+      },
+      "thirdPartyLinks": {
+        "title": "10. Links de Terceiros",
+        "desc": "Nossos Serviços podem conter links para sites ou serviços de terceiros. Não somos responsáveis pelas práticas de privacidade desses terceiros. Encorajamos você a revisar as políticas de privacidade de quaisquer sites de terceiros que você visite."
+      },
+      "children": {
+        "title": "11. Privacidade de Crianças",
+        "desc": "Nossos Serviços não são destinados a crianças menores de 13 anos. Não coletamos intencionalmente informações pessoais de crianças menores de 13 anos. Se soubermos que coletamos informações pessoais de uma criança menor de 13 anos, tomaremos medidas para excluir essas informações o mais rápido possível. Se você acredita que uma criança nos forneceu informações pessoais, entre em contato conosco."
+      },
+      "international": {
+        "title": "12. Transferências Internacionais de Dados",
+        "desc": "Suas informações podem ser transferidas e processadas em países diferentes do seu país de residência. Esses países podem ter leis de proteção de dados diferentes. Ao usar nossos Serviços, você consente com a transferência de suas informações para os Estados Unidos e outras jurisdições onde operamos."
+      },
+      "changes": {
+        "title": "13. Alterações nesta Política de Privacidade",
+        "desc": "Podemos atualizar esta Política de Privacidade de tempos em tempos. Notificaremos você sobre quaisquer alterações publicando a nova Política de Privacidade nesta página e atualizando a data de \"Última Atualização\". Encorajamos você a revisar esta Política de Privacidade periodicamente para quaisquer alterações."
+      },
+      "contact": {
+        "title": "14. Entre em Contato",
+        "desc": "Se você tiver alguma dúvida sobre esta Política de Privacidade ou nossas práticas de privacidade, entre em contato conosco:"
+      }
+    },
+    "terms": {
+      "title": "Termos de Uso",
+      "acceptance": {
+        "title": "1. Aceitação dos Termos",
+        "p1": "Bem-vindo à ClickOne AI. Estes Termos de Uso (\"Termos\") regem seu acesso e uso do site da ClickOne AI (clickonepro.com), plataforma de software como serviço e serviços relacionados (coletivamente, os \"Serviços\") fornecidos pela ClickOne AI (\"Empresa\", \"nós\", \"nosso\" ou \"nos\").",
+        "p2": "Ao acessar ou usar nossos Serviços, você concorda em estar vinculado a estes Termos. Se você não concordar com estes Termos, você não pode acessar ou usar os Serviços. Se você está usando os Serviços em nome de uma empresa ou organização, você declara e garante que tem autoridade para vincular essa entidade a estes Termos."
+      },
+      "description": {
+        "title": "2. Descrição dos Serviços",
+        "desc": "A ClickOne AI fornece soluções de comunicação e automação de atendimento ao cliente com inteligência artificial, incluindo, mas não se limitando a:",
+        "items": ["Recepcionista IA de Voz para atendimento automatizado de chamadas telefônicas", "Atendente IA Conversacional para mensagens multicanal", "Agendamento e gerenciamento automatizado de compromissos", "Integrações de gerenciamento de relacionamento com o cliente", "Painéis de análise e relatórios"],
+        "note": "Os recursos e funcionalidades específicos disponíveis para você dependem do seu plano de assinatura e podem ser modificados por nós de tempos em tempos."
+      },
+      "account": {
+        "title": "3. Registro de Conta e Segurança",
+        "desc": "Para acessar certos recursos de nossos Serviços, você deve se registrar para uma conta. Ao se registrar, você concorda em:",
+        "items": ["Fornecer informações precisas, atuais e completas", "Manter e atualizar prontamente as informações da sua conta", "Manter suas credenciais de login confidenciais e seguras", "Notificar-nos imediatamente sobre qualquer acesso não autorizado à sua conta", "Aceitar responsabilidade por todas as atividades sob sua conta"],
+        "note": "Reservamos o direito de suspender ou encerrar contas que violem estes Termos ou por qualquer outro motivo a nosso exclusivo critério."
+      },
+      "subscription": {
+        "title": "4. Assinatura e Pagamentos",
+        "plans": "4.1 Planos de Assinatura",
+        "plansDesc": "O acesso aos nossos Serviços requer uma assinatura paga. Os planos de assinatura, preços e recursos são descritos durante o processo de registro ou fornecidos diretamente por nossa equipe de vendas. Reservamos o direito de modificar preços e recursos mediante aviso razoável.",
+        "payment": "4.2 Termos de Pagamento",
+        "paymentDesc": "Ao assinar nossos Serviços, você concorda em pagar todas as taxas aplicáveis. Os termos de pagamento incluem:",
+        "paymentItems": ["As taxas são cobradas antecipadamente mensalmente ou anualmente", "Todos os pagamentos não são reembolsáveis, salvo indicação em contrário", "Você nos autoriza a cobrar o método de pagamento em arquivo", "Pagamentos com falha podem resultar em suspensão do serviço"],
+        "cancellation": "4.3 Cancelamento",
+        "cancellationDesc": "Você pode cancelar sua assinatura a qualquer momento através das configurações da sua conta ou entrando em contato com o suporte ao cliente. O cancelamento entrará em vigor no final do período de cobrança atual. Nenhum reembolso será fornecido para períodos parciais."
+      },
+      "acceptable": {
+        "title": "5. Política de Uso Aceitável",
+        "desc": "Você concorda em usar nossos Serviços apenas para fins legais e de acordo com estes Termos. Você concorda em NÃO:",
+        "items": ["Violar qualquer lei ou regulamento federal, estadual, local ou internacional aplicável", "Enviar comunicações não solicitadas (spam) ou violar TCPA, CAN-SPAM ou leis similares", "Personificar ou tentar personificar outra pessoa ou entidade", "Participar de qualquer conduta que restrinja ou iniba o uso dos Serviços por qualquer pessoa", "Usar os Serviços para transmitir malware, vírus ou código malicioso", "Tentar obter acesso não autorizado aos nossos sistemas ou contas de outros usuários", "Coletar ou colher informações de usuários sem consentimento", "Usar scripts automatizados para coletar informações ou interagir com os Serviços", "Interferir ou interromper a integridade ou desempenho dos Serviços"]
+      },
+      "ip": {
+        "title": "6. Direitos de Propriedade Intelectual",
+        "our": "6.1 Nossa Propriedade Intelectual",
+        "ourDesc": "Os Serviços, incluindo todo o conteúdo, recursos e funcionalidades (incluindo, mas não se limitando a software, algoritmos, texto, exibições, imagens, vídeo e áudio), são de propriedade da ClickOne AI e são protegidos por leis de direitos autorais, marcas registradas, patentes, segredo comercial e outras leis de propriedade intelectual dos Estados Unidos e internacionais.",
+        "your": "6.2 Seu Conteúdo",
+        "yourDesc": "Você retém a propriedade de qualquer conteúdo que você envie, poste ou exiba através dos Serviços (\"Seu Conteúdo\"). Ao fornecer Seu Conteúdo, você nos concede uma licença mundial, não exclusiva e livre de royalties para usar, reproduzir, modificar e exibir Seu Conteúdo exclusivamente para o propósito de fornecer e melhorar os Serviços.",
+        "feedback": "6.3 Feedback",
+        "feedbackDesc": "Se você nos fornecer feedback, sugestões ou ideias sobre os Serviços, você nos concede o direito de usar esse feedback sem restrição ou compensação para você."
+      },
+      "privacy": {
+        "title": "7. Privacidade e Proteção de Dados",
+        "p1": "Seu uso dos Serviços também é regido por nossa Política de Privacidade, que é incorporada a estes Termos por referência. Ao usar os Serviços, você consente com a coleta, uso e divulgação de suas informações conforme descrito em nossa Política de Privacidade.",
+        "p2": "Você é responsável por obter consentimentos apropriados de seus clientes e usuários finais antes de usar nossos Serviços para se comunicar com eles ou processar suas informações pessoais."
+      },
+      "confidentiality": {
+        "title": "8. Confidencialidade",
+        "desc": "\"Informações Confidenciais\" significa qualquer informação não pública divulgada por qualquer das partes que seja designada como confidencial ou que razoavelmente deva ser entendida como confidencial. Cada parte concorda em proteger as Informações Confidenciais da outra parte usando o mesmo grau de cuidado que usa para proteger suas próprias informações confidenciais, mas em nenhum caso menos do que cuidado razoável."
+      },
+      "availability": {
+        "title": "9. Disponibilidade do Serviço e Suporte",
+        "p1": "Nos esforçamos para fornecer Serviços confiáveis, mas não garantimos disponibilidade ininterrupta. Podemos realizar manutenção e atualizações programadas, que podem afetar temporariamente a disponibilidade do serviço. Faremos esforços razoáveis para notificá-lo com antecedência sobre qualquer manutenção planejada.",
+        "p2": "O suporte técnico está disponível de acordo com seu plano de assinatura. Os horários de suporte e tempos de resposta podem variar com base no plano selecionado."
+      },
+      "disclaimer": {
+        "title": "10. Isenção de Garantias",
+        "p1": "OS SERVIÇOS SÃO FORNECIDOS \"COMO ESTÃO\" E \"CONFORME DISPONÍVEIS\" SEM GARANTIAS DE QUALQUER TIPO, EXPRESSAS OU IMPLÍCITAS, INCLUINDO, MAS NÃO SE LIMITANDO A GARANTIAS IMPLÍCITAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UM PROPÓSITO ESPECÍFICO, NÃO VIOLAÇÃO E TÍTULO. NÃO GARANTIMOS QUE OS SERVIÇOS SERÃO ININTERRUPTOS, LIVRES DE ERROS OU COMPLETAMENTE SEGUROS.",
+        "p2": "NÃO GARANTIMOS RESULTADOS ESPECÍFICOS DO USO DE NOSSOS SERVIÇOS. RESPOSTAS GERADAS POR IA E AUTOMAÇÃO PODEM NEM SEMPRE SER PRECISAS OU APROPRIADAS PARA CADA SITUAÇÃO."
+      },
+      "liability": {
+        "title": "11. Limitação de Responsabilidade",
+        "p1": "NA MÁXIMA EXTENSÃO PERMITIDA PELA LEI APLICÁVEL, A CLICKONE AI E SEUS DIRETORES, FUNCIONÁRIOS, AGENTES E AFILIADOS NÃO SERÃO RESPONSÁVEIS POR QUAISQUER DANOS INDIRETOS, INCIDENTAIS, ESPECIAIS, CONSEQUENCIAIS OU PUNITIVOS, OU QUALQUER PERDA DE LUCROS OU RECEITAS, INCORRIDOS DIRETA OU INDIRETAMENTE, OU QUALQUER PERDA DE DADOS, USO, BOA VONTADE OU OUTRAS PERDAS INTANGÍVEIS.",
+        "p2": "EM NENHUM CASO NOSSA RESPONSABILIDADE AGREGADA EXCEDERÁ O MAIOR DE (A) O VALOR QUE VOCÊ NOS PAGOU NOS DOZE (12) MESES ANTERIORES À RECLAMAÇÃO, OU (B) CEM DÓLARES (US$ 100)."
+      },
+      "indemnification": {
+        "title": "12. Indenização",
+        "desc": "Você concorda em indenizar, defender e isentar a ClickOne AI e seus diretores, funcionários, agentes e afiliados de e contra quaisquer reclamações, responsabilidades, danos, perdas e despesas (incluindo honorários advocatícios razoáveis) decorrentes de ou de qualquer forma relacionados com: (a) seu acesso ou uso dos Serviços; (b) sua violação destes Termos; (c) sua violação de quaisquer direitos de terceiros; ou (d) Seu Conteúdo."
+      },
+      "governing": {
+        "title": "13. Lei Aplicável e Resolução de Disputas",
+        "p1": "Estes Termos serão regidos e interpretados de acordo com as leis do Estado da Geórgia, Estados Unidos, sem considerar suas disposições de conflito de leis. Qualquer disputa decorrente destes Termos ou dos Serviços será resolvida através de arbitragem vinculante de acordo com as regras da Associação Americana de Arbitragem, exceto que qualquer das partes pode buscar medida cautelar em qualquer tribunal de jurisdição competente.",
+        "p2": "Você concorda que quaisquer procedimentos de resolução de disputas serão conduzidos apenas individualmente e não em uma ação coletiva, consolidada ou representativa."
+      },
+      "termination": {
+        "title": "14. Rescisão",
+        "desc": "Podemos encerrar ou suspender seu acesso aos Serviços imediatamente, sem aviso prévio ou responsabilidade, por qualquer motivo, incluindo se você violar estes Termos. Após a rescisão, seu direito de usar os Serviços cessará imediatamente. As disposições destes Termos que por sua natureza devem sobreviver à rescisão sobreviverão, incluindo disposições de propriedade, isenções de garantia, indenização e limitações de responsabilidade."
+      },
+      "changes": {
+        "title": "15. Alterações nos Termos",
+        "desc": "Reservamos o direito de modificar estes Termos a qualquer momento. Forneceremos aviso de alterações materiais publicando os novos Termos em nosso site ou enviando um e-mail para você. Seu uso continuado dos Serviços após tais modificações constitui sua aceitação dos Termos atualizados."
+      },
+      "general": {
+        "title": "16. Disposições Gerais",
+        "items": ["Acordo Integral: Estes Termos, juntamente com a Política de Privacidade, constituem o acordo integral entre você e a ClickOne AI.", "Divisibilidade: Se qualquer disposição destes Termos for considerada inválida ou inexequível, as disposições restantes continuarão em pleno vigor e efeito.", "Renúncia: Nossa falha em fazer cumprir qualquer direito ou disposição destes Termos não será considerada uma renúncia a esses direitos.", "Cessão: Você não pode ceder ou transferir estes Termos sem nosso consentimento prévio por escrito. Podemos ceder estes Termos sem restrição.", "Força Maior: Não seremos responsáveis por qualquer falha em executar devido a causas além de nosso controle razoável."]
+      },
+      "contact": {
+        "title": "17. Informações de Contato",
+        "desc": "Se você tiver alguma dúvida sobre estes Termos, entre em contato conosco:"
+      }
+    }
   }
 }
