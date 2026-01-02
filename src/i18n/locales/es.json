@@ -714,8 +714,8 @@
   "thankYou": {
     "title": "¡Recibimos tu solicitud! ✅",
     "subtitle": "Gracias por agendar tu demo con ClickOne AI.",
-    "mainMessage": "Nuestro equipo ya recibió tus datos y se comunicará contigo lo antes posible para confirmar los detalles de tu demostración. Mientras tanto, si deseas adelantar la atención y resolver dudas ahora, puedes hablar inmediatamente con nuestra Asistente Virtual ClickOne, disponible para entender tu negocio y ayudar en lo que necesites.",
-    "ctaButton": "Hablar ahora con la Asistente Virtual",
+    "mainMessage": "Nuestro equipo ya recibió tus datos y se comunicará contigo lo antes posible para confirmar los detalles de tu demostración. Mientras tanto, si deseas adelantar la atención y resolver dudas ahora, puedes hablar inmediatamente con Bia, nuestra Asistente Virtual, disponible para entender tu negocio y ayudar en lo que necesites.",
+    "ctaButton": "Hablar ahora con Bia",
     "valueReinforcement": "Esto ayuda a que tu demo sea más rápida, personalizada y objetiva.",
     "reassurance": "Quédate tranquilo. Nuestro equipo está preparado para ayudar a tu empresa a responder más rápido, organizar tus leads y cerrar más negocios."
   }

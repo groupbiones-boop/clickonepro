@@ -714,8 +714,8 @@
   "thankYou": {
     "title": "We received your request! ✅",
     "subtitle": "Thank you for scheduling your demo with ClickOne AI.",
-    "mainMessage": "Our team has already received your information and will contact you as soon as possible to confirm the details of your demonstration. In the meantime, if you'd like to speed things up and ask questions now, you can speak immediately with our ClickOne Virtual Assistant, available to understand your business and help with whatever you need.",
-    "ctaButton": "Talk now with the Virtual Assistant",
+    "mainMessage": "Our team has already received your information and will contact you as soon as possible to confirm the details of your demonstration. In the meantime, if you'd like to speed things up and ask questions now, you can speak immediately with Bia, our Virtual Assistant, available to understand your business and help with whatever you need.",
+    "ctaButton": "Talk now with Bia",
     "valueReinforcement": "This helps make your demo faster, more personalized, and more focused.",
     "reassurance": "Rest assured. Our team is ready to help your company respond faster, organize your leads, and close more deals."
   }
