@@ -1,10 +1,12 @@
+import { useState } from "react";
 import Layout from "@/components/layout/Layout";
-import { CheckCircle, Star, Clock, Shield, Headphones, Quote } from "lucide-react";
+import { CheckCircle, Star, Clock, Shield, Headphones, Quote, Loader2 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { useTranslation } from "react-i18next";
 
 const AgendarDemo = () => {
   const { t } = useTranslation();
+  const [isLoading, setIsLoading] = useState(true);
 
   const benefits = [
     {
@@ -93,10 +95,21 @@ const AgendarDemo = () => {
               </div>
               
               {/* ClickOne Form */}
-              <div className="overflow-hidden rounded-xl">
+              <div className="overflow-hidden rounded-xl relative">
+                {/* Loading state */}
+                {isLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-card z-10 min-h-[500px]">
+                    <div className="flex flex-col items-center gap-3">
+                      <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                      <span className="text-sm text-muted-foreground">Carregando formulário...</span>
+                    </div>
+                  </div>
+                )}
                 <iframe
                   src="https://links.clickonepro.com/widget/form/EtFZ7nEHXqyEHsV4eKbq"
-                  style={{ width: '100%', height: '400px', border: 'none' }}
+                  style={{ width: '100%', height: '500px', border: 'none' }}
+                  className="min-h-[550px] md:min-h-[500px]"
+                  onLoad={() => setIsLoading(false)}
                   id="inline-EtFZ7nEHXqyEHsV4eKbq-demo"
                   data-layout="{'id':'INLINE'}"
                   data-trigger-type="alwaysShow"
@@ -106,7 +119,7 @@ const AgendarDemo = () => {
                   data-deactivation-type="neverDeactivate"
                   data-deactivation-value=""
                   data-form-name="Demo Form"
-                  data-height="400"
+                  data-height="500"
                   data-layout-iframe-id="inline-EtFZ7nEHXqyEHsV4eKbq-demo"
                   data-form-id="EtFZ7nEHXqyEHsV4eKbq"
                   title="Demo Form"
