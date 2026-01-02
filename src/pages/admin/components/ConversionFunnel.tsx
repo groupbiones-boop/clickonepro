@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useFunnelData } from "@/hooks/useFunnelData";
+import { Users, Eye, UserCheck, Calendar, Trophy } from "lucide-react";
 
 interface ConversionFunnelProps {
   filters: {
@@ -9,11 +10,11 @@ interface ConversionFunnelProps {
 }
 
 const FUNNEL_STAGES = [
-  { key: "visitors", label: "Visitantes", desc: "Todos que visitam o site", color: "#3b82f6" },
-  { key: "pageviews", label: "Pageviews", desc: "Visualizações de página", color: "#06b6d4" },
-  { key: "leads", label: "Leads", desc: "Contatos qualificados", color: "#22c55e" },
-  { key: "agendamentos", label: "Agendamentos", desc: "Demos agendados", color: "#f59e0b" },
-  { key: "clientes", label: "Clientes", desc: "Clientes convertidos", color: "#8b5cf6" },
+  { key: "visitors", label: "Visitantes", icon: Users, color: "#1e3a5f" },
+  { key: "pageviews", label: "Pageviews", icon: Eye, color: "#2d5a87" },
+  { key: "leads", label: "Leads", icon: UserCheck, color: "#4a9079" },
+  { key: "agendamentos", label: "Agendamentos", icon: Calendar, color: "#6ab193" },
+  { key: "clientes", label: "Clientes", icon: Trophy, color: "#8ecfb0" },
 ];
 
 const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
@@ -48,15 +49,16 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
     },
   };
 
-  const values = [data.visitors, data.pageviews, data.leads, data.agendamentos, data.clientes];
-  const maxValue = Math.max(...values, 1);
+  const values: Record<string, number> = {
+    visitors: data.visitors,
+    pageviews: data.pageviews,
+    leads: data.leads,
+    agendamentos: data.agendamentos,
+    clientes: data.clientes,
+  };
 
-  // Calculate percentages relative to visitors (first stage)
-  const percentages = values.map((v) => 
-    data.visitors > 0 ? Math.round((v / data.visitors) * 100) : 0
-  );
-  // Ensure first is 100%
-  percentages[0] = 100;
+  // Width percentages for each stage (decreasing)
+  const widthPercentages = [100, 85, 70, 55, 40];
 
   return (
     <Card className="h-full">
@@ -64,92 +66,59 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
         <CardTitle className="text-lg">Funil de Conversão</CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
-        <div className="flex items-start gap-2">
-          {/* Left side - Percentages with "Despesas" labels */}
-          <div className="flex flex-col justify-between h-[260px] pt-2 text-right">
-            {FUNNEL_STAGES.map((stage, index) => {
-              const percent = percentages[index];
-              return (
-                <div key={stage.key} className="flex flex-col items-end" style={{ height: "48px" }}>
-                  <span className="text-sm font-bold text-foreground">{percent}%</span>
-                  <span className="text-[10px] text-muted-foreground">Despesas</span>
+        <div className="space-y-3">
+          {FUNNEL_STAGES.map((stage, index) => {
+            const Icon = stage.icon;
+            const value = values[stage.key];
+            const widthPercent = widthPercentages[index];
+            
+            return (
+              <div 
+                key={stage.key} 
+                className="flex items-center gap-3 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Funnel Bar with Icon */}
+                <div 
+                  className="relative flex items-center justify-between px-4 py-3 rounded-r-full transition-all duration-300 hover:opacity-90"
+                  style={{ 
+                    width: `${widthPercent}%`,
+                    backgroundColor: stage.color,
+                    clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%)",
+                  }}
+                >
+                  <Icon className="h-5 w-5 text-white" />
+                  <span className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center w-7 h-7 rounded-full bg-white/20 text-white font-bold text-sm">
+                    {index + 1}
+                  </span>
                 </div>
-              );
-            })}
-          </div>
 
-          {/* SVG Funnel - True cone shape */}
-          <div className="flex-shrink-0">
-            <svg width="120" height="280" viewBox="0 0 120 280">
-              {/* Funnel layers with curved 3D effect */}
-              {FUNNEL_STAGES.map((stage, index) => {
-                const layerHeight = 48;
-                const y = index * layerHeight + 5;
-                
-                // Progressive narrowing
-                const topWidth = 110 - (index * 18);
-                const bottomWidth = 110 - ((index + 1) * 18);
-                
-                const topX = (120 - topWidth) / 2;
-                const bottomX = (120 - bottomWidth) / 2;
-                
-                // Curved sides for 3D effect
-                const curveDepth = 8;
-                const path = `
-                  M ${topX} ${y}
-                  C ${topX - curveDepth} ${y + layerHeight * 0.5}, ${bottomX - curveDepth} ${y + layerHeight * 0.5}, ${bottomX} ${y + layerHeight}
-                  L ${120 - bottomX} ${y + layerHeight}
-                  C ${120 - bottomX + curveDepth} ${y + layerHeight * 0.5}, ${120 - topX + curveDepth} ${y + layerHeight * 0.5}, ${120 - topX} ${y}
-                  Z
-                `;
+                {/* Connector Line */}
+                <div className="flex-1 border-t-2 border-dashed border-muted-foreground/30 min-w-[20px]" />
 
-                return (
-                  <path
-                    key={stage.key}
-                    d={path}
-                    fill={stage.color}
-                    stroke={stage.color}
-                    strokeWidth="0.5"
-                    className="transition-all duration-500"
-                  />
-                );
-              })}
-              
-              {/* Bottom cone tip */}
-              <path
-                d="M 38 245 C 30 260, 50 278, 60 280 C 70 278, 90 260, 82 245 Z"
-                fill="#8b5cf6"
-              />
-            </svg>
-          </div>
-
-          {/* Right side - Labels with descriptions */}
-          <div className="flex flex-col justify-between h-[260px] pt-2 flex-1">
-            {FUNNEL_STAGES.map((stage, index) => {
-              const value = values[index];
-              return (
-                <div key={stage.key} style={{ height: "48px" }}>
-                  <p className="text-sm font-bold text-foreground">{stage.label}</p>
-                  <p className="text-[10px] text-muted-foreground leading-tight">
-                    {stage.desc} ({value.toLocaleString("pt-BR")})
+                {/* Label and Value */}
+                <div className="text-right min-w-[140px]">
+                  <p className="text-sm font-semibold text-foreground">{stage.label}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {value.toLocaleString("pt-BR")}
                   </p>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Summary Metrics */}
-        <div className="mt-3 pt-3 border-t border-border grid grid-cols-2 gap-3 text-center">
+        <div className="mt-6 pt-4 border-t border-border grid grid-cols-2 gap-4 text-center">
           <div>
             <p className="text-xs text-muted-foreground">Visitante → Lead</p>
-            <p className="text-base font-bold text-primary">
+            <p className="text-lg font-bold text-primary">
               {data.visitors > 0 ? ((data.leads / data.visitors) * 100).toFixed(1) : 0}%
             </p>
           </div>
           <div>
             <p className="text-xs text-muted-foreground">Lead → Cliente</p>
-            <p className="text-base font-bold text-green-500">
+            <p className="text-lg font-bold" style={{ color: "#4a9079" }}>
               {data.leads > 0 ? ((data.clientes / data.leads) * 100).toFixed(1) : 0}%
             </p>
           </div>
