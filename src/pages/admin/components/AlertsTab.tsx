@@ -46,24 +46,24 @@ interface AlertRule {
 }
 
 const metricOptions = [
-  { value: "pageviews", label: "Pageviews" },
-  { value: "visitors", label: "Unique Visitors" },
-  { value: "leads", label: "New Leads" },
-  { value: "bounce_rate", label: "Bounce Rate" },
+  { value: "pageviews", label: "Visualizações" },
+  { value: "visitors", label: "Visitantes Únicos" },
+  { value: "leads", label: "Novos Leads" },
+  { value: "bounce_rate", label: "Taxa de Rejeição" },
 ];
 
 const periodOptions = [
-  { value: "1h", label: "1 Hour" },
-  { value: "24h", label: "24 Hours" },
-  { value: "7d", label: "7 Days" },
-  { value: "30d", label: "30 Days" },
+  { value: "1h", label: "1 Hora" },
+  { value: "24h", label: "24 Horas" },
+  { value: "7d", label: "7 Dias" },
+  { value: "30d", label: "30 Dias" },
 ];
 
 const comparisonOptions = [
-  { value: "above", label: "Above" },
-  { value: "below", label: "Below" },
-  { value: "increase_by", label: "Increase by %" },
-  { value: "decrease_by", label: "Decrease by %" },
+  { value: "above", label: "Acima de" },
+  { value: "below", label: "Abaixo de" },
+  { value: "increase_by", label: "Aumentar em %" },
+  { value: "decrease_by", label: "Diminuir em %" },
 ];
 
 const AlertsTab = () => {
@@ -121,13 +121,13 @@ const AlertsTab = () => {
         comparison: "above",
       });
       toast({
-        title: "Alert rule created",
-        description: "You will be notified when the condition is met.",
+        title: "Regra de alerta criada",
+        description: "Você será notificado quando a condição for atendida.",
       });
     },
     onError: (error) => {
       toast({
-        title: "Error",
+        title: "Erro",
         description: error.message,
         variant: "destructive",
       });
@@ -156,7 +156,7 @@ const AlertsTab = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["alertRules"] });
       toast({
-        title: "Alert rule deleted",
+        title: "Regra de alerta excluída",
       });
     },
   });
@@ -178,35 +178,35 @@ const AlertsTab = () => {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-2xl font-bold">Alert Rules</h2>
+          <h2 className="text-2xl font-bold">Regras de Alerta</h2>
           <p className="text-muted-foreground">
-            Configure alerts to be notified of important events
+            Configure alertas para ser notificado sobre eventos importantes
           </p>
         </div>
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
             <Button>
               <Plus className="h-4 w-4 mr-2" />
-              New Alert
+              Novo Alerta
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Create Alert Rule</DialogTitle>
+              <DialogTitle>Criar Regra de Alerta</DialogTitle>
             </DialogHeader>
             <div className="space-y-4 pt-4">
               <div className="space-y-2">
-                <Label htmlFor="name">Rule Name</Label>
+                <Label htmlFor="name">Nome da Regra</Label>
                 <Input
                   id="name"
                   value={newRule.name}
                   onChange={(e) => setNewRule({ ...newRule, name: e.target.value })}
-                  placeholder="e.g., High Traffic Alert"
+                  placeholder="ex: Alerta de Alto Tráfego"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label>Metric</Label>
+                  <Label>Métrica</Label>
                   <Select
                     value={newRule.metric}
                     onValueChange={(value) => setNewRule({ ...newRule, metric: value })}
@@ -224,7 +224,7 @@ const AlertsTab = () => {
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <Label>Comparison</Label>
+                  <Label>Comparação</Label>
                   <Select
                     value={newRule.comparison}
                     onValueChange={(value) => setNewRule({ ...newRule, comparison: value })}
@@ -244,7 +244,7 @@ const AlertsTab = () => {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="threshold">Threshold</Label>
+                  <Label htmlFor="threshold">Limite</Label>
                   <Input
                     id="threshold"
                     type="number"
@@ -255,7 +255,7 @@ const AlertsTab = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label>Time Period</Label>
+                  <Label>Período</Label>
                   <Select
                     value={newRule.period}
                     onValueChange={(value) => setNewRule({ ...newRule, period: value })}
@@ -278,7 +278,7 @@ const AlertsTab = () => {
                 className="w-full"
                 disabled={!newRule.name || createRuleMutation.isPending}
               >
-                Create Alert
+                Criar Alerta
               </Button>
             </div>
           </DialogContent>
@@ -287,24 +287,24 @@ const AlertsTab = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Active Rules</CardTitle>
+          <CardTitle>Regras Ativas</CardTitle>
         </CardHeader>
         <CardContent>
           {isLoading ? (
-            <div className="text-center py-8 text-muted-foreground">Loading...</div>
+            <div className="text-center py-8 text-muted-foreground">Carregando...</div>
           ) : alertRules?.length === 0 ? (
             <div className="text-center py-8 text-muted-foreground">
-              No alert rules configured yet
+              Nenhuma regra de alerta configurada ainda
             </div>
           ) : (
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Condition</TableHead>
-                  <TableHead>Period</TableHead>
-                  <TableHead>Enabled</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <TableHead>Nome</TableHead>
+                  <TableHead>Condição</TableHead>
+                  <TableHead>Período</TableHead>
+                  <TableHead>Ativo</TableHead>
+                  <TableHead className="text-right">Ações</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>

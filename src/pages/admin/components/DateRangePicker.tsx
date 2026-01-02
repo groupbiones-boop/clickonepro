@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { format, subDays, startOfDay, endOfDay } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import { CalendarIcon } from "lucide-react";
 
 interface DateRangePickerProps {
@@ -17,11 +18,11 @@ interface DateRangePickerProps {
 }
 
 const presets = [
-  { label: "Today", days: 0 },
-  { label: "Last 7 days", days: 7 },
-  { label: "Last 30 days", days: 30 },
-  { label: "Last 90 days", days: 90 },
-  { label: "Last year", days: 365 },
+  { label: "Hoje", days: 0 },
+  { label: "Últimos 7 dias", days: 7 },
+  { label: "Últimos 30 dias", days: 30 },
+  { label: "Últimos 90 dias", days: 90 },
+  { label: "Último ano", days: 365 },
 ];
 
 const DateRangePicker = ({ startDate, endDate, onDateChange }: DateRangePickerProps) => {
@@ -48,13 +49,13 @@ const DateRangePicker = ({ startDate, endDate, onDateChange }: DateRangePickerPr
           {startDate ? (
             endDate ? (
               <>
-                {format(startDate, "MMM d, yyyy")} - {format(endDate, "MMM d, yyyy")}
+                {format(startDate, "d MMM yyyy", { locale: ptBR })} - {format(endDate, "d MMM yyyy", { locale: ptBR })}
               </>
             ) : (
-              format(startDate, "MMM d, yyyy")
+              format(startDate, "d MMM yyyy", { locale: ptBR })
             )
           ) : (
-            <span>Pick a date</span>
+            <span>Selecione uma data</span>
           )}
         </Button>
       </PopoverTrigger>
@@ -86,6 +87,7 @@ const DateRangePicker = ({ startDate, endDate, onDateChange }: DateRangePickerPr
                 }
               }}
               numberOfMonths={2}
+              locale={ptBR}
             />
           </div>
         </div>

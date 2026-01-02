@@ -33,9 +33,9 @@ const SiteTab = ({ filters }: SiteTabProps) => {
   // Mock data for page performance
   const performanceData = [
     { page: "Home", views: 100, time: 85, scroll: 90, bounce: 70 },
-    { page: "Products", views: 75, time: 70, scroll: 65, bounce: 80 },
+    { page: "Produtos", views: 75, time: 70, scroll: 65, bounce: 80 },
     { page: "Blog", views: 60, time: 90, scroll: 85, bounce: 60 },
-    { page: "Contact", views: 40, time: 50, scroll: 70, bounce: 75 },
+    { page: "Contato", views: 40, time: 50, scroll: 70, bounce: 75 },
     { page: "Demo", views: 80, time: 95, scroll: 95, bounce: 50 },
   ];
 
@@ -44,16 +44,16 @@ const SiteTab = ({ filters }: SiteTabProps) => {
       {/* Pages Table */}
       <Card>
         <CardHeader>
-          <CardTitle>All Pages Performance</CardTitle>
+          <CardTitle>Desempenho de Todas as Páginas</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Page</TableHead>
-                <TableHead className="text-right">Views</TableHead>
-                <TableHead className="text-right">Avg. Time</TableHead>
-                <TableHead className="text-right">Scroll Depth</TableHead>
+                <TableHead>Página</TableHead>
+                <TableHead className="text-right">Visualizações</TableHead>
+                <TableHead className="text-right">Tempo Médio</TableHead>
+                <TableHead className="text-right">Prof. de Scroll</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -80,7 +80,7 @@ const SiteTab = ({ filters }: SiteTabProps) => {
         {/* Entry vs Exit Pages */}
         <Card>
           <CardHeader>
-            <CardTitle>Entry vs Exit Pages</CardTitle>
+            <CardTitle>Páginas de Entrada vs Saída</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64">
@@ -96,7 +96,7 @@ const SiteTab = ({ filters }: SiteTabProps) => {
                       borderRadius: "8px",
                     }}
                   />
-                  <Bar dataKey="views" fill="hsl(var(--chart-1))" name="Entry" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="views" fill="hsl(var(--chart-1))" name="Entrada" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -106,7 +106,7 @@ const SiteTab = ({ filters }: SiteTabProps) => {
         {/* Page Performance Radar */}
         <Card>
           <CardHeader>
-            <CardTitle>Page Performance Metrics</CardTitle>
+            <CardTitle>Métricas de Desempenho</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64">
@@ -116,14 +116,14 @@ const SiteTab = ({ filters }: SiteTabProps) => {
                   <PolarAngleAxis dataKey="page" className="text-muted-foreground" />
                   <PolarRadiusAxis angle={30} domain={[0, 100]} />
                   <Radar
-                    name="Views"
+                    name="Visualizações"
                     dataKey="views"
                     stroke="hsl(var(--chart-1))"
                     fill="hsl(var(--chart-1))"
                     fillOpacity={0.3}
                   />
                   <Radar
-                    name="Engagement"
+                    name="Engajamento"
                     dataKey="scroll"
                     stroke="hsl(var(--chart-2))"
                     fill="hsl(var(--chart-2))"
