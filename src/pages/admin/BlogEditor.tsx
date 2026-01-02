@@ -92,8 +92,8 @@ const BlogEditorContent = () => {
   const handleSave = async (status: "draft" | "published") => {
     if (!title || !content) {
       toast({
-        title: "Error",
-        description: "Title and content are required",
+        title: "Erro",
+        description: "Título e conteúdo são obrigatórios",
         variant: "destructive",
       });
       return;
@@ -118,15 +118,15 @@ const BlogEditorContent = () => {
 
       if (isEditing) {
         await updatePost.mutateAsync({ id, ...postData });
-        toast({ title: "Post updated successfully" });
+        toast({ title: "Post atualizado com sucesso" });
       } else {
         await createPost.mutateAsync(postData);
-        toast({ title: "Post created successfully" });
+        toast({ title: "Post criado com sucesso" });
         navigate("/admin/blog");
       }
     } catch (error: any) {
       toast({
-        title: "Error",
+        title: "Erro",
         description: error.message,
         variant: "destructive",
       });
@@ -155,10 +155,10 @@ const BlogEditorContent = () => {
             </Link>
             <div>
               <h1 className="text-3xl font-bold">
-                {isEditing ? "Edit Post" : "New Post"}
+                {isEditing ? "Editar Post" : "Novo Post"}
               </h1>
               <p className="text-muted-foreground">
-                {isEditing ? "Update your blog post" : "Create a new blog post"}
+                {isEditing ? "Atualize seu post do blog" : "Crie um novo post para o blog"}
               </p>
             </div>
           </div>
@@ -169,11 +169,11 @@ const BlogEditorContent = () => {
               disabled={isSaving}
             >
               {isSaving ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
-              Save Draft
+              Salvar Rascunho
             </Button>
             <Button onClick={() => handleSave("published")} disabled={isSaving}>
               {isSaving ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : <Save className="h-4 w-4 mr-2" />}
-              Publish
+              Publicar
             </Button>
           </div>
         </div>
@@ -182,16 +182,16 @@ const BlogEditorContent = () => {
           <div className="lg:col-span-2 space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>Content</CardTitle>
+                <CardTitle>Conteúdo</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="title">Title</Label>
+                  <Label htmlFor="title">Título</Label>
                   <Input
                     id="title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    placeholder="Enter post title"
+                    placeholder="Digite o título do post"
                   />
                 </div>
                 <div className="space-y-2">
@@ -204,27 +204,27 @@ const BlogEditorContent = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="excerpt">Excerpt</Label>
+                  <Label htmlFor="excerpt">Resumo</Label>
                   <Textarea
                     id="excerpt"
                     value={excerpt}
                     onChange={(e) => setExcerpt(e.target.value)}
-                    placeholder="Brief description of the post"
+                    placeholder="Breve descrição do post"
                     rows={3}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="content">Content</Label>
+                  <Label htmlFor="content">Conteúdo</Label>
                   <Textarea
                     id="content"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
-                    placeholder="Write your post content here..."
+                    placeholder="Escreva o conteúdo do seu post aqui..."
                     rows={20}
                     className="font-mono"
                   />
                   <p className="text-xs text-muted-foreground">
-                    Estimated read time: {calculateReadTime(content)} min
+                    Tempo estimado de leitura: {calculateReadTime(content)} min
                   </p>
                 </div>
               </CardContent>
@@ -234,14 +234,14 @@ const BlogEditorContent = () => {
           <div className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle>Settings</CardTitle>
+                <CardTitle>Configurações</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="category">Category</Label>
+                  <Label htmlFor="category">Categoria</Label>
                   <Select value={categoryId} onValueChange={setCategoryId}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select category" />
+                      <SelectValue placeholder="Selecione uma categoria" />
                     </SelectTrigger>
                     <SelectContent>
                       {categories?.map((cat) => (
@@ -253,16 +253,16 @@ const BlogEditorContent = () => {
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="author">Author</Label>
+                  <Label htmlFor="author">Autor</Label>
                   <Input
                     id="author"
                     value={author}
                     onChange={(e) => setAuthor(e.target.value)}
-                    placeholder="Author name"
+                    placeholder="Nome do autor"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="coverImage">Cover Image URL</Label>
+                  <Label htmlFor="coverImage">URL da Imagem de Capa</Label>
                   <Input
                     id="coverImage"
                     value={coverImage}
@@ -279,28 +279,28 @@ const BlogEditorContent = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="metaTitle">Meta Title</Label>
+                  <Label htmlFor="metaTitle">Meta Título</Label>
                   <Input
                     id="metaTitle"
                     value={metaTitle}
                     onChange={(e) => setMetaTitle(e.target.value)}
-                    placeholder="SEO title"
+                    placeholder="Título para SEO"
                   />
                   <p className="text-xs text-muted-foreground">
-                    {metaTitle.length}/60 characters
+                    {metaTitle.length}/60 caracteres
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="metaDescription">Meta Description</Label>
+                  <Label htmlFor="metaDescription">Meta Descrição</Label>
                   <Textarea
                     id="metaDescription"
                     value={metaDescription}
                     onChange={(e) => setMetaDescription(e.target.value)}
-                    placeholder="SEO description"
+                    placeholder="Descrição para SEO"
                     rows={3}
                   />
                   <p className="text-xs text-muted-foreground">
-                    {metaDescription.length}/160 characters
+                    {metaDescription.length}/160 caracteres
                   </p>
                 </div>
               </CardContent>

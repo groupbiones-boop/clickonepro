@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
+  BarChart3,
   Globe,
   Users,
   TrendingUp,
@@ -19,7 +20,8 @@ interface SidebarProps {
 }
 
 const menuItems = [
-  { id: "overview", label: "Visão Geral", icon: LayoutDashboard },
+  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { id: "overview", label: "Visão Geral", icon: BarChart3 },
   { id: "site", label: "Site", icon: Globe },
   { id: "audience", label: "Audiência", icon: Users },
   { id: "acquisition", label: "Aquisição", icon: TrendingUp },
