@@ -233,7 +233,7 @@
       { "title": "Contratos de manutenção", "description": "Vende e agenda manutenções preventivas" },
       { "title": "Atendimento 24/7", "description": "Emergências noturnas e de fim de semana" },
       { "title": "Qualificação técnica", "description": "Coleta modelo, sintomas e localização" },
-      { "title": "Roteirização inteligente", "description": "Agrupa chamados por região" }
+      { "title": "Follow-up automático", "description": "Acompanha orçamentos e reagendamentos" }
     ],
     "features": [
       { "title": "Resposta a Emergências", "description": "Priorização automática de urgências" },
@@ -293,10 +293,6 @@
       {
         "question": "A IA coleta informações técnicas do equipamento?",
         "answer": "Sim! Ela pergunta marca, modelo, idade do equipamento e sintomas do problema, permitindo que você chegue preparado com as peças certas."
-      },
-      {
-        "question": "Como a IA organiza chamados por região?",
-        "answer": "A IA agrupa chamados por localização geográfica, otimizando suas rotas e permitindo que você atenda mais clientes por dia."
       }
     ]
   },
@@ -319,7 +315,7 @@
       { "title": "Priorização de emergências", "description": "Vazamentos e entupimentos urgentes primeiro" },
       { "title": "Qualificação detalhada", "description": "Coleta localização, tipo de problema e gravidade" },
       { "title": "Atendimento 24/7", "description": "Emergências noturnas e de fim de semana" },
-      { "title": "Agendamento inteligente", "description": "Organiza sua agenda otimizando rotas" },
+      { "title": "Agendamento inteligente", "description": "Organiza sua agenda de forma otimizada" },
       { "title": "Follow-up automático", "description": "Acompanha orçamentos enviados" },
       { "title": "Multi-canal", "description": "Telefone, WhatsApp e chat integrados" }
     ],
@@ -327,7 +323,7 @@
       { "title": "Emergências 24/7", "description": "Atendimento de vazamentos a qualquer hora" },
       { "title": "Triagem Automática", "description": "Priorização por urgência do problema" },
       { "title": "Qualificação Técnica", "description": "Coleta detalhes do problema antes da visita" },
-      { "title": "Agendamento Otimizado", "description": "Organização de rotas por região" },
+      { "title": "Agendamento Otimizado", "description": "Organização eficiente da sua agenda" },
       { "title": "Orçamentos Rápidos", "description": "Coleta informações para estimativas" },
       { "title": "Follow-up de Serviços", "description": "Acompanhamento pós-serviço automático" }
     ],
@@ -377,10 +373,6 @@
       {
         "question": "Funciona para entupimentos também?",
         "answer": "Sim! A IA qualifica entupimentos coletando informações sobre localização (pia, vaso, ralo), frequência do problema e se já tentaram algo."
-      },
-      {
-        "question": "Como organiza chamados por região?",
-        "answer": "A IA agrupa chamados por localização geográfica, permitindo que você otimize suas rotas e atenda mais clientes por dia."
       },
       {
         "question": "Posso receber chamadas de madrugada?",

@@ -233,7 +233,7 @@
       { "title": "Maintenance contracts", "description": "Sells and schedules preventive maintenance" },
       { "title": "24/7 service", "description": "Night and weekend emergencies" },
       { "title": "Technical qualification", "description": "Collects model, symptoms, and location" },
-      { "title": "Smart routing", "description": "Groups calls by region" }
+      { "title": "Auto follow-up", "description": "Tracks quotes and reschedules" }
     ],
     "features": [
       { "title": "Emergency Response", "description": "Automatic prioritization of urgent calls" },
@@ -293,10 +293,6 @@
       {
         "question": "Does the AI collect technical equipment information?",
         "answer": "Yes! It asks for brand, model, equipment age, and problem symptoms, allowing you to arrive prepared with the right parts."
-      },
-      {
-        "question": "How does the AI organize calls by region?",
-        "answer": "The AI groups calls by geographic location, optimizing your routes and allowing you to serve more customers per day."
       }
     ]
   },
@@ -319,7 +315,7 @@
       { "title": "Emergency prioritization", "description": "Leaks and clogs first" },
       { "title": "Detailed qualification", "description": "Collects location, problem type, and severity" },
       { "title": "24/7 service", "description": "Night and weekend emergencies" },
-      { "title": "Smart scheduling", "description": "Organizes your calendar optimizing routes" },
+      { "title": "Smart scheduling", "description": "Organizes your calendar efficiently" },
       { "title": "Auto follow-up", "description": "Tracks sent quotes" },
       { "title": "Multi-channel", "description": "Phone, WhatsApp, and chat integrated" }
     ],
@@ -327,7 +323,7 @@
       { "title": "24/7 Emergencies", "description": "Leak response at any hour" },
       { "title": "Auto Triage", "description": "Prioritization by problem urgency" },
       { "title": "Technical Qualification", "description": "Collects problem details before visit" },
-      { "title": "Optimized Scheduling", "description": "Route organization by region" },
+      { "title": "Optimized Scheduling", "description": "Efficient calendar organization" },
       { "title": "Quick Quotes", "description": "Collects info for estimates" },
       { "title": "Service Follow-up", "description": "Automatic post-service tracking" }
     ],
@@ -377,10 +373,6 @@
       {
         "question": "Does it work for clogs too?",
         "answer": "Yes! The AI qualifies clogs by collecting information about location (sink, toilet, drain), problem frequency, and if they've already tried anything."
-      },
-      {
-        "question": "How does it organize calls by region?",
-        "answer": "The AI groups calls by geographic location, allowing you to optimize routes and serve more customers per day."
       },
       {
         "question": "Can I receive calls at night?",
