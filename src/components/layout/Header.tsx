@@ -45,7 +45,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-6">
           <Link to="/" className="text-sm font-medium text-primary-foreground/90 hover:text-primary-foreground transition-colors">
             Home
           </Link>
@@ -167,7 +167,7 @@ const Header = () => {
           </Link>
           <LanguageSwitcher />
         </nav>
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-3">
           <Button asChild variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
             <Link to="/agendar-demo">{t("nav.bookDemo")}</Link>
           </Button>
@@ -175,7 +175,7 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden p-2 text-primary-foreground"
+          className="md:hidden p-2 text-primary-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -185,7 +185,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-primary/95 backdrop-blur-sm border-t border-primary-foreground/20">
+        <div className="md:hidden bg-primary/95 backdrop-blur-sm border-t border-primary-foreground/20">
           <nav className="container py-4 flex flex-col gap-4">
             <Link
               to="/"
