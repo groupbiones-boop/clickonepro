@@ -29,8 +29,8 @@
       "cta": "Agendar Demo",
       "voiceDesc": "Atiende llamadas 24/7 con voz natural",
       "chatDesc": "Convierte visitantes vía chat inteligente",
-      "integrations": "Integraciones",
-      "integrationsDesc": "Conecta con tus herramientas favoritas",
+      "verticalInfra": "Infraestructura Vertical",
+      "verticalInfraDesc": "Ecosistema omnicanal completo de atención",
       "whyClickone": "¿Por qué ClickOne?",
       "whyClickoneDesc": "Tecnología de punta, soporte dedicado"
     },
@@ -570,7 +570,74 @@
       "companiesServed": "Empresas atendidas",
       "callsAutomated": "Llamadas automatizadas",
       "satisfaction": "Satisfacción del cliente",
-      "activeSupport": "Atención activa"
+    "activeSupport": "Atención activa"
     }
+  },
+  "verticalInfra": {
+    "badge": "Ecosistema Completo",
+    "title": "Infraestructura Vertical",
+    "titleHighlight": "de Atención",
+    "subtitle": "Todo lo que necesitas para atender, convertir y fidelizar clientes en una única plataforma integrada.",
+    "cta": "Agendar Demo Gratis",
+    "ctaSecondary": "Hablar con Especialista",
+    "stat1": "Herramientas unificadas",
+    "stat2": "Canales integrados",
+    "stat3": "Ahorro de tiempo",
+    "stat4": "Más conversiones",
+    "overviewTitle": "Un Ecosistema Completo",
+    "overviewSubtitle": "Todas las herramientas que necesitas, trabajando juntas de forma inteligente.",
+    "modules": {
+      "omnichannel": {
+        "title": "Omnicanal",
+        "subtitle": "Todos los Canales en Un Solo Lugar",
+        "desc": "Centraliza todas las conversaciones de teléfono, SMS, WhatsApp, Instagram, Facebook Messenger y chat del sitio en un único panel.",
+        "feature1": "Inbox unificado para todos los mensajes",
+        "feature2": "Historial completo de cada cliente",
+        "feature3": "Respuestas automáticas inteligentes"
+      },
+      "socialMedia": {
+        "title": "Social Media Command Center",
+        "subtitle": "Control Total de las Redes Sociales",
+        "desc": "Monitorea y gestiona todas las redes sociales en un único panel con funciones avanzadas de automatización.",
+        "feature1": "Inbox unificado de todas las redes",
+        "feature2": "Respuestas automáticas con IA",
+        "feature3": "Programación de posts integrada"
+      },
+      "googleBusiness": {
+        "title": "Google My Business AI",
+        "subtitle": "Crecimiento y Rendimiento en Google",
+        "desc": "Monitoreo y atención automatizada para optimizar tu presencia en Google y aumentar reseñas positivas.",
+        "feature1": "Respuesta automática a reseñas",
+        "feature2": "Gestión de preguntas",
+        "feature3": "Métricas de visibilidad en tiempo real"
+      },
+      "emailMarketing": {
+        "title": "Email Marketing Integrado",
+        "subtitle": "Campañas Directo del CRM",
+        "desc": "Crea y envía campañas de email directamente integradas a tu CRM y automatizaciones de seguimiento.",
+        "feature1": "Templates profesionales listos",
+        "feature2": "Segmentación automática de listas",
+        "feature3": "Analytics de apertura y clics"
+      },
+      "crm": {
+        "title": "CRM Inteligente",
+        "subtitle": "Automatizaciones que Trabajan por Ti",
+        "desc": "Gestiona todos los leads y clientes con un CRM moderno y automatizaciones basadas en triggers inteligentes.",
+        "feature1": "Pipeline visual de ventas",
+        "feature2": "Automatizaciones basadas en comportamiento",
+        "feature3": "Scoring automático de leads"
+      }
+    },
+    "benefitsTitle": "¿Por Qué Una Plataforma Unificada?",
+    "benefit1Title": "Elimina 5-10 Softwares",
+    "benefit1Desc": "Reemplaza decenas de herramientas por una única plataforma integrada.",
+    "benefit2Title": "Ahorro Real",
+    "benefit2Desc": "Reduce costos con licencias, entrenamientos e integraciones complejas.",
+    "benefit3Title": "Visión 360° del Cliente",
+    "benefit3Desc": "Ten todo el historial y contexto de cada cliente en un solo lugar.",
+    "benefit4Title": "Automatización End-to-End",
+    "benefit4Desc": "Del primer contacto a la posventa, todo automatizado e integrado.",
+    "ctaTitle": "¿Listo para Unificar Tu Atención?",
+    "ctaSubtitle": "Agenda una demo y ve cómo ClickOne AI centraliza toda tu operación."
   }
 }

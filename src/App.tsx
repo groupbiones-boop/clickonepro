@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import RecepcionistaIAVoz from "./pages/produto/RecepcionistaIAVoz";
 import AtendenteIAConversacional from "./pages/produto/AtendenteIAConversacional";
+import InfraestruturaVertical from "./pages/produto/InfraestruturaVertical";
 import Setores from "./pages/setores/Setores";
 import SetorDetalhe from "./pages/setores/SetorDetalhe";
 import Sobre from "./pages/Sobre";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/produto/recepcionista-ia-voz" element={<RecepcionistaIAVoz />} />
           <Route path="/produto/atendente-ia-conversacional" element={<AtendenteIAConversacional />} />
+          <Route path="/produto/infraestrutura-vertical" element={<InfraestruturaVertical />} />
           <Route path="/setores" element={<Setores />} />
           <Route path="/setores/:slug" element={<SetorDetalhe />} />
           <Route path="/empresas/pequena-empresa" element={<PequenaEmpresa />} />
