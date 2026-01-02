@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import { ArrowRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
 import industryConstruction from "@/assets/industry-construction.jpg";
 import industryHvac from "@/assets/industry-hvac.jpg";
@@ -50,10 +50,6 @@ const industries = [
 
 const Setores = () => {
   const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const filteredIndustries = industries.filter((industry) =>
     industry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
