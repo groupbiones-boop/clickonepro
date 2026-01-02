@@ -132,11 +132,11 @@ const Index = () => {
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-background leading-tight">
               {t("hero.title1")}{" "}
-              <span className="relative">
-                <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
+              <span className="relative inline-block">
+                <span className="text-primary font-extrabold drop-shadow-[0_0_20px_hsl(var(--primary)/0.5)]">
                   {t("hero.title2")}
                 </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full" />
+                <span className="absolute -bottom-2 left-0 right-0 h-1.5 bg-primary rounded-full shadow-[0_0_15px_hsl(var(--primary)/0.6)]" />
               </span>
             </h1>
             
