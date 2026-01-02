@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { useTranslation } from "react-i18next";
+import heroSmallBusiness from "@/assets/hero-small-business.jpg";
 
 const PequenaEmpresa = () => {
   const { t } = useTranslation();
@@ -12,32 +13,32 @@ const PequenaEmpresa = () => {
   const benefits = [
     {
       icon: Clock,
-      title: t("pequenaEmpresa.benefits.support247.title"),
-      description: t("pequenaEmpresa.benefits.support247.description")
+      title: t("smallBusiness.benefit1Title"),
+      description: t("smallBusiness.benefit1Desc")
     },
     {
       icon: Users,
-      title: t("pequenaEmpresa.benefits.noHiring.title"),
-      description: t("pequenaEmpresa.benefits.noHiring.description")
+      title: t("smallBusiness.benefit2Title"),
+      description: t("smallBusiness.benefit2Desc")
     },
     {
       icon: TrendingUp,
-      title: t("pequenaEmpresa.benefits.increaseConversions.title"),
-      description: t("pequenaEmpresa.benefits.increaseConversions.description")
+      title: t("smallBusiness.benefit3Title"),
+      description: t("smallBusiness.benefit3Desc")
     },
     {
       icon: Headphones,
-      title: t("pequenaEmpresa.benefits.professionalService.title"),
-      description: t("pequenaEmpresa.benefits.professionalService.description")
+      title: t("smallBusiness.benefit4Title"),
+      description: t("smallBusiness.benefit4Desc")
     }
   ];
 
   const useCases = [
-    t("pequenaEmpresa.useCases.answerCalls"),
-    t("pequenaEmpresa.useCases.whatsappMessages"),
-    t("pequenaEmpresa.useCases.scheduleClients"),
-    t("pequenaEmpresa.useCases.autoFollowUp"),
-    t("pequenaEmpresa.useCases.qualifyClients")
+    t("smallBusiness.useCase1"),
+    t("smallBusiness.useCase2"),
+    t("smallBusiness.useCase3"),
+    t("smallBusiness.useCase4"),
+    t("smallBusiness.useCase5")
   ];
 
   const testimonials = [
@@ -45,59 +46,63 @@ const PequenaEmpresa = () => {
       name: "Marco Oliveira",
       company: "Oliveira Plumbing LLC",
       location: "Austin, TX",
-      text: t("pequenaEmpresa.testimonials.marco"),
+      text: t("bookDemo.testimonial1"),
       rating: 5,
     },
     {
       name: "Lucia Santos",
       company: "Santos Cleaning Services",
       location: "Miami, FL",
-      text: t("pequenaEmpresa.testimonials.lucia"),
+      text: t("bookDemo.testimonial2"),
       rating: 5,
     }
   ];
 
   const problemsWithoutAI = [
-    t("pequenaEmpresa.problems.missedCalls"),
-    t("pequenaEmpresa.problems.frustratedClients"),
-    t("pequenaEmpresa.problems.leadsToCompetition"),
-    t("pequenaEmpresa.problems.limitedHours")
+    t("smallBusiness.withoutAI1"),
+    t("smallBusiness.withoutAI2"),
+    t("smallBusiness.withoutAI3"),
+    t("smallBusiness.withoutAI4")
   ];
 
   const solutionsWithAI = [
-    t("pequenaEmpresa.solutions.allCallsAnswered"),
-    t("pequenaEmpresa.solutions.instantWhatsapp"),
-    t("pequenaEmpresa.solutions.autoScheduling"),
-    t("pequenaEmpresa.solutions.support247")
+    t("smallBusiness.withClickOne1"),
+    t("smallBusiness.withClickOne2"),
+    t("smallBusiness.withClickOne3"),
+    t("smallBusiness.withClickOne4")
   ];
 
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-primary/5 via-background to-accent/30 relative overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+      <section className="py-20 md:py-32 relative overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroSmallBusiness})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
         
         <div className="container relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl">
             <AnimatedSection animation="fade-up">
-              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-                {t("pequenaEmpresa.hero.badge")}
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
+                {t("smallBusiness.badge")}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                {t("pequenaEmpresa.hero.title")} <span className="text-primary">{t("pequenaEmpresa.hero.titleHighlight")}</span>
+                {t("smallBusiness.title")} <span className="text-primary">{t("smallBusiness.titleHighlight")}</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                {t("pequenaEmpresa.hero.subtitle")}
+                {t("smallBusiness.subtitle")}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
                   <Link to="/agendar-demo">
-                    {t("common.bookFreeDemo")} <ArrowRight className="ml-2 h-4 w-4" />
+                    {t("smallBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link to="/contato">{t("common.talkToSpecialist")}</Link>
+                <Button size="lg" variant="outline" className="bg-background/50 backdrop-blur-sm" asChild>
+                  <Link to="/contato">{t("smallBusiness.ctaSecondary")}</Link>
                 </Button>
               </div>
             </AnimatedSection>
@@ -113,25 +118,25 @@ const PequenaEmpresa = () => {
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={40} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("pequenaEmpresa.stats.moreBookings")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("smallBusiness.moreAppointments")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={100}>
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={0} suffix="" prefix="$" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("pequenaEmpresa.stats.extraSalaries")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("smallBusiness.extraSalaries")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={200}>
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={24} suffix="/7" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("pequenaEmpresa.stats.availability")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("smallBusiness.availability")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={300}>
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={5} suffix="s" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("pequenaEmpresa.stats.responseTime")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("smallBusiness.responseTime")}</p>
             </AnimatedSection>
           </div>
         </div>
@@ -143,10 +148,10 @@ const PequenaEmpresa = () => {
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t("pequenaEmpresa.problemSection.title")}
+                {t("smallBusiness.problemTitle")}
               </h2>
               <p className="text-lg text-muted-foreground">
-                {t("pequenaEmpresa.problemSection.subtitle")}
+                {t("smallBusiness.problemSubtitle")}
               </p>
             </div>
           </AnimatedSection>
@@ -154,7 +159,7 @@ const PequenaEmpresa = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <AnimatedSection animation="fade-right">
               <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-destructive">{t("pequenaEmpresa.problemSection.withoutAI")}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-destructive">{t("smallBusiness.withoutAI")}</h3>
                 <ul className="space-y-3 text-muted-foreground">
                   {problemsWithoutAI.map((problem, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -168,7 +173,7 @@ const PequenaEmpresa = () => {
 
             <AnimatedSection animation="fade-left">
               <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-primary">{t("pequenaEmpresa.problemSection.withAI")}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-primary">{t("smallBusiness.withClickOne")}</h3>
                 <ul className="space-y-3 text-muted-foreground">
                   {solutionsWithAI.map((solution, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -188,7 +193,7 @@ const PequenaEmpresa = () => {
         <div className="container">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl font-bold text-center mb-12">
-              {t("pequenaEmpresa.benefitsSection.title")}
+              {t("smallBusiness.benefitsTitle")}
             </h2>
           </AnimatedSection>
 
@@ -213,7 +218,7 @@ const PequenaEmpresa = () => {
         <div className="container max-w-4xl">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl font-bold text-center mb-12">
-              {t("pequenaEmpresa.useCasesSection.title")}
+              {t("smallBusiness.useCasesTitle")}
             </h2>
           </AnimatedSection>
 
@@ -235,7 +240,7 @@ const PequenaEmpresa = () => {
         <div className="container">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl font-bold text-center mb-12">
-              {t("pequenaEmpresa.testimonialsSection.title")}
+              {t("smallBusiness.testimonialsTitle")}
             </h2>
           </AnimatedSection>
 
@@ -269,14 +274,14 @@ const PequenaEmpresa = () => {
         <div className="container text-center">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("pequenaEmpresa.cta.title")}
+              {t("smallBusiness.ctaTitle")}
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-              {t("pequenaEmpresa.cta.subtitle")}
+              {t("smallBusiness.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
               <Link to="/agendar-demo">
-                {t("common.bookFreeDemo")} <ArrowRight className="ml-2 h-4 w-4" />
+                {t("smallBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </AnimatedSection>
