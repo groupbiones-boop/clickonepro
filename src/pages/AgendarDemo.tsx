@@ -85,18 +85,32 @@ const AgendarDemo = () => {
           </AnimatedSection>
 
           <AnimatedSection animation="scale" delay={100}>
-            {/* Form Container Placeholder */}
+            {/* Form Container */}
             <div className="bg-card p-8 md:p-10 rounded-2xl shadow-xl border border-border max-w-xl mx-auto">
               <div className="text-center mb-6">
                 <h2 className="text-xl font-semibold mb-2">{t("agendarDemo.form.title")}</h2>
                 <p className="text-muted-foreground text-sm">{t("agendarDemo.form.subtitle")}</p>
               </div>
               
-              {/* Placeholder for external form - User will add ClickOne form here */}
-              <div className="min-h-[300px] flex items-center justify-center border-2 border-dashed border-muted-foreground/30 rounded-xl bg-muted/20">
-                <p className="text-muted-foreground text-center px-4">
-                  {t("agendarDemo.form.placeholder")}
-                </p>
+              {/* ClickOne Form */}
+              <div className="overflow-hidden rounded-xl">
+                <iframe
+                  src="https://links.clickonepro.com/widget/form/EtFZ7nEHXqyEHsV4eKbq"
+                  style={{ width: '100%', height: '400px', border: 'none' }}
+                  id="inline-EtFZ7nEHXqyEHsV4eKbq-demo"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Demo Form"
+                  data-height="400"
+                  data-layout-iframe-id="inline-EtFZ7nEHXqyEHsV4eKbq-demo"
+                  data-form-id="EtFZ7nEHXqyEHsV4eKbq"
+                  title="Demo Form"
+                />
               </div>
             </div>
           </AnimatedSection>
