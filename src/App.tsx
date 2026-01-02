@@ -18,6 +18,7 @@ import PequenaEmpresa from "./pages/empresas/PequenaEmpresa";
 import MediaEmpresa from "./pages/empresas/MediaEmpresa";
 import NegociosLocais from "./pages/empresas/NegociosLocais";
 import RedeFranquias from "./pages/empresas/RedeFranquias";
+import GenerateDemoAudio from "./pages/admin/GenerateDemoAudio";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/contato" element={<Contato />} />
           <Route path="/agendar-demo" element={<AgendarDemo />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/admin/generate-audio" element={<GenerateDemoAudio />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Play, Pause, RotateCcw, Bot, User } from "lucide-react";
+import { Play, Pause, RotateCcw, Bot, User, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { AudioDemo, TranscriptMessage } from "@/data/audioDemo";
@@ -15,12 +15,25 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [visibleMessages, setVisibleMessages] = useState<TranscriptMessage[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasRealAudio, setHasRealAudio] = useState(false);
+  const simulationRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Check if demo has real audio URL
+  useEffect(() => {
+    setHasRealAudio(!!demo.audioUrl && demo.audioUrl.length > 0);
+  }, [demo.audioUrl]);
 
   // Reset when demo changes
   useEffect(() => {
     setIsPlaying(false);
     setCurrentTime(0);
     setVisibleMessages([]);
+    setIsLoading(false);
+    if (simulationRef.current) {
+      clearInterval(simulationRef.current);
+      simulationRef.current = null;
+    }
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
       audioRef.current.pause();
@@ -40,15 +53,55 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
     }
   }, [visibleMessages]);
 
-  const togglePlay = () => {
-    if (!audioRef.current) return;
-    
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
+  // Simulated playback for demos without real audio
+  useEffect(() => {
+    if (isPlaying && !hasRealAudio) {
+      const maxTime = Math.max(...demo.transcript.map(m => m.timestamp)) + 5;
+      
+      simulationRef.current = setInterval(() => {
+        setCurrentTime((prev) => {
+          if (prev >= maxTime) {
+            setIsPlaying(false);
+            if (simulationRef.current) {
+              clearInterval(simulationRef.current);
+              simulationRef.current = null;
+            }
+            return prev;
+          }
+          return prev + 0.1;
+        });
+      }, 100);
+    } else if (!isPlaying && simulationRef.current) {
+      clearInterval(simulationRef.current);
+      simulationRef.current = null;
     }
-    setIsPlaying(!isPlaying);
+    
+    return () => {
+      if (simulationRef.current) {
+        clearInterval(simulationRef.current);
+        simulationRef.current = null;
+      }
+    };
+  }, [isPlaying, hasRealAudio, demo.transcript]);
+
+  const togglePlay = async () => {
+    if (hasRealAudio && audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        setIsLoading(true);
+        try {
+          await audioRef.current.play();
+        } catch (error) {
+          console.error("Error playing audio:", error);
+        }
+        setIsLoading(false);
+      }
+      setIsPlaying(!isPlaying);
+    } else {
+      // Simulated playback
+      setIsPlaying(!isPlaying);
+    }
   };
 
   const handleTimeUpdate = () => {
@@ -68,24 +121,31 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
   };
 
   const handleReplay = () => {
-    if (audioRef.current) {
+    if (hasRealAudio && audioRef.current) {
       audioRef.current.currentTime = 0;
       setCurrentTime(0);
       setVisibleMessages([]);
       audioRef.current.play();
       setIsPlaying(true);
+    } else {
+      setCurrentTime(0);
+      setVisibleMessages([]);
+      setIsPlaying(true);
     }
   };
 
   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!audioRef.current || !duration) return;
+    const displayDuration = duration || (Math.max(...demo.transcript.map(m => m.timestamp)) + 5);
+    if (!displayDuration) return;
     
     const rect = e.currentTarget.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
     const percentage = clickX / rect.width;
-    const newTime = percentage * duration;
+    const newTime = percentage * displayDuration;
     
-    audioRef.current.currentTime = newTime;
+    if (hasRealAudio && audioRef.current) {
+      audioRef.current.currentTime = newTime;
+    }
     setCurrentTime(newTime);
   };
 
@@ -94,30 +154,6 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
     const secs = Math.floor(time % 60);
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
-
-  const progress = duration ? (currentTime / duration) * 100 : 0;
-
-  // Simulate audio progress for demo (since we don't have real audio files yet)
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    
-    if (isPlaying) {
-      // Get max timestamp from transcript
-      const maxTime = Math.max(...demo.transcript.map(m => m.timestamp)) + 5;
-      
-      interval = setInterval(() => {
-        setCurrentTime((prev) => {
-          if (prev >= maxTime) {
-            setIsPlaying(false);
-            return prev;
-          }
-          return prev + 0.1;
-        });
-      }, 100);
-    }
-    
-    return () => clearInterval(interval);
-  }, [isPlaying, demo.transcript]);
 
   // Simulated duration based on transcript
   const simulatedDuration = Math.max(...demo.transcript.map(m => m.timestamp)) + 5;
@@ -174,12 +210,15 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
                 size="icon"
                 variant="default"
                 onClick={togglePlay}
+                disabled={isLoading}
                 className={cn(
                   "h-10 w-10 rounded-full",
                   isPlaying && "animate-pulse"
                 )}
               >
-                {isPlaying ? (
+                {isLoading ? (
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                ) : isPlaying ? (
                   <Pause className="h-5 w-5" />
                 ) : (
                   <Play className="h-5 w-5 ml-0.5" />
@@ -205,7 +244,7 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
       <div className="flex flex-col h-full max-h-[400px] md:max-h-none">
         <div className="p-4 border-b border-border/50">
           <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
-            Transcrição em Tempo Real
+            Real-Time Transcript
           </h4>
         </div>
         
@@ -215,7 +254,7 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
         >
           {visibleMessages.length === 0 ? (
             <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
-              Clique em play para iniciar a demonstração
+              Click play to start the demonstration
             </div>
           ) : (
             visibleMessages.map((msg, index) => (
