@@ -61,7 +61,7 @@ import industryDentist from "@/assets/industry-dentist.jpg";
 import industryDentist2 from "@/assets/industry-dentist-2.jpg";
 import industryChiropractor from "@/assets/industry-chiropractor.jpg";
 import industryChiropractor2 from "@/assets/industry-chiropractor-2.jpg";
-import industryVeterinary from "@/assets/industry-veterinary.jpg";
+import industryVeterinary from "@/assets/industry-veterinary-new.jpg";
 import industryVeterinary2 from "@/assets/industry-veterinary-2.jpg";
 import industryMedicalClinic from "@/assets/industry-medical-clinic.jpg";
 import industryMedicalClinic2 from "@/assets/industry-medical-clinic-2.jpg";
