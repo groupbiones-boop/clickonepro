@@ -165,12 +165,7 @@
   },
   "contact": {
     "title": "Entre em Contato",
-    "subtitle": "Estamos prontos para ajudar seu negócio a crescer.",
-    "name": "Seu nome",
-    "email": "Seu email",
-    "phone": "Telefone",
-    "message": "Sua mensagem",
-    "submit": "Enviar Mensagem"
+    "subtitle": "Estamos prontos para ajudar seu negócio a crescer."
   },
   "bookDemo": {
     "badge": "Transforme seu atendimento hoje",
