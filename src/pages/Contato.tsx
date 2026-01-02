@@ -1,13 +1,12 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Layout from "@/components/layout/Layout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Loader2 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 
 const Contato = () => {
   const { t } = useTranslation();
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <Layout>
@@ -41,10 +40,21 @@ const Contato = () => {
               </div>
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={200}>
-              <div className="bg-card rounded-xl border border-border/50 overflow-hidden">
+              <div className="bg-card p-6 rounded-2xl shadow-xl border border-border relative overflow-hidden">
+                {/* Loading state */}
+                {isLoading && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-card z-10">
+                    <div className="flex flex-col items-center gap-3">
+                      <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                      <span className="text-sm text-muted-foreground">Carregando formulário...</span>
+                    </div>
+                  </div>
+                )}
                 <iframe
                   src="https://links.clickonepro.com/widget/form/EtFZ7nEHXqyEHsV4eKbq"
-                  style={{ width: '100%', height: '500px', border: 'none' }}
+                  style={{ width: '100%', height: '550px', border: 'none' }}
+                  className="min-h-[600px] md:min-h-[550px]"
+                  onLoad={() => setIsLoading(false)}
                   id="inline-EtFZ7nEHXqyEHsV4eKbq"
                   data-layout="{'id':'INLINE'}"
                   data-trigger-type="alwaysShow"
@@ -54,7 +64,7 @@ const Contato = () => {
                   data-deactivation-type="neverDeactivate"
                   data-deactivation-value=""
                   data-form-name="Contact Form"
-                  data-height="500"
+                  data-height="550"
                   data-layout-iframe-id="inline-EtFZ7nEHXqyEHsV4eKbq"
                   data-form-id="EtFZ7nEHXqyEHsV4eKbq"
                   title="Contact Form"
