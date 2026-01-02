@@ -10,11 +10,11 @@ interface ConversionFunnelProps {
 }
 
 const FUNNEL_STAGES = [
-  { key: "visitors", label: "Prospecting", icon: Binoculars, color: "#0a4d68" },
-  { key: "pageviews", label: "Outreach", icon: Lightbulb, color: "#3d7ea6" },
-  { key: "leads", label: "Discovery & Qualification", icon: MessageCircle, color: "#5ba3b8" },
-  { key: "agendamentos", label: "Demo", icon: MousePointer, color: "#4cb8a5" },
-  { key: "clientes", label: "Closing", icon: Trophy, color: "#7ed9a4" },
+  { key: "visitors", label: "Prospecting", icon: Binoculars, color: "#500daa" },
+  { key: "pageviews", label: "Outreach", icon: Lightbulb, color: "#6b2fb8" },
+  { key: "leads", label: "Discovery & Qualification", icon: MessageCircle, color: "#8651c6" },
+  { key: "agendamentos", label: "Demo", icon: MousePointer, color: "#a173d4" },
+  { key: "clientes", label: "Closing", icon: Trophy, color: "#bc95e2" },
 ];
 
 const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
@@ -75,8 +75,8 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
             return (
               <div 
                 key={stage.key} 
-                className="flex flex-col items-center w-full animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="flex flex-col items-center w-full opacity-0 animate-[fade-in_0.5s_ease-out_forwards]"
+                style={{ animationDelay: `${index * 150}ms` }}
               >
                 {/* Funnel Bar - trapezoid shape centered */}
                 <div 
@@ -115,13 +115,13 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
         <div className="mt-6 pt-4 border-t border-border grid grid-cols-2 gap-4 text-center">
           <div>
             <p className="text-xs text-muted-foreground">Prospect → Qualified</p>
-            <p className="text-lg font-bold" style={{ color: "#0a4d68" }}>
+            <p className="text-lg font-bold" style={{ color: "#500daa" }}>
               {data.visitors > 0 ? ((data.leads / data.visitors) * 100).toFixed(1) : 0}%
             </p>
           </div>
           <div>
             <p className="text-xs text-muted-foreground">Demo → Closed</p>
-            <p className="text-lg font-bold" style={{ color: "#4cb8a5" }}>
+            <p className="text-lg font-bold" style={{ color: "#a173d4" }}>
               {data.leads > 0 ? ((data.clientes / data.leads) * 100).toFixed(1) : 0}%
             </p>
           </div>
