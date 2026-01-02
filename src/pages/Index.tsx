@@ -90,90 +90,180 @@ const steps = [
 const Index = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 md:py-32">
+      {/* Hero Section - Enhanced */}
+      <section className="relative overflow-hidden py-24 md:py-40 min-h-[90vh] flex items-center">
+        {/* Background Image with Gradient Overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroHome})` }}
-        >
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-        </div>
+        />
+        
+        {/* Animated Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-foreground/95 via-foreground/85 to-primary/40" />
+        
+        {/* Floating Glow Effects */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+        
         <div className="container relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2 mb-8 animate-fade-in">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-sm text-primary-foreground/90 font-medium">Recepcionista IA para Empresas de Serviços</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-background leading-tight">
               Nunca Perca Uma Ligação.{" "}
-              <span className="text-primary">Nunca Perca Um Cliente.</span>
+              <span className="relative">
+                <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
+                  Nunca Perca Um Cliente.
+                </span>
+                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full" />
+              </span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            
+            <p className="text-lg md:text-xl text-background/70 mb-10 max-w-2xl mx-auto leading-relaxed">
               Recepcionista virtual com inteligência artificial que atende chamadas,
               qualifica leads e agenda serviços 24 horas por dia, 7 dias por semana.
             </p>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
+              <Button size="lg" className="group text-base px-8 py-6 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all" asChild>
                 <Link to="/agendar-demo">
                   Agendar Demo Grátis
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" className="text-base px-8 py-6 bg-background/10 border-background/30 text-background hover:bg-background/20 hover:border-background/50 backdrop-blur-sm" asChild>
                 <Link to="/setores">Ver Setores Atendidos</Link>
               </Button>
             </div>
+            
+            {/* Trust Indicators */}
+            <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-background/50">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-primary" />
+                <span className="text-sm">Setup em 24h</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-primary" />
+                <span className="text-sm">Sem contrato longo</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-primary" />
+                <span className="text-sm">Suporte em português</span>
+              </div>
+            </div>
           </div>
         </div>
+        
+        {/* Bottom Gradient Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
-      {/* Problem & Solution */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                O Problema: Ligações Perdidas = Dinheiro Perdido
-              </h2>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <span className="text-destructive text-xl">✗</span>
-                  <span className="text-muted-foreground">
-                    62% das chamadas para pequenas empresas não são atendidas
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-destructive text-xl">✗</span>
-                  <span className="text-muted-foreground">
-                    85% dos clientes não ligam de volta após uma chamada perdida
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-destructive text-xl">✗</span>
-                  <span className="text-muted-foreground">
-                    Você está no trabalho e não pode atender o telefone
-                  </span>
-                </li>
-              </ul>
+      {/* Problem & Solution - Enhanced */}
+      <section className="py-20 md:py-32 bg-background relative overflow-hidden">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.05),transparent_50%)]" />
+        
+        <div className="container relative">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
+            {/* Problem Card */}
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-destructive/20 to-destructive/5 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
+              <div className="relative bg-card rounded-2xl p-8 md:p-10 border border-border/50 h-full">
+                <div className="inline-flex items-center gap-2 text-destructive text-sm font-semibold mb-6 uppercase tracking-wide">
+                  <span className="w-8 h-[2px] bg-destructive" />
+                  O Problema
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
+                  Ligações Perdidas = <br />
+                  <span className="text-destructive">Dinheiro Perdido</span>
+                </h2>
+                <ul className="space-y-5">
+                  <li className="flex items-start gap-4 group/item">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold text-sm">✗</span>
+                    <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
+                      <strong className="text-foreground">62%</strong> das chamadas para pequenas empresas não são atendidas
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-4 group/item">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold text-sm">✗</span>
+                    <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
+                      <strong className="text-foreground">85%</strong> dos clientes não ligam de volta após uma chamada perdida
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-4 group/item">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold text-sm">✗</span>
+                    <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
+                      Você está no trabalho e <strong className="text-foreground">não pode atender</strong> o telefone
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="bg-accent/50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6 text-primary">
-                A Solução: ClickOne AI
-              </h3>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
-                  <span>Atendimento instantâneo 24/7, sem espera</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
-                  <span>Qualificação automática de leads</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
-                  <span>Agendamento integrado à sua agenda</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
-                  <span>Você trabalha enquanto a IA atende</span>
-                </li>
-              </ul>
+            
+            {/* Solution Card */}
+            <div className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary/10 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
+              <div className="relative bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl p-8 md:p-10 border border-primary/20 h-full">
+                <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-6 uppercase tracking-wide">
+                  <span className="w-8 h-[2px] bg-primary" />
+                  A Solução
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
+                  ClickOne AI <br />
+                  <span className="text-primary">Trabalha Por Você</span>
+                </h3>
+                <ul className="space-y-5">
+                  <li className="flex items-start gap-4 group/item">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <CheckCircle className="h-5 w-5 text-primary" />
+                    </span>
+                    <span className="text-foreground group-hover/item:text-primary transition-colors">
+                      Atendimento instantâneo <strong>24/7</strong>, sem espera
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-4 group/item">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <CheckCircle className="h-5 w-5 text-primary" />
+                    </span>
+                    <span className="text-foreground group-hover/item:text-primary transition-colors">
+                      <strong>Qualificação automática</strong> de leads
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-4 group/item">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <CheckCircle className="h-5 w-5 text-primary" />
+                    </span>
+                    <span className="text-foreground group-hover/item:text-primary transition-colors">
+                      Agendamento <strong>integrado à sua agenda</strong>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-4 group/item">
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <CheckCircle className="h-5 w-5 text-primary" />
+                    </span>
+                    <span className="text-foreground group-hover/item:text-primary transition-colors">
+                      Você trabalha enquanto a <strong>IA atende</strong>
+                    </span>
+                  </li>
+                </ul>
+                
+                {/* CTA inside solution */}
+                <div className="mt-8 pt-6 border-t border-primary/20">
+                  <Button className="w-full group" asChild>
+                    <Link to="/agendar-demo">
+                      Começar Agora
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
