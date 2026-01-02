@@ -1,10 +1,9 @@
-<svg viewBox="0 0 140 40" xmlns="http://www.w3.org/2000/svg">
-  <!-- Clutch logo with ring symbol and text -->
+<svg viewBox="0 0 120 36" xmlns="http://www.w3.org/2000/svg">
   <g fill="white">
     <!-- Ring/Circle symbol -->
-    <path d="M20 5C11.716 5 5 11.716 5 20s6.716 15 15 15c3.866 0 7.412-1.462 10.088-3.862l-2.828-2.828C25.158 30.262 22.712 31 20 31c-6.075 0-11-4.925-11-11s4.925-11 11-11c2.712 0 5.158.738 7.26 2.69l2.828-2.828C27.412 6.462 23.866 5 20 5z"/>
-    <circle cx="32" cy="20" r="3"/>
-    <!-- Text "clutch" -->
-    <text x="42" y="27" font-family="Arial, sans-serif" font-size="18" font-weight="bold">clutch</text>
+    <circle cx="14" cy="18" r="10" fill="none" stroke="white" stroke-width="3"/>
+    <circle cx="24" cy="18" r="2.5" fill="white"/>
+    <!-- Text "Clutch" - large and bold -->
+    <text x="36" y="25" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="bold" fill="white">Clutch</text>
   </g>
 </svg>
