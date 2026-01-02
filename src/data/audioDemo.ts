@@ -1,6 +1,6 @@
 import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
-import officeImage from "@/assets/office-tech.jpg";
+
 
 export interface TranscriptMessage {
   speaker: "ai" | "client";
@@ -53,35 +53,6 @@ export const audioDemos: AudioDemo[] = [
       { speaker: "client", text: "It's 27468 Mission Hills Drive in Hayward, California.", timestamp: 145 },
       { speaker: "ai", text: "Great. You're all set for 2 p.m. today. A text confirmation will be sent shortly, including the direct phone number for your technician. If anything changes, just give them a call.", timestamp: 149 },
       { speaker: "ai", text: "Thanks again. We'll see you this afternoon.", timestamp: 158 },
-    ],
-  },
-  {
-    id: "law-office",
-    title: "Law Office",
-    image: officeImage,
-    audioUrl: "https://ojyzegzdlpjlbdhvqhav.supabase.co/storage/v1/object/public/demo-audio/law-office.mp3",
-    transcript: [
-      { speaker: "ai", text: "Thank you for calling Thompson and Associates Law Firm. This is Sarah, your virtual assistant. How may I direct your call today?", timestamp: 0 },
-      { speaker: "client", text: "Hi, I need to schedule a consultation. I'm going through a divorce and need legal advice.", timestamp: 9 },
-      { speaker: "ai", text: "I'm sorry to hear you're going through this difficult time. I'd be happy to help you schedule a consultation with one of our family law attorneys. Is this your first time contacting our firm?", timestamp: 17 },
-      { speaker: "client", text: "Yes, it is. A friend recommended you.", timestamp: 30 },
-      { speaker: "ai", text: "We appreciate the referral. Before I schedule your appointment, I have a few questions to help us prepare. Are there any children involved in the marriage?", timestamp: 35 },
-      { speaker: "client", text: "Yes, we have two children, ages 8 and 12.", timestamp: 47 },
-      { speaker: "ai", text: "I understand. And would you say this is an amicable situation, or do you anticipate there might be some disagreements regarding custody or assets?", timestamp: 53 },
-      { speaker: "client", text: "It's... complicated. We haven't agreed on custody yet, and there's a house involved.", timestamp: 65 },
-      { speaker: "ai", text: "Thank you for sharing that. Given the complexity of your situation, I'd like to schedule you with Attorney Rebecca Martinez. She specializes in family law with property division. She has availability Thursday at 10:00 AM or Friday at 3:00 PM. Which would work better for you?", timestamp: 73 },
-      { speaker: "client", text: "Thursday at 10:00 works for me.", timestamp: 92 },
-      { speaker: "ai", text: "Excellent. The initial consultation is 1 hour and there's a $200 consultation fee, which will be credited toward your retainer if you decide to proceed with our firm. Is that okay?", timestamp: 97 },
-      { speaker: "client", text: "Yes, that's fine.", timestamp: 113 },
-      { speaker: "ai", text: "Perfect. May I have your full name please?", timestamp: 116 },
-      { speaker: "client", text: "Jennifer Lawson.", timestamp: 121 },
-      { speaker: "ai", text: "Thank you, Jennifer. And your phone number?", timestamp: 124 },
-      { speaker: "client", text: "(415) 555-7890.", timestamp: 128 },
-      { speaker: "ai", text: "And your email address for confirmation?", timestamp: 133 },
-      { speaker: "client", text: "j.lawson@email.com.", timestamp: 137 },
-      { speaker: "ai", text: "Perfect. I've scheduled your consultation with Attorney Martinez for Thursday at 10:00 AM. You'll receive a confirmation email with our office address and a list of documents to bring. Is there anything else I can help you with?", timestamp: 141 },
-      { speaker: "client", text: "No, that's everything. Thank you for being so helpful.", timestamp: 156 },
-      { speaker: "ai", text: "You're welcome, Jennifer. We look forward to meeting you on Thursday. Take care.", timestamp: 162 },
     ],
   },
   {
