@@ -1,0 +1,897 @@
+{
+  "common": {
+    "problemLabel": "THE PROBLEM",
+    "solutionLabel": "THE SOLUTION",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "whatMakesDifferent": "What makes ClickOne AI different",
+    "keyFeatures": "Key Features",
+    "marketStats": "Market Statistics",
+    "popularUseCases": "Popular Use Cases",
+    "whatClientsSay": "What our clients say",
+    "faq": "Frequently Asked Questions",
+    "readyToTransform": "Ready to Transform Your Customer Service?",
+    "scheduleDemo": "Schedule a free demo and see how ClickOne AI can revolutionize your company's customer service.",
+    "bookFreeDemo": "Book Free Demo"
+  },
+  "limpeza": {
+    "name": "Cleaning Companies",
+    "heroTitle": "AI Receptionist for Cleaning Companies",
+    "heroSubtitle": "24/7 ANSWERING FOR CLEANING",
+    "heroDescription": "As an intelligent answering solution for residential and commercial cleaning companies, ClickOne AI combines automated phone answering with professional support available 24 hours a day.",
+    "problemTitle": "Calls come in at any time.",
+    "problems": [
+      "Missed calls while you're on a job",
+      "Clients give up if they can't speak to someone",
+      "Difficulty scheduling recurring cleanings",
+      "Lost leads due to delayed response",
+      "No time for customer follow-up"
+    ],
+    "solutionTitle": "Clean while we handle the calls.",
+    "solutionDescription": "ClickOne's AI Receptionist answers every call professionally and collects essential information through structured questions. By gathering important data upfront — such as property type and size, cleaning frequency needed, and specific services required — the system helps identify and prioritize qualified leads.",
+    "solutions": [
+      { "title": "Custom configuration", "description": "AI trained specifically for your cleaning business needs" },
+      { "title": "24/7 coverage", "description": "Intelligent answering with transfer when needed" },
+      { "title": "Complete scheduling", "description": "Appointment booking, payment processing, and sensitive conversations" },
+      { "title": "Advanced integration", "description": "Connection with 50+ tools and workflow automation" },
+      { "title": "Dedicated support", "description": "Implementation team ensuring optimized setup" },
+      { "title": "Professional representation", "description": "AI that adapts to your brand voice" }
+    ],
+    "features": [
+      { "title": "Instant Response", "description": "Immediate response to every call, no waiting" },
+      { "title": "Auto Scheduling", "description": "Booking recurring and one-time cleanings" },
+      { "title": "Lead Qualification", "description": "Collects property type, size, and services needed" },
+      { "title": "Real-Time Analytics", "description": "Dashboard with call metrics and conversions" },
+      { "title": "Multi-Channel", "description": "Phone, SMS, WhatsApp, and chat integrated" },
+      { "title": "Auto Follow-up", "description": "Reminders and customer reactivation" }
+    ],
+    "stats": [
+      { "value": "82%", "label": "of consumers expect immediate response to an inquiry" },
+      { "value": "50%", "label": "of lead budgets are wasted on leads never contacted" },
+      { "value": "67%", "label": "of customers who receive excellent service spend up to 14% more" }
+    ],
+    "useCases": [
+      { "title": "Cleaning Quotes", "description": "Collect property info and provide estimates automatically" },
+      { "title": "Recurring Scheduling", "description": "Set up weekly, bi-weekly, or monthly cleanings" },
+      { "title": "Service Confirmation", "description": "Send automatic reminders before each cleaning" },
+      { "title": "Review Collection", "description": "Request feedback after each completed service" }
+    ],
+    "testimonials": [
+      {
+        "quote": "ClickOne AI transformed our service. We used to miss 60% of calls when we were on jobs. Now we capture 100% of leads.",
+        "author": "Lucia Fernandes",
+        "role": "Owner",
+        "company": "BrightClean Pro Services",
+        "location": "Houston, TX"
+      },
+      {
+        "quote": "Now my team focuses 100% on cleaning. The AI schedules, confirms, and even collects customer feedback automatically.",
+        "author": "Carlos Rodriguez",
+        "role": "Operations Manager",
+        "company": "Rodriguez Cleaning Solutions",
+        "location": "Miami, FL"
+      },
+      {
+        "quote": "We tripled our recurring customers in 6 months. Automatic follow-up makes all the difference.",
+        "author": "Ana Paula Silva",
+        "role": "Founder",
+        "company": "Premier Home Services",
+        "location": "Orlando, FL"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can the AI handle specific cleaning requests?",
+        "answer": "Yes! Our AI is trained to collect all necessary information, including property type, size, desired frequency, and specific services like window cleaning, deep cleaning, or post-construction cleaning."
+      },
+      {
+        "question": "How does recurring cleaning scheduling work?",
+        "answer": "The AI automatically manages your recurring customer schedule, sending reminders before each service and allowing rescheduling without your manual intervention."
+      },
+      {
+        "question": "Can the AI provide quotes?",
+        "answer": "The AI collects all necessary information and can provide estimates based on your pricing parameters. For custom quotes, it schedules a call with you."
+      },
+      {
+        "question": "Does it work with WhatsApp and text messages?",
+        "answer": "Yes! In addition to phone calls, our AI responds to WhatsApp messages, SMS, and website chat, all integrated into a single platform."
+      },
+      {
+        "question": "How long does setup take?",
+        "answer": "Initial setup takes about 30 minutes. Our implementation team works with you to customize responses and integrate with your existing tools."
+      }
+    ]
+  },
+  "construcao": {
+    "name": "Construction & Renovation",
+    "heroTitle": "AI Receptionist for Contractors & Renovators",
+    "heroSubtitle": "24/7 ANSWERING FOR CONSTRUCTION",
+    "heroDescription": "Intelligent answering solution for contractors, builders, and renovation companies. ClickOne AI answers calls, qualifies projects, and schedules site visits automatically.",
+    "problemTitle": "The job site never stops.",
+    "problems": [
+      "Missed calls on the job site",
+      "Quotes take too long to respond",
+      "Clients without proper updates on progress",
+      "Difficulty qualifying projects over the phone",
+      "Lost opportunities due to slow response"
+    ],
+    "solutionTitle": "Build while we qualify your projects.",
+    "solutionDescription": "Our AI collects essential information about each project — construction type, square footage, estimated budget, desired timeline — and schedules site visits automatically. You receive already qualified leads ready for quoting.",
+    "solutions": [
+      { "title": "Project qualification", "description": "Collects square footage, project type, budget, and timeline" },
+      { "title": "Visit scheduling", "description": "Books site visits on your calendar automatically" },
+      { "title": "Urgency triage", "description": "Identifies urgent repairs vs planned projects" },
+      { "title": "Quote follow-up", "description": "Tracks sent proposals automatically" },
+      { "title": "Vendor management", "description": "Receives and routes vendor calls" },
+      { "title": "Client updates", "description": "Answers questions about project progress" }
+    ],
+    "features": [
+      { "title": "On-Site Answering", "description": "Professional response while you work" },
+      { "title": "Visit Calendar", "description": "Automatic site visit scheduling" },
+      { "title": "Project Qualification", "description": "Collects scope, budget, and timelines" },
+      { "title": "Sales Pipeline", "description": "Track leads and proposals in real-time" },
+      { "title": "Smart Triage", "description": "Separates emergencies from planned projects" },
+      { "title": "Auto Follow-up", "description": "Tracking of sent proposals" }
+    ],
+    "stats": [
+      { "value": "73%", "label": "of construction clients choose the first company that responds" },
+      { "value": "45%", "label": "of proposals are lost due to lack of follow-up" },
+      { "value": "3.5x", "label": "more conversions with response in under 5 minutes" }
+    ],
+    "useCases": [
+      { "title": "Project Quotes", "description": "Qualify projects and collect info for quoting" },
+      { "title": "Site Visits", "description": "Schedule visits for project evaluation" },
+      { "title": "Project Updates", "description": "Answer questions about progress" },
+      { "title": "Urgent Repairs", "description": "Identify and prioritize emergencies" }
+    ],
+    "testimonials": [
+      {
+        "quote": "I used to spend hours on the phone. Now the AI qualifies projects and I only talk to clients who are really interested.",
+        "author": "Roberto Oliveira",
+        "role": "Owner",
+        "company": "Oliveira Construction LLC",
+        "location": "Los Angeles, CA"
+      },
+      {
+        "quote": "The AI schedules site visits automatically. My productivity on the job site increased 40%.",
+        "author": "Marco Antonio",
+        "role": "Civil Engineer",
+        "company": "MA Builders Inc",
+        "location": "Newark, NJ"
+      },
+      {
+        "quote": "We close 30% more contracts since the AI started following up on proposals.",
+        "author": "Diego Hernandez",
+        "role": "Commercial Director",
+        "company": "Hernandez Renovations",
+        "location": "Atlanta, GA"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can the AI qualify complex construction projects?",
+        "answer": "Yes! The AI collects detailed information such as project type, square footage, estimated budget, desired timeline, and technical specifications before scheduling a site visit."
+      },
+      {
+        "question": "How does the AI differentiate emergencies from planned projects?",
+        "answer": "Our AI asks specific questions to identify urgency. Urgent repairs are prioritized and routed immediately, while larger projects are scheduled for site visits."
+      },
+      {
+        "question": "Can I receive vendor calls too?",
+        "answer": "Yes! The AI identifies vendor calls and can collect information about deliveries, timelines, and quotes, organizing everything for you to review later."
+      },
+      {
+        "question": "Does the AI work when I'm on the job site?",
+        "answer": "Exactly what it was designed for! You can work focused while the AI answers all calls and organizes your visit schedule."
+      },
+      {
+        "question": "How does proposal follow-up work?",
+        "answer": "The AI automatically tracks sent proposals, contacts clients who haven't responded, and schedules closing calls with you."
+      }
+    ]
+  },
+  "hvac": {
+    "name": "HVAC / Climate Control",
+    "heroTitle": "AI Receptionist for HVAC Companies",
+    "heroSubtitle": "24/7 ANSWERING FOR HVAC",
+    "heroDescription": "Specialized intelligent answering for air conditioning, refrigeration, and climate control companies. Manage demand spikes and emergencies with AI.",
+    "problemTitle": "Summer hits and calls explode.",
+    "problems": [
+      "Demand spikes during hot/cold seasons",
+      "Emergencies outside business hours",
+      "Difficulty triaging calls by urgency",
+      "Technicians in the field can't answer phone",
+      "Lost preventive maintenance contracts"
+    ],
+    "solutionTitle": "Install while we manage your demand.",
+    "solutionDescription": "Our AI identifies the urgency of each call — AC down in summer is top priority. Schedules preventive maintenance, qualifies installations, and ensures emergencies reach you immediately.",
+    "solutions": [
+      { "title": "Urgency triage", "description": "Prioritizes emergencies vs scheduled maintenance" },
+      { "title": "Unlimited scalability", "description": "Handles demand spikes without hiring" },
+      { "title": "Maintenance contracts", "description": "Sells and schedules preventive maintenance" },
+      { "title": "24/7 service", "description": "Night and weekend emergencies" },
+      { "title": "Technical qualification", "description": "Collects model, symptoms, and location" },
+      { "title": "Smart routing", "description": "Groups calls by region" }
+    ],
+    "features": [
+      { "title": "Emergency Response", "description": "Automatic prioritization of urgent calls" },
+      { "title": "24/7 Service", "description": "Nights, weekends, and holidays" },
+      { "title": "Preventive Maintenance", "description": "Recurring contract scheduling" },
+      { "title": "Demand Management", "description": "Scale service during peaks" },
+      { "title": "Technical Qualification", "description": "Collects equipment model and symptoms" },
+      { "title": "Multi-Channel", "description": "Phone, WhatsApp, and chat integrated" }
+    ],
+    "stats": [
+      { "value": "89%", "label": "of customers with broken AC in summer want same-day solution" },
+      { "value": "4x", "label": "increase in calls during heat waves" },
+      { "value": "35%", "label": "additional revenue with preventive maintenance contracts" }
+    ],
+    "useCases": [
+      { "title": "AC Emergencies", "description": "Prioritize urgent calls automatically" },
+      { "title": "Preventive Maintenance", "description": "Sell and schedule recurring contracts" },
+      { "title": "New Installations", "description": "Qualify installation projects" },
+      { "title": "Demand Spikes", "description": "Scale service without hiring" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Last summer we handled 3x more calls without hiring anyone. The AI triaged emergencies and scheduled the rest.",
+        "author": "Paulo Mendes",
+        "role": "Owner",
+        "company": "Mendes HVAC Solutions",
+        "location": "Phoenix, AZ"
+      },
+      {
+        "quote": "We sold 50% more preventive maintenance contracts. The AI automatically offers to callers.",
+        "author": "Miguel Santos",
+        "role": "Commercial Manager",
+        "company": "Cool Air Services LLC",
+        "location": "Houston, TX"
+      },
+      {
+        "quote": "Night emergencies were a nightmare. Now the AI filters and only calls me when it's really urgent.",
+        "author": "Eduardo Lima",
+        "role": "Senior Technician",
+        "company": "Lima Climate Control",
+        "location": "Dallas, TX"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How does the AI handle summer demand spikes?",
+        "answer": "Our AI scales automatically to handle any call volume. It triages emergencies (AC down in heat) from preventive maintenance, ensuring you serve those who need it most first."
+      },
+      {
+        "question": "Can the AI sell preventive maintenance contracts?",
+        "answer": "Yes! When a customer calls for a repair, the AI automatically offers a preventive maintenance plan, explaining benefits and scheduling if the customer accepts."
+      },
+      {
+        "question": "Does it work for night and weekend emergencies?",
+        "answer": "Yes! The AI operates 24/7. For real emergencies (like AC down on a hot day), it contacts you immediately. For other cases, it schedules for the next available time."
+      },
+      {
+        "question": "Does the AI collect technical equipment information?",
+        "answer": "Yes! It asks for brand, model, equipment age, and problem symptoms, allowing you to arrive prepared with the right parts."
+      },
+      {
+        "question": "How does the AI organize calls by region?",
+        "answer": "The AI groups calls by geographic location, optimizing your routes and allowing you to serve more customers per day."
+      }
+    ]
+  },
+  "encanamento": {
+    "name": "Plumbing",
+    "heroTitle": "AI Receptionist for Plumbers",
+    "heroSubtitle": "24/7 ANSWERING FOR PLUMBING",
+    "heroDescription": "Intelligent answering for plumbers and plumbing service companies. Handle leak emergencies and qualify services automatically.",
+    "problemTitle": "Leaks don't wait.",
+    "problems": [
+      "Leak emergencies at any hour",
+      "Wet hands during work",
+      "Impatient clients waiting for callback",
+      "Difficulty prioritizing urgent calls",
+      "Lost jobs due to slow response"
+    ],
+    "solutionTitle": "Fix while we answer your calls.",
+    "solutionDescription": "Our AI prioritizes leak emergencies automatically and collects essential information — leak location, severity, property type — so you arrive prepared.",
+    "solutions": [
+      { "title": "Emergency prioritization", "description": "Leaks and clogs first" },
+      { "title": "Detailed qualification", "description": "Collects location, problem type, and severity" },
+      { "title": "24/7 service", "description": "Night and weekend emergencies" },
+      { "title": "Smart scheduling", "description": "Organizes your calendar optimizing routes" },
+      { "title": "Auto follow-up", "description": "Tracks sent quotes" },
+      { "title": "Multi-channel", "description": "Phone, WhatsApp, and chat integrated" }
+    ],
+    "features": [
+      { "title": "24/7 Emergencies", "description": "Leak response at any hour" },
+      { "title": "Auto Triage", "description": "Prioritization by problem urgency" },
+      { "title": "Technical Qualification", "description": "Collects problem details before visit" },
+      { "title": "Optimized Scheduling", "description": "Route organization by region" },
+      { "title": "Quick Quotes", "description": "Collects info for estimates" },
+      { "title": "Service Follow-up", "description": "Automatic post-service tracking" }
+    ],
+    "stats": [
+      { "value": "94%", "label": "of customers with leaks want same-day service" },
+      { "value": "78%", "label": "of emergencies happen outside business hours" },
+      { "value": "3x", "label": "more conversions with response in under 5 minutes" }
+    ],
+    "useCases": [
+      { "title": "Leak Emergencies", "description": "Prioritize and handle urgent leaks" },
+      { "title": "Drain Cleaning", "description": "Qualify clog type and location" },
+      { "title": "Installations", "description": "Schedule equipment installations" },
+      { "title": "Preventive Maintenance", "description": "Offer maintenance contracts" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Leaks don't wait. Now the AI handles 24/7 emergencies and only contacts me for truly urgent cases.",
+        "author": "José Carlos",
+        "role": "Owner",
+        "company": "JC Plumbing Services",
+        "location": "San Diego, CA"
+      },
+      {
+        "quote": "My conversion rate went up 40% since I started responding in under 1 minute with the AI.",
+        "author": "Fernando Souza",
+        "role": "Master Plumber",
+        "company": "Souza Plumbing LLC",
+        "location": "Tampa, FL"
+      },
+      {
+        "quote": "The AI collects all info before the visit. I arrive prepared with the right parts.",
+        "author": "Ricardo Santos",
+        "role": "Senior Technician",
+        "company": "Santos Drain Solutions",
+        "location": "Austin, TX"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How does the AI prioritize leak emergencies?",
+        "answer": "The AI asks specific questions about leak severity, location, and if there's risk of damage. Severe emergencies are routed to you immediately."
+      },
+      {
+        "question": "Does the AI collect technical information?",
+        "answer": "Yes! It asks about problem type, exact location, if there's access to the water shutoff, and details that help you arrive prepared."
+      },
+      {
+        "question": "Does it work for clogs too?",
+        "answer": "Yes! The AI qualifies clogs by collecting information about location (sink, toilet, drain), problem frequency, and if they've already tried anything."
+      },
+      {
+        "question": "How does it organize calls by region?",
+        "answer": "The AI groups calls by geographic location, allowing you to optimize routes and serve more customers per day."
+      },
+      {
+        "question": "Can I receive calls at night?",
+        "answer": "Yes! The AI operates 24/7 and classifies urgency. For severe emergencies, it can contact you immediately. For other cases, it schedules for the next time slot."
+      }
+    ]
+  },
+  "eletrica": {
+    "name": "Electrical Services",
+    "heroTitle": "AI Receptionist for Electricians",
+    "heroSubtitle": "24/7 ANSWERING FOR ELECTRICAL",
+    "heroDescription": "Intelligent answering for electricians and electrical service companies. Prioritize emergencies and qualify projects automatically.",
+    "problemTitle": "Electrical problems are urgent.",
+    "problems": [
+      "Electrical emergencies at any hour",
+      "Working with hands busy",
+      "Clients worried about safety",
+      "Difficulty qualifying complex projects",
+      "Lost quotes due to slow response"
+    ],
+    "solutionTitle": "Install while we qualify your projects.",
+    "solutionDescription": "Our AI prioritizes electrical emergencies (shorts, outages) and qualifies larger projects by collecting information about service type, amperage, and technical specifications.",
+    "solutions": [
+      { "title": "Emergency prioritization", "description": "Shorts and outages first" },
+      { "title": "Technical qualification", "description": "Collects amperage, panel type, and specs" },
+      { "title": "24/7 service", "description": "Night and weekend emergencies" },
+      { "title": "Visit scheduling", "description": "Books site visits automatically" },
+      { "title": "Quote follow-up", "description": "Tracks sent proposals" },
+      { "title": "Safety priority", "description": "Guides clients on basic safety" }
+    ],
+    "features": [
+      { "title": "Electrical Emergencies", "description": "Short and outage prioritization" },
+      { "title": "Technical Qualification", "description": "Collects specs before visit" },
+      { "title": "24/7 Service", "description": "Available nights and weekends" },
+      { "title": "Safety Guidance", "description": "Basic instructions for clients" },
+      { "title": "Project Scheduling", "description": "Organized site visits" },
+      { "title": "Auto Follow-up", "description": "Quote tracking" }
+    ],
+    "stats": [
+      { "value": "91%", "label": "of customers with electrical problems want same-day solution" },
+      { "value": "65%", "label": "of emergencies happen outside business hours" },
+      { "value": "4x", "label": "more conversions with immediate response" }
+    ],
+    "useCases": [
+      { "title": "Electrical Emergencies", "description": "Shorts, outages, and sparks" },
+      { "title": "New Installations", "description": "Qualify installation projects" },
+      { "title": "Panel Upgrades", "description": "Collect technical specifications" },
+      { "title": "Preventive Maintenance", "description": "Offer maintenance contracts" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Electrical emergencies need fast response. The AI answers in seconds and collects everything I need to know.",
+        "author": "Anderson Lima",
+        "role": "Owner",
+        "company": "Lima Electrical Services",
+        "location": "Denver, CO"
+      },
+      {
+        "quote": "The AI guides clients on basic safety while I'm on my way. That saves lives.",
+        "author": "Rafael Costa",
+        "role": "Master Electrician",
+        "company": "Costa Electric LLC",
+        "location": "Seattle, WA"
+      },
+      {
+        "quote": "Large projects need detailed qualification. The AI collects everything before the site visit.",
+        "author": "Bruno Almeida",
+        "role": "Technical Director",
+        "company": "Almeida Power Solutions",
+        "location": "Portland, OR"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How does the AI handle electrical emergencies?",
+        "answer": "The AI identifies severe emergencies (sparks, burning smell, total outage) and can guide the client to turn off the breaker while you're on your way."
+      },
+      {
+        "question": "Does the AI collect technical specifications?",
+        "answer": "Yes! For larger projects, it asks about current amperage, panel type, installation age, and what the client needs to install."
+      },
+      {
+        "question": "Does it work for commercial projects?",
+        "answer": "Yes! The AI qualifies commercial projects by collecting information about square footage, required electrical load, and specific requirements."
+      },
+      {
+        "question": "Can the AI schedule site visits?",
+        "answer": "Yes! For projects that need on-site evaluation, the AI schedules site visits directly on your calendar."
+      },
+      {
+        "question": "How does quote follow-up work?",
+        "answer": "After sending a quote, the AI automatically contacts in 24-48 hours to answer questions and help with closing."
+      }
+    ]
+  },
+  "paisagismo": {
+    "name": "Landscaping",
+    "heroTitle": "AI Receptionist for Landscaping",
+    "heroSubtitle": "24/7 ANSWERING FOR LANDSCAPING",
+    "heroDescription": "Intelligent answering for landscaping and gardening companies. Qualify projects and schedule recurring maintenance automatically.",
+    "problemTitle": "The garden won't wait for you to answer.",
+    "problems": [
+      "Missed calls while working in the garden",
+      "Difficulty qualifying projects over the phone",
+      "Clients wanting immediate quotes",
+      "Managing recurring maintenance",
+      "Lost contracts due to slow response"
+    ],
+    "solutionTitle": "Tend the garden while we handle the calls.",
+    "solutionDescription": "Our AI qualifies landscaping projects by collecting information about lot size, desired service type, and estimated budget. It also manages recurring maintenance.",
+    "solutions": [
+      { "title": "Project qualification", "description": "Collects size, service type, and budget" },
+      { "title": "Recurring maintenance", "description": "Manages weekly/monthly contracts" },
+      { "title": "Seasonal scheduling", "description": "Organizes services by season" },
+      { "title": "Automated quotes", "description": "Estimates based on square footage" },
+      { "title": "Project follow-up", "description": "Tracks sent proposals" },
+      { "title": "Customer reactivation", "description": "Reminds clients about maintenance" }
+    ],
+    "features": [
+      { "title": "Project Qualification", "description": "Collects details before visit" },
+      { "title": "Recurring Contracts", "description": "Weekly maintenance management" },
+      { "title": "Seasonal Scheduling", "description": "Organization by season" },
+      { "title": "Quick Quotes", "description": "Estimates by square footage" },
+      { "title": "Multi-Channel", "description": "Phone, WhatsApp, and chat" },
+      { "title": "Customer Reactivation", "description": "Maintenance reminders" }
+    ],
+    "stats": [
+      { "value": "76%", "label": "of clients prefer recurring maintenance contracts" },
+      { "value": "58%", "label": "of projects are lost due to slow response" },
+      { "value": "3x", "label": "more contracts with auto follow-up" }
+    ],
+    "useCases": [
+      { "title": "Landscaping Projects", "description": "Qualify complete projects" },
+      { "title": "Garden Maintenance", "description": "Manage recurring contracts" },
+      { "title": "Seasonal Services", "description": "Organize by season" },
+      { "title": "Quotes", "description": "Collect info for estimates" }
+    ],
+    "testimonials": [
+      {
+        "quote": "The AI manages all my maintenance contracts. Guaranteed recurring revenue.",
+        "author": "Pedro Vieira",
+        "role": "Owner",
+        "company": "Vieira Landscaping",
+        "location": "San Jose, CA"
+      },
+      {
+        "quote": "Large projects need qualification. The AI collects everything before the site visit.",
+        "author": "Lucas Martins",
+        "role": "Landscape Designer",
+        "company": "Martins Garden Design",
+        "location": "Scottsdale, AZ"
+      },
+      {
+        "quote": "Clients forget to schedule maintenance. The AI reminds them automatically.",
+        "author": "Thiago Costa",
+        "role": "Operations Manager",
+        "company": "Costa Green Services",
+        "location": "Las Vegas, NV"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does the AI manage recurring maintenance contracts?",
+        "answer": "Yes! The AI schedules weekly, bi-weekly, or monthly maintenance, sends reminders to clients, and reschedules automatically if needed."
+      },
+      {
+        "question": "How does project qualification work?",
+        "answer": "The AI collects information about lot size, desired service type (garden, lawn, irrigation), estimated budget, and timeline."
+      },
+      {
+        "question": "Can the AI provide quotes?",
+        "answer": "Yes! Based on square footage and service type, the AI provides estimates. For complex projects, it schedules a site visit."
+      },
+      {
+        "question": "Does it work for seasonal services?",
+        "answer": "Yes! The AI organizes services by season (fall cleanup, spring prep) and proactively contacts clients."
+      },
+      {
+        "question": "How does the AI reactivate inactive clients?",
+        "answer": "Clients who haven't scheduled in a while receive automatic reminders offering maintenance, taking advantage of seasonality."
+      }
+    ]
+  },
+  "piscina": {
+    "name": "Pool Services",
+    "heroTitle": "AI Receptionist for Pool Services",
+    "heroSubtitle": "24/7 ANSWERING FOR POOLS",
+    "heroDescription": "Intelligent answering for pool maintenance and cleaning companies. Manage recurring contracts and emergencies.",
+    "problemTitle": "Green pool can't wait until Monday.",
+    "problems": [
+      "Green/cloudy pool emergencies",
+      "Managing maintenance contracts",
+      "Calls during ongoing services",
+      "Clients wanting immediate response",
+      "Difficulty scaling in summer"
+    ],
+    "solutionTitle": "Clean pools while we handle the calls.",
+    "solutionDescription": "Our AI prioritizes emergencies (green pool, leaks) and manages recurring maintenance contracts. Scales automatically in summer when demand increases.",
+    "solutions": [
+      { "title": "Prioritized emergencies", "description": "Green pool and leaks first" },
+      { "title": "Recurring contracts", "description": "Weekly maintenance management" },
+      { "title": "Seasonal scalability", "description": "Handles summer demand spikes" },
+      { "title": "Technical qualification", "description": "Collects type, size, and problem" },
+      { "title": "Auto follow-up", "description": "Reminds clients about services" },
+      { "title": "Contract sales", "description": "Offers preventive maintenance" }
+    ],
+    "features": [
+      { "title": "Pool Emergencies", "description": "Green water, leaks, equipment" },
+      { "title": "Recurring Contracts", "description": "Weekly/bi-weekly maintenance" },
+      { "title": "Scalability", "description": "Handle more in summer" },
+      { "title": "Qualification", "description": "Collects problem details" },
+      { "title": "Auto Sales", "description": "Offers maintenance contracts" },
+      { "title": "Multi-Channel", "description": "Phone, WhatsApp, and chat" }
+    ],
+    "stats": [
+      { "value": "85%", "label": "of pool owners prefer maintenance contracts" },
+      { "value": "5x", "label": "more calls at the start of summer" },
+      { "value": "92%", "label": "retention with auto follow-up" }
+    ],
+    "useCases": [
+      { "title": "Emergencies", "description": "Green pool, leaks" },
+      { "title": "Weekly Maintenance", "description": "Recurring contracts" },
+      { "title": "Season Opening", "description": "Prepare pools for summer" },
+      { "title": "Equipment Repairs", "description": "Pumps, filters, heaters" }
+    ],
+    "testimonials": [
+      {
+        "quote": "In summer calls triple. The AI handles all of them and prioritizes emergencies.",
+        "author": "Marcelo Silva",
+        "role": "Owner",
+        "company": "Silva Pool Services",
+        "location": "Fort Lauderdale, FL"
+      },
+      {
+        "quote": "Maintenance contracts are our main revenue. The AI sells automatically.",
+        "author": "André Gomes",
+        "role": "Commercial Manager",
+        "company": "Gomes Pool Care",
+        "location": "Boca Raton, FL"
+      },
+      {
+        "quote": "Clients with green pools need immediate response. The AI handles it.",
+        "author": "Felipe Santos",
+        "role": "Senior Technician",
+        "company": "Santos Aquatic Solutions",
+        "location": "Palm Beach, FL"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How does the AI handle green pool?",
+        "answer": "Emergencies like green pool are automatically prioritized. The AI collects information about size, last maintenance, and severity."
+      },
+      {
+        "question": "Does the AI sell maintenance contracts?",
+        "answer": "Yes! When a client calls for a one-time service, the AI automatically offers a regular maintenance contract."
+      },
+      {
+        "question": "Does it work for equipment repairs?",
+        "answer": "Yes! The AI collects information about the equipment (pump, filter, heater), problem symptoms, and brand/model."
+      },
+      {
+        "question": "How does it scale in summer?",
+        "answer": "The AI handles any call volume. In summer, when demand increases 5x, it manages everything without you hiring more people."
+      },
+      {
+        "question": "Does the AI remind clients about maintenance?",
+        "answer": "Yes! Clients with contracts receive reminders before each visit. One-time clients are contacted periodically."
+      }
+    ]
+  },
+  "mudancas": {
+    "name": "Moving Companies",
+    "heroTitle": "AI Receptionist for Movers",
+    "heroSubtitle": "24/7 ANSWERING FOR MOVING",
+    "heroDescription": "Intelligent answering for residential and commercial moving companies. Qualify moves and provide quotes automatically.",
+    "problemTitle": "Moving quotes are complex.",
+    "problems": [
+      "Quotes take too long to respond",
+      "Too much information to collect",
+      "Clients comparing multiple companies",
+      "Difficulty qualifying over the phone",
+      "Lost leads due to slow response"
+    ],
+    "solutionTitle": "Move while we qualify your leads.",
+    "solutionDescription": "Our AI collects all quote information — origin, destination, inventory, desired date, special access — and provides estimates automatically.",
+    "solutions": [
+      { "title": "Complete qualification", "description": "Collects origin, destination, inventory" },
+      { "title": "Automatic quotes", "description": "Volume-based estimates" },
+      { "title": "Immediate availability", "description": "Checks available dates" },
+      { "title": "Additional services", "description": "Offers packing, storage" },
+      { "title": "Proposal follow-up", "description": "Tracks sent quotes" },
+      { "title": "Move confirmation", "description": "Automatic reminders" }
+    ],
+    "features": [
+      { "title": "Complete Qualification", "description": "Collects all move details" },
+      { "title": "Quick Quotes", "description": "Automatic estimates" },
+      { "title": "Calendar Check", "description": "Confirms availability" },
+      { "title": "Additional Services", "description": "Packing and storage upsell" },
+      { "title": "Auto Follow-up", "description": "Proposal tracking" },
+      { "title": "Confirmations", "description": "Reminders before move" }
+    ],
+    "stats": [
+      { "value": "87%", "label": "of clients request quotes from multiple companies" },
+      { "value": "68%", "label": "close with whoever responds first" },
+      { "value": "45%", "label": "accept additional services when offered" }
+    ],
+    "useCases": [
+      { "title": "Residential Moving", "description": "Qualify and quote home moves" },
+      { "title": "Commercial Moving", "description": "Offices and businesses" },
+      { "title": "Long Distance", "description": "Interstate moves" },
+      { "title": "Additional Services", "description": "Packing and storage" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Clients get quotes from 5 companies. Whoever responds first wins. The AI responds in seconds.",
+        "author": "Ricardo Torres",
+        "role": "Owner",
+        "company": "Torres Moving LLC",
+        "location": "Charlotte, NC"
+      },
+      {
+        "quote": "The AI collects everything I need to quote: inventory, access, dates. I arrive prepared.",
+        "author": "Gustavo Rocha",
+        "role": "Operations Manager",
+        "company": "Rocha Relocations",
+        "location": "Raleigh, NC"
+      },
+      {
+        "quote": "We sell 40% more packing services since the AI started offering them.",
+        "author": "Leonardo Pereira",
+        "role": "Commercial Director",
+        "company": "Pereira Moving Services",
+        "location": "Nashville, TN"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Does the AI collect move inventory?",
+        "answer": "Yes! The AI asks about number of rooms, large items (piano, safe), furniture disassembly, and any special items."
+      },
+      {
+        "question": "How does automatic quoting work?",
+        "answer": "Based on estimated volume and distance, the AI provides a price range. For precise quotes, it schedules an inspection."
+      },
+      {
+        "question": "Does the AI offer additional services?",
+        "answer": "Yes! It offers packing, unpacking, temporary storage, and other services that increase your average ticket."
+      },
+      {
+        "question": "Does it work for commercial moves?",
+        "answer": "Yes! The AI qualifies commercial moves by collecting information about square footage, equipment, and special requirements."
+      },
+      {
+        "question": "How does follow-up work?",
+        "answer": "After sending a quote, the AI contacts the client in 24-48 hours to answer questions and help with closing."
+      }
+    ]
+  },
+  "telhados": {
+    "name": "Roofing Services",
+    "heroTitle": "AI Receptionist for Roofers",
+    "heroSubtitle": "24/7 ANSWERING FOR ROOFING",
+    "heroDescription": "Intelligent answering for roofing repair and installation companies. Prioritize emergencies and qualify projects automatically.",
+    "problemTitle": "Leaks don't wait for business hours.",
+    "problems": [
+      "Leak emergencies at any hour",
+      "Large projects need qualification",
+      "Storm season increases demand",
+      "Difficulty prioritizing calls",
+      "Lost quotes due to delays"
+    ],
+    "solutionTitle": "Roof while we qualify projects.",
+    "solutionDescription": "Our AI prioritizes leak and storm damage emergencies, while qualifying larger roof replacement and installation projects.",
+    "solutions": [
+      { "title": "Prioritized emergencies", "description": "Leaks and storm damage first" },
+      { "title": "Project qualification", "description": "Roof type, square footage, material" },
+      { "title": "Scheduled inspections", "description": "Books site visits automatically" },
+      { "title": "Insurance claims", "description": "Collects insurance information" },
+      { "title": "Quote follow-up", "description": "Tracks sent proposals" },
+      { "title": "Seasonal scalability", "description": "Handles post-storm spikes" }
+    ],
+    "features": [
+      { "title": "Emergencies", "description": "Leaks and storm damage" },
+      { "title": "Project Qualification", "description": "Type, square footage, and material" },
+      { "title": "Inspections", "description": "Automatic scheduling" },
+      { "title": "Insurance Claims", "description": "Collects relevant info" },
+      { "title": "Follow-up", "description": "Proposal tracking" },
+      { "title": "Scalability", "description": "Handle more post-storm" }
+    ],
+    "stats": [
+      { "value": "10x", "label": "more calls after storms" },
+      { "value": "72%", "label": "of projects involve insurance" },
+      { "value": "89%", "label": "close with whoever responds first after storm" }
+    ],
+    "useCases": [
+      { "title": "Leak Emergencies", "description": "Urgent repairs" },
+      { "title": "Storm Damage", "description": "Assessment and repair" },
+      { "title": "Roof Replacement", "description": "Complete projects" },
+      { "title": "Insurance Claims", "description": "Documentation support" }
+    ],
+    "testimonials": [
+      {
+        "quote": "After storms, calls explode. The AI handles all of them and prioritizes emergencies.",
+        "author": "Henrique Lima",
+        "role": "Owner",
+        "company": "Lima Roofing LLC",
+        "location": "Oklahoma City, OK"
+      },
+      {
+        "quote": "Replacement projects need qualification. The AI collects everything before the inspection.",
+        "author": "Daniel Costa",
+        "role": "Project Manager",
+        "company": "Costa Roofing Solutions",
+        "location": "Kansas City, MO"
+      },
+      {
+        "quote": "Insurance claims are complex. The AI collects the right information.",
+        "author": "Fabio Santos",
+        "role": "Commercial Director",
+        "company": "Santos Storm Repair",
+        "location": "Tulsa, OK"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How does the AI handle post-storm emergencies?",
+        "answer": "The AI prioritizes calls by severity. Active leaks and structural damage are routed immediately."
+      },
+      {
+        "question": "Does the AI collect insurance information?",
+        "answer": "Yes! For claims, the AI asks about insurer, policy number, and if they've already contacted insurance."
+      },
+      {
+        "question": "Does it work for replacement projects?",
+        "answer": "Yes! The AI qualifies large projects by collecting current roof type, square footage, desired material, and budget."
+      },
+      {
+        "question": "How does it scale after storms?",
+        "answer": "The AI handles any call volume. After storms, when calls increase 10x, it manages everything."
+      },
+      {
+        "question": "Does the AI schedule inspections?",
+        "answer": "Yes! For projects that need on-site evaluation, the AI schedules inspections directly on your calendar."
+      }
+    ]
+  },
+  "controle-pragas": {
+    "name": "Pest Control",
+    "heroTitle": "AI Receptionist for Pest Control",
+    "heroSubtitle": "24/7 ANSWERING FOR PEST CONTROL",
+    "heroDescription": "Intelligent answering for pest control and extermination companies. Prioritize emergencies and sell preventive contracts.",
+    "problemTitle": "Pests don't wait for business hours.",
+    "problems": [
+      "Pest emergencies at any hour",
+      "Panicking clients wanting immediate solution",
+      "Difficulty selling preventive contracts",
+      "Managing recurring services",
+      "Lost leads due to slow response"
+    ],
+    "solutionTitle": "Eliminate pests while we sell prevention.",
+    "solutionDescription": "Our AI prioritizes emergencies (severe infestations, dangerous animals) and automatically offers prevention contracts to all customers.",
+    "solutions": [
+      { "title": "Prioritized emergencies", "description": "Severe infestations and dangerous animals" },
+      { "title": "Contract sales", "description": "Offers prevention automatically" },
+      { "title": "Pest qualification", "description": "Identifies type and severity" },
+      { "title": "Recurring services", "description": "Monthly contract management" },
+      { "title": "Auto follow-up", "description": "Reminds clients about prevention" },
+      { "title": "24/7 service", "description": "Night and weekend emergencies" }
+    ],
+    "features": [
+      { "title": "Pest Emergencies", "description": "Infestations and dangerous animals" },
+      { "title": "Contract Sales", "description": "Automated prevention" },
+      { "title": "Qualification", "description": "Pest type and severity" },
+      { "title": "Recurring Services", "description": "Contract management" },
+      { "title": "Follow-up", "description": "Prevention reminders" },
+      { "title": "24/7 Service", "description": "Always available" }
+    ],
+    "stats": [
+      { "value": "78%", "label": "of clients accept preventive contract when offered" },
+      { "value": "65%", "label": "of emergencies happen outside business hours" },
+      { "value": "4x", "label": "more recurring revenue with preventive contracts" }
+    ],
+    "useCases": [
+      { "title": "Pest Emergencies", "description": "Severe infestations" },
+      { "title": "Preventive Contracts", "description": "Monthly/quarterly maintenance" },
+      { "title": "Wildlife", "description": "Safe removal" },
+      { "title": "Inspections", "description": "Property assessment" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Clients with infestations need immediate response. The AI answers in seconds.",
+        "author": "Adriano Mendes",
+        "role": "Owner",
+        "company": "Mendes Pest Control",
+        "location": "Jacksonville, FL"
+      },
+      {
+        "quote": "We sell 3x more preventive contracts since the AI started offering them.",
+        "author": "Sergio Ribeiro",
+        "role": "Commercial Manager",
+        "company": "Ribeiro Exterminators",
+        "location": "Orlando, FL"
+      },
+      {
+        "quote": "The AI qualifies pest type and severity before the visit. I arrive prepared.",
+        "author": "Marcio Alves",
+        "role": "Senior Technician",
+        "company": "Alves Pest Solutions",
+        "location": "Tampa, FL"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How does the AI handle pest emergencies?",
+        "answer": "The AI identifies severe emergencies (infestations, dangerous animals, pests in food areas) and prioritizes those calls."
+      },
+      {
+        "question": "Does the AI sell preventive contracts?",
+        "answer": "Yes! After each one-time service, the AI automatically offers a prevention contract, explaining benefits and pricing."
+      },
+      {
+        "question": "Does it work for wildlife?",
+        "answer": "Yes! The AI collects information about animal type, location, and behavior so you can plan the removal."
+      },
+      {
+        "question": "How does it manage recurring contracts?",
+        "answer": "The AI schedules maintenance visits, sends reminders to clients, and reschedules automatically when needed."
+      },
+      {
+        "question": "Does it handle night emergencies?",
+        "answer": "Yes! The AI operates 24/7. For severe emergencies, it can contact you immediately or schedule for the next time slot."
+      }
+    ]
+  }
+}
