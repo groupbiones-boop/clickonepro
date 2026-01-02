@@ -21,7 +21,7 @@ export const audioDemos: AudioDemo[] = [
     id: "plumbing",
     title: "Plumbing",
     image: industryPlumbing,
-    audioUrl: "",
+    audioUrl: "https://ojyzegzdlpjlbdhvqhav.supabase.co/storage/v1/object/public/demo-audio/plumbing.mp3",
     transcript: [
       { speaker: "ai", text: "Thank you for calling Plumber Pro Services. My name is Sarah, I'm your virtual assistant. How may I help you today?", timestamp: 0 },
       { speaker: "client", text: "Hi, I have a pretty bad leak under my kitchen sink and I need someone to come fix it as soon as possible.", timestamp: 6 },
@@ -48,7 +48,7 @@ export const audioDemos: AudioDemo[] = [
     id: "law-office",
     title: "Law Office",
     image: officeImage,
-    audioUrl: "",
+    audioUrl: "https://ojyzegzdlpjlbdhvqhav.supabase.co/storage/v1/object/public/demo-audio/law-office.mp3",
     transcript: [
       { speaker: "ai", text: "Thank you for calling Thompson and Associates Law Firm. This is Sarah, your virtual assistant. How may I direct your call today?", timestamp: 0 },
       { speaker: "client", text: "Hi, I need to schedule a consultation. I'm going through a divorce and need legal advice.", timestamp: 7 },
@@ -77,7 +77,7 @@ export const audioDemos: AudioDemo[] = [
     id: "cleaning",
     title: "Cleaning",
     image: industryCleaning,
-    audioUrl: "",
+    audioUrl: "https://ojyzegzdlpjlbdhvqhav.supabase.co/storage/v1/object/public/demo-audio/cleaning.mp3",
     transcript: [
       { speaker: "ai", text: "Thank you for calling Sparkle Clean Services. I'm Sarah, your virtual assistant. How can I help you today?", timestamp: 0 },
       { speaker: "client", text: "Hi! I'd like to schedule a deep cleaning for my house.", timestamp: 6 },
