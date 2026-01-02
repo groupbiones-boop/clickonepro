@@ -1,7 +1,8 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { useFunnelData, FunnelData } from "@/hooks/useFunnelData";
+import { useFunnelData } from "@/hooks/useFunnelData";
+import type { FunnelData } from "@/hooks/useFunnelData";
 import { Binoculars, Lightbulb, MessageCircle, MousePointer, Trophy } from "lucide-react";
 import html2canvas from "html2canvas";
 

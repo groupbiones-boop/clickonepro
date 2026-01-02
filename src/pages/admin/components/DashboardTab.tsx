@@ -5,10 +5,11 @@ import { Users, Eye, MousePointerClick, MessageCircle, Clock, Percent, Globe, Mo
 import { useVisitorStats, usePageviewStats, useTimelineData, useDeviceStats, useTopPages, useCountryStats } from "@/hooks/useAnalytics";
 import { useLeadsStats, useConversionRate, useAgendamentosCount, useLeadsTimeline } from "@/hooks/useLeadsStats";
 import { useFunnelData } from "@/hooks/useFunnelData";
-import ConversionFunnel, { FunnelRef } from "./ConversionFunnel";
+import ConversionFunnel from "./ConversionFunnel";
+import type { FunnelRef } from "./ConversionFunnel";
 import ExportReportDialog from "./ExportReportDialog";
 import ScheduledReportsManager from "./ScheduledReportsManager";
-import { ExportData } from "@/hooks/useReportExport";
+import type { ExportData } from "@/hooks/useReportExport";
 import {
   AreaChart,
   Area,
