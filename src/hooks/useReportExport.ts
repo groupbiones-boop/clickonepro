@@ -1,16 +1,13 @@
+/**
+ * Report Export Hook
+ * Handles PDF and Excel generation for analytics reports
+ */
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
-
-export interface FunnelData {
-  visitors: number;
-  pageviews: number;
-  leads: number;
-  agendamentos: number;
-  clientes: number;
-}
+import type { FunnelData } from "./useFunnelData";
 
 export interface ExportData {
   filters: { startDate: Date; endDate: Date };
