@@ -710,5 +710,47 @@
     "benefit4Desc": "From first contact to after-sales, everything automated and integrated.",
     "ctaTitle": "Ready to Unify Your Service?",
     "ctaSubtitle": "Schedule a demo and see how ClickOne AI centralizes your entire operation."
+  },
+  "thankYou": {
+    "title": "Thank You for Reaching Out!",
+    "subtitle": "We have successfully received your message.",
+    "responseTime": "Our team will contact you within 24 hours",
+    "nextStepsTitle": "Next Steps",
+    "nextStepsDescription": "See what happens now that you've contacted us.",
+    "stepLabel": "Step {{number}}",
+    "steps": {
+      "contact": {
+        "title": "Request Analysis",
+        "description": "Our team will analyze your request and prepare a personalized proposal."
+      },
+      "demo": {
+        "title": "Personalized Demo",
+        "description": "We'll schedule an exclusive demo to show how ClickOne AI works for your business."
+      },
+      "setup": {
+        "title": "Quick Setup",
+        "description": "Within 72 hours after onboarding, your AI will be ready to serve your customers."
+      }
+    },
+    "exploreTitle": "Meanwhile, Explore",
+    "exploreDescription": "Learn more about our solutions and how we can help your business.",
+    "explore": {
+      "sectors": {
+        "title": "Industries Served",
+        "description": "Discover how ClickOne AI transforms customer service across various segments.",
+        "cta": "View Industries"
+      },
+      "voice": {
+        "title": "AI Voice Receptionist",
+        "description": "Learn about our intelligent 24/7 phone answering solution.",
+        "cta": "Learn More"
+      },
+      "chat": {
+        "title": "AI Conversational Agent",
+        "description": "See how we automate conversations on WhatsApp, Instagram and more.",
+        "cta": "Discover"
+      }
+    },
+    "backHome": "Back to Home"
   }
 }
