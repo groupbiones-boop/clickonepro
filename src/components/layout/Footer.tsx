@@ -70,15 +70,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-background/70 text-sm">
                 <Phone className="h-4 w-4" />
-                <span>+55 (11) 99999-9999</span>
+                <span>+1 (770) 501-7321</span>
               </li>
               <li className="flex items-center gap-2 text-background/70 text-sm">
                 <Mail className="h-4 w-4" />
-                <span>contato@clickone.ai</span>
+                <span>contato@clickonepro.com</span>
               </li>
               <li className="flex items-start gap-2 text-background/70 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5" />
-                <span>São Paulo, Brasil</span>
+                <span>United States</span>
               </li>
             </ul>
           </div>
