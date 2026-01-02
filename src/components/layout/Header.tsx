@@ -35,6 +35,7 @@ const Header = () => {
     { name: t("nav.smallBusiness"), description: "1-10", slug: "/empresas/pequena-empresa" },
     { name: t("nav.mediumBusiness"), description: "11-50", slug: "/empresas/media-empresa" },
     { name: t("nav.localBusiness"), slug: "/empresas/negocios-locais" },
+    { name: t("nav.franchiseNetwork"), slug: "/empresas/rede-franquias" },
   ];
 
   return (

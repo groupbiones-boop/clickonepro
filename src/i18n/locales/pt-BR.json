@@ -460,5 +460,101 @@
     "testimonialsTitle": "Negócios locais que dominam suas regiões",
     "ctaTitle": "Domine o mercado da sua região",
     "ctaSubtitle": "Agende uma demo gratuita e veja como a ClickOne AI pode fazer você ser o primeiro a responder, sempre."
+  },
+  "franchiseNetwork": {
+    "badge": "Soluções Enterprise para múltiplas unidades",
+    "title": "IA de Atendimento para",
+    "titleHighlight": "Redes de Franquias",
+    "subtitle": "Padronize o atendimento em toda a sua rede. Controle centralizado, qualidade garantida em cada unidade.",
+    "cta": "Agendar Demo Enterprise",
+    "ctaSecondary": "Falar com Especialista",
+    "networksServed": "Redes atendidas",
+    "uptime": "Uptime garantido",
+    "satisfactionIncrease": "Aumento em satisfação",
+    "dedicatedSupport": "Suporte dedicado",
+    "problemTitle": "O desafio de gerenciar múltiplas unidades",
+    "problemSubtitle": "Cada franquia é uma extensão da sua marca. Inconsistência no atendimento afeta toda a rede.",
+    "withoutStandard": "Sem padronização",
+    "challenge1": "Qualidade de atendimento varia entre unidades",
+    "challenge2": "Difícil monitorar desempenho de cada franquia",
+    "challenge3": "Custos operacionais inconsistentes",
+    "challenge4": "Treinamento constante de funcionários",
+    "withClickOneEnterprise": "Com ClickOne AI Enterprise",
+    "solution1": "Atendimento idêntico em todas as unidades",
+    "solution2": "Dashboard centralizado com métricas por filial",
+    "solution3": "Custo previsível e escalável",
+    "solution4": "Zero treinamento, qualidade imediata",
+    "benefitsTitle": "Funcionalidades Enterprise",
+    "benefit1Title": "Atendimento padronizado",
+    "benefit1Desc": "Mesma qualidade em todas as unidades, garantindo a consistência da marca.",
+    "benefit2Title": "Dashboard centralizado",
+    "benefit2Desc": "Visão completa do desempenho de todas as unidades em tempo real.",
+    "benefit3Title": "Controle de qualidade",
+    "benefit3Desc": "Monitore e garanta o padrão de atendimento em toda a rede.",
+    "benefit4Title": "Suporte dedicado",
+    "benefit4Desc": "Gerente de conta exclusivo e suporte prioritário para sua rede.",
+    "enterpriseFeaturesTitle": "Recursos inclusos no plano Enterprise",
+    "enterpriseFeature1": "Configuração centralizada para toda a rede",
+    "enterpriseFeature2": "Scripts personalizados por unidade ou região",
+    "enterpriseFeature3": "Relatórios consolidados e por filial",
+    "enterpriseFeature4": "Integração com sistemas de franquia",
+    "enterpriseFeature5": "Treinamento e onboarding para franqueados",
+    "enterpriseFeature6": "SLA garantido com uptime de 99.9%",
+    "testimonialsTitle": "Redes que confiam na ClickOne AI",
+    "testimonial1": "Gerenciar o atendimento de 15 unidades era um pesadelo. Com a ClickOne AI, temos padrão em todas as franquias e visibilidade total em um único dashboard.",
+    "testimonial2": "Nossos franqueados adoraram. Eles focam no serviço enquanto a IA cuida do atendimento. A satisfação do cliente subiu 40% em toda a rede.",
+    "ctaTitle": "Pronto para padronizar sua rede?",
+    "ctaSubtitle": "Agende uma demo enterprise e descubra como a ClickOne AI pode transformar o atendimento de toda a sua rede de franquias."
+  },
+  "agendarDemo": {
+    "hero": {
+      "badge": "Transforme seu atendimento hoje",
+      "title": "Agende Sua Demo",
+      "titleHighlight": "Grátis",
+      "subtitle": "Veja a ClickOne AI em ação e descubra como podemos transformar seu atendimento. Nunca mais perca um cliente por falta de resposta."
+    },
+    "form": {
+      "title": "Preencha o formulário",
+      "subtitle": "Nossa equipe entrará em contato em até 24 horas.",
+      "placeholder": "Área reservada para formulário ClickOne"
+    },
+    "quickBenefits": {
+      "demo30min": "Demo personalizada de 30 min",
+      "free": "100% gratuito",
+      "noCommitment": "Sem compromisso"
+    },
+    "benefits": {
+      "personalizedDemo": {
+        "title": "Demo personalizada de 30 minutos",
+        "description": "Um especialista vai entender seu negócio e mostrar como a IA pode ajudar."
+      },
+      "noCommitment": {
+        "title": "Sem compromisso",
+        "description": "Conheça a plataforma sem nenhuma obrigação de contratação."
+      },
+      "seeAiInAction": {
+        "title": "Veja a IA em ação",
+        "description": "Simulação real de como a ClickOne AI atenderia seus clientes."
+      }
+    },
+    "benefitsSection": {
+      "title": "O que você vai receber na demo"
+    },
+    "testimonialsSection": {
+      "badge": "Clientes satisfeitos",
+      "title": "O que nossos clientes dizem"
+    },
+    "testimonials": {
+      "carlos": "A demo foi incrível! Em 30 minutos, entendi exatamente como a IA funcionaria para minha empresa de limpeza.",
+      "roberto": "Depois da demo, ficou claro o quanto eu estava perdendo em chamadas não atendidas. Fechei no mesmo dia.",
+      "ana": "A equipe foi muito atenciosa e a demonstração foi super personalizada para o meu negócio.",
+      "diego": "Nunca pensei que automatizar meu atendimento seria tão simples. A demo me convenceu!"
+    },
+    "stats": {
+      "companiesServed": "Empresas atendidas",
+      "callsAutomated": "Chamadas automatizadas",
+      "satisfaction": "Satisfação do cliente",
+      "activeSupport": "Atendimento ativo"
+    }
   }
 }
