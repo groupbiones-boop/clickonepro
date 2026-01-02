@@ -12,7 +12,7 @@ import InfraestruturaVertical from "./pages/produto/InfraestruturaVertical";
 import Setores from "./pages/setores/Setores";
 import SetorDetalhe from "./pages/setores/SetorDetalhe";
 import Sobre from "./pages/Sobre";
-import Contato from "./pages/Contato";
+
 import AgendarDemo from "./pages/AgendarDemo";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -44,7 +44,7 @@ const App = () => (
           <Route path="/empresas/media-empresa" element={<MediaEmpresa />} />
           <Route path="/empresas/negocios-locais" element={<NegociosLocais />} />
           <Route path="/sobre" element={<Sobre />} />
-          <Route path="/contato" element={<Contato />} />
+          
           <Route path="/agendar-demo" element={<AgendarDemo />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

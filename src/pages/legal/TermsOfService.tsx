@@ -143,7 +143,7 @@ const TermsOfService = () => {
                 <p className="text-muted-foreground leading-relaxed">{t("legal.terms.contact.desc")}</p>
                 <div className="mt-4 p-6 bg-muted/30 rounded-lg">
                   <p className="font-semibold mb-2">ClickOne AI</p>
-                  <p className="text-muted-foreground">Email: contato@clickonepro.com</p>
+                  <p className="text-muted-foreground">Email: info@clickonepro.com</p>
                   <p className="text-muted-foreground">Phone: +1 (770) 501-7321</p>
                   <p className="text-muted-foreground">Location: United States</p>
                 </div>

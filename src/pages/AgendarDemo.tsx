@@ -1,12 +1,11 @@
-import { useState } from "react";
 import Layout from "@/components/layout/Layout";
-import { CheckCircle, Star, Clock, Shield, Headphones, Quote, Loader2 } from "lucide-react";
+import { CheckCircle, Star, Clock, Shield, Headphones, Quote, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
 
 const AgendarDemo = () => {
   const { t } = useTranslation();
-  const [isLoading, setIsLoading] = useState(true);
 
   const benefits = [
     {
@@ -63,9 +62,30 @@ const AgendarDemo = () => {
     t("agendarDemo.quickBenefits.noCommitment")
   ];
 
+  const contactInfo = [
+    {
+      icon: Phone,
+      label: t("footer.contact"),
+      value: "+1 (770) 501-7321",
+      href: "tel:+17705017321"
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "info@clickonepro.com",
+      href: "mailto:info@clickonepro.com"
+    },
+    {
+      icon: MapPin,
+      label: t("contact.location") || "Location",
+      value: "United States",
+      href: null
+    }
+  ];
+
   return (
     <Layout>
-      {/* Hero Section with Form Placeholder */}
+      {/* Hero Section with Contact Info */}
       <section className="py-20 md:py-32 bg-gradient-to-br from-primary/5 via-background to-accent/30 relative overflow-hidden">
         {/* Background decorations */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -86,51 +106,49 @@ const AgendarDemo = () => {
             </div>
           </AnimatedSection>
 
+          {/* Contact Info Cards */}
           <AnimatedSection animation="scale" delay={100}>
-            {/* Form Container */}
-            <div className="bg-card p-8 md:p-10 rounded-2xl shadow-xl border border-border max-w-xl mx-auto">
-              <div className="text-center mb-6">
-                <h2 className="text-xl font-semibold mb-2">{t("agendarDemo.form.title")}</h2>
-                <p className="text-muted-foreground text-sm">{t("agendarDemo.form.subtitle")}</p>
-              </div>
-              
-              {/* ClickOne Form */}
-              <div className="overflow-hidden rounded-xl relative">
-                {/* Loading state */}
-                {isLoading && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-card z-10 min-h-[500px]">
-                    <div className="flex flex-col items-center gap-3">
-                      <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                      <span className="text-sm text-muted-foreground">{t("contact.loadingForm")}</span>
-                    </div>
+            <div className="grid md:grid-cols-3 gap-4 mb-10">
+              {contactInfo.map((item, index) => (
+                <div key={index} className="bg-card p-6 rounded-xl border border-border text-center hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <item.icon className="h-6 w-6 text-primary" />
                   </div>
-                )}
-                <iframe
-                  src="https://links.clickonepro.com/widget/form/EtFZ7nEHXqyEHsV4eKbq"
-                  style={{ width: '100%', height: '500px', border: 'none' }}
-                  className="min-h-[550px] md:min-h-[500px]"
-                  onLoad={() => setIsLoading(false)}
-                  id="inline-EtFZ7nEHXqyEHsV4eKbq-demo"
-                  data-layout="{'id':'INLINE'}"
-                  data-trigger-type="alwaysShow"
-                  data-trigger-value=""
-                  data-activation-type="alwaysActivated"
-                  data-activation-value=""
-                  data-deactivation-type="neverDeactivate"
-                  data-deactivation-value=""
-                  data-form-name="Demo Form"
-                  data-height="500"
-                  data-layout-iframe-id="inline-EtFZ7nEHXqyEHsV4eKbq-demo"
-                  data-form-id="EtFZ7nEHXqyEHsV4eKbq"
-                  title="Demo Form"
-                />
-              </div>
+                  <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
+                  {item.href ? (
+                    <a 
+                      href={item.href} 
+                      className="font-semibold text-foreground hover:text-primary transition-colors"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="font-semibold text-foreground">{item.value}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          {/* Main CTA Button */}
+          <AnimatedSection animation="fade-up" delay={150}>
+            <div className="flex justify-center mb-10">
+              <Button asChild size="lg" className="h-16 px-10 text-lg gap-3">
+                <a 
+                  href="https://links.clickonepro.com/widget/bookings/clickoneus" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  {t("agendarDemo.cta") || t("nav.bookDemo")}
+                  <ArrowRight className="h-5 w-5" />
+                </a>
+              </Button>
             </div>
           </AnimatedSection>
 
           {/* Quick Benefits */}
           <AnimatedSection animation="fade-up" delay={200}>
-            <div className="flex flex-wrap justify-center gap-6 mt-10">
+            <div className="flex flex-wrap justify-center gap-6">
               {quickBenefits.map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-muted-foreground">
                   <CheckCircle className="h-5 w-5 text-primary" />
