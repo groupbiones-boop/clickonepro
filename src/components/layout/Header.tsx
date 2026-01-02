@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, ChevronRight, LogIn } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -168,12 +168,6 @@ const Header = () => {
           <LanguageSwitcher />
         </nav>
         <div className="hidden lg:flex items-center gap-3">
-          <Button variant="ghost" size="sm" asChild className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-            <a href="https://app.clickonepro.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-              <LogIn className="h-4 w-4" />
-              Login
-            </a>
-          </Button>
           <Button asChild variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
             <Link to="/agendar-demo">{t("nav.bookDemo")}</Link>
           </Button>
@@ -300,18 +294,6 @@ const Header = () => {
             </div>
 
             <div className="flex flex-col gap-2 mt-2">
-              <Button variant="outline" asChild className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                <a 
-                  href="https://app.clickonepro.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center justify-center gap-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <LogIn className="h-4 w-4" />
-                  Login
-                </a>
-              </Button>
               <Button asChild variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                 <Link to="/agendar-demo" onClick={() => setMobileMenuOpen(false)}>
                   {t("nav.bookDemo")}
