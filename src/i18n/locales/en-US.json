@@ -712,48 +712,11 @@
     "ctaSubtitle": "Schedule a demo and see how ClickOne AI centralizes your entire operation."
   },
   "thankYou": {
-    "title": "Thank You for Reaching Out!",
-    "titleDemo": "Demo Successfully Scheduled!",
-    "subtitle": "We have successfully received your message.",
-    "subtitleDemo": "We're excited to show you ClickOne AI in action.",
-    "responseTime": "Our team will contact you within 24 hours",
-    "responseTimeDemo": "You will receive a confirmation email shortly",
-    "nextStepsTitle": "Next Steps",
-    "nextStepsDescription": "See what happens now that you've contacted us.",
-    "stepLabel": "Step {{number}}",
-    "steps": {
-      "contact": {
-        "title": "Request Analysis",
-        "description": "Our team will analyze your request and prepare a personalized proposal."
-      },
-      "demo": {
-        "title": "Personalized Demo",
-        "description": "We'll schedule an exclusive demo to show how ClickOne AI works for your business."
-      },
-      "setup": {
-        "title": "Quick Setup",
-        "description": "Within 72 hours after onboarding, your AI will be ready to serve your customers."
-      }
-    },
-    "exploreTitle": "Meanwhile, Explore",
-    "exploreDescription": "Learn more about our solutions and how we can help your business.",
-    "explore": {
-      "sectors": {
-        "title": "Industries Served",
-        "description": "Discover how ClickOne AI transforms customer service across various segments.",
-        "cta": "View Industries"
-      },
-      "voice": {
-        "title": "AI Voice Receptionist",
-        "description": "Learn about our intelligent 24/7 phone answering solution.",
-        "cta": "Learn More"
-      },
-      "chat": {
-        "title": "AI Conversational Agent",
-        "description": "See how we automate conversations on WhatsApp, Instagram and more.",
-        "cta": "Discover"
-      }
-    },
-    "backHome": "Back to Home"
+    "title": "We received your request! ✅",
+    "subtitle": "Thank you for scheduling your demo with ClickOne AI.",
+    "mainMessage": "Our team has already received your information and will contact you as soon as possible to confirm the details of your demonstration. In the meantime, if you'd like to speed things up and ask questions now, you can speak immediately with our ClickOne Virtual Assistant, available to understand your business and help with whatever you need.",
+    "ctaButton": "Talk now with the Virtual Assistant",
+    "valueReinforcement": "This helps make your demo faster, more personalized, and more focused.",
+    "reassurance": "Rest assured. Our team is ready to help your company respond faster, organize your leads, and close more deals."
   }
 }
