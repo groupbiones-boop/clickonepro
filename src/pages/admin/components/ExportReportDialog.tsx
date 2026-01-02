@@ -12,13 +12,45 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
-import { useReportExport, ExportData, ExportSections } from "@/hooks/useReportExport";
+import { useReportExport } from "@/hooks/useReportExport";
 import { Download, FileSpreadsheet, FileText, Loader2 } from "lucide-react";
+
+// Local interface to avoid circular dependencies
+interface ExportDataLocal {
+  filters: { startDate: Date; endDate: Date };
+  funnel: {
+    visitors: number;
+    pageviews: number;
+    leads: number;
+    agendamentos: number;
+    clientes: number;
+    rates?: {
+      visitorsToPageviews: number;
+      pageviewsToLeads: number;
+      leadsToAgendamentos: number;
+      agendamentosToClientes: number;
+    };
+  };
+  funnelImage?: string;
+  visitors: number;
+  pageviews: number;
+  leads: number;
+  conversionRate: number;
+  topPages: Array<{ path: string; title?: string; views: number }>;
+  deviceStats: Array<{ name: string; value: number }>;
+}
+
+interface ExportSections {
+  funnel: boolean;
+  kpis: boolean;
+  topPages: boolean;
+  devices: boolean;
+}
 
 interface ExportReportDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  exportData: ExportData | null;
+  exportData: ExportDataLocal | null;
 }
 
 const ExportReportDialog = ({ open, onOpenChange, exportData }: ExportReportDialogProps) => {

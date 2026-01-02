@@ -29,6 +29,7 @@ import Login from "./pages/admin/Login";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 
+// QueryClient with default settings
 const queryClient = new QueryClient();
 
 const App = () => (

@@ -4,12 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Users, Eye, MousePointerClick, MessageCircle, Clock, Percent, Globe, Monitor, Smartphone, Tablet, Download } from "lucide-react";
 import { useVisitorStats, usePageviewStats, useTimelineData, useDeviceStats, useTopPages, useCountryStats } from "@/hooks/useAnalytics";
 import { useLeadsStats, useConversionRate, useAgendamentosCount, useLeadsTimeline } from "@/hooks/useLeadsStats";
-import { useFunnelData } from "@/hooks/useFunnelData";
+import { useFunnelData } from "@/hooks/use-funnel-data";
 import ConversionFunnel from "./ConversionFunnel";
-import type { FunnelRef } from "./ConversionFunnel";
 import ExportReportDialog from "./ExportReportDialog";
 import ScheduledReportsManager from "./ScheduledReportsManager";
-import type { ExportData } from "@/hooks/useReportExport";
 import {
   AreaChart,
   Area,
@@ -33,6 +31,31 @@ interface DashboardTabProps {
   };
 }
 
+// Local interface to avoid circular type dependencies
+interface ExportDataLocal {
+  filters: { startDate: Date; endDate: Date };
+  funnel: {
+    visitors: number;
+    pageviews: number;
+    leads: number;
+    agendamentos: number;
+    clientes: number;
+    rates?: {
+      visitorsToPageviews: number;
+      pageviewsToLeads: number;
+      leadsToAgendamentos: number;
+      agendamentosToClientes: number;
+    };
+  };
+  funnelImage?: string;
+  visitors: number;
+  pageviews: number;
+  leads: number;
+  conversionRate: number;
+  topPages: Array<{ path: string; title?: string; views: number }>;
+  deviceStats: Array<{ name: string; value: number }>;
+}
+
 const CHART_COLORS = {
   primary: "hsl(var(--chart-1))",
   secondary: "hsl(var(--chart-2))",
@@ -42,9 +65,9 @@ const CHART_COLORS = {
 };
 
 const DashboardTab = ({ filters }: DashboardTabProps) => {
-  const funnelRef = useRef<FunnelRef>(null);
+  const funnelRef = useRef<{ captureAsImage: () => Promise<string>; getData: () => any }>(null);
   const [isExportDialogOpen, setIsExportDialogOpen] = useState(false);
-  const [exportData, setExportData] = useState<ExportData | null>(null);
+  const [exportData, setExportData] = useState<ExportDataLocal | null>(null);
 
   const { data: visitorStats } = useVisitorStats(filters);
   const { data: pageviewStats } = usePageviewStats(filters);
