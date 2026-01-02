@@ -8,7 +8,7 @@ import {
   ChevronDown, 
   Phone, 
   MessageSquare, 
-  Plug2, 
+  Layers, 
   Award,
   Sparkles,
   Wind,
@@ -71,10 +71,10 @@ const Header = () => {
       icon: MessageSquare 
     },
     { 
-      name: t("megaMenu.product.integrations"), 
-      desc: t("megaMenu.product.integrationsDesc"),
-      slug: "/produto/recepcionista-ia-voz#integrations", 
-      icon: Plug2 
+      name: t("megaMenu.product.verticalInfra"), 
+      desc: t("megaMenu.product.verticalInfraDesc"),
+      slug: "/produto/infraestrutura-vertical", 
+      icon: Layers 
     },
     { 
       name: t("megaMenu.product.whyClickone"), 

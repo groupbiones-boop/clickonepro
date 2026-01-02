@@ -29,8 +29,8 @@
       "cta": "Book Demo",
       "voiceDesc": "Answer calls 24/7 with natural voice",
       "chatDesc": "Convert visitors via intelligent chat",
-      "integrations": "Integrations",
-      "integrationsDesc": "Connect with your favorite tools",
+      "verticalInfra": "Vertical Infrastructure",
+      "verticalInfraDesc": "Complete omnichannel service ecosystem",
       "whyClickone": "Why ClickOne?",
       "whyClickoneDesc": "Cutting-edge technology, dedicated support"
     },
@@ -570,7 +570,74 @@
       "companiesServed": "Companies served",
       "callsAutomated": "Calls automated",
       "satisfaction": "Customer satisfaction",
-      "activeSupport": "Active support"
+    "activeSupport": "Active support"
     }
+  },
+  "verticalInfra": {
+    "badge": "Complete Ecosystem",
+    "title": "Vertical Infrastructure",
+    "titleHighlight": "for Customer Service",
+    "subtitle": "Everything you need to serve, convert and retain customers on a single integrated platform.",
+    "cta": "Book Free Demo",
+    "ctaSecondary": "Talk to Specialist",
+    "stat1": "Unified tools",
+    "stat2": "Integrated channels",
+    "stat3": "Time savings",
+    "stat4": "More conversions",
+    "overviewTitle": "A Complete Ecosystem",
+    "overviewSubtitle": "All the tools you need, working together intelligently.",
+    "modules": {
+      "omnichannel": {
+        "title": "Omnichannel",
+        "subtitle": "All Channels in One Place",
+        "desc": "Centralize all conversations from phone, SMS, WhatsApp, Instagram, Facebook Messenger and website chat in a single panel.",
+        "feature1": "Unified inbox for all messages",
+        "feature2": "Complete history of each customer",
+        "feature3": "Smart automatic responses"
+      },
+      "socialMedia": {
+        "title": "Social Media Command Center",
+        "subtitle": "Total Control of Social Networks",
+        "desc": "Monitor and manage all social networks in a single panel with advanced automation features.",
+        "feature1": "Unified inbox from all networks",
+        "feature2": "AI-powered automatic responses",
+        "feature3": "Integrated post scheduling"
+      },
+      "googleBusiness": {
+        "title": "Google My Business AI",
+        "subtitle": "Growth and Performance on Google",
+        "desc": "Automated monitoring and service to optimize your Google presence and increase positive reviews.",
+        "feature1": "Automatic review responses",
+        "feature2": "Question management",
+        "feature3": "Real-time visibility metrics"
+      },
+      "emailMarketing": {
+        "title": "Integrated Email Marketing",
+        "subtitle": "Campaigns Direct from CRM",
+        "desc": "Create and send email campaigns directly integrated with your CRM and follow-up automations.",
+        "feature1": "Professional ready-made templates",
+        "feature2": "Automatic list segmentation",
+        "feature3": "Open and click analytics"
+      },
+      "crm": {
+        "title": "Smart CRM",
+        "subtitle": "Automations that Work for You",
+        "desc": "Manage all leads and customers with a modern CRM and trigger-based intelligent automations.",
+        "feature1": "Visual sales pipeline",
+        "feature2": "Behavior-based automations",
+        "feature3": "Automatic lead scoring"
+      }
+    },
+    "benefitsTitle": "Why a Unified Platform?",
+    "benefit1Title": "Eliminate 5-10 Software",
+    "benefit1Desc": "Replace dozens of tools with a single integrated platform.",
+    "benefit2Title": "Real Savings",
+    "benefit2Desc": "Reduce costs with licenses, training and complex integrations.",
+    "benefit3Title": "360° Customer View",
+    "benefit3Desc": "Have all the history and context of each customer in one place.",
+    "benefit4Title": "End-to-End Automation",
+    "benefit4Desc": "From first contact to after-sales, everything automated and integrated.",
+    "ctaTitle": "Ready to Unify Your Service?",
+    "ctaSubtitle": "Schedule a demo and see how ClickOne AI centralizes your entire operation."
   }
 }
