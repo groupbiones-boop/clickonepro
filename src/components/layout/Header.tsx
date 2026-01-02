@@ -25,10 +25,9 @@ const industries = [
 ];
 
 const businessTypes = [
-  { name: "Pequena empresa", description: "1-10 funcionários", slug: "pequena-empresa" },
-  { name: "Média empresa", description: "11-50 funcionários", slug: "media-empresa" },
-  { name: "Negócios locais", description: "Uma ou várias localizações", slug: "negocios-locais" },
-  { name: "Rede de franquias", description: "Múltiplas unidades", slug: "rede-franquias" },
+  { name: "Pequena empresa", description: "1-10 funcionários", slug: "/setores/limpeza" },
+  { name: "Média empresa", description: "11-50 funcionários", slug: "/setores/controle-pragas" },
+  { name: "Negócios locais", description: "Uma ou várias localizações", slug: "/setores/construcao" },
 ];
 
 const Header = () => {
@@ -57,7 +56,7 @@ const Header = () => {
                   Produto
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[300px] gap-2 p-4 bg-primary/95 backdrop-blur-sm border border-primary-foreground/20">
+                  <ul className="grid w-[300px] gap-2 p-4 bg-primary/80 backdrop-blur-md border border-primary-foreground/10">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link
@@ -98,7 +97,7 @@ const Header = () => {
                   A quem servimos
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid grid-cols-2 w-[520px] bg-primary/95 backdrop-blur-sm border border-primary-foreground/20">
+                  <div className="grid grid-cols-2 w-[520px] bg-primary/80 backdrop-blur-md border border-primary-foreground/10">
                     {/* Indústrias Column */}
                     <div className="p-5 border-r border-primary-foreground/20">
                       <h3 className="text-xs font-semibold text-primary-foreground/70 uppercase tracking-wider mb-4">
@@ -135,7 +134,7 @@ const Header = () => {
                           <li key={type.name}>
                             <NavigationMenuLink asChild>
                               <Link
-                                to={`/empresas/${type.slug}`}
+                                to={type.slug}
                                 className="block py-2 px-3 rounded-md transition-colors hover:bg-primary-foreground/10"
                               >
                                 <div className="text-sm font-medium text-primary-foreground">
@@ -268,7 +267,7 @@ const Header = () => {
                   {businessTypes.map((type) => (
                     <Link
                       key={type.name}
-                      to={`/empresas/${type.slug}`}
+                      to={type.slug}
                       className="text-sm text-primary-foreground/70 py-2"
                       onClick={() => setMobileMenuOpen(false)}
                     >
