@@ -1,31 +1,11 @@
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { CheckCircle, Loader2 } from "lucide-react";
+import { CheckCircle, Phone } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 
 const Obrigado = () => {
   const { t } = useTranslation();
-  const [isWidgetLoading, setIsWidgetLoading] = useState(true);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://beta.leadconnectorhq.com/loader.js";
-    script.setAttribute(
-      "data-resources-url",
-      "https://beta.leadconnectorhq.com/chat-widget/loader.js"
-    );
-    script.setAttribute("data-widget-id", "689a6e0381758b3ba63c1230");
-    script.async = true;
-    script.onload = () => setTimeout(() => setIsWidgetLoading(false), 800);
-    script.onerror = () => setIsWidgetLoading(false);
-    document.body.appendChild(script);
-
-    return () => {
-      if (document.body.contains(script)) document.body.removeChild(script);
-    };
-  }, []);
-
 
   return (
     <Layout>
@@ -66,30 +46,21 @@ const Obrigado = () => {
               </p>
             </div>
 
-            {/* Chat Widget da Bia */}
+            {/* CTA - Ligue para a Bia */}
             <div className="w-full max-w-md mx-auto">
-              <h3 className="text-lg font-semibold text-foreground mb-4">
-                {t("thankYou.ctaButton")}
-              </h3>
-              
-              <div className="relative bg-card border border-border/50 rounded-2xl shadow-xl overflow-hidden p-6 text-left">
-                {isWidgetLoading ? (
-                  <div className="flex flex-col items-center justify-center gap-3 py-10">
-                    <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                    <p className="text-muted-foreground text-sm">Carregando chat...</p>
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    <p className="text-sm text-muted-foreground">
-                      O chat não pode ser exibido embutido nesta página (o provedor bloqueia
-                      incorporação “inline”).
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Para falar com a Bia agora, use o ícone roxo no canto inferior direito.
-                    </p>
-                  </div>
-                )}
-              </div>
+              <Button
+                asChild
+                size="lg"
+                className="w-full text-lg px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all"
+              >
+                <a href="tel:+17705017321">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Ligue para a Bia agora
+                </a>
+              </Button>
+              <p className="text-muted-foreground text-sm mt-4">
+                E tire todas as suas dúvidas sobre a ClickOne
+              </p>
             </div>
 
             {/* Value Reinforcement */}
