@@ -177,6 +177,59 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
 
+      {/* Audio Demo Section */}
+      <section className="py-16 md:py-24 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.05),transparent_50%)]" />
+        
+        <div className="container relative">
+          <AnimatedSection className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
+              <Headphones className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Demonstração ao Vivo</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ouça Nossa IA em Ação
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Escute demonstrações reais de como a ClickOne AI atende chamadas e qualifica leads para diferentes tipos de negócios.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={100}>
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
+              {audioDemos.map((demo) => (
+                <Button
+                  key={demo.id}
+                  variant={selectedDemo.id === demo.id ? "default" : "outline"}
+                  onClick={() => setSelectedDemo(demo)}
+                  className="rounded-full px-6"
+                >
+                  {demo.title}
+                </Button>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={200}>
+            <div className="max-w-4xl mx-auto">
+              <AudioTranscriptPlayer demo={selectedDemo} />
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={300} className="text-center mt-10">
+            <p className="text-muted-foreground mb-4">
+              Impressionado? Veja como isso pode funcionar para seu negócio.
+            </p>
+            <Button asChild>
+              <Link to="/agendar-demo">
+                Agendar Minha Demo Personalizada
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Social Proof Ratings */}
       <section className="bg-foreground py-8 border-y border-border/20">
         <div className="container">
@@ -358,59 +411,6 @@ const Index = () => {
               </AnimatedSection>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Audio Demo Section */}
-      <section className="py-16 md:py-24 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.05),transparent_50%)]" />
-        
-        <div className="container relative">
-          <AnimatedSection className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
-              <Headphones className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Demonstração ao Vivo</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ouça Nossa IA em Ação
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Escute demonstrações reais de como a ClickOne AI atende chamadas e qualifica leads para diferentes tipos de negócios.
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection animation="fade-up" delay={100}>
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              {audioDemos.map((demo) => (
-                <Button
-                  key={demo.id}
-                  variant={selectedDemo.id === demo.id ? "default" : "outline"}
-                  onClick={() => setSelectedDemo(demo)}
-                  className="rounded-full px-6"
-                >
-                  {demo.title}
-                </Button>
-              ))}
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection animation="fade-up" delay={200}>
-            <div className="max-w-4xl mx-auto">
-              <AudioTranscriptPlayer demo={selectedDemo} />
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection animation="fade-up" delay={300} className="text-center mt-10">
-            <p className="text-muted-foreground mb-4">
-              Impressionado? Veja como isso pode funcionar para seu negócio.
-            </p>
-            <Button asChild>
-              <Link to="/agendar-demo">
-                Agendar Minha Demo Personalizada
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </AnimatedSection>
         </div>
       </section>
 
