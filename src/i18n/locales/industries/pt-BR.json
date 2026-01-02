@@ -1725,18 +1725,18 @@
     "solutionDescription": "Nossa IA prioriza emergências (trancados fora de casa/carro), coleta localização, qualifica o tipo de serviço e fornece estimativas de tempo e preço.",
     "solutions": [
       { "title": "Emergências priorizadas", "description": "Trancados fora imediatamente" },
-      { "title": "Coleta de localização", "description": "Endereço exato para deslocamento" },
+      { "title": "Coleta de endereço", "description": "Endereço exato para deslocamento" },
       { "title": "Qualificação de serviço", "description": "Tipo de fechadura e veículo" },
       { "title": "Estimativas de preço", "description": "Orçamento aproximado" },
-      { "title": "Tempo de chegada", "description": "ETA baseado em localização" },
-      { "title": "Atendimento 24/7", "description": "Emergências nunca param" }
+      { "title": "Atendimento 24/7", "description": "Emergências nunca param" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
     ],
     "features": [
       { "title": "Emergências 24/7", "description": "Trancados fora de casa/carro" },
-      { "title": "Localização GPS", "description": "Endereço para deslocamento" },
+      { "title": "Coleta de Endereço", "description": "Endereço para deslocamento" },
       { "title": "Qualificação", "description": "Tipo de fechadura e serviço" },
       { "title": "Orçamentos", "description": "Estimativas de preço" },
-      { "title": "ETA", "description": "Tempo estimado de chegada" },
+      { "title": "Atendimento Imediato", "description": "Resposta em segundos" },
       { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
     ],
     "stats": [
@@ -1776,15 +1776,15 @@
     "faqs": [
       {
         "question": "Como a IA lida com emergências de trancamento?",
-        "answer": "A IA coleta localização exata, tipo de fechadura/veículo, confirma que você está disponível e fornece ETA ao cliente."
+        "answer": "A IA coleta o endereço exato, tipo de fechadura/veículo e confirma que você está disponível para atender."
       },
       {
         "question": "A IA fornece orçamentos?",
-        "answer": "Sim! Com base no tipo de serviço e localização, a IA fornece uma estimativa de preço antes de você sair."
+        "answer": "Sim! Com base no tipo de serviço, a IA fornece uma estimativa de preço antes de você sair."
       },
       {
-        "question": "Como funciona a coleta de localização?",
-        "answer": "A IA pede o endereço exato ou pode receber localização via WhatsApp para calcular distância e tempo de chegada."
+        "question": "Como funciona a coleta de endereço?",
+        "answer": "A IA pede o endereço completo ou pode receber localização via WhatsApp para facilitar o deslocamento."
       },
       {
         "question": "A IA diferencia tipos de fechadura?",
