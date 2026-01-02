@@ -1,13 +1,20 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { CheckCircle, ArrowRight, Phone, MessageSquare, Building2 } from "lucide-react";
+import { Link, useSearchParams } from "react-router-dom";
+import { CheckCircle, ArrowRight, Phone, MessageSquare, Building2, Calendar } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 
+type SourceType = "demo" | "contato" | "default";
+
 const Obrigado = () => {
   const { t } = useTranslation();
+  const [searchParams] = useSearchParams();
+  
+  // Get source from UTM parameters
+  const source = (searchParams.get("source") as SourceType) || "default";
+  const isDemo = source === "demo";
 
   const nextSteps = [
     {
@@ -72,12 +79,12 @@ const Obrigado = () => {
 
             {/* Title */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              {t("thankYou.title")}
+              {t(isDemo ? "thankYou.titleDemo" : "thankYou.title")}
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-              {t("thankYou.subtitle")}
+              {t(isDemo ? "thankYou.subtitleDemo" : "thankYou.subtitle")}
             </p>
 
             {/* Response time badge */}
@@ -86,7 +93,9 @@ const Obrigado = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
               </span>
-              <span className="text-foreground font-medium">{t("thankYou.responseTime")}</span>
+              <span className="text-foreground font-medium">
+                {t(isDemo ? "thankYou.responseTimeDemo" : "thankYou.responseTime")}
+              </span>
             </div>
           </AnimatedSection>
         </div>
