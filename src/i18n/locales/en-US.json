@@ -713,8 +713,11 @@
   },
   "thankYou": {
     "title": "Thank You for Reaching Out!",
+    "titleDemo": "Demo Successfully Scheduled!",
     "subtitle": "We have successfully received your message.",
+    "subtitleDemo": "We're excited to show you ClickOne AI in action.",
     "responseTime": "Our team will contact you within 24 hours",
+    "responseTimeDemo": "You will receive a confirmation email shortly",
     "nextStepsTitle": "Next Steps",
     "nextStepsDescription": "See what happens now that you've contacted us.",
     "stepLabel": "Step {{number}}",
