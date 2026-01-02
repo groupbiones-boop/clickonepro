@@ -19,7 +19,8 @@
     "about": "Acerca de",
     "blog": "Blog",
     "contact": "Contacto",
-    "bookDemo": "Agendar Demo"
+    "bookDemo": "Agendar Demo",
+    "login": "Iniciar Sesión"
   },
   "hero": {
     "badge": "Recepcionista IA para Empresas de Servicios",

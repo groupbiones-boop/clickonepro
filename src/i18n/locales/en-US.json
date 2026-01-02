@@ -19,7 +19,8 @@
     "about": "About",
     "blog": "Blog",
     "contact": "Contact",
-    "bookDemo": "Book Demo"
+    "bookDemo": "Book Demo",
+    "login": "Sign In"
   },
   "hero": {
     "badge": "AI Receptionist for Service Businesses",
