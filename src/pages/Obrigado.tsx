@@ -1,14 +1,30 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { CheckCircle, MessageCircle } from "lucide-react";
+import { CheckCircle, Loader2 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
-import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 
 const Obrigado = () => {
   const { t } = useTranslation();
+  const [isWidgetLoading, setIsWidgetLoading] = useState(true);
 
-  // Placeholder - substituir pelo link real do WhatsApp/Chat
-  const virtualAttendantLink = "https://wa.me/5511999999999";
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://beta.leadconnectorhq.com/loader.js";
+    script.setAttribute("data-resources-url", "https://beta.leadconnectorhq.com/chat-widget/loader.js");
+    script.setAttribute("data-widget-id", "689a6e0381758b3ba63c1230");
+    script.async = true;
+    script.onload = () => {
+      setTimeout(() => setIsWidgetLoading(false), 1500);
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <Layout>
@@ -49,20 +65,31 @@ const Obrigado = () => {
               </p>
             </div>
 
-            {/* CTA Button */}
-            <Button 
-              asChild 
-              size="lg" 
-              className="text-lg px-8 py-6 h-auto shadow-lg hover:shadow-xl transition-all"
-            >
-              <a href={virtualAttendantLink} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-5 w-5" />
+            {/* Chat Widget da Bia */}
+            <div className="w-full max-w-md mx-auto">
+              <h3 className="text-lg font-semibold text-foreground mb-4">
                 {t("thankYou.ctaButton")}
-              </a>
-            </Button>
+              </h3>
+              
+              <div className="relative bg-card border border-border/50 rounded-2xl shadow-xl overflow-hidden min-h-[500px]">
+                {isWidgetLoading && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-card z-10">
+                    <Loader2 className="h-8 w-8 animate-spin text-primary mb-4" />
+                    <p className="text-muted-foreground text-sm">Carregando chat...</p>
+                  </div>
+                )}
+                
+                <div 
+                  data-chat-widget 
+                  data-widget-id="689a6e0381758b3ba63c1230" 
+                  data-location-id="yUk5li3I0wg4YGcbKlSF"
+                  className="w-full h-full min-h-[500px]"
+                />
+              </div>
+            </div>
 
             {/* Value Reinforcement */}
-            <p className="text-muted-foreground text-sm mt-4">
+            <p className="text-muted-foreground text-sm mt-6">
               {t("thankYou.valueReinforcement")}
             </p>
           </AnimatedSection>
