@@ -12,40 +12,40 @@ const MediaEmpresa = () => {
   const benefits = [
     {
       icon: Users,
-      title: t("mediaEmpresa.benefits.scale.title"),
-      description: t("mediaEmpresa.benefits.scale.description")
+      title: t("mediumBusiness.benefit1Title"),
+      description: t("mediumBusiness.benefit1Desc")
     },
     {
       icon: BarChart3,
-      title: t("mediaEmpresa.benefits.reports.title"),
-      description: t("mediaEmpresa.benefits.reports.description")
+      title: t("mediumBusiness.benefit2Title"),
+      description: t("mediumBusiness.benefit2Desc")
     },
     {
       icon: Zap,
-      title: t("mediaEmpresa.benefits.crmIntegration.title"),
-      description: t("mediaEmpresa.benefits.crmIntegration.description")
+      title: t("mediumBusiness.benefit3Title"),
+      description: t("mediumBusiness.benefit3Desc")
     },
     {
       icon: Settings,
-      title: t("mediaEmpresa.benefits.customization.title"),
-      description: t("mediaEmpresa.benefits.customization.description")
+      title: t("mediumBusiness.benefit4Title"),
+      description: t("mediumBusiness.benefit4Desc")
     }
   ];
 
   const challenges = [
-    t("mediaEmpresa.challenges.callVolume"),
-    t("mediaEmpresa.challenges.highCost"),
-    t("mediaEmpresa.challenges.inconsistency"),
-    t("mediaEmpresa.challenges.scalingDifficulty"),
-    t("mediaEmpresa.challenges.lostLeads")
+    t("mediumBusiness.challenge1"),
+    t("mediumBusiness.challenge2"),
+    t("mediumBusiness.challenge3"),
+    t("mediumBusiness.challenge4"),
+    t("mediumBusiness.challenge5")
   ];
 
   const solutions = [
-    t("mediaEmpresa.solutions.unlimitedVolume"),
-    t("mediaEmpresa.solutions.fixedCost"),
-    t("mediaEmpresa.solutions.standardizedService"),
-    t("mediaEmpresa.solutions.instantScaling"),
-    t("mediaEmpresa.solutions.coverage247")
+    t("mediumBusiness.solution1"),
+    t("mediumBusiness.solution2"),
+    t("mediumBusiness.solution3"),
+    t("mediumBusiness.solution4"),
+    t("mediumBusiness.solution5")
   ];
 
   const testimonials = [
@@ -53,14 +53,14 @@ const MediaEmpresa = () => {
       name: "Ricardo Ferreira",
       company: "Ferreira HVAC Services Inc",
       location: "Dallas, TX",
-      text: t("mediaEmpresa.testimonials.ricardo"),
+      text: t("bookDemo.testimonial1"),
       rating: 5,
     },
     {
       name: "Patricia Lima",
       company: "Lima Construction LLC",
       location: "Atlanta, GA",
-      text: t("mediaEmpresa.testimonials.patricia"),
+      text: t("bookDemo.testimonial2"),
       rating: 5,
     }
   ];
@@ -76,22 +76,22 @@ const MediaEmpresa = () => {
           <div className="max-w-3xl mx-auto text-center">
             <AnimatedSection animation="fade-up">
               <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-                {t("mediaEmpresa.hero.badge")}
+                {t("mediumBusiness.badge")}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                {t("mediaEmpresa.hero.title")} <span className="text-primary">{t("mediaEmpresa.hero.titleHighlight")}</span>
+                {t("mediumBusiness.title")} <span className="text-primary">{t("mediumBusiness.titleHighlight")}</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                {t("mediaEmpresa.hero.subtitle")}
+                {t("mediumBusiness.subtitle")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild>
                   <Link to="/agendar-demo">
-                    {t("common.bookFreeDemo")} <ArrowRight className="ml-2 h-4 w-4" />
+                    {t("mediumBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/contato">{t("common.talkToSpecialist")}</Link>
+                  <Link to="/contato">{t("mediumBusiness.ctaSecondary")}</Link>
                 </Button>
               </div>
             </AnimatedSection>
@@ -107,25 +107,25 @@ const MediaEmpresa = () => {
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={60} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("mediaEmpresa.stats.costReduction")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("mediumBusiness.costReduction")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={100}>
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={100} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("mediaEmpresa.stats.callsAnswered")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("mediumBusiness.callsAnswered")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={200}>
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={3} suffix="x" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("mediaEmpresa.stats.moreCapacity")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("mediumBusiness.moreCapacity")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={300}>
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={0} suffix="" prefix="$" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("mediaEmpresa.stats.initialSetup")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("mediumBusiness.initialSetup")}</p>
             </AnimatedSection>
           </div>
         </div>
@@ -137,10 +137,10 @@ const MediaEmpresa = () => {
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t("mediaEmpresa.problemSection.title")}
+                {t("mediumBusiness.problemTitle")}
               </h2>
               <p className="text-lg text-muted-foreground">
-                {t("mediaEmpresa.problemSection.subtitle")}
+                {t("mediumBusiness.problemSubtitle")}
               </p>
             </div>
           </AnimatedSection>
@@ -148,7 +148,7 @@ const MediaEmpresa = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <AnimatedSection animation="fade-right">
               <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-destructive">{t("mediaEmpresa.problemSection.challengesTitle")}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-destructive">{t("mediumBusiness.challengesTitle")}</h3>
                 <ul className="space-y-3 text-muted-foreground">
                   {challenges.map((challenge, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -162,7 +162,7 @@ const MediaEmpresa = () => {
 
             <AnimatedSection animation="fade-left">
               <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-primary">{t("mediaEmpresa.problemSection.solutionTitle")}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-primary">{t("mediumBusiness.solutionsTitle")}</h3>
                 <ul className="space-y-3 text-muted-foreground">
                   {solutions.map((solution, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -182,7 +182,7 @@ const MediaEmpresa = () => {
         <div className="container">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl font-bold text-center mb-12">
-              {t("mediaEmpresa.benefitsSection.title")}
+              {t("mediumBusiness.benefitsTitle")}
             </h2>
           </AnimatedSection>
 
@@ -207,7 +207,7 @@ const MediaEmpresa = () => {
         <div className="container">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl font-bold text-center mb-12">
-              {t("mediaEmpresa.testimonialsSection.title")}
+              {t("mediumBusiness.testimonialsTitle")}
             </h2>
           </AnimatedSection>
 
@@ -241,14 +241,14 @@ const MediaEmpresa = () => {
         <div className="container text-center">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("mediaEmpresa.cta.title")}
+              {t("mediumBusiness.ctaTitle")}
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-              {t("mediaEmpresa.cta.subtitle")}
+              {t("mediumBusiness.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
               <Link to="/agendar-demo">
-                {t("common.bookFreeDemo")} <ArrowRight className="ml-2 h-4 w-4" />
+                {t("mediumBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </AnimatedSection>

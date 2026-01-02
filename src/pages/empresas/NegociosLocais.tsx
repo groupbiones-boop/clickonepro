@@ -12,32 +12,32 @@ const NegociosLocais = () => {
   const benefits = [
     {
       icon: MapPin,
-      title: t("negociosLocais.benefits.localPresence.title"),
-      description: t("negociosLocais.benefits.localPresence.description")
+      title: t("localBusiness.benefit1Title"),
+      description: t("localBusiness.benefit1Desc")
     },
     {
       icon: Phone,
-      title: t("negociosLocais.benefits.neverMissCall.title"),
-      description: t("negociosLocais.benefits.neverMissCall.description")
+      title: t("localBusiness.benefit2Title"),
+      description: t("localBusiness.benefit2Desc")
     },
     {
       icon: Calendar,
-      title: t("negociosLocais.benefits.autoScheduling.title"),
-      description: t("negociosLocais.benefits.autoScheduling.description")
+      title: t("localBusiness.benefit3Title"),
+      description: t("localBusiness.benefit3Desc")
     },
     {
       icon: MessageSquare,
-      title: t("negociosLocais.benefits.multichannel.title"),
-      description: t("negociosLocais.benefits.multichannel.description")
+      title: t("localBusiness.benefit4Title"),
+      description: t("localBusiness.benefit4Desc")
     }
   ];
 
   const localChallenges = [
-    t("negociosLocais.challenges.competition"),
-    t("negociosLocais.challenges.clientsLeave"),
-    t("negociosLocais.challenges.duringService"),
-    t("negociosLocais.challenges.limitedHours"),
-    t("negociosLocais.challenges.receptionCost")
+    t("localBusiness.challenge1"),
+    t("localBusiness.challenge2"),
+    t("localBusiness.challenge3"),
+    t("localBusiness.challenge4"),
+    t("localBusiness.challenge5")
   ];
 
   const testimonials = [
@@ -45,14 +45,14 @@ const NegociosLocais = () => {
       name: "Fernando Costa",
       company: "Costa Electric LLC",
       location: "Denver, CO",
-      text: t("negociosLocais.testimonials.fernando"),
+      text: t("bookDemo.testimonial1"),
       rating: 5,
     },
     {
       name: "Maria Rodriguez",
       company: "Rodriguez Hair Studio",
       location: "San Antonio, TX",
-      text: t("negociosLocais.testimonials.maria"),
+      text: t("bookDemo.testimonial2"),
       rating: 5,
     }
   ];
@@ -68,22 +68,22 @@ const NegociosLocais = () => {
           <div className="max-w-3xl mx-auto text-center">
             <AnimatedSection animation="fade-up">
               <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-                {t("negociosLocais.hero.badge")}
+                {t("localBusiness.badge")}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                {t("negociosLocais.hero.title")} <span className="text-primary">{t("negociosLocais.hero.titleHighlight")}</span>
+                {t("localBusiness.title")} <span className="text-primary">{t("localBusiness.titleHighlight")}</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                {t("negociosLocais.hero.subtitle")}
+                {t("localBusiness.subtitle")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" asChild>
                   <Link to="/agendar-demo">
-                    {t("common.bookFreeDemo")} <ArrowRight className="ml-2 h-4 w-4" />
+                    {t("localBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/contato">{t("common.talkToSpecialist")}</Link>
+                  <Link to="/contato">{t("localBusiness.ctaSecondary")}</Link>
                 </Button>
               </div>
             </AnimatedSection>
@@ -99,25 +99,25 @@ const NegociosLocais = () => {
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={78} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("negociosLocais.stats.firstResponder")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("localBusiness.firstResponder")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={100}>
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={5} suffix="s" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("negociosLocais.stats.responseTime")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("localBusiness.responseTime")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={200}>
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={35} suffix="%" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("negociosLocais.stats.moreBookings")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("localBusiness.moreBookings")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={300}>
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={24} suffix="/7" />
               </div>
-              <p className="text-primary-foreground/80 text-sm">{t("negociosLocais.stats.availability")}</p>
+              <p className="text-primary-foreground/80 text-sm">{t("localBusiness.availability")}</p>
             </AnimatedSection>
           </div>
         </div>
@@ -129,17 +129,17 @@ const NegociosLocais = () => {
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t("negociosLocais.challengesSection.title")}
+                {t("localBusiness.challengesTitle")}
               </h2>
               <p className="text-lg text-muted-foreground">
-                {t("negociosLocais.challengesSection.subtitle")}
+                {t("localBusiness.challengesSubtitle")}
               </p>
             </div>
           </AnimatedSection>
 
           <AnimatedSection animation="fade-up" delay={100}>
             <div className="bg-muted/50 rounded-xl p-8">
-              <h3 className="text-xl font-semibold mb-6 text-center">{t("negociosLocais.challengesSection.listTitle")}</h3>
+              <h3 className="text-xl font-semibold mb-6 text-center">{t("localBusiness.challengesListTitle")}</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {localChallenges.map((challenge, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 bg-background rounded-lg">
@@ -158,10 +158,10 @@ const NegociosLocais = () => {
         <div className="container">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl font-bold text-center mb-4">
-              {t("negociosLocais.benefitsSection.title")}
+              {t("localBusiness.benefitsTitle")}
             </h2>
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              {t("negociosLocais.benefitsSection.subtitle")}
+              {t("localBusiness.benefitsSubtitle")}
             </p>
           </AnimatedSection>
 
@@ -186,7 +186,7 @@ const NegociosLocais = () => {
         <div className="container">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl font-bold text-center mb-12">
-              {t("negociosLocais.testimonialsSection.title")}
+              {t("localBusiness.testimonialsTitle")}
             </h2>
           </AnimatedSection>
 
@@ -220,14 +220,14 @@ const NegociosLocais = () => {
         <div className="container text-center">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("negociosLocais.cta.title")}
+              {t("localBusiness.ctaTitle")}
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-              {t("negociosLocais.cta.subtitle")}
+              {t("localBusiness.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
               <Link to="/agendar-demo">
-                {t("common.bookFreeDemo")} <ArrowRight className="ml-2 h-4 w-4" />
+                {t("localBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </AnimatedSection>
