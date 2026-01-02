@@ -88,7 +88,7 @@ export const audioDemos: AudioDemo[] = [
     id: "cleaning",
     title: "Cleaning",
     image: industryCleaning,
-    audioUrl: "https://ojyzegzdlpjlbdhvqhav.supabase.co/storage/v1/object/public/demo-audio/cleaning.mp3",
+    audioUrl: "/audio/cleaning-demo.m4a",
     transcript: [
       { speaker: "ai", text: "Thank you for calling Sparkle Clean Services. I'm Sarah, your virtual assistant. How can I help you today?", timestamp: 0 },
       { speaker: "client", text: "Hi! I'd like to schedule a deep cleaning for my house.", timestamp: 8 },
