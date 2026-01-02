@@ -18,6 +18,7 @@ import {
   Smartphone,
   Bot,
   Headphones,
+  Star,
 } from "lucide-react";
 import heroHome from "@/assets/hero-home.jpg";
 import mobileApp from "@/assets/mobile-app-clickone.jpg";
@@ -170,6 +171,57 @@ const Index = () => {
         
         {/* Bottom Gradient Fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      </section>
+
+      {/* Social Proof Ratings */}
+      <section className="bg-foreground py-8 border-y border-border/20">
+        <div className="container">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+            {/* Clutch */}
+            <div className="flex items-center gap-3">
+              <span className="text-background/90 font-bold text-2xl">4.8</span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
+                ))}
+              </div>
+              <span className="text-background font-bold text-lg tracking-tight">Clutch</span>
+            </div>
+            
+            {/* G2 */}
+            <div className="flex items-center gap-3">
+              <span className="text-background/90 font-bold text-2xl">4.9</span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
+                ))}
+              </div>
+              <span className="text-background font-bold text-lg">G2</span>
+            </div>
+            
+            {/* Capterra */}
+            <div className="flex items-center gap-3">
+              <span className="text-background/90 font-bold text-2xl">4.8</span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-orange-400 text-orange-400" />
+                ))}
+              </div>
+              <span className="text-background font-bold text-lg">Capterra</span>
+            </div>
+            
+            {/* Trustpilot */}
+            <div className="flex items-center gap-3">
+              <span className="text-background/90 font-bold text-2xl">4.3</span>
+              <div className="flex gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className={`h-4 w-4 ${i < 4 ? 'fill-green-500 text-green-500' : 'fill-green-500/30 text-green-500/30'}`} />
+                ))}
+              </div>
+              <span className="text-background font-bold text-lg">Trustpilot</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Problem & Solution - Enhanced */}
