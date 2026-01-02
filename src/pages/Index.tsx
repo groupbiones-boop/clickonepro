@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
+import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import {
   Phone,
   MessageSquare,
@@ -173,7 +174,8 @@ const Index = () => {
         <div className="container relative">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
             {/* Problem Card */}
-            <div className="group relative">
+            <AnimatedSection animation="fade-left">
+              <div className="group relative h-full">
               <div className="absolute -inset-1 bg-gradient-to-r from-destructive/20 to-destructive/5 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
               <div className="relative bg-card rounded-2xl p-8 md:p-10 border border-border/50 h-full">
                 <div className="inline-flex items-center gap-2 text-destructive text-sm font-semibold mb-6 uppercase tracking-wide">
@@ -205,10 +207,12 @@ const Index = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+              </div>
+            </AnimatedSection>
             
             {/* Solution Card */}
-            <div className="group relative">
+            <AnimatedSection animation="fade-right" delay={200}>
+              <div className="group relative h-full">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary/10 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
               <div className="relative bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl p-8 md:p-10 border border-primary/20 h-full">
                 <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-6 uppercase tracking-wide">
@@ -264,7 +268,8 @@ const Index = () => {
                   </Button>
                 </div>
               </div>
-            </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -272,21 +277,23 @@ const Index = () => {
       {/* How It Works */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container">
-          <div className="text-center mb-12">
+          <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Como Funciona</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Em 4 passos simples, você transforma cada ligação em uma oportunidade de negócio.
             </p>
-          </div>
+          </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, index) => (
-              <Card key={index} className="relative overflow-hidden">
-                <CardContent className="pt-6">
-                  <span className="text-5xl font-bold text-primary/20">{step.number}</span>
-                  <h3 className="text-xl font-semibold mt-2 mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm">{step.description}</p>
-                </CardContent>
-              </Card>
+              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <Card className="relative overflow-hidden h-full">
+                  <CardContent className="pt-6">
+                    <span className="text-5xl font-bold text-primary/20">{step.number}</span>
+                    <h3 className="text-xl font-semibold mt-2 mb-2">{step.title}</h3>
+                    <p className="text-muted-foreground text-sm">{step.description}</p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -295,25 +302,27 @@ const Index = () => {
       {/* Features */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container">
-          <div className="text-center mb-12">
+          <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Recursos Poderosos de IA
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Tecnologia de ponta para maximizar seu atendimento e conversões.
             </p>
-          </div>
+          </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="pt-6">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm">{feature.description}</p>
-                </CardContent>
-              </Card>
+              <AnimatedSection key={index} animation="scale" delay={index * 100}>
+                <Card className="text-center h-full">
+                  <CardContent className="pt-6">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <feature.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-muted-foreground text-sm">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -322,25 +331,27 @@ const Index = () => {
       {/* Omnichannel */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container">
-          <div className="text-center mb-12">
+          <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Atendimento Omnichannel
             </h2>
             <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
               Esteja presente em todos os canais onde seus clientes estão.
             </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {channels.map((channel, index) => (
-              <div
-                key={index}
-                className="bg-primary-foreground/10 rounded-lg p-4 text-center hover:bg-primary-foreground/20 transition-colors"
-              >
-                <channel.icon className="h-8 w-8 mx-auto mb-2" />
-                <span className="text-sm font-medium">{channel.name}</span>
-              </div>
-            ))}
-          </div>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-up">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {channels.map((channel, index) => (
+                <div
+                  key={index}
+                  className="bg-primary-foreground/10 rounded-lg p-4 text-center hover:bg-primary-foreground/20 transition-colors"
+                >
+                  <channel.icon className="h-8 w-8 mx-auto mb-2" />
+                  <span className="text-sm font-medium">{channel.name}</span>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -348,7 +359,7 @@ const Index = () => {
       <section className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+            <AnimatedSection animation="fade-left">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Aplicativo Mobile para Profissionais em Campo
               </h2>
@@ -377,14 +388,16 @@ const Index = () => {
               <Button asChild>
                 <Link to="/agendar-demo">Saiba Mais</Link>
               </Button>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden">
-              <img 
-                src={mobileApp} 
-                alt="Aplicativo mobile ClickOne AI mostrando notificações e agenda" 
-                className="w-full h-auto rounded-2xl"
-              />
-            </div>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-right" delay={200}>
+              <div className="relative rounded-2xl overflow-hidden">
+                <img 
+                  src={mobileApp} 
+                  alt="Aplicativo mobile ClickOne AI mostrando notificações e agenda" 
+                  className="w-full h-auto rounded-2xl"
+                />
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -392,31 +405,33 @@ const Index = () => {
       {/* Industries Preview */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container">
-          <div className="text-center mb-12">
+          <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Setores que Atendemos
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Soluções personalizadas para cada tipo de negócio de serviços.
             </p>
-          </div>
+          </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((industry, index) => (
-              <Link key={index} to={`/setores/${industry.slug}`}>
-                <Card className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer h-full overflow-hidden">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={industry.image} 
-                      alt={industry.name} 
-                      className="w-full h-full object-cover transition-transform hover:scale-105"
-                    />
-                  </div>
-                  <CardContent className="pt-4">
-                    <h3 className="text-lg font-semibold">{industry.name}</h3>
-                    <span className="text-sm text-primary">Saiba mais →</span>
-                  </CardContent>
-                </Card>
-              </Link>
+              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
+                <Link to={`/setores/${industry.slug}`}>
+                  <Card className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer h-full overflow-hidden">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img 
+                        src={industry.image} 
+                        alt={industry.name} 
+                        className="w-full h-full object-cover transition-transform hover:scale-105"
+                      />
+                    </div>
+                    <CardContent className="pt-4">
+                      <h3 className="text-lg font-semibold">{industry.name}</h3>
+                      <span className="text-sm text-primary">Saiba mais →</span>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </AnimatedSection>
             ))}
           </div>
           <div className="text-center mt-8">
