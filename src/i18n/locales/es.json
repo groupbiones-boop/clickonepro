@@ -257,7 +257,8 @@
     "faq4Question": "¿Cómo funciona la demo gratuita?",
     "faq4Answer": "En la demo de 30 minutos, un especialista entenderá tu negocio y mostrará cómo nuestra IA puede aumentar tus conversiones. Sin compromiso.",
     "faq5Question": "¿Puedo integrar con mis herramientas actuales?",
-    "faq5Answer": "¡Por supuesto! ClickOne conecta con diversas redes sociales como Facebook e Instagram, Google My Business, y varios tipos de calendario, incluyendo el calendario nativo de la plataforma."
+    "faq5Answer": "¡Por supuesto! ClickOne conecta con diversas redes sociales como Facebook e Instagram, Google My Business, y varios tipos de calendario, incluyendo el calendario nativo de la plataforma.",
+    "loadingForm": "Cargando formulario..."
   },
   "bookDemo": {
     "badge": "Transforma tu atención hoy",

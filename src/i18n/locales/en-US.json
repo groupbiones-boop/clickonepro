@@ -257,7 +257,8 @@
     "faq4Question": "How does the free demo work?",
     "faq4Answer": "In the 30-minute demo, a specialist will understand your business and show how our AI can increase your conversions. No commitment required.",
     "faq5Question": "Can I integrate with my current tools?",
-    "faq5Answer": "Absolutely! ClickOne connects with various social networks like Facebook and Instagram, Google My Business, and multiple calendar types, including our native platform calendar."
+    "faq5Answer": "Absolutely! ClickOne connects with various social networks like Facebook and Instagram, Google My Business, and multiple calendar types, including our native platform calendar.",
+    "loadingForm": "Loading form..."
   },
   "bookDemo": {
     "badge": "Transform your service today",
