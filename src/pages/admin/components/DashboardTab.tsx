@@ -133,8 +133,8 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
       {/* Header with Export Button */}
       <div className="flex justify-end">
         <Button onClick={handleExportClick} variant="outline" size="sm">
-          <Download className="h-4 w-4 mr-2" />
-          Exportar Relatório
+          <Download className="h-4 w-4 md:mr-2" />
+          <span className="hidden md:inline">Exportar Relatório</span>
         </Button>
       </div>
 

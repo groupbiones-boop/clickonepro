@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { format, subDays, startOfDay, endOfDay } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { CalendarIcon } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface DateRangePickerProps {
   startDate: Date;
@@ -19,14 +20,15 @@ interface DateRangePickerProps {
 
 const presets = [
   { label: "Hoje", days: 0 },
-  { label: "Últimos 7 dias", days: 7 },
-  { label: "Últimos 30 dias", days: 30 },
-  { label: "Últimos 90 dias", days: 90 },
-  { label: "Último ano", days: 365 },
+  { label: "7 dias", days: 7 },
+  { label: "30 dias", days: 30 },
+  { label: "90 dias", days: 90 },
+  { label: "1 ano", days: 365 },
 ];
 
 const DateRangePicker = ({ startDate, endDate, onDateChange }: DateRangePickerProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const handlePresetClick = (days: number) => {
     const end = endOfDay(new Date());
@@ -41,33 +43,41 @@ const DateRangePicker = ({ startDate, endDate, onDateChange }: DateRangePickerPr
         <Button
           variant="outline"
           className={cn(
-            "justify-start text-left font-normal",
+            "justify-start text-left font-normal min-w-0",
             !startDate && "text-muted-foreground"
           )}
         >
-          <CalendarIcon className="mr-2 h-4 w-4" />
-          {startDate ? (
-            endDate ? (
-              <>
-                {format(startDate, "d MMM yyyy", { locale: ptBR })} - {format(endDate, "d MMM yyyy", { locale: ptBR })}
-              </>
+          <CalendarIcon className="h-4 w-4 shrink-0 md:mr-2" />
+          <span className="hidden md:inline">
+            {startDate ? (
+              endDate ? (
+                <>
+                  {format(startDate, "d MMM", { locale: ptBR })} - {format(endDate, "d MMM", { locale: ptBR })}
+                </>
+              ) : (
+                format(startDate, "d MMM yyyy", { locale: ptBR })
+              )
             ) : (
-              format(startDate, "d MMM yyyy", { locale: ptBR })
-            )
-          ) : (
-            <span>Selecione uma data</span>
-          )}
+              "Selecione"
+            )}
+          </span>
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0" align="end">
-        <div className="flex">
-          <div className="border-r border-border p-3 space-y-1">
+        <div className={cn("flex", isMobile ? "flex-col" : "flex-row")}>
+          <div className={cn(
+            "border-border p-3 space-y-1",
+            isMobile ? "border-b flex flex-wrap gap-1" : "border-r"
+          )}>
             {presets.map((preset) => (
               <Button
                 key={preset.label}
                 variant="ghost"
                 size="sm"
-                className="w-full justify-start"
+                className={cn(
+                  "justify-start",
+                  isMobile ? "flex-1 min-w-[70px]" : "w-full"
+                )}
                 onClick={() => handlePresetClick(preset.days)}
               >
                 {preset.label}
@@ -86,8 +96,9 @@ const DateRangePicker = ({ startDate, endDate, onDateChange }: DateRangePickerPr
                   onDateChange(startOfDay(range.from), endOfDay(range.to));
                 }
               }}
-              numberOfMonths={2}
+              numberOfMonths={isMobile ? 1 : 2}
               locale={ptBR}
+              className="pointer-events-auto"
             />
           </div>
         </div>

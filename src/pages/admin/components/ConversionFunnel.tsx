@@ -149,7 +149,7 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
                     <TooltipTrigger asChild>
                       {/* Funnel Bar - trapezoid shape centered */}
                       <div 
-                        className="relative flex items-center justify-between px-4 py-3 transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+                        className="relative flex items-center justify-between px-2 sm:px-4 py-2 sm:py-3 transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
                         style={{ 
                           width: `${widthPercent}%`,
                           backgroundColor: stage.color,
@@ -157,12 +157,12 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
                         }}
                       >
                         {/* Icon in white rounded square */}
-                        <div className="flex items-center justify-center w-7 h-7 bg-white rounded-md">
-                          <Icon className="h-4 w-4" style={{ color: stage.color }} />
+                        <div className="flex items-center justify-center w-5 h-5 sm:w-7 sm:h-7 bg-white rounded-md">
+                          <Icon className="h-3 w-3 sm:h-4 sm:w-4" style={{ color: stage.color }} />
                         </div>
                         {/* Number in white circle */}
                         <span 
-                          className="flex items-center justify-center w-6 h-6 rounded-full bg-white font-bold text-xs"
+                          className="flex items-center justify-center w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-white font-bold text-[10px] sm:text-xs"
                           style={{ color: stage.color }}
                         >
                           {index + 1}
@@ -191,8 +191,10 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
 
                   {/* Label and Value below bar */}
                   <div className="text-center mt-1">
-                    <p className="text-xs font-semibold" style={{ color: stage.color }}>
-                      {stage.label} ({value.toLocaleString("pt-BR")})
+                    <p className="text-[10px] sm:text-xs font-semibold" style={{ color: stage.color }}>
+                      <span className="hidden sm:inline">{stage.label}</span>
+                      <span className="sm:hidden">{stage.label.split(" ")[0]}</span>
+                      {" "}({value.toLocaleString("pt-BR")})
                     </p>
                   </div>
                 </div>
