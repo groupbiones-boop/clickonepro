@@ -1,0 +1,337 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Users, Eye, MousePointerClick, MessageCircle, Clock, Percent, Globe, Monitor, Smartphone, Tablet } from "lucide-react";
+import { useVisitorStats, usePageviewStats, useTimelineData, useDeviceStats, useTopPages, useCountryStats } from "@/hooks/useAnalytics";
+import { useLeadsStats, useConversionRate, useAgendamentosCount, useLeadsTimeline } from "@/hooks/useLeadsStats";
+import {
+  AreaChart,
+  Area,
+  BarChart,
+  Bar,
+  PieChart,
+  Pie,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
+} from "recharts";
+
+interface DashboardTabProps {
+  filters: {
+    startDate: Date;
+    endDate: Date;
+  };
+}
+
+const CHART_COLORS = {
+  primary: "hsl(var(--chart-1))",
+  secondary: "hsl(var(--chart-2))",
+  tertiary: "hsl(var(--chart-3))",
+  success: "hsl(var(--chart-4))",
+  accent: "hsl(var(--chart-5))",
+};
+
+const DashboardTab = ({ filters }: DashboardTabProps) => {
+  const { data: visitorStats } = useVisitorStats(filters);
+  const { data: pageviewStats } = usePageviewStats(filters);
+  const { data: leadsStats } = useLeadsStats(filters);
+  const { data: conversionData } = useConversionRate(filters);
+  const { data: agendamentosCount } = useAgendamentosCount(filters);
+  const { data: timelineData } = useTimelineData(filters);
+  const { data: leadsTimeline } = useLeadsTimeline(filters);
+  const { data: deviceStats } = useDeviceStats(filters);
+  const { data: topPages } = useTopPages(filters);
+  const { data: countryStats } = useCountryStats(filters);
+
+  const formatChange = (value: number | undefined) => {
+    if (!value) return "0%";
+    const sign = value > 0 ? "+" : "";
+    return `${sign}${value.toFixed(1)}%`;
+  };
+
+  const deviceData = deviceStats?.map((d) => ({
+    name: d.name,
+    value: d.value,
+  })) || [];
+
+  return (
+    <div className="space-y-6">
+      {/* Conversion Cards Row */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card className="bg-primary/5 border-primary/20">
+          <CardContent className="p-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <MousePointerClick className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Total Conversões</p>
+                <p className="text-2xl font-bold">{leadsStats?.total || 0}</p>
+                <p className="text-xs text-muted-foreground">
+                  {formatChange(leadsStats?.changePercent)} vs período anterior
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-primary/5 border-primary/20">
+          <CardContent className="p-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <Percent className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Taxa de Conversão</p>
+                <p className="text-2xl font-bold">{conversionData?.rate.toFixed(2) || 0}%</p>
+                <p className="text-xs text-muted-foreground">
+                  {conversionData?.leads || 0} leads / {conversionData?.visitors || 0} visitantes
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-chart-4/5 border-chart-4/20">
+          <CardContent className="p-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-chart-4/10">
+                <Clock className="h-5 w-5 text-chart-4" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Agendamentos</p>
+                <p className="text-2xl font-bold">{agendamentosCount || 0}</p>
+                <p className="text-xs text-muted-foreground">Demos agendados</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-primary/5 border-primary/20">
+          <CardContent className="p-4">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <MessageCircle className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-sm text-muted-foreground">Chat com Bia</p>
+                <p className="text-2xl font-bold">-</p>
+                <p className="text-xs text-muted-foreground">Interações chatbot</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Traffic Cards Row */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <Card>
+          <CardContent className="p-4">
+            <p className="text-sm text-muted-foreground">Total Visitantes</p>
+            <p className="text-2xl font-bold">{visitorStats?.current || 0}</p>
+            <p className={`text-xs ${(visitorStats?.changePercent || 0) >= 0 ? "text-green-500" : "text-red-500"}`}>
+              {formatChange(visitorStats?.changePercent)}
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <p className="text-sm text-muted-foreground">Visitantes Únicos</p>
+            <p className="text-2xl font-bold">{visitorStats?.current || 0}</p>
+            <p className={`text-xs ${(visitorStats?.changePercent || 0) >= 0 ? "text-green-500" : "text-red-500"}`}>
+              {formatChange(visitorStats?.changePercent)}
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <p className="text-sm text-muted-foreground">Page Views</p>
+            <p className="text-2xl font-bold">{pageviewStats?.current || 0}</p>
+            <p className={`text-xs ${(pageviewStats?.changePercent || 0) >= 0 ? "text-green-500" : "text-red-500"}`}>
+              {formatChange(pageviewStats?.changePercent)}
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <p className="text-sm text-muted-foreground">Páginas/Visita</p>
+            <p className="text-2xl font-bold">
+              {visitorStats?.current ? ((pageviewStats?.current || 0) / visitorStats.current).toFixed(1) : "0"}
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <p className="text-sm text-muted-foreground">Taxa de Bounce</p>
+            <p className="text-2xl font-bold">-</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <p className="text-sm text-muted-foreground">Tempo Médio</p>
+            <p className="text-2xl font-bold">-</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Charts Row 1 */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Conversões por Dia</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[300px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={leadsTimeline || []}>
+                  <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                  <XAxis dataKey="date" className="text-xs" />
+                  <YAxis className="text-xs" />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: "hsl(var(--card))",
+                      border: "1px solid hsl(var(--border))",
+                      borderRadius: "8px",
+                    }}
+                  />
+                  <Legend />
+                  <Bar dataKey="agendamentos" name="Agendamentos" fill={CHART_COLORS.success} radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="chat" name="Chat" fill={CHART_COLORS.primary} radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Visualizações e Visitantes</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[300px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={timelineData || []}>
+                  <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                  <XAxis dataKey="date" className="text-xs" />
+                  <YAxis className="text-xs" />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: "hsl(var(--card))",
+                      border: "1px solid hsl(var(--border))",
+                      borderRadius: "8px",
+                    }}
+                  />
+                  <Legend />
+                  <Area
+                    type="monotone"
+                    dataKey="pageviews"
+                    name="Visualizações"
+                    stroke={CHART_COLORS.primary}
+                    fill={CHART_COLORS.primary}
+                    fillOpacity={0.3}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="sessions"
+                    name="Visitantes"
+                    stroke={CHART_COLORS.secondary}
+                    fill={CHART_COLORS.secondary}
+                    fillOpacity={0.3}
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Charts Row 2 */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Dispositivos</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[250px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={deviceData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={80}
+                    paddingAngle={5}
+                    dataKey="value"
+                  >
+                    {deviceData.map((_, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={[CHART_COLORS.primary, CHART_COLORS.secondary, CHART_COLORS.tertiary][index % 3]}
+                      />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: "hsl(var(--card))",
+                      border: "1px solid hsl(var(--border))",
+                      borderRadius: "8px",
+                    }}
+                  />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Páginas Mais Visitadas</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              {topPages?.slice(0, 5).map((page, index) => (
+                <div key={index} className="flex items-center justify-between text-sm">
+                  <span className="truncate flex-1 mr-2">{page.path}</span>
+                  <span className="font-medium text-muted-foreground">{page.views}</span>
+                </div>
+              ))}
+              {(!topPages || topPages.length === 0) && (
+                <p className="text-sm text-muted-foreground">Nenhum dado disponível</p>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Visitantes por País</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              {countryStats?.slice(0, 5).map((country, index) => (
+                <div key={index} className="flex items-center justify-between text-sm">
+                  <span className="truncate flex-1 mr-2">{country.name || "Desconhecido"}</span>
+                  <span className="font-medium text-muted-foreground">{country.value}</span>
+                </div>
+              ))}
+              {(!countryStats || countryStats.length === 0) && (
+                <p className="text-sm text-muted-foreground">Nenhum dado disponível</p>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default DashboardTab;

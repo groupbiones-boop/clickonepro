@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdminAuth, AdminAuthProvider } from "@/contexts/AdminAuthContext";
 import Sidebar from "./components/Sidebar";
+import MobileSidebar from "./components/MobileSidebar";
 import DateRangePicker from "./components/DateRangePicker";
 import NotificationCenter from "./components/NotificationCenter";
+import DashboardTab from "./components/DashboardTab";
 import OverviewTab from "./components/OverviewTab";
 import SiteTab from "./components/SiteTab";
 import AudienceTab from "./components/AudienceTab";
@@ -16,7 +18,7 @@ import { subDays, startOfDay, endOfDay } from "date-fns";
 const DashboardContent = () => {
   const { user, isAdmin, isLoading } = useAdminAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("overview");
+  const [activeTab, setActiveTab] = useState("dashboard");
   const [startDate, setStartDate] = useState(startOfDay(subDays(new Date(), 30)));
   const [endDate, setEndDate] = useState(endOfDay(new Date()));
 
@@ -47,6 +49,8 @@ const DashboardContent = () => {
 
   const renderTab = () => {
     switch (activeTab) {
+      case "dashboard":
+        return <DashboardTab filters={filters} />;
       case "overview":
         return <OverviewTab filters={filters} />;
       case "site":
@@ -60,19 +64,34 @@ const DashboardContent = () => {
       case "alerts":
         return <AlertsTab />;
       default:
-        return <OverviewTab filters={filters} />;
+        return <DashboardTab filters={filters} />;
     }
+  };
+
+  const tabTitles: Record<string, string> = {
+    dashboard: "Dashboard",
+    overview: "Visão Geral",
+    site: "Site",
+    audience: "Audiência",
+    acquisition: "Aquisição",
+    blog: "Analytics do Blog",
+    alerts: "Alertas",
   };
 
   return (
     <div className="min-h-screen bg-background flex">
-      <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
+      <div className="hidden md:block">
+        <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
+      </div>
       
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <header className="h-16 border-b border-border bg-card flex items-center justify-between px-6">
-          <h1 className="text-xl font-semibold capitalize">{activeTab}</h1>
-          <div className="flex items-center gap-4">
+        <header className="h-16 border-b border-border bg-card flex items-center justify-between px-4 md:px-6">
+          <div className="flex items-center gap-2">
+            <MobileSidebar activeTab={activeTab} onTabChange={setActiveTab} />
+            <h1 className="text-lg md:text-xl font-semibold">{tabTitles[activeTab] || activeTab}</h1>
+          </div>
+          <div className="flex items-center gap-2 md:gap-4">
             <DateRangePicker
               startDate={startDate}
               endDate={endDate}
@@ -83,7 +102,7 @@ const DashboardContent = () => {
         </header>
 
         {/* Content */}
-        <main className="flex-1 p-6 overflow-auto">
+        <main className="flex-1 p-4 md:p-6 overflow-auto">
           {renderTab()}
         </main>
       </div>
