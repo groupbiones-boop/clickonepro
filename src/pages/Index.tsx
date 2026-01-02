@@ -361,8 +361,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Audio Demo Section - Hidden for now */}
-      {/* 
+      {/* Audio Demo Section */}
       <section className="py-16 md:py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.05),transparent_50%)]" />
         
@@ -414,7 +413,6 @@ const Index = () => {
           </AnimatedSection>
         </div>
       </section>
-      */}
 
       {/* Features */}
       <section className="py-16 md:py-24 bg-background">
