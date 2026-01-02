@@ -20,19 +20,19 @@ const Contato = () => (
                 <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
-                <span>+55 (11) 99999-9999</span>
+                <span>+1 (770) 501-7321</span>
               </div>
               <div className="flex items-center gap-4 p-4 bg-card rounded-lg border border-border/50 hover:border-primary/50 transition-colors">
                 <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
-                <span>contato@clickone.ai</span>
+                <span>contato@clickonepro.com</span>
               </div>
               <div className="flex items-center gap-4 p-4 bg-card rounded-lg border border-border/50 hover:border-primary/50 transition-colors">
                 <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
-                <span>São Paulo, Brasil</span>
+                <span>United States</span>
               </div>
             </div>
           </AnimatedSection>
