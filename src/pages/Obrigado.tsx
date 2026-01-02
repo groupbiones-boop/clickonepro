@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CheckCircle, Loader2 } from "lucide-react";
 import Layout from "@/components/layout/Layout";
@@ -8,9 +8,24 @@ const Obrigado = () => {
   const { t } = useTranslation();
   const [isWidgetLoading, setIsWidgetLoading] = useState(true);
 
-  const handleIframeLoad = () => {
-    setTimeout(() => setIsWidgetLoading(false), 500);
-  };
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://beta.leadconnectorhq.com/loader.js";
+    script.setAttribute(
+      "data-resources-url",
+      "https://beta.leadconnectorhq.com/chat-widget/loader.js"
+    );
+    script.setAttribute("data-widget-id", "689a6e0381758b3ba63c1230");
+    script.async = true;
+    script.onload = () => setTimeout(() => setIsWidgetLoading(false), 800);
+    script.onerror = () => setIsWidgetLoading(false);
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) document.body.removeChild(script);
+    };
+  }, []);
+
 
   return (
     <Layout>
@@ -57,21 +72,23 @@ const Obrigado = () => {
                 {t("thankYou.ctaButton")}
               </h3>
               
-              <div className="relative bg-card border border-border/50 rounded-2xl shadow-xl overflow-hidden" style={{ height: "600px" }}>
-                {isWidgetLoading && (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-card z-10">
-                    <Loader2 className="h-8 w-8 animate-spin text-primary mb-4" />
+              <div className="relative bg-card border border-border/50 rounded-2xl shadow-xl overflow-hidden p-6 text-left">
+                {isWidgetLoading ? (
+                  <div className="flex flex-col items-center justify-center gap-3 py-10">
+                    <Loader2 className="h-8 w-8 animate-spin text-primary" />
                     <p className="text-muted-foreground text-sm">Carregando chat...</p>
                   </div>
+                ) : (
+                  <div className="space-y-3">
+                    <p className="text-sm text-muted-foreground">
+                      O chat não pode ser exibido embutido nesta página (o provedor bloqueia
+                      incorporação “inline”).
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Para falar com a Bia agora, use o ícone roxo no canto inferior direito.
+                    </p>
+                  </div>
                 )}
-                
-                <iframe
-                  src="https://widgets.leadconnectorhq.com/widget/chat-widget/chatV2?locationId=yUk5li3I0wg4YGcbKlSF&widgetId=689a6e0381758b3ba63c1230"
-                  className="w-full h-full border-0"
-                  title="Chat com Bia"
-                  onLoad={handleIframeLoad}
-                  allow="microphone; camera"
-                />
               </div>
             </div>
 
