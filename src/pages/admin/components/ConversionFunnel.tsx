@@ -66,7 +66,7 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
         <CardTitle className="text-lg">The SaaS Sales Funnel</CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
-        <div className="space-y-1">
+        <div className="flex flex-col items-center space-y-2">
           {FUNNEL_STAGES.map((stage, index) => {
             const Icon = stage.icon;
             const value = values[stage.key];
@@ -75,39 +75,35 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
             return (
               <div 
                 key={stage.key} 
-                className="flex items-center gap-3 animate-fade-in"
+                className="flex flex-col items-center w-full animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Funnel Bar - trapezoid shape wider at top, narrower at bottom */}
+                {/* Funnel Bar - trapezoid shape centered */}
                 <div 
-                  className="relative flex items-center justify-between px-4 py-4 transition-all duration-300 hover:opacity-90 mx-auto"
+                  className="relative flex items-center justify-between px-4 py-3 transition-all duration-300 hover:opacity-90"
                   style={{ 
                     width: `${widthPercent}%`,
                     backgroundColor: stage.color,
-                    clipPath: "polygon(8px 0, calc(100% - 8px) 0, 100% 100%, 0 100%)",
+                    clipPath: "polygon(4% 0, 96% 0, 100% 100%, 0 100%)",
                   }}
                 >
                   {/* Icon in white rounded square */}
-                  <div className="flex items-center justify-center w-8 h-8 bg-white rounded-lg">
+                  <div className="flex items-center justify-center w-7 h-7 bg-white rounded-md">
                     <Icon className="h-4 w-4" style={{ color: stage.color }} />
                   </div>
                   {/* Number in white circle */}
                   <span 
-                    className="flex items-center justify-center w-7 h-7 rounded-full bg-white font-bold text-sm"
+                    className="flex items-center justify-center w-6 h-6 rounded-full bg-white font-bold text-xs"
                     style={{ color: stage.color }}
                   >
                     {index + 1}
                   </span>
                 </div>
 
-                {/* Connector Line */}
-                <div className="flex-1 border-t-2 border-muted-foreground/30 min-w-[20px]" />
-
-                {/* Label and Value */}
-                <div className="text-right min-w-[140px]">
-                  <p className="text-sm font-semibold text-foreground">{stage.label}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {value.toLocaleString("pt-BR")}
+                {/* Label and Value below bar */}
+                <div className="text-center mt-1">
+                  <p className="text-xs font-semibold" style={{ color: stage.color }}>
+                    {stage.label} ({value.toLocaleString("pt-BR")})
                   </p>
                 </div>
               </div>
