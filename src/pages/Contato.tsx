@@ -13,7 +13,7 @@ const Contato = () => (
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Entre em Contato</h1>
           <p className="text-lg text-muted-foreground">Estamos prontos para ajudar seu negócio a crescer.</p>
         </AnimatedSection>
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
           <AnimatedSection animation="fade-left">
             <div className="space-y-6">
               <div className="flex items-center gap-4 p-4 bg-card rounded-lg border border-border/50 hover:border-primary/50 transition-colors">

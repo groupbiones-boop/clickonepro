@@ -18,7 +18,7 @@ const industries = [
   { name: "Construção & Reformas", slug: "construcao" },
   { name: "HVAC / Climatização", slug: "hvac" },
   { name: "Encanamento", slug: "encanamento" },
-  { name: "Serviços Elétricos", slug: "servicos-eletricos" },
+  { name: "Serviços Elétricos", slug: "eletrica" },
   { name: "Paisagismo", slug: "paisagismo" },
   { name: "Saúde & Bem-estar", slug: "clinicas-medicas" },
   { name: "Ver todos", slug: "", isViewAll: true },
