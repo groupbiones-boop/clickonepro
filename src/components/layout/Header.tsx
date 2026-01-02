@@ -11,6 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import clickoneLogo from "@/assets/clickone-logo.png";
+import clickoneLogoWhite from "@/assets/clickone-logo-white.png";
 
 const industries = [
   { name: "Serviços Domiciliares", slug: "limpeza", highlight: true },
@@ -39,7 +40,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full bg-primary">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <img src={clickoneLogo} alt="ClickOne AI" className="h-10 w-auto brightness-0 invert" />
+          <img src={clickoneLogoWhite} alt="ClickOne AI" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
