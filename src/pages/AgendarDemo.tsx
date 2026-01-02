@@ -101,7 +101,7 @@ const AgendarDemo = () => {
                   <div className="absolute inset-0 flex items-center justify-center bg-card z-10 min-h-[500px]">
                     <div className="flex flex-col items-center gap-3">
                       <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                      <span className="text-sm text-muted-foreground">Carregando formulário...</span>
+                      <span className="text-sm text-muted-foreground">{t("contact.loadingForm")}</span>
                     </div>
                   </div>
                 )}
