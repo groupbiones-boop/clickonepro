@@ -1973,37 +1973,74 @@ const SetorDetalhe = () => {
         />
       </section>
 
-      {/* Problem Section */}
+      {/* Problem & Solution Section */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                {data.problemTitle}
-              </h2>
-              <p className="text-muted-foreground text-lg mb-8">
-                {data.problemDescription}
-              </p>
-            </div>
-            <div>
-              <ul className="space-y-4">
-                {data.problems.map((problem, index) => (
-                  <li 
-                    key={index} 
-                    className="flex items-start gap-4 bg-destructive/5 rounded-lg p-4 animate-fade-in"
-                    style={{ animationDelay: `${0.15 + index * 0.08}s`, animationFillMode: 'both' }}
-                  >
-                    <span className="text-destructive text-xl font-bold">✗</span>
-                    <span className="text-foreground">{problem}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="space-y-12">
+            {/* Problem Card */}
+            <Card className="border-destructive/20 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+              <CardContent className="p-8">
+                <div className="flex items-center gap-2 mb-6">
+                  <div className="h-[2px] w-8 bg-destructive"></div>
+                  <span className="text-destructive font-semibold tracking-wide text-sm">O PROBLEMA</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  {data.problemTitle.split(' ').map((word, i) => 
+                    i > 2 ? <span key={i} className="text-destructive">{word} </span> : `${word} `
+                  )}
+                </h2>
+                <ul className="space-y-4">
+                  {data.problems.map((problem, index) => (
+                    <li 
+                      key={index} 
+                      className="flex items-start gap-4 animate-fade-in"
+                      style={{ animationDelay: `${0.15 + index * 0.08}s`, animationFillMode: 'both' }}
+                    >
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold">✗</span>
+                      <span className="text-foreground pt-1">{problem}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Solution Card */}
+            <Card className="bg-primary/5 border-primary/20 animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+              <CardContent className="p-8">
+                <div className="flex items-center gap-2 mb-6">
+                  <div className="h-[2px] w-8 bg-primary"></div>
+                  <span className="text-primary font-semibold tracking-wide text-sm">A SOLUÇÃO</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                  ClickOne AI
+                </h2>
+                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+                  {data.solutionTitle}
+                </h3>
+                <ul className="space-y-4">
+                  {data.solutions.slice(0, 4).map((solution, index) => (
+                    <li 
+                      key={index} 
+                      className="flex items-start gap-4 animate-fade-in"
+                      style={{ animationDelay: `${0.35 + index * 0.08}s`, animationFillMode: 'both' }}
+                    >
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                        <CheckCircle className="h-5 w-5 text-primary" />
+                      </span>
+                      <div className="pt-1">
+                        <span className="font-semibold text-foreground">{solution.title}</span>
+                        <span className="text-muted-foreground"> — {solution.description}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Solution Section */}
+      {/* Features Section */}
       <section id="recursos" className="py-16 md:py-24 bg-muted/30">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -2021,15 +2058,12 @@ const SetorDetalhe = () => {
             {/* Right: Content */}
             <div className="order-1 lg:order-2">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
-                {data.solutionTitle}
+                O que torna a ClickOne AI diferente
               </h2>
               <p className="text-muted-foreground text-lg mb-8 animate-fade-in" style={{ animationDelay: '0.15s', animationFillMode: 'both' }}>
                 {data.solutionDescription}
               </p>
               
-              <h3 className="text-lg font-semibold mb-5 text-foreground animate-fade-in" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-                O que torna a ClickOne AI diferente:
-              </h3>
               <ul className="space-y-3">
                 {data.solutions.map((solution, index) => (
                   <li 
