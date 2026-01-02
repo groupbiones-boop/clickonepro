@@ -1,8 +1,14 @@
+import { useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Eye, MousePointerClick, MessageCircle, Clock, Percent, Globe, Monitor, Smartphone, Tablet } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Users, Eye, MousePointerClick, MessageCircle, Clock, Percent, Globe, Monitor, Smartphone, Tablet, Download } from "lucide-react";
 import { useVisitorStats, usePageviewStats, useTimelineData, useDeviceStats, useTopPages, useCountryStats } from "@/hooks/useAnalytics";
 import { useLeadsStats, useConversionRate, useAgendamentosCount, useLeadsTimeline } from "@/hooks/useLeadsStats";
-import ConversionFunnel from "./ConversionFunnel";
+import { useFunnelData } from "@/hooks/useFunnelData";
+import ConversionFunnel, { FunnelRef } from "./ConversionFunnel";
+import ExportReportDialog from "./ExportReportDialog";
+import ScheduledReportsManager from "./ScheduledReportsManager";
+import { ExportData } from "@/hooks/useReportExport";
 import {
   AreaChart,
   Area,
@@ -35,6 +41,10 @@ const CHART_COLORS = {
 };
 
 const DashboardTab = ({ filters }: DashboardTabProps) => {
+  const funnelRef = useRef<FunnelRef>(null);
+  const [isExportDialogOpen, setIsExportDialogOpen] = useState(false);
+  const [exportData, setExportData] = useState<ExportData | null>(null);
+
   const { data: visitorStats } = useVisitorStats(filters);
   const { data: pageviewStats } = usePageviewStats(filters);
   const { data: leadsStats } = useLeadsStats(filters);
@@ -45,6 +55,7 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
   const { data: deviceStats } = useDeviceStats(filters);
   const { data: topPages } = useTopPages(filters);
   const { data: countryStats } = useCountryStats(filters);
+  const { data: funnelData } = useFunnelData(filters);
 
   const formatChange = (value: number | undefined) => {
     if (!value) return "0%";
@@ -57,8 +68,52 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
     value: d.value,
   })) || [];
 
+  const handleExportClick = async () => {
+    let funnelImage = "";
+    
+    if (funnelRef.current) {
+      funnelImage = await funnelRef.current.captureAsImage();
+    }
+
+    const defaultFunnel = {
+      visitors: 0,
+      pageviews: 0,
+      leads: 0,
+      agendamentos: 0,
+      clientes: 0,
+      rates: {
+        visitorsToPageviews: 0,
+        pageviewsToLeads: 0,
+        leadsToAgendamentos: 0,
+        agendamentosToClientes: 0,
+      },
+    };
+
+    setExportData({
+      filters,
+      funnel: funnelData || defaultFunnel,
+      funnelImage,
+      visitors: visitorStats?.current || 0,
+      pageviews: pageviewStats?.current || 0,
+      leads: leadsStats?.total || 0,
+      conversionRate: conversionData?.rate || 0,
+      topPages: topPages?.map(p => ({ path: p.path, title: p.title, views: p.views })) || [],
+      deviceStats: deviceStats || [],
+    });
+    
+    setIsExportDialogOpen(true);
+  };
+
   return (
     <div className="space-y-6">
+      {/* Header with Export Button */}
+      <div className="flex justify-end">
+        <Button onClick={handleExportClick} variant="outline" size="sm">
+          <Download className="h-4 w-4 mr-2" />
+          Exportar Relatório
+        </Button>
+      </div>
+
       {/* Conversion Cards Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="bg-primary/5 border-primary/20">
@@ -185,7 +240,7 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
       {/* Charts Row 1 - Funil + Gráficos */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Funil de Conversão */}
-        <ConversionFunnel filters={filters} />
+        <ConversionFunnel ref={funnelRef} filters={filters} />
 
         <Card>
           <CardHeader>
@@ -307,6 +362,16 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
           </CardContent>
         </Card>
       </div>
+
+      {/* Scheduled Reports Manager */}
+      <ScheduledReportsManager />
+
+      {/* Export Dialog */}
+      <ExportReportDialog
+        open={isExportDialogOpen}
+        onOpenChange={setIsExportDialogOpen}
+        exportData={exportData}
+      />
     </div>
   );
 };

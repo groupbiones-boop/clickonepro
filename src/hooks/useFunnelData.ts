@@ -6,7 +6,7 @@ interface AnalyticsFilters {
   endDate: Date;
 }
 
-interface FunnelData {
+export interface FunnelData {
   visitors: number;
   pageviews: number;
   leads: number;

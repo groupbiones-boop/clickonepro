@@ -277,6 +277,48 @@ export type Database = {
         }
         Relationships: []
       }
+      scheduled_reports: {
+        Row: {
+          created_at: string | null
+          day_of_week: number | null
+          enabled: boolean | null
+          frequency: string
+          hour: number | null
+          id: string
+          last_sent_at: string | null
+          name: string
+          recipients: Json
+          sections: Json | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          day_of_week?: number | null
+          enabled?: boolean | null
+          frequency?: string
+          hour?: number | null
+          id?: string
+          last_sent_at?: string | null
+          name: string
+          recipients?: Json
+          sections?: Json | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          day_of_week?: number | null
+          enabled?: boolean | null
+          frequency?: string
+          hour?: number | null
+          id?: string
+          last_sent_at?: string | null
+          name?: string
+          recipients?: Json
+          sections?: Json | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string | null

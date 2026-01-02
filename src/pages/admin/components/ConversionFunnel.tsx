@@ -1,13 +1,20 @@
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { useFunnelData } from "@/hooks/useFunnelData";
+import { useFunnelData, FunnelData } from "@/hooks/useFunnelData";
 import { Binoculars, Lightbulb, MessageCircle, MousePointer, Trophy } from "lucide-react";
+import html2canvas from "html2canvas";
 
 interface ConversionFunnelProps {
   filters: {
     startDate: Date;
     endDate: Date;
   };
+}
+
+export interface FunnelRef {
+  captureAsImage: () => Promise<string>;
+  getData: () => FunnelData | null;
 }
 
 const FUNNEL_STAGES = [
@@ -18,26 +25,12 @@ const FUNNEL_STAGES = [
   { key: "clientes", label: "Closing", icon: Trophy, color: "#bc95e2" },
 ];
 
-const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
+const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters }, ref) => {
+  const funnelRef = useRef<HTMLDivElement>(null);
   const { data: funnelData, isLoading } = useFunnelData(filters);
 
-  if (isLoading) {
-    return (
-      <Card className="h-full">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-lg">Funil de Conversão</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="h-[350px] flex items-center justify-center">
-            <div className="animate-pulse text-muted-foreground">Carregando...</div>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
-
   // Mock data for demonstration when no real data exists
-  const mockData = {
+  const mockData: FunnelData = {
     visitors: 2847,
     pageviews: 4521,
     leads: 342,
@@ -53,6 +46,38 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
 
   const hasRealData = funnelData && (funnelData.visitors > 0 || funnelData.leads > 0);
   const data = hasRealData ? funnelData : mockData;
+
+  useImperativeHandle(ref, () => ({
+    captureAsImage: async () => {
+      if (!funnelRef.current) return "";
+      try {
+        const canvas = await html2canvas(funnelRef.current, {
+          backgroundColor: null,
+          scale: 2,
+        });
+        return canvas.toDataURL("image/png");
+      } catch (error) {
+        console.error("Error capturing funnel:", error);
+        return "";
+      }
+    },
+    getData: () => data,
+  }));
+
+  if (isLoading) {
+    return (
+      <Card className="h-full">
+        <CardHeader className="pb-2">
+          <CardTitle className="text-lg">Funil de Conversão</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="h-[350px] flex items-center justify-center">
+            <div className="animate-pulse text-muted-foreground">Carregando...</div>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   const values: Record<string, number> = {
     visitors: data.visitors,
@@ -92,7 +117,7 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
       </CardHeader>
       <CardContent className="pt-0">
         <TooltipProvider>
-          <div className="flex flex-col items-center space-y-2">
+          <div ref={funnelRef} className="flex flex-col items-center space-y-2 bg-card p-4 rounded-lg">
             {FUNNEL_STAGES.map((stage, index) => {
               const Icon = stage.icon;
               const value = values[stage.key];
@@ -101,7 +126,7 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
               return (
                 <div 
                   key={stage.key} 
-                  className="flex flex-col items-center w-full opacity-0 animate-[fade-in_0.5s_ease-out_forwards]"
+                  className="flex flex-col items-center w-full opacity-0 animate-fade-in"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <Tooltip>
@@ -178,6 +203,8 @@ const ConversionFunnel = ({ filters }: ConversionFunnelProps) => {
       </CardContent>
     </Card>
   );
-};
+});
+
+ConversionFunnel.displayName = "ConversionFunnel";
 
 export default ConversionFunnel;
