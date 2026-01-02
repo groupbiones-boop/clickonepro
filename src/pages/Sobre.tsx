@@ -9,13 +9,13 @@ const timelineEvents = [
   {
     year: "2021",
     title: "O Início",
-    description: "A ClickOne AI nasceu da frustração de ver empresas de serviço perdendo clientes por falta de resposta rápida.",
+    description: "A ClickOne AI nasceu da própria necessidade do fundador. Com mais de 30 anos na indústria de controle de pragas e outras empresas do setor de serviços, ele viveu na pele a falta de atendimento e padronização, perdendo muitos clientes por não ter uma solução inteligente e viável para atendimento e vendas.",
     icon: Rocket,
   },
   {
     year: "2022",
     title: "Primeira Versão",
-    description: "Lançamos nossa primeira solução de atendimento automatizado por voz, atendendo 50 empresas piloto.",
+    description: "Começamos a ajudar empresas de serviço usando tecnologia de atendimento automatizado por voz, atendendo 50 empresas piloto.",
     icon: Zap,
   },
   {
@@ -25,7 +25,7 @@ const timelineEvents = [
     icon: Users,
   },
   {
-    year: "2024",
+    year: "2025",
     title: "Crescimento Acelerado",
     description: "Ultrapassamos 500 clientes ativos e 1 milhão de chamadas atendidas com 98% de satisfação.",
     icon: Calendar,
