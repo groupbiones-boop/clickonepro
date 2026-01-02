@@ -183,36 +183,9 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
       </div>
 
       {/* Charts Row 1 - Funil + Gráficos */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Funil de Conversão */}
         <ConversionFunnel filters={filters} />
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Conversões por Dia</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="h-[300px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={leadsTimeline || []}>
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                  <XAxis dataKey="date" className="text-xs" />
-                  <YAxis className="text-xs" />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: "hsl(var(--card))",
-                      border: "1px solid hsl(var(--border))",
-                      borderRadius: "8px",
-                    }}
-                  />
-                  <Legend />
-                  <Bar dataKey="agendamentos" name="Agendamentos" fill={CHART_COLORS.success} radius={[4, 4, 0, 0]} />
-                  <Bar dataKey="chat" name="Chat" fill={CHART_COLORS.primary} radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </CardContent>
-        </Card>
 
         <Card>
           <CardHeader>
