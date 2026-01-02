@@ -1,5 +1,5 @@
 import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
-import industryCleaning from "@/assets/industry-cleaning.jpg";
+import industryCleaning from "@/assets/industry-cleaning-new.jpg";
 
 
 export interface TranscriptMessage {

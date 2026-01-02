@@ -26,7 +26,7 @@ import {
   Shield,
   Headphones
 } from "lucide-react";
-import industryCleaning from "@/assets/industry-cleaning.jpg";
+import industryCleaning from "@/assets/industry-cleaning-new.jpg";
 import industryConstruction from "@/assets/industry-construction.jpg";
 import industryHvac from "@/assets/industry-hvac.jpg";
 import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
