@@ -564,7 +564,7 @@
       }
     ]
   },
-  "piscina": {
+  "piscinas": {
     "name": "Serviços de Piscina",
     "heroTitle": "Recepcionista IA para Piscinas",
     "heroSubtitle": "ATENDIMENTO 24/7 PARA PISCINAS",
@@ -913,6 +913,886 @@
       {
         "question": "Atende emergências noturnas?",
         "answer": "Sim! A IA atende 24/7. Para emergências graves, pode acioná-lo imediatamente ou agendar para o próximo horário."
+      }
+    ]
+  },
+  "pintura": {
+    "name": "Pintura Residencial e Comercial",
+    "heroTitle": "Recepcionista IA para Pintores",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA PINTURA",
+    "heroDescription": "Atendimento inteligente para empresas de pintura residencial e comercial. Qualifique projetos, forneça orçamentos e agende visitas automaticamente.",
+    "problemTitle": "Orçamentos de pintura exigem detalhes.",
+    "problems": [
+      "Ligações perdidas durante trabalhos em andamento",
+      "Orçamentos demoram para serem respondidos",
+      "Clientes comparando múltiplos pintores",
+      "Dificuldade em qualificar projetos por telefone",
+      "Perda de leads por demora na resposta"
+    ],
+    "solutionTitle": "Pinte enquanto qualificamos seus projetos.",
+    "solutionDescription": "Nossa IA coleta informações essenciais sobre cada projeto — tipo de imóvel, metragem, número de cômodos, acabamento desejado — e agenda visitas técnicas automaticamente.",
+    "solutions": [
+      { "title": "Qualificação de projetos", "description": "Coleta metragem, cômodos e acabamentos" },
+      { "title": "Agendamento de visitas", "description": "Marca visitas técnicas automaticamente" },
+      { "title": "Orçamentos rápidos", "description": "Estimativas baseadas em metragem" },
+      { "title": "Follow-up automático", "description": "Acompanha propostas enviadas" },
+      { "title": "Identificação de urgência", "description": "Diferencia reparos de projetos completos" },
+      { "title": "Atendimento profissional", "description": "Representa sua marca 24/7" }
+    ],
+    "features": [
+      { "title": "Qualificação de Projetos", "description": "Coleta todos os detalhes da pintura" },
+      { "title": "Visitas Técnicas", "description": "Agendamento automático" },
+      { "title": "Orçamentos Rápidos", "description": "Estimativas por metragem" },
+      { "title": "Follow-up Automático", "description": "Acompanhamento de propostas" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" },
+      { "title": "Atendimento 24/7", "description": "Disponível sempre" }
+    ],
+    "stats": [
+      { "value": "76%", "label": "dos clientes escolhem quem responde primeiro" },
+      { "value": "52%", "label": "das propostas são perdidas por falta de follow-up" },
+      { "value": "3x", "label": "mais conversões com resposta em menos de 5 minutos" }
+    ],
+    "useCases": [
+      { "title": "Pintura Residencial", "description": "Casas e apartamentos" },
+      { "title": "Pintura Comercial", "description": "Escritórios e lojas" },
+      { "title": "Reparos e Retoques", "description": "Serviços menores" },
+      { "title": "Projetos Especiais", "description": "Texturas e efeitos decorativos" }
+    ],
+    "testimonials": [
+      {
+        "quote": "A IA qualifica os projetos e eu só visito os clientes realmente interessados. Minha produtividade aumentou 50%.",
+        "author": "Fernando Costa",
+        "role": "Proprietário",
+        "company": "Costa Painting LLC",
+        "location": "Denver, CO"
+      },
+      {
+        "quote": "Antes eu perdia ligações no andaime. Agora a IA atende todas e agenda visitas.",
+        "author": "Rafael Martins",
+        "role": "Pintor Sênior",
+        "company": "Martins Pro Painters",
+        "location": "Portland, OR"
+      },
+      {
+        "quote": "Fechamos 40% mais contratos com o follow-up automático da IA.",
+        "author": "Bruno Almeida",
+        "role": "Gerente Comercial",
+        "company": "Almeida Painting Solutions",
+        "location": "Seattle, WA"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A IA consegue coletar detalhes específicos de pintura?",
+        "answer": "Sim! A IA pergunta sobre tipo de imóvel, metragem, número de cômodos, tipo de tinta desejada e acabamentos especiais."
+      },
+      {
+        "question": "Como funciona o agendamento de visitas técnicas?",
+        "answer": "A IA verifica sua agenda e marca visitas para avaliação presencial, enviando confirmação para você e para o cliente."
+      },
+      {
+        "question": "A IA pode fornecer estimativas?",
+        "answer": "Sim! Com base na metragem e tipo de trabalho, a IA fornece uma faixa de preço. Para orçamentos detalhados, agenda uma visita."
+      },
+      {
+        "question": "Funciona para projetos comerciais?",
+        "answer": "Sim! A IA qualifica projetos comerciais coletando informações sobre metragem, tipo de espaço e requisitos especiais."
+      },
+      {
+        "question": "Como o follow-up de propostas funciona?",
+        "answer": "Após enviar um orçamento, a IA contata o cliente em 24-48 horas para responder dúvidas e ajudar no fechamento."
+      }
+    ]
+  },
+  "pisos": {
+    "name": "Instalação de Pisos",
+    "heroTitle": "Recepcionista IA para Pisos",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA PISOS",
+    "heroDescription": "Atendimento inteligente para empresas de instalação e reparo de pisos. Qualifique projetos, calcule materiais e agende visitas automaticamente.",
+    "problemTitle": "Projetos de piso precisam de qualificação.",
+    "problems": [
+      "Ligações perdidas durante instalações",
+      "Orçamentos complexos com muitas variáveis",
+      "Clientes não sabem qual tipo de piso escolher",
+      "Dificuldade em estimar materiais por telefone",
+      "Perda de leads por demora na resposta"
+    ],
+    "solutionTitle": "Instale pisos enquanto qualificamos projetos.",
+    "solutionDescription": "Nossa IA coleta informações essenciais — metragem, tipo de piso atual e desejado, subpiso e acessos — para você chegar preparado com o orçamento.",
+    "solutions": [
+      { "title": "Qualificação técnica", "description": "Coleta metragem, tipo de piso e condições" },
+      { "title": "Agendamento de medição", "description": "Marca visitas para medição exata" },
+      { "title": "Estimativas de material", "description": "Calcula quantidade aproximada" },
+      { "title": "Comparação de opções", "description": "Explica diferenças entre tipos de piso" },
+      { "title": "Follow-up automático", "description": "Acompanha propostas enviadas" },
+      { "title": "Atendimento profissional", "description": "Representa sua marca 24/7" }
+    ],
+    "features": [
+      { "title": "Qualificação de Projetos", "description": "Coleta todos os detalhes técnicos" },
+      { "title": "Visitas de Medição", "description": "Agendamento automático" },
+      { "title": "Estimativas de Material", "description": "Cálculos aproximados" },
+      { "title": "Consultoria de Opções", "description": "Orienta sobre tipos de piso" },
+      { "title": "Follow-up Automático", "description": "Acompanhamento de propostas" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
+    ],
+    "stats": [
+      { "value": "81%", "label": "dos clientes pesquisam múltiplas empresas" },
+      { "value": "67%", "label": "fecham com quem responde primeiro" },
+      { "value": "45%", "label": "aceitam upgrade de material quando explicado" }
+    ],
+    "useCases": [
+      { "title": "Pisos de Madeira", "description": "Instalação e polimento" },
+      { "title": "Porcelanato e Cerâmica", "description": "Ambientes residenciais e comerciais" },
+      { "title": "Pisos Vinílicos", "description": "Opção econômica e durável" },
+      { "title": "Reparos e Restauração", "description": "Pisos danificados" }
+    ],
+    "testimonials": [
+      {
+        "quote": "A IA coleta metragem e tipo de piso antes da visita. Chego com o orçamento praticamente pronto.",
+        "author": "Thiago Souza",
+        "role": "Proprietário",
+        "company": "Souza Flooring LLC",
+        "location": "Austin, TX"
+      },
+      {
+        "quote": "Clientes perguntam sobre diferenças entre pisos. A IA explica e recomenda opções.",
+        "author": "Lucas Ferreira",
+        "role": "Instalador Sênior",
+        "company": "Ferreira Floors",
+        "location": "San Antonio, TX"
+      },
+      {
+        "quote": "Vendemos 30% mais upgrades de material desde que a IA começou a explicar benefícios.",
+        "author": "Matheus Ribeiro",
+        "role": "Gerente Comercial",
+        "company": "Ribeiro Premium Floors",
+        "location": "Houston, TX"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A IA consegue coletar informações técnicas de piso?",
+        "answer": "Sim! A IA pergunta sobre metragem, tipo de piso atual, piso desejado, condição do subpiso e acessos do local."
+      },
+      {
+        "question": "Como a IA ajuda clientes indecisos?",
+        "answer": "A IA explica as diferenças entre tipos de piso (madeira, porcelanato, vinílico) e recomenda opções baseadas no uso e orçamento."
+      },
+      {
+        "question": "A IA calcula materiais?",
+        "answer": "Sim! Com base na metragem informada, a IA fornece uma estimativa de quantidade de material necessário."
+      },
+      {
+        "question": "Funciona para projetos comerciais?",
+        "answer": "Sim! A IA qualifica projetos comerciais com requisitos específicos como resistência ao tráfego e prazos."
+      },
+      {
+        "question": "Como o agendamento de medição funciona?",
+        "answer": "A IA verifica sua agenda e marca visitas para medição exata, enviando confirmação para ambas as partes."
+      }
+    ]
+  },
+  "clinica-medica": {
+    "name": "Clínica Médica",
+    "heroTitle": "Recepcionista IA para Clínicas Médicas",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA CLÍNICAS",
+    "heroDescription": "Atendimento inteligente para clínicas médicas e consultórios. Agende consultas, gerencie retornos e responda dúvidas dos pacientes automaticamente.",
+    "problemTitle": "Pacientes ligam a qualquer hora.",
+    "problems": [
+      "Ligações fora do horário comercial",
+      "Agenda complexa com múltiplos profissionais",
+      "Pacientes querendo remarcar ou cancelar",
+      "Dúvidas sobre exames e preparos",
+      "Perda de pacientes por falta de resposta"
+    ],
+    "solutionTitle": "Atenda pacientes enquanto focamos na saúde.",
+    "solutionDescription": "Nossa IA agenda consultas, gerencia retornos, responde dúvidas sobre preparos para exames e envia lembretes automáticos aos pacientes.",
+    "solutions": [
+      { "title": "Agendamento inteligente", "description": "Marca consultas respeitando regras de agenda" },
+      { "title": "Gestão de retornos", "description": "Agenda follow-ups automaticamente" },
+      { "title": "Lembretes automáticos", "description": "Reduz no-shows com confirmações" },
+      { "title": "Informações de preparo", "description": "Explica preparos para exames" },
+      { "title": "Triagem inicial", "description": "Coleta sintomas e urgência" },
+      { "title": "Atendimento 24/7", "description": "Pacientes sempre têm resposta" }
+    ],
+    "features": [
+      { "title": "Agendamento de Consultas", "description": "Múltiplos profissionais e especialidades" },
+      { "title": "Gestão de Retornos", "description": "Follow-up automático" },
+      { "title": "Lembretes", "description": "Confirmação e redução de no-shows" },
+      { "title": "Informações de Preparo", "description": "Instruções para exames" },
+      { "title": "Triagem Inicial", "description": "Coleta de sintomas" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
+    ],
+    "stats": [
+      { "value": "35%", "label": "de redução em no-shows com lembretes" },
+      { "value": "24/7", "label": "disponibilidade para pacientes" },
+      { "value": "68%", "label": "das ligações são para agendamento" }
+    ],
+    "useCases": [
+      { "title": "Agendamento de Consultas", "description": "Primeira vez e retornos" },
+      { "title": "Confirmação de Horários", "description": "Lembretes automáticos" },
+      { "title": "Informações de Preparo", "description": "Exames e procedimentos" },
+      { "title": "Triagem de Urgência", "description": "Identificação de casos urgentes" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Reduzimos no-shows em 40% com os lembretes automáticos da IA.",
+        "author": "Dr. Ricardo Mendes",
+        "role": "Diretor Clínico",
+        "company": "Mendes Medical Center",
+        "location": "Miami, FL"
+      },
+      {
+        "quote": "A IA gerencia a agenda de 5 médicos perfeitamente. Nossa recepção agora foca no atendimento presencial.",
+        "author": "Patrícia Santos",
+        "role": "Gerente Administrativa",
+        "company": "Santos Family Practice",
+        "location": "Orlando, FL"
+      },
+      {
+        "quote": "Pacientes ligam às 2 da manhã querendo agendar. Agora a IA resolve.",
+        "author": "Dr. Carlos Oliveira",
+        "role": "Médico Proprietário",
+        "company": "Oliveira Medical Group",
+        "location": "Tampa, FL"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A IA pode gerenciar agenda de múltiplos médicos?",
+        "answer": "Sim! A IA gerencia agendas de múltiplos profissionais, respeitando horários, especialidades e regras específicas de cada um."
+      },
+      {
+        "question": "Como funcionam os lembretes automáticos?",
+        "answer": "A IA envia lembretes por SMS, WhatsApp ou ligação 24-48 horas antes da consulta, permitindo confirmação ou reagendamento."
+      },
+      {
+        "question": "A IA pode informar sobre preparos para exames?",
+        "answer": "Sim! A IA tem informações sobre preparos (jejum, medicações, etc.) e orienta pacientes antes de exames e procedimentos."
+      },
+      {
+        "question": "Como a triagem de urgência funciona?",
+        "answer": "A IA faz perguntas sobre sintomas e identifica casos que precisam de atendimento urgente, encaminhando para emergência quando necessário."
+      },
+      {
+        "question": "Funciona com sistemas de prontuário?",
+        "answer": "A IA pode integrar com diversos sistemas de gestão clínica para acessar e atualizar agendas automaticamente."
+      }
+    ]
+  },
+  "dentista": {
+    "name": "Clínica Odontológica",
+    "heroTitle": "Recepcionista IA para Dentistas",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA ODONTOLOGIA",
+    "heroDescription": "Atendimento inteligente para clínicas odontológicas. Agende consultas, gerencie retornos e responda dúvidas dos pacientes automaticamente.",
+    "problemTitle": "Emergências dentárias não esperam.",
+    "problems": [
+      "Emergências de dor fora do horário",
+      "Ligações perdidas durante procedimentos",
+      "Pacientes remarcando ou cancelando",
+      "Dúvidas sobre procedimentos e preços",
+      "Perda de pacientes por falta de resposta"
+    ],
+    "solutionTitle": "Cuide dos sorrisos enquanto atendemos ligações.",
+    "solutionDescription": "Nossa IA prioriza emergências dentárias, agenda consultas de rotina, gerencia retornos e responde dúvidas sobre procedimentos e valores.",
+    "solutions": [
+      { "title": "Emergências priorizadas", "description": "Dor de dente e trauma dental" },
+      { "title": "Agendamento inteligente", "description": "Consultas e retornos" },
+      { "title": "Informações de procedimentos", "description": "Explica tratamentos e valores" },
+      { "title": "Lembretes automáticos", "description": "Confirmação de consultas" },
+      { "title": "Gestão de tratamentos", "description": "Acompanha planos em andamento" },
+      { "title": "Atendimento 24/7", "description": "Emergências sempre atendidas" }
+    ],
+    "features": [
+      { "title": "Emergências Dentárias", "description": "Dor, trauma e urgências" },
+      { "title": "Agendamento de Consultas", "description": "Rotina e procedimentos" },
+      { "title": "Informações de Tratamentos", "description": "Procedimentos e valores" },
+      { "title": "Lembretes", "description": "Confirmação automática" },
+      { "title": "Planos de Tratamento", "description": "Acompanhamento de casos" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
+    ],
+    "stats": [
+      { "value": "73%", "label": "das emergências dentárias acontecem fora do horário" },
+      { "value": "42%", "label": "de redução em cancelamentos com lembretes" },
+      { "value": "28%", "label": "mais agendamentos com atendimento 24/7" }
+    ],
+    "useCases": [
+      { "title": "Emergências Dentárias", "description": "Dor e trauma dental" },
+      { "title": "Consultas de Rotina", "description": "Limpeza e check-up" },
+      { "title": "Procedimentos Estéticos", "description": "Clareamento e restaurações" },
+      { "title": "Planos de Tratamento", "description": "Ortodontia e implantes" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Pacientes com dor de dente às 3 da manhã precisam de resposta. A IA resolve e agenda emergência.",
+        "author": "Dra. Mariana Costa",
+        "role": "Dentista Proprietária",
+        "company": "Costa Dental Care",
+        "location": "Boca Raton, FL"
+      },
+      {
+        "quote": "A IA explica procedimentos e valores. Pacientes chegam decididos e informados.",
+        "author": "Dr. André Ferreira",
+        "role": "Diretor Clínico",
+        "company": "Ferreira Dental Group",
+        "location": "Fort Lauderdale, FL"
+      },
+      {
+        "quote": "Reduzimos cancelamentos de última hora em 35% com os lembretes automáticos.",
+        "author": "Juliana Mendes",
+        "role": "Gerente de Clínica",
+        "company": "Mendes Smile Center",
+        "location": "West Palm Beach, FL"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como a IA lida com emergências dentárias?",
+        "answer": "A IA identifica emergências (dor intensa, trauma, inchaço) e pode acionar você imediatamente ou agendar para o próximo horário disponível."
+      },
+      {
+        "question": "A IA pode informar sobre valores de procedimentos?",
+        "answer": "Sim! A IA tem informações sobre valores de procedimentos comuns e pode fornecer estimativas ou agendar uma avaliação."
+      },
+      {
+        "question": "Como funcionam os lembretes de consulta?",
+        "answer": "A IA envia lembretes 24-48 horas antes, permitindo confirmação ou reagendamento, reduzindo cancelamentos de última hora."
+      },
+      {
+        "question": "A IA acompanha planos de tratamento em andamento?",
+        "answer": "Sim! Para tratamentos em múltiplas sessões (ortodontia, implantes), a IA gerencia o cronograma e agenda próximas consultas."
+      },
+      {
+        "question": "Funciona com convênios odontológicos?",
+        "answer": "Sim! A IA pode verificar se aceita determinados convênios e orientar sobre coberturas e carências."
+      }
+    ]
+  },
+  "quiropraxia": {
+    "name": "Quiropraxia",
+    "heroTitle": "Recepcionista IA para Quiropraxistas",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA QUIROPRAXIA",
+    "heroDescription": "Atendimento inteligente para clínicas de quiropraxia. Agende consultas, gerencie tratamentos e responda dúvidas dos pacientes automaticamente.",
+    "problemTitle": "Dor nas costas não espera.",
+    "problems": [
+      "Pacientes com dor querendo atendimento urgente",
+      "Ligações perdidas durante sessões",
+      "Gestão de tratamentos recorrentes",
+      "Dúvidas sobre técnicas e benefícios",
+      "Perda de pacientes por falta de resposta"
+    ],
+    "solutionTitle": "Ajuste vértebras enquanto ajustamos sua agenda.",
+    "solutionDescription": "Nossa IA prioriza pacientes com dor aguda, gerencia tratamentos recorrentes e responde dúvidas sobre quiropraxia e seus benefícios.",
+    "solutions": [
+      { "title": "Urgências priorizadas", "description": "Dor aguda e travamento" },
+      { "title": "Tratamentos recorrentes", "description": "Gestão de sessões periódicas" },
+      { "title": "Primeira consulta", "description": "Avaliação inicial e histórico" },
+      { "title": "Informações educativas", "description": "Explica técnicas e benefícios" },
+      { "title": "Lembretes de manutenção", "description": "Lembra pacientes sobre sessões" },
+      { "title": "Atendimento 24/7", "description": "Pacientes sempre têm resposta" }
+    ],
+    "features": [
+      { "title": "Urgências de Dor", "description": "Dor aguda e travamento" },
+      { "title": "Tratamentos Recorrentes", "description": "Sessões periódicas" },
+      { "title": "Primeira Avaliação", "description": "Histórico e sintomas" },
+      { "title": "Educação do Paciente", "description": "Técnicas e benefícios" },
+      { "title": "Lembretes", "description": "Manutenção periódica" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
+    ],
+    "stats": [
+      { "value": "67%", "label": "dos pacientes preferem tratamento recorrente" },
+      { "value": "48%", "label": "de aumento em retornos com lembretes" },
+      { "value": "82%", "label": "das ligações são sobre dor ou agendamento" }
+    ],
+    "useCases": [
+      { "title": "Dor Aguda", "description": "Travamento e desconforto" },
+      { "title": "Manutenção Preventiva", "description": "Sessões periódicas" },
+      { "title": "Primeira Consulta", "description": "Avaliação inicial" },
+      { "title": "Lesões Esportivas", "description": "Recuperação de atletas" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Pacientes com travamento precisam de resposta imediata. A IA prioriza e agenda.",
+        "author": "Dr. Roberto Silva",
+        "role": "Quiropraxista",
+        "company": "Silva Chiropractic",
+        "location": "San Diego, CA"
+      },
+      {
+        "quote": "Tratamentos recorrentes são 70% da nossa receita. A IA gerencia tudo automaticamente.",
+        "author": "Dra. Camila Santos",
+        "role": "Diretora Clínica",
+        "company": "Santos Spine Center",
+        "location": "Los Angeles, CA"
+      },
+      {
+        "quote": "A IA explica os benefícios da quiropraxia para novos pacientes. Chegam mais informados.",
+        "author": "Dr. Eduardo Lima",
+        "role": "Quiropraxista Proprietário",
+        "company": "Lima Wellness Clinic",
+        "location": "San Jose, CA"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como a IA lida com dor aguda?",
+        "answer": "A IA identifica casos de dor intensa ou travamento e prioriza o agendamento para o próximo horário disponível."
+      },
+      {
+        "question": "A IA gerencia tratamentos recorrentes?",
+        "answer": "Sim! A IA agenda sessões periódicas, envia lembretes e reativa pacientes que estão em falta com o tratamento."
+      },
+      {
+        "question": "Como funciona para primeira consulta?",
+        "answer": "A IA coleta informações sobre sintomas, histórico de dor e expectativas, preparando você para a avaliação inicial."
+      },
+      {
+        "question": "A IA explica sobre quiropraxia?",
+        "answer": "Sim! A IA responde dúvidas comuns sobre técnicas, benefícios, frequência de sessões e o que esperar do tratamento."
+      },
+      {
+        "question": "Funciona com atletas?",
+        "answer": "Sim! A IA qualifica lesões esportivas e pode priorizar casos de atletas com competições próximas."
+      }
+    ]
+  },
+  "veterinario": {
+    "name": "Clínica Veterinária",
+    "heroTitle": "Recepcionista IA para Veterinários",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA PET SHOPS",
+    "heroDescription": "Atendimento inteligente para clínicas veterinárias e pet shops. Agende consultas, gerencie vacinas e responda dúvidas dos tutores automaticamente.",
+    "problemTitle": "Animais adoecem a qualquer hora.",
+    "problems": [
+      "Emergências fora do horário comercial",
+      "Ligações perdidas durante procedimentos",
+      "Gestão de vacinas e retornos",
+      "Dúvidas sobre sintomas e cuidados",
+      "Perda de clientes por falta de resposta"
+    ],
+    "solutionTitle": "Cuide dos pets enquanto atendemos os tutores.",
+    "solutionDescription": "Nossa IA prioriza emergências veterinárias, gerencia calendário de vacinas, agenda consultas de rotina e responde dúvidas sobre cuidados com pets.",
+    "solutions": [
+      { "title": "Emergências priorizadas", "description": "Acidentes e sintomas graves" },
+      { "title": "Calendário de vacinas", "description": "Lembretes automáticos" },
+      { "title": "Agendamento de consultas", "description": "Rotina e check-ups" },
+      { "title": "Triagem de sintomas", "description": "Identifica urgência" },
+      { "title": "Informações de cuidados", "description": "Orienta tutores" },
+      { "title": "Atendimento 24/7", "description": "Emergências sempre atendidas" }
+    ],
+    "features": [
+      { "title": "Emergências Pet", "description": "Acidentes e sintomas graves" },
+      { "title": "Calendário de Vacinas", "description": "Lembretes automáticos" },
+      { "title": "Consultas de Rotina", "description": "Check-ups e exames" },
+      { "title": "Triagem de Sintomas", "description": "Identifica urgência" },
+      { "title": "Orientação de Cuidados", "description": "Dúvidas comuns" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
+    ],
+    "stats": [
+      { "value": "58%", "label": "das emergências acontecem fora do horário" },
+      { "value": "45%", "label": "de aumento em vacinas com lembretes" },
+      { "value": "72%", "label": "dos tutores querem resposta imediata" }
+    ],
+    "useCases": [
+      { "title": "Emergências", "description": "Acidentes e mal-estar" },
+      { "title": "Vacinas e Vermífugos", "description": "Calendário preventivo" },
+      { "title": "Check-ups", "description": "Consultas de rotina" },
+      { "title": "Castração e Cirurgias", "description": "Procedimentos eletivos" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Tutores desesperados às 2 da manhã precisam de orientação. A IA acalma e agenda emergência.",
+        "author": "Dra. Fernanda Costa",
+        "role": "Veterinária Proprietária",
+        "company": "Costa Pet Clinic",
+        "location": "Austin, TX"
+      },
+      {
+        "quote": "Lembretes de vacina aumentaram nossas consultas preventivas em 60%.",
+        "author": "Dr. Marcos Silva",
+        "role": "Diretor Clínico",
+        "company": "Silva Animal Hospital",
+        "location": "Dallas, TX"
+      },
+      {
+        "quote": "A IA faz triagem de sintomas e prioriza casos graves. Chegamos preparados.",
+        "author": "Juliana Mendes",
+        "role": "Gerente de Clínica",
+        "company": "Mendes Vet Care",
+        "location": "Houston, TX"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como a IA lida com emergências veterinárias?",
+        "answer": "A IA faz triagem de sintomas para identificar urgência (vômito, convulsão, acidente) e pode acionar você ou direcionar para emergência 24h."
+      },
+      {
+        "question": "A IA gerencia calendário de vacinas?",
+        "answer": "Sim! A IA envia lembretes quando vacinas e vermífugos estão próximos do vencimento, aumentando retornos preventivos."
+      },
+      {
+        "question": "Funciona para múltiplas espécies?",
+        "answer": "Sim! A IA qualifica consultas para cães, gatos, aves, roedores e outros pets, coletando informações específicas."
+      },
+      {
+        "question": "A IA orienta sobre sintomas?",
+        "answer": "Sim! A IA pode orientar sobre sintomas comuns e indicar se é necessário atendimento de urgência ou pode esperar."
+      },
+      {
+        "question": "Como agenda cirurgias?",
+        "answer": "A IA agenda consultas pré-operatórias, explica preparos necessários e confirma a data do procedimento."
+      }
+    ]
+  },
+  "salao-beleza": {
+    "name": "Salão de Beleza",
+    "heroTitle": "Recepcionista IA para Salões de Beleza",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA BELEZA",
+    "heroDescription": "Atendimento inteligente para salões de beleza e barbearias. Agende horários, gerencie múltiplos profissionais e responda dúvidas automaticamente.",
+    "problemTitle": "Clientes querem agendar a qualquer hora.",
+    "problems": [
+      "Ligações perdidas durante atendimentos",
+      "Agenda complexa com múltiplos profissionais",
+      "Clientes remarcando ou cancelando",
+      "Dúvidas sobre serviços e preços",
+      "Perda de clientes por falta de resposta"
+    ],
+    "solutionTitle": "Embeleze clientes enquanto agendamos outros.",
+    "solutionDescription": "Nossa IA gerencia agendas de múltiplos profissionais, agenda serviços combinados, responde sobre preços e envia lembretes automáticos.",
+    "solutions": [
+      { "title": "Múltiplos profissionais", "description": "Gerencia agenda de toda a equipe" },
+      { "title": "Serviços combinados", "description": "Agenda corte + coloração + etc" },
+      { "title": "Informações de serviços", "description": "Preços e duração" },
+      { "title": "Lembretes automáticos", "description": "Confirmação de horários" },
+      { "title": "Preferências do cliente", "description": "Lembra profissional favorito" },
+      { "title": "Atendimento 24/7", "description": "Agendamento sempre disponível" }
+    ],
+    "features": [
+      { "title": "Múltiplos Profissionais", "description": "Gestão de equipe completa" },
+      { "title": "Serviços Combinados", "description": "Pacotes e combos" },
+      { "title": "Informações de Preços", "description": "Tabela de serviços" },
+      { "title": "Lembretes", "description": "Confirmação automática" },
+      { "title": "Perfil do Cliente", "description": "Preferências salvas" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
+    ],
+    "stats": [
+      { "value": "38%", "label": "de redução em no-shows com lembretes" },
+      { "value": "65%", "label": "dos agendamentos são fora do horário comercial" },
+      { "value": "47%", "label": "mais clientes com atendimento 24/7" }
+    ],
+    "useCases": [
+      { "title": "Corte e Coloração", "description": "Serviços de cabelo" },
+      { "title": "Manicure e Pedicure", "description": "Unhas e estética" },
+      { "title": "Barbear e Barba", "description": "Serviços masculinos" },
+      { "title": "Pacotes Especiais", "description": "Noivas e eventos" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Com 6 profissionais, a agenda era caótica. A IA organiza tudo perfeitamente.",
+        "author": "Carla Souza",
+        "role": "Proprietária",
+        "company": "Souza Beauty Studio",
+        "location": "New York, NY"
+      },
+      {
+        "quote": "Clientes agendam às 11 da noite. A IA funciona quando dormimos.",
+        "author": "Marcos Oliveira",
+        "role": "Gerente",
+        "company": "Oliveira Hair & Nails",
+        "location": "Newark, NJ"
+      },
+      {
+        "quote": "Reduzimos cancelamentos em 40% com lembretes automáticos.",
+        "author": "Ana Paula Ferreira",
+        "role": "Diretora",
+        "company": "Ferreira Salon",
+        "location": "Jersey City, NJ"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A IA gerencia múltiplos profissionais?",
+        "answer": "Sim! A IA conhece a agenda, especialidades e serviços de cada profissional, direcionando clientes corretamente."
+      },
+      {
+        "question": "Como funciona para serviços combinados?",
+        "answer": "A IA calcula o tempo total de serviços combinados e encontra horários que acomodem todos os procedimentos."
+      },
+      {
+        "question": "A IA lembra preferências dos clientes?",
+        "answer": "Sim! A IA registra profissional favorito, serviços habituais e preferências, personalizando o atendimento."
+      },
+      {
+        "question": "Como funcionam os lembretes?",
+        "answer": "A IA envia lembretes 24 horas antes por SMS ou WhatsApp, permitindo confirmação ou reagendamento."
+      },
+      {
+        "question": "A IA informa sobre preços?",
+        "answer": "Sim! A IA conhece a tabela de preços e informa valores de serviços individuais e combinados."
+      }
+    ]
+  },
+  "spa-massagem": {
+    "name": "Spa e Massagem",
+    "heroTitle": "Recepcionista IA para Spas e Massagens",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA SPA",
+    "heroDescription": "Atendimento inteligente para spas, centros de massagem e bem-estar. Agende sessões, promova pacotes e responda dúvidas automaticamente.",
+    "problemTitle": "Relaxamento não tem hora marcada.",
+    "problems": [
+      "Ligações perdidas durante sessões",
+      "Clientes querendo agendar fora do horário",
+      "Dúvidas sobre tipos de massagem",
+      "Venda de pacotes e programas",
+      "Perda de clientes por falta de resposta"
+    ],
+    "solutionTitle": "Relaxe seus clientes enquanto agendamos outros.",
+    "solutionDescription": "Nossa IA agenda sessões, explica tipos de massagem e tratamentos, promove pacotes e gerencia programas de bem-estar.",
+    "solutions": [
+      { "title": "Agendamento de sessões", "description": "Massagens e tratamentos" },
+      { "title": "Consultoria de serviços", "description": "Recomenda tratamentos ideais" },
+      { "title": "Venda de pacotes", "description": "Promove programas e combos" },
+      { "title": "Gestão de terapeutas", "description": "Múltiplos profissionais" },
+      { "title": "Lembretes relaxantes", "description": "Confirma sessões com antecedência" },
+      { "title": "Atendimento 24/7", "description": "Tranquilidade sempre disponível" }
+    ],
+    "features": [
+      { "title": "Agendamento de Sessões", "description": "Massagens e tratamentos" },
+      { "title": "Consultoria de Serviços", "description": "Recomendações personalizadas" },
+      { "title": "Venda de Pacotes", "description": "Programas e combos" },
+      { "title": "Múltiplos Terapeutas", "description": "Gestão de equipe" },
+      { "title": "Lembretes", "description": "Confirmação automática" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
+    ],
+    "stats": [
+      { "value": "72%", "label": "dos agendamentos são fora do horário" },
+      { "value": "58%", "label": "mais vendas de pacotes com IA" },
+      { "value": "35%", "label": "de redução em no-shows" }
+    ],
+    "useCases": [
+      { "title": "Massagem Relaxante", "description": "Sessões individuais" },
+      { "title": "Tratamentos Corporais", "description": "Estética e bem-estar" },
+      { "title": "Day Spa", "description": "Pacotes completos" },
+      { "title": "Programas Mensais", "description": "Assinaturas e planos" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Clientes estressados querem agendar às 10 da noite. A IA está lá para eles.",
+        "author": "Renata Lima",
+        "role": "Proprietária",
+        "company": "Lima Wellness Spa",
+        "location": "Scottsdale, AZ"
+      },
+      {
+        "quote": "Vendemos 60% mais pacotes desde que a IA começou a promovê-los.",
+        "author": "Daniela Costa",
+        "role": "Gerente Comercial",
+        "company": "Costa Relaxation Center",
+        "location": "Phoenix, AZ"
+      },
+      {
+        "quote": "A IA explica as diferenças entre massagens. Clientes chegam sabendo o que querem.",
+        "author": "Patrícia Santos",
+        "role": "Massoterapeuta Chefe",
+        "company": "Santos Spa & Massage",
+        "location": "Tucson, AZ"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A IA pode recomendar tipos de massagem?",
+        "answer": "Sim! A IA pergunta sobre necessidades (relaxamento, dor, tensão) e recomenda o tipo de massagem mais adequado."
+      },
+      {
+        "question": "Como a IA vende pacotes?",
+        "answer": "A IA oferece pacotes e programas automaticamente, explicando benefícios e economia comparada a sessões avulsas."
+      },
+      {
+        "question": "Funciona para múltiplos terapeutas?",
+        "answer": "Sim! A IA gerencia a agenda de toda a equipe, respeitando especialidades e preferências dos clientes."
+      },
+      {
+        "question": "A IA gerencia programas mensais?",
+        "answer": "Sim! A IA acompanha assinaturas, agenda sessões do mês e renova programas automaticamente."
+      },
+      {
+        "question": "Como funcionam os lembretes?",
+        "answer": "A IA envia lembretes relaxantes 24 horas antes, preparando o cliente para a experiência de bem-estar."
+      }
+    ]
+  },
+  "inspecao-residencial": {
+    "name": "Inspeção Residencial",
+    "heroTitle": "Recepcionista IA para Inspetores",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA INSPEÇÕES",
+    "heroDescription": "Atendimento inteligente para empresas de inspeção residencial. Agende vistorias, qualifique propriedades e responda dúvidas automaticamente.",
+    "problemTitle": "Compradores têm pressa.",
+    "problems": [
+      "Ligações perdidas durante inspeções",
+      "Urgência em transações imobiliárias",
+      "Dúvidas sobre tipos de inspeção",
+      "Coordenação com corretores e compradores",
+      "Perda de leads por demora na resposta"
+    ],
+    "solutionTitle": "Inspecione enquanto agendamos suas vistorias.",
+    "solutionDescription": "Nossa IA qualifica propriedades, agenda inspeções considerando prazos de transação, coordena com todas as partes e responde dúvidas sobre o processo.",
+    "solutions": [
+      { "title": "Qualificação de propriedade", "description": "Tipo, idade e tamanho do imóvel" },
+      { "title": "Agendamento urgente", "description": "Considera prazos de transação" },
+      { "title": "Coordenação multi-parte", "description": "Corretor, comprador e vendedor" },
+      { "title": "Tipos de inspeção", "description": "Explica opções e adicionais" },
+      { "title": "Follow-up de relatórios", "description": "Entrega e dúvidas" },
+      { "title": "Atendimento 24/7", "description": "Transações não esperam" }
+    ],
+    "features": [
+      { "title": "Qualificação de Imóveis", "description": "Tipo, idade e características" },
+      { "title": "Agendamento Urgente", "description": "Prazos de transação" },
+      { "title": "Coordenação", "description": "Múltiplas partes envolvidas" },
+      { "title": "Tipos de Inspeção", "description": "Opções e adicionais" },
+      { "title": "Follow-up", "description": "Relatórios e dúvidas" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
+    ],
+    "stats": [
+      { "value": "87%", "label": "das inspeções têm prazo apertado" },
+      { "value": "62%", "label": "das ligações são de corretores urgentes" },
+      { "value": "3x", "label": "mais agendamentos com resposta rápida" }
+    ],
+    "useCases": [
+      { "title": "Inspeção Pré-Compra", "description": "Avaliação para compradores" },
+      { "title": "Inspeção Pré-Venda", "description": "Preparação para vendedores" },
+      { "title": "Inspeções Especializadas", "description": "Pragas, telhado, HVAC" },
+      { "title": "Re-inspeções", "description": "Verificação de reparos" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Corretores ligam com urgência às 7 da noite. A IA agenda para o dia seguinte.",
+        "author": "Rogério Mendes",
+        "role": "Inspetor Certificado",
+        "company": "Mendes Home Inspections",
+        "location": "Denver, CO"
+      },
+      {
+        "quote": "A IA coordena com corretor, comprador e vendedor. Chego na hora certa com todos lá.",
+        "author": "Gustavo Santos",
+        "role": "Proprietário",
+        "company": "Santos Property Inspections",
+        "location": "Aurora, CO"
+      },
+      {
+        "quote": "Transações imobiliárias têm prazos apertados. A IA entende a urgência.",
+        "author": "Marcelo Costa",
+        "role": "Inspetor Sênior",
+        "company": "Costa Inspection Services",
+        "location": "Colorado Springs, CO"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "A IA entende prazos de transação imobiliária?",
+        "answer": "Sim! A IA pergunta sobre a data de fechamento e prioriza inspeções com prazos apertados."
+      },
+      {
+        "question": "Como a IA coordena múltiplas partes?",
+        "answer": "A IA pode confirmar disponibilidade com corretor, comprador e vendedor para encontrar horário que funcione para todos."
+      },
+      {
+        "question": "A IA explica tipos de inspeção?",
+        "answer": "Sim! A IA explica diferenças entre inspeção completa e especializadas (pragas, telhado, HVAC, radon) e recomenda opções."
+      },
+      {
+        "question": "Funciona para re-inspeções?",
+        "answer": "Sim! A IA agenda re-inspeções para verificar se reparos solicitados foram realizados corretamente."
+      },
+      {
+        "question": "Como o follow-up funciona?",
+        "answer": "A IA acompanha entrega de relatórios e está disponível para responder dúvidas sobre achados da inspeção."
+      }
+    ]
+  },
+  "chaveiro": {
+    "name": "Chaveiro",
+    "heroTitle": "Recepcionista IA para Chaveiros",
+    "heroSubtitle": "ATENDIMENTO 24/7 PARA CHAVEIROS",
+    "heroDescription": "Atendimento inteligente para chaveiros e empresas de segurança. Priorize emergências, qualifique serviços e forneça orçamentos automaticamente.",
+    "problemTitle": "Chaves perdidas não esperam.",
+    "problems": [
+      "Emergências 24 horas por dia",
+      "Clientes trancados querendo resposta imediata",
+      "Dificuldade em estimar orçamentos por telefone",
+      "Localização e deslocamento",
+      "Perda de leads por demora na resposta"
+    ],
+    "solutionTitle": "Abra portas enquanto atendemos emergências.",
+    "solutionDescription": "Nossa IA prioriza emergências (trancados fora de casa/carro), coleta localização, qualifica o tipo de serviço e fornece estimativas de tempo e preço.",
+    "solutions": [
+      { "title": "Emergências priorizadas", "description": "Trancados fora imediatamente" },
+      { "title": "Coleta de localização", "description": "Endereço exato para deslocamento" },
+      { "title": "Qualificação de serviço", "description": "Tipo de fechadura e veículo" },
+      { "title": "Estimativas de preço", "description": "Orçamento aproximado" },
+      { "title": "Tempo de chegada", "description": "ETA baseado em localização" },
+      { "title": "Atendimento 24/7", "description": "Emergências nunca param" }
+    ],
+    "features": [
+      { "title": "Emergências 24/7", "description": "Trancados fora de casa/carro" },
+      { "title": "Localização GPS", "description": "Endereço para deslocamento" },
+      { "title": "Qualificação", "description": "Tipo de fechadura e serviço" },
+      { "title": "Orçamentos", "description": "Estimativas de preço" },
+      { "title": "ETA", "description": "Tempo estimado de chegada" },
+      { "title": "Multi-Canal", "description": "Telefone, WhatsApp e chat" }
+    ],
+    "stats": [
+      { "value": "78%", "label": "das emergências acontecem fora do horário" },
+      { "value": "94%", "label": "dos clientes querem resposta em até 5 minutos" },
+      { "value": "2x", "label": "mais fechamentos com resposta rápida" }
+    ],
+    "useCases": [
+      { "title": "Trancado Fora de Casa", "description": "Abertura residencial" },
+      { "title": "Trancado Fora do Carro", "description": "Abertura automotiva" },
+      { "title": "Troca de Fechaduras", "description": "Residencial e comercial" },
+      { "title": "Cópias de Chaves", "description": "Serviços de rotina" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Clientes trancados às 3 da manhã estão em pânico. A IA acalma e agenda imediatamente.",
+        "author": "Fernando Gomes",
+        "role": "Chaveiro 24h",
+        "company": "Gomes Locksmith Services",
+        "location": "Las Vegas, NV"
+      },
+      {
+        "quote": "A IA coleta localização e tipo de fechadura. Chego preparado com as ferramentas certas.",
+        "author": "Ricardo Santos",
+        "role": "Proprietário",
+        "company": "Santos Lock & Key",
+        "location": "Henderson, NV"
+      },
+      {
+        "quote": "Respondia 50% das emergências. Agora a IA responde 100% em segundos.",
+        "author": "Julio Ferreira",
+        "role": "Chaveiro Automotivo",
+        "company": "Ferreira Auto Locksmith",
+        "location": "Reno, NV"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Como a IA lida com emergências de trancamento?",
+        "answer": "A IA coleta localização exata, tipo de fechadura/veículo, confirma que você está disponível e fornece ETA ao cliente."
+      },
+      {
+        "question": "A IA fornece orçamentos?",
+        "answer": "Sim! Com base no tipo de serviço e localização, a IA fornece uma estimativa de preço antes de você sair."
+      },
+      {
+        "question": "Como funciona a coleta de localização?",
+        "answer": "A IA pede o endereço exato ou pode receber localização via WhatsApp para calcular distância e tempo de chegada."
+      },
+      {
+        "question": "A IA diferencia tipos de fechadura?",
+        "answer": "Sim! A IA pergunta sobre tipo de fechadura (comum, tetra, biométrica, automotiva) para você ir preparado."
+      },
+      {
+        "question": "Funciona para serviços de rotina?",
+        "answer": "Sim! Além de emergências, a IA agenda troca de fechaduras, cópias de chaves e outros serviços."
       }
     ]
   }
