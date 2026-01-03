@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, MapPin, Phone, Calendar, MessageSquare, Star, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -60,6 +61,7 @@ const NegociosLocais = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.localBusiness.title" descriptionKey="seo.localBusiness.description" />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32">
         <div className="container">

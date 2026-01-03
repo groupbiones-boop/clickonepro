@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { 
   CheckCircle, 
   Phone, 
@@ -116,6 +117,7 @@ const Sobre = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.about.title" descriptionKey="seo.about.description" />
       {/* Hero Section - Impactante */}
       <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />

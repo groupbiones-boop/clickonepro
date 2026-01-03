@@ -1,8 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 import { 
   Layers, 
-  Globe, 
+  Globe,
   Share2, 
   Star, 
   Mail, 
@@ -117,6 +118,7 @@ const InfraestruturaVertical = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.verticalInfra.title" descriptionKey="seo.verticalInfra.description" />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground py-20 md:py-28 overflow-hidden">
         {/* Background Pattern */}

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
@@ -162,6 +163,10 @@ const SetorDetalhe = () => {
 
   return (
     <Layout>
+      <SEO 
+        title={`${name} | ClickOne AI`}
+        description={heroSubtitle}
+      />
       {/* FOLD 1: Hero Section with 72h Badge */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Background Image */}

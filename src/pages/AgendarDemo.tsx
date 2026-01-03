@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { CheckCircle, Star, Clock, Shield, Headphones, Quote, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { useTranslation } from "react-i18next";
@@ -85,6 +86,7 @@ const AgendarDemo = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.bookDemo.title" descriptionKey="seo.bookDemo.description" />
       {/* Hero Section with Contact Info */}
       <section className="py-20 md:py-32 bg-gradient-to-br from-primary/5 via-background to-accent/30 relative overflow-hidden">
         {/* Background decorations */}
