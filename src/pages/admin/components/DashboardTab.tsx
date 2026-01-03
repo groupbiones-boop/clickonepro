@@ -30,6 +30,8 @@ interface DashboardTabProps {
     startDate: Date;
     endDate: Date;
   };
+  onRefresh?: () => void;
+  onRefreshStart?: () => void;
 }
 
 // Local interface to avoid circular type dependencies
@@ -65,7 +67,7 @@ const CHART_COLORS = {
   accent: "hsl(var(--chart-5))",
 };
 
-const DashboardTab = ({ filters }: DashboardTabProps) => {
+const DashboardTab = ({ filters, onRefresh, onRefreshStart }: DashboardTabProps) => {
   const queryClient = useQueryClient();
   const funnelRef = useRef<{ captureAsImage: () => Promise<string>; getData: () => ExportDataLocal["funnel"] }>(null);
   const [isExportDialogOpen, setIsExportDialogOpen] = useState(false);
@@ -99,19 +101,21 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
   // Pull-to-refresh handlers
   const handleRefresh = async () => {
     setIsRefreshing(true);
+    onRefreshStart?.();
     await Promise.all([
       queryClient.invalidateQueries({ queryKey: ["analytics"] }),
       queryClient.invalidateQueries({ queryKey: ["leads-stats"] }),
       queryClient.invalidateQueries({ queryKey: ["conversion-rate"] }),
       queryClient.invalidateQueries({ queryKey: ["agendamentos-count"] }),
       queryClient.invalidateQueries({ queryKey: ["leads-timeline"] }),
-      queryClient.invalidateQueries({ queryKey: ["funnel"] }),
+      queryClient.invalidateQueries({ queryKey: ["funnel-data"] }),
       queryClient.invalidateQueries({ queryKey: ["timeline"] }),
       queryClient.invalidateQueries({ queryKey: ["device-stats"] }),
       queryClient.invalidateQueries({ queryKey: ["top-pages"] }),
       queryClient.invalidateQueries({ queryKey: ["country-stats"] }),
     ]);
     setIsRefreshing(false);
+    onRefresh?.();
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
