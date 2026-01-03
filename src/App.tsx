@@ -28,7 +28,6 @@ import BlogEditor from "./pages/admin/BlogEditor";
 import Login from "./pages/admin/Login";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
-import Instalar from "./pages/Instalar";
 
 // QueryClient with default settings
 const queryClient = new QueryClient();
@@ -59,7 +58,6 @@ const App = () => (
             <Route path="/obrigado" element={<Obrigado />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/instalar" element={<Instalar />} />
             <Route path="/admin/generate-audio" element={<GenerateDemoAudio />} />
             <Route path="/admin/login" element={<Login />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />
