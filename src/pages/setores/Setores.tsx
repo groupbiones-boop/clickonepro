@@ -16,7 +16,7 @@ import industryPool from "@/assets/industry-pool.jpg";
 import industryMoving from "@/assets/industry-moving.jpg";
 import industryRoofing from "@/assets/industry-roofing.jpg";
 import industryPestControl from "@/assets/industry-pest-control.jpg";
-import industryLocksmith from "@/assets/industry-locksmith.jpg";
+import industryLocksmith from "@/assets/industry-locksmith-new.jpg";
 import industryPainters from "@/assets/industry-painters.jpg";
 import industryDentist from "@/assets/industry-dentist.jpg";
 import industryChiropractor from "@/assets/industry-chiropractor.jpg";

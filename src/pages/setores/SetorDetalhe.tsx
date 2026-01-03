@@ -53,7 +53,7 @@ import industryMoving2 from "@/assets/industry-moving-2.jpg";
 import industryRoofing2 from "@/assets/industry-roofing-2.jpg";
 import industryPestControl from "@/assets/industry-pest-control.jpg";
 import industryPestControl2 from "@/assets/industry-pest-control-2.jpg";
-import industryLocksmith from "@/assets/industry-locksmith.jpg";
+import industryLocksmith from "@/assets/industry-locksmith-new.jpg";
 import industryLocksmith2 from "@/assets/industry-locksmith-2.jpg";
 import industryPainters from "@/assets/industry-painters.jpg";
 import industryPainters2 from "@/assets/industry-painters-2.jpg";
