@@ -32,6 +32,11 @@ const Footer = () => {
                   {t("nav.chatAttendant")}
                 </Link>
               </li>
+              <li>
+                <Link to="/instalar" className="text-background/70 hover:text-background text-sm transition-colors">
+                  {t("footer.installApp")}
+                </Link>
+              </li>
             </ul>
           </div>
 
