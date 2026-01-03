@@ -17,10 +17,115 @@ const CLIENT_VOICES: Record<string, string> = {
 };
 
 const DEFAULT_CLIENT_VOICE = "nPczCjzI2devNBz1zQrb"; // Brian as fallback
+const ALLOWED_DEMO_IDS = ["plumbing", "law-office", "cleaning"];
+const MAX_TRANSCRIPT_MESSAGES = 20;
+const MAX_MESSAGE_LENGTH = 1000;
 
 interface TranscriptMessage {
   speaker: "ai" | "client";
   text: string;
+}
+
+interface DemoAudioRequest {
+  demoId: string;
+  transcript: TranscriptMessage[];
+}
+
+function validateRequest(body: unknown): DemoAudioRequest {
+  if (!body || typeof body !== 'object') {
+    throw new Error('Invalid request body');
+  }
+
+  const { demoId, transcript } = body as Record<string, unknown>;
+
+  // Validate demoId
+  if (typeof demoId !== 'string') {
+    throw new Error('demoId is required and must be a string');
+  }
+
+  if (!ALLOWED_DEMO_IDS.includes(demoId)) {
+    throw new Error(`Invalid demoId. Allowed values: ${ALLOWED_DEMO_IDS.join(', ')}`);
+  }
+
+  // Validate transcript
+  if (!Array.isArray(transcript)) {
+    throw new Error('transcript must be an array');
+  }
+
+  if (transcript.length === 0) {
+    throw new Error('transcript cannot be empty');
+  }
+
+  if (transcript.length > MAX_TRANSCRIPT_MESSAGES) {
+    throw new Error(`transcript cannot have more than ${MAX_TRANSCRIPT_MESSAGES} messages`);
+  }
+
+  const validatedTranscript: TranscriptMessage[] = [];
+
+  for (let i = 0; i < transcript.length; i++) {
+    const msg = transcript[i];
+    
+    if (!msg || typeof msg !== 'object') {
+      throw new Error(`Invalid message at index ${i}`);
+    }
+
+    const { speaker, text } = msg as Record<string, unknown>;
+
+    if (speaker !== 'ai' && speaker !== 'client') {
+      throw new Error(`Invalid speaker at index ${i}. Must be "ai" or "client"`);
+    }
+
+    if (typeof text !== 'string') {
+      throw new Error(`Invalid text at index ${i}. Must be a string`);
+    }
+
+    const trimmedText = text.trim();
+    if (trimmedText.length === 0) {
+      throw new Error(`Empty text at index ${i}`);
+    }
+
+    if (trimmedText.length > MAX_MESSAGE_LENGTH) {
+      throw new Error(`Text at index ${i} exceeds ${MAX_MESSAGE_LENGTH} characters`);
+    }
+
+    validatedTranscript.push({
+      speaker,
+      text: trimmedText
+    });
+  }
+
+  return {
+    demoId,
+    transcript: validatedTranscript
+  };
+}
+
+async function verifyAdminRole(req: Request): Promise<void> {
+  const authHeader = req.headers.get('Authorization');
+  if (!authHeader) {
+    throw new Error('Authorization header required');
+  }
+
+  const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+  const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY')!;
+
+  const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+    global: { headers: { Authorization: authHeader } }
+  });
+
+  const { data: { user }, error: userError } = await supabase.auth.getUser();
+  if (userError || !user) {
+    throw new Error('Invalid or expired token');
+  }
+
+  const { data: hasRole, error: roleError } = await supabase.rpc('has_role', {
+    _user_id: user.id,
+    _role: 'admin'
+  });
+
+  if (roleError || !hasRole) {
+    throw new Error('Admin role required');
+  }
 }
 
 async function generateSingleAudio(text: string, voiceId: string, apiKey: string): Promise<ArrayBuffer> {
@@ -49,17 +154,10 @@ async function generateSingleAudio(text: string, voiceId: string, apiKey: string
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`ElevenLabs API error: ${response.status} - ${errorText}`);
+    throw new Error(`TTS generation failed: ${response.status}`);
   }
 
   return response.arrayBuffer();
-}
-
-// Simple pause generation - 0.5 seconds of silence in MP3 format
-function generateSilence(): Uint8Array {
-  // Minimal MP3 frame for ~0.5s of silence
-  // This is a simplified approach - just return empty audio
-  return new Uint8Array(0);
 }
 
 serve(async (req) => {
@@ -68,10 +166,12 @@ serve(async (req) => {
   }
 
   try {
-    const { demoId, transcript } = await req.json() as { 
-      demoId: string; 
-      transcript: TranscriptMessage[];
-    };
+    // Verify admin role
+    await verifyAdminRole(req);
+
+    // Parse and validate input
+    const body = await req.json();
+    const { demoId, transcript } = validateRequest(body);
 
     // Select the appropriate client voice for this demo
     const clientVoice = CLIENT_VOICES[demoId] || DEFAULT_CLIENT_VOICE;
@@ -81,11 +181,11 @@ serve(async (req) => {
     const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
     if (!ELEVENLABS_API_KEY) {
-      throw new Error("ELEVENLABS_API_KEY is not configured");
+      throw new Error("Service configuration error");
     }
 
     if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
-      throw new Error("Supabase credentials not configured");
+      throw new Error("Service configuration error");
     }
 
     console.log(`Generating demo audio for: ${demoId} with ${transcript.length} messages`);
@@ -108,7 +208,7 @@ serve(async (req) => {
         }
       } catch (error) {
         console.error(`Error generating audio for message ${i}:`, error);
-        throw error;
+        throw new Error('Audio generation failed');
       }
     }
 
@@ -138,7 +238,7 @@ serve(async (req) => {
 
     if (uploadError) {
       console.error("Storage upload error:", uploadError);
-      throw new Error(`Storage upload failed: ${uploadError.message}`);
+      throw new Error('Storage upload failed');
     }
 
     // Get public URL
@@ -160,10 +260,18 @@ serve(async (req) => {
     );
   } catch (error) {
     console.error("Error in generate-demo-audio function:", error);
+    
+    const message = error instanceof Error ? error.message : "Unknown error";
+    const status = message.includes('Authorization') || message.includes('token') || message.includes('Admin') 
+      ? 401 
+      : message.includes('required') || message.includes('must be') || message.includes('Invalid') || message.includes('cannot') || message.includes('exceeds')
+        ? 400 
+        : 500;
+
     return new Response(
-      JSON.stringify({ error: error instanceof Error ? error.message : "Unknown error" }),
+      JSON.stringify({ error: message }),
       {
-        status: 500,
+        status,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       }
     );
