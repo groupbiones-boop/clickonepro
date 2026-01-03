@@ -1,9 +1,10 @@
 // ConversionFunnel - Funil de Vendas SaaS em Português
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Input } from "@/components/ui/input";
 import { useFunnelData } from "@/hooks/use-funnel-data";
-import { Binoculars, Lightbulb, MessageCircle, MousePointer, Trophy } from "lucide-react";
+import { Binoculars, Lightbulb, MessageCircle, MousePointer, Trophy, DollarSign } from "lucide-react";
 import html2canvas from "html2canvas";
 
 interface ConversionFunnelProps {
@@ -41,9 +42,13 @@ const FUNNEL_STAGES = [
   { key: "clientes", label: "Fechamento", icon: Trophy, color: "#bc95e2" },
 ];
 
+// Etapas que têm valor monetário (a partir do lead)
+const STAGES_WITH_VALUE = ["leads", "agendamentos", "clientes"];
+
 const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters }, ref) => {
   const funnelRef = useRef<HTMLDivElement>(null);
   const { data: funnelData, isLoading } = useFunnelData(filters);
+  const [baseValueUSD, setBaseValueUSD] = useState(497);
 
   // Mock data for demonstration when no real data exists
   const mockData: FunnelDataLocal = {
@@ -62,6 +67,28 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
 
   const hasRealData = funnelData && (funnelData.visitors > 0 || funnelData.leads > 0);
   const data = hasRealData ? funnelData : mockData;
+
+  // Funções de valor monetário
+  const hasValue = (stageKey: string): boolean => STAGES_WITH_VALUE.includes(stageKey);
+
+  const formatValue = (quantity: number): string => {
+    const total = quantity * baseValueUSD;
+    return total.toLocaleString("en-US", { 
+      style: "currency", 
+      currency: "USD",
+      maximumFractionDigits: 0 
+    });
+  };
+
+  const formatValueCompact = (quantity: number): string => {
+    const total = quantity * baseValueUSD;
+    if (total >= 1000000) return `$${(total / 1000000).toFixed(1)}M`;
+    if (total >= 1000) return `$${Math.round(total / 1000)}K`;
+    return `$${total}`;
+  };
+
+  // Valor total do pipeline (leads + agendamentos + clientes)
+  const totalPipelineValue = (data.leads + data.agendamentos + data.clientes) * baseValueUSD;
 
   useImperativeHandle(ref, () => ({
     captureAsImage: async () => {
@@ -141,7 +168,21 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
   return (
     <Card className="h-full">
       <CardHeader className="pb-1 md:pb-2">
-        <CardTitle className="text-base md:text-lg">Funil de Vendas SaaS</CardTitle>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <CardTitle className="text-base md:text-lg">Funil de Vendas SaaS</CardTitle>
+          {/* Campo editável para valor base */}
+          <div className="flex items-center gap-2">
+            <DollarSign className="h-4 w-4 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">Valor/Lead:</span>
+            <Input
+              type="number"
+              value={baseValueUSD}
+              onChange={(e) => setBaseValueUSD(Number(e.target.value) || 0)}
+              className="w-20 h-7 text-xs text-right"
+              min={0}
+            />
+          </div>
+        </div>
       </CardHeader>
       <CardContent className="pt-0">
         <TooltipProvider>
@@ -150,6 +191,7 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
               const Icon = stage.icon;
               const value = values[stage.key];
               const widthPercent = widthPercentages[index];
+              const showValue = hasValue(stage.key);
               
               return (
                 <div 
@@ -192,6 +234,11 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
                         <p className="text-muted-foreground">
                           {value.toLocaleString("pt-BR")} contatos
                         </p>
+                        {showValue && (
+                          <p className="font-bold text-green-600">
+                            {formatValue(value)}
+                          </p>
+                        )}
                         {index < FUNNEL_STAGES.length - 1 && (
                           <p className="mt-1 font-medium" style={{ color: FUNNEL_STAGES[index + 1].color }}>
                             ↓ {getTooltipContent(index)}
@@ -203,11 +250,27 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
 
                   {/* Label and Value below bar */}
                   <div className="text-center mt-0.5 sm:mt-1">
-                    <p className="text-[9px] sm:text-xs font-semibold" style={{ color: stage.color }}>
-                      <span className="hidden sm:inline">{stage.label}</span>
-                      <span className="sm:hidden">{getMobileLabel(stage.label)}</span>
-                      {" "}({value.toLocaleString("pt-BR")})
+                    {/* Desktop */}
+                    <p className="hidden sm:block text-xs font-semibold" style={{ color: stage.color }}>
+                      {stage.label} ({value.toLocaleString("pt-BR")})
+                      {showValue && (
+                        <span className="text-green-600 ml-1">
+                          - {formatValue(value)}
+                        </span>
+                      )}
                     </p>
+                    
+                    {/* Mobile */}
+                    <div className="sm:hidden">
+                      <p className="text-[9px] font-semibold" style={{ color: stage.color }}>
+                        {getMobileLabel(stage.label)} ({value.toLocaleString("pt-BR")})
+                      </p>
+                      {showValue && (
+                        <p className="text-[10px] font-bold text-green-600">
+                          {formatValueCompact(value)}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
@@ -216,18 +279,29 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
         </TooltipProvider>
 
         {/* Métricas Resumidas */}
-        <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t border-border grid grid-cols-2 gap-2 md:gap-4 text-center">
-          <div>
-            <p className="text-[10px] md:text-xs text-muted-foreground">Prospecto → Qualificado</p>
-            <p className="text-base md:text-lg font-bold" style={{ color: "#500daa" }}>
-              {data.visitors > 0 ? ((data.leads / data.visitors) * 100).toFixed(1) : 0}%
+        <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t border-border">
+          {/* Valor Total do Pipeline */}
+          <div className="text-center mb-3">
+            <p className="text-[10px] md:text-xs text-muted-foreground">Valor do Pipeline (Leads)</p>
+            <p className="text-lg md:text-xl font-bold text-green-600">
+              {totalPipelineValue.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 })}
             </p>
           </div>
-          <div>
-            <p className="text-[10px] md:text-xs text-muted-foreground">Demo → Fechado</p>
-            <p className="text-base md:text-lg font-bold" style={{ color: "#a173d4" }}>
-              {data.leads > 0 ? ((data.clientes / data.leads) * 100).toFixed(1) : 0}%
-            </p>
+          
+          {/* Taxas de Conversão */}
+          <div className="grid grid-cols-2 gap-2 md:gap-4 text-center">
+            <div>
+              <p className="text-[10px] md:text-xs text-muted-foreground">Prospecto → Qualificado</p>
+              <p className="text-base md:text-lg font-bold" style={{ color: "#500daa" }}>
+                {data.visitors > 0 ? ((data.leads / data.visitors) * 100).toFixed(1) : 0}%
+              </p>
+            </div>
+            <div>
+              <p className="text-[10px] md:text-xs text-muted-foreground">Demo → Fechado</p>
+              <p className="text-base md:text-lg font-bold" style={{ color: "#a173d4" }}>
+                {data.leads > 0 ? ((data.clientes / data.leads) * 100).toFixed(1) : 0}%
+              </p>
+            </div>
           </div>
         </div>
       </CardContent>
