@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { useTranslation } from "react-i18next";
 
@@ -7,6 +8,7 @@ const TermsOfService = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.terms.title" descriptionKey="seo.terms.description" />
       <section className="py-16 md:py-24 bg-background">
         <div className="container max-w-4xl">
           <AnimatedSection animation="fade-up">

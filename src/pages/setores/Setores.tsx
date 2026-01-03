@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { ArrowRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
@@ -61,6 +62,7 @@ const Setores = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.sectors.title" descriptionKey="seo.sectors.description" />
       <section className="py-16 md:py-24 bg-foreground">
         <div className="container">
           <AnimatedSection animation="fade-up">

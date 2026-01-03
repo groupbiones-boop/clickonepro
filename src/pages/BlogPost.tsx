@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, User } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
@@ -66,6 +67,10 @@ const BlogPost = () => {
 
   return (
     <Layout>
+      <SEO 
+        title={`${post.title} | ClickOne AI Blog`}
+        description={post.content[0]?.substring(0, 160)}
+      />
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-accent/30">
         <div className="container">
           <AnimatedSection animation="fade-up" className="max-w-3xl mx-auto">

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
 import {
@@ -64,6 +65,7 @@ const RecepcionistaIAVoz = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.voiceProduct.title" descriptionKey="seo.voiceProduct.description" />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32">
         <div className="container">

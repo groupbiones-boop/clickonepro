@@ -894,5 +894,71 @@
         "desc": "If you have any questions about these Terms, please contact us at:"
       }
     }
+    },
+    "seo": {
+    "home": {
+      "title": "ClickOne AI - Virtual Receptionist with Artificial Intelligence",
+      "description": "AI-powered virtual receptionist that answers calls, qualifies leads, and schedules services 24/7. Never miss a call again."
+    },
+    "voiceProduct": {
+      "title": "Voice AI Receptionist | ClickOne AI",
+      "description": "Answer 100% of calls with human-like voice and advanced AI. Schedule, qualify, and convert leads 24/7."
+    },
+    "chatProduct": {
+      "title": "Conversational AI Attendant | ClickOne AI",
+      "description": "Smart chat that converts visitors into customers. Omnichannel support 24/7 with AI."
+    },
+    "verticalInfra": {
+      "title": "Vertical Service Infrastructure | ClickOne AI",
+      "description": "Complete ecosystem: CRM, omnichannel, email marketing, and social media integrated with AI."
+    },
+    "sectors": {
+      "title": "Industries Served | ClickOne AI",
+      "description": "Customized AI solutions for 20+ industries: healthcare, services, beauty, and more."
+    },
+    "sectorDetail": {
+      "title": "{{sector}} | ClickOne AI",
+      "description": "Specialized virtual receptionist for {{sector}}. Schedule a free demo."
+    },
+    "about": {
+      "title": "About ClickOne AI | AI Company for Businesses",
+      "description": "Learn about ClickOne AI: our mission, values, and how we transform customer service with AI."
+    },
+    "blog": {
+      "title": "Blog | ClickOne AI",
+      "description": "Articles, tips, and news about AI, automation, and customer service for businesses."
+    },
+    "bookDemo": {
+      "title": "Schedule a Free Demo | ClickOne AI",
+      "description": "Schedule a free demo and see how AI can transform your customer service."
+    },
+    "smallBusiness": {
+      "title": "AI for Small Businesses | ClickOne AI",
+      "description": "Affordable AI solutions for small businesses. Automate your service without complications."
+    },
+    "mediumBusiness": {
+      "title": "AI for Medium Businesses | ClickOne AI",
+      "description": "Scale your customer service with AI. Robust solutions for medium-sized businesses."
+    },
+    "localBusiness": {
+      "title": "AI for Local Businesses | ClickOne AI",
+      "description": "Virtual receptionist for local businesses. Never lose a customer due to missed calls."
+    },
+    "privacy": {
+      "title": "Privacy Policy | ClickOne AI",
+      "description": "Learn how ClickOne AI protects your data and ensures your privacy."
+    },
+    "terms": {
+      "title": "Terms of Service | ClickOne AI",
+      "description": "Terms and conditions for using ClickOne AI services."
+    },
+    "thankYou": {
+      "title": "Thank You! | ClickOne AI",
+      "description": "We received your request. We'll be in touch soon."
+    },
+    "notFound": {
+      "title": "Page Not Found | ClickOne AI",
+      "description": "The page you're looking for was not found."
+    }
   }
 }

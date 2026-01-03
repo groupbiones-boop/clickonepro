@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import AudioTranscriptPlayer from "@/components/AudioTranscriptPlayer";
 import { audioDemos } from "@/data/audioDemo";
@@ -104,6 +105,7 @@ const Index = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.home.title" descriptionKey="seo.home.description" />
       {/* Hero Section - Enhanced */}
       <section className="relative overflow-hidden py-24 md:py-40 min-h-[90vh] flex items-center">
         {/* Background Image with Gradient Overlay */}

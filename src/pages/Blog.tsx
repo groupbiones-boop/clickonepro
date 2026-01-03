@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -11,6 +12,7 @@ const Blog = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.blog.title" descriptionKey="seo.blog.description" />
       <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/30">
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">Blog</h1>

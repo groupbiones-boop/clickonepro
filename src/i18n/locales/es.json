@@ -894,5 +894,71 @@
         "desc": "Si tienes alguna pregunta sobre estos Términos, contáctanos:"
       }
     }
+    },
+    "seo": {
+    "home": {
+      "title": "ClickOne AI - Recepcionista Virtual con Inteligencia Artificial",
+      "description": "Recepcionista virtual con IA que atiende llamadas, califica leads y programa servicios 24/7. Nunca más pierdas una llamada."
+    },
+    "voiceProduct": {
+      "title": "Recepcionista IA de Voz | ClickOne AI",
+      "description": "Atiende el 100% de las llamadas con voz humana e IA avanzada. Agenda, califica y convierte leads 24/7."
+    },
+    "chatProduct": {
+      "title": "Asistente IA Conversacional | ClickOne AI",
+      "description": "Chat inteligente que convierte visitantes en clientes. Atención omnicanal 24/7 con IA."
+    },
+    "verticalInfra": {
+      "title": "Infraestructura Vertical de Atención | ClickOne AI",
+      "description": "Ecosistema completo: CRM, omnicanal, email marketing y redes sociales integrados con IA."
+    },
+    "sectors": {
+      "title": "Sectores Atendidos | ClickOne AI",
+      "description": "Soluciones de IA personalizadas para más de 20 sectores: salud, servicios, belleza y más."
+    },
+    "sectorDetail": {
+      "title": "{{sector}} | ClickOne AI",
+      "description": "Recepcionista virtual especializada para {{sector}}. Agenda una demostración gratuita."
+    },
+    "about": {
+      "title": "Sobre ClickOne AI | Empresa de IA para Negocios",
+      "description": "Conoce ClickOne AI: nuestra misión, valores y cómo transformamos la atención al cliente con IA."
+    },
+    "blog": {
+      "title": "Blog | ClickOne AI",
+      "description": "Artículos, consejos y novedades sobre IA, automatización y atención al cliente para negocios."
+    },
+    "bookDemo": {
+      "title": "Agendar Demostración Gratuita | ClickOne AI",
+      "description": "Agenda una demostración gratuita y ve cómo la IA puede transformar tu atención al cliente."
+    },
+    "smallBusiness": {
+      "title": "IA para Pequeñas Empresas | ClickOne AI",
+      "description": "Soluciones de IA accesibles para pequeñas empresas. Automatiza tu atención sin complicaciones."
+    },
+    "mediumBusiness": {
+      "title": "IA para Medianas Empresas | ClickOne AI",
+      "description": "Escala tu atención al cliente con IA. Soluciones robustas para medianas empresas."
+    },
+    "localBusiness": {
+      "title": "IA para Negocios Locales | ClickOne AI",
+      "description": "Recepcionista virtual para negocios locales. Nunca más pierdas un cliente por falta de atención."
+    },
+    "privacy": {
+      "title": "Política de Privacidad | ClickOne AI",
+      "description": "Conoce cómo ClickOne AI protege tus datos y garantiza tu privacidad."
+    },
+    "terms": {
+      "title": "Términos de Servicio | ClickOne AI",
+      "description": "Términos y condiciones de uso de los servicios ClickOne AI."
+    },
+    "thankYou": {
+      "title": "¡Gracias! | ClickOne AI",
+      "description": "Recibimos tu solicitud. Nos pondremos en contacto pronto."
+    },
+    "notFound": {
+      "title": "Página no encontrada | ClickOne AI",
+      "description": "La página que buscas no fue encontrada."
+    }
   }
 }

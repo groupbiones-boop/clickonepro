@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { CheckCircle, Phone } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 
@@ -9,6 +10,7 @@ const Obrigado = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.thankYou.title" descriptionKey="seo.thankYou.description" noIndex />
       {/* Hero Section - Success Confirmation */}
       <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-primary/5 overflow-hidden">
         {/* Background decoration */}

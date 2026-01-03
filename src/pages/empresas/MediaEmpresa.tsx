@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Users, BarChart3, Zap, Settings, Star, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -68,6 +69,7 @@ const MediaEmpresa = () => {
 
   return (
     <Layout>
+      <SEO titleKey="seo.mediumBusiness.title" descriptionKey="seo.mediumBusiness.description" />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32">
         <div className="container">
