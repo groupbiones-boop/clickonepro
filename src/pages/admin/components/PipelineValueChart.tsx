@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { usePipelineTimeline } from "@/hooks/use-pipeline-timeline";
-import { DollarSign, TrendingUp } from "lucide-react";
+import { DollarSign, TrendingUp, TrendingDown, Minus } from "lucide-react";
 import {
   AreaChart,
   Area,
@@ -32,12 +32,49 @@ const formatCurrency = (value: number): string => {
   return `$${value}`;
 };
 
-const PipelineValueChart = ({ filters, baseValueUSD, onBaseValueChange }: PipelineValueChartProps) => {
-  const { data: timelineData, isLoading } = usePipelineTimeline(filters, baseValueUSD);
+interface ComparisonIndicatorProps {
+  current: number;
+  previous: number;
+  changePercent: number;
+  format?: "number" | "currency";
+}
 
-  // Calculate growth
-  const firstValue = timelineData?.[0]?.valor || 0;
-  const lastValue = timelineData?.[timelineData.length - 1]?.valor || 0;
+const ComparisonIndicator = ({ current, previous, changePercent, format = "number" }: ComparisonIndicatorProps) => {
+  const isPositive = changePercent > 0;
+  const isNeutral = changePercent === 0;
+  
+  const formatVal = (val: number) => {
+    if (format === "currency") return formatCurrency(val);
+    return val.toLocaleString("pt-BR");
+  };
+
+  const Icon = isNeutral ? Minus : isPositive ? TrendingUp : TrendingDown;
+  const colorClass = isNeutral ? "text-muted-foreground" : isPositive ? "text-green-600" : "text-destructive";
+
+  return (
+    <div className="flex flex-col items-center">
+      <div className={`flex items-center gap-1 text-[10px] ${colorClass}`}>
+        <Icon className="h-3 w-3" />
+        <span>
+          {isPositive ? "+" : ""}{changePercent.toFixed(1)}%
+        </span>
+      </div>
+      <p className="text-[9px] text-muted-foreground">
+        vs {formatVal(previous)}
+      </p>
+    </div>
+  );
+};
+
+const PipelineValueChart = ({ filters, baseValueUSD, onBaseValueChange }: PipelineValueChartProps) => {
+  const { data, isLoading } = usePipelineTimeline(filters, baseValueUSD);
+
+  const timelineData = data?.timeline || [];
+  const comparison = data?.comparison;
+
+  // Calculate growth within the current period
+  const firstValue = timelineData[0]?.valor || 0;
+  const lastValue = timelineData[timelineData.length - 1]?.valor || 0;
   const growth = firstValue > 0 ? ((lastValue - firstValue) / firstValue) * 100 : 0;
 
   if (isLoading) {
@@ -84,7 +121,7 @@ const PipelineValueChart = ({ filters, baseValueUSD, onBaseValueChange }: Pipeli
       <CardContent>
         <div className="h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={timelineData || []}>
+            <AreaChart data={timelineData}>
               <defs>
                 <linearGradient id="pipelineGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#22c55e" stopOpacity={0.4} />
@@ -126,25 +163,47 @@ const PipelineValueChart = ({ filters, baseValueUSD, onBaseValueChange }: Pipeli
           </ResponsiveContainer>
         </div>
 
-        {/* Summary stats */}
+        {/* Summary stats with comparison */}
         <div className="mt-4 pt-3 border-t border-border grid grid-cols-3 gap-2 text-center">
           <div>
             <p className="text-[10px] md:text-xs text-muted-foreground">Leads</p>
             <p className="text-sm md:text-base font-bold text-primary">
-              {timelineData?.[timelineData.length - 1]?.leads || 0}
+              {comparison?.currentLeads || timelineData[timelineData.length - 1]?.leads || 0}
             </p>
+            {comparison && (
+              <ComparisonIndicator
+                current={comparison.currentLeads}
+                previous={comparison.previousLeads}
+                changePercent={comparison.leadsChangePercent}
+              />
+            )}
           </div>
           <div>
             <p className="text-[10px] md:text-xs text-muted-foreground">Agendamentos</p>
             <p className="text-sm md:text-base font-bold text-primary">
-              {timelineData?.[timelineData.length - 1]?.agendamentos || 0}
+              {comparison?.currentAgendamentos || timelineData[timelineData.length - 1]?.agendamentos || 0}
             </p>
+            {comparison && (
+              <ComparisonIndicator
+                current={comparison.currentAgendamentos}
+                previous={comparison.previousAgendamentos}
+                changePercent={comparison.agendamentosChangePercent}
+              />
+            )}
           </div>
           <div>
             <p className="text-[10px] md:text-xs text-muted-foreground">Valor Total</p>
             <p className="text-sm md:text-base font-bold text-green-600">
-              {formatCurrency(lastValue)}
+              {formatCurrency(comparison?.currentValue || lastValue)}
             </p>
+            {comparison && (
+              <ComparisonIndicator
+                current={comparison.currentValue}
+                previous={comparison.previousValue}
+                changePercent={comparison.valueChangePercent}
+                format="currency"
+              />
+            )}
           </div>
         </div>
       </CardContent>

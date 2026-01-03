@@ -4,7 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Input } from "@/components/ui/input";
 import { useFunnelData } from "@/hooks/use-funnel-data";
-import { Binoculars, Lightbulb, MessageCircle, MousePointer, Trophy, DollarSign } from "lucide-react";
+import { usePipelineTimeline } from "@/hooks/use-pipeline-timeline";
+import { Binoculars, Lightbulb, MessageCircle, MousePointer, Trophy, DollarSign, TrendingUp, TrendingDown, Minus } from "lucide-react";
 import html2canvas from "html2canvas";
 
 interface ConversionFunnelProps {
@@ -50,6 +51,8 @@ const STAGES_WITH_VALUE = ["leads", "agendamentos", "clientes"];
 const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters, baseValueUSD, onBaseValueChange }, ref) => {
   const funnelRef = useRef<HTMLDivElement>(null);
   const { data: funnelData, isLoading } = useFunnelData(filters);
+  const { data: pipelineData } = usePipelineTimeline(filters, baseValueUSD);
+  const comparison = pipelineData?.comparison;
 
   // Mock data for demonstration when no real data exists
   const mockData: FunnelDataLocal = {
@@ -287,6 +290,26 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
             <p className="text-lg md:text-xl font-bold text-green-600">
               {totalPipelineValue.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 })}
             </p>
+            {comparison && (
+              <div className="flex items-center justify-center gap-1 mt-1">
+                {comparison.valueChangePercent === 0 ? (
+                  <Minus className="h-3 w-3 text-muted-foreground" />
+                ) : comparison.valueChangePercent > 0 ? (
+                  <TrendingUp className="h-3 w-3 text-green-600" />
+                ) : (
+                  <TrendingDown className="h-3 w-3 text-destructive" />
+                )}
+                <span className={`text-xs ${
+                  comparison.valueChangePercent === 0 ? "text-muted-foreground" :
+                  comparison.valueChangePercent > 0 ? "text-green-600" : "text-destructive"
+                }`}>
+                  {comparison.valueChangePercent > 0 ? "+" : ""}{comparison.valueChangePercent.toFixed(1)}%
+                </span>
+                <span className="text-[10px] text-muted-foreground">
+                  vs {comparison.previousValue.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 })}
+                </span>
+              </div>
+            )}
           </div>
           
           {/* Taxas de Conversão */}
