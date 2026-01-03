@@ -20,10 +20,10 @@ enabled = true
 site_url = "http://localhost:3000"
 
 [functions.elevenlabs-tts]
-verify_jwt = false
+verify_jwt = true
 
 [functions.generate-demo-audio]
-verify_jwt = false
+verify_jwt = true
 
 [functions.ghl-webhook]
 verify_jwt = false
