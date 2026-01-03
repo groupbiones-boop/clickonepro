@@ -47,40 +47,40 @@ const StatsCard = ({
 
   return (
     <Card className={cn("overflow-hidden", className)}>
-      <CardContent className="p-6">
+      <CardContent className="p-3 md:p-6">
         <div className="flex items-start justify-between">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 text-muted-foreground mb-2">
-              <Icon className="h-4 w-4" />
-              <span className="text-sm font-medium">{title}</span>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-1.5 md:gap-2 text-muted-foreground mb-1 md:mb-2">
+              <Icon className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="text-[11px] md:text-sm font-medium truncate">{title}</span>
             </div>
-            <div className="text-3xl font-bold text-foreground mb-2">
+            <div className="text-lg md:text-3xl font-bold text-foreground mb-1 md:mb-2">
               {formatValue(value)}
             </div>
             {changePercent !== undefined && (
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 flex-wrap">
                 <div
                   className={cn(
-                    "flex items-center gap-1 text-sm font-medium",
+                    "flex items-center gap-0.5 md:gap-1 text-[10px] md:text-sm font-medium",
                     isNeutral
                       ? "text-muted-foreground"
                       : isPositive
-                      ? "text-green-500"
-                      : "text-red-500"
+                      ? "text-chart-4"
+                      : "text-destructive"
                   )}
                 >
-                  <TrendIcon className="h-4 w-4" />
+                  <TrendIcon className="h-3 w-3 md:h-4 md:w-4" />
                   <span>
                     {isPositive ? "+" : ""}
                     {changePercent.toFixed(1)}%
                   </span>
                 </div>
-                <span className="text-xs text-muted-foreground">{comparePeriod}</span>
+                <span className="text-[9px] md:text-xs text-muted-foreground truncate hidden md:inline">{comparePeriod}</span>
               </div>
             )}
           </div>
           {sparklineData && sparklineData.length > 0 && (
-            <div className="w-24 h-12">
+            <div className="hidden md:block w-24 h-12">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={sparklineData}>
                   <defs>

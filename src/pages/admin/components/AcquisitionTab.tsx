@@ -66,7 +66,7 @@ const AcquisitionTab = ({ filters }: AcquisitionTabProps) => {
   return (
     <div className="space-y-6">
       {/* Stats Cards */}
-      <div className="grid gap-4 md:grid-cols-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
         <StatsCard
           title="Direto"
           value={4500}
