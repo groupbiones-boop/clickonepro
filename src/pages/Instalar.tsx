@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { Smartphone, Share, Plus, MoreVertical, Download, Check, Apple, Chrome } from "lucide-react";
+import { Smartphone, Share, Plus, MoreVertical, Download, Check, Apple, Chrome, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Layout from "@/components/layout/Layout";
+import { QRCodeSVG } from "qrcode.react";
 
 type DeviceType = "ios" | "android" | "desktop";
 
@@ -10,8 +12,12 @@ const Instalar = () => {
   const [deviceType, setDeviceType] = useState<DeviceType>("desktop");
   const [isInstalled, setIsInstalled] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [currentUrl, setCurrentUrl] = useState("");
 
   useEffect(() => {
+    // Get current URL for QR Code
+    setCurrentUrl(window.location.href);
+
     // Detect device type
     const userAgent = navigator.userAgent.toLowerCase();
     if (/iphone|ipad|ipod/.test(userAgent)) {
@@ -97,7 +103,30 @@ const Instalar = () => {
     }
   ];
 
-  const steps = deviceType === "ios" ? iosSteps : androidSteps;
+  const StepsList = ({ steps }: { steps: typeof iosSteps }) => (
+    <div className="space-y-4">
+      {steps.map((step, index) => (
+        <Card key={index} className="overflow-hidden">
+          <CardContent className="p-0">
+            <div className="flex items-start gap-4 p-5">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
+                  {step.icon}
+                  <span className="absolute -top-2 -left-2 w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">
+                    {index + 1}
+                  </span>
+                </div>
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-lg mb-1">{step.title}</h3>
+                <p className="text-muted-foreground">{step.description}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  );
 
   if (isInstalled) {
     return (
@@ -153,8 +182,8 @@ const Instalar = () => {
                 </>
               ) : (
                 <>
-                  <Smartphone className="h-5 w-5" />
-                  <span className="text-sm font-medium">Acesse pelo celular para instalar</span>
+                  <QrCode className="h-5 w-5" />
+                  <span className="text-sm font-medium">Escaneie o QR Code ou veja as instruções abaixo</span>
                 </>
               )}
             </div>
@@ -170,59 +199,81 @@ const Instalar = () => {
             </div>
           )}
 
-          {/* Steps */}
+          {/* Mobile: Show only relevant steps */}
           {deviceType !== "desktop" && (
             <div className="space-y-4">
               <h2 className="text-xl font-semibold text-center mb-6">
                 Siga os passos abaixo:
               </h2>
-              {steps.map((step, index) => (
-                <Card key={index} className="overflow-hidden">
-                  <CardContent className="p-0">
-                    <div className="flex items-start gap-4 p-5">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
-                          {step.icon}
-                          <span className="absolute -top-2 -left-2 w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold">
-                            {index + 1}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-lg mb-1">{step.title}</h3>
-                        <p className="text-muted-foreground">{step.description}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+              <StepsList steps={deviceType === "ios" ? iosSteps : androidSteps} />
             </div>
           )}
 
-          {/* Desktop Message */}
+          {/* Desktop: Show QR Code and Tabs */}
           {deviceType === "desktop" && (
-            <Card>
-              <CardContent className="p-8 text-center">
-                <Smartphone className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-                <h2 className="text-xl font-semibold mb-4">
-                  Acesse pelo seu celular
+            <div className="space-y-8">
+              {/* QR Code Section */}
+              <Card>
+                <CardContent className="p-8">
+                  <div className="flex flex-col md:flex-row items-center gap-8">
+                    <div className="flex-shrink-0">
+                      <div className="bg-white p-4 rounded-xl shadow-sm">
+                        <QRCodeSVG 
+                          value={currentUrl} 
+                          size={160}
+                          level="H"
+                          includeMargin={false}
+                        />
+                      </div>
+                    </div>
+                    <div className="text-center md:text-left">
+                      <h2 className="text-xl font-semibold mb-2">
+                        Escaneie com seu celular
+                      </h2>
+                      <p className="text-muted-foreground mb-4">
+                        Aponte a câmera do seu celular para o QR Code acima 
+                        para abrir esta página diretamente no seu dispositivo móvel.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <Apple className="h-4 w-4" />
+                          <span>iPhone: Use a câmera</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Smartphone className="h-4 w-4" />
+                          <span>Android: Google Lens</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Tabs with Instructions */}
+              <div>
+                <h2 className="text-xl font-semibold text-center mb-6">
+                  Instruções de Instalação
                 </h2>
-                <p className="text-muted-foreground mb-6">
-                  Para instalar o app, acesse este site pelo navegador do seu celular 
-                  (Safari no iPhone ou Chrome no Android).
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Apple className="h-5 w-5" />
-                    <span>iPhone: Use o Safari</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Chrome className="h-5 w-5" />
-                    <span>Android: Use o Chrome</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                <Tabs defaultValue="ios" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2 mb-6">
+                    <TabsTrigger value="ios" className="gap-2">
+                      <Apple className="h-4 w-4" />
+                      iPhone / iPad
+                    </TabsTrigger>
+                    <TabsTrigger value="android" className="gap-2">
+                      <Smartphone className="h-4 w-4" />
+                      Android
+                    </TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="ios">
+                    <StepsList steps={iosSteps} />
+                  </TabsContent>
+                  <TabsContent value="android">
+                    <StepsList steps={androidSteps} />
+                  </TabsContent>
+                </Tabs>
+              </div>
+            </div>
           )}
 
           {/* Benefits */}
