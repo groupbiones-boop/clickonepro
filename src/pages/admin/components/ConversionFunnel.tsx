@@ -126,14 +126,26 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
     return `${rate} convertem para ${nextStage.label}`;
   };
 
+  // Abbreviated labels for mobile
+  const getMobileLabel = (label: string) => {
+    const abbreviations: Record<string, string> = {
+      "Prospecção": "Prosp.",
+      "Alcance": "Alc.",
+      "Descoberta e Qualificação": "Desc.",
+      "Demonstração": "Demo",
+      "Fechamento": "Fech.",
+    };
+    return abbreviations[label] || label.split(" ")[0];
+  };
+
   return (
     <Card className="h-full">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-lg">Funil de Vendas SaaS</CardTitle>
+      <CardHeader className="pb-1 md:pb-2">
+        <CardTitle className="text-base md:text-lg">Funil de Vendas SaaS</CardTitle>
       </CardHeader>
       <CardContent className="pt-0">
         <TooltipProvider>
-          <div ref={funnelRef} className="flex flex-col items-center space-y-2 bg-card p-4 rounded-lg">
+          <div ref={funnelRef} className="flex flex-col items-center space-y-1 md:space-y-2 bg-card p-2 md:p-4 rounded-lg">
             {FUNNEL_STAGES.map((stage, index) => {
               const Icon = stage.icon;
               const value = values[stage.key];
@@ -149,7 +161,7 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
                     <TooltipTrigger asChild>
                       {/* Funnel Bar - trapezoid shape centered */}
                       <div 
-                        className="relative flex items-center justify-between px-2 sm:px-4 py-2 sm:py-3 transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+                        className="relative flex items-center justify-between px-2 sm:px-4 py-1.5 sm:py-3 transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
                         style={{ 
                           width: `${widthPercent}%`,
                           backgroundColor: stage.color,
@@ -157,12 +169,12 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
                         }}
                       >
                         {/* Icon in white rounded square */}
-                        <div className="flex items-center justify-center w-5 h-5 sm:w-7 sm:h-7 bg-white rounded-md">
-                          <Icon className="h-3 w-3 sm:h-4 sm:w-4" style={{ color: stage.color }} />
+                        <div className="flex items-center justify-center w-4 h-4 sm:w-7 sm:h-7 bg-white rounded-md">
+                          <Icon className="h-2.5 w-2.5 sm:h-4 sm:w-4" style={{ color: stage.color }} />
                         </div>
                         {/* Number in white circle */}
                         <span 
-                          className="flex items-center justify-center w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-white font-bold text-[10px] sm:text-xs"
+                          className="flex items-center justify-center w-3.5 h-3.5 sm:w-6 sm:h-6 rounded-full bg-white font-bold text-[8px] sm:text-xs"
                           style={{ color: stage.color }}
                         >
                           {index + 1}
@@ -190,10 +202,10 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
                   </Tooltip>
 
                   {/* Label and Value below bar */}
-                  <div className="text-center mt-1">
-                    <p className="text-[10px] sm:text-xs font-semibold" style={{ color: stage.color }}>
+                  <div className="text-center mt-0.5 sm:mt-1">
+                    <p className="text-[9px] sm:text-xs font-semibold" style={{ color: stage.color }}>
                       <span className="hidden sm:inline">{stage.label}</span>
-                      <span className="sm:hidden">{stage.label.split(" ")[0]}</span>
+                      <span className="sm:hidden">{getMobileLabel(stage.label)}</span>
                       {" "}({value.toLocaleString("pt-BR")})
                     </p>
                   </div>
@@ -204,16 +216,16 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
         </TooltipProvider>
 
         {/* Métricas Resumidas */}
-        <div className="mt-6 pt-4 border-t border-border grid grid-cols-2 gap-4 text-center">
+        <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t border-border grid grid-cols-2 gap-2 md:gap-4 text-center">
           <div>
-            <p className="text-xs text-muted-foreground">Prospecto → Qualificado</p>
-            <p className="text-lg font-bold" style={{ color: "#500daa" }}>
+            <p className="text-[10px] md:text-xs text-muted-foreground">Prospecto → Qualificado</p>
+            <p className="text-base md:text-lg font-bold" style={{ color: "#500daa" }}>
               {data.visitors > 0 ? ((data.leads / data.visitors) * 100).toFixed(1) : 0}%
             </p>
           </div>
           <div>
-            <p className="text-xs text-muted-foreground">Demo → Fechado</p>
-            <p className="text-lg font-bold" style={{ color: "#a173d4" }}>
+            <p className="text-[10px] md:text-xs text-muted-foreground">Demo → Fechado</p>
+            <p className="text-base md:text-lg font-bold" style={{ color: "#a173d4" }}>
               {data.leads > 0 ? ((data.clientes / data.leads) * 100).toFixed(1) : 0}%
             </p>
           </div>

@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, Eye, MousePointerClick, MessageCircle, Clock, Percent, Globe, Monitor, Smartphone, Tablet, Download } from "lucide-react";
+import { Users, Eye, MousePointerClick, MessageCircle, Clock, Percent, Globe, Monitor, Smartphone, Tablet, Download, RefreshCw } from "lucide-react";
+import { useQueryClient } from "@tanstack/react-query";
 import { useVisitorStats, usePageviewStats, useTimelineData, useDeviceStats, useTopPages, useCountryStats } from "@/hooks/useAnalytics";
 import { useLeadsStats, useConversionRate, useAgendamentosCount, useLeadsTimeline } from "@/hooks/useLeadsStats";
 import { useFunnelData } from "@/hooks/use-funnel-data";
@@ -65,9 +66,17 @@ const CHART_COLORS = {
 };
 
 const DashboardTab = ({ filters }: DashboardTabProps) => {
+  const queryClient = useQueryClient();
   const funnelRef = useRef<{ captureAsImage: () => Promise<string>; getData: () => ExportDataLocal["funnel"] }>(null);
   const [isExportDialogOpen, setIsExportDialogOpen] = useState(false);
   const [exportData, setExportData] = useState<ExportDataLocal | null>(null);
+  
+  // Pull-to-refresh state
+  const [isPulling, setIsPulling] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [pullDistance, setPullDistance] = useState(0);
+  const startY = useRef(0);
+  const PULL_THRESHOLD = 80;
 
   const { data: visitorStats } = useVisitorStats(filters);
   const { data: pageviewStats } = usePageviewStats(filters);
@@ -85,6 +94,45 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
     if (!value) return "0%";
     const sign = value > 0 ? "+" : "";
     return `${sign}${value.toFixed(1)}%`;
+  };
+
+  // Pull-to-refresh handlers
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    await Promise.all([
+      queryClient.invalidateQueries({ queryKey: ["analytics"] }),
+      queryClient.invalidateQueries({ queryKey: ["leads-stats"] }),
+      queryClient.invalidateQueries({ queryKey: ["conversion-rate"] }),
+      queryClient.invalidateQueries({ queryKey: ["agendamentos-count"] }),
+      queryClient.invalidateQueries({ queryKey: ["leads-timeline"] }),
+      queryClient.invalidateQueries({ queryKey: ["funnel"] }),
+      queryClient.invalidateQueries({ queryKey: ["timeline"] }),
+      queryClient.invalidateQueries({ queryKey: ["device-stats"] }),
+      queryClient.invalidateQueries({ queryKey: ["top-pages"] }),
+      queryClient.invalidateQueries({ queryKey: ["country-stats"] }),
+    ]);
+    setIsRefreshing(false);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (window.scrollY === 0) {
+      startY.current = e.touches[0].clientY;
+      setIsPulling(true);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isPulling || window.scrollY > 0) return;
+    const distance = Math.max(0, e.touches[0].clientY - startY.current);
+    setPullDistance(Math.min(distance, PULL_THRESHOLD * 1.5));
+  };
+
+  const handleTouchEnd = () => {
+    if (pullDistance >= PULL_THRESHOLD) {
+      handleRefresh();
+    }
+    setIsPulling(false);
+    setPullDistance(0);
   };
 
   const deviceData = deviceStats?.map((d) => ({
@@ -129,7 +177,37 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
   };
 
   return (
-    <div className="space-y-6">
+    <div 
+      className="space-y-6"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Pull-to-refresh indicator - Mobile only */}
+      <div 
+        className="md:hidden flex justify-center items-center transition-all duration-200 overflow-hidden"
+        style={{ 
+          height: pullDistance > 0 || isRefreshing ? `${Math.max(pullDistance, isRefreshing ? 50 : 0)}px` : 0,
+          opacity: pullDistance > 0 || isRefreshing ? 1 : 0 
+        }}
+      >
+        <div className="flex items-center gap-2">
+          <RefreshCw 
+            className={`h-5 w-5 text-primary transition-transform ${
+              pullDistance >= PULL_THRESHOLD ? 'rotate-180' : ''
+            } ${isRefreshing ? 'animate-spin' : ''}`}
+          />
+          <span className="text-sm text-muted-foreground">
+            {isRefreshing 
+              ? "Atualizando..." 
+              : pullDistance >= PULL_THRESHOLD 
+                ? "Solte para atualizar" 
+                : "Puxe para atualizar"
+            }
+          </span>
+        </div>
+      </div>
+
       {/* Header with Export Button */}
       <div className="flex justify-end">
         <Button onClick={handleExportClick} variant="outline" size="sm">
