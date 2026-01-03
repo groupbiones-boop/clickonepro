@@ -1,7 +1,14 @@
+import { useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { usePipelineTimeline } from "@/hooks/use-pipeline-timeline";
-import { DollarSign, TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { DollarSign, TrendingUp, TrendingDown, Minus, Download, Loader2 } from "lucide-react";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+import html2canvas from "html2canvas";
 import {
   AreaChart,
   Area,
@@ -67,6 +74,8 @@ const ComparisonIndicator = ({ current, previous, changePercent, format = "numbe
 };
 
 const PipelineValueChart = ({ filters, baseValueUSD, onBaseValueChange }: PipelineValueChartProps) => {
+  const chartRef = useRef<HTMLDivElement>(null);
+  const [isExporting, setIsExporting] = useState(false);
   const { data, isLoading } = usePipelineTimeline(filters, baseValueUSD);
 
   const timelineData = data?.timeline || [];
@@ -76,6 +85,130 @@ const PipelineValueChart = ({ filters, baseValueUSD, onBaseValueChange }: Pipeli
   const firstValue = timelineData[0]?.valor || 0;
   const lastValue = timelineData[timelineData.length - 1]?.valor || 0;
   const growth = firstValue > 0 ? ((lastValue - firstValue) / firstValue) * 100 : 0;
+
+  const formatDateRange = () => {
+    return `${format(filters.startDate, "dd/MM/yyyy", { locale: ptBR })} - ${format(filters.endDate, "dd/MM/yyyy", { locale: ptBR })}`;
+  };
+
+  const exportToPDF = async () => {
+    if (!comparison) return;
+    
+    setIsExporting(true);
+    try {
+      const doc = new jsPDF();
+      let yPosition = 20;
+
+      // Header
+      doc.setFontSize(20);
+      doc.setTextColor(34, 197, 94); // Green
+      doc.text("Relatório do Pipeline", 20, yPosition);
+      yPosition += 10;
+      
+      doc.setFontSize(14);
+      doc.setTextColor(80, 13, 170); // Purple
+      doc.text("ClickOne AI", 20, yPosition);
+      yPosition += 10;
+
+      // Período
+      doc.setFontSize(11);
+      doc.setTextColor(100, 100, 100);
+      doc.text(`Período: ${formatDateRange()}`, 20, yPosition);
+      doc.text(`Valor base por lead: $${baseValueUSD}`, 20, yPosition + 6);
+      yPosition += 20;
+
+      // Capture chart as image
+      if (chartRef.current) {
+        try {
+          const canvas = await html2canvas(chartRef.current, {
+            backgroundColor: "#ffffff",
+            scale: 2,
+          });
+          const chartImage = canvas.toDataURL("image/png");
+          doc.addImage(chartImage, "PNG", 15, yPosition, 180, 90);
+          yPosition += 100;
+        } catch (error) {
+          console.error("Error capturing chart:", error);
+        }
+      }
+
+      // Resumo do Pipeline
+      doc.setFontSize(14);
+      doc.setTextColor(34, 197, 94);
+      doc.text("Resumo do Pipeline", 20, yPosition);
+      yPosition += 5;
+
+      const summaryData = [
+        ["Leads (atual)", comparison.currentLeads.toLocaleString("pt-BR")],
+        ["Leads (período anterior)", comparison.previousLeads.toLocaleString("pt-BR")],
+        ["Variação de Leads", `${comparison.leadsChangePercent >= 0 ? "+" : ""}${comparison.leadsChangePercent.toFixed(1)}%`],
+        ["", ""],
+        ["Agendamentos (atual)", comparison.currentAgendamentos.toLocaleString("pt-BR")],
+        ["Agendamentos (período anterior)", comparison.previousAgendamentos.toLocaleString("pt-BR")],
+        ["Variação de Agendamentos", `${comparison.agendamentosChangePercent >= 0 ? "+" : ""}${comparison.agendamentosChangePercent.toFixed(1)}%`],
+        ["", ""],
+        ["Clientes (atual)", comparison.currentClientes.toLocaleString("pt-BR")],
+        ["Clientes (período anterior)", comparison.previousClientes.toLocaleString("pt-BR")],
+        ["Variação de Clientes", `${comparison.clientesChangePercent >= 0 ? "+" : ""}${comparison.clientesChangePercent.toFixed(1)}%`],
+      ];
+
+      autoTable(doc, {
+        startY: yPosition,
+        body: summaryData,
+        theme: "plain",
+        styles: { fontSize: 10 },
+        columnStyles: {
+          0: { fontStyle: "bold", cellWidth: 80 },
+          1: { halign: "right" },
+        },
+      });
+
+      yPosition = (doc as any).lastAutoTable.finalY + 15;
+
+      // Valor do Pipeline
+      doc.setFontSize(14);
+      doc.setTextColor(34, 197, 94);
+      doc.text("Valor Monetário do Pipeline", 20, yPosition);
+      yPosition += 5;
+
+      const valueData = [
+        ["Valor atual do Pipeline", comparison.currentValue.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 })],
+        ["Valor período anterior", comparison.previousValue.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 })],
+        ["Variação absoluta", `${comparison.valueChange >= 0 ? "+" : ""}${comparison.valueChange.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 })}`],
+        ["Variação percentual", `${comparison.valueChangePercent >= 0 ? "+" : ""}${comparison.valueChangePercent.toFixed(1)}%`],
+      ];
+
+      autoTable(doc, {
+        startY: yPosition,
+        body: valueData,
+        theme: "striped",
+        headStyles: { fillColor: [34, 197, 94] },
+        styles: { fontSize: 11 },
+        columnStyles: {
+          0: { fontStyle: "bold", cellWidth: 80 },
+          1: { halign: "right", fontStyle: "bold" },
+        },
+      });
+
+      // Footer
+      const pageCount = doc.getNumberOfPages();
+      for (let i = 1; i <= pageCount; i++) {
+        doc.setPage(i);
+        doc.setFontSize(9);
+        doc.setTextColor(150, 150, 150);
+        doc.text(
+          `Gerado em: ${format(new Date(), "dd/MM/yyyy 'às' HH:mm", { locale: ptBR })} | Página ${i} de ${pageCount}`,
+          20,
+          285
+        );
+      }
+
+      doc.save(`relatorio-pipeline-${format(new Date(), "yyyy-MM-dd")}.pdf`);
+    } catch (error) {
+      console.error("Error exporting PDF:", error);
+    } finally {
+      setIsExporting(false);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -115,11 +248,24 @@ const PipelineValueChart = ({ filters, baseValueUSD, onBaseValueChange }: Pipeli
               className="w-20 h-7 text-xs text-right"
               min={0}
             />
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={exportToPDF}
+              disabled={isExporting || !comparison}
+              className="h-7 px-2"
+            >
+              {isExporting ? (
+                <Loader2 className="h-3 w-3 animate-spin" />
+              ) : (
+                <Download className="h-3 w-3" />
+              )}
+            </Button>
           </div>
         </div>
       </CardHeader>
       <CardContent>
-        <div className="h-[300px]">
+        <div ref={chartRef} className="h-[300px] bg-card rounded-lg p-2">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={timelineData}>
               <defs>
