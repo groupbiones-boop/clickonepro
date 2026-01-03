@@ -6,7 +6,8 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useVisitorStats, usePageviewStats, useTimelineData, useDeviceStats, useTopPages, useCountryStats } from "@/hooks/useAnalytics";
 import { useLeadsStats, useConversionRate, useAgendamentosCount, useLeadsTimeline } from "@/hooks/useLeadsStats";
 import { useFunnelData } from "@/hooks/use-funnel-data";
-import ConversionFunnel from "./ConversionFunnel";
+import ConversionFunnel, { FunnelRef } from "./ConversionFunnel";
+import PipelineValueChart from "./PipelineValueChart";
 import ExportReportDialog from "./ExportReportDialog";
 import ScheduledReportsManager from "./ScheduledReportsManager";
 import {
@@ -69,9 +70,10 @@ const CHART_COLORS = {
 
 const DashboardTab = ({ filters, onRefresh, onRefreshStart }: DashboardTabProps) => {
   const queryClient = useQueryClient();
-  const funnelRef = useRef<{ captureAsImage: () => Promise<string>; getData: () => ExportDataLocal["funnel"] }>(null);
+  const funnelRef = useRef<FunnelRef>(null);
   const [isExportDialogOpen, setIsExportDialogOpen] = useState(false);
   const [exportData, setExportData] = useState<ExportDataLocal | null>(null);
+  const [baseValueUSD, setBaseValueUSD] = useState(497);
   
   // Pull-to-refresh state
   const [isPulling, setIsPulling] = useState(false);
@@ -317,52 +319,65 @@ const DashboardTab = ({ filters, onRefresh, onRefreshStart }: DashboardTabProps)
         );
       })()}
 
-      {/* Charts Row 1 - Funil + Gráficos */}
+      {/* Charts Row 1 - Funil + Pipeline */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Funil de Conversão */}
-        <ConversionFunnel ref={funnelRef} filters={filters} />
+        <ConversionFunnel 
+          ref={funnelRef} 
+          filters={filters} 
+          baseValueUSD={baseValueUSD}
+          onBaseValueChange={setBaseValueUSD}
+        />
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Visualizações e Visitantes</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="h-[300px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={timelineData || []}>
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
-                  <XAxis dataKey="date" className="text-xs" />
-                  <YAxis className="text-xs" />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: "hsl(var(--card))",
-                      border: "1px solid hsl(var(--border))",
-                      borderRadius: "8px",
-                    }}
-                  />
-                  <Legend />
-                  <Area
-                    type="monotone"
-                    dataKey="pageviews"
-                    name="Visualizações"
-                    stroke={CHART_COLORS.primary}
-                    fill={CHART_COLORS.primary}
-                    fillOpacity={0.3}
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="sessions"
-                    name="Visitantes"
-                    stroke={CHART_COLORS.secondary}
-                    fill={CHART_COLORS.secondary}
-                    fillOpacity={0.3}
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Evolução do Pipeline */}
+        <PipelineValueChart 
+          filters={filters} 
+          baseValueUSD={baseValueUSD}
+          onBaseValueChange={setBaseValueUSD}
+        />
       </div>
+
+      {/* Visualizações e Visitantes */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg">Visualizações e Visitantes</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="h-[300px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={timelineData || []}>
+                <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                <XAxis dataKey="date" className="text-xs" />
+                <YAxis className="text-xs" />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "hsl(var(--card))",
+                    border: "1px solid hsl(var(--border))",
+                    borderRadius: "8px",
+                  }}
+                />
+                <Legend />
+                <Area
+                  type="monotone"
+                  dataKey="pageviews"
+                  name="Visualizações"
+                  stroke={CHART_COLORS.primary}
+                  fill={CHART_COLORS.primary}
+                  fillOpacity={0.3}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="sessions"
+                  name="Visitantes"
+                  stroke={CHART_COLORS.secondary}
+                  fill={CHART_COLORS.secondary}
+                  fillOpacity={0.3}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Charts Row 2 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

@@ -1,5 +1,5 @@
 // ConversionFunnel - Funil de Vendas SaaS em Português
-import { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,8 @@ interface ConversionFunnelProps {
     startDate: Date;
     endDate: Date;
   };
+  baseValueUSD: number;
+  onBaseValueChange: (value: number) => void;
 }
 
 // Local interface to avoid circular dependencies
@@ -45,10 +47,9 @@ const FUNNEL_STAGES = [
 // Etapas que têm valor monetário (a partir do lead)
 const STAGES_WITH_VALUE = ["leads", "agendamentos", "clientes"];
 
-const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters }, ref) => {
+const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters, baseValueUSD, onBaseValueChange }, ref) => {
   const funnelRef = useRef<HTMLDivElement>(null);
   const { data: funnelData, isLoading } = useFunnelData(filters);
-  const [baseValueUSD, setBaseValueUSD] = useState(497);
 
   // Mock data for demonstration when no real data exists
   const mockData: FunnelDataLocal = {
@@ -177,7 +178,7 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
             <Input
               type="number"
               value={baseValueUSD}
-              onChange={(e) => setBaseValueUSD(Number(e.target.value) || 0)}
+              onChange={(e) => onBaseValueChange(Number(e.target.value) || 0)}
               className="w-20 h-7 text-xs text-right"
               min={0}
             />
