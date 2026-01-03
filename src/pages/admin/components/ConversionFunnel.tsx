@@ -170,8 +170,8 @@ const ConversionFunnel = forwardRef<FunnelRef, ConversionFunnelProps>(({ filters
                       </div>
                     </TooltipTrigger>
                     <TooltipContent 
-                      side="right" 
-                      className="bg-card border border-border shadow-lg"
+                      side="top" 
+                      className="bg-card border border-border shadow-lg z-50"
                     >
                       <div className="text-sm">
                         <p className="font-semibold" style={{ color: stage.color }}>
