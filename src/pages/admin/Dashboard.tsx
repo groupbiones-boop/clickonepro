@@ -40,6 +40,15 @@ const DashboardContent = () => {
     setLastUpdated(new Date());
   }, []);
 
+  const handleRefresh = useCallback(() => {
+    setLastUpdated(new Date());
+    setIsRefreshing(false);
+  }, []);
+
+  const handleRefreshStart = useCallback(() => {
+    setIsRefreshing(true);
+  }, []);
+
   // Enable realtime sync
   useRealtimeDashboard(handleDataUpdate);
 
@@ -83,15 +92,6 @@ const DashboardContent = () => {
     setStartDate(start);
     setEndDate(end);
   };
-
-  const handleRefresh = useCallback(() => {
-    setLastUpdated(new Date());
-    setIsRefreshing(false);
-  }, []);
-
-  const handleRefreshStart = useCallback(() => {
-    setIsRefreshing(true);
-  }, []);
 
   const renderTab = () => {
     switch (activeTab) {
