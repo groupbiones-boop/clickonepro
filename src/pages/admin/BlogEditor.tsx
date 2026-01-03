@@ -5,16 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, Save, Eye, Loader2 } from "lucide-react";
+import { ArrowLeft, Save, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import {
   useCategories,
@@ -23,17 +15,23 @@ import {
   useAllPosts,
 } from "@/hooks/useBlogPosts";
 import { supabase } from "@/integrations/supabase/client";
+import RichTextEditor from "@/components/RichTextEditor";
+import CoverImageGenerator from "@/components/CoverImageGenerator";
+import CategorySelector from "@/components/CategorySelector";
 
 const generateSlug = (title: string): string => {
   return title
     .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 };
 
 const calculateReadTime = (content: string): number => {
   const wordsPerMinute = 200;
-  const words = content.split(/\s+/).length;
+  const textContent = content.replace(/<[^>]*>/g, " ");
+  const words = textContent.split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.ceil(words / wordsPerMinute));
 };
 
@@ -55,7 +53,6 @@ const BlogEditorContent = () => {
   const [metaDescription, setMetaDescription] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
-  const { data: categories } = useCategories();
   const { data: posts } = useAllPosts();
   const createPost = useCreatePost();
   const updatePost = useUpdatePost();
@@ -135,6 +132,35 @@ const BlogEditorContent = () => {
     }
   };
 
+  const handleGenerateContentImage = async (prompt: string): Promise<string> => {
+    try {
+      const { data, error } = await supabase.functions.invoke(
+        "generate-blog-image",
+        {
+          body: {
+            title: prompt,
+            type: "content",
+          },
+        }
+      );
+
+      if (error) throw error;
+
+      if (data?.imageUrl) {
+        return data.imageUrl;
+      }
+
+      throw new Error("No image generated");
+    } catch (error: any) {
+      toast({
+        title: "Erro ao gerar imagem",
+        description: error.message,
+        variant: "destructive",
+      });
+      return "";
+    }
+  };
+
   if (authLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -158,7 +184,9 @@ const BlogEditorContent = () => {
                 {isEditing ? "Editar Post" : "Novo Post"}
               </h1>
               <p className="text-muted-foreground">
-                {isEditing ? "Atualize seu post do blog" : "Crie um novo post para o blog"}
+                {isEditing
+                  ? "Atualize seu post do blog"
+                  : "Crie um novo post para o blog"}
               </p>
             </div>
           </div>
@@ -168,11 +196,17 @@ const BlogEditorContent = () => {
               onClick={() => handleSave("draft")}
               disabled={isSaving}
             >
-              {isSaving ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
+              {isSaving ? (
+                <Loader2 className="h-4 w-4 animate-spin mr-2" />
+              ) : null}
               Salvar Rascunho
             </Button>
             <Button onClick={() => handleSave("published")} disabled={isSaving}>
-              {isSaving ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : <Save className="h-4 w-4 mr-2" />}
+              {isSaving ? (
+                <Loader2 className="h-4 w-4 animate-spin mr-2" />
+              ) : (
+                <Save className="h-4 w-4 mr-2" />
+              )}
               Publicar
             </Button>
           </div>
@@ -209,19 +243,17 @@ const BlogEditorContent = () => {
                     id="excerpt"
                     value={excerpt}
                     onChange={(e) => setExcerpt(e.target.value)}
-                    placeholder="Breve descrição do post"
+                    placeholder="Breve descrição do post (aparece na listagem)"
                     rows={3}
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="content">Conteúdo</Label>
-                  <Textarea
-                    id="content"
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}
+                  <Label>Conteúdo</Label>
+                  <RichTextEditor
+                    content={content}
+                    onChange={setContent}
+                    onGenerateImage={handleGenerateContentImage}
                     placeholder="Escreva o conteúdo do seu post aqui..."
-                    rows={20}
-                    className="font-mono"
                   />
                   <p className="text-xs text-muted-foreground">
                     Tempo estimado de leitura: {calculateReadTime(content)} min
@@ -238,19 +270,11 @@ const BlogEditorContent = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="category">Categoria</Label>
-                  <Select value={categoryId} onValueChange={setCategoryId}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Selecione uma categoria" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {categories?.map((cat) => (
-                        <SelectItem key={cat.id} value={cat.id}>
-                          {cat.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <Label>Categoria</Label>
+                  <CategorySelector
+                    value={categoryId}
+                    onChange={setCategoryId}
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="author">Autor</Label>
@@ -261,15 +285,11 @@ const BlogEditorContent = () => {
                     placeholder="Nome do autor"
                   />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="coverImage">URL da Imagem de Capa</Label>
-                  <Input
-                    id="coverImage"
-                    value={coverImage}
-                    onChange={(e) => setCoverImage(e.target.value)}
-                    placeholder="https://..."
-                  />
-                </div>
+                <CoverImageGenerator
+                  value={coverImage}
+                  onChange={setCoverImage}
+                  postTitle={title}
+                />
               </CardContent>
             </Card>
 
