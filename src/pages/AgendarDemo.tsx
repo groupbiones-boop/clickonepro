@@ -106,58 +106,61 @@ const AgendarDemo = () => {
             </div>
           </AnimatedSection>
 
-          {/* Contact Info Cards */}
-          <AnimatedSection animation="scale" delay={100}>
-            <div className="grid md:grid-cols-3 gap-4 mb-10">
-              {contactInfo.map((item, index) => (
-                <div key={index} className="bg-card p-6 rounded-xl border border-border text-center hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <item.icon className="h-6 w-6 text-primary" />
+          {/* Flex container for mobile reordering */}
+          <div className="flex flex-col">
+            {/* Main CTA Button - first on mobile, second on desktop */}
+            <AnimatedSection animation="fade-up" delay={100} className="order-1 md:order-2">
+              <div className="flex justify-center mb-10">
+                <Button asChild size="lg" className="h-16 px-16 text-lg tracking-wide">
+                  <a 
+                    href="https://links.clickonepro.com/widget/bookings/clickoneus" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3"
+                  >
+                    {t("agendarDemo.ctaButton")}
+                    <ArrowRight className="h-5 w-5" />
+                  </a>
+                </Button>
+              </div>
+            </AnimatedSection>
+
+            {/* Quick Benefits - second on mobile, third on desktop */}
+            <AnimatedSection animation="fade-up" delay={150} className="order-2 md:order-3">
+              <div className="flex flex-wrap justify-center gap-6 mb-10">
+                {quickBenefits.map((item, i) => (
+                  <div key={i} className="flex items-center gap-2 text-muted-foreground">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    <span>{item}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
-                  {item.href ? (
-                    <a 
-                      href={item.href} 
-                      className="font-semibold text-foreground hover:text-primary transition-colors"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="font-semibold text-foreground">{item.value}</p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
+                ))}
+              </div>
+            </AnimatedSection>
 
-          {/* Main CTA Button */}
-          <AnimatedSection animation="fade-up" delay={150}>
-            <div className="flex justify-center mb-10">
-              <Button asChild size="lg" className="h-16 px-16 text-lg tracking-wide">
-                <a 
-                  href="https://links.clickonepro.com/widget/bookings/clickoneus" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3"
-                >
-                  {t("agendarDemo.ctaButton")}
-                  <ArrowRight className="h-5 w-5" />
-                </a>
-              </Button>
-            </div>
-          </AnimatedSection>
-
-          {/* Quick Benefits */}
-          <AnimatedSection animation="fade-up" delay={200}>
-            <div className="flex flex-wrap justify-center gap-6">
-              {quickBenefits.map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-muted-foreground">
-                  <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
+            {/* Contact Info Cards - third on mobile, first on desktop */}
+            <AnimatedSection animation="scale" delay={200} className="order-3 md:order-1">
+              <div className="grid md:grid-cols-3 gap-4 mb-10">
+                {contactInfo.map((item, index) => (
+                  <div key={index} className="bg-card p-6 rounded-xl border border-border text-center hover:shadow-lg transition-shadow">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <item.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
+                    {item.href ? (
+                      <a 
+                        href={item.href} 
+                        className="font-semibold text-foreground hover:text-primary transition-colors"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="font-semibold text-foreground">{item.value}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
