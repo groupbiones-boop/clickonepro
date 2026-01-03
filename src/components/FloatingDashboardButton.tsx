@@ -36,7 +36,7 @@ const FloatingDashboardButton = () => {
     <Link to="/admin/dashboard">
       <Button
         size="sm"
-        className="fixed bottom-20 right-4 z-50 shadow-lg gap-2 bg-primary hover:bg-primary/90"
+        className="fixed bottom-20 right-4 z-50 shadow-lg gap-2 bg-primary hover:bg-primary/90 animate-fade-in"
       >
         <LayoutDashboard className="h-4 w-4" />
         <span className="hidden sm:inline">Ir para Dashboard</span>
