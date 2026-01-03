@@ -51,7 +51,7 @@ const OverviewTab = ({ filters }: OverviewTabProps) => {
   return (
     <div className="space-y-6">
       {/* Stats Cards */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
         <StatsCard
           title="Visitantes Totais"
           value={visitorStats?.current || 0}
