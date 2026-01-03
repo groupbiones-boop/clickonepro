@@ -1,7 +1,6 @@
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { Users, Eye, MousePointerClick, MessageCircle, Clock, Percent, Globe, Monitor, Smartphone, Tablet, Download } from "lucide-react";
 import { useVisitorStats, usePageviewStats, useTimelineData, useDeviceStats, useTopPages, useCountryStats } from "@/hooks/useAnalytics";
 import { useLeadsStats, useConversionRate, useAgendamentosCount, useLeadsTimeline } from "@/hooks/useLeadsStats";
@@ -69,20 +68,6 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
   const funnelRef = useRef<{ captureAsImage: () => Promise<string>; getData: () => ExportDataLocal["funnel"] }>(null);
   const [isExportDialogOpen, setIsExportDialogOpen] = useState(false);
   const [exportData, setExportData] = useState<ExportDataLocal | null>(null);
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [slideCount, setSlideCount] = useState(0);
-
-  useEffect(() => {
-    if (!carouselApi) return;
-
-    setSlideCount(carouselApi.scrollSnapList().length);
-    setCurrentSlide(carouselApi.selectedScrollSnap());
-
-    carouselApi.on("select", () => {
-      setCurrentSlide(carouselApi.selectedScrollSnap());
-    });
-  }, [carouselApi]);
 
   const { data: visitorStats } = useVisitorStats(filters);
   const { data: pageviewStats } = usePageviewStats(filters);
@@ -232,62 +217,21 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
         ];
         
         return (
-          <>
-            {/* Mobile: Swipe Carousel */}
-            <div className="md:hidden">
-              <Carousel opts={{ align: "start", loop: false }} className="w-full" setApi={setCarouselApi}>
-                <CarouselContent className="-ml-2">
-                  {trafficCards.map((card, index) => (
-                    <CarouselItem key={index} className="basis-1/3 pl-2">
-                      <Card>
-                        <CardContent className="p-2">
-                          <p className="text-[10px] text-muted-foreground truncate">{card.label}</p>
-                          <p className="text-sm font-bold">{card.value}</p>
-                          {card.change && (
-                            <p className={`text-[9px] ${card.positive ? "text-chart-4" : "text-destructive"}`}>
-                              {card.change}
-                            </p>
-                          )}
-                        </CardContent>
-                      </Card>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-              {/* Dot indicators */}
-              <div className="flex justify-center gap-1.5 mt-2">
-                {Array.from({ length: slideCount }).map((_, index) => (
-                  <button
-                    key={index}
-                    className={`h-1.5 rounded-full transition-all ${
-                      index === currentSlide 
-                        ? "w-4 bg-primary" 
-                        : "w-1.5 bg-muted-foreground/30"
-                    }`}
-                    onClick={() => carouselApi?.scrollTo(index)}
-                    aria-label={`Ir para slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Desktop: Grid */}
-            <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {trafficCards.map((card, index) => (
-                <Card key={index}>
-                  <CardContent className="p-4">
-                    <p className="text-sm text-muted-foreground">{card.label}</p>
-                    <p className="text-2xl font-bold">{card.value}</p>
-                    {card.change && (
-                      <p className={`text-xs ${card.positive ? "text-chart-4" : "text-destructive"}`}>
-                        {card.change}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </>
+          <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4">
+            {trafficCards.map((card, index) => (
+              <Card key={index}>
+                <CardContent className="p-2 md:p-4">
+                  <p className="text-[10px] md:text-sm text-muted-foreground truncate">{card.label}</p>
+                  <p className="text-sm md:text-2xl font-bold">{card.value}</p>
+                  {card.change && (
+                    <p className={`text-[9px] md:text-xs ${card.positive ? "text-chart-4" : "text-destructive"}`}>
+                      {card.change}
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         );
       })()}
 
