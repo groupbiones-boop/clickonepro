@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Users, Eye, MousePointerClick, MessageCircle, Clock, Percent, Globe, Monitor, Smartphone, Tablet, Download } from "lucide-react";
 import { useVisitorStats, usePageviewStats, useTimelineData, useDeviceStats, useTopPages, useCountryStats } from "@/hooks/useAnalytics";
 import { useLeadsStats, useConversionRate, useAgendamentosCount, useLeadsTimeline } from "@/hooks/useLeadsStats";
@@ -138,19 +139,19 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
         </Button>
       </div>
 
-      {/* Conversion Cards Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* Conversion Cards Row - 2x2 on mobile */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
         <Card className="bg-primary/5 border-primary/20">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <MousePointerClick className="h-5 w-5 text-primary" />
+          <CardContent className="p-2.5 md:p-4">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="p-1.5 md:p-2 rounded-lg bg-primary/10">
+                <MousePointerClick className="h-4 w-4 md:h-5 md:w-5 text-primary" />
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Total Conversões</p>
-                <p className="text-2xl font-bold">{leadsStats?.total || 0}</p>
-                <p className="text-xs text-muted-foreground">
-                  {formatChange(leadsStats?.changePercent)} vs período anterior
+              <div className="min-w-0">
+                <p className="text-[11px] md:text-sm text-muted-foreground truncate">Total Conversões</p>
+                <p className="text-lg md:text-2xl font-bold">{leadsStats?.total || 0}</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground truncate">
+                  {formatChange(leadsStats?.changePercent)} vs anterior
                 </p>
               </div>
             </div>
@@ -158,16 +159,16 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
         </Card>
 
         <Card className="bg-primary/5 border-primary/20">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <Percent className="h-5 w-5 text-primary" />
+          <CardContent className="p-2.5 md:p-4">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="p-1.5 md:p-2 rounded-lg bg-primary/10">
+                <Percent className="h-4 w-4 md:h-5 md:w-5 text-primary" />
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Taxa de Conversão</p>
-                <p className="text-2xl font-bold">{conversionData?.rate.toFixed(2) || 0}%</p>
-                <p className="text-xs text-muted-foreground">
-                  {conversionData?.leads || 0} leads / {conversionData?.visitors || 0} visitantes
+              <div className="min-w-0">
+                <p className="text-[11px] md:text-sm text-muted-foreground truncate">Taxa Conversão</p>
+                <p className="text-lg md:text-2xl font-bold">{conversionData?.rate.toFixed(2) || 0}%</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground truncate">
+                  {conversionData?.leads || 0} / {conversionData?.visitors || 0}
                 </p>
               </div>
             </div>
@@ -175,91 +176,92 @@ const DashboardTab = ({ filters }: DashboardTabProps) => {
         </Card>
 
         <Card className="bg-chart-4/5 border-chart-4/20">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-chart-4/10">
-                <Clock className="h-5 w-5 text-chart-4" />
+          <CardContent className="p-2.5 md:p-4">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="p-1.5 md:p-2 rounded-lg bg-chart-4/10">
+                <Clock className="h-4 w-4 md:h-5 md:w-5 text-chart-4" />
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Agendamentos</p>
-                <p className="text-2xl font-bold">{agendamentosCount || 0}</p>
-                <p className="text-xs text-muted-foreground">Demos agendados</p>
+              <div className="min-w-0">
+                <p className="text-[11px] md:text-sm text-muted-foreground truncate">Agendamentos</p>
+                <p className="text-lg md:text-2xl font-bold">{agendamentosCount || 0}</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground truncate">Demos agendados</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
         <Card className="bg-primary/5 border-primary/20">
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-primary/10">
-                <MessageCircle className="h-5 w-5 text-primary" />
+          <CardContent className="p-2.5 md:p-4">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="p-1.5 md:p-2 rounded-lg bg-primary/10">
+                <MessageCircle className="h-4 w-4 md:h-5 md:w-5 text-primary" />
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Chat com Bia</p>
-                <p className="text-2xl font-bold">-</p>
-                <p className="text-xs text-muted-foreground">Interações chatbot</p>
+              <div className="min-w-0">
+                <p className="text-[11px] md:text-sm text-muted-foreground truncate">Chat com Bia</p>
+                <p className="text-lg md:text-2xl font-bold">-</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground truncate">Interações</p>
               </div>
             </div>
           </CardContent>
         </Card>
       </div>
 
-      {/* Traffic Cards Row */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        <Card>
-          <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Total Visitantes</p>
-            <p className="text-2xl font-bold">{visitorStats?.current || 0}</p>
-            <p className={`text-xs ${(visitorStats?.changePercent || 0) >= 0 ? "text-green-500" : "text-red-500"}`}>
-              {formatChange(visitorStats?.changePercent)}
-            </p>
-          </CardContent>
-        </Card>
+      {/* Traffic Cards Row - Swipe on mobile, grid on desktop */}
+      {(() => {
+        const trafficCards = [
+          { label: "Total Visitantes", value: visitorStats?.current || 0, change: formatChange(visitorStats?.changePercent), positive: (visitorStats?.changePercent || 0) >= 0 },
+          { label: "Únicos", value: visitorStats?.current || 0, change: formatChange(visitorStats?.changePercent), positive: (visitorStats?.changePercent || 0) >= 0 },
+          { label: "Visualizações", value: pageviewStats?.current || 0, change: formatChange(pageviewStats?.changePercent), positive: (pageviewStats?.changePercent || 0) >= 0 },
+          { label: "Pág/Visita", value: visitorStats?.current ? ((pageviewStats?.current || 0) / visitorStats.current).toFixed(1) : "0", change: null, positive: true },
+          { label: "Bounce", value: "-", change: null, positive: true },
+          { label: "Tempo Médio", value: "-", change: null, positive: true },
+        ];
+        
+        return (
+          <>
+            {/* Mobile: Swipe Carousel */}
+            <div className="md:hidden">
+              <Carousel opts={{ align: "start", loop: false }} className="w-full">
+                <CarouselContent className="-ml-2">
+                  {trafficCards.map((card, index) => (
+                    <CarouselItem key={index} className="basis-1/3 pl-2">
+                      <Card>
+                        <CardContent className="p-2">
+                          <p className="text-[10px] text-muted-foreground truncate">{card.label}</p>
+                          <p className="text-sm font-bold">{card.value}</p>
+                          {card.change && (
+                            <p className={`text-[9px] ${card.positive ? "text-chart-4" : "text-destructive"}`}>
+                              {card.change}
+                            </p>
+                          )}
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+              <p className="text-[10px] text-muted-foreground text-center mt-1">← Deslize para ver mais →</p>
+            </div>
 
-        <Card>
-          <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Visitantes Únicos</p>
-            <p className="text-2xl font-bold">{visitorStats?.current || 0}</p>
-            <p className={`text-xs ${(visitorStats?.changePercent || 0) >= 0 ? "text-green-500" : "text-red-500"}`}>
-              {formatChange(visitorStats?.changePercent)}
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Visualizações</p>
-            <p className="text-2xl font-bold">{pageviewStats?.current || 0}</p>
-            <p className={`text-xs ${(pageviewStats?.changePercent || 0) >= 0 ? "text-green-500" : "text-red-500"}`}>
-              {formatChange(pageviewStats?.changePercent)}
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Páginas/Visita</p>
-            <p className="text-2xl font-bold">
-              {visitorStats?.current ? ((pageviewStats?.current || 0) / visitorStats.current).toFixed(1) : "0"}
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Taxa de Bounce</p>
-            <p className="text-2xl font-bold">-</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="p-4">
-            <p className="text-sm text-muted-foreground">Tempo Médio</p>
-            <p className="text-2xl font-bold">-</p>
-          </CardContent>
-        </Card>
-      </div>
+            {/* Desktop: Grid */}
+            <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {trafficCards.map((card, index) => (
+                <Card key={index}>
+                  <CardContent className="p-4">
+                    <p className="text-sm text-muted-foreground">{card.label}</p>
+                    <p className="text-2xl font-bold">{card.value}</p>
+                    {card.change && (
+                      <p className={`text-xs ${card.positive ? "text-chart-4" : "text-destructive"}`}>
+                        {card.change}
+                      </p>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </>
+        );
+      })()}
 
       {/* Charts Row 1 - Funil + Gráficos */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
