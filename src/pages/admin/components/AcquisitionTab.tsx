@@ -64,7 +64,7 @@ const utmCampaigns = [
 
 const AcquisitionTab = ({ filters }: AcquisitionTabProps) => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 overflow-hidden">
       {/* Stats Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
         <StatsCard
@@ -96,23 +96,27 @@ const AcquisitionTab = ({ filters }: AcquisitionTabProps) => {
       {/* Charts Row */}
       <div className="grid gap-6 md:grid-cols-2">
         {/* Traffic Sources Pie */}
-        <Card>
+        <Card className="overflow-hidden">
           <CardHeader>
             <CardTitle>Fontes de Tráfego</CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="h-64">
+          <CardContent className="p-2 md:p-6">
+            <div className="h-56 md:h-64 w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={trafficSourcesData}
                     cx="50%"
                     cy="50%"
-                    innerRadius={60}
-                    outerRadius={80}
+                    innerRadius={40}
+                    outerRadius={60}
                     paddingAngle={5}
                     dataKey="value"
-                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                    label={({ name, percent }) => {
+                      const short = name.length > 6 ? name.slice(0, 6) + "." : name;
+                      return `${short} ${(percent * 100).toFixed(0)}%`;
+                    }}
+                    labelLine={false}
                   >
                     {trafficSourcesData.map((_, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

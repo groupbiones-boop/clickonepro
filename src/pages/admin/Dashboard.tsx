@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdminAuth, AdminAuthProvider } from "@/contexts/AdminAuthContext";
 import Sidebar from "./components/Sidebar";
@@ -13,6 +13,8 @@ import AudienceTab from "./components/AudienceTab";
 import AcquisitionTab from "./components/AcquisitionTab";
 import BlogTab from "./components/BlogTab";
 import AlertsTab from "./components/AlertsTab";
+import { OfflineIndicator } from "@/components/OfflineIndicator";
+import { useRealtimeDashboard } from "@/hooks/useRealtimeDashboard";
 import { Loader2, LayoutDashboard, BarChart3, Users, TrendingUp } from "lucide-react";
 import { subDays, startOfDay, endOfDay } from "date-fns";
 import { cn } from "@/lib/utils";
@@ -24,6 +26,22 @@ const DashboardContent = () => {
   const [startDate, setStartDate] = useState(startOfDay(subDays(new Date(), 30)));
   const [endDate, setEndDate] = useState(endOfDay(new Date()));
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [, forceUpdate] = useState(0);
+
+  // Update relative time display every minute
+  useEffect(() => {
+    const interval = setInterval(() => forceUpdate(n => n + 1), 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleDataUpdate = useCallback(() => {
+    setLastUpdated(new Date());
+  }, []);
+
+  // Enable realtime sync
+  useRealtimeDashboard(handleDataUpdate);
 
   const handleTabChange = (newTab: string) => {
     if (newTab === activeTab) return;
@@ -66,10 +84,25 @@ const DashboardContent = () => {
     setEndDate(end);
   };
 
+  const handleRefresh = useCallback(() => {
+    setLastUpdated(new Date());
+    setIsRefreshing(false);
+  }, []);
+
+  const handleRefreshStart = useCallback(() => {
+    setIsRefreshing(true);
+  }, []);
+
   const renderTab = () => {
     switch (activeTab) {
       case "dashboard":
-        return <DashboardTab filters={filters} />;
+        return (
+          <DashboardTab 
+            filters={filters} 
+            onRefresh={handleRefresh}
+            onRefreshStart={handleRefreshStart}
+          />
+        );
       case "overview":
         return <OverviewTab filters={filters} />;
       case "site":
@@ -83,7 +116,13 @@ const DashboardContent = () => {
       case "alerts":
         return <AlertsTab />;
       default:
-        return <DashboardTab filters={filters} />;
+        return (
+          <DashboardTab 
+            filters={filters} 
+            onRefresh={handleRefresh}
+            onRefreshStart={handleRefreshStart}
+          />
+        );
     }
   };
 
@@ -111,6 +150,11 @@ const DashboardContent = () => {
             <h1 className="text-lg md:text-xl font-semibold">{tabTitles[activeTab] || activeTab}</h1>
           </div>
           <div className="flex items-center gap-2 md:gap-4">
+            <OfflineIndicator 
+              lastUpdated={lastUpdated} 
+              isRefreshing={isRefreshing}
+              className="hidden sm:flex"
+            />
             <DateRangePicker
               startDate={startDate}
               endDate={endDate}
