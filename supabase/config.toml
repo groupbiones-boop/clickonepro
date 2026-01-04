@@ -30,3 +30,6 @@ verify_jwt = false
 
 [functions.generate-blog-image]
 verify_jwt = false
+
+[functions.generate-lp-images]
+verify_jwt = false
