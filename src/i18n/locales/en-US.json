@@ -383,7 +383,30 @@
     "benefit5": "Integration with over 50 tools",
     "benefit6": "Dedicated technical support",
     "ctaTitle": "Ready to Automate Your Phone Service?",
-    "ctaSubtitle": "Schedule a free demo and hear our AI in action."
+    "ctaSubtitle": "Schedule a free demo and hear our AI in action.",
+    "faqTitle": "Frequently Asked Questions",
+    "faq": [
+      {
+        "question": "How does the voice AI answer calls?",
+        "answer": "The AI answers with a natural voice, collects customer information, qualifies leads, and schedules services automatically."
+      },
+      {
+        "question": "Can the AI transfer calls to humans?",
+        "answer": "Yes! Urgent or complex calls are transferred to your team in real-time."
+      },
+      {
+        "question": "How long does setup take?",
+        "answer": "Complete implementation takes up to 72 hours, including script customization and integration."
+      },
+      {
+        "question": "Does it work with my current scheduling system?",
+        "answer": "Yes! We integrate with 50+ tools including Google Calendar, Calendly, HouseCall Pro, and more."
+      },
+      {
+        "question": "Does the AI speak other languages?",
+        "answer": "Yes! We support English, Portuguese, Spanish, and other languages with natural voice."
+      }
+    ]
   },
   "chatProduct": {
     "badge": "AI Conversational Attendant",
@@ -436,7 +459,30 @@
     "benefit6": "Unlimited conversation scalability",
     "viewDemo": "View Demo",
     "ctaTitle": "Ready to Automate Your Conversations?",
-    "ctaSubtitle": "Schedule a free demo and see AI talking to your customers."
+    "ctaSubtitle": "Schedule a free demo and see AI talking to your customers.",
+    "faqTitle": "Frequently Asked Questions",
+    "faq": [
+      {
+        "question": "Which chat channels are supported?",
+        "answer": "WhatsApp, SMS, Instagram DM, Facebook Messenger, website chat, and Google Business Messages."
+      },
+      {
+        "question": "Does the AI respond 24/7?",
+        "answer": "Yes! Instant responses at any time of day or night, every day of the year."
+      },
+      {
+        "question": "Can I customize the responses?",
+        "answer": "Yes! You define the tone of voice, custom scripts, and specific responses for your business."
+      },
+      {
+        "question": "How does chat scheduling work?",
+        "answer": "Customers schedule directly in the conversation. The AI shows available times and confirms the appointment."
+      },
+      {
+        "question": "Does it integrate with my CRM?",
+        "answer": "Yes! We integrate with HubSpot, Salesforce, Pipedrive, GoHighLevel, and many other CRMs."
+      }
+    ]
   },
   "smallBusiness": {
     "badge": "For companies with 1-10 employees",

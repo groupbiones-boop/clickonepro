@@ -383,7 +383,30 @@
     "benefit5": "Integração com mais de 50 ferramentas",
     "benefit6": "Suporte técnico dedicado",
     "ctaTitle": "Pronto para Automatizar Seu Atendimento Telefônico?",
-    "ctaSubtitle": "Agende uma demonstração gratuita e ouça nossa IA em ação."
+    "ctaSubtitle": "Agende uma demonstração gratuita e ouça nossa IA em ação.",
+    "faqTitle": "Perguntas Frequentes",
+    "faq": [
+      {
+        "question": "Como a IA de voz atende ligações?",
+        "answer": "A IA atende com voz natural, coleta informações do cliente, qualifica o lead e agenda serviços automaticamente."
+      },
+      {
+        "question": "A IA pode transferir chamadas para humanos?",
+        "answer": "Sim! Chamadas urgentes ou complexas são transferidas para sua equipe em tempo real."
+      },
+      {
+        "question": "Quanto tempo leva para configurar?",
+        "answer": "A implementação completa leva até 72 horas, incluindo personalização de scripts e integração."
+      },
+      {
+        "question": "Funciona com meu sistema de agendamento atual?",
+        "answer": "Sim! Integramos com mais de 50 ferramentas incluindo Google Calendar, Calendly, HouseCall Pro e mais."
+      },
+      {
+        "question": "A IA fala outros idiomas?",
+        "answer": "Sim! Suportamos português, inglês, espanhol e outros idiomas com voz natural."
+      }
+    ]
   },
   "chatProduct": {
     "badge": "Atendente IA Conversacional",
@@ -436,7 +459,30 @@
     "benefit6": "Escalabilidade ilimitada de conversas",
     "viewDemo": "Ver Demonstração",
     "ctaTitle": "Pronto para Automatizar Suas Conversas?",
-    "ctaSubtitle": "Agende uma demonstração gratuita e veja a IA conversando com seus clientes."
+    "ctaSubtitle": "Agende uma demonstração gratuita e veja a IA conversando com seus clientes.",
+    "faqTitle": "Perguntas Frequentes",
+    "faq": [
+      {
+        "question": "Quais canais de chat são suportados?",
+        "answer": "WhatsApp, SMS, Instagram DM, Facebook Messenger, chat do site e Google Business Messages."
+      },
+      {
+        "question": "A IA responde 24/7?",
+        "answer": "Sim! Respostas instantâneas a qualquer hora do dia ou da noite, todos os dias do ano."
+      },
+      {
+        "question": "Posso personalizar as respostas?",
+        "answer": "Sim! Você define o tom de voz, scripts personalizados e respostas específicas para seu negócio."
+      },
+      {
+        "question": "Como funciona o agendamento por chat?",
+        "answer": "O cliente agenda diretamente na conversa. A IA mostra horários disponíveis e confirma o agendamento."
+      },
+      {
+        "question": "Integra com meu CRM?",
+        "answer": "Sim! Integramos com HubSpot, Salesforce, Pipedrive, GoHighLevel e muitos outros CRMs."
+      }
+    ]
   },
   "smallBusiness": {
     "badge": "Para empresas de 1-10 funcionários",
