@@ -29,6 +29,7 @@ import BlogEditor from "./pages/admin/BlogEditor";
 import Login from "./pages/admin/Login";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
+import PerdendoClientes from "./pages/lp/PerdendoClientes";
 
 // QueryClient with default settings
 const queryClient = new QueryClient();
@@ -60,6 +61,7 @@ const App = () => (
               <Route path="/obrigado" element={<Obrigado />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/lp/perdendo-clientes" element={<PerdendoClientes />} />
               <Route path="/admin/generate-audio" element={<GenerateDemoAudio />} />
               <Route path="/admin/login" element={<Login />} />
               <Route path="/admin/dashboard" element={<Dashboard />} />
