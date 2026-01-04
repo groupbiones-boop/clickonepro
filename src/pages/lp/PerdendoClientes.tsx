@@ -35,6 +35,7 @@ import Footer from "@/components/layout/Footer";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { supabase } from "@/integrations/supabase/client";
+import { useLPImages } from "@/hooks/use-lp-images";
 
 // Social proof logos
 import logoClutch from "@/assets/logo-clutch.svg";
@@ -58,6 +59,7 @@ const GHL_DEMO_URL = "https://api.leadconnectorhq.com/widget/booking/MPXMwtJNT8r
 const PerdendoClientes = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const { images } = useLPImages();
 
   // Get UTM params from URL
   const getUTMParams = () => {
@@ -123,42 +125,68 @@ const PerdendoClientes = () => {
         {/* Section 1: Hero */}
         <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-br from-primary/10 via-background to-background">
           <div className="container mx-auto px-4">
-            <AnimatedSection className="max-w-4xl mx-auto text-center">
-              <Badge variant="secondary" className="mb-6 text-sm px-4 py-2">
-                {t("lp.perdendoClientes.hero.badge")}
-              </Badge>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-                {t("lp.perdendoClientes.hero.title")}
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                {t("lp.perdendoClientes.hero.subtitle")}
-              </p>
-              <Button
-                size="lg"
-                onClick={() => handleCtaClick("hero")}
-                className="w-full sm:w-auto text-lg px-8 py-6 font-semibold"
-              >
-                {t("lp.perdendoClientes.hero.cta")}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </AnimatedSection>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <AnimatedSection className="text-center md:text-left">
+                <Badge variant="secondary" className="mb-6 text-sm px-4 py-2">
+                  {t("lp.perdendoClientes.hero.badge")}
+                </Badge>
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+                  {t("lp.perdendoClientes.hero.title")}
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+                  {t("lp.perdendoClientes.hero.subtitle")}
+                </p>
+                <Button
+                  size="lg"
+                  onClick={() => handleCtaClick("hero")}
+                  className="w-full sm:w-auto text-lg px-8 py-6 font-semibold"
+                >
+                  {t("lp.perdendoClientes.hero.cta")}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </AnimatedSection>
+              
+              {images.hero && (
+                <AnimatedSection delay={200} className="hidden md:block">
+                  <img
+                    src={images.hero}
+                    alt="Empresário com chamadas perdidas"
+                    className="w-full rounded-2xl shadow-2xl"
+                    loading="lazy"
+                  />
+                </AnimatedSection>
+              )}
+            </div>
           </div>
         </section>
 
         {/* Section 2: Hook Emocional */}
         <section className="py-12 md:py-20 bg-muted/30">
           <div className="container mx-auto px-4">
-            <AnimatedSection className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-destructive/10 mb-6">
-                <PhoneOff className="h-8 w-8 text-destructive" />
-              </div>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-6">
-                {t("lp.perdendoClientes.hook.title")}
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {t("lp.perdendoClientes.hook.text")}
-              </p>
-            </AnimatedSection>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              {images["hook-phone"] && (
+                <AnimatedSection className="order-2 md:order-1">
+                  <img
+                    src={images["hook-phone"]}
+                    alt="Celular com notificações perdidas"
+                    className="w-full max-w-md mx-auto rounded-2xl shadow-xl"
+                    loading="lazy"
+                  />
+                </AnimatedSection>
+              )}
+              
+              <AnimatedSection className={`text-center ${images["hook-phone"] ? "md:text-left order-1 md:order-2" : ""}`}>
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-destructive/10 mb-6">
+                  <PhoneOff className="h-8 w-8 text-destructive" />
+                </div>
+                <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-6">
+                  {t("lp.perdendoClientes.hook.title")}
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {t("lp.perdendoClientes.hook.text")}
+                </p>
+              </AnimatedSection>
+            </div>
           </div>
         </section>
 
@@ -171,40 +199,53 @@ const PerdendoClientes = () => {
               </h2>
             </AnimatedSection>
 
-            <div className="max-w-2xl mx-auto">
-              {[
-                { time: "5:30", icon: Clock, key: "item1" },
-                { time: "6:30", icon: Briefcase, key: "item2" },
-                { time: "7:00-18:00", icon: Users, key: "item3" },
-                { time: "18:30", icon: BellOff, key: "item4" },
-                { time: "19:00", icon: PhoneOff, key: "item5" },
-              ].map((item, index) => (
-                <AnimatedSection key={item.key} delay={index * 100}>
-                  <div className="flex items-start gap-4 mb-6 last:mb-0">
-                    <div className="flex-shrink-0 w-20 text-right">
-                      <span className="text-sm font-bold text-primary">{item.time}</span>
-                    </div>
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <item.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="flex-1 pb-6 border-l-2 border-border pl-4 -ml-5">
-                      <p className="text-muted-foreground">
-                        {t(`lp.perdendoClientes.dayInLife.${item.key}`)}
-                      </p>
-                    </div>
-                  </div>
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+              {images["daily-worker"] && (
+                <AnimatedSection className="hidden md:block">
+                  <img
+                    src={images["daily-worker"]}
+                    alt="Profissional de serviços trabalhando"
+                    className="w-full rounded-2xl shadow-xl sticky top-24"
+                    loading="lazy"
+                  />
                 </AnimatedSection>
-              ))}
+              )}
+              
+              <div className={images["daily-worker"] ? "" : "max-w-2xl mx-auto"}>
+                {[
+                  { time: "5:30", icon: Clock, key: "item1" },
+                  { time: "6:30", icon: Briefcase, key: "item2" },
+                  { time: "7:00-18:00", icon: Users, key: "item3" },
+                  { time: "18:30", icon: BellOff, key: "item4" },
+                  { time: "19:00", icon: PhoneOff, key: "item5" },
+                ].map((item, index) => (
+                  <AnimatedSection key={item.key} delay={index * 100}>
+                    <div className="flex items-start gap-4 mb-6 last:mb-0">
+                      <div className="flex-shrink-0 w-20 text-right">
+                        <span className="text-sm font-bold text-primary">{item.time}</span>
+                      </div>
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                        <item.icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="flex-1 pb-6 border-l-2 border-border pl-4 -ml-5">
+                        <p className="text-muted-foreground">
+                          {t(`lp.perdendoClientes.dayInLife.${item.key}`)}
+                        </p>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                ))}
 
-              <AnimatedSection delay={500}>
-                <Card className="mt-8 border-destructive/20 bg-destructive/5">
-                  <CardContent className="p-6 text-center">
-                    <p className="text-foreground font-medium">
-                      {t("lp.perdendoClientes.dayInLife.conclusion")}
-                    </p>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
+                <AnimatedSection delay={500}>
+                  <Card className="mt-8 border-destructive/20 bg-destructive/5">
+                    <CardContent className="p-6 text-center">
+                      <p className="text-foreground font-medium">
+                        {t("lp.perdendoClientes.dayInLife.conclusion")}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </AnimatedSection>
+              </div>
             </div>
           </div>
         </section>
@@ -217,6 +258,17 @@ const PerdendoClientes = () => {
                 {t("lp.perdendoClientes.problem.title")}
               </h2>
             </AnimatedSection>
+
+            {images["problem-stats"] && (
+              <AnimatedSection className="max-w-2xl mx-auto mb-10">
+                <img
+                  src={images["problem-stats"]}
+                  alt="Impacto financeiro"
+                  className="w-full rounded-xl shadow-lg"
+                  loading="lazy"
+                />
+              </AnimatedSection>
+            )}
 
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
               <AnimatedSection delay={0}>
@@ -297,28 +349,41 @@ const PerdendoClientes = () => {
               </p>
             </AnimatedSection>
 
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {[
-                { icon: Timer, key: "card1" },
-                { icon: DollarSign, key: "card2" },
-                { icon: Zap, key: "card3" },
-              ].map((card, index) => (
-                <AnimatedSection key={card.key} delay={index * 150}>
-                  <Card className="h-full">
-                    <CardContent className="p-6 text-center">
-                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-muted mb-4">
-                        <card.icon className="h-6 w-6 text-foreground" />
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2">
-                        {t(`lp.perdendoClientes.whyHappens.${card.key}.title`)}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {t(`lp.perdendoClientes.whyHappens.${card.key}.text`)}
-                      </p>
-                    </CardContent>
-                  </Card>
+            <div className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+              {images["why-overwhelmed"] && (
+                <AnimatedSection>
+                  <img
+                    src={images["why-overwhelmed"]}
+                    alt="Empresário sobrecarregado"
+                    className="w-full rounded-2xl shadow-xl"
+                    loading="lazy"
+                  />
                 </AnimatedSection>
-              ))}
+              )}
+              
+              <div className={`grid gap-4 ${images["why-overwhelmed"] ? "" : "md:grid-cols-3 max-w-4xl mx-auto"}`}>
+                {[
+                  { icon: Timer, key: "card1" },
+                  { icon: DollarSign, key: "card2" },
+                  { icon: Zap, key: "card3" },
+                ].map((card, index) => (
+                  <AnimatedSection key={card.key} delay={index * 150}>
+                    <Card className="h-full">
+                      <CardContent className="p-6 text-center">
+                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-muted mb-4">
+                          <card.icon className="h-6 w-6 text-foreground" />
+                        </div>
+                        <h3 className="text-lg font-semibold mb-2">
+                          {t(`lp.perdendoClientes.whyHappens.${card.key}.title`)}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {t(`lp.perdendoClientes.whyHappens.${card.key}.text`)}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -326,36 +391,49 @@ const PerdendoClientes = () => {
         {/* Section 6: A Solucao */}
         <section className="py-12 md:py-20 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4">
-            <AnimatedSection className="text-center mb-12">
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">
-                {t("lp.perdendoClientes.solution.title")}
-              </h2>
-              <p className="text-lg opacity-90 max-w-2xl mx-auto">
-                {t("lp.perdendoClientes.solution.subtitle")}
-              </p>
-            </AnimatedSection>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
-              {[
-                { icon: Clock, key: "feature1" },
-                { icon: Mic, key: "feature2" },
-                { icon: MessageSquare, key: "feature3" },
-                { icon: CalendarCheck, key: "feature4" },
-              ].map((feature, index) => (
-                <AnimatedSection key={feature.key} delay={index * 100}>
-                  <div className="text-center p-4 md:p-6 rounded-xl bg-primary-foreground/10 backdrop-blur">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary-foreground/20 mb-4">
-                      <feature.icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="font-semibold mb-1 text-sm md:text-base">
-                      {t(`lp.perdendoClientes.solution.${feature.key}.title`)}
-                    </h3>
-                    <p className="text-xs md:text-sm opacity-80">
-                      {t(`lp.perdendoClientes.solution.${feature.key}.text`)}
-                    </p>
-                  </div>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <AnimatedSection className="text-center md:text-left">
+                <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                  {t("lp.perdendoClientes.solution.title")}
+                </h2>
+                <p className="text-lg opacity-90 mb-8">
+                  {t("lp.perdendoClientes.solution.subtitle")}
+                </p>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: Clock, key: "feature1" },
+                    { icon: Mic, key: "feature2" },
+                    { icon: MessageSquare, key: "feature3" },
+                    { icon: CalendarCheck, key: "feature4" },
+                  ].map((feature, index) => (
+                    <AnimatedSection key={feature.key} delay={index * 100}>
+                      <div className="text-center p-4 rounded-xl bg-primary-foreground/10 backdrop-blur">
+                        <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/20 mb-3">
+                          <feature.icon className="h-5 w-5" />
+                        </div>
+                        <h3 className="font-semibold mb-1 text-sm">
+                          {t(`lp.perdendoClientes.solution.${feature.key}.title`)}
+                        </h3>
+                        <p className="text-xs opacity-80">
+                          {t(`lp.perdendoClientes.solution.${feature.key}.text`)}
+                        </p>
+                      </div>
+                    </AnimatedSection>
+                  ))}
+                </div>
+              </AnimatedSection>
+              
+              {images["solution-ai"] && (
+                <AnimatedSection delay={200} className="hidden md:block">
+                  <img
+                    src={images["solution-ai"]}
+                    alt="IA Recepcionista"
+                    className="w-full rounded-2xl shadow-2xl"
+                    loading="lazy"
+                  />
                 </AnimatedSection>
-              ))}
+              )}
             </div>
           </div>
         </section>
@@ -368,6 +446,17 @@ const PerdendoClientes = () => {
                 {t("lp.perdendoClientes.howItWorks.title")}
               </h2>
             </AnimatedSection>
+
+            {images["how-works"] && (
+              <AnimatedSection className="max-w-3xl mx-auto mb-10">
+                <img
+                  src={images["how-works"]}
+                  alt="Como funciona o atendimento"
+                  className="w-full rounded-xl shadow-lg"
+                  loading="lazy"
+                />
+              </AnimatedSection>
+            )}
 
             <div className="max-w-3xl mx-auto mb-10">
               {[
@@ -415,31 +504,44 @@ const PerdendoClientes = () => {
               </h2>
             </AnimatedSection>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-              {[
-                { icon: CheckCircle, key: "benefit1" },
-                { icon: Zap, key: "benefit2" },
-                { icon: Users, key: "benefit3" },
-                { icon: Heart, key: "benefit4" },
-                { icon: TrendingUp, key: "benefit5" },
-                { icon: Clock, key: "benefit6" },
-              ].map((benefit, index) => (
-                <AnimatedSection key={benefit.key} delay={index * 100}>
-                  <Card className="h-full">
-                    <CardContent className="p-4 md:p-6 text-center">
-                      <div className="inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 mb-3">
-                        <benefit.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
-                      </div>
-                      <h3 className="font-semibold text-sm md:text-base mb-1">
-                        {t(`lp.perdendoClientes.whatChanges.${benefit.key}.title`)}
-                      </h3>
-                      <p className="text-xs md:text-sm text-muted-foreground">
-                        {t(`lp.perdendoClientes.whatChanges.${benefit.key}.text`)}
-                      </p>
-                    </CardContent>
-                  </Card>
+            <div className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: CheckCircle, key: "benefit1" },
+                  { icon: Zap, key: "benefit2" },
+                  { icon: Users, key: "benefit3" },
+                  { icon: Heart, key: "benefit4" },
+                  { icon: TrendingUp, key: "benefit5" },
+                  { icon: Clock, key: "benefit6" },
+                ].map((benefit, index) => (
+                  <AnimatedSection key={benefit.key} delay={index * 100}>
+                    <Card className="h-full">
+                      <CardContent className="p-4 text-center">
+                        <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 mb-3">
+                          <benefit.icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <h3 className="font-semibold text-sm mb-1">
+                          {t(`lp.perdendoClientes.whatChanges.${benefit.key}.title`)}
+                        </h3>
+                        <p className="text-xs text-muted-foreground">
+                          {t(`lp.perdendoClientes.whatChanges.${benefit.key}.text`)}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
+                ))}
+              </div>
+              
+              {images.success && (
+                <AnimatedSection delay={200} className="hidden md:block">
+                  <img
+                    src={images.success}
+                    alt="Empresário de sucesso"
+                    className="w-full rounded-2xl shadow-xl"
+                    loading="lazy"
+                  />
                 </AnimatedSection>
-              ))}
+              )}
             </div>
           </div>
         </section>
