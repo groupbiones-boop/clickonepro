@@ -238,28 +238,55 @@ const GenerateLPImages = () => {
                   {/* Prompt Customization */}
                   <Collapsible 
                     open={openPrompts[section.id]} 
-                    onOpenChange={(open) => setOpenPrompts(prev => ({ ...prev, [section.id]: open }))}
+                    onOpenChange={(open) => {
+                      setOpenPrompts(prev => ({ ...prev, [section.id]: open }));
+                      // Pre-fill with default prompt when opening if empty
+                      if (open && !customPrompts[section.id]) {
+                        setCustomPrompts(prev => ({ 
+                          ...prev, 
+                          [section.id]: DEFAULT_PROMPTS[section.id] 
+                        }));
+                      }
+                    }}
                     className="mb-4"
                   >
                     <CollapsibleTrigger asChild>
                       <Button variant="ghost" size="sm" className="w-full justify-between text-muted-foreground hover:text-foreground">
                         <span className="flex items-center gap-2">
                           <Pencil className="h-3 w-3" />
-                          Customizar Prompt
+                          {customPrompts[section.id] && customPrompts[section.id] !== DEFAULT_PROMPTS[section.id] 
+                            ? "Prompt Customizado" 
+                            : "Customizar Prompt"}
                         </span>
                         <ChevronDown className={`h-4 w-4 transition-transform ${openPrompts[section.id] ? "rotate-180" : ""}`} />
                       </Button>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="pt-2">
                       <Textarea
-                        placeholder={DEFAULT_PROMPTS[section.id]}
                         value={customPrompts[section.id] || ""}
                         onChange={(e) => setCustomPrompts(prev => ({ ...prev, [section.id]: e.target.value }))}
                         className="min-h-[100px] text-xs"
                       />
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Deixe vazio para usar o prompt padrão.
-                      </p>
+                      <div className="flex items-center justify-between mt-2">
+                        <p className="text-xs text-muted-foreground">
+                          {customPrompts[section.id] === DEFAULT_PROMPTS[section.id] 
+                            ? "Usando prompt padrão. Edite conforme necessário." 
+                            : "Prompt customizado ativo."}
+                        </p>
+                        {customPrompts[section.id] && customPrompts[section.id] !== DEFAULT_PROMPTS[section.id] && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => setCustomPrompts(prev => ({ 
+                              ...prev, 
+                              [section.id]: DEFAULT_PROMPTS[section.id] 
+                            }))}
+                            className="text-xs h-6 px-2"
+                          >
+                            Resetar para padrão
+                          </Button>
+                        )}
+                      </div>
                     </CollapsibleContent>
                   </Collapsible>
 

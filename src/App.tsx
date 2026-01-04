@@ -24,6 +24,8 @@ import MediaEmpresa from "./pages/empresas/MediaEmpresa";
 import NegociosLocais from "./pages/empresas/NegociosLocais";
 import GenerateDemoAudio from "./pages/admin/GenerateDemoAudio";
 import GenerateLPImages from "./pages/admin/GenerateLPImages";
+import LPBuilder from "./pages/admin/LPBuilder";
+import LPEditor from "./pages/admin/LPEditor";
 import Dashboard from "./pages/admin/Dashboard";
 import BlogManager from "./pages/admin/BlogManager";
 import BlogEditor from "./pages/admin/BlogEditor";
@@ -31,6 +33,7 @@ import Login from "./pages/admin/Login";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 import PerdendoClientes from "./pages/lp/PerdendoClientes";
+import DynamicLP from "./pages/lp/DynamicLP";
 
 // QueryClient with default settings
 const queryClient = new QueryClient();
@@ -63,8 +66,11 @@ const App = () => (
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/lp/perdendo-clientes" element={<PerdendoClientes />} />
+              <Route path="/lp/:slug" element={<DynamicLP />} />
               <Route path="/admin/generate-audio" element={<GenerateDemoAudio />} />
               <Route path="/admin/generate-lp-images" element={<GenerateLPImages />} />
+              <Route path="/admin/lp-builder" element={<LPBuilder />} />
+              <Route path="/admin/lp-builder/:id" element={<LPEditor />} />
               <Route path="/admin/login" element={<Login />} />
               <Route path="/admin/dashboard" element={<Dashboard />} />
               <Route path="/admin/blog" element={<BlogManager />} />
