@@ -28,8 +28,10 @@ import {
   Smartphone,
   Monitor,
   Plus,
-  Trash2
+  Trash2,
+  GripVertical
 } from "lucide-react";
+import { SortableList } from "@/components/admin/SortableList";
 
 const SECTIONS = [
   { id: "hero", label: "Hero" },
@@ -134,6 +136,23 @@ const LPEditor = () => {
       const array = [...(sectionData[arrayField] as Array<Record<string, string>>)];
       if (array.length <= 1) return prev; // Keep at least one item
       array.splice(index, 1);
+      return {
+        ...prev,
+        [section]: {
+          ...sectionData,
+          [arrayField]: array
+        }
+      };
+    });
+  }, []);
+
+  const reorderArrayItem = useCallback((section: keyof LPContent, arrayField: string, oldIndex: number, newIndex: number) => {
+    setContent(prev => {
+      if (!prev) return prev;
+      const sectionData = prev[section] as Record<string, unknown>;
+      const array = [...(sectionData[arrayField] as Array<Record<string, string>>)];
+      const [movedItem] = array.splice(oldIndex, 1);
+      array.splice(newIndex, 0, movedItem);
       return {
         ...prev,
         [section]: {
@@ -321,30 +340,35 @@ const LPEditor = () => {
             </div>
             <div>
               <Label>Timeline</Label>
-              {content.dayInLife.items.map((item, index) => (
-                <div key={index} className="flex gap-2 mt-2 items-center">
-                  <Input
-                    value={item.time}
-                    onChange={(e) => updateArrayItem("dayInLife", "items", index, "time", e.target.value)}
-                    className="w-24"
-                    placeholder="Hora"
-                  />
-                  <Input
-                    value={item.text}
-                    onChange={(e) => updateArrayItem("dayInLife", "items", index, "text", e.target.value)}
-                    placeholder="Descrição"
-                    className="flex-1"
-                  />
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-8 w-8 text-destructive shrink-0"
-                    onClick={() => removeArrayItem("dayInLife", "items", index)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
-              ))}
+              <SortableList
+                items={content.dayInLife.items}
+                getItemId={(_, i) => `dayinlife-${i}`}
+                onReorder={(oldIndex, newIndex) => reorderArrayItem("dayInLife", "items", oldIndex, newIndex)}
+                renderItem={(item, index) => (
+                  <div className="flex gap-2 items-center bg-muted/50 p-2 rounded-lg">
+                    <Input
+                      value={item.time}
+                      onChange={(e) => updateArrayItem("dayInLife", "items", index, "time", e.target.value)}
+                      className="w-24"
+                      placeholder="Hora"
+                    />
+                    <Input
+                      value={item.text}
+                      onChange={(e) => updateArrayItem("dayInLife", "items", index, "text", e.target.value)}
+                      placeholder="Descrição"
+                      className="flex-1"
+                    />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8 text-destructive shrink-0"
+                      onClick={() => removeArrayItem("dayInLife", "items", index)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                )}
+              />
               <Button
                 variant="outline"
                 size="sm"
@@ -376,30 +400,35 @@ const LPEditor = () => {
             </div>
             <div>
               <Label>Estatísticas</Label>
-              {content.problem.stats.map((stat, index) => (
-                <div key={index} className="flex gap-2 mt-2 items-center">
-                  <Input
-                    value={stat.value}
-                    onChange={(e) => updateArrayItem("problem", "stats", index, "value", e.target.value)}
-                    className="w-32"
-                    placeholder="Valor"
-                  />
-                  <Input
-                    value={stat.label}
-                    onChange={(e) => updateArrayItem("problem", "stats", index, "label", e.target.value)}
-                    placeholder="Label"
-                    className="flex-1"
-                  />
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-8 w-8 text-destructive shrink-0"
-                    onClick={() => removeArrayItem("problem", "stats", index)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
-              ))}
+              <SortableList
+                items={content.problem.stats}
+                getItemId={(_, i) => `stat-${i}`}
+                onReorder={(oldIndex, newIndex) => reorderArrayItem("problem", "stats", oldIndex, newIndex)}
+                renderItem={(stat, index) => (
+                  <div className="flex gap-2 items-center bg-muted/50 p-2 rounded-lg">
+                    <Input
+                      value={stat.value}
+                      onChange={(e) => updateArrayItem("problem", "stats", index, "value", e.target.value)}
+                      className="w-32"
+                      placeholder="Valor"
+                    />
+                    <Input
+                      value={stat.label}
+                      onChange={(e) => updateArrayItem("problem", "stats", index, "label", e.target.value)}
+                      placeholder="Label"
+                      className="flex-1"
+                    />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8 text-destructive shrink-0"
+                      onClick={() => removeArrayItem("problem", "stats", index)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                )}
+              />
               <Button
                 variant="outline"
                 size="sm"
@@ -445,28 +474,33 @@ const LPEditor = () => {
             </div>
             <div>
               <Label>Features</Label>
-              {content.solution.features.map((feature, index) => (
-                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
-                    onClick={() => removeArrayItem("solution", "features", index)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                  <Input
-                    value={feature.title}
-                    onChange={(e) => updateArrayItem("solution", "features", index, "title", e.target.value)}
-                    placeholder="Título"
-                  />
-                  <Input
-                    value={feature.text}
-                    onChange={(e) => updateArrayItem("solution", "features", index, "text", e.target.value)}
-                    placeholder="Descrição"
-                  />
-                </div>
-              ))}
+              <SortableList
+                items={content.solution.features}
+                getItemId={(_, i) => `feature-${i}`}
+                onReorder={(oldIndex, newIndex) => reorderArrayItem("solution", "features", oldIndex, newIndex)}
+                renderItem={(feature, index) => (
+                  <div className="space-y-1 p-3 bg-muted/50 rounded-lg relative">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                      onClick={() => removeArrayItem("solution", "features", index)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                    <Input
+                      value={feature.title}
+                      onChange={(e) => updateArrayItem("solution", "features", index, "title", e.target.value)}
+                      placeholder="Título"
+                    />
+                    <Input
+                      value={feature.text}
+                      onChange={(e) => updateArrayItem("solution", "features", index, "text", e.target.value)}
+                      placeholder="Descrição"
+                    />
+                  </div>
+                )}
+              />
               <Button
                 variant="outline"
                 size="sm"
@@ -491,34 +525,39 @@ const LPEditor = () => {
             </div>
             <div>
               <Label>Passos</Label>
-              {content.howItWorks.steps.map((step, index) => (
-                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
-                    onClick={() => removeArrayItem("howItWorks", "steps", index)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                  <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
-                      {index + 1}
-                    </span>
+              <SortableList
+                items={content.howItWorks.steps}
+                getItemId={(_, i) => `step-${i}`}
+                onReorder={(oldIndex, newIndex) => reorderArrayItem("howItWorks", "steps", oldIndex, newIndex)}
+                renderItem={(step, index) => (
+                  <div className="space-y-1 p-3 bg-muted/50 rounded-lg relative">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                      onClick={() => removeArrayItem("howItWorks", "steps", index)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                    <div className="flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
+                        {index + 1}
+                      </span>
+                      <Input
+                        value={step.title}
+                        onChange={(e) => updateArrayItem("howItWorks", "steps", index, "title", e.target.value)}
+                        placeholder="Título"
+                      />
+                    </div>
                     <Input
-                      value={step.title}
-                      onChange={(e) => updateArrayItem("howItWorks", "steps", index, "title", e.target.value)}
-                      placeholder="Título"
+                      value={step.text}
+                      onChange={(e) => updateArrayItem("howItWorks", "steps", index, "text", e.target.value)}
+                      placeholder="Descrição"
+                      className="ml-8"
                     />
                   </div>
-                  <Input
-                    value={step.text}
-                    onChange={(e) => updateArrayItem("howItWorks", "steps", index, "text", e.target.value)}
-                    placeholder="Descrição"
-                    className="ml-8"
-                  />
-                </div>
-              ))}
+                )}
+              />
               <Button
                 variant="outline"
                 size="sm"
@@ -557,28 +596,33 @@ const LPEditor = () => {
             </div>
             <div>
               <Label>Pilares</Label>
-              {content.finalCta.pillars.map((pillar, index) => (
-                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
-                    onClick={() => removeArrayItem("finalCta", "pillars", index)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                  <Input
-                    value={pillar.title}
-                    onChange={(e) => updateArrayItem("finalCta", "pillars", index, "title", e.target.value)}
-                    placeholder="Título"
-                  />
-                  <Input
-                    value={pillar.text}
-                    onChange={(e) => updateArrayItem("finalCta", "pillars", index, "text", e.target.value)}
-                    placeholder="Descrição"
-                  />
-                </div>
-              ))}
+              <SortableList
+                items={content.finalCta.pillars}
+                getItemId={(_, i) => `pillar-${i}`}
+                onReorder={(oldIndex, newIndex) => reorderArrayItem("finalCta", "pillars", oldIndex, newIndex)}
+                renderItem={(pillar, index) => (
+                  <div className="space-y-1 p-3 bg-muted/50 rounded-lg relative">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                      onClick={() => removeArrayItem("finalCta", "pillars", index)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                    <Input
+                      value={pillar.title}
+                      onChange={(e) => updateArrayItem("finalCta", "pillars", index, "title", e.target.value)}
+                      placeholder="Título"
+                    />
+                    <Input
+                      value={pillar.text}
+                      onChange={(e) => updateArrayItem("finalCta", "pillars", index, "text", e.target.value)}
+                      placeholder="Descrição"
+                    />
+                  </div>
+                )}
+              />
               <Button
                 variant="outline"
                 size="sm"
@@ -624,28 +668,33 @@ const LPEditor = () => {
             </div>
             <div>
               <Label>Cards de Razões</Label>
-              {content.whyHappens.cards.map((card, index) => (
-                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
-                    onClick={() => removeArrayItem("whyHappens", "cards", index)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                  <Input
-                    value={card.title}
-                    onChange={(e) => updateArrayItem("whyHappens", "cards", index, "title", e.target.value)}
-                    placeholder="Título"
-                  />
-                  <Input
-                    value={card.text}
-                    onChange={(e) => updateArrayItem("whyHappens", "cards", index, "text", e.target.value)}
-                    placeholder="Descrição"
-                  />
-                </div>
-              ))}
+              <SortableList
+                items={content.whyHappens.cards}
+                getItemId={(_, i) => `card-${i}`}
+                onReorder={(oldIndex, newIndex) => reorderArrayItem("whyHappens", "cards", oldIndex, newIndex)}
+                renderItem={(card, index) => (
+                  <div className="space-y-1 p-3 bg-muted/50 rounded-lg relative">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                      onClick={() => removeArrayItem("whyHappens", "cards", index)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                    <Input
+                      value={card.title}
+                      onChange={(e) => updateArrayItem("whyHappens", "cards", index, "title", e.target.value)}
+                      placeholder="Título"
+                    />
+                    <Input
+                      value={card.text}
+                      onChange={(e) => updateArrayItem("whyHappens", "cards", index, "text", e.target.value)}
+                      placeholder="Descrição"
+                    />
+                  </div>
+                )}
+              />
               <Button
                 variant="outline"
                 size="sm"
@@ -670,28 +719,33 @@ const LPEditor = () => {
             </div>
             <div>
               <Label>Benefícios</Label>
-              {content.whatChanges.benefits.map((benefit, index) => (
-                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
-                    onClick={() => removeArrayItem("whatChanges", "benefits", index)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                  <Input
-                    value={benefit.title}
-                    onChange={(e) => updateArrayItem("whatChanges", "benefits", index, "title", e.target.value)}
-                    placeholder="Título"
-                  />
-                  <Input
-                    value={benefit.text}
-                    onChange={(e) => updateArrayItem("whatChanges", "benefits", index, "text", e.target.value)}
-                    placeholder="Descrição"
-                  />
-                </div>
-              ))}
+              <SortableList
+                items={content.whatChanges.benefits}
+                getItemId={(_, i) => `benefit-${i}`}
+                onReorder={(oldIndex, newIndex) => reorderArrayItem("whatChanges", "benefits", oldIndex, newIndex)}
+                renderItem={(benefit, index) => (
+                  <div className="space-y-1 p-3 bg-muted/50 rounded-lg relative">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                      onClick={() => removeArrayItem("whatChanges", "benefits", index)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                    <Input
+                      value={benefit.title}
+                      onChange={(e) => updateArrayItem("whatChanges", "benefits", index, "title", e.target.value)}
+                      placeholder="Título"
+                    />
+                    <Input
+                      value={benefit.text}
+                      onChange={(e) => updateArrayItem("whatChanges", "benefits", index, "text", e.target.value)}
+                      placeholder="Descrição"
+                    />
+                  </div>
+                )}
+              />
               <Button
                 variant="outline"
                 size="sm"
@@ -751,28 +805,33 @@ const LPEditor = () => {
             </div>
             <div>
               <Label>Diferenciais</Label>
-              {content.aboutCompany.differentiators.map((diff, index) => (
-                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
-                    onClick={() => removeArrayItem("aboutCompany", "differentiators", index)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                  <Input
-                    value={diff.title}
-                    onChange={(e) => updateArrayItem("aboutCompany", "differentiators", index, "title", e.target.value)}
-                    placeholder="Título (ex: +500 empresas)"
-                  />
-                  <Input
-                    value={diff.text}
-                    onChange={(e) => updateArrayItem("aboutCompany", "differentiators", index, "text", e.target.value)}
-                    placeholder="Descrição"
-                  />
-                </div>
-              ))}
+              <SortableList
+                items={content.aboutCompany.differentiators}
+                getItemId={(_, i) => `diff-${i}`}
+                onReorder={(oldIndex, newIndex) => reorderArrayItem("aboutCompany", "differentiators", oldIndex, newIndex)}
+                renderItem={(diff, index) => (
+                  <div className="space-y-1 p-3 bg-muted/50 rounded-lg relative">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                      onClick={() => removeArrayItem("aboutCompany", "differentiators", index)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                    <Input
+                      value={diff.title}
+                      onChange={(e) => updateArrayItem("aboutCompany", "differentiators", index, "title", e.target.value)}
+                      placeholder="Título (ex: +500 empresas)"
+                    />
+                    <Input
+                      value={diff.text}
+                      onChange={(e) => updateArrayItem("aboutCompany", "differentiators", index, "text", e.target.value)}
+                      placeholder="Descrição"
+                    />
+                  </div>
+                )}
+              />
               <Button
                 variant="outline"
                 size="sm"
@@ -804,33 +863,38 @@ const LPEditor = () => {
             </div>
             <div>
               <Label>Setores</Label>
-              {(content.industries?.items || []).map((item, index) => (
-                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
-                    onClick={() => removeArrayItem("industries", "items", index)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                  <Input
-                    value={item.name}
-                    onChange={(e) => updateArrayItem("industries", "items", index, "name", e.target.value)}
-                    placeholder="Nome do setor"
-                  />
-                  <Input
-                    value={item.slug}
-                    onChange={(e) => updateArrayItem("industries", "items", index, "slug", e.target.value)}
-                    placeholder="Slug (ex: encanamento)"
-                  />
-                  <Input
-                    value={item.image || ""}
-                    onChange={(e) => updateArrayItem("industries", "items", index, "image", e.target.value)}
-                    placeholder="URL da imagem (opcional)"
-                  />
-                </div>
-              ))}
+              <SortableList
+                items={content.industries?.items || []}
+                getItemId={(_, i) => `industry-${i}`}
+                onReorder={(oldIndex, newIndex) => reorderArrayItem("industries", "items", oldIndex, newIndex)}
+                renderItem={(item, index) => (
+                  <div className="space-y-1 p-3 bg-muted/50 rounded-lg relative">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                      onClick={() => removeArrayItem("industries", "items", index)}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                    <Input
+                      value={item.name}
+                      onChange={(e) => updateArrayItem("industries", "items", index, "name", e.target.value)}
+                      placeholder="Nome do setor"
+                    />
+                    <Input
+                      value={item.slug}
+                      onChange={(e) => updateArrayItem("industries", "items", index, "slug", e.target.value)}
+                      placeholder="Slug (ex: encanamento)"
+                    />
+                    <Input
+                      value={item.image || ""}
+                      onChange={(e) => updateArrayItem("industries", "items", index, "image", e.target.value)}
+                      placeholder="URL da imagem (opcional)"
+                    />
+                  </div>
+                )}
+              />
               <Button
                 variant="outline"
                 size="sm"

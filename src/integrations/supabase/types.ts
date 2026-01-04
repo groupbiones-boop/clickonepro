@@ -277,6 +277,115 @@ export type Database = {
         }
         Relationships: []
       }
+      lp_ab_sessions: {
+        Row: {
+          converted: boolean | null
+          created_at: string | null
+          id: string
+          session_id: string
+          test_id: string
+          variant: string
+        }
+        Insert: {
+          converted?: boolean | null
+          created_at?: string | null
+          id?: string
+          session_id: string
+          test_id: string
+          variant: string
+        }
+        Update: {
+          converted?: boolean | null
+          created_at?: string | null
+          id?: string
+          session_id?: string
+          test_id?: string
+          variant?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lp_ab_sessions_test_id_fkey"
+            columns: ["test_id"]
+            isOneToOne: false
+            referencedRelation: "lp_ab_tests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lp_ab_tests: {
+        Row: {
+          confidence_level: number | null
+          created_at: string | null
+          end_date: string | null
+          goal_target: string | null
+          goal_type: string | null
+          id: string
+          landing_page_id: string
+          name: string
+          start_date: string | null
+          status: string | null
+          traffic_split: number | null
+          updated_at: string | null
+          variant_a_content: Json | null
+          variant_a_conversions: number | null
+          variant_a_views: number | null
+          variant_b_content: Json
+          variant_b_conversions: number | null
+          variant_b_views: number | null
+          winner: string | null
+        }
+        Insert: {
+          confidence_level?: number | null
+          created_at?: string | null
+          end_date?: string | null
+          goal_target?: string | null
+          goal_type?: string | null
+          id?: string
+          landing_page_id: string
+          name: string
+          start_date?: string | null
+          status?: string | null
+          traffic_split?: number | null
+          updated_at?: string | null
+          variant_a_content?: Json | null
+          variant_a_conversions?: number | null
+          variant_a_views?: number | null
+          variant_b_content: Json
+          variant_b_conversions?: number | null
+          variant_b_views?: number | null
+          winner?: string | null
+        }
+        Update: {
+          confidence_level?: number | null
+          created_at?: string | null
+          end_date?: string | null
+          goal_target?: string | null
+          goal_type?: string | null
+          id?: string
+          landing_page_id?: string
+          name?: string
+          start_date?: string | null
+          status?: string | null
+          traffic_split?: number | null
+          updated_at?: string | null
+          variant_a_content?: Json | null
+          variant_a_conversions?: number | null
+          variant_a_views?: number | null
+          variant_b_content?: Json
+          variant_b_conversions?: number | null
+          variant_b_views?: number | null
+          winner?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lp_ab_tests_landing_page_id_fkey"
+            columns: ["landing_page_id"]
+            isOneToOne: false
+            referencedRelation: "landing_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       lp_campaigns: {
         Row: {
           avg_conversion_value: number | null
@@ -447,7 +556,15 @@ export type Database = {
         }
         Returns: boolean
       }
+      increment_ab_views: {
+        Args: { p_test_id: string; p_variant: string }
+        Returns: undefined
+      }
       increment_post_views: { Args: { post_slug: string }; Returns: undefined }
+      record_ab_conversion: {
+        Args: { p_session_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       app_role: "admin" | "editor" | "viewer"
