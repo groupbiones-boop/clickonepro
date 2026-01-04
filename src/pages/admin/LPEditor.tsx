@@ -26,7 +26,9 @@ import {
   Check,
   Globe,
   Smartphone,
-  Monitor
+  Monitor,
+  Plus,
+  Trash2
 } from "lucide-react";
 
 const SECTIONS = [
@@ -40,6 +42,7 @@ const SECTIONS = [
   { id: "whatChanges", label: "O Que Muda" },
   { id: "whoItsFor", label: "Para Quem" },
   { id: "aboutCompany", label: "Sobre" },
+  { id: "industries", label: "Setores" },
   { id: "finalCta", label: "CTA Final" },
 ];
 
@@ -99,6 +102,38 @@ const LPEditor = () => {
       const sectionData = prev[section] as Record<string, unknown>;
       const array = [...(sectionData[arrayField] as Array<Record<string, string>>)];
       array[index] = { ...array[index], [field]: value };
+      return {
+        ...prev,
+        [section]: {
+          ...sectionData,
+          [arrayField]: array
+        }
+      };
+    });
+  }, []);
+
+  const addArrayItem = useCallback((section: keyof LPContent, arrayField: string, defaultItem: Record<string, string>) => {
+    setContent(prev => {
+      if (!prev) return prev;
+      const sectionData = prev[section] as Record<string, unknown>;
+      const array = [...(sectionData[arrayField] as Array<Record<string, string>>), defaultItem];
+      return {
+        ...prev,
+        [section]: {
+          ...sectionData,
+          [arrayField]: array
+        }
+      };
+    });
+  }, []);
+
+  const removeArrayItem = useCallback((section: keyof LPContent, arrayField: string, index: number) => {
+    setContent(prev => {
+      if (!prev) return prev;
+      const sectionData = prev[section] as Record<string, unknown>;
+      const array = [...(sectionData[arrayField] as Array<Record<string, string>>)];
+      if (array.length <= 1) return prev; // Keep at least one item
+      array.splice(index, 1);
       return {
         ...prev,
         [section]: {
@@ -287,7 +322,7 @@ const LPEditor = () => {
             <div>
               <Label>Timeline</Label>
               {content.dayInLife.items.map((item, index) => (
-                <div key={index} className="flex gap-2 mt-2">
+                <div key={index} className="flex gap-2 mt-2 items-center">
                   <Input
                     value={item.time}
                     onChange={(e) => updateArrayItem("dayInLife", "items", index, "time", e.target.value)}
@@ -298,9 +333,26 @@ const LPEditor = () => {
                     value={item.text}
                     onChange={(e) => updateArrayItem("dayInLife", "items", index, "text", e.target.value)}
                     placeholder="Descrição"
+                    className="flex-1"
                   />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 text-destructive shrink-0"
+                    onClick={() => removeArrayItem("dayInLife", "items", index)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
                 </div>
               ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-2"
+                onClick={() => addArrayItem("dayInLife", "items", { time: "", text: "" })}
+              >
+                <Plus className="h-4 w-4 mr-1" /> Adicionar Item
+              </Button>
             </div>
             <div>
               <Label>Conclusão</Label>
@@ -325,7 +377,7 @@ const LPEditor = () => {
             <div>
               <Label>Estatísticas</Label>
               {content.problem.stats.map((stat, index) => (
-                <div key={index} className="flex gap-2 mt-2">
+                <div key={index} className="flex gap-2 mt-2 items-center">
                   <Input
                     value={stat.value}
                     onChange={(e) => updateArrayItem("problem", "stats", index, "value", e.target.value)}
@@ -336,9 +388,26 @@ const LPEditor = () => {
                     value={stat.label}
                     onChange={(e) => updateArrayItem("problem", "stats", index, "label", e.target.value)}
                     placeholder="Label"
+                    className="flex-1"
                   />
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8 text-destructive shrink-0"
+                    onClick={() => removeArrayItem("problem", "stats", index)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
                 </div>
               ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-2"
+                onClick={() => addArrayItem("problem", "stats", { value: "", label: "" })}
+              >
+                <Plus className="h-4 w-4 mr-1" /> Adicionar Stat
+              </Button>
             </div>
             <div>
               <Label>Texto de Suporte</Label>
@@ -377,7 +446,15 @@ const LPEditor = () => {
             <div>
               <Label>Features</Label>
               {content.solution.features.map((feature, index) => (
-                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg">
+                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                    onClick={() => removeArrayItem("solution", "features", index)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
                   <Input
                     value={feature.title}
                     onChange={(e) => updateArrayItem("solution", "features", index, "title", e.target.value)}
@@ -390,6 +467,14 @@ const LPEditor = () => {
                   />
                 </div>
               ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-2"
+                onClick={() => addArrayItem("solution", "features", { title: "", text: "" })}
+              >
+                <Plus className="h-4 w-4 mr-1" /> Adicionar Feature
+              </Button>
             </div>
           </div>
         );
@@ -407,7 +492,15 @@ const LPEditor = () => {
             <div>
               <Label>Passos</Label>
               {content.howItWorks.steps.map((step, index) => (
-                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg">
+                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                    onClick={() => removeArrayItem("howItWorks", "steps", index)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
                   <div className="flex items-center gap-2">
                     <span className="w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold">
                       {index + 1}
@@ -426,6 +519,14 @@ const LPEditor = () => {
                   />
                 </div>
               ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-2"
+                onClick={() => addArrayItem("howItWorks", "steps", { title: "", text: "" })}
+              >
+                <Plus className="h-4 w-4 mr-1" /> Adicionar Passo
+              </Button>
             </div>
             <div>
               <Label>Texto do CTA</Label>
@@ -457,7 +558,15 @@ const LPEditor = () => {
             <div>
               <Label>Pilares</Label>
               {content.finalCta.pillars.map((pillar, index) => (
-                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg">
+                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                    onClick={() => removeArrayItem("finalCta", "pillars", index)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
                   <Input
                     value={pillar.title}
                     onChange={(e) => updateArrayItem("finalCta", "pillars", index, "title", e.target.value)}
@@ -470,6 +579,14 @@ const LPEditor = () => {
                   />
                 </div>
               ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-2"
+                onClick={() => addArrayItem("finalCta", "pillars", { title: "", text: "" })}
+              >
+                <Plus className="h-4 w-4 mr-1" /> Adicionar Pilar
+              </Button>
             </div>
             <div>
               <Label>Texto do Botão</Label>
@@ -484,6 +601,244 @@ const LPEditor = () => {
                 value={content.finalCta.support}
                 onChange={(e) => updateContent("finalCta", "support", e.target.value)}
               />
+            </div>
+          </div>
+        );
+
+      case "whyHappens":
+        return (
+          <div className="space-y-4">
+            <div>
+              <Label>Título</Label>
+              <Input
+                value={content.whyHappens.title}
+                onChange={(e) => updateContent("whyHappens", "title", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Subtítulo</Label>
+              <Textarea
+                value={content.whyHappens.subtitle}
+                onChange={(e) => updateContent("whyHappens", "subtitle", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Cards de Razões</Label>
+              {content.whyHappens.cards.map((card, index) => (
+                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                    onClick={() => removeArrayItem("whyHappens", "cards", index)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                  <Input
+                    value={card.title}
+                    onChange={(e) => updateArrayItem("whyHappens", "cards", index, "title", e.target.value)}
+                    placeholder="Título"
+                  />
+                  <Input
+                    value={card.text}
+                    onChange={(e) => updateArrayItem("whyHappens", "cards", index, "text", e.target.value)}
+                    placeholder="Descrição"
+                  />
+                </div>
+              ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-2"
+                onClick={() => addArrayItem("whyHappens", "cards", { title: "", text: "" })}
+              >
+                <Plus className="h-4 w-4 mr-1" /> Adicionar Card
+              </Button>
+            </div>
+          </div>
+        );
+
+      case "whatChanges":
+        return (
+          <div className="space-y-4">
+            <div>
+              <Label>Título</Label>
+              <Input
+                value={content.whatChanges.title}
+                onChange={(e) => updateContent("whatChanges", "title", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Benefícios</Label>
+              {content.whatChanges.benefits.map((benefit, index) => (
+                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                    onClick={() => removeArrayItem("whatChanges", "benefits", index)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                  <Input
+                    value={benefit.title}
+                    onChange={(e) => updateArrayItem("whatChanges", "benefits", index, "title", e.target.value)}
+                    placeholder="Título"
+                  />
+                  <Input
+                    value={benefit.text}
+                    onChange={(e) => updateArrayItem("whatChanges", "benefits", index, "text", e.target.value)}
+                    placeholder="Descrição"
+                  />
+                </div>
+              ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-2"
+                onClick={() => addArrayItem("whatChanges", "benefits", { title: "", text: "" })}
+              >
+                <Plus className="h-4 w-4 mr-1" /> Adicionar Benefício
+              </Button>
+            </div>
+          </div>
+        );
+
+      case "whoItsFor":
+        return (
+          <div className="space-y-4">
+            <div>
+              <Label>Título</Label>
+              <Input
+                value={content.whoItsFor.title}
+                onChange={(e) => updateContent("whoItsFor", "title", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Subtítulo</Label>
+              <Textarea
+                value={content.whoItsFor.subtitle}
+                onChange={(e) => updateContent("whoItsFor", "subtitle", e.target.value)}
+                className="min-h-[100px]"
+              />
+            </div>
+          </div>
+        );
+
+      case "aboutCompany":
+        return (
+          <div className="space-y-4">
+            <div>
+              <Label>Tagline</Label>
+              <Input
+                value={content.aboutCompany.tagline}
+                onChange={(e) => updateContent("aboutCompany", "tagline", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Headline</Label>
+              <Input
+                value={content.aboutCompany.headline}
+                onChange={(e) => updateContent("aboutCompany", "headline", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Badge</Label>
+              <Input
+                value={content.aboutCompany.badge}
+                onChange={(e) => updateContent("aboutCompany", "badge", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Diferenciais</Label>
+              {content.aboutCompany.differentiators.map((diff, index) => (
+                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                    onClick={() => removeArrayItem("aboutCompany", "differentiators", index)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                  <Input
+                    value={diff.title}
+                    onChange={(e) => updateArrayItem("aboutCompany", "differentiators", index, "title", e.target.value)}
+                    placeholder="Título (ex: +500 empresas)"
+                  />
+                  <Input
+                    value={diff.text}
+                    onChange={(e) => updateArrayItem("aboutCompany", "differentiators", index, "text", e.target.value)}
+                    placeholder="Descrição"
+                  />
+                </div>
+              ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-2"
+                onClick={() => addArrayItem("aboutCompany", "differentiators", { title: "", text: "" })}
+              >
+                <Plus className="h-4 w-4 mr-1" /> Adicionar Diferencial
+              </Button>
+            </div>
+          </div>
+        );
+
+      case "industries":
+        return (
+          <div className="space-y-4">
+            <div>
+              <Label>Título da Seção</Label>
+              <Input
+                value={content.industries?.title || ""}
+                onChange={(e) => updateContent("industries", "title", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Subtítulo</Label>
+              <Textarea
+                value={content.industries?.subtitle || ""}
+                onChange={(e) => updateContent("industries", "subtitle", e.target.value)}
+              />
+            </div>
+            <div>
+              <Label>Setores</Label>
+              {(content.industries?.items || []).map((item, index) => (
+                <div key={index} className="space-y-1 mt-3 p-3 bg-muted/50 rounded-lg relative">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute top-1 right-1 h-6 w-6 text-destructive"
+                    onClick={() => removeArrayItem("industries", "items", index)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                  </Button>
+                  <Input
+                    value={item.name}
+                    onChange={(e) => updateArrayItem("industries", "items", index, "name", e.target.value)}
+                    placeholder="Nome do setor"
+                  />
+                  <Input
+                    value={item.slug}
+                    onChange={(e) => updateArrayItem("industries", "items", index, "slug", e.target.value)}
+                    placeholder="Slug (ex: encanamento)"
+                  />
+                  <Input
+                    value={item.image || ""}
+                    onChange={(e) => updateArrayItem("industries", "items", index, "image", e.target.value)}
+                    placeholder="URL da imagem (opcional)"
+                  />
+                </div>
+              ))}
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-2"
+                onClick={() => addArrayItem("industries", "items", { name: "", slug: "", image: "" })}
+              >
+                <Plus className="h-4 w-4 mr-1" /> Adicionar Setor
+              </Button>
             </div>
           </div>
         );
