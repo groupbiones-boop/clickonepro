@@ -29,7 +29,7 @@ const LP_IMAGE_PROMPTS: Record<string, { prompt: string; filename: string }> = {
     filename: "lp-why-overwhelmed.png"
   },
   solution: {
-    prompt: "Futuristic AI virtual assistant hologram in soft purple and blue colors, elegantly answering phone calls in a modern business environment. Clean, professional aesthetic with tech elements. The AI appears friendly and helpful. Digital glowing effects. Ultra high resolution.",
+    prompt: "A clean, modern tech dashboard showing an AI virtual receptionist system in action. Purple gradient accents matching ClickOne brand. Split screen: left side shows a business owner relaxing while the AI handles calls, right side shows the AI interface with incoming call notifications, calendar integration, and chat bubbles. Professional, trustworthy, corporate aesthetic. No text overlays. High quality, photorealistic with subtle tech elements. Ultra high resolution.",
     filename: "lp-solution-ai.png"
   },
   howItWorks: {

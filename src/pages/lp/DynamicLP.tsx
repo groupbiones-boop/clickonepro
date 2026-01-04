@@ -1,4 +1,4 @@
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import { 
   Phone, 
   PhoneOff, 
@@ -23,7 +23,8 @@ import {
   Heart,
   Brain,
   Mic,
-  Loader2
+  Loader2,
+  Building2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -397,6 +398,52 @@ const DynamicLP = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* Section: Setores/Indústrias */}
+        {content.industries?.items && content.industries.items.length > 0 && (
+          <section className="py-12 md:py-20">
+            <div className="container mx-auto px-4">
+              <AnimatedSection className="text-center mb-10">
+                <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
+                  {content.industries.title}
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  {content.industries.subtitle}
+                </p>
+              </AnimatedSection>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                {content.industries.items.map((industry, index) => (
+                  <AnimatedSection key={index} delay={index * 100}>
+                    <Link 
+                      to={`/setores/${industry.slug}`}
+                      className="group block"
+                    >
+                      <Card className="overflow-hidden h-full transition-all hover:shadow-lg hover:border-primary/50">
+                        {industry.image ? (
+                          <img 
+                            src={industry.image} 
+                            alt={industry.name} 
+                            className="h-32 w-full object-cover"
+                          />
+                        ) : (
+                          <div className="h-32 bg-muted flex items-center justify-center">
+                            <Building2 className="h-10 w-10 text-muted-foreground" />
+                          </div>
+                        )}
+                        <CardContent className="p-4 text-center">
+                          <h3 className="font-semibold group-hover:text-primary transition-colors">
+                            {industry.name}
+                          </h3>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </AnimatedSection>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Section 11: CTA Final */}
         <section className="py-16 md:py-24 bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground">

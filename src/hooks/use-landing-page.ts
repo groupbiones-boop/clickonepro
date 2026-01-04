@@ -61,6 +61,11 @@ export interface LPContent {
     cta: string;
     support: string;
   };
+  industries: {
+    title: string;
+    subtitle: string;
+    items: { name: string; slug: string; image?: string }[];
+  };
 }
 
 export interface LPImages {
@@ -181,6 +186,18 @@ export const DEFAULT_LP_CONTENT: LPContent = {
     ],
     cta: "Agendar Demonstração Gratuita",
     support: "Sem compromisso • Leva apenas 15 minutos"
+  },
+  industries: {
+    title: "Soluções para seu setor",
+    subtitle: "Atendimento especializado para cada tipo de negócio",
+    items: [
+      { name: "Limpeza", slug: "limpeza", image: "" },
+      { name: "HVAC", slug: "hvac", image: "" },
+      { name: "Encanamento", slug: "encanamento", image: "" },
+      { name: "Construção", slug: "construcao", image: "" },
+      { name: "Controle de Pragas", slug: "controle-pragas", image: "" },
+      { name: "Clínica Médica", slug: "clinica-medica", image: "" }
+    ]
   }
 };
 
