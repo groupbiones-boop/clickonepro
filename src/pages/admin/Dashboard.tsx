@@ -14,9 +14,10 @@ import AcquisitionTab from "./components/AcquisitionTab";
 import BlogTab from "./components/BlogTab";
 import AlertsTab from "./components/AlertsTab";
 import { CampaignsTab } from "./components/CampaignsTab";
+import ABTestManager from "./components/ABTestManager";
 import { OfflineIndicator } from "@/components/OfflineIndicator";
 import { useRealtimeDashboard } from "@/hooks/useRealtimeDashboard";
-import { Loader2, LayoutDashboard, BarChart3, Users, TrendingUp, Target } from "lucide-react";
+import { Loader2, LayoutDashboard, BarChart3, Users, TrendingUp, Target, FlaskConical } from "lucide-react";
 import { subDays, startOfDay, endOfDay } from "date-fns";
 import { cn } from "@/lib/utils";
 
@@ -106,6 +107,8 @@ const DashboardContent = () => {
         );
       case "campaigns":
         return <CampaignsTab filters={filters} />;
+      case "ab-tests":
+        return <ABTestManager />;
       case "overview":
         return <OverviewTab filters={filters} />;
       case "site":
@@ -132,6 +135,7 @@ const DashboardContent = () => {
   const tabTitles: Record<string, string> = {
     dashboard: "Dashboard",
     campaigns: "Campanhas",
+    "ab-tests": "Testes A/B",
     overview: "Visão Geral",
     site: "Site",
     audience: "Audiência",

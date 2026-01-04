@@ -1,4 +1,5 @@
 import { useParams, Navigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { 
   Phone, 
   PhoneOff, 
@@ -35,19 +36,49 @@ import LPFloatingCTA from "@/components/LPFloatingCTA";
 import Footer from "@/components/layout/Footer";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
-import { useLandingPageBySlug } from "@/hooks/use-landing-page";
+import { useLandingPageBySlug, LPContent } from "@/hooks/use-landing-page";
+import { useActiveABTest, assignVariant, recordConversion, getOrCreateSessionId } from "@/hooks/use-ab-tests";
 
 const GHL_DEMO_URL = "https://api.leadconnectorhq.com/widget/booking/MPXMwtJNT8r70fFVkpXS";
 
 const DynamicLP = () => {
   const { slug } = useParams();
   const { landingPage, isLoading, notFound } = useLandingPageBySlug(slug);
+  const { test: activeTest, isLoading: isTestLoading } = useActiveABTest(landingPage?.id);
+  const [displayContent, setDisplayContent] = useState<LPContent | null>(null);
+  const [activeVariant, setActiveVariant] = useState<"A" | "B">("A");
+
+  // Handle A/B test variant assignment
+  useEffect(() => {
+    if (!landingPage || isTestLoading) return;
+
+    const setupVariant = async () => {
+      if (activeTest) {
+        const { variant } = await assignVariant(activeTest.id, activeTest.traffic_split);
+        setActiveVariant(variant);
+        
+        if (variant === "B" && activeTest.variant_b_content) {
+          setDisplayContent(activeTest.variant_b_content);
+        } else if (variant === "A" && activeTest.variant_a_content) {
+          setDisplayContent(activeTest.variant_a_content);
+        } else {
+          setDisplayContent(landingPage.content);
+        }
+      } else {
+        setDisplayContent(landingPage.content);
+      }
+    };
+
+    setupVariant();
+  }, [landingPage, activeTest, isTestLoading]);
 
   const handleCtaClick = () => {
+    // Record conversion for A/B test
+    recordConversion();
     window.open(GHL_DEMO_URL, "_blank");
   };
 
-  if (isLoading) {
+  if (isLoading || isTestLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -55,11 +86,12 @@ const DynamicLP = () => {
     );
   }
 
-  if (notFound || !landingPage) {
+  if (notFound || !landingPage || !displayContent) {
     return <Navigate to="/404" replace />;
   }
 
-  const { content, images } = landingPage;
+  const { images } = landingPage;
+  const content = displayContent;
 
   return (
     <>
