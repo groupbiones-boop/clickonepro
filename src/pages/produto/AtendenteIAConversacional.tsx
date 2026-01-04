@@ -101,7 +101,18 @@ const AtendenteIAConversacional = () => {
 
   return (
     <Layout>
-      <SEO titleKey="seo.chatProduct.title" descriptionKey="seo.chatProduct.description" />
+      <SEO 
+        titleKey="seo.chatProduct.title" 
+        descriptionKey="seo.chatProduct.description"
+        schemaType="SoftwareApplication"
+        schemaData={{
+          productName: t("chatProduct.title"),
+          productDescription: t("chatProduct.subtitle"),
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web, iOS, Android",
+          aggregateRating: { ratingValue: 4.9, reviewCount: 200 }
+        }}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32">
         <div className="container">

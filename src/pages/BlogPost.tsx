@@ -70,6 +70,13 @@ const BlogPost = () => {
       <SEO 
         title={`${post.title} | ClickOne AI Blog`}
         description={post.content[0]?.substring(0, 160)}
+        schemaType="Article"
+        schemaData={{
+          headline: post.title,
+          datePublished: "2025-12-15",
+          author: post.author,
+          articleImage: "https://clickone.ai/favicon.png"
+        }}
       />
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-accent/30">
         <div className="container">
