@@ -202,6 +202,39 @@ export type Database = {
           },
         ]
       }
+      landing_pages: {
+        Row: {
+          content: Json
+          created_at: string | null
+          id: string
+          images: Json | null
+          name: string
+          slug: string
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          content?: Json
+          created_at?: string | null
+          id?: string
+          images?: Json | null
+          name: string
+          slug: string
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          content?: Json
+          created_at?: string | null
+          id?: string
+          images?: Json | null
+          name?: string
+          slug?: string
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       leads: {
         Row: {
           company: string | null
