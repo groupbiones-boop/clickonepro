@@ -326,7 +326,6 @@ const PerdendoClientes = () => {
               </p>
               <Button
                 size="lg"
-                variant="outline"
                 onClick={() => handleCtaClick("section4")}
                 className="font-semibold"
               >
@@ -583,7 +582,7 @@ const PerdendoClientes = () => {
             </div>
 
             <AnimatedSection className="text-center">
-              <Button variant="outline" asChild>
+              <Button asChild>
                 <a href="/setores">{t("lp.perdendoClientes.whoItsFor.viewAll")}</a>
               </Button>
             </AnimatedSection>
@@ -604,22 +603,24 @@ const PerdendoClientes = () => {
 
             {/* Social Proof */}
             <AnimatedSection className="mb-10">
-              <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-                {proofLogos.map((logo) => (
-                  <div key={logo.alt} className="flex flex-col items-center gap-1">
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="h-6 md:h-8 w-auto opacity-70"
-                    />
-                    <div className="flex items-center gap-1">
-                      <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                      <span className="text-xs font-medium text-muted-foreground">
-                        {logo.rating}
-                      </span>
+              <div className="bg-card rounded-xl p-4 md:p-6 shadow-sm border">
+                <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                  {proofLogos.map((logo) => (
+                    <div key={logo.alt} className="flex flex-col items-center gap-2">
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="h-8 md:h-10 w-auto"
+                      />
+                      <div className="flex items-center gap-1">
+                        <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                        <span className="text-sm font-semibold text-foreground">
+                          {logo.rating}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </AnimatedSection>
 
@@ -719,9 +720,8 @@ const PerdendoClientes = () => {
             <AnimatedSection className="text-center">
               <Button
                 size="lg"
-                variant="secondary"
                 onClick={() => handleCtaClick("final")}
-                className="text-lg px-10 py-7 font-bold shadow-xl hover:shadow-2xl transition-shadow"
+                className="bg-white text-primary hover:bg-white/90 text-lg px-10 py-7 font-bold shadow-xl hover:shadow-2xl transition-shadow"
               >
                 <Calendar className="mr-2 h-6 w-6" />
                 {t("lp.perdendoClientes.finalCta.cta")}
