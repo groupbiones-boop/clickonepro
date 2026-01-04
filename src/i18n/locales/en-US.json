@@ -1005,6 +1005,169 @@
     "notFound": {
       "title": "Page Not Found | ClickOne AI",
       "description": "The page you're looking for was not found."
+    },
+    "lpPerdendoClientes": {
+      "title": "Are You Losing Customers? | ClickOne AI",
+      "description": "Discover how to stop losing $20,000/month on unanswered calls. 24/7 AI Receptionist for service businesses."
+    }
+  },
+  "lp": {
+    "perdendoClientes": {
+      "floatingCta": "Book Demo",
+      "seo": {
+        "title": "Are You Losing Customers? | ClickOne AI",
+        "description": "Discover how to stop losing $20,000/month on unanswered calls. 24/7 AI Receptionist."
+      },
+      "hero": {
+        "badge": "3 min read | 72h Setup",
+        "title": "You're Losing Customers Right Now",
+        "subtitle": "While you're working, customers call, send messages... and give up. Discover how to capture every opportunity automatically, 24 hours a day.",
+        "cta": "I Want to Stop Losing Customers"
+      },
+      "hook": {
+        "title": "Your Phone Rings. You Can't Answer.",
+        "text": "Just like that, a customer who could have been $2,000 in services... went to the competition. This happens every day to thousands of service businesses. The good news? There's a simple solution that works while you work."
+      },
+      "dayInLife": {
+        "title": "A Day in the Life of Someone Always on the Go",
+        "item1": "Wake up, get ready for another intense day",
+        "item2": "Drive to the first customer of the day",
+        "item3": "Work non-stop, phone buzzing in your pocket",
+        "item4": "Come back exhausted, see 5 missed calls",
+        "item5": "Try to call back. No one answers anymore.",
+        "conclusion": "This cycle repeats. Every missed call is money you left on the table."
+      },
+      "problem": {
+        "title": "The Problem Isn't Lack of Customers. It's Lack of Response.",
+        "stat1": "of missed calls never return",
+        "stat2": "lost per unanswered call",
+        "stat3": "escaping your business every month",
+        "support": "Customers want immediate response. Weekends and nights are when they search most - and when you're least able to answer.",
+        "cta": "I Want to Fix This"
+      },
+      "whyHappens": {
+        "title": "Why Does This Happen to You?",
+        "subtitle": "You're not lazy. You work harder than most. The problem is you're stuck in operations.",
+        "card1": {
+          "title": "You don't have time",
+          "text": "You're in the field, on visits, executing services"
+        },
+        "card2": {
+          "title": "Can't hire right now",
+          "text": "An employee costs $3,000+ per month"
+        },
+        "card3": {
+          "title": "Customers don't wait",
+          "text": "In 5 minutes, they've called someone else"
+        }
+      },
+      "solution": {
+        "title": "The Solution: A Receptionist That Never Sleeps",
+        "subtitle": "Imagine having someone who answers ALL your calls and messages, 24 hours a day, 7 days a week. Who qualifies leads, schedules services, and never asks for vacation.",
+        "feature1": {
+          "title": "24/7 Service",
+          "text": "Works while you sleep"
+        },
+        "feature2": {
+          "title": "Natural Voice",
+          "text": "Customers can't tell it's AI"
+        },
+        "feature3": {
+          "title": "All Channels",
+          "text": "Phone, WhatsApp, SMS, social media"
+        },
+        "feature4": {
+          "title": "Auto Scheduling",
+          "text": "Integrates with your calendar"
+        }
+      },
+      "howItWorks": {
+        "title": "Simple as It Should Be",
+        "step1": {
+          "title": "Customer Calls or Messages",
+          "text": "Any time, any channel - the AI is ready"
+        },
+        "step2": {
+          "title": "AI Answers and Qualifies",
+          "text": "Collects information, answers questions, understands the need"
+        },
+        "step3": {
+          "title": "You Receive the Ready Lead",
+          "text": "All that's left is to close the deal"
+        },
+        "cta": "See Demo"
+      },
+      "whatChanges": {
+        "title": "The Impact on Your Wallet (and Your Life)",
+        "benefit1": {
+          "title": "Zero Missed Calls",
+          "text": "Every lead is captured"
+        },
+        "benefit2": {
+          "title": "Responses in Seconds",
+          "text": "3x more likely to close"
+        },
+        "benefit3": {
+          "title": "Organized Leads",
+          "text": "Everything logged automatically"
+        },
+        "benefit4": {
+          "title": "Less Stress",
+          "text": "Stop checking your phone constantly"
+        },
+        "benefit5": {
+          "title": "Grow Without Hiring",
+          "text": "Scale with low fixed cost"
+        },
+        "benefit6": {
+          "title": "Time for You",
+          "text": "Focus on work, not the phone"
+        }
+      },
+      "whoItsFor": {
+        "title": "Made for Service Businesses Like Yours",
+        "subtitle": "If your business depends on calls and messages to sell services, this solution was created specifically for you.",
+        "viewAll": "View All Industries"
+      },
+      "aboutClickone": {
+        "tagline": "AI Receptionist for Service Businesses",
+        "headline": "Never Miss a Call. Never Lose a Customer.",
+        "diff1": {
+          "title": "Built for Business Owners",
+          "text": "Not for large corporations"
+        },
+        "diff2": {
+          "title": "Results-Focused",
+          "text": "More leads, more sales"
+        },
+        "diff3": {
+          "title": "Dedicated Support",
+          "text": "Human help when you need it"
+        },
+        "badge": "72h Setup | No long contracts | Dedicated support"
+      },
+      "finalCta": {
+        "title": "Stop Losing Customers. Start Today.",
+        "text": "You work hard. Your services are excellent. Your customers are satisfied. But if you're missing calls, you're leaving money on the table every day.",
+        "pillar1": {
+          "title": "Easy to Start",
+          "text": "We set up everything for you"
+        },
+        "pillar2": {
+          "title": "Works on Its Own",
+          "text": "Zero maintenance needed"
+        },
+        "pillar3": {
+          "title": "Real Results",
+          "text": "More leads in the first month"
+        },
+        "appMention": {
+          "title": "Mobile App",
+          "text": "Get lead notifications right on your phone"
+        },
+        "cta": "Book My Free Demo",
+        "support": "15 minutes. No commitment. See how it works."
+      }
     }
   }
 }

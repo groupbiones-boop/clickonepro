@@ -1005,6 +1005,169 @@
     "notFound": {
       "title": "Página no encontrada | ClickOne AI",
       "description": "La página que buscas no fue encontrada."
+    },
+    "lpPerdendoClientes": {
+      "title": "¿Estás Perdiendo Clientes? | ClickOne AI",
+      "description": "Descubre cómo dejar de perder $20,000/mes en llamadas sin atender. Recepcionista IA 24/7 para empresas de servicios."
+    }
+  },
+  "lp": {
+    "perdendoClientes": {
+      "floatingCta": "Agendar Demo",
+      "seo": {
+        "title": "¿Estás Perdiendo Clientes? | ClickOne AI",
+        "description": "Descubre cómo dejar de perder $20,000/mes en llamadas sin atender. Recepcionista IA 24/7."
+      },
+      "hero": {
+        "badge": "Lectura de 3 min | Setup en 72h",
+        "title": "Estás Perdiendo Clientes Ahora Mismo",
+        "subtitle": "Mientras trabajas, los clientes llaman, envían mensajes... y desisten. Descubre cómo capturar cada oportunidad automáticamente, 24 horas al día.",
+        "cta": "Quiero Dejar de Perder Clientes"
+      },
+      "hook": {
+        "title": "Tu Teléfono Suena. No Puedes Atender.",
+        "text": "Y así, un cliente que podría haber sido $2,000 en servicios... se fue con la competencia. Esto sucede todos los días con miles de empresas de servicios. ¿La buena noticia? Hay una solución simple que funciona mientras tú trabajas."
+      },
+      "dayInLife": {
+        "title": "Un Día en la Vida de Quien Siempre Está Corriendo",
+        "item1": "Despertar, prepararse para otro día intenso",
+        "item2": "Manejar hasta el primer cliente del día",
+        "item3": "Trabajar sin parar, teléfono vibrando en el bolsillo",
+        "item4": "Volver agotado, ver 5 llamadas perdidas",
+        "item5": "Intentar devolver la llamada. Nadie contesta.",
+        "conclusion": "Este ciclo se repite. Cada llamada perdida es dinero que dejaste sobre la mesa."
+      },
+      "problem": {
+        "title": "El Problema No Es Falta de Clientes. Es Falta de Atención.",
+        "stat1": "de las llamadas perdidas nunca regresan",
+        "stat2": "perdidos por llamada sin atender",
+        "stat3": "escapándose de tu negocio cada mes",
+        "support": "Los clientes quieren respuesta inmediata. Los fines de semana y noches son cuando más buscan - y cuando menos puedes atender.",
+        "cta": "Quiero Resolver Esto"
+      },
+      "whyHappens": {
+        "title": "¿Por Qué Te Pasa Esto?",
+        "subtitle": "No eres flojo. Trabajas más que la mayoría. El problema es que estás atrapado en la operación.",
+        "card1": {
+          "title": "No tienes tiempo",
+          "text": "Estás en campo, en visitas, ejecutando servicios"
+        },
+        "card2": {
+          "title": "No puedes contratar ahora",
+          "text": "Un empleado cuesta $3,000+ al mes"
+        },
+        "card3": {
+          "title": "Los clientes no esperan",
+          "text": "En 5 minutos, ya llamaron a otro"
+        }
+      },
+      "solution": {
+        "title": "La Solución: Una Recepcionista Que Nunca Duerme",
+        "subtitle": "Imagina tener a alguien que atiende TODAS tus llamadas y mensajes, 24 horas al día, 7 días a la semana. Que califica leads, agenda servicios y nunca pide vacaciones.",
+        "feature1": {
+          "title": "Atiende 24/7",
+          "text": "Funciona mientras duermes"
+        },
+        "feature2": {
+          "title": "Voz Natural",
+          "text": "Los clientes no notan que es IA"
+        },
+        "feature3": {
+          "title": "Todos los Canales",
+          "text": "Teléfono, WhatsApp, SMS, redes sociales"
+        },
+        "feature4": {
+          "title": "Agenda Automático",
+          "text": "Se integra con tu calendario"
+        }
+      },
+      "howItWorks": {
+        "title": "Simple Como Debería Ser",
+        "step1": {
+          "title": "Cliente Llama o Manda Mensaje",
+          "text": "Cualquier hora, cualquier canal - la IA está lista"
+        },
+        "step2": {
+          "title": "IA Atiende y Califica",
+          "text": "Recopila información, responde dudas, entiende la necesidad"
+        },
+        "step3": {
+          "title": "Recibes el Lead Listo",
+          "text": "Solo falta cerrar el negocio"
+        },
+        "cta": "Ver Demo"
+      },
+      "whatChanges": {
+        "title": "El Impacto en Tu Bolsillo (y en Tu Vida)",
+        "benefit1": {
+          "title": "Cero Llamadas Perdidas",
+          "text": "Cada lead es capturado"
+        },
+        "benefit2": {
+          "title": "Respuestas en Segundos",
+          "text": "3x más probabilidad de cerrar"
+        },
+        "benefit3": {
+          "title": "Leads Organizados",
+          "text": "Todo registrado automáticamente"
+        },
+        "benefit4": {
+          "title": "Menos Estrés",
+          "text": "Deja de revisar el celular a cada rato"
+        },
+        "benefit5": {
+          "title": "Crece Sin Contratar",
+          "text": "Escala con costo fijo bajo"
+        },
+        "benefit6": {
+          "title": "Tiempo Para Ti",
+          "text": "Enfócate en el trabajo, no en el teléfono"
+        }
+      },
+      "whoItsFor": {
+        "title": "Hecho Para Empresas de Servicios Como la Tuya",
+        "subtitle": "Si tu negocio depende de llamadas y mensajes para vender servicios, esta solución fue creada específicamente para ti.",
+        "viewAll": "Ver Todos los Sectores"
+      },
+      "aboutClickone": {
+        "tagline": "Recepcionista IA Para Empresas de Servicios",
+        "headline": "Nunca Pierdas Una Llamada. Nunca Pierdas Un Cliente.",
+        "diff1": {
+          "title": "Hecha Para Dueños de Negocio",
+          "text": "No para grandes corporaciones"
+        },
+        "diff2": {
+          "title": "Enfocada en Resultados",
+          "text": "Más leads, más ventas"
+        },
+        "diff3": {
+          "title": "Soporte en Español",
+          "text": "Atención humana cuando la necesites"
+        },
+        "badge": "Setup en 72h | Sin contrato largo | Soporte dedicado"
+      },
+      "finalCta": {
+        "title": "Deja de Perder Clientes. Empieza Hoy.",
+        "text": "Trabajas duro. Tus servicios son excelentes. Tus clientes quedan satisfechos. Pero si pierdes llamadas, dejas dinero sobre la mesa todos los días.",
+        "pillar1": {
+          "title": "Fácil de Empezar",
+          "text": "Configuramos todo por ti"
+        },
+        "pillar2": {
+          "title": "Funciona Solo",
+          "text": "Cero mantenimiento necesario"
+        },
+        "pillar3": {
+          "title": "Resultados Reales",
+          "text": "Más leads en el primer mes"
+        },
+        "appMention": {
+          "title": "App Móvil",
+          "text": "Recibe notificaciones de leads directo en tu celular"
+        },
+        "cta": "Agendar Mi Demo Gratis",
+        "support": "15 minutos. Sin compromiso. Mira cómo funciona."
+      }
     }
   }
 }

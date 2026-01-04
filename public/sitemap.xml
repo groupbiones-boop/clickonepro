@@ -336,4 +336,15 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
+  <!-- Landing Pages -->
+  <url>
+    <loc>https://clickone.ai/lp/perdendo-clientes</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/lp/perdendo-clientes"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/lp/perdendo-clientes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/lp/perdendo-clientes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/lp/perdendo-clientes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
