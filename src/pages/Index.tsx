@@ -105,7 +105,11 @@ const Index = () => {
 
   return (
     <Layout>
-      <SEO titleKey="seo.home.title" descriptionKey="seo.home.description" />
+      <SEO 
+        titleKey="seo.home.title" 
+        descriptionKey="seo.home.description" 
+        schemaType="Organization"
+      />
       {/* Hero Section - Enhanced */}
       <section className="relative overflow-hidden py-24 md:py-40 min-h-[90vh] flex items-center">
         {/* Background Image with Gradient Overlay */}

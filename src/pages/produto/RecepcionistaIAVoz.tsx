@@ -65,7 +65,18 @@ const RecepcionistaIAVoz = () => {
 
   return (
     <Layout>
-      <SEO titleKey="seo.voiceProduct.title" descriptionKey="seo.voiceProduct.description" />
+      <SEO 
+        titleKey="seo.voiceProduct.title" 
+        descriptionKey="seo.voiceProduct.description"
+        schemaType="SoftwareApplication"
+        schemaData={{
+          productName: t("voiceProduct.title"),
+          productDescription: t("voiceProduct.subtitle"),
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web, iOS, Android",
+          aggregateRating: { ratingValue: 4.8, reviewCount: 150 }
+        }}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32">
         <div className="container">

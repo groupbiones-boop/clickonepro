@@ -166,6 +166,13 @@ const SetorDetalhe = () => {
       <SEO 
         title={`${name} | ClickOne AI`}
         description={heroSubtitle}
+        schemaType="Service"
+        schemaData={{
+          serviceName: name,
+          serviceDescription: heroDescription,
+          provider: "ClickOne AI",
+          areaServed: "Brazil, United States, Latin America"
+        }}
       />
       {/* FOLD 1: Hero Section with 72h Badge */}
       <section className="relative py-16 md:py-24 overflow-hidden">
