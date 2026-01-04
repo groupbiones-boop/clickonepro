@@ -17,6 +17,17 @@ import {
 } from "lucide-react";
 import heroVoiceAi from "@/assets/hero-voice-ai.jpg";
 import { useTranslation } from "react-i18next";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
 
 const RecepcionistaIAVoz = () => {
   const { t } = useTranslation();
@@ -63,6 +74,9 @@ const RecepcionistaIAVoz = () => {
     t("voiceProduct.benefit6"),
   ];
 
+  // Get FAQ items from translations
+  const faqItems = t("voiceProduct.faq", { returnObjects: true }) as FAQItem[];
+
   return (
     <Layout>
       <SEO 
@@ -76,6 +90,14 @@ const RecepcionistaIAVoz = () => {
           operatingSystem: "Web, iOS, Android",
           aggregateRating: { ratingValue: 4.8, reviewCount: 150 }
         }}
+        additionalSchemas={[
+          {
+            type: "FAQPage",
+            data: {
+              faqItems: Array.isArray(faqItems) ? faqItems : []
+            }
+          }
+        ]}
       />
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32">
@@ -246,6 +268,31 @@ const RecepcionistaIAVoz = () => {
                 </ul>
               </div>
             </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container">
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t("voiceProduct.faqTitle")}
+            </h2>
+          </AnimatedSection>
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              {Array.isArray(faqItems) && faqItems.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left text-lg font-medium">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>

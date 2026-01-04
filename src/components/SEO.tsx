@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 // Schema.org types
 type SchemaType = 
@@ -55,7 +56,15 @@ interface SEOProps {
     // For FAQPage
     faqItems?: FAQItem[];
   };
+  // Additional schemas (for combining multiple schemas like SoftwareApplication + FAQPage)
+  additionalSchemas?: Array<{
+    type: SchemaType;
+    data?: SEOProps["schemaData"];
+  }>;
 }
+
+const BASE_URL = "https://clickone.ai";
+const SUPPORTED_LANGUAGES = ["pt-BR", "en-US", "es"];
 
 const SEO = ({
   titleKey,
@@ -67,8 +76,10 @@ const SEO = ({
   canonicalUrl,
   schemaType,
   schemaData,
+  additionalSchemas,
 }: SEOProps) => {
   const { t, i18n } = useTranslation();
+  const location = useLocation();
 
   // Update HTML lang attribute when language changes
   useEffect(() => {
@@ -79,8 +90,19 @@ const SEO = ({
   const title = directTitle || (titleKey ? t(titleKey) : t("seo.home.title"));
   const description = directDescription || (descriptionKey ? t(descriptionKey) : t("seo.home.description"));
 
+  // Generate canonical URL automatically if not provided
+  const currentPath = location.pathname.replace(/\/$/, '') || '/';
+  const autoCanonical = `${BASE_URL}${currentPath === '/' ? '' : currentPath}`;
+  const finalCanonical = canonicalUrl || autoCanonical;
+
+  // Generate hreflang URLs for all supported languages
+  const hreflangUrls = SUPPORTED_LANGUAGES.map(lang => ({
+    lang,
+    url: `${BASE_URL}${currentPath === '/' ? '' : currentPath}`
+  }));
+
   // Generate JSON-LD based on schema type
-  const generateJsonLd = () => {
+  const generateJsonLd = (type?: SchemaType, data?: SEOProps["schemaData"]) => {
     const baseOrganization = {
       "@type": "Organization",
       "name": "ClickOne AI",
@@ -98,7 +120,7 @@ const SEO = ({
       }
     };
 
-    if (!schemaType) {
+    if (!type) {
       // Default Organization schema for all pages
       return {
         "@context": "https://schema.org",
@@ -106,7 +128,7 @@ const SEO = ({
       };
     }
 
-    switch (schemaType) {
+    switch (type) {
       case "Organization":
         return {
           "@context": "https://schema.org",
@@ -118,21 +140,21 @@ const SEO = ({
         return {
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
-          "name": schemaData?.productName || title,
-          "description": schemaData?.productDescription || description,
-          "applicationCategory": schemaData?.applicationCategory || "BusinessApplication",
-          "operatingSystem": schemaData?.operatingSystem || "Web, iOS, Android",
+          "name": data?.productName || title,
+          "description": data?.productDescription || description,
+          "applicationCategory": data?.applicationCategory || "BusinessApplication",
+          "operatingSystem": data?.operatingSystem || "Web, iOS, Android",
           "offers": {
             "@type": "Offer",
-            "price": schemaData?.offers?.price || "0",
-            "priceCurrency": schemaData?.offers?.priceCurrency || "USD",
+            "price": data?.offers?.price || "0",
+            "priceCurrency": data?.offers?.priceCurrency || "USD",
             "availability": "https://schema.org/InStock"
           },
-          ...(schemaData?.aggregateRating && {
+          ...(data?.aggregateRating && {
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": schemaData.aggregateRating.ratingValue,
-              "reviewCount": schemaData.aggregateRating.reviewCount,
+              "ratingValue": data.aggregateRating.ratingValue,
+              "reviewCount": data.aggregateRating.reviewCount,
               "bestRating": "5",
               "worstRating": "1"
             }
@@ -144,25 +166,25 @@ const SEO = ({
         return {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": schemaData?.productName || title,
-          "description": schemaData?.productDescription || description,
+          "name": data?.productName || title,
+          "description": data?.productDescription || description,
           "brand": {
             "@type": "Brand",
             "name": "ClickOne AI"
           },
-          ...(schemaData?.aggregateRating && {
+          ...(data?.aggregateRating && {
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": schemaData.aggregateRating.ratingValue,
-              "reviewCount": schemaData.aggregateRating.reviewCount,
+              "ratingValue": data.aggregateRating.ratingValue,
+              "reviewCount": data.aggregateRating.reviewCount,
               "bestRating": "5",
               "worstRating": "1"
             }
           }),
           "offers": {
             "@type": "Offer",
-            "price": schemaData?.offers?.price || "0",
-            "priceCurrency": schemaData?.offers?.priceCurrency || "USD",
+            "price": data?.offers?.price || "0",
+            "priceCurrency": data?.offers?.priceCurrency || "USD",
             "availability": "https://schema.org/InStock",
             "seller": baseOrganization
           }
@@ -172,14 +194,14 @@ const SEO = ({
         return {
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": schemaData?.serviceName || title,
-          "description": schemaData?.serviceDescription || description,
+          "name": data?.serviceName || title,
+          "description": data?.serviceDescription || description,
           "provider": {
             "@type": "Organization",
-            "name": schemaData?.provider || "ClickOne AI",
+            "name": data?.provider || "ClickOne AI",
             "url": "https://clickone.ai"
           },
-          "areaServed": schemaData?.areaServed || "Worldwide",
+          "areaServed": data?.areaServed || "Worldwide",
           "serviceType": "AI Virtual Receptionist"
         };
 
@@ -187,14 +209,14 @@ const SEO = ({
         return {
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": schemaData?.headline || title,
+          "headline": data?.headline || title,
           "description": description,
-          "image": schemaData?.articleImage || ogImage,
-          "datePublished": schemaData?.datePublished,
-          "dateModified": schemaData?.dateModified || schemaData?.datePublished,
+          "image": data?.articleImage || ogImage,
+          "datePublished": data?.datePublished,
+          "dateModified": data?.dateModified || data?.datePublished,
           "author": {
             "@type": "Person",
-            "name": schemaData?.author || "ClickOne AI Team"
+            "name": data?.author || "ClickOne AI Team"
           },
           "publisher": {
             "@type": "Organization",
@@ -206,7 +228,7 @@ const SEO = ({
           },
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": canonicalUrl || "https://clickone.ai"
+            "@id": finalCanonical
           }
         };
 
@@ -214,7 +236,7 @@ const SEO = ({
         return {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": schemaData?.faqItems?.map(item => ({
+          "mainEntity": data?.faqItems?.map(item => ({
             "@type": "Question",
             "name": item.question,
             "acceptedAnswer": {
@@ -236,7 +258,11 @@ const SEO = ({
     }
   };
 
-  const jsonLd = generateJsonLd();
+  // Generate all JSON-LD schemas
+  const schemas = [
+    generateJsonLd(schemaType, schemaData),
+    ...(additionalSchemas?.map(s => generateJsonLd(s.type, s.data)) || [])
+  ];
 
   return (
     <Helmet>
@@ -249,6 +275,8 @@ const SEO = ({
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:url" content={finalCanonical} />
+      <meta property="og:locale" content={i18n.language} />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -260,12 +288,20 @@ const SEO = ({
       {noIndex && <meta name="robots" content="noindex, nofollow" />}
       
       {/* Canonical */}
-      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+      <link rel="canonical" href={finalCanonical} />
 
-      {/* JSON-LD Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(jsonLd)}
-      </script>
+      {/* Hreflang tags for international SEO */}
+      {hreflangUrls.map(({ lang, url }) => (
+        <link key={lang} rel="alternate" hrefLang={lang} href={url} />
+      ))}
+      <link rel="alternate" hrefLang="x-default" href={`${BASE_URL}${currentPath === '/' ? '' : currentPath}`} />
+
+      {/* JSON-LD Structured Data - Support for multiple schemas */}
+      {schemas.map((schema, index) => (
+        <script key={index} type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      ))}
     </Helmet>
   );
 };
