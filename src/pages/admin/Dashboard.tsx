@@ -13,9 +13,10 @@ import AudienceTab from "./components/AudienceTab";
 import AcquisitionTab from "./components/AcquisitionTab";
 import BlogTab from "./components/BlogTab";
 import AlertsTab from "./components/AlertsTab";
+import { CampaignsTab } from "./components/CampaignsTab";
 import { OfflineIndicator } from "@/components/OfflineIndicator";
 import { useRealtimeDashboard } from "@/hooks/useRealtimeDashboard";
-import { Loader2, LayoutDashboard, BarChart3, Users, TrendingUp } from "lucide-react";
+import { Loader2, LayoutDashboard, BarChart3, Users, TrendingUp, Target } from "lucide-react";
 import { subDays, startOfDay, endOfDay } from "date-fns";
 import { cn } from "@/lib/utils";
 
@@ -63,8 +64,8 @@ const DashboardContent = () => {
 
   const quickAccessTabs = [
     { id: "dashboard", icon: LayoutDashboard, label: "Dashboard" },
+    { id: "campaigns", icon: Target, label: "Campanhas" },
     { id: "overview", icon: BarChart3, label: "Visão Geral" },
-    { id: "audience", icon: Users, label: "Audiência" },
     { id: "acquisition", icon: TrendingUp, label: "Aquisição" },
   ];
 
@@ -103,6 +104,8 @@ const DashboardContent = () => {
             onRefreshStart={handleRefreshStart}
           />
         );
+      case "campaigns":
+        return <CampaignsTab filters={filters} />;
       case "overview":
         return <OverviewTab filters={filters} />;
       case "site":
@@ -128,6 +131,7 @@ const DashboardContent = () => {
 
   const tabTitles: Record<string, string> = {
     dashboard: "Dashboard",
+    campaigns: "Campanhas",
     overview: "Visão Geral",
     site: "Site",
     audience: "Audiência",

@@ -10,6 +10,7 @@ import {
   Bell,
   LogOut,
   PenSquare,
+  Target,
 } from "lucide-react";
 import { useAdminAuth } from "@/contexts/AdminAuthContext";
 import logoWhite from "@/assets/clickone-logo-white.png";
@@ -21,6 +22,7 @@ interface SidebarProps {
 
 const menuItems = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { id: "campaigns", label: "Campanhas", icon: Target },
   { id: "overview", label: "Visão Geral", icon: BarChart3 },
   { id: "site", label: "Site", icon: Globe },
   { id: "audience", label: "Audiência", icon: Users },

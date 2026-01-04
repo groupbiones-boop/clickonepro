@@ -277,6 +277,68 @@ export type Database = {
         }
         Relationships: []
       }
+      lp_campaigns: {
+        Row: {
+          avg_conversion_value: number | null
+          created_at: string | null
+          currency: string | null
+          end_date: string
+          goal_conversions: number | null
+          goal_pageviews: number | null
+          goal_reach: number | null
+          goal_revenue: number | null
+          goal_visitors: number | null
+          id: string
+          landing_page_id: string | null
+          name: string
+          start_date: string
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          avg_conversion_value?: number | null
+          created_at?: string | null
+          currency?: string | null
+          end_date: string
+          goal_conversions?: number | null
+          goal_pageviews?: number | null
+          goal_reach?: number | null
+          goal_revenue?: number | null
+          goal_visitors?: number | null
+          id?: string
+          landing_page_id?: string | null
+          name: string
+          start_date: string
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          avg_conversion_value?: number | null
+          created_at?: string | null
+          currency?: string | null
+          end_date?: string
+          goal_conversions?: number | null
+          goal_pageviews?: number | null
+          goal_reach?: number | null
+          goal_revenue?: number | null
+          goal_visitors?: number | null
+          id?: string
+          landing_page_id?: string | null
+          name?: string
+          start_date?: string
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lp_campaigns_landing_page_id_fkey"
+            columns: ["landing_page_id"]
+            isOneToOne: false
+            referencedRelation: "landing_pages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       notifications: {
         Row: {
           created_at: string | null
