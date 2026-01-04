@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { 
   Phone, 
   PhoneOff, 
@@ -95,12 +95,12 @@ const PerdendoClientes = () => {
   };
 
   const industries = [
-    { image: industryCleaning, key: "cleaning" },
-    { image: industryHvac, key: "hvac" },
-    { image: industryPlumbing, key: "plumbing" },
-    { image: industryConstruction, key: "construction" },
-    { image: industryPestControl, key: "pestControl" },
-    { image: industryMedical, key: "medicalClinic" },
+    { image: industryCleaning, key: "cleaning", slug: "limpeza" },
+    { image: industryHvac, key: "hvac", slug: "hvac" },
+    { image: industryPlumbing, key: "plumbing", slug: "encanamento" },
+    { image: industryConstruction, key: "construction", slug: "construcao" },
+    { image: industryPestControl, key: "pestControl", slug: "controle-pragas" },
+    { image: industryMedical, key: "medicalClinic", slug: "clinica-medica" },
   ];
 
   const proofLogos = [
@@ -561,21 +561,23 @@ const PerdendoClientes = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
               {industries.map((industry, index) => (
                 <AnimatedSection key={industry.key} delay={index * 100}>
-                  <Card className="overflow-hidden h-full group hover:shadow-lg transition-shadow">
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img
-                        src={industry.image}
-                        alt={t(`sectors.${industry.key}`)}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        loading="lazy"
-                      />
-                    </div>
-                    <CardContent className="p-3 md:p-4 text-center">
-                      <h3 className="font-semibold text-sm md:text-base">
-                        {t(`sectors.${industry.key}`)}
-                      </h3>
-                    </CardContent>
-                  </Card>
+                  <Link to={`/setores/${industry.slug}`}>
+                    <Card className="overflow-hidden h-full group hover:shadow-lg transition-all cursor-pointer hover:scale-[1.02]">
+                      <div className="aspect-[4/3] overflow-hidden">
+                        <img
+                          src={industry.image}
+                          alt={t(`sectors.${industry.key}`)}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      </div>
+                      <CardContent className="p-3 md:p-4 text-center">
+                        <h3 className="font-semibold text-sm md:text-base">
+                          {t(`sectors.${industry.key}`)}
+                        </h3>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </AnimatedSection>
               ))}
             </div>
