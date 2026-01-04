@@ -23,6 +23,7 @@ import PequenaEmpresa from "./pages/empresas/PequenaEmpresa";
 import MediaEmpresa from "./pages/empresas/MediaEmpresa";
 import NegociosLocais from "./pages/empresas/NegociosLocais";
 import GenerateDemoAudio from "./pages/admin/GenerateDemoAudio";
+import GenerateLPImages from "./pages/admin/GenerateLPImages";
 import Dashboard from "./pages/admin/Dashboard";
 import BlogManager from "./pages/admin/BlogManager";
 import BlogEditor from "./pages/admin/BlogEditor";
@@ -63,6 +64,7 @@ const App = () => (
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/lp/perdendo-clientes" element={<PerdendoClientes />} />
               <Route path="/admin/generate-audio" element={<GenerateDemoAudio />} />
+              <Route path="/admin/generate-lp-images" element={<GenerateLPImages />} />
               <Route path="/admin/login" element={<Login />} />
               <Route path="/admin/dashboard" element={<Dashboard />} />
               <Route path="/admin/blog" element={<BlogManager />} />
