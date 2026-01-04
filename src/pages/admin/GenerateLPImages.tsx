@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Textarea } from "@/components/ui/textarea";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { 
@@ -11,7 +13,9 @@ import {
   CheckCircle, 
   XCircle,
   Download,
-  Sparkles
+  Sparkles,
+  Pencil,
+  ChevronDown
 } from "lucide-react";
 
 interface SectionConfig {
@@ -19,6 +23,18 @@ interface SectionConfig {
   title: string;
   description: string;
 }
+
+// Default prompts for each section
+const DEFAULT_PROMPTS: Record<string, string> = {
+  hero: "Professional business owner in a modern office setting, looking at smartphone with concerned expression seeing multiple missed call notifications on screen. Warm natural lighting, cinematic quality, realistic photo style. The person is a middle-aged professional wearing business casual attire. Ultra high resolution, 16:9 aspect ratio hero image.",
+  hook: "Close-up view of a smartphone screen showing multiple red missed call notification badges and unread message alerts. The phone is held by a hand of a busy professional. Dramatic lighting with focus on the notifications. Business context, urgent feeling. Ultra high resolution.",
+  dailyLife: "Service professional (plumber or HVAC technician) in work uniform standing next to a branded white work van in early morning light. The worker is checking their phone while loading equipment. Realistic, warm lighting, professional appearance. The van has a ladder on top. Ultra high resolution.",
+  problem: "Clean infographic-style visualization showing money (dollar bills and coins) metaphorically flying away from a ringing phone icon. Modern design with purple and red color accents on white background. Business loss concept. Minimalist and professional graphic style. Ultra high resolution.",
+  whyHappens: "Overwhelmed small business owner at a cluttered desk with phone ringing, multiple papers and notes scattered around. Expression of stress and time pressure. The person is trying to work on a laptop while the phone demands attention. Relatable and emotional scene. Ultra high resolution.",
+  solution: "Futuristic AI virtual assistant hologram in soft purple and blue colors, elegantly answering phone calls in a modern business environment. Clean, professional aesthetic with tech elements. The AI appears friendly and helpful. Digital glowing effects. Ultra high resolution.",
+  howItWorks: "Split screen composition showing on one side a customer making a phone call on their smartphone, and on the other side a friendly AI chat interface responding. Clean modern design with purple accent colors. The flow shows the connection between customer and AI. Ultra high resolution.",
+  success: "Happy and relaxed business owner in a comfortable office setting, smiling confidently while looking at positive business metrics on a tablet. In the background, subtle visual indication of AI handling calls. Warm lighting, success and relief feeling. Professional photography style. Ultra high resolution.",
+};
 
 const LP_SECTIONS: SectionConfig[] = [
   { id: "hero", title: "Hero", description: "Empresário com chamadas perdidas no celular" },
@@ -42,6 +58,8 @@ interface ImageState {
 const GenerateLPImages = () => {
   const [imageStates, setImageStates] = useState<Record<string, ImageState>>({});
   const [isGeneratingAll, setIsGeneratingAll] = useState(false);
+  const [customPrompts, setCustomPrompts] = useState<Record<string, string>>({});
+  const [openPrompts, setOpenPrompts] = useState<Record<string, boolean>>({});
 
   // Check for existing images on mount
   useEffect(() => {
@@ -85,8 +103,9 @@ const GenerateLPImages = () => {
     }));
 
     try {
+      const promptToUse = customPrompts[sectionId] || undefined;
       const { data, error } = await supabase.functions.invoke("generate-lp-images", {
-        body: { section: sectionId }
+        body: { section: sectionId, customPrompt: promptToUse }
       });
 
       if (error) throw error;
@@ -216,6 +235,34 @@ const GenerateLPImages = () => {
                 </CardHeader>
                 
                 <CardContent>
+                  {/* Prompt Customization */}
+                  <Collapsible 
+                    open={openPrompts[section.id]} 
+                    onOpenChange={(open) => setOpenPrompts(prev => ({ ...prev, [section.id]: open }))}
+                    className="mb-4"
+                  >
+                    <CollapsibleTrigger asChild>
+                      <Button variant="ghost" size="sm" className="w-full justify-between text-muted-foreground hover:text-foreground">
+                        <span className="flex items-center gap-2">
+                          <Pencil className="h-3 w-3" />
+                          Customizar Prompt
+                        </span>
+                        <ChevronDown className={`h-4 w-4 transition-transform ${openPrompts[section.id] ? "rotate-180" : ""}`} />
+                      </Button>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="pt-2">
+                      <Textarea
+                        placeholder={DEFAULT_PROMPTS[section.id]}
+                        value={customPrompts[section.id] || ""}
+                        onChange={(e) => setCustomPrompts(prev => ({ ...prev, [section.id]: e.target.value }))}
+                        className="min-h-[100px] text-xs"
+                      />
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Deixe vazio para usar o prompt padrão.
+                      </p>
+                    </CollapsibleContent>
+                  </Collapsible>
+
                   {/* Image Preview */}
                   <div className="aspect-video bg-muted rounded-lg mb-4 overflow-hidden flex items-center justify-center">
                     {state.url ? (
