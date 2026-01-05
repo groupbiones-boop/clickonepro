@@ -119,10 +119,14 @@ const Index = () => {
         schemaType="Organization"
       />
       {/* Hero Section - Enhanced */}
-      <section className="relative overflow-hidden py-24 md:py-40 min-h-[90vh] flex items-center">
-        {/* Background Image with Gradient Overlay - LCP Priority */}
+      <section className="relative overflow-hidden py-16 md:py-40 min-h-[90vh] flex items-center">
+        {/* Background Image with Gradient Overlay - LCP Priority with Responsive srcset */}
         <picture className="absolute inset-0 w-full h-full">
-          <source srcSet={heroHomeWebp} type="image/webp" />
+          <source 
+            type="image/webp"
+            srcSet={`${heroHomeWebp} 1920w`}
+            sizes="100vw"
+          />
           <img 
             src={heroHome}
             alt={t("seo.home.heroAlt")}

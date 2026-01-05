@@ -138,7 +138,7 @@ const DynamicLP = () => {
                 <Button
                   size="lg"
                   onClick={() => handleCtaClick("hero")}
-                  className="w-full sm:w-auto text-lg px-8 py-6 font-semibold"
+                  className="w-full sm:w-auto text-lg px-8 py-6 font-semibold min-h-[56px]"
                 >
                   {content.hero.cta}
                   <ArrowRight className="ml-2 h-5 w-5" />
