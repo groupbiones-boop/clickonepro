@@ -23,6 +23,7 @@ import industryPool from "@/assets/industry-pool.jpg";
 import industryMoving from "@/assets/industry-moving.jpg";
 import industryRoofing from "@/assets/industry-roofing.jpg";
 import industryPestControl from "@/assets/industry-pest-control-new.jpg";
+import industryPestControlWebp from "@/assets/industry-pest-control-new.webp";
 import industryLocksmith from "@/assets/industry-locksmith-new.jpg";
 import industryPainters from "@/assets/industry-painters.jpg";
 import industryDentist from "@/assets/industry-dentist.jpg";
@@ -48,7 +49,7 @@ const Setores = () => {
     { name: t("sectors.pool"), slug: "piscinas", image: industryPool, description: t("sectors.poolDesc") },
     { name: t("sectors.moving"), slug: "mudancas", image: industryMoving, description: t("sectors.movingDesc") },
     { name: t("sectors.roofing"), slug: "telhados", image: industryRoofing, description: t("sectors.roofingDesc") },
-    { name: t("sectors.pestControl"), slug: "controle-pragas", image: industryPestControl, description: t("sectors.pestControlDesc") },
+    { name: t("sectors.pestControl"), slug: "controle-pragas", image: industryPestControl, webp: industryPestControlWebp, description: t("sectors.pestControlDesc") },
     { name: t("sectors.locksmith"), slug: "chaveiro", image: industryLocksmith, description: t("sectors.locksmithDesc") },
     { name: t("sectors.painters"), slug: "pintura", image: industryPainters, description: t("sectors.paintersDesc") },
     { name: t("sectors.dentist"), slug: "dentista", image: industryDentist, description: t("sectors.dentistDesc") },
