@@ -51,8 +51,7 @@ const AnalyticsTracker = () => {
   const location = useLocation();
   const startTimeRef = useRef<number>(Date.now());
   const lastPathRef = useRef<string>("");
-  const scrollDepthRef = useRef<number>(0);
-  const hasTrackedScrollRef = useRef<Set<number>>(new Set());
+  const maxScrollDepthRef = useRef<number>(0);
 
   const trackEvent = async (
     eventType: string,
@@ -85,72 +84,46 @@ const AnalyticsTracker = () => {
     }
   };
 
-  // Track pageview
+  // Track pageview and consolidate previous page metrics
   useEffect(() => {
     if (location.pathname !== lastPathRef.current) {
-      // Track time on previous page
+      // Save metrics from previous page (time + scroll consolidated)
       if (lastPathRef.current) {
         const timeOnPage = Math.round((Date.now() - startTimeRef.current) / 1000);
-        trackEvent("time_on_page", {
+        trackEvent("page_exit", {
           page_path: lastPathRef.current,
           time_on_page: timeOnPage,
-          scroll_depth: scrollDepthRef.current,
+          scroll_depth: maxScrollDepthRef.current,
         });
       }
 
       // Reset for new page
       startTimeRef.current = Date.now();
-      scrollDepthRef.current = 0;
-      hasTrackedScrollRef.current = new Set();
+      maxScrollDepthRef.current = 0;
       lastPathRef.current = location.pathname;
 
-      // Track pageview
+      // Track pageview (single entry event)
       trackEvent("pageview");
     }
   }, [location.pathname]);
 
-  // Track scroll depth
+  // Track scroll silently (no events generated)
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) return;
+      
       const scrollPercent = Math.round((scrollTop / docHeight) * 100);
 
-      // Track at 25%, 50%, 75%, 100% milestones
-      const milestones = [25, 50, 75, 100];
-      for (const milestone of milestones) {
-        if (scrollPercent >= milestone && !hasTrackedScrollRef.current.has(milestone)) {
-          hasTrackedScrollRef.current.add(milestone);
-          scrollDepthRef.current = milestone;
-          trackEvent("scroll", { scroll_depth: milestone });
-        }
+      // Only update max, no event sent
+      if (scrollPercent > maxScrollDepthRef.current) {
+        maxScrollDepthRef.current = scrollPercent;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname]);
-
-  // Track time on page when leaving
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      const timeOnPage = Math.round((Date.now() - startTimeRef.current) / 1000);
-      // Use sendBeacon for reliability
-      const data = JSON.stringify({
-        session_id: generateSessionId(),
-        event_type: "time_on_page",
-        page_path: location.pathname,
-        time_on_page: timeOnPage,
-        scroll_depth: scrollDepthRef.current,
-      });
-      navigator.sendBeacon(
-        `https://ojyzegzdlpjlbdhvqhav.supabase.co/rest/v1/analytics_events`,
-        data
-      );
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [location.pathname]);
 
   return null;
