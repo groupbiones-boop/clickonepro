@@ -16,7 +16,9 @@ import industryHvacWebp from "@/assets/industry-hvac.webp";
 import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
 import industryPlumbingWebp from "@/assets/industry-plumbing-new.webp";
 import industryElectrical from "@/assets/industry-electrical.jpg";
+import industryElectricalWebp from "@/assets/industry-electrical.webp";
 import industryLandscaping from "@/assets/industry-landscaping.jpg";
+import industryLandscapingWebp from "@/assets/industry-landscaping.webp";
 import industryPool from "@/assets/industry-pool.jpg";
 import industryMoving from "@/assets/industry-moving.jpg";
 import industryRoofing from "@/assets/industry-roofing.jpg";
@@ -41,8 +43,8 @@ const Setores = () => {
     { name: t("sectors.construction"), slug: "construcao", image: industryConstruction, webp: industryConstructionWebp, description: t("sectors.constructionDesc") },
     { name: t("sectors.hvac"), slug: "hvac", image: industryHvac, webp: industryHvacWebp, description: t("sectors.hvacDesc") },
     { name: t("sectors.plumbing"), slug: "encanamento", image: industryPlumbing, webp: industryPlumbingWebp, description: t("sectors.plumbingDesc") },
-    { name: t("sectors.electrical"), slug: "eletrica", image: industryElectrical, description: t("sectors.electricalDesc") },
-    { name: t("sectors.landscaping"), slug: "paisagismo", image: industryLandscaping, description: t("sectors.landscapingDesc") },
+    { name: t("sectors.electrical"), slug: "eletrica", image: industryElectrical, webp: industryElectricalWebp, description: t("sectors.electricalDesc") },
+    { name: t("sectors.landscaping"), slug: "paisagismo", image: industryLandscaping, webp: industryLandscapingWebp, description: t("sectors.landscapingDesc") },
     { name: t("sectors.pool"), slug: "piscinas", image: industryPool, description: t("sectors.poolDesc") },
     { name: t("sectors.moving"), slug: "mudancas", image: industryMoving, description: t("sectors.movingDesc") },
     { name: t("sectors.roofing"), slug: "telhados", image: industryRoofing, description: t("sectors.roofingDesc") },

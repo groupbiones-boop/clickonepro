@@ -35,7 +35,9 @@ import industryHvacWebp from "@/assets/industry-hvac.webp";
 import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
 import industryPlumbingWebp from "@/assets/industry-plumbing-new.webp";
 import industryElectrical from "@/assets/industry-electrical.jpg";
+import industryElectricalWebp from "@/assets/industry-electrical.webp";
 import industryLandscaping from "@/assets/industry-landscaping.jpg";
+import industryLandscapingWebp from "@/assets/industry-landscaping.webp";
 import logoClutch from "@/assets/logo-clutch.svg";
 import logoG2 from "@/assets/logo-g2.svg";
 import logoCapterra from "@/assets/logo-capterra.svg";
@@ -50,8 +52,8 @@ const Index = () => {
     { name: t("industries.construction"), slug: "construcao", image: industryConstruction, webp: industryConstructionWebp },
     { name: t("industries.hvac"), slug: "hvac", image: industryHvac, webp: industryHvacWebp },
     { name: t("industries.plumbing"), slug: "encanamento", image: industryPlumbing, webp: industryPlumbingWebp },
-    { name: t("industries.electrical"), slug: "eletrica", image: industryElectrical },
-    { name: t("industries.landscaping"), slug: "paisagismo", image: industryLandscaping },
+    { name: t("industries.electrical"), slug: "eletrica", image: industryElectrical, webp: industryElectricalWebp },
+    { name: t("industries.landscaping"), slug: "paisagismo", image: industryLandscaping, webp: industryLandscapingWebp },
   ];
 
   const features = [
