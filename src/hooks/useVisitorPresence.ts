@@ -13,12 +13,14 @@ export interface VisitorPresenceData {
   countryCode: string;
   region: string;
   city: string;
+  lat: number;
+  lon: number;
 }
 
 const CHANNEL_NAME = "visitor-presence";
 
 export const useVisitorPresence = (
-  data: Omit<VisitorPresenceData, "country" | "countryCode" | "region" | "city"> & {
+  data: Omit<VisitorPresenceData, "country" | "countryCode" | "region" | "city" | "lat" | "lon"> & {
     geoData: GeoData | null;
   }
 ) => {
@@ -37,6 +39,8 @@ export const useVisitorPresence = (
       countryCode: data.geoData?.countryCode || "XX",
       region: data.geoData?.region || "",
       city: data.geoData?.city || "",
+      lat: data.geoData?.lat || 0,
+      lon: data.geoData?.lon || 0,
     };
 
     const setupPresence = async () => {

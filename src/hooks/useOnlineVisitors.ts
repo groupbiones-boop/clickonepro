@@ -13,6 +13,8 @@ export interface OnlineVisitor {
   countryCode: string;
   region: string;
   city: string;
+  lat: number;
+  lon: number;
   joined_at: string;
   online_minutes: number;
 }
@@ -56,6 +58,8 @@ export const useOnlineVisitors = () => {
               countryCode: p.countryCode as string,
               region: p.region as string,
               city: p.city as string,
+              lat: (p.lat as number) || 0,
+              lon: (p.lon as number) || 0,
               joined_at: p.joined_at as string,
               online_minutes: calculateOnlineMinutes(p.joined_at as string),
             };
