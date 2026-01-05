@@ -10,6 +10,27 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  build: {
+    // Code splitting for better caching
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': [
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-navigation-menu',
+            '@radix-ui/react-popover',
+            '@radix-ui/react-tooltip',
+          ],
+          'query-vendor': ['@tanstack/react-query'],
+        },
+      },
+    },
+    // Minification
+    target: 'esnext',
+    minify: 'esbuild',
+  },
   plugins: [
     react(),
     mode === "development" && componentTagger(),

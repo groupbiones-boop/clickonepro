@@ -112,10 +112,13 @@ const Index = () => {
       />
       {/* Hero Section - Enhanced */}
       <section className="relative overflow-hidden py-24 md:py-40 min-h-[90vh] flex items-center">
-        {/* Background Image with Gradient Overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroHome})` }}
+        {/* Background Image with Gradient Overlay - LCP Priority */}
+        <img 
+          src={heroHome}
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         
         {/* Animated Gradient Overlay */}
@@ -569,6 +572,8 @@ const Index = () => {
                   src={mobileApp} 
                   alt="Aplicativo mobile ClickOne AI mostrando notificações e agenda" 
                   className="w-full h-auto rounded-2xl"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </AnimatedSection>
@@ -597,6 +602,8 @@ const Index = () => {
                         src={industry.image} 
                         alt={industry.name} 
                         className="w-full h-full object-cover transition-transform hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <CardContent className="pt-4">

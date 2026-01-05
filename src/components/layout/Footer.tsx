@@ -7,7 +7,7 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-foreground text-background">
+    <footer role="contentinfo" className="bg-foreground text-background">
       <div className="container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}

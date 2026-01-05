@@ -127,8 +127,10 @@ const Sobre = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-3xl blur-2xl" />
                 <img 
                   src={officeImage} 
-                  alt="ClickOne Team" 
+                  alt="Equipe ClickOne AI em ambiente de trabalho moderno" 
                   className="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
             </AnimatedSection>
