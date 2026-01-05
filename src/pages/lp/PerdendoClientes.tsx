@@ -159,7 +159,9 @@ const PerdendoClientes = () => {
                   <img
                     src={images.hero}
                     alt="Empresário com chamadas perdidas"
-                    className="w-full rounded-2xl shadow-2xl"
+                    className="w-full max-w-[600px] h-auto rounded-2xl shadow-2xl mx-auto"
+                    width={600}
+                    height={450}
                     loading="lazy"
                   />
                 </AnimatedSection>
@@ -177,7 +179,9 @@ const PerdendoClientes = () => {
                   <img
                     src={images["hook-phone"]}
                     alt="Celular com notificações perdidas"
-                    className="w-full max-w-md mx-auto rounded-2xl shadow-xl"
+                    className="w-full max-w-[480px] h-auto mx-auto rounded-2xl shadow-xl"
+                    width={480}
+                    height={360}
                     loading="lazy"
                   />
                 </AnimatedSection>
@@ -213,7 +217,9 @@ const PerdendoClientes = () => {
                   <img
                     src={images["daily-worker"]}
                     alt="Profissional de serviços trabalhando"
-                    className="w-full rounded-2xl shadow-xl sticky top-24"
+                    className="w-full max-w-[480px] h-auto rounded-2xl shadow-xl sticky top-24 mx-auto"
+                    width={480}
+                    height={360}
                     loading="lazy"
                   />
                 </AnimatedSection>
@@ -268,11 +274,13 @@ const PerdendoClientes = () => {
             </AnimatedSection>
 
             {images["problem-stats"] && (
-              <AnimatedSection className="max-w-2xl mx-auto mb-10">
+              <AnimatedSection className="max-w-[480px] mx-auto mb-10">
                 <img
                   src={images["problem-stats"]}
                   alt="Impacto financeiro"
-                  className="w-full rounded-xl shadow-lg"
+                  className="w-full h-auto rounded-xl shadow-lg"
+                  width={480}
+                  height={360}
                   loading="lazy"
                 />
               </AnimatedSection>
@@ -362,7 +370,9 @@ const PerdendoClientes = () => {
                   <img
                     src={images["why-overwhelmed"]}
                     alt="Empresário sobrecarregado"
-                    className="w-full rounded-2xl shadow-xl"
+                    className="w-full max-w-[480px] h-auto rounded-2xl shadow-xl mx-auto"
+                    width={480}
+                    height={360}
                     loading="lazy"
                   />
                 </AnimatedSection>
@@ -433,11 +443,13 @@ const PerdendoClientes = () => {
               
               {images["solution-ai"] && (
                 <AnimatedSection delay={200} className="hidden md:block">
-                  <div className="relative">
+                  <div className="relative max-w-[480px] mx-auto">
                     <img
                       src={images["solution-ai"]}
                       alt="Bia - IA Recepcionista Virtual ClickOne"
-                      className="w-full rounded-2xl shadow-2xl"
+                      className="w-full h-auto rounded-2xl shadow-2xl"
+                      width={480}
+                      height={360}
                       loading="lazy"
                     />
                     {/* Logo oficial ClickOne no canto superior direito */}
@@ -463,11 +475,13 @@ const PerdendoClientes = () => {
             </AnimatedSection>
 
             {images["how-works"] && (
-              <AnimatedSection className="max-w-3xl mx-auto mb-10">
+              <AnimatedSection className="max-w-[480px] mx-auto mb-10">
                 <img
                   src={images["how-works"]}
                   alt="Como funciona o atendimento"
-                  className="w-full rounded-xl shadow-lg"
+                  className="w-full h-auto rounded-xl shadow-lg"
+                  width={480}
+                  height={360}
                   loading="lazy"
                 />
               </AnimatedSection>
@@ -552,7 +566,9 @@ const PerdendoClientes = () => {
                   <img
                     src={images.success}
                     alt="Empresário de sucesso"
-                    className="w-full rounded-2xl shadow-xl"
+                    className="w-full max-w-[480px] h-auto rounded-2xl shadow-xl mx-auto"
+                    width={480}
+                    height={360}
                     loading="lazy"
                   />
                 </AnimatedSection>
@@ -583,7 +599,9 @@ const PerdendoClientes = () => {
                           src={industry.image}
                           alt={t(`sectors.${industry.key}`)}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 300px"
+                          width={280}
+                          height={210}
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px"
                         />
                       </div>
                       <CardContent className="p-3 md:p-4 text-center">
@@ -715,7 +733,9 @@ const PerdendoClientes = () => {
                 <img
                   src={mobileApp}
                   alt="ClickOne Mobile App"
-                  className="w-full rounded-2xl shadow-2xl"
+                  className="w-full max-w-[160px] h-auto rounded-2xl shadow-2xl"
+                  width={160}
+                  height={320}
                   loading="lazy"
                 />
               </div>
