@@ -17,12 +17,7 @@ import {
   Globe,
   Brain,
   Headphones,
-  BarChart3,
-  Target,
-  Sparkles,
-  X,
-  Heart,
-  BookOpen
+  BarChart3
 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
@@ -69,25 +64,8 @@ const Sobre = () => {
     { icon: Phone, label: t("whyClickone.eco1") },
     { icon: MessageSquare, label: t("whyClickone.eco2") },
     { icon: Calendar, label: t("whyClickone.eco3") },
-    { icon: Target, label: t("whyClickone.eco4") },
     { icon: TrendingUp, label: t("whyClickone.eco5") },
     { icon: Users, label: t("whyClickone.eco6") }
-  ];
-
-  const comparisonWithout = [
-    t("whyClickone.without1"),
-    t("whyClickone.without2"),
-    t("whyClickone.without3"),
-    t("whyClickone.without4"),
-    t("whyClickone.without5")
-  ];
-
-  const comparisonWith = [
-    t("whyClickone.with1"),
-    t("whyClickone.with2"),
-    t("whyClickone.with3"),
-    t("whyClickone.with4"),
-    t("whyClickone.with5")
   ];
 
   const stats = [
@@ -130,36 +108,73 @@ const Sobre = () => {
     <Layout>
       <SEO titleKey="seo.about.title" descriptionKey="seo.about.description" />
       
-      {/* Hero Section - Institucional */}
-      <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/20">
+      {/* Hero Section - 2 colunas com imagem */}
+      <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
         <div className="container relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <AnimatedSection animation="fade-up">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                <Sparkles className="h-4 w-4" />
-                {t("whyClickone.badge")}
-              </span>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                {t("whyClickone.heroTitle1")}
-                <span className="text-primary block mt-2">{t("whyClickone.heroTitle2")}</span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <AnimatedSection animation="fade-right">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                {t("whyClickone.heroTitle")}
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 mb-8">
                 {t("whyClickone.heroSubtitle")}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/agendar-demo">
-                  <Button size="lg" className="text-lg px-8">
-                    {t("common.bookFreeDemo")}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link to="/produto/infraestrutura-vertical">
-                  <Button size="lg" variant="outline" className="text-lg px-8">
-                    {t("whyClickone.exploreEcosystem")}
-                  </Button>
-                </Link>
+              <Link to="/agendar-demo">
+                <Button size="lg" className="text-lg px-8">
+                  {t("whyClickone.heroCta")}
+                </Button>
+              </Link>
+            </AnimatedSection>
+            
+            <AnimatedSection animation="fade-left">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-3xl blur-2xl" />
+                <img 
+                  src={officeImage} 
+                  alt="ClickOne Team" 
+                  className="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
+                />
               </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Nossa História - Narrativa autêntica */}
+      <section className="py-20 bg-muted/30">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection animation="fade-up">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+                {t("whyClickone.storyLabel")}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-8">
+                {t("whyClickone.storyTitle")}
+              </h2>
+              
+              <div className="space-y-6 text-lg text-muted-foreground">
+                <p>{t("whyClickone.storyP1")}</p>
+                <p>{t("whyClickone.storyP2")}</p>
+                <p>{t("whyClickone.storyP3")}</p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Por que ClickOne? */}
+      <section className="py-16 bg-background">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection animation="fade-up">
+              <Card className="p-8 md:p-10 border-2 border-primary/20 bg-primary/5">
+                <h3 className="text-2xl font-bold mb-6">{t("whyClickone.whyTitle")}</h3>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>{t("whyClickone.whyP1")}</p>
+                  <p>{t("whyClickone.whyP2")}</p>
+                </div>
+              </Card>
             </AnimatedSection>
           </div>
         </div>
@@ -222,159 +237,8 @@ const Sobre = () => {
         </div>
       </section>
 
-      {/* Nossa História */}
-      <section className="py-20 bg-muted/30">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection animation="fade-right">
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-                {t("whyClickone.storyLabel")}
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
-                {t("whyClickone.storyTitle")}
-              </h2>
-              <div className="space-y-4 text-muted-foreground">
-                <p>{t("whyClickone.storyP1")}</p>
-                <p>{t("whyClickone.storyP2")}</p>
-                <p>{t("whyClickone.storyP3")}</p>
-                <p className="text-foreground font-semibold text-lg">{t("whyClickone.storyP4")}</p>
-              </div>
-            </AnimatedSection>
-            <AnimatedSection animation="fade-left">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl" />
-                <img 
-                  src={officeImage} 
-                  alt="ClickOne Team" 
-                  className="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
-                />
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Por que a ClickOne Existe */}
-      <section className="py-20 bg-background">
-        <div className="container">
-          <AnimatedSection animation="fade-up">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-                {t("whyClickone.whyExistsLabel")}
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
-                {t("whyClickone.whyExistsTitle")}
-              </h2>
-            </div>
-          </AnimatedSection>
-          
-          <div className="max-w-4xl mx-auto">
-            <AnimatedSection animation="fade-up" delay={100}>
-              <Card className="p-8 md:p-12 border-2 border-destructive/20 bg-destructive/5">
-                <div className="space-y-6 text-lg">
-                  <p className="text-muted-foreground">{t("whyClickone.whyExistsP1")}</p>
-                  <p className="text-muted-foreground">{t("whyClickone.whyExistsP2")}</p>
-                  <p className="text-foreground font-semibold">{t("whyClickone.whyExistsP3")}</p>
-                </div>
-              </Card>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* O Que a ClickOne Resolve */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/10">
-        <div className="container">
-          <AnimatedSection animation="fade-up">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-                {t("whyClickone.solutionLabel")}
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
-                {t("whyClickone.solutionTitle")}
-              </h2>
-            </div>
-          </AnimatedSection>
-          
-          <div className="max-w-4xl mx-auto">
-            <AnimatedSection animation="fade-up" delay={100}>
-              <Card className="p-8 md:p-12 border-2 border-primary/30 bg-primary/5">
-                <div className="space-y-6 text-lg">
-                  <p className="text-muted-foreground">{t("whyClickone.solutionP1")}</p>
-                  <p className="text-muted-foreground">{t("whyClickone.solutionP2")}</p>
-                  <p className="text-foreground font-semibold">{t("whyClickone.solutionP3")}</p>
-                </div>
-              </Card>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* O Problema que Resolvemos - Comparison Cards */}
-      <section className="py-20 bg-muted/30">
-        <div className="container">
-          <AnimatedSection animation="fade-up">
-            <div className="text-center mb-16">
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-                {t("whyClickone.problemLabel")}
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-4">
-                {t("whyClickone.problemTitle")}
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                {t("whyClickone.problemSubtitle")}
-              </p>
-            </div>
-          </AnimatedSection>
-
-          {/* Comparison Cards */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Sem ClickOne */}
-            <AnimatedSection animation="fade-right">
-              <Card className="p-8 border-destructive/20 bg-destructive/5 h-full">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 rounded-full bg-destructive/10">
-                    <X className="h-6 w-6 text-destructive" />
-                  </div>
-                  <h3 className="text-xl font-bold text-destructive">{t("whyClickone.withoutTitle")}</h3>
-                </div>
-                <ul className="space-y-4">
-                  {comparisonWithout.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <X className="h-5 w-5 text-destructive mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </AnimatedSection>
-
-            {/* Com ClickOne */}
-            <AnimatedSection animation="fade-left">
-              <Card className="p-8 border-primary/30 bg-primary/5 h-full relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-                <div className="flex items-center gap-3 mb-6 relative">
-                  <div className="p-3 rounded-full bg-primary/20">
-                    <CheckCircle className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-primary">{t("whyClickone.withTitle")}</h3>
-                </div>
-                <ul className="space-y-4 relative">
-                  {comparisonWith.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-foreground font-medium">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
       {/* Diferenciais */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-muted/30">
         <div className="container">
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-16">
@@ -407,7 +271,7 @@ const Sobre = () => {
       </section>
 
       {/* Ecossistema Completo */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/10">
+      <section className="py-20 bg-background">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection animation="fade-right">
@@ -482,7 +346,7 @@ const Sobre = () => {
       </section>
 
       {/* Nosso Compromisso */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-muted/30">
         <div className="container">
           <AnimatedSection animation="fade-up">
             <div className="max-w-3xl mx-auto text-center mb-12">
@@ -516,7 +380,7 @@ const Sobre = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-background">
         <div className="container">
           <AnimatedSection animation="fade-up">
             <div className="text-center mb-16">
@@ -559,7 +423,7 @@ const Sobre = () => {
         <div className="container relative">
           <AnimatedSection animation="scale">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 {t("whyClickone.ctaTitle")}
               </h2>
               <p className="text-xl text-primary-foreground/80 mb-8">
