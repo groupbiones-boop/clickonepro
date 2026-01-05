@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { EXTERNAL_URLS } from "@/lib/external-urls";
 
 const ChatWidget = () => {
   const loadedRef = useRef(false);
@@ -10,9 +11,9 @@ const ChatWidget = () => {
 
       const script = document.createElement("script");
       script.id = "ghl-chat-widget";
-      script.src = "https://beta.leadconnectorhq.com/loader.js";
-      script.setAttribute("data-resources-url", "https://beta.leadconnectorhq.com/chat-widget/loader.js");
-      script.setAttribute("data-widget-id", "6958160ae056feed599822d0");
+      script.src = EXTERNAL_URLS.CHAT_WIDGET_SCRIPT;
+      script.setAttribute("data-resources-url", EXTERNAL_URLS.CHAT_WIDGET_RESOURCES);
+      script.setAttribute("data-widget-id", EXTERNAL_URLS.CHAT_WIDGET_ID);
       script.async = true;
       document.body.appendChild(script);
     };

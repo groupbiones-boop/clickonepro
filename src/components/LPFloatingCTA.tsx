@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const GHL_DEMO_URL = "https://api.leadconnectorhq.com/widget/booking/MPXMwtJNT8r70fFVkpXS";
+import { EXTERNAL_URLS } from "@/lib/external-urls";
 
 interface LPFloatingCTAProps {
   onCtaClick?: () => void;
@@ -27,7 +26,7 @@ const LPFloatingCTA = ({ onCtaClick }: LPFloatingCTAProps) => {
     if (onCtaClick) {
       onCtaClick();
     }
-    window.open(GHL_DEMO_URL, "_blank");
+    window.open(EXTERNAL_URLS.GHL_BOOKING, "_blank");
   };
 
   if (!isVisible) return null;
