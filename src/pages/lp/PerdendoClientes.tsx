@@ -212,19 +212,6 @@ const PerdendoClientes = () => {
             </AnimatedSection>
 
             <div className="grid md:grid-cols-2 gap-8 items-start">
-              {images["daily-worker"] && (
-                <AnimatedSection className="hidden md:block">
-                  <img
-                    src={images["daily-worker"]}
-                    alt="Profissional de serviços trabalhando"
-                    className="w-full max-w-[480px] h-auto rounded-2xl shadow-xl sticky top-24 mx-auto"
-                    width={480}
-                    height={360}
-                    loading="lazy"
-                  />
-                </AnimatedSection>
-              )}
-              
               <div className={images["daily-worker"] ? "" : "max-w-2xl mx-auto"}>
                 {[
                   { time: "5:30", icon: Clock, key: "item1" },
@@ -260,6 +247,19 @@ const PerdendoClientes = () => {
                   </Card>
                 </AnimatedSection>
               </div>
+
+              {images["daily-worker"] && (
+                <AnimatedSection className="hidden md:block">
+                  <img
+                    src={images["daily-worker"]}
+                    alt="Profissional de serviços trabalhando"
+                    className="w-full max-w-[480px] h-auto rounded-2xl shadow-xl sticky top-24 mx-auto"
+                    width={480}
+                    height={360}
+                    loading="lazy"
+                  />
+                </AnimatedSection>
+              )}
             </div>
           </div>
         </section>
