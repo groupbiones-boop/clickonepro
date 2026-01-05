@@ -48,9 +48,27 @@ const SECTIONS = [
   { id: "finalCta", label: "CTA Final" },
 ];
 
+const isValidUUID = (str: string) => {
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+  return uuidRegex.test(str);
+};
+
 const LPEditor = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  
+  // Validate UUID and redirect if invalid
+  useEffect(() => {
+    if (id && !isValidUUID(id)) {
+      toast({
+        variant: "destructive",
+        title: "ID inválido",
+        description: "O ID da LP não é válido. Redirecionando para a lista..."
+      });
+      navigate("/admin/lp-builder");
+    }
+  }, [id, navigate]);
+
   const { landingPage, setLandingPage, isLoading } = useLandingPage(id);
   
   const [content, setContent] = useState<LPContent | null>(null);
