@@ -50,7 +50,7 @@ import industryCleaning from "@/assets/industry-cleaning-new.jpg";
 import industryHvac from "@/assets/industry-hvac.jpg";
 import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
 import industryConstruction from "@/assets/industry-construction.jpg";
-import industryPestControl from "@/assets/industry-pest-control.jpg";
+import industryPestControl from "@/assets/industry-pest-control-new.jpg";
 import industryMedical from "@/assets/industry-medical-clinic.jpg";
 
 // Mobile app

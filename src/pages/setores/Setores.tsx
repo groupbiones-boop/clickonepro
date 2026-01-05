@@ -22,7 +22,7 @@ import industryLandscapingWebp from "@/assets/industry-landscaping.webp";
 import industryPool from "@/assets/industry-pool.jpg";
 import industryMoving from "@/assets/industry-moving.jpg";
 import industryRoofing from "@/assets/industry-roofing.jpg";
-import industryPestControl from "@/assets/industry-pest-control.jpg";
+import industryPestControl from "@/assets/industry-pest-control-new.jpg";
 import industryLocksmith from "@/assets/industry-locksmith-new.jpg";
 import industryPainters from "@/assets/industry-painters.jpg";
 import industryDentist from "@/assets/industry-dentist.jpg";
