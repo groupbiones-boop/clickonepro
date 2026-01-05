@@ -1,6 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { getGeoLocation, GeoData } from "@/lib/geolocation";
+import { useVisitorPresence } from "@/hooks/useVisitorPresence";
 
 const generateSessionId = (): string => {
   const stored = sessionStorage.getItem("analytics_session_id");
@@ -52,12 +54,33 @@ const AnalyticsTracker = () => {
   const startTimeRef = useRef<number>(Date.now());
   const lastPathRef = useRef<string>("");
   const maxScrollDepthRef = useRef<number>(0);
+  const [geoData, setGeoData] = useState<GeoData | null>(null);
+  const sessionId = generateSessionId();
+
+  // Fetch geolocation on first render
+  useEffect(() => {
+    getGeoLocation().then((data) => {
+      if (data) {
+        setGeoData(data);
+      }
+    });
+  }, []);
+
+  // Register visitor presence for real-time tracking
+  useVisitorPresence({
+    session_id: sessionId,
+    page_path: location.pathname,
+    page_title: document.title,
+    device_type: getDeviceType(),
+    browser: getBrowser(),
+    os: getOS(),
+    geoData,
+  });
 
   const trackEvent = async (
     eventType: string,
     additionalData: Record<string, unknown> = {}
   ) => {
-    const sessionId = generateSessionId();
     const utmParams = getUTMParams();
 
     const eventData = {
@@ -74,6 +97,9 @@ const AnalyticsTracker = () => {
       os: getOS(),
       screen_width: window.innerWidth,
       screen_height: window.innerHeight,
+      country: geoData?.country || null,
+      region: geoData?.region || null,
+      city: geoData?.city || null,
       ...additionalData,
     };
 

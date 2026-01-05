@@ -10,6 +10,7 @@ import ConversionFunnel, { FunnelRef } from "./ConversionFunnel";
 import PipelineValueChart from "./PipelineValueChart";
 import ExportReportDialog from "./ExportReportDialog";
 import ScheduledReportsManager from "./ScheduledReportsManager";
+import OnlineVisitorsCard from "./OnlineVisitorsCard";
 import {
   AreaChart,
   Area,
@@ -213,6 +214,9 @@ const DashboardTab = ({ filters, onRefresh, onRefreshStart }: DashboardTabProps)
           </span>
         </div>
       </div>
+
+      {/* Online Visitors Card */}
+      <OnlineVisitorsCard />
 
       {/* Header with Export Button */}
       <div className="flex justify-end">
