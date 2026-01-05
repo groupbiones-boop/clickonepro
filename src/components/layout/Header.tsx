@@ -322,6 +322,17 @@ const Header = () => {
           >
             {t("nav.about")}
           </Link>
+
+          <Link 
+            to="/contato" 
+            className={`text-sm font-medium transition-colors relative ${
+              isActive("/contato") 
+                ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
+                : "text-primary-foreground/80 hover:text-primary-foreground"
+            }`}
+          >
+            {t("nav.contact")}
+          </Link>
         </nav>
 
         {/* Desktop Right Group - Buttons + Flag */}
@@ -477,6 +488,18 @@ const Header = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               {t("nav.about")}
+            </Link>
+
+            <Link
+              to="/contato"
+              className={`text-sm font-medium py-2 border-l-2 pl-3 ${
+                isActive("/contato") 
+                  ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
+                  : "text-primary-foreground/80 border-transparent"
+              }`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t("nav.contact")}
             </Link>
 
             {/* Language Switcher Mobile */}
