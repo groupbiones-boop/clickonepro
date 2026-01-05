@@ -3,6 +3,8 @@ export interface GeoData {
   countryCode: string;
   region: string;
   city: string;
+  lat: number;
+  lon: number;
 }
 
 const CACHE_KEY = "visitor_geo_data";
@@ -20,7 +22,7 @@ export const getGeoLocation = async (): Promise<GeoData | null> => {
 
   try {
     // Using ip-api.com (free, 45 req/min, no API key needed)
-    const response = await fetch("http://ip-api.com/json/?fields=status,country,countryCode,regionName,city", {
+    const response = await fetch("http://ip-api.com/json/?fields=status,country,countryCode,regionName,city,lat,lon", {
       signal: AbortSignal.timeout(5000),
     });
 
@@ -36,6 +38,8 @@ export const getGeoLocation = async (): Promise<GeoData | null> => {
         countryCode: data.countryCode || "XX",
         region: data.regionName || "",
         city: data.city || "",
+        lat: data.lat || 0,
+        lon: data.lon || 0,
       };
 
       // Cache in sessionStorage

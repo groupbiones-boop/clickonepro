@@ -11,6 +11,7 @@ import PipelineValueChart from "./PipelineValueChart";
 import ExportReportDialog from "./ExportReportDialog";
 import ScheduledReportsManager from "./ScheduledReportsManager";
 import OnlineVisitorsCard from "./OnlineVisitorsCard";
+import OnlineVisitorsMap from "./OnlineVisitorsMap";
 import {
   AreaChart,
   Area,
@@ -217,6 +218,9 @@ const DashboardTab = ({ filters, onRefresh, onRefreshStart }: DashboardTabProps)
 
       {/* Online Visitors Card */}
       <OnlineVisitorsCard />
+
+      {/* Online Visitors Map */}
+      <OnlineVisitorsMap />
 
       {/* Header with Export Button */}
       <div className="flex justify-end">
