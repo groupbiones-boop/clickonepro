@@ -117,14 +117,9 @@ const Sobre = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 {t("whyClickone.heroTitle")}
               </h1>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-xl text-gray-300">
                 {t("whyClickone.heroSubtitle")}
               </p>
-              <Link to="/agendar-demo">
-                <Button size="lg" className="text-lg px-8">
-                  {t("whyClickone.heroCta")}
-                </Button>
-              </Link>
             </AnimatedSection>
             
             <AnimatedSection animation="fade-left">
