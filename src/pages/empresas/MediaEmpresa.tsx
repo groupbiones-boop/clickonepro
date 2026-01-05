@@ -91,7 +91,7 @@ const MediaEmpresa = () => {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/contato">{t("mediumBusiness.ctaSecondary")}</Link>
+                  <Link to="/agendar-demo">{t("mediumBusiness.ctaSecondary")}</Link>
                 </Button>
               </div>
             </AnimatedSection>

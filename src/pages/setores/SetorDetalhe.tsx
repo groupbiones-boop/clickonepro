@@ -498,7 +498,7 @@ const SetorDetalhe = () => {
                 {t('common.stillHaveQuestions', { defaultValue: 'Ainda tem dúvidas? Fale com nossa equipe.' })}
               </p>
               <Button variant="outline" asChild>
-                <Link to="/contato">{t('common.getInTouch', { defaultValue: 'Entrar em Contato' })}</Link>
+                <Link to="/agendar-demo">{t('common.getInTouch', { defaultValue: 'Entrar em Contato' })}</Link>
               </Button>
             </div>
           </AnimatedSection>

@@ -156,7 +156,7 @@ const InfraestruturaVertical = () => {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="hero">
-                <Link to="/contato">
+                <Link to="/agendar-demo">
                   {t("verticalInfra.ctaSecondary")}
                 </Link>
               </Button>

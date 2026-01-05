@@ -83,7 +83,7 @@ const NegociosLocais = () => {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/contato">{t("localBusiness.ctaSecondary")}</Link>
+                  <Link to="/agendar-demo">{t("localBusiness.ctaSecondary")}</Link>
                 </Button>
               </div>
             </AnimatedSection>

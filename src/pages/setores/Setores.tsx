@@ -142,7 +142,7 @@ const Setores = () => {
               {t("sectors.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/contato">
+              <Link to="/agendar-demo">
                 {t("sectors.ctaButton")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
