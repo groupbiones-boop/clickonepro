@@ -16,6 +16,7 @@ import SetorDetalhe from "./pages/setores/SetorDetalhe";
 import Sobre from "./pages/Sobre";
 
 import AgendarDemo from "./pages/AgendarDemo";
+import Contato from "./pages/Contato";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Obrigado from "./pages/Obrigado";
@@ -58,6 +59,7 @@ const App = () => (
               <Route path="/empresas/media-empresa" element={<MediaEmpresa />} />
               <Route path="/empresas/negocios-locais" element={<NegociosLocais />} />
               <Route path="/sobre" element={<Sobre />} />
+              <Route path="/contato" element={<Contato />} />
               
               <Route path="/agendar-demo" element={<AgendarDemo />} />
               <Route path="/blog" element={<Blog />} />
