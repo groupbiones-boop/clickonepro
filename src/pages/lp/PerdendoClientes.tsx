@@ -37,6 +37,7 @@ import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { supabase } from "@/integrations/supabase/client";
 import { useLPImages } from "@/hooks/use-lp-images";
 import { EXTERNAL_URLS, appendUTMParams } from "@/lib/external-urls";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 // Social proof logos
 import logoClutch from "@/assets/logo-clutch.svg";
@@ -578,11 +579,11 @@ const PerdendoClientes = () => {
                   <Link to={`/setores/${industry.slug}`}>
                     <Card className="overflow-hidden h-full group hover:shadow-lg transition-all cursor-pointer hover:scale-[1.02]">
                       <div className="aspect-[4/3] overflow-hidden">
-                        <img
+                        <OptimizedImage
                           src={industry.image}
                           alt={t(`sectors.${industry.key}`)}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 300px"
                         />
                       </div>
                       <CardContent className="p-3 md:p-4 text-center">
