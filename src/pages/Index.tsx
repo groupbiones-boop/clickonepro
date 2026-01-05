@@ -23,7 +23,9 @@ import {
   Star,
 } from "lucide-react";
 import heroHome from "@/assets/hero-home.jpg";
+import heroHomeWebp from "@/assets/hero-home.webp";
 import mobileApp from "@/assets/mobile-app-clickone.jpg";
+import mobileAppWebp from "@/assets/mobile-app-clickone.webp";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
 import industryConstruction from "@/assets/industry-construction.jpg";
 import industryHvac from "@/assets/industry-hvac.jpg";
@@ -113,13 +115,16 @@ const Index = () => {
       {/* Hero Section - Enhanced */}
       <section className="relative overflow-hidden py-24 md:py-40 min-h-[90vh] flex items-center">
         {/* Background Image with Gradient Overlay - LCP Priority */}
-        <img 
-          src={heroHome}
-          alt=""
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
+        <picture className="absolute inset-0 w-full h-full">
+          <source srcSet={heroHomeWebp} type="image/webp" />
+          <img 
+            src={heroHome}
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            className="w-full h-full object-cover object-center"
+          />
+        </picture>
         
         {/* Animated Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-foreground/95 via-foreground/85 to-primary/40" />
@@ -568,13 +573,16 @@ const Index = () => {
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={200}>
               <div className="relative rounded-2xl overflow-hidden">
-                <img 
-                  src={mobileApp} 
-                  alt="Aplicativo mobile ClickOne AI mostrando notificações e agenda" 
-                  className="w-full h-auto rounded-2xl"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <source srcSet={mobileAppWebp} type="image/webp" />
+                  <img 
+                    src={mobileApp} 
+                    alt="Aplicativo mobile ClickOne AI mostrando notificações e agenda" 
+                    className="w-full h-auto rounded-2xl"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
             </AnimatedSection>
           </div>
