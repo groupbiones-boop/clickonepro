@@ -104,7 +104,7 @@ const PequenaEmpresa = () => {
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="bg-background/50 backdrop-blur-sm" asChild>
-                  <Link to="/contato">{t("smallBusiness.ctaSecondary")}</Link>
+                  <Link to="/agendar-demo">{t("smallBusiness.ctaSecondary")}</Link>
                 </Button>
               </div>
             </AnimatedSection>
