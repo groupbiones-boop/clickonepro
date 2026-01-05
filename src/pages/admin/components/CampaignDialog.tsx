@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { format, addDays } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { CalendarIcon, DollarSign } from "lucide-react";
+import { CalendarIcon, DollarSign, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { Campaign, CampaignFormData, useLandingPages } from "@/hooks/use-campaigns";
+import { useSitePages } from "@/hooks/useSitePages";
 
 const QUICK_PERIODS = [
   { label: "7 dias", days: 7 },
@@ -54,9 +55,12 @@ export function CampaignDialog({
   isLoading,
 }: CampaignDialogProps) {
   const { data: landingPages } = useLandingPages();
+  const { data: sitePages } = useSitePages();
+  const [pageSearch, setPageSearch] = useState("");
   const [formData, setFormData] = useState<CampaignFormData>({
     name: "",
     landing_page_id: null,
+    page_path: null,
     start_date: format(new Date(), "yyyy-MM-dd"),
     end_date: format(addDays(new Date(), 30), "yyyy-MM-dd"),
     currency: "USD",
@@ -74,6 +78,7 @@ export function CampaignDialog({
       setFormData({
         name: campaign.name,
         landing_page_id: campaign.landing_page_id,
+        page_path: campaign.page_path || null,
         start_date: campaign.start_date,
         end_date: campaign.end_date,
         currency: campaign.currency,
@@ -89,6 +94,7 @@ export function CampaignDialog({
       setFormData({
         name: "",
         landing_page_id: null,
+        page_path: null,
         start_date: format(new Date(), "yyyy-MM-dd"),
         end_date: format(addDays(new Date(), 30), "yyyy-MM-dd"),
         currency: "USD",
@@ -101,7 +107,14 @@ export function CampaignDialog({
         status: "active",
       });
     }
+    setPageSearch("");
   }, [campaign, open]);
+
+  // Filter site pages by search
+  const filteredSitePages = sitePages?.filter((page) =>
+    page.path.toLowerCase().includes(pageSearch.toLowerCase()) ||
+    (page.title && page.title.toLowerCase().includes(pageSearch.toLowerCase()))
+  ).slice(0, 15);
 
   const handleQuickPeriod = (days: number) => {
     const start = new Date();
@@ -152,9 +165,12 @@ export function CampaignDialog({
               <Label htmlFor="landing_page">Landing Page Vinculada</Label>
               <Select
                 value={formData.landing_page_id || "none"}
-                onValueChange={(v) =>
-                  updateField("landing_page_id", v === "none" ? null : v)
-                }
+                onValueChange={(v) => {
+                  updateField("landing_page_id", v === "none" ? null : v);
+                  if (v !== "none") {
+                    updateField("page_path", null);
+                  }
+                }}
               >
                 <SelectTrigger>
                   <SelectValue placeholder="Selecione uma LP" />
@@ -168,6 +184,53 @@ export function CampaignDialog({
                   ))}
                 </SelectContent>
               </Select>
+            </div>
+
+            {/* Dynamic page selector */}
+            <div className="col-span-2">
+              <Label>Ou escolha qualquer página do site</Label>
+              <Select
+                value={formData.page_path || "none"}
+                onValueChange={(v) => {
+                  updateField("page_path", v === "none" ? null : v);
+                  if (v !== "none") {
+                    updateField("landing_page_id", null);
+                  }
+                }}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecionar página..." />
+                </SelectTrigger>
+                <SelectContent>
+                  <div className="p-2">
+                    <div className="relative">
+                      <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        placeholder="Buscar página..."
+                        value={pageSearch}
+                        onChange={(e) => setPageSearch(e.target.value)}
+                        className="pl-8"
+                      />
+                    </div>
+                  </div>
+                  <SelectItem value="none">Nenhuma página específica</SelectItem>
+                  {filteredSitePages?.map((page) => (
+                    <SelectItem key={page.path} value={page.path}>
+                      <div className="flex justify-between items-center w-full">
+                        <span className="truncate">{page.path}</span>
+                        <span className="text-xs text-muted-foreground ml-2">
+                          {page.visits} visitas
+                        </span>
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              {(sitePages?.length || 0) > 15 && !pageSearch && (
+                <p className="text-xs text-muted-foreground mt-1">
+                  Mostrando 15 páginas mais visitadas. Digite para buscar outras.
+                </p>
+              )}
             </div>
           </div>
 

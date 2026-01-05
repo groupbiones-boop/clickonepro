@@ -50,6 +50,8 @@ export type Database = {
           device_type: string | null
           event_type: string
           id: string
+          lat: number | null
+          lon: number | null
           os: string | null
           page_path: string
           page_title: string | null
@@ -72,6 +74,8 @@ export type Database = {
           device_type?: string | null
           event_type: string
           id?: string
+          lat?: number | null
+          lon?: number | null
           os?: string | null
           page_path: string
           page_title?: string | null
@@ -94,6 +98,8 @@ export type Database = {
           device_type?: string | null
           event_type?: string
           id?: string
+          lat?: number | null
+          lon?: number | null
           os?: string | null
           page_path?: string
           page_title?: string | null
