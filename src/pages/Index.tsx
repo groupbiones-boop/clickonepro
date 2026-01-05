@@ -24,6 +24,8 @@ import {
 } from "lucide-react";
 import heroHome from "@/assets/hero-home.jpg";
 import heroHomeWebp from "@/assets/hero-home-optimized.webp";
+import heroHomeSm from "@/assets/hero-home-sm.webp";
+import heroHomeMd from "@/assets/hero-home-md.webp";
 import mobileApp from "@/assets/mobile-app-clickone.jpg";
 import mobileAppWebp from "@/assets/mobile-app-clickone.webp";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
@@ -124,7 +126,7 @@ const Index = () => {
         <picture className="absolute inset-0 w-full h-full">
           <source 
             type="image/webp"
-            srcSet={`${heroHomeWebp} 1920w`}
+            srcSet={`${heroHomeSm} 896w, ${heroHomeMd} 1024w, ${heroHomeWebp} 1920w`}
             sizes="100vw"
           />
           <img 
