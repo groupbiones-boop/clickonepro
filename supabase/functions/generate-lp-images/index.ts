@@ -29,7 +29,7 @@ const LP_IMAGE_PROMPTS: Record<string, { prompt: string; filename: string }> = {
     filename: "lp-why-overwhelmed.png"
   },
   solution: {
-    prompt: "A clean, modern tech dashboard showing an AI virtual receptionist system in action. Purple gradient accents matching ClickOne brand. Split screen: left side shows a business owner relaxing while the AI handles calls, right side shows the AI interface with incoming call notifications, calendar integration, and chat bubbles. Professional, trustworthy, corporate aesthetic. No text overlays. High quality, photorealistic with subtle tech elements. Ultra high resolution.",
+    prompt: "A beautiful female AI virtual receptionist named Bia working in a modern phone control room. She is clearly an artificial intelligence - a sophisticated android with smooth synthetic skin with subtle purple LED accents on temples and neck, elegant metallic silver highlights on cheekbones and jawline, warm friendly expression with luminous eyes that show intelligence, wearing a professional white blouse. Not too futuristic or scary - beautiful, elegant and approachable. She sits at a curved control station with multiple holographic screens showing incoming calls and messages, calendar integration display with appointments, chat message bubbles floating around, purple ambient lighting matching brand color. The room has a modern call center aesthetic with subtle tech elements. Clean background without any logos or text overlays. Photorealistic quality with soft lighting. Ultra high resolution. 16:9 aspect ratio.",
     filename: "lp-solution-ai.png"
   },
   howItWorks: {
