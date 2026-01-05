@@ -36,6 +36,7 @@ import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { supabase } from "@/integrations/supabase/client";
 import { useLPImages } from "@/hooks/use-lp-images";
+import { EXTERNAL_URLS, appendUTMParams } from "@/lib/external-urls";
 
 // Social proof logos
 import logoClutch from "@/assets/logo-clutch.svg";
@@ -54,8 +55,6 @@ import industryMedical from "@/assets/industry-medical-clinic.jpg";
 // Mobile app
 import mobileApp from "@/assets/mobile-app-clickone.jpg";
 import clickoneLogoOfficialWhite from "@/assets/clickone-logo-official-white.png";
-
-const GHL_DEMO_URL = "https://api.leadconnectorhq.com/widget/booking/MPXMwtJNT8r70fFVkpXS";
 
 const PerdendoClientes = () => {
   const { t } = useTranslation();
@@ -92,7 +91,14 @@ const PerdendoClientes = () => {
 
   const handleCtaClick = (ctaLocation: string) => {
     trackCtaClick(ctaLocation);
-    window.open(GHL_DEMO_URL, "_blank");
+    const utmParams = getUTMParams();
+    const bookingUrl = appendUTMParams(EXTERNAL_URLS.GHL_BOOKING, {
+      source: utmParams.utm_source || "landing_page",
+      medium: utmParams.utm_medium || "organic",
+      campaign: utmParams.utm_campaign || "perdendo_clientes",
+      content: ctaLocation,
+    });
+    window.open(bookingUrl, "_blank");
   };
 
   const industries = [
@@ -592,7 +598,7 @@ const PerdendoClientes = () => {
 
             <AnimatedSection className="text-center">
               <Button asChild>
-                <a href="/setores">{t("lp.perdendoClientes.whoItsFor.viewAll")}</a>
+                <Link to="/setores">{t("lp.perdendoClientes.whoItsFor.viewAll")}</Link>
               </Button>
             </AnimatedSection>
           </div>

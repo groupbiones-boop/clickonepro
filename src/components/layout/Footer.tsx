@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Phone, Mail, MapPin } from "lucide-react";
 import clickoneLogoOfficialWhite from "@/assets/clickone-logo-official-white.png";
+import { CONTACT_INFO } from "@/lib/external-urls";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -73,27 +74,27 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="tel:+17705017321" 
+                  href={CONTACT_INFO.PHONE_HREF}
                   aria-label={t("footer.callUs")}
                   className="flex items-center gap-2 text-background/70 hover:text-background text-sm transition-colors"
                 >
                   <Phone className="h-4 w-4" aria-hidden="true" />
-                  <span>+1 (770) 501-7321</span>
+                  <span>{CONTACT_INFO.PHONE}</span>
                 </a>
               </li>
               <li>
                 <a 
-                  href="mailto:info@clickonepro.com" 
+                  href={`mailto:${CONTACT_INFO.EMAIL}`}
                   aria-label={t("footer.emailUs")}
                   className="flex items-center gap-2 text-background/70 hover:text-background text-sm transition-colors"
                 >
                   <Mail className="h-4 w-4" aria-hidden="true" />
-                  <span>info@clickonepro.com</span>
+                  <span>{CONTACT_INFO.EMAIL}</span>
                 </a>
               </li>
               <li className="flex items-start gap-2 text-background/70 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5" aria-hidden="true" />
-                <span>United States</span>
+                <span>{CONTACT_INFO.LOCATION}</span>
               </li>
             </ul>
           </div>

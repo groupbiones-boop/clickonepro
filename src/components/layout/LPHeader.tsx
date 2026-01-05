@@ -4,8 +4,7 @@ import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import clickoneLogoOfficialWhite from "@/assets/clickone-logo-official-white.png";
-
-const GHL_DEMO_URL = "https://api.leadconnectorhq.com/widget/booking/MPXMwtJNT8r70fFVkpXS";
+import { EXTERNAL_URLS } from "@/lib/external-urls";
 
 interface LPHeaderProps {
   onCtaClick?: () => void;
@@ -18,7 +17,7 @@ const LPHeader = ({ onCtaClick }: LPHeaderProps) => {
     if (onCtaClick) {
       onCtaClick();
     }
-    window.open(GHL_DEMO_URL, "_blank");
+    window.open(EXTERNAL_URLS.GHL_BOOKING, "_blank");
   };
 
   return (

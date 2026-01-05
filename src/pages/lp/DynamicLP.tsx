@@ -1,4 +1,4 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useParams, Navigate, Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { 
   Phone, 
@@ -38,15 +38,25 @@ import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { useLandingPageBySlug, LPContent } from "@/hooks/use-landing-page";
 import { useActiveABTest, assignVariant, recordConversion, getOrCreateSessionId } from "@/hooks/use-ab-tests";
-
-const GHL_DEMO_URL = "https://api.leadconnectorhq.com/widget/booking/MPXMwtJNT8r70fFVkpXS";
+import { EXTERNAL_URLS, appendUTMParams } from "@/lib/external-urls";
 
 const DynamicLP = () => {
   const { slug } = useParams();
+  const location = useLocation();
   const { landingPage, isLoading, notFound } = useLandingPageBySlug(slug);
   const { test: activeTest, isLoading: isTestLoading } = useActiveABTest(landingPage?.id);
   const [displayContent, setDisplayContent] = useState<LPContent | null>(null);
   const [activeVariant, setActiveVariant] = useState<"A" | "B">("A");
+
+  // Get UTM params from URL
+  const getUTMParams = () => {
+    const searchParams = new URLSearchParams(location.search);
+    return {
+      utm_source: searchParams.get("utm_source") || undefined,
+      utm_medium: searchParams.get("utm_medium") || undefined,
+      utm_campaign: searchParams.get("utm_campaign") || undefined,
+    };
+  };
 
   // Handle A/B test variant assignment
   useEffect(() => {
@@ -72,10 +82,17 @@ const DynamicLP = () => {
     setupVariant();
   }, [landingPage, activeTest, isTestLoading]);
 
-  const handleCtaClick = () => {
+  const handleCtaClick = (ctaLocation: string = "cta") => {
     // Record conversion for A/B test
     recordConversion();
-    window.open(GHL_DEMO_URL, "_blank");
+    const utmParams = getUTMParams();
+    const bookingUrl = appendUTMParams(EXTERNAL_URLS.GHL_BOOKING, {
+      source: utmParams.utm_source || "landing_page",
+      medium: utmParams.utm_medium || "organic",
+      campaign: utmParams.utm_campaign || slug || "dynamic_lp",
+      content: ctaLocation,
+    });
+    window.open(bookingUrl, "_blank");
   };
 
   if (isLoading || isTestLoading) {
@@ -120,7 +137,7 @@ const DynamicLP = () => {
                 </p>
                 <Button
                   size="lg"
-                  onClick={handleCtaClick}
+                  onClick={() => handleCtaClick("hero")}
                   className="w-full sm:w-auto text-lg px-8 py-6 font-semibold"
                 >
                   {content.hero.cta}
@@ -234,7 +251,7 @@ const DynamicLP = () => {
               <Button
                 size="lg"
                 variant="outline"
-                onClick={handleCtaClick}
+                onClick={() => handleCtaClick("problem")}
                 className="font-semibold"
               >
                 {content.problem.cta}
@@ -343,7 +360,7 @@ const DynamicLP = () => {
             <AnimatedSection className="text-center">
               <Button
                 size="lg"
-                onClick={handleCtaClick}
+                onClick={() => handleCtaClick("how_it_works")}
                 className="font-semibold"
               >
                 {content.howItWorks.cta}
@@ -507,7 +524,7 @@ const DynamicLP = () => {
               <Button
                 size="lg"
                 variant="secondary"
-                onClick={handleCtaClick}
+                onClick={() => handleCtaClick("final_cta")}
                 className="text-lg px-10 py-7 font-bold shadow-xl hover:shadow-2xl transition-shadow"
               >
                 <Calendar className="mr-2 h-6 w-6" />

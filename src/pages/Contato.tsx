@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Phone, Mail, MapPin, Calendar, ArrowRight, Zap } from "lucide-react";
+import { EXTERNAL_URLS, CONTACT_INFO } from "@/lib/external-urls";
 
 const Contato = () => {
   const { t } = useTranslation();
@@ -18,19 +19,19 @@ const Contato = () => {
     {
       icon: Phone,
       label: t("contact.phone", { defaultValue: "Telefone" }),
-      value: "+1 (770) 501-7321",
-      href: "tel:+17705017321",
+      value: CONTACT_INFO.PHONE,
+      href: CONTACT_INFO.PHONE_HREF,
     },
     {
       icon: Mail,
       label: "Email",
-      value: "info@clickonepro.com",
-      href: "mailto:info@clickonepro.com",
+      value: CONTACT_INFO.EMAIL,
+      href: `mailto:${CONTACT_INFO.EMAIL}`,
     },
     {
       icon: MapPin,
       label: t("contact.location"),
-      value: "United States",
+      value: CONTACT_INFO.LOCATION,
       href: null,
     },
   ];
@@ -111,7 +112,7 @@ const Contato = () => {
 
                 <Button asChild size="lg" className="w-full tracking-wide text-lg py-6">
                   <a
-                    href="https://links.clickonepro.com/widget/bookings/clickoneus"
+                    href={EXTERNAL_URLS.GHL_BOOKING}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -222,7 +223,7 @@ const Contato = () => {
             </p>
             <Button asChild size="lg" className="tracking-wide text-lg px-8 py-6">
               <a
-                href="https://links.clickonepro.com/widget/bookings/clickoneus"
+                href={EXTERNAL_URLS.GHL_BOOKING}
                 target="_blank"
                 rel="noopener noreferrer"
               >

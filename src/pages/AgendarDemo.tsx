@@ -4,6 +4,7 @@ import { CheckCircle, Star, Clock, Shield, Headphones, Quote, Phone, Mail, MapPi
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import { EXTERNAL_URLS, CONTACT_INFO } from "@/lib/external-urls";
 
 const AgendarDemo = () => {
   const { t } = useTranslation();
@@ -67,19 +68,19 @@ const AgendarDemo = () => {
     {
       icon: Phone,
       label: t("footer.contact"),
-      value: "+1 (770) 501-7321",
-      href: "tel:+17705017321"
+      value: CONTACT_INFO.PHONE,
+      href: CONTACT_INFO.PHONE_HREF
     },
     {
       icon: Mail,
       label: "Email",
-      value: "info@clickonepro.com",
-      href: "mailto:info@clickonepro.com"
+      value: CONTACT_INFO.EMAIL,
+      href: `mailto:${CONTACT_INFO.EMAIL}`
     },
     {
       icon: MapPin,
       label: t("contact.location") || "Location",
-      value: "United States",
+      value: CONTACT_INFO.LOCATION,
       href: null
     }
   ];
@@ -115,7 +116,7 @@ const AgendarDemo = () => {
               <div className="flex justify-center mb-10">
                 <Button asChild size="lg" className="h-16 px-16 text-lg tracking-wide">
                   <a 
-                    href="https://links.clickonepro.com/widget/bookings/clickoneus" 
+                    href={EXTERNAL_URLS.GHL_BOOKING}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-3"

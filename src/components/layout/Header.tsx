@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { EXTERNAL_URLS } from "@/lib/external-urls";
 import { Button } from "@/components/ui/button";
 import { 
   Menu, 
@@ -344,7 +345,7 @@ const Header = () => {
             <Link to="/agendar-demo">{t("nav.bookDemo")}</Link>
           </Button>
           <Button asChild variant="ghost" className="min-w-[120px] h-10 justify-center bg-primary-foreground/15 border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/25 hover:border-primary-foreground/60">
-            <a href="https://app.clickonepro.com/" target="_blank" rel="noopener noreferrer">{t("nav.login")}</a>
+            <a href={EXTERNAL_URLS.APP_LOGIN} target="_blank" rel="noopener noreferrer">{t("nav.login")}</a>
           </Button>
           <LanguageSwitcher />
         </div>
