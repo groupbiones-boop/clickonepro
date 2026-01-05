@@ -53,6 +53,7 @@ import industryMedical from "@/assets/industry-medical-clinic.jpg";
 
 // Mobile app
 import mobileApp from "@/assets/mobile-app-clickone.jpg";
+import clickoneLogoOfficialWhite from "@/assets/clickone-logo-official-white.png";
 
 const GHL_DEMO_URL = "https://api.leadconnectorhq.com/widget/booking/MPXMwtJNT8r70fFVkpXS";
 
@@ -425,12 +426,20 @@ const PerdendoClientes = () => {
               
               {images["solution-ai"] && (
                 <AnimatedSection delay={200} className="hidden md:block">
-                  <img
-                    src={images["solution-ai"]}
-                    alt="IA Recepcionista"
-                    className="w-full rounded-2xl shadow-2xl"
-                    loading="lazy"
-                  />
+                  <div className="relative">
+                    <img
+                      src={images["solution-ai"]}
+                      alt="Bia - IA Recepcionista Virtual ClickOne"
+                      className="w-full rounded-2xl shadow-2xl"
+                      loading="lazy"
+                    />
+                    {/* Logo oficial ClickOne no canto superior direito */}
+                    <img
+                      src={clickoneLogoOfficialWhite}
+                      alt="ClickOne"
+                      className="absolute top-4 right-4 h-10 md:h-12 object-contain drop-shadow-lg"
+                    />
+                  </div>
                 </AnimatedSection>
               )}
             </div>
