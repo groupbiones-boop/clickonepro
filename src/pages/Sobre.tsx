@@ -152,6 +152,7 @@ const Sobre = () => {
                 <p>{t("whyClickone.storyP1")}</p>
                 <p>{t("whyClickone.storyP2")}</p>
                 <p>{t("whyClickone.storyP3")}</p>
+                <p>{t("whyClickone.storyP4")}</p>
               </div>
             </AnimatedSection>
           </div>
