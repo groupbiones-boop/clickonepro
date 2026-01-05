@@ -166,7 +166,10 @@ const Contato = () => {
                         {t("contact.responseTime", { defaultValue: "Tempo de resposta" })}
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        {t("contact.responseTimeDesc", { defaultValue: "Nossa equipe responde em até 24 horas durante dias úteis." })}
+                        {t("contact.responseTimeDesc", { defaultValue: "Aqui você será atendido em até 10 segundos pela nossa Bia." })}
+                      </p>
+                      <p className="text-sm text-primary font-medium mt-2">
+                        {t("contact.responseTimeCta", { defaultValue: "Leve esse atendimento relâmpago para o seu negócio." })}
                       </p>
                     </div>
                   </div>
