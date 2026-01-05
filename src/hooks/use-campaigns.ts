@@ -5,6 +5,7 @@ import { toast } from "sonner";
 export interface Campaign {
   id: string;
   landing_page_id: string | null;
+  page_path: string | null;
   name: string;
   start_date: string;
   end_date: string;
@@ -27,6 +28,7 @@ export interface Campaign {
 
 export interface CampaignFormData {
   landing_page_id: string | null;
+  page_path: string | null;
   name: string;
   start_date: string;
   end_date: string;
