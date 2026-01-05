@@ -20,7 +20,9 @@ import {
   BarChart3,
   Target,
   Sparkles,
-  X
+  X,
+  Heart,
+  BookOpen
 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
@@ -31,6 +33,7 @@ import logoClutch from "@/assets/logo-clutch.svg";
 import logoG2 from "@/assets/logo-g2.svg";
 import logoCapterra from "@/assets/logo-capterra.svg";
 import logoTrustpilot from "@/assets/logo-trustpilot.svg";
+import officeImage from "@/assets/office-tech.jpg";
 
 const Sobre = () => {
   const { t } = useTranslation();
@@ -94,6 +97,14 @@ const Sobre = () => {
     { value: 24, suffix: "/7", label: t("about.supportAvailable") }
   ];
 
+  const commitments = [
+    t("whyClickone.commitment1"),
+    t("whyClickone.commitment2"),
+    t("whyClickone.commitment3"),
+    t("whyClickone.commitment4"),
+    t("whyClickone.commitment5")
+  ];
+
   const testimonials = [
     {
       name: "Carlos Rodriguez",
@@ -118,7 +129,8 @@ const Sobre = () => {
   return (
     <Layout>
       <SEO titleKey="seo.about.title" descriptionKey="seo.about.description" />
-      {/* Hero Section - Impactante */}
+      
+      {/* Hero Section - Institucional */}
       <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
         <div className="container relative">
@@ -210,7 +222,95 @@ const Sobre = () => {
         </div>
       </section>
 
-      {/* O Problema que Resolvemos */}
+      {/* Nossa História */}
+      <section className="py-20 bg-muted/30">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <AnimatedSection animation="fade-right">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+                {t("whyClickone.storyLabel")}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
+                {t("whyClickone.storyTitle")}
+              </h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p>{t("whyClickone.storyP1")}</p>
+                <p>{t("whyClickone.storyP2")}</p>
+                <p>{t("whyClickone.storyP3")}</p>
+                <p className="text-foreground font-semibold text-lg">{t("whyClickone.storyP4")}</p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-left">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl" />
+                <img 
+                  src={officeImage} 
+                  alt="ClickOne Team" 
+                  className="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Por que a ClickOne Existe */}
+      <section className="py-20 bg-background">
+        <div className="container">
+          <AnimatedSection animation="fade-up">
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+                {t("whyClickone.whyExistsLabel")}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
+                {t("whyClickone.whyExistsTitle")}
+              </h2>
+            </div>
+          </AnimatedSection>
+          
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection animation="fade-up" delay={100}>
+              <Card className="p-8 md:p-12 border-2 border-destructive/20 bg-destructive/5">
+                <div className="space-y-6 text-lg">
+                  <p className="text-muted-foreground">{t("whyClickone.whyExistsP1")}</p>
+                  <p className="text-muted-foreground">{t("whyClickone.whyExistsP2")}</p>
+                  <p className="text-foreground font-semibold">{t("whyClickone.whyExistsP3")}</p>
+                </div>
+              </Card>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* O Que a ClickOne Resolve */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/10">
+        <div className="container">
+          <AnimatedSection animation="fade-up">
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+                {t("whyClickone.solutionLabel")}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
+                {t("whyClickone.solutionTitle")}
+              </h2>
+            </div>
+          </AnimatedSection>
+          
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection animation="fade-up" delay={100}>
+              <Card className="p-8 md:p-12 border-2 border-primary/30 bg-primary/5">
+                <div className="space-y-6 text-lg">
+                  <p className="text-muted-foreground">{t("whyClickone.solutionP1")}</p>
+                  <p className="text-muted-foreground">{t("whyClickone.solutionP2")}</p>
+                  <p className="text-foreground font-semibold">{t("whyClickone.solutionP3")}</p>
+                </div>
+              </Card>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* O Problema que Resolvemos - Comparison Cards */}
       <section className="py-20 bg-muted/30">
         <div className="container">
           <AnimatedSection animation="fade-up">
@@ -376,6 +476,40 @@ const Sobre = () => {
                   </div>
                 </Card>
               </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Nosso Compromisso */}
+      <section className="py-20 bg-background">
+        <div className="container">
+          <AnimatedSection animation="fade-up">
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+                {t("whyClickone.commitmentLabel")}
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
+                {t("whyClickone.commitmentTitle")}
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                {t("whyClickone.commitmentIntro")}
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection animation="fade-up" delay={100}>
+              <Card className="p-8 border-2 border-primary/20">
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {commitments.map((commitment, i) => (
+                    <div key={i} className="flex items-center gap-3 p-4 rounded-lg bg-primary/5">
+                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-medium text-sm">{commitment}</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
             </AnimatedSection>
           </div>
         </div>
