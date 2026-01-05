@@ -134,7 +134,7 @@ const Index = () => {
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2 mb-8 animate-fade-in">
+            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2 mb-8 -mt-8 md:-mt-12 animate-fade-in">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               <span className="text-sm text-primary-foreground/90 font-medium">{t("hero.badge")}</span>
             </div>
