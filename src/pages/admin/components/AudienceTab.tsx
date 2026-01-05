@@ -21,6 +21,11 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import OnlineVisitorsCard from "./OnlineVisitorsCard";
+import OnlineVisitorsMap from "./OnlineVisitorsMap";
+import VisitorHistoryMap from "./VisitorHistoryMap";
+import PeakHoursChart from "./PeakHoursChart";
+import PeakHoursComparison from "./PeakHoursComparison";
 
 interface AudienceTabProps {
   filters: AnalyticsFilters;
@@ -43,6 +48,15 @@ const AudienceTab = ({ filters }: AudienceTabProps) => {
 
   return (
     <div className="space-y-6">
+      {/* Real-time Visitors Section */}
+      <OnlineVisitorsCard />
+      <OnlineVisitorsMap />
+
+      {/* History Section - Last 24h */}
+      <VisitorHistoryMap />
+      <PeakHoursChart />
+      <PeakHoursComparison />
+
       {/* Stats Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
         <StatsCard
