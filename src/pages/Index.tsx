@@ -22,10 +22,7 @@ import {
   Headphones,
   Star,
 } from "lucide-react";
-import heroHome from "@/assets/hero-home.jpg";
-import heroHomeWebp from "@/assets/hero-home-optimized.webp";
-import heroHomeSm from "@/assets/hero-home-sm.webp";
-import heroHomeMd from "@/assets/hero-home-md.webp";
+// Hero images served from public folder for preload matching
 import mobileApp from "@/assets/mobile-app-clickone.jpg";
 import mobileAppWebp from "@/assets/mobile-app-clickone.webp";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
@@ -123,19 +120,20 @@ const Index = () => {
       {/* Hero Section - Enhanced */}
       <section className="relative overflow-hidden py-16 md:py-40 min-h-[90vh] flex items-center">
         {/* Background Image with Gradient Overlay - LCP Priority with Responsive srcset */}
+        {/* Using public paths to match preload in index.html */}
         <picture className="absolute inset-0 w-full h-full">
           <source 
             type="image/webp"
-            srcSet={`${heroHomeSm} 896w, ${heroHomeMd} 1024w, ${heroHomeWebp} 1920w`}
+            srcSet="/assets/hero-home-sm.webp 896w, /assets/hero-home-md.webp 1024w, /assets/hero-home-optimized.webp 1920w"
             sizes="100vw"
           />
           <img 
-            src={heroHome}
+            src="/assets/hero-home.jpg"
             alt={t("seo.home.heroAlt")}
             width={1920}
             height={1080}
             fetchPriority="high"
-            decoding="async"
+            decoding="sync"
             className="w-full h-full object-cover object-center"
           />
         </picture>
