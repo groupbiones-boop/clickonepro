@@ -155,7 +155,9 @@
     "rights": "Todos los derechos reservados.",
     "about": "Acerca de",
     "blog": "Blog",
-    "installApp": "Instalar en el Celular"
+    "installApp": "Instalar en el Celular",
+    "callUs": "Llamar a ClickOne AI",
+    "emailUs": "Enviar email a ClickOne AI"
   },
   "about": {
     "title": "Acerca de ClickOne AI",
@@ -974,7 +976,8 @@
     "seo": {
     "home": {
       "title": "ClickOne AI - Recepcionista Virtual con Inteligencia Artificial",
-      "description": "Recepcionista virtual con IA que atiende llamadas, califica leads y programa servicios 24/7. Nunca más pierdas una llamada."
+      "description": "Recepcionista virtual con IA que atiende llamadas, califica leads y programa servicios 24/7. Nunca más pierdas una llamada.",
+      "heroAlt": "Oficina moderna con recepcionista IA atendiendo llamadas"
     },
     "voiceProduct": {
       "title": "Recepcionista IA de Voz | ClickOne AI",

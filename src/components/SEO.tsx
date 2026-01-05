@@ -71,7 +71,7 @@ const SEO = ({
   descriptionKey,
   title: directTitle,
   description: directDescription,
-  ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
+  ogImage = "https://clickone.ai/og-image.png",
   noIndex = false,
   canonicalUrl,
   schemaType,

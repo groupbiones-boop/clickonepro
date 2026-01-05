@@ -184,6 +184,8 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
           <audio
             ref={audioRef}
             src={demo.audioUrl}
+            preload="none"
+            aria-label={`Audio demonstration: ${demo.title}`}
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
             onEnded={handleEnded}
@@ -193,6 +195,13 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
           <div 
             className="group relative h-2 bg-muted rounded-full cursor-pointer mb-3"
             onClick={handleProgressClick}
+            role="slider"
+            aria-label="Audio progress"
+            aria-valuemin={0}
+            aria-valuemax={Math.round(displayDuration)}
+            aria-valuenow={Math.round(currentTime)}
+            aria-valuetext={`${formatTime(currentTime)} of ${formatTime(displayDuration)}`}
+            tabIndex={0}
           >
             <div 
               className="absolute inset-y-0 left-0 bg-primary rounded-full transition-all"
@@ -211,26 +220,28 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
                 variant="default"
                 onClick={togglePlay}
                 disabled={isLoading}
+                aria-label={isPlaying ? "Pause audio" : "Play audio"}
                 className={cn(
                   "h-10 w-10 rounded-full",
                   isPlaying && "animate-pulse"
                 )}
               >
                 {isLoading ? (
-                  <Loader2 className="h-5 w-5 animate-spin" />
+                  <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
                 ) : isPlaying ? (
-                  <Pause className="h-5 w-5" />
+                  <Pause className="h-5 w-5" aria-hidden="true" />
                 ) : (
-                  <Play className="h-5 w-5 ml-0.5" />
+                  <Play className="h-5 w-5 ml-0.5" aria-hidden="true" />
                 )}
               </Button>
               <Button
                 size="icon"
                 variant="ghost"
                 onClick={handleReplay}
+                aria-label="Replay audio from beginning"
                 className="h-8 w-8"
               >
-                <RotateCcw className="h-4 w-4" />
+                <RotateCcw className="h-4 w-4" aria-hidden="true" />
               </Button>
             </div>
             <span className="text-sm text-muted-foreground font-mono">
@@ -251,6 +262,9 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
         <div 
           ref={transcriptRef}
           className="flex-1 p-4 space-y-3 overflow-y-auto scroll-smooth min-h-0"
+          aria-live="polite"
+          aria-atomic="false"
+          role="log"
         >
           {visibleMessages.length === 0 ? (
             <div className="flex items-center justify-center h-full text-muted-foreground text-sm">

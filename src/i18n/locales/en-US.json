@@ -155,7 +155,9 @@
     "rights": "All rights reserved.",
     "about": "About",
     "blog": "Blog",
-    "installApp": "Install on Phone"
+    "installApp": "Install on Phone",
+    "callUs": "Call ClickOne AI",
+    "emailUs": "Email ClickOne AI"
   },
   "about": {
     "title": "About ClickOne AI",
@@ -974,7 +976,8 @@
     "seo": {
     "home": {
       "title": "ClickOne AI - Virtual Receptionist with Artificial Intelligence",
-      "description": "AI-powered virtual receptionist that answers calls, qualifies leads, and schedules services 24/7. Never miss a call again."
+      "description": "AI-powered virtual receptionist that answers calls, qualifies leads, and schedules services 24/7. Never miss a call again.",
+      "heroAlt": "Modern office with AI receptionist answering calls"
     },
     "voiceProduct": {
       "title": "Voice AI Receptionist | ClickOne AI",
