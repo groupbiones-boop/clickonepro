@@ -267,6 +267,16 @@
   "contact": {
     "title": "Contact Us",
     "subtitle": "We're ready to help your business grow.",
+    "badge": "Get in Touch",
+    "phone": "Phone",
+    "scheduleTitle": "Schedule a Call",
+    "scheduleSubtitle": "Choose the best time for a free 30-minute demo. A specialist will show you how ClickOne AI can transform your customer service.",
+    "contactInfoTitle": "Other ways to reach us",
+    "responseTime": "Response time",
+    "responseTimeDesc": "Our team responds within 24 hours on business days.",
+    "ctaTitle": "Ready to transform your customer service?",
+    "ctaSubtitle": "Schedule a free demo and see how ClickOne can help your business.",
+    "ctaButton": "Book Free Demo",
     "faqTitle": "Frequently Asked Questions",
     "faq1Question": "How long does setup take?",
     "faq1Answer": "Setup is quick and simple. In most cases, your AI is operational within 72 hours after onboarding.",
@@ -1008,6 +1018,10 @@
     "localBusiness": {
       "title": "AI for Local Businesses | ClickOne AI",
       "description": "Virtual receptionist for local businesses. Never lose a customer due to missed calls."
+    },
+    "contact": {
+      "title": "Contact | ClickOne AI",
+      "description": "Get in touch with ClickOne AI. Ask your questions and discover how our AI can transform your customer service."
     },
     "privacy": {
       "title": "Privacy Policy | ClickOne AI",

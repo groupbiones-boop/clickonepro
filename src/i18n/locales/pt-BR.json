@@ -267,6 +267,16 @@
   "contact": {
     "title": "Entre em Contato",
     "subtitle": "Estamos prontos para ajudar seu negócio a crescer.",
+    "badge": "Fale Conosco",
+    "phone": "Telefone",
+    "scheduleTitle": "Agende uma Conversa",
+    "scheduleSubtitle": "Escolha o melhor horário para uma demo gratuita de 30 minutos. Um especialista vai mostrar como a ClickOne AI pode transformar seu atendimento.",
+    "contactInfoTitle": "Outras formas de contato",
+    "responseTime": "Tempo de resposta",
+    "responseTimeDesc": "Nossa equipe responde em até 24 horas durante dias úteis.",
+    "ctaTitle": "Pronto para transformar seu atendimento?",
+    "ctaSubtitle": "Agende uma demo gratuita e veja como a ClickOne pode ajudar seu negócio.",
+    "ctaButton": "Agendar Demo Gratuita",
     "faqTitle": "Perguntas Frequentes",
     "faq1Question": "Quanto tempo leva para configurar?",
     "faq1Answer": "A configuração é rápida e simples. Na maioria dos casos, sua IA está operacional em até 72 horas após o onboarding.",
@@ -1008,6 +1018,10 @@
     "localBusiness": {
       "title": "IA para Negócios Locais | ClickOne AI",
       "description": "Recepcionista virtual para negócios locais. Nunca mais perca um cliente por falta de atendimento."
+    },
+    "contact": {
+      "title": "Contato | ClickOne AI",
+      "description": "Entre em contato com a ClickOne AI. Tire suas dúvidas e descubra como nossa IA pode transformar seu atendimento ao cliente."
     },
     "privacy": {
       "title": "Política de Privacidade | ClickOne AI",
