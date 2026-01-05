@@ -23,7 +23,7 @@ import {
   Star,
 } from "lucide-react";
 import heroHome from "@/assets/hero-home.jpg";
-import heroHomeWebp from "@/assets/hero-home.webp";
+import heroHomeWebp from "@/assets/hero-home-optimized.webp";
 import mobileApp from "@/assets/mobile-app-clickone.jpg";
 import mobileAppWebp from "@/assets/mobile-app-clickone.webp";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
