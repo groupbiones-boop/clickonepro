@@ -14,6 +14,7 @@ import OnlineVisitorsCard from "./OnlineVisitorsCard";
 import OnlineVisitorsMap from "./OnlineVisitorsMap";
 import VisitorHistoryMap from "./VisitorHistoryMap";
 import PeakHoursChart from "./PeakHoursChart";
+import PeakHoursComparison from "./PeakHoursComparison";
 import {
   AreaChart,
   Area,
@@ -229,6 +230,9 @@ const DashboardTab = ({ filters, onRefresh, onRefreshStart }: DashboardTabProps)
 
       {/* Peak Hours Chart */}
       <PeakHoursChart />
+
+      {/* Peak Hours Comparison */}
+      <PeakHoursComparison />
 
       {/* Header with Export Button */}
       <div className="flex justify-end">
