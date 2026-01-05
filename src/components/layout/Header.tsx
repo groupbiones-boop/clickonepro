@@ -342,7 +342,7 @@ const Header = () => {
         {/* Desktop Right Group - Buttons + Flag */}
         <div className="hidden md:flex items-center gap-3">
           <Button asChild variant="secondary" className="min-w-[120px] h-10 justify-center bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-            <Link to="/agendar-demo">{t("nav.bookDemo")}</Link>
+            <a href={EXTERNAL_URLS.GHL_BOOKING} target="_blank" rel="noopener noreferrer">{t("nav.bookDemo")}</a>
           </Button>
           <Button asChild variant="ghost" className="min-w-[120px] h-10 justify-center bg-primary-foreground/15 border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/25 hover:border-primary-foreground/60">
             <a href={EXTERNAL_URLS.APP_LOGIN} target="_blank" rel="noopener noreferrer">{t("nav.login")}</a>
@@ -514,9 +514,9 @@ const Header = () => {
 
             <div className="flex flex-col gap-2 mt-2">
               <Button asChild variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                <Link to="/agendar-demo" onClick={() => setMobileMenuOpen(false)}>
+                <a href={EXTERNAL_URLS.GHL_BOOKING} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                   {t("nav.bookDemo")}
-                </Link>
+                </a>
               </Button>
               <Button asChild variant="ghost" className="bg-primary-foreground/15 border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/25 hover:border-primary-foreground/60">
                 <a href="https://app.clickonepro.com/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
