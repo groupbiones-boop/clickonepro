@@ -9,7 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Phone, Mail, MapPin, Calendar, ArrowRight, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Calendar, ArrowRight, Zap } from "lucide-react";
 
 const Contato = () => {
   const { t } = useTranslation();
@@ -159,7 +159,7 @@ const Contato = () => {
                 <div className="bg-muted/50 rounded-xl p-6 mt-8">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <MessageCircle className="w-5 h-5 text-primary" />
+                      <Zap className="w-5 h-5 text-primary" />
                     </div>
                     <div>
                       <p className="font-semibold mb-1">
