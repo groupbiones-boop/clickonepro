@@ -140,6 +140,7 @@ const Header = () => {
         <nav className="hidden md:flex flex-1 items-center justify-center gap-8">
           <Link 
             to="/" 
+            aria-current={isActive("/") ? "page" : undefined}
             className={`text-sm font-medium transition-colors relative ${
               isActive("/") 
                 ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
@@ -314,6 +315,7 @@ const Header = () => {
 
           <Link 
             to="/sobre" 
+            aria-current={isActive("/sobre") ? "page" : undefined}
             className={`text-sm font-medium transition-colors relative ${
               isActive("/sobre") 
                 ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
@@ -325,6 +327,7 @@ const Header = () => {
 
           <Link 
             to="/contato" 
+            aria-current={isActive("/contato") ? "page" : undefined}
             className={`text-sm font-medium transition-colors relative ${
               isActive("/contato") 
                 ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 

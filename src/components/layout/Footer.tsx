@@ -74,23 +74,25 @@ const Footer = () => {
               <li>
                 <a 
                   href="tel:+17705017321" 
+                  aria-label={t("footer.callUs")}
                   className="flex items-center gap-2 text-background/70 hover:text-background text-sm transition-colors"
                 >
-                  <Phone className="h-4 w-4" />
+                  <Phone className="h-4 w-4" aria-hidden="true" />
                   <span>+1 (770) 501-7321</span>
                 </a>
               </li>
               <li>
                 <a 
                   href="mailto:info@clickonepro.com" 
+                  aria-label={t("footer.emailUs")}
                   className="flex items-center gap-2 text-background/70 hover:text-background text-sm transition-colors"
                 >
-                  <Mail className="h-4 w-4" />
+                  <Mail className="h-4 w-4" aria-hidden="true" />
                   <span>info@clickonepro.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-2 text-background/70 text-sm">
-                <MapPin className="h-4 w-4 mt-0.5" />
+                <MapPin className="h-4 w-4 mt-0.5" aria-hidden="true" />
                 <span>United States</span>
               </li>
             </ul>

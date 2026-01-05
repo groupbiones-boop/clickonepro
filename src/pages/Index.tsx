@@ -125,7 +125,9 @@ const Index = () => {
           <source srcSet={heroHomeWebp} type="image/webp" />
           <img 
             src={heroHome}
-            alt=""
+            alt={t("seo.home.heroAlt")}
+            width={1920}
+            height={1080}
             fetchPriority="high"
             decoding="async"
             className="w-full h-full object-cover object-center"
