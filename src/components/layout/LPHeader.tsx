@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import logoWhite from "@/assets/clickone-logo-white.png";
+import clickoneLogoOfficialWhite from "@/assets/clickone-logo-official-white.png";
 
 const GHL_DEMO_URL = "https://api.leadconnectorhq.com/widget/booking/MPXMwtJNT8r70fFVkpXS";
 
@@ -28,7 +28,7 @@ const LPHeader = ({ onCtaClick }: LPHeaderProps) => {
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <img
-              src={logoWhite}
+              src={clickoneLogoOfficialWhite}
               alt="ClickOne AI"
               className="h-8 w-auto"
             />
