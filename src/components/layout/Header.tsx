@@ -44,7 +44,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import clickoneLogoWhite from "@/assets/clickone-logo-white.png";
+import clickoneLogoOfficialWhite from "@/assets/clickone-logo-official-white.png";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -133,7 +133,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full bg-primary">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 z-10">
-          <img src={clickoneLogoWhite} alt="ClickOne AI" className="h-8 md:h-10 w-auto" />
+          <img src={clickoneLogoOfficialWhite} alt="ClickOne AI" className="h-8 md:h-10 w-auto" />
         </Link>
 
         {/* Desktop Navigation - Center Menu */}
