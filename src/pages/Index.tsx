@@ -27,9 +27,13 @@ import heroHomeWebp from "@/assets/hero-home.webp";
 import mobileApp from "@/assets/mobile-app-clickone.jpg";
 import mobileAppWebp from "@/assets/mobile-app-clickone.webp";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
+import industryCleaningWebp from "@/assets/industry-cleaning.webp";
 import industryConstruction from "@/assets/industry-construction.jpg";
+import industryConstructionWebp from "@/assets/industry-construction.webp";
 import industryHvac from "@/assets/industry-hvac.jpg";
+import industryHvacWebp from "@/assets/industry-hvac.webp";
 import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
+import industryPlumbingWebp from "@/assets/industry-plumbing-new.webp";
 import industryElectrical from "@/assets/industry-electrical.jpg";
 import industryLandscaping from "@/assets/industry-landscaping.jpg";
 import logoClutch from "@/assets/logo-clutch.svg";
@@ -42,10 +46,10 @@ const Index = () => {
   const [selectedDemo, setSelectedDemo] = useState(audioDemos[0]);
 
   const industries = [
-    { name: t("industries.cleaning"), slug: "limpeza", image: industryCleaning },
-    { name: t("industries.construction"), slug: "construcao", image: industryConstruction },
-    { name: t("industries.hvac"), slug: "hvac", image: industryHvac },
-    { name: t("industries.plumbing"), slug: "encanamento", image: industryPlumbing },
+    { name: t("industries.cleaning"), slug: "limpeza", image: industryCleaning, webp: industryCleaningWebp },
+    { name: t("industries.construction"), slug: "construcao", image: industryConstruction, webp: industryConstructionWebp },
+    { name: t("industries.hvac"), slug: "hvac", image: industryHvac, webp: industryHvacWebp },
+    { name: t("industries.plumbing"), slug: "encanamento", image: industryPlumbing, webp: industryPlumbingWebp },
     { name: t("industries.electrical"), slug: "eletrica", image: industryElectrical },
     { name: t("industries.landscaping"), slug: "paisagismo", image: industryLandscaping },
   ];
@@ -606,13 +610,16 @@ const Index = () => {
                 <Link to={`/setores/${industry.slug}`}>
                   <Card className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer h-full overflow-hidden">
                     <div className="aspect-[4/3] overflow-hidden">
-                      <img 
-                        src={industry.image} 
-                        alt={industry.name} 
-                        className="w-full h-full object-cover transition-transform hover:scale-105"
-                        loading="lazy"
-                        decoding="async"
-                      />
+                      <picture>
+                        {industry.webp && <source srcSet={industry.webp} type="image/webp" />}
+                        <img 
+                          src={industry.image} 
+                          alt={industry.name} 
+                          className="w-full h-full object-cover transition-transform hover:scale-105"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </picture>
                     </div>
                     <CardContent className="pt-4">
                       <h3 className="text-lg font-semibold">{industry.name}</h3>

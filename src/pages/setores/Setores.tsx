@@ -8,9 +8,13 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import industryCleaning from "@/assets/industry-cleaning.jpg";
+import industryCleaningWebp from "@/assets/industry-cleaning.webp";
 import industryConstruction from "@/assets/industry-construction.jpg";
+import industryConstructionWebp from "@/assets/industry-construction.webp";
 import industryHvac from "@/assets/industry-hvac.jpg";
+import industryHvacWebp from "@/assets/industry-hvac.webp";
 import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
+import industryPlumbingWebp from "@/assets/industry-plumbing-new.webp";
 import industryElectrical from "@/assets/industry-electrical.jpg";
 import industryLandscaping from "@/assets/industry-landscaping.jpg";
 import industryPool from "@/assets/industry-pool.jpg";
@@ -33,10 +37,10 @@ const Setores = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const industries = [
-    { name: t("sectors.cleaning"), slug: "limpeza", image: industryCleaning, description: t("sectors.cleaningDesc") },
-    { name: t("sectors.construction"), slug: "construcao", image: industryConstruction, description: t("sectors.constructionDesc") },
-    { name: t("sectors.hvac"), slug: "hvac", image: industryHvac, description: t("sectors.hvacDesc") },
-    { name: t("sectors.plumbing"), slug: "encanamento", image: industryPlumbing, description: t("sectors.plumbingDesc") },
+    { name: t("sectors.cleaning"), slug: "limpeza", image: industryCleaning, webp: industryCleaningWebp, description: t("sectors.cleaningDesc") },
+    { name: t("sectors.construction"), slug: "construcao", image: industryConstruction, webp: industryConstructionWebp, description: t("sectors.constructionDesc") },
+    { name: t("sectors.hvac"), slug: "hvac", image: industryHvac, webp: industryHvacWebp, description: t("sectors.hvacDesc") },
+    { name: t("sectors.plumbing"), slug: "encanamento", image: industryPlumbing, webp: industryPlumbingWebp, description: t("sectors.plumbingDesc") },
     { name: t("sectors.electrical"), slug: "eletrica", image: industryElectrical, description: t("sectors.electricalDesc") },
     { name: t("sectors.landscaping"), slug: "paisagismo", image: industryLandscaping, description: t("sectors.landscapingDesc") },
     { name: t("sectors.pool"), slug: "piscinas", image: industryPool, description: t("sectors.poolDesc") },
@@ -117,11 +121,16 @@ const Setores = () => {
                   className="group block"
                 >
                   <div className="overflow-hidden rounded-xl mb-4">
-                    <img 
-                      src={industry.image} 
-                      alt={industry.name} 
-                      className="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
+                    <picture>
+                      {industry.webp && <source srcSet={industry.webp} type="image/webp" />}
+                      <img 
+                        src={industry.image} 
+                        alt={industry.name} 
+                        className="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
                   </div>
                   <h3 className="text-lg font-semibold text-foreground flex items-center gap-2 group-hover:text-primary transition-colors">
                     {industry.name}
