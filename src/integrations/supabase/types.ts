@@ -406,6 +406,7 @@ export type Database = {
           id: string
           landing_page_id: string | null
           name: string
+          page_path: string | null
           start_date: string
           status: string | null
           updated_at: string | null
@@ -423,6 +424,7 @@ export type Database = {
           id?: string
           landing_page_id?: string | null
           name: string
+          page_path?: string | null
           start_date: string
           status?: string | null
           updated_at?: string | null
@@ -440,6 +442,7 @@ export type Database = {
           id?: string
           landing_page_id?: string | null
           name?: string
+          page_path?: string | null
           start_date?: string
           status?: string | null
           updated_at?: string | null
