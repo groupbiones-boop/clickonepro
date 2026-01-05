@@ -3,347 +3,347 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Home -->
   <url>
-    <loc>https://clickone.ai/</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/"/>
+    <loc>https://clickonepro.com/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Products -->
   <url>
-    <loc>https://clickone.ai/produto/recepcionista-ia-voz</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/produto/recepcionista-ia-voz"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/produto/recepcionista-ia-voz"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/produto/recepcionista-ia-voz"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/produto/recepcionista-ia-voz"/>
+    <loc>https://clickonepro.com/produto/recepcionista-ia-voz</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/produto/recepcionista-ia-voz"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/produto/recepcionista-ia-voz"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/produto/recepcionista-ia-voz"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/produto/recepcionista-ia-voz"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/produto/atendente-ia-conversacional</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/produto/atendente-ia-conversacional"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/produto/atendente-ia-conversacional"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/produto/atendente-ia-conversacional"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/produto/atendente-ia-conversacional"/>
+    <loc>https://clickonepro.com/produto/atendente-ia-conversacional</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/produto/atendente-ia-conversacional"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/produto/atendente-ia-conversacional"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/produto/atendente-ia-conversacional"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/produto/atendente-ia-conversacional"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/produto/infraestrutura-vertical</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/produto/infraestrutura-vertical"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/produto/infraestrutura-vertical"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/produto/infraestrutura-vertical"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/produto/infraestrutura-vertical"/>
+    <loc>https://clickonepro.com/produto/infraestrutura-vertical</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/produto/infraestrutura-vertical"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/produto/infraestrutura-vertical"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/produto/infraestrutura-vertical"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/produto/infraestrutura-vertical"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Business Types -->
   <url>
-    <loc>https://clickone.ai/empresas/pequena-empresa</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/empresas/pequena-empresa"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/empresas/pequena-empresa"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/empresas/pequena-empresa"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/empresas/pequena-empresa"/>
+    <loc>https://clickonepro.com/empresas/pequena-empresa</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/empresas/pequena-empresa"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/empresas/pequena-empresa"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/empresas/pequena-empresa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/empresas/pequena-empresa"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/empresas/media-empresa</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/empresas/media-empresa"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/empresas/media-empresa"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/empresas/media-empresa"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/empresas/media-empresa"/>
+    <loc>https://clickonepro.com/empresas/media-empresa</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/empresas/media-empresa"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/empresas/media-empresa"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/empresas/media-empresa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/empresas/media-empresa"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/empresas/negocios-locais</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/empresas/negocios-locais"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/empresas/negocios-locais"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/empresas/negocios-locais"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/empresas/negocios-locais"/>
+    <loc>https://clickonepro.com/empresas/negocios-locais</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/empresas/negocios-locais"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/empresas/negocios-locais"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/empresas/negocios-locais"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/empresas/negocios-locais"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Sectors -->
   <url>
-    <loc>https://clickone.ai/setores</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores"/>
+    <loc>https://clickonepro.com/setores</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/limpeza</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/limpeza"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/limpeza"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/limpeza"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/limpeza"/>
+    <loc>https://clickonepro.com/setores/limpeza</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/limpeza"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/limpeza"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/limpeza"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/limpeza"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/construcao</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/construcao"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/construcao"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/construcao"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/construcao"/>
+    <loc>https://clickonepro.com/setores/construcao</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/construcao"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/construcao"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/construcao"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/construcao"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/hvac</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/hvac"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/hvac"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/hvac"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/hvac"/>
+    <loc>https://clickonepro.com/setores/hvac</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/hvac"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/hvac"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/hvac"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/hvac"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/encanamento</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/encanamento"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/encanamento"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/encanamento"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/encanamento"/>
+    <loc>https://clickonepro.com/setores/encanamento</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/encanamento"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/encanamento"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/encanamento"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/encanamento"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/eletrica</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/eletrica"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/eletrica"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/eletrica"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/eletrica"/>
+    <loc>https://clickonepro.com/setores/eletrica</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/eletrica"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/eletrica"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/eletrica"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/eletrica"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/paisagismo</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/paisagismo"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/paisagismo"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/paisagismo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/paisagismo"/>
+    <loc>https://clickonepro.com/setores/paisagismo</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/paisagismo"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/paisagismo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/paisagismo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/paisagismo"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/piscina</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/piscina"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/piscina"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/piscina"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/piscina"/>
+    <loc>https://clickonepro.com/setores/piscina</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/piscina"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/piscina"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/piscina"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/piscina"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/mudanca</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/mudanca"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/mudanca"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/mudanca"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/mudanca"/>
+    <loc>https://clickonepro.com/setores/mudanca</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/mudanca"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/mudanca"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/mudanca"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/mudanca"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/telhado</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/telhado"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/telhado"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/telhado"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/telhado"/>
+    <loc>https://clickonepro.com/setores/telhado</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/telhado"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/telhado"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/telhado"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/telhado"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/controle-pragas</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/controle-pragas"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/controle-pragas"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/controle-pragas"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/controle-pragas"/>
+    <loc>https://clickonepro.com/setores/controle-pragas</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/controle-pragas"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/controle-pragas"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/controle-pragas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/controle-pragas"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/chaveiro</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/chaveiro"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/chaveiro"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/chaveiro"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/chaveiro"/>
+    <loc>https://clickonepro.com/setores/chaveiro</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/chaveiro"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/chaveiro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/chaveiro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/chaveiro"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/pintores</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/pintores"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/pintores"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/pintores"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/pintores"/>
+    <loc>https://clickonepro.com/setores/pintores</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/pintores"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/pintores"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/pintores"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/pintores"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/dentista</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/dentista"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/dentista"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/dentista"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/dentista"/>
+    <loc>https://clickonepro.com/setores/dentista</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/dentista"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/dentista"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/dentista"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/dentista"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/quiropraxia</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/quiropraxia"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/quiropraxia"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/quiropraxia"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/quiropraxia"/>
+    <loc>https://clickonepro.com/setores/quiropraxia</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/quiropraxia"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/quiropraxia"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/quiropraxia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/quiropraxia"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/veterinario</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/veterinario"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/veterinario"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/veterinario"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/veterinario"/>
+    <loc>https://clickonepro.com/setores/veterinario</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/veterinario"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/veterinario"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/veterinario"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/veterinario"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/clinica-medica</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/clinica-medica"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/clinica-medica"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/clinica-medica"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/clinica-medica"/>
+    <loc>https://clickonepro.com/setores/clinica-medica</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/clinica-medica"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/clinica-medica"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/clinica-medica"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/clinica-medica"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/salao-cabelo</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/salao-cabelo"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/salao-cabelo"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/salao-cabelo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/salao-cabelo"/>
+    <loc>https://clickonepro.com/setores/salao-cabelo</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/salao-cabelo"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/salao-cabelo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/salao-cabelo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/salao-cabelo"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/spa-massagem</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/spa-massagem"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/spa-massagem"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/spa-massagem"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/spa-massagem"/>
+    <loc>https://clickonepro.com/setores/spa-massagem</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/spa-massagem"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/spa-massagem"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/spa-massagem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/spa-massagem"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/inspecao-residencial</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/inspecao-residencial"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/inspecao-residencial"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/inspecao-residencial"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/inspecao-residencial"/>
+    <loc>https://clickonepro.com/setores/inspecao-residencial</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/inspecao-residencial"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/inspecao-residencial"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/inspecao-residencial"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/inspecao-residencial"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/setores/pisos</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/setores/pisos"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/setores/pisos"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/setores/pisos"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/setores/pisos"/>
+    <loc>https://clickonepro.com/setores/pisos</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/setores/pisos"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/setores/pisos"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/setores/pisos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/setores/pisos"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Other Pages -->
   <url>
-    <loc>https://clickone.ai/sobre</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/sobre"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/sobre"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/sobre"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/sobre"/>
+    <loc>https://clickonepro.com/sobre</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/sobre"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/sobre"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/sobre"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/sobre"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/blog</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/blog"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/blog"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/blog"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/blog"/>
+    <loc>https://clickonepro.com/blog</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/blog"/>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/agendar-demo</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/agendar-demo"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/agendar-demo"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/agendar-demo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/agendar-demo"/>
+    <loc>https://clickonepro.com/agendar-demo</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/agendar-demo"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/agendar-demo"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/agendar-demo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/agendar-demo"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Legal -->
   <url>
-    <loc>https://clickone.ai/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/privacy-policy"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/privacy-policy"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/privacy-policy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/privacy-policy"/>
+    <loc>https://clickonepro.com/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/privacy-policy"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://clickone.ai/terms-of-service</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/terms-of-service"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/terms-of-service"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/terms-of-service"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/terms-of-service"/>
+    <loc>https://clickonepro.com/terms-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/terms-of-service"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <!-- Landing Pages -->
   <url>
-    <loc>https://clickone.ai/lp/perdendo-clientes</loc>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickone.ai/lp/perdendo-clientes"/>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickone.ai/lp/perdendo-clientes"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://clickone.ai/lp/perdendo-clientes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickone.ai/lp/perdendo-clientes"/>
+    <loc>https://clickonepro.com/lp/perdendo-clientes</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/lp/perdendo-clientes"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/lp/perdendo-clientes"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/lp/perdendo-clientes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/lp/perdendo-clientes"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
