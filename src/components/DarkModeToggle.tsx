@@ -2,13 +2,17 @@ import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
+/**
+ * Toggle de dark mode que funciona apenas no dashboard admin.
+ * Não considera preferência do sistema operacional.
+ */
 const DarkModeToggle = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
+    // Apenas verificar preferência salva, ignorar prefers-color-scheme
     const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+    const shouldBeDark = savedTheme === "dark";
     
     setIsDark(shouldBeDark);
     if (shouldBeDark) {
