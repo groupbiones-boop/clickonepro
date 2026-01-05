@@ -7,15 +7,17 @@
     <meta name="author" content="ClickOne AI" />
 
     <!-- Preconnect for external resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
     <link rel="preconnect" href="https://beta.leadconnectorhq.com" crossorigin />
     
     <!-- DNS prefetch for deferred resources -->
     <link rel="dns-prefetch" href="https://ojyzegzdlpjlbdhvqhav.supabase.co" />
     
-    <!-- Preload LCP hero image (optimized WebP) -->
-    <link rel="preload" as="image" href="/src/assets/hero-home-optimized.webp" type="image/webp" fetchpriority="high" />
+    <!-- Preload Roboto font with font-display swap -->
+    <link rel="preload" as="font" href="https://fonts.bunny.net/roboto/files/roboto-latin-400-normal.woff2" type="font/woff2" crossorigin />
+    
+    <!-- Preload LCP hero image - responsive sizes for mobile/desktop -->
+    <link rel="preload" as="image" imagesrcset="/assets/hero-home-sm.webp 896w, /assets/hero-home-md.webp 1024w, /assets/hero-home-optimized.webp 1920w" imagesizes="100vw" type="image/webp" fetchpriority="high" />
 
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#500daa" />

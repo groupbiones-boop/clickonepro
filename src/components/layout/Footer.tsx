@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <img src={clickoneLogoOfficialWhite} alt="ClickOne AI" className="h-8 md:h-10 w-auto" />
+            <img src={clickoneLogoOfficialWhite} alt="ClickOne AI" className="h-8 md:h-10 w-auto" width="172" height="40" />
             <p className="text-background/70 text-sm">
               {t("footer.description")}
             </p>
