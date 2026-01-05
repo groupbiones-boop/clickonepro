@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import {
   Accordion,
   AccordionContent,
@@ -229,11 +230,11 @@ const SetorDetalhe = () => {
             </div>
             <div className="relative animate-fade-in" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img 
+                <OptimizedImage 
                   src={images.secondary}
                   alt={name}
                   className="w-full h-auto"
-                  loading="lazy"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
             </div>
