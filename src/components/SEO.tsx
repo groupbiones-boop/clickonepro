@@ -63,7 +63,7 @@ interface SEOProps {
   }>;
 }
 
-const BASE_URL = "https://clickone.ai";
+const BASE_URL = "https://clickonepro.com";
 const SUPPORTED_LANGUAGES = ["pt-BR", "en-US", "es"];
 
 const SEO = ({
@@ -71,7 +71,7 @@ const SEO = ({
   descriptionKey,
   title: directTitle,
   description: directDescription,
-  ogImage = "https://clickone.ai/og-image.png",
+  ogImage = "https://clickonepro.com/og-image.png",
   noIndex = false,
   canonicalUrl,
   schemaType,
@@ -106,8 +106,8 @@ const SEO = ({
     const baseOrganization = {
       "@type": "Organization",
       "name": "ClickOne AI",
-      "url": "https://clickone.ai",
-      "logo": "https://clickone.ai/favicon.png",
+      "url": "https://clickonepro.com",
+      "logo": "https://clickonepro.com/favicon.png",
       "sameAs": [
         "https://www.linkedin.com/company/clickone-ai",
         "https://twitter.com/clickoneai"
@@ -199,7 +199,7 @@ const SEO = ({
           "provider": {
             "@type": "Organization",
             "name": data?.provider || "ClickOne AI",
-            "url": "https://clickone.ai"
+            "url": "https://clickonepro.com"
           },
           "areaServed": data?.areaServed || "Worldwide",
           "serviceType": "AI Virtual Receptionist"
@@ -223,7 +223,7 @@ const SEO = ({
             "name": "ClickOne AI",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://clickone.ai/favicon.png"
+              "url": "https://clickonepro.com/favicon.png"
             }
           },
           "mainEntityOfPage": {

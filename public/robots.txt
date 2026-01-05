@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://clickone.ai/sitemap.xml
+Sitemap: https://clickonepro.com/sitemap.xml
