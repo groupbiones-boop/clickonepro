@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
+import DOMPurify from "dompurify";
 import { format } from "date-fns";
 import Layout from "@/components/layout/Layout";
 import SEO from "@/components/SEO";
@@ -103,7 +104,13 @@ const BlogPost = () => {
 
             <div 
               className="prose prose-lg max-w-none dark:prose-invert"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(post.content, {
+                  ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 's', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre', 'hr', 'span', 'div', 'figure', 'figcaption'],
+                  ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'target', 'rel'],
+                  ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
+                }),
+              }}
             />
 
             <div className="mt-12 pt-8 border-t">
