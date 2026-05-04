@@ -12,6 +12,31 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // Authentication: require either a matching webhook secret OR the service role key.
+  // This blocks unauthenticated public invocations while still allowing
+  // Supabase Cron jobs (which authenticate with the service role key) and
+  // trusted external schedulers configured with REPORTS_WEBHOOK_SECRET.
+  const webhookSecret = Deno.env.get("REPORTS_WEBHOOK_SECRET");
+  const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  const providedSecret = req.headers.get("x-webhook-secret");
+  const authHeader = req.headers.get("authorization") || "";
+  const bearerToken = authHeader.toLowerCase().startsWith("bearer ")
+    ? authHeader.slice(7).trim()
+    : "";
+
+  const matchesServiceRole =
+    !!serviceRoleKey && bearerToken === serviceRoleKey;
+  const matchesWebhookSecret =
+    !!webhookSecret && !!providedSecret && providedSecret === webhookSecret;
+
+  if (!matchesServiceRole && !matchesWebhookSecret) {
+    console.warn("Unauthorized invocation of send-scheduled-reports");
+    return new Response(
+      JSON.stringify({ error: "Unauthorized" }),
+      { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
+  }
+
   try {
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
     if (!resendApiKey) {
