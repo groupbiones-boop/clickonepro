@@ -24,6 +24,7 @@ interface SEOProps {
   title?: string;
   description?: string;
   ogImage?: string;
+  ogType?: "website" | "article";
   noIndex?: boolean;
   canonicalUrl?: string;
   // JSON-LD Schema props
@@ -72,6 +73,7 @@ const SEO = ({
   title: directTitle,
   description: directDescription,
   ogImage = "https://clickonepro.com/og-image.png",
+  ogType = "website",
   noIndex = false,
   canonicalUrl,
   schemaType,
