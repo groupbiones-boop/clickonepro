@@ -268,7 +268,7 @@ export function useLandingPages() {
 
   const updateLandingPage = async (id: string, updates: Partial<Pick<LandingPage, "name" | "slug" | "content" | "images" | "status">>) => {
     try {
-      const updateData: Record<string, unknown> = { ...updates };
+      const updateData: Partial<{ name: string; slug: string; content: Json; images: Json; status: string }> = { ...updates };
       if (updates.content) updateData.content = updates.content as unknown as Json;
       if (updates.images) updateData.images = updates.images as unknown as Json;
       
