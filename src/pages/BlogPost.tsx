@@ -64,6 +64,16 @@ const BlogPost = () => {
       <SEO 
         title={post.meta_title || post.title}
         description={post.meta_description || post.excerpt || ""}
+        ogImage={post.cover_image || undefined}
+        ogType="article"
+        schemaType="Article"
+        schemaData={{
+          headline: post.title,
+          author: post.author,
+          datePublished: post.published_at || undefined,
+          dateModified: post.updated_at || post.published_at || undefined,
+          articleImage: post.cover_image || undefined,
+        }}
       />
       <section className="py-16 md:py-24">
         <div className="container">

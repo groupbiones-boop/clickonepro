@@ -275,7 +275,7 @@ const SEO = ({
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:url" content={finalCanonical} />
       <meta property="og:locale" content={i18n.language} />
