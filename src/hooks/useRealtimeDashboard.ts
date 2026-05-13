@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 export const useRealtimeDashboard = (onDataUpdate?: () => void) => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
-  const debounceRef = useRef<NodeJS.Timeout | null>(null);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const invalidateAnalytics = useCallback(() => {
     // Debounce analytics invalidation to prevent too many refreshes

@@ -17,7 +17,7 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
   const [visibleMessages, setVisibleMessages] = useState<TranscriptMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasRealAudio, setHasRealAudio] = useState(false);
-  const simulationRef = useRef<NodeJS.Timeout | null>(null);
+  const simulationRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Check if demo has real audio URL
   useEffect(() => {
