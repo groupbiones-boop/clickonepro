@@ -337,6 +337,16 @@
     <priority>0.3</priority>
   </url>
 
+  <url>
+    <loc>https://clickonepro.com/contato</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://clickonepro.com/contato"/>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://clickonepro.com/contato"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://clickonepro.com/contato"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://clickonepro.com/contato"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Landing Pages -->
   <url>
     <loc>https://clickonepro.com/lp/perdendo-clientes</loc>
