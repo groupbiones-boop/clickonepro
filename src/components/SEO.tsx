@@ -24,6 +24,7 @@ interface SEOProps {
   title?: string;
   description?: string;
   ogImage?: string;
+  ogType?: "website" | "article";
   noIndex?: boolean;
   canonicalUrl?: string;
   // JSON-LD Schema props
@@ -72,6 +73,7 @@ const SEO = ({
   title: directTitle,
   description: directDescription,
   ogImage = "https://clickonepro.com/og-image.png",
+  ogType = "website",
   noIndex = false,
   canonicalUrl,
   schemaType,
@@ -273,7 +275,7 @@ const SEO = ({
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:url" content={finalCanonical} />
       <meta property="og:locale" content={i18n.language} />

@@ -1,0 +1,35 @@
+# ClickOne AI
+
+> AI virtual receptionist that answers calls, schedules appointments, and automatically follows up leads 24/7 for US service businesses.
+
+ClickOne AI provides a voice + conversational AI receptionist designed for small and mid-sized service businesses (cleaning, HVAC, plumbing, electrical, roofing, dental, veterinary, and more). The platform answers every call within seconds, books visits, and runs automatic follow-up so businesses never miss a lead. Bookings are handled through a consultative demo flow rather than self-serve checkout.
+
+## Pages
+
+- [Home](/): Overview of the AI receptionist product and outcomes.
+- [About](/sobre): Company story, mission, and team.
+- [Contact](/contato): Phone, email, location, and FAQ.
+- [Book a Demo](/agendar-demo): Schedule a consultative demo.
+- [Blog](/blog): Articles on customer experience, AI, and operations.
+
+## Product
+
+- [AI Voice Receptionist](/produto/recepcionista-ia-voz): 24/7 voice AI that answers and qualifies calls.
+- [Conversational AI Agent](/produto/atendente-ia-conversacional): Multichannel chat AI for follow-up.
+- [Vertical Infrastructure](/produto/infraestrutura-vertical): Industry-specific AI deployment.
+
+## By Business Size
+
+- [Small Business](/empresas/pequena-empresa): Solo operators and small teams.
+- [Mid-Sized Business](/empresas/media-empresa): Growing service companies.
+- [Local Businesses](/empresas/negocios-locais): Neighborhood-focused operations.
+
+## Industries
+
+- [All Industries](/setores): Index of supported verticals.
+- [HVAC](/setores/hvac), [Plumbing](/setores/encanamento), [Electrical](/setores/eletrica), [Cleaning](/setores/limpeza), [Construction](/setores/construcao), [Roofing](/setores/telhado), [Landscaping](/setores/paisagismo), [Pool Service](/setores/piscina), [Moving](/setores/mudanca), [Pest Control](/setores/controle-pragas), [Locksmith](/setores/chaveiro), [Painters](/setores/pintores), [Dental](/setores/dentista), [Chiropractic](/setores/quiropraxia), [Veterinary](/setores/veterinario), [Medical Clinic](/setores/clinica-medica), [Hair Salon](/setores/salao-cabelo), [Spa & Massage](/setores/spa-massagem), [Home Inspection](/setores/inspecao-residencial), [Flooring](/setores/pisos)
+
+## Optional
+
+- [Privacy Policy](/privacy-policy)
+- [Terms of Service](/terms-of-service)

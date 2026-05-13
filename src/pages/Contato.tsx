@@ -49,6 +49,8 @@ const Contato = () => {
       <SEO
         titleKey="seo.contact.title"
         descriptionKey="seo.contact.description"
+        schemaType="FAQPage"
+        schemaData={{ faqItems: faqs }}
       />
 
       {/* Hero Section */}
