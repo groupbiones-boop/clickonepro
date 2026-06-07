@@ -26,6 +26,7 @@ export interface CountryGroup {
 }
 
 const CHANNEL_NAME = "visitor-presence";
+const BASE_CHANNEL = CHANNEL_NAME;
 
 export const useOnlineVisitors = () => {
   const [visitors, setVisitors] = useState<OnlineVisitor[]>([]);
