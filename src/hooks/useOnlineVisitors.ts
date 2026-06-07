@@ -97,6 +97,14 @@ export const useOnlineVisitors = () => {
     let channel: RealtimeChannel | null = null;
 
     const setupChannel = () => {
+      // Remove any pre-existing channel with the same topic to avoid
+      // "cannot add presence callbacks after subscribe()" on remount/StrictMode
+      supabase.getChannels().forEach((ch) => {
+        if (ch.topic === `realtime:${CHANNEL_NAME}`) {
+          supabase.removeChannel(ch);
+        }
+      });
+
       channel = supabase.channel(CHANNEL_NAME);
 
       channel
