@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# ClickOnePro
 
-## Project info
+Plataforma de IA conversacional para negócios de serviços nos EUA — atendente virtual Bia, follow-up automático e infraestrutura vertical.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🌐 **Produção:** https://clickonepro.com
+🛠️ **Editor Lovable:** https://lovable.dev/projects/9bf25d8e-a382-4aab-96fd-f5da4ceebd30
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 📁 Estrutura do Repositório
 
-**Use Lovable**
+O código está **totalmente separado** entre frontend e backend, em pastas independentes:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+```
+clickonepro/
+├── src/                    # 🎨 FRONTEND (React + Vite + TS + Tailwind)
+│   ├── components/         # Componentes reutilizáveis (UI, layout, admin)
+│   ├── pages/              # Rotas públicas, /admin, /lp, /setores, /legal
+│   ├── hooks/              # React hooks (analytics, realtime, dashboard)
+│   ├── contexts/           # AdminAuthContext
+│   ├── i18n/               # Traduções pt-BR, en-US, es
+│   ├── lib/                # Utils, geolocation, external-urls
+│   ├── integrations/       # Cliente Supabase (auto-gerado, NÃO editar)
+│   ├── assets/             # Logos e imagens estáticas
+│   ├── data/               # Conteúdo estático (audioDemo)
+│   ├── App.tsx             # Rotas
+│   ├── main.tsx            # Entry point
+│   └── index.css           # Design system (HSL tokens)
+│
+├── supabase/               # ⚙️ BACKEND (Lovable Cloud / Supabase)
+│   ├── functions/          # Edge functions (Deno)
+│   │   ├── elevenlabs-tts/         # TTS via ElevenLabs
+│   │   ├── generate-blog-image/    # Geração de capas via Lovable AI
+│   │   ├── generate-demo-audio/    # Áudio demo
+│   │   ├── generate-lp-images/     # Imagens de landing pages
+│   │   ├── ghl-webhook/            # Webhook GoHighLevel
+│   │   └── send-scheduled-reports/ # Relatórios agendados
+│   ├── migrations/         # Schema SQL versionado (RLS, políticas, funções)
+│   └── config.toml         # Config de edge functions (verify_jwt etc.)
+│
+├── public/                 # Assets estáticos servidos pelo Vite
+├── index.html              # HTML raiz (SEO, fontes, scripts)
+├── tailwind.config.ts      # Configuração Tailwind + tokens
+├── vite.config.ts          # Build config
+└── package.json            # Dependências
+```
 
-Changes made via Lovable will be committed automatically to this repo.
+### Separação clara
 
-**Use your preferred IDE**
+| Camada | Pasta | Responsabilidade |
+|---|---|---|
+| **Frontend** | `src/` + `public/` + `index.html` | UI, rotas, design system, chamadas ao backend |
+| **Backend** | `supabase/` | Banco (Postgres + RLS), edge functions, storage, auth |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Não há mistura: o frontend **consome** o backend via `@/integrations/supabase/client` (cliente auto-gerado), e o backend é totalmente declarativo em SQL + funções Deno.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🚀 Desenvolvimento Local
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+# Pré-requisitos: Node.js 18+ (use nvm)
+git clone https://github.com/groupbiones-boop/clickonepro.git
+cd clickonepro
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Acesse http://localhost:8080.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Sincronização Lovable ↔ GitHub
 
-**Use GitHub Codespaces**
+A sincronização é **bidirecional e automática**:
+- Push no GitHub → aparece no Lovable em segundos
+- Alteração no Lovable → commit automático no GitHub
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Edite onde for mais confortável (IDE local, GitHub web, Codespaces ou Lovable) — os três ficam sempre alinhados.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## ⚙️ Backend (Lovable Cloud)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+O backend roda em **Lovable Cloud** (Postgres + Edge Functions gerenciados). Não é necessário rodar Supabase localmente; toda alteração de schema vai em `supabase/migrations/*.sql` e é aplicada automaticamente.
 
-## How can I deploy this project?
+### Edge Functions
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Deploy automático ao salvar arquivo em `supabase/functions/<nome>/index.ts`.
+Configuração de JWT em `supabase/config.toml`.
 
-## Can I connect a custom domain to my Lovable project?
+### Secrets
 
-Yes, you can!
+Gerenciados via Lovable Cloud → Secrets (nunca commitados). Variáveis padrão:
+- `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, `VITE_SUPABASE_PROJECT_ID` (frontend)
+- `SUPABASE_SERVICE_ROLE_KEY`, `LOVABLE_API_KEY`, `ELEVENLABS_API_KEY` etc. (edge functions)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Segurança
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **RLS habilitado** em todas as tabelas de `public`
+- Roles em tabela separada (`user_roles`) + função `has_role` SECURITY DEFINER
+- Auth via `AdminAuthContext` para o painel `/admin`
+
+---
+
+## 🧰 Stack
+
+**Frontend:** React 18 · Vite 5 · TypeScript 5 · Tailwind CSS 3 · shadcn/ui · React Router · TanStack Query · i18next
+**Backend:** Postgres 15 · Supabase Edge Functions (Deno) · Lovable AI Gateway (Gemini/GPT) · ElevenLabs
+
+---
+
+## 📦 Publicação
+
+Publique pelo botão **Publish** no editor Lovable. Domínio customizado configurado em Project Settings → Domains (`clickonepro.com`).
+
+---
+
+## 📄 Licença
+
+Proprietário — ClickOnePro / Group Biones. Todos os direitos reservados.
