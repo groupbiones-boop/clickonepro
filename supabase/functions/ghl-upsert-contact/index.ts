@@ -124,15 +124,26 @@ export function buildAppointmentPayload(
 ): Record<string, unknown> | undefined {
   if (!p.preferredDate || !p.preferredTime) return undefined;
 
-  const startTime = `${p.preferredDate}T${p.preferredTime.length === 5 ? `${p.preferredTime}:00` : p.preferredTime}`;
+  const timezone = "America/New_York";
+  const time = p.preferredTime.length === 5 ? `${p.preferredTime}:00` : p.preferredTime;
+  // GHL v2 accepts local ISO (no offset) when `timezone` field is provided
+  const startTime = `${p.preferredDate}T${time}`;
+  // Default 30-min slot
+  const [hh, mm] = time.split(":").map(Number);
+  const endDate = new Date(Date.UTC(2000, 0, 1, hh, mm + 30));
+  const endTime = `${p.preferredDate}T${String(endDate.getUTCHours()).padStart(2, "0")}:${String(endDate.getUTCMinutes()).padStart(2, "0")}:00`;
+
   const payload: Record<string, unknown> = {
     calendarId,
     locationId,
     contactId,
     startTime,
+    endTime,
+    timezone,
     title: `ClickOne Pro demo${p.company ? ` - ${p.company}` : ""}`,
-    appointmentStatus: "new",
+    appointmentStatus: "confirmed",
     ignoreDateRange: true,
+    toNotify: true,
   };
 
   Object.keys(payload).forEach((k) => payload[k] === undefined && delete payload[k]);
