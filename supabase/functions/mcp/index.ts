@@ -122,18 +122,140 @@ var list_leads_default = defineTool3({
   }
 });
 
+// src/lib/mcp/tools/get-lead.ts
+import { createClient as createClient4 } from "npm:@supabase/supabase-js@^2.89.0";
+import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z4 } from "npm:zod@^3.25.76";
+function supabaseForUser4(ctx) {
+  return createClient4(getEnv("SUPABASE_URL"), getEnv("SUPABASE_PUBLISHABLE_KEY"), {
+    global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+}
+var get_lead_default = defineTool4({
+  name: "get_lead",
+  title: "Get lead",
+  description: "Fetch a single lead by id or email. Requires admin access via RLS.",
+  inputSchema: {
+    id: z4.string().uuid().optional().describe("Lead UUID."),
+    email: z4.string().email().optional().describe("Lead email.")
+  },
+  annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+  handler: async ({ id, email }, ctx) => {
+    if (!ctx.isAuthenticated()) {
+      return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
+    }
+    if (!id && !email) {
+      return { content: [{ type: "text", text: "Provide id or email." }], isError: true };
+    }
+    let query = supabaseForUser4(ctx).from("leads").select("*").limit(1);
+    if (id) query = query.eq("id", id);
+    else if (email) query = query.eq("email", email);
+    const { data, error } = await query.maybeSingle();
+    if (error) {
+      return { content: [{ type: "text", text: error.message }], isError: true };
+    }
+    return {
+      content: [{ type: "text", text: JSON.stringify(data, null, 2) }],
+      structuredContent: { lead: data }
+    };
+  }
+});
+
+// src/lib/mcp/tools/create-lead.ts
+import { createClient as createClient5 } from "npm:@supabase/supabase-js@^2.89.0";
+import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z5 } from "npm:zod@^3.25.76";
+function supabaseForUser5(ctx) {
+  return createClient5(getEnv("SUPABASE_URL"), getEnv("SUPABASE_PUBLISHABLE_KEY"), {
+    global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+}
+var create_lead_default = defineTool5({
+  name: "create_lead",
+  title: "Create lead",
+  description: "Create a new lead in the ClickOne CRM. Requires at least an email. Optional fields: name, phone, company, source, utm_source, utm_medium, utm_campaign, status.",
+  inputSchema: {
+    email: z5.string().email().describe("Lead email (required)."),
+    name: z5.string().optional(),
+    phone: z5.string().optional(),
+    company: z5.string().optional(),
+    source: z5.string().optional().describe("Where the lead came from (e.g. 'mcp', 'landing-page')."),
+    utm_source: z5.string().optional(),
+    utm_medium: z5.string().optional(),
+    utm_campaign: z5.string().optional(),
+    status: z5.string().optional().describe("Lead status (default 'new').")
+  },
+  annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
+  handler: async (input, ctx) => {
+    if (!ctx.isAuthenticated()) {
+      return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
+    }
+    const { data, error } = await supabaseForUser5(ctx).from("leads").insert({ ...input, source: input.source ?? "mcp" }).select().single();
+    if (error) {
+      return { content: [{ type: "text", text: error.message }], isError: true };
+    }
+    return {
+      content: [{ type: "text", text: JSON.stringify(data, null, 2) }],
+      structuredContent: { lead: data }
+    };
+  }
+});
+
+// src/lib/mcp/tools/update-lead-status.ts
+import { createClient as createClient6 } from "npm:@supabase/supabase-js@^2.89.0";
+import { defineTool as defineTool6 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z6 } from "npm:zod@^3.25.76";
+function supabaseForUser6(ctx) {
+  return createClient6(getEnv("SUPABASE_URL"), getEnv("SUPABASE_PUBLISHABLE_KEY"), {
+    global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+}
+var update_lead_status_default = defineTool6({
+  name: "update_lead_status",
+  title: "Update lead status",
+  description: "Update the status of an existing lead by id. Common values: 'new', 'contacted', 'qualified', 'converted', 'lost'. Requires admin access via RLS.",
+  inputSchema: {
+    id: z6.string().uuid().describe("Lead UUID."),
+    status: z6.string().min(1).describe("New status value.")
+  },
+  annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  handler: async ({ id, status }, ctx) => {
+    if (!ctx.isAuthenticated()) {
+      return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
+    }
+    const { data, error } = await supabaseForUser6(ctx).from("leads").update({ status }).eq("id", id).select().single();
+    if (error) {
+      return { content: [{ type: "text", text: error.message }], isError: true };
+    }
+    return {
+      content: [{ type: "text", text: JSON.stringify(data, null, 2) }],
+      structuredContent: { lead: data }
+    };
+  }
+});
+
 // src/lib/mcp/index.ts
 var projectRef = "ojyzegzdlpjlbdhvqhav";
 var mcp_default = defineMcp({
   name: "clickonepro-mcp",
   title: "ClickOne Pro MCP",
-  version: "0.1.0",
-  instructions: "Tools for the ClickOne Pro app. Use `list_blog_posts` and `get_blog_post` to read blog content. Use `list_leads` (admin-only) to inspect leads captured by the site.",
+  version: "0.2.0",
+  instructions: "Tools for the ClickOne Pro CRM and blog. Blog: `list_blog_posts`, `get_blog_post`. Leads (admin, RLS-enforced): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated"
   }),
-  tools: [list_blog_posts_default, get_blog_post_default, list_leads_default]
+  tools: [
+    list_blog_posts_default,
+    get_blog_post_default,
+    list_leads_default,
+    get_lead_default,
+    create_lead_default,
+    update_lead_status_default
+  ]
 });
 
 // lovable-mcp-supabase-entry.ts
