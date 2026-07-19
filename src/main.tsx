@@ -4,6 +4,9 @@ import "./index.css";
 import "./i18n";
 import { installGlobalErrorLogger } from "./lib/error-logger";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { initSentry } from "./lib/sentry";
+
+initSentry();
 
 // Garantir que o site inicie sempre em modo claro
 document.documentElement.classList.remove("dark");
