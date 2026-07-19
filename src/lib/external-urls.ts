@@ -5,8 +5,8 @@
 // to ensure consistency and easy maintenance.
 
 export const EXTERNAL_URLS = {
-  // GoHighLevel - Demo Booking
-  GHL_BOOKING: "https://links.clickonepro.com/widget/bookings/clickoneus",
+  // Demo Booking - native page (GHL widget URL is currently returning 404)
+  GHL_BOOKING: "/agendar-demo",
   
   // App Login
   APP_LOGIN: "https://app.clickonepro.com/",
@@ -38,7 +38,8 @@ export interface UTMParams {
  * Appends UTM parameters to a URL for campaign tracking
  */
 export const appendUTMParams = (baseUrl: string, utmParams: UTMParams): string => {
-  const url = new URL(baseUrl);
+  const origin = typeof window !== "undefined" ? window.location.origin : "https://clickonepro.com";
+  const url = new URL(baseUrl, origin);
   if (utmParams.source) url.searchParams.set("utm_source", utmParams.source);
   if (utmParams.medium) url.searchParams.set("utm_medium", utmParams.medium);
   if (utmParams.campaign) url.searchParams.set("utm_campaign", utmParams.campaign);
