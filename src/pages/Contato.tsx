@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import SEO from "@/components/SEO";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
@@ -94,15 +95,13 @@ const Contato = () => {
                 <Calendar className="w-4 h-4 text-primary" />
                 <span>
                   {t("contact.orSchedule", { defaultValue: "Prefere agendar direto?" })}{" "}
-                  <a
-                    href={EXTERNAL_URLS.GHL_BOOKING}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to={EXTERNAL_URLS.GHL_BOOKING}
                     className="text-primary font-medium hover:underline"
                   >
                     {t("contact.ctaButton", { defaultValue: "Agendar Demo Gratuita" })}
                     <ArrowRight className="inline ml-1 h-3 w-3" />
-                  </a>
+                  </Link>
                 </span>
               </div>
             </AnimatedSection>
@@ -207,14 +206,10 @@ const Contato = () => {
               {t("contact.ctaSubtitle", { defaultValue: "Agende uma demo gratuita e veja como a ClickOne pode ajudar seu negócio." })}
             </p>
             <Button asChild size="lg" className="tracking-wide text-lg px-8 py-6">
-              <a
-                href={EXTERNAL_URLS.GHL_BOOKING}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link to={EXTERNAL_URLS.GHL_BOOKING}>
                 {t("contact.ctaButton", { defaultValue: "Agendar Demo Gratuita" })}
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Link>
             </Button>
           </AnimatedSection>
         </div>
