@@ -10,11 +10,6 @@ export const EXTERNAL_URLS = {
   
   // App Login
   APP_LOGIN: "https://app.clickonepro.com/",
-  
-  // Chat Widget
-  CHAT_WIDGET_SCRIPT: "https://beta.leadconnectorhq.com/loader.js",
-  CHAT_WIDGET_RESOURCES: "https://beta.leadconnectorhq.com/chat-widget/loader.js",
-  CHAT_WIDGET_ID: "6958160ae056feed599822d0",
 } as const;
 
 // Contact Information
