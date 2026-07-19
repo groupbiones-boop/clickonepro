@@ -237,13 +237,75 @@ var update_lead_status_default = defineTool6({
   }
 });
 
+// src/lib/mcp/tools/create-blog-post.ts
+import { createClient as createClient7 } from "npm:@supabase/supabase-js@^2.89.0";
+import { defineTool as defineTool7 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z7 } from "npm:zod@^3.25.76";
+function supabaseForUser7(ctx) {
+  return createClient7(getEnv("SUPABASE_URL"), getEnv("SUPABASE_PUBLISHABLE_KEY"), {
+    global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+}
+function slugify(input) {
+  return input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-").replace(/-+/g, "-").slice(0, 80);
+}
+var create_blog_post_default = defineTool7({
+  name: "create_blog_post",
+  title: "Create blog post",
+  description: "Create a new blog post. Provide title and content (Markdown or HTML). Slug is auto-generated from the title if omitted. Set status='published' to publish immediately (published_at is set to now); otherwise it stays as draft. Requires admin (RLS).",
+  inputSchema: {
+    title: z7.string().min(3).describe("Post title."),
+    content: z7.string().min(10).describe("Full post body (Markdown or HTML)."),
+    slug: z7.string().optional().describe("URL slug. Auto-generated from title if omitted."),
+    excerpt: z7.string().optional().describe("Short summary shown in listings."),
+    cover_image: z7.string().url().optional().describe("Cover image URL."),
+    category_id: z7.string().uuid().optional(),
+    author: z7.string().optional(),
+    status: z7.enum(["draft", "published"]).optional().describe("Default 'draft'."),
+    meta_title: z7.string().optional(),
+    meta_description: z7.string().optional(),
+    read_time: z7.number().int().min(1).max(120).optional()
+  },
+  annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
+  handler: async (input, ctx) => {
+    if (!ctx.isAuthenticated()) {
+      return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
+    }
+    const status = input.status ?? "draft";
+    const slug = input.slug?.trim() || slugify(input.title);
+    const row = {
+      title: input.title,
+      slug,
+      content: input.content,
+      excerpt: input.excerpt,
+      cover_image: input.cover_image,
+      category_id: input.category_id,
+      author: input.author,
+      status,
+      published_at: status === "published" ? (/* @__PURE__ */ new Date()).toISOString() : null,
+      meta_title: input.meta_title,
+      meta_description: input.meta_description,
+      read_time: input.read_time
+    };
+    const { data, error } = await supabaseForUser7(ctx).from("blog_posts").insert(row).select().single();
+    if (error) {
+      return { content: [{ type: "text", text: error.message }], isError: true };
+    }
+    return {
+      content: [{ type: "text", text: JSON.stringify(data, null, 2) }],
+      structuredContent: { post: data }
+    };
+  }
+});
+
 // src/lib/mcp/index.ts
 var projectRef = "ojyzegzdlpjlbdhvqhav";
 var mcp_default = defineMcp({
   name: "clickonepro-mcp",
   title: "ClickOne Pro MCP",
-  version: "0.2.0",
-  instructions: "Tools for the ClickOne Pro CRM and blog. Blog: `list_blog_posts`, `get_blog_post`. Leads (admin, RLS-enforced): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`.",
+  version: "0.3.0",
+  instructions: "Tools for the ClickOne Pro CRM and blog. Blog: `list_blog_posts`, `get_blog_post`, `create_blog_post` (admin). Leads (admin, RLS-enforced): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated"
@@ -251,6 +313,7 @@ var mcp_default = defineMcp({
   tools: [
     list_blog_posts_default,
     get_blog_post_default,
+    create_blog_post_default,
     list_leads_default,
     get_lead_default,
     create_lead_default,
