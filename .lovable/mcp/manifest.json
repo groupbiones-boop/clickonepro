@@ -12,7 +12,7 @@
   "mcp": {
     "server": {
       "name": "clickonepro-mcp",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "title": "ClickOne Pro MCP"
     },
     "tools": [
@@ -137,6 +137,133 @@
               "type": "integer",
               "minimum": 1,
               "maximum": 120
+            }
+          },
+          "required": [
+            "title",
+            "content"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "update_blog_post",
+        "title": "Update blog post",
+        "description": "Update an existing blog post by id or current slug. Any field (title, slug, content, excerpt, cover_image, meta_*, read_time) may be omitted to keep the current value. Toggle publish state with status='draft'|'published' — switching to 'published' sets published_at=now if it was empty; switching to 'draft' clears published_at. Requires admin (RLS).",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Post id. Provide id OR slug."
+            },
+            "slug": {
+              "type": "string",
+              "description": "Current slug. Provide id OR slug."
+            },
+            "title": {
+              "type": "string",
+              "minLength": 3
+            },
+            "new_slug": {
+              "type": "string",
+              "description": "New URL slug. If omitted, slug is unchanged."
+            },
+            "content": {
+              "type": "string",
+              "minLength": 10
+            },
+            "excerpt": {
+              "type": "string"
+            },
+            "cover_image": {
+              "type": "string",
+              "format": "uri"
+            },
+            "category_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "author": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "draft",
+                "published"
+              ]
+            },
+            "meta_title": {
+              "type": "string"
+            },
+            "meta_description": {
+              "type": "string"
+            },
+            "read_time": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 120
+            },
+            "regenerate_slug_from_title": {
+              "type": "boolean",
+              "description": "If true and new_slug omitted, regenerate slug from the (new or existing) title."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "preview_blog_post",
+        "title": "Preview blog post",
+        "description": "Render a blog post preview WITHOUT saving. Converts Markdown to HTML (or passes HTML through), returns a plain-text excerpt, word count, and estimated read time (minutes). Use before `create_blog_post` or `update_blog_post` to review output. `intended_status` and `intended_slug` are echoed back so agents can chain into a save call.",
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "content": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Markdown or HTML."
+            },
+            "excerpt": {
+              "type": "string"
+            },
+            "intended_status": {
+              "type": "string",
+              "enum": [
+                "draft",
+                "published"
+              ]
+            },
+            "intended_slug": {
+              "type": "string"
+            },
+            "words_per_minute": {
+              "type": "integer",
+              "minimum": 80,
+              "maximum": 400,
+              "description": "Reading speed (default 220 wpm)."
             }
           },
           "required": [
