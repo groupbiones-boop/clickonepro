@@ -112,12 +112,15 @@ export function validate(body: unknown): ContactPayload {
     utm_source: sanitize(b.utm_source, 100),
     utm_medium: sanitize(b.utm_medium, 100),
     utm_campaign: sanitize(b.utm_campaign, 100),
+    tags: sanitizeTags(b.tags),
   };
 }
 
 /** Builds the GHL v2 contacts/upsert payload. Exported for testing. */
 export function buildGhlPayload(locationId: string, p: ContactPayload): Record<string, unknown> {
   const { firstName, lastName } = splitName(p.name);
+  // Merge server-default tags (source + UTMs) with any client-provided tags
+  const merged = new Set<string>([...buildDefaultTags(p), ...(p.tags ?? [])]);
   const payload: Record<string, unknown> = {
     locationId,
     email: p.email,
@@ -127,7 +130,7 @@ export function buildGhlPayload(locationId: string, p: ContactPayload): Record<s
     phone: p.phone,
     companyName: p.company,
     source: p.source,
-    tags: ["website-form"],
+    tags: Array.from(merged),
   };
   Object.keys(payload).forEach((k) => payload[k] === undefined && delete payload[k]);
   return payload;
