@@ -19,15 +19,8 @@ const GHLChatWidget = () => {
     document.body.appendChild(s);
   }, []);
 
-  return (
-    <div className="w-full rounded-xl border border-border bg-card p-4 md:p-6 min-h-[560px]">
-      <div
-        data-chat-widget
-        data-widget-id={WIDGET_ID}
-        data-location-id={LOCATION_ID}
-      />
-    </div>
-  );
+  // Chat widget renders as a floating bubble at the page corner (injected by loader.js).
+  return null;
 };
 
 export default GHLChatWidget;
