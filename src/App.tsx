@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 import ScrollToTop from "./components/ScrollToTop";
 import PageLoader from "./components/PageLoader";
+import GHLChatWidget from "./components/GHLChatWidget";
 
 // Lazy load all pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -50,6 +51,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <GHLChatWidget />
           <BrowserRouter>
             <ScrollToTop />
             <Suspense fallback={<PageLoader />}>
