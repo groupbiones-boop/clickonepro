@@ -12,7 +12,7 @@
   "mcp": {
     "server": {
       "name": "clickonepro-mcp",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "ClickOne Pro MCP"
     },
     "tools": [
@@ -95,6 +95,120 @@
               "description": "Max rows to return (default 50)."
             }
           },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_lead",
+        "title": "Get lead",
+        "description": "Fetch a single lead by id or email. Requires admin access via RLS.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Lead UUID."
+            },
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "Lead email."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_lead",
+        "title": "Create lead",
+        "description": "Create a new lead in the ClickOne CRM. Requires at least an email. Optional fields: name, phone, company, source, utm_source, utm_medium, utm_campaign, status.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "Lead email (required)."
+            },
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string",
+              "description": "Where the lead came from (e.g. 'mcp', 'landing-page')."
+            },
+            "utm_source": {
+              "type": "string"
+            },
+            "utm_medium": {
+              "type": "string"
+            },
+            "utm_campaign": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "description": "Lead status (default 'new')."
+            }
+          },
+          "required": [
+            "email"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "update_lead_status",
+        "title": "Update lead status",
+        "description": "Update the status of an existing lead by id. Common values: 'new', 'contacted', 'qualified', 'converted', 'lost'. Requires admin access via RLS.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Lead UUID."
+            },
+            "status": {
+              "type": "string",
+              "minLength": 1,
+              "description": "New status value."
+            }
+          },
+          "required": [
+            "id",
+            "status"
+          ],
           "additionalProperties": false,
           "$schema": "http://json-schema.org/draft-07/schema#"
         },
