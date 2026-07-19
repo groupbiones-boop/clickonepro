@@ -132,8 +132,6 @@ export default function IntegrationsTab() {
   const currentLinks = useMemo(() => ({
     bookingPage: EXTERNAL_URLS.GHL_BOOKING,
     appLogin: EXTERNAL_URLS.APP_LOGIN,
-    chatWidgetScript: "https://widgets.leadconnectorhq.com/loader.js",
-    chatWidgetId: "689a6e0381758b3ba63c1230",
   }), []);
 
   if (healthQuery.isLoading) {
