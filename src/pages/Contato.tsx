@@ -9,8 +9,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Phone, Mail, MapPin, Calendar, ArrowRight, Zap } from "lucide-react";
+import { Phone, Mail, MapPin, Calendar, ArrowRight, Zap, MessageSquare } from "lucide-react";
 import { EXTERNAL_URLS, CONTACT_INFO } from "@/lib/external-urls";
+import ContactForm from "@/components/ContactForm";
 
 const Contato = () => {
   const { t } = useTranslation();
