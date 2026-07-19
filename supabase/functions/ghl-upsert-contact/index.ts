@@ -26,18 +26,18 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // E.164-ish: optional leading +, 8-15 digits (allow spaces/dashes/parens on input)
 const PHONE_RE = /^\+?[1-9]\d{7,14}$/;
 
-function isEmail(v: unknown): v is string {
+export function isEmail(v: unknown): v is string {
   return typeof v === "string" && EMAIL_RE.test(v.trim()) && v.trim().length <= 255;
 }
 
-function sanitize(v: unknown, max = 255): string | undefined {
+export function sanitize(v: unknown, max = 255): string | undefined {
   if (typeof v !== "string") return undefined;
   const t = v.trim().slice(0, max).replace(/[<>]/g, "");
   return t.length ? t : undefined;
 }
 
 /** Normalizes phone to E.164-compatible digits (keeps leading +). Returns undefined if invalid. */
-function normalizePhone(v: unknown): string | undefined {
+export function normalizePhone(v: unknown): string | undefined {
   const s = sanitize(v, 40);
   if (!s) return undefined;
   const cleaned = s.replace(/[\s().-]/g, "");
@@ -46,14 +46,14 @@ function normalizePhone(v: unknown): string | undefined {
 }
 
 /** Splits a full name into first/last preserving multi-word last names. */
-function splitName(full?: string): { firstName?: string; lastName?: string } {
+export function splitName(full?: string): { firstName?: string; lastName?: string } {
   if (!full) return {};
   const parts = full.trim().split(/\s+/);
   if (parts.length === 1) return { firstName: parts[0] };
   return { firstName: parts[0], lastName: parts.slice(1).join(" ") };
 }
 
-function validate(body: unknown): ContactPayload {
+export function validate(body: unknown): ContactPayload {
   if (!body || typeof body !== "object") throw new Error("Invalid body");
   const b = body as Record<string, unknown>;
   const email = typeof b.email === "string" ? b.email.trim() : "";
@@ -79,11 +79,9 @@ function validate(body: unknown): ContactPayload {
   };
 }
 
-async function ghlUpsert(pit: string, locationId: string, p: ContactPayload) {
+/** Builds the GHL v2 contacts/upsert payload. Exported for testing. */
+export function buildGhlPayload(locationId: string, p: ContactPayload): Record<string, unknown> {
   const { firstName, lastName } = splitName(p.name);
-
-  // GHL v2 Contacts Upsert — map to the canonical field names.
-  // Ref: POST /contacts/upsert on services.leadconnectorhq.com
   const payload: Record<string, unknown> = {
     locationId,
     email: p.email,
@@ -95,10 +93,25 @@ async function ghlUpsert(pit: string, locationId: string, p: ContactPayload) {
     source: p.source,
     tags: ["website-form"],
   };
-
-  // Drop undefined keys so GHL doesn't overwrite existing fields with nulls on update
   Object.keys(payload).forEach((k) => payload[k] === undefined && delete payload[k]);
+  return payload;
+}
 
+/** Builds the attribution note body. Returns undefined when nothing to note. */
+export function buildNoteBody(p: ContactPayload): string | undefined {
+  const lines = [
+    p.message && `Message:\n${p.message}`,
+    (p.source || p.utm_source || p.utm_medium || p.utm_campaign) && "— Attribution —",
+    p.source && `source: ${p.source}`,
+    p.utm_source && `utm_source: ${p.utm_source}`,
+    p.utm_medium && `utm_medium: ${p.utm_medium}`,
+    p.utm_campaign && `utm_campaign: ${p.utm_campaign}`,
+  ].filter(Boolean) as string[];
+  return lines.length ? lines.join("\n") : undefined;
+}
+
+async function ghlUpsert(pit: string, locationId: string, p: ContactPayload) {
+  const payload = buildGhlPayload(locationId, p);
 
   const res = await fetch(`${GHL_API}/contacts/upsert`, {
     method: "POST",
@@ -118,16 +131,8 @@ async function ghlUpsert(pit: string, locationId: string, p: ContactPayload) {
 
   // Attach a note capturing the free-text message and attribution (UTMs / source)
   if (contactId) {
-    const lines = [
-      p.message && `Message:\n${p.message}`,
-      (p.source || p.utm_source || p.utm_medium || p.utm_campaign) && "— Attribution —",
-      p.source && `source: ${p.source}`,
-      p.utm_source && `utm_source: ${p.utm_source}`,
-      p.utm_medium && `utm_medium: ${p.utm_medium}`,
-      p.utm_campaign && `utm_campaign: ${p.utm_campaign}`,
-    ].filter(Boolean);
-
-    if (lines.length) {
+    const noteBody = buildNoteBody(p);
+    if (noteBody) {
       await fetch(`${GHL_API}/contacts/${contactId}/notes`, {
         method: "POST",
         headers: {
@@ -135,7 +140,7 @@ async function ghlUpsert(pit: string, locationId: string, p: ContactPayload) {
           Version: GHL_VERSION,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ body: lines.join("\n") }),
+        body: JSON.stringify({ body: noteBody }),
       }).catch((e) => console.warn("Note create failed:", e));
     }
   }
