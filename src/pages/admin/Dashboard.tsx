@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, lazy, Suspense } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAdminAuth, AdminAuthProvider } from "@/contexts/AdminAuthContext";
 import Sidebar from "./components/Sidebar";
 import MobileSidebar from "./components/MobileSidebar";
@@ -37,7 +37,8 @@ const TabFallback = () => (
 const DashboardContent = () => {
   const { user, isAdmin, isLoading } = useAdminAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("dashboard");
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState(location.pathname === "/admin/integrations" ? "integrations" : "dashboard");
   const [startDate, setStartDate] = useState(startOfDay(subDays(new Date(), 30)));
   const [endDate, setEndDate] = useState(endOfDay(new Date()));
   const [isTransitioning, setIsTransitioning] = useState(false);

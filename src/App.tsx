@@ -79,6 +79,7 @@ const App = () => (
                 <Route path="/admin/lp-builder/:id" element={<LPEditor />} />
                 <Route path="/admin/login" element={<Login />} />
                 <Route path="/admin/dashboard" element={<Dashboard />} />
+                <Route path="/admin/integrations" element={<Dashboard />} />
                 <Route path="/admin/blog" element={<BlogManager />} />
                 <Route path="/admin/blog/new" element={<BlogEditor />} />
                 <Route path="/admin/blog/edit/:id" element={<BlogEditor />} />
