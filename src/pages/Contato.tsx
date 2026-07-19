@@ -9,8 +9,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Phone, Mail, MapPin, Calendar, ArrowRight, Zap } from "lucide-react";
+import { Phone, Mail, MapPin, Calendar, ArrowRight, Zap, MessageSquare } from "lucide-react";
 import { EXTERNAL_URLS, CONTACT_INFO } from "@/lib/external-urls";
+import ContactForm from "@/components/ContactForm";
 
 const Contato = () => {
   const { t } = useTranslation();
@@ -75,55 +76,37 @@ const Contato = () => {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Left Column - CTA to Book Demo */}
+            {/* Left Column - Native Contact Form */}
             <AnimatedSection animation="fade-right">
-              <div className="bg-card border border-border rounded-2xl p-8 md:p-10 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Calendar className="w-6 h-6 text-primary" />
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold">
-                    {t("contact.scheduleTitle", { defaultValue: "Agende uma Conversa" })}
-                  </h2>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <MessageSquare className="w-6 h-6 text-primary" />
                 </div>
-                
-                <p className="text-muted-foreground text-lg mb-8 flex-1">
-                  {t("contact.scheduleSubtitle", { defaultValue: "Escolha o melhor horário para uma demo gratuita de 30 minutos. Um especialista vai mostrar como a ClickOne AI pode transformar seu atendimento." })}
-                </p>
-
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
-                      <span className="text-primary text-xs">✓</span>
-                    </div>
-                    <span>{t("bookDemo.benefit1")}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
-                      <span className="text-primary text-xs">✓</span>
-                    </div>
-                    <span>{t("bookDemo.benefit2")}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
-                      <span className="text-primary text-xs">✓</span>
-                    </div>
-                    <span>{t("bookDemo.benefit3")}</span>
-                  </div>
-                </div>
-
-                <Button asChild size="lg" className="w-full tracking-wide text-lg py-6">
+                <h2 className="text-2xl md:text-3xl font-bold">
+                  {t("contact.formTitle", { defaultValue: "Envie sua mensagem" })}
+                </h2>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                {t("contact.formSubtitle", { defaultValue: "Preencha o formulário e nossa equipe entrará em contato rapidamente." })}
+              </p>
+              <ContactForm />
+              <div className="mt-6 flex items-center gap-3 text-sm text-muted-foreground">
+                <Calendar className="w-4 h-4 text-primary" />
+                <span>
+                  {t("contact.orSchedule", { defaultValue: "Prefere agendar direto?" })}{" "}
                   <a
                     href={EXTERNAL_URLS.GHL_BOOKING}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="text-primary font-medium hover:underline"
                   >
                     {t("contact.ctaButton", { defaultValue: "Agendar Demo Gratuita" })}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <ArrowRight className="inline ml-1 h-3 w-3" />
                   </a>
-                </Button>
+                </span>
               </div>
             </AnimatedSection>
+
 
             {/* Right Column - Contact Info */}
             <AnimatedSection animation="fade-left">
