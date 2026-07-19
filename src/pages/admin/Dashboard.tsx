@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdminAuth, AdminAuthProvider } from "@/contexts/AdminAuthContext";
 import Sidebar from "./components/Sidebar";
@@ -6,20 +6,32 @@ import MobileSidebar from "./components/MobileSidebar";
 import DateRangePicker from "./components/DateRangePicker";
 import NotificationCenter from "./components/NotificationCenter";
 import DarkModeToggle from "@/components/DarkModeToggle";
-import DashboardTab from "./components/DashboardTab";
-import OverviewTab from "./components/OverviewTab";
-import SiteTab from "./components/SiteTab";
-import AudienceTab from "./components/AudienceTab";
-import AcquisitionTab from "./components/AcquisitionTab";
-import BlogTab from "./components/BlogTab";
-import AlertsTab from "./components/AlertsTab";
-import { CampaignsTab } from "./components/CampaignsTab";
-import ABTestManager from "./components/ABTestManager";
 import { OfflineIndicator } from "@/components/OfflineIndicator";
 import { useRealtimeDashboard } from "@/hooks/useRealtimeDashboard";
 import { Loader2, LayoutDashboard, BarChart3, Users, TrendingUp, Target, FlaskConical } from "lucide-react";
 import { subDays, startOfDay, endOfDay } from "date-fns";
 import { cn } from "@/lib/utils";
+
+// Lazy-load tab bundles — mantém o entry do Dashboard leve e evita puxar
+// recharts/jspdf/html2canvas quando o admin nem precisa dessas telas.
+const DashboardTab = lazy(() => import("./components/DashboardTab"));
+const OverviewTab = lazy(() => import("./components/OverviewTab"));
+const SiteTab = lazy(() => import("./components/SiteTab"));
+const AudienceTab = lazy(() => import("./components/AudienceTab"));
+const AcquisitionTab = lazy(() => import("./components/AcquisitionTab"));
+const BlogTab = lazy(() => import("./components/BlogTab"));
+const AlertsTab = lazy(() => import("./components/AlertsTab"));
+const CampaignsTab = lazy(() =>
+  import("./components/CampaignsTab").then((m) => ({ default: m.CampaignsTab })),
+);
+const ABTestManager = lazy(() => import("./components/ABTestManager"));
+
+const TabFallback = () => (
+  <div className="flex items-center justify-center py-16">
+    <Loader2 className="h-6 w-6 animate-spin text-primary" />
+  </div>
+);
+
 
 const DashboardContent = () => {
   const { user, isAdmin, isLoading } = useAdminAuth();
@@ -193,8 +205,9 @@ const DashboardContent = () => {
               isTransitioning ? "opacity-50" : "opacity-100 animate-fade-in"
             )}
           >
-            {renderTab()}
+            <Suspense fallback={<TabFallback />}>{renderTab()}</Suspense>
           </div>
+
         </main>
 
         {/* Bottom Navigation - Mobile Only */}

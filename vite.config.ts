@@ -28,7 +28,17 @@ export default defineConfig(({ mode }) => ({
             '@radix-ui/react-tooltip',
           ],
           'query-vendor': ['@tanstack/react-query'],
+          // Split heavy admin-only libs so rotas públicas nunca as baixem
+          'charts-vendor': ['recharts'],
+          'pdf-vendor': ['jspdf', 'html2canvas'],
+          'editor-vendor': [
+            '@tiptap/react',
+            '@tiptap/starter-kit',
+            '@tiptap/extension-image',
+            '@tiptap/extension-link',
+          ],
         },
+
       },
     },
     // Minification
