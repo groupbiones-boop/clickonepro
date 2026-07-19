@@ -169,7 +169,7 @@ const AgendarDemo = () => {
       <section id="demo-booking-form" className="py-16 bg-background scroll-mt-24">
         <div className="container max-w-3xl">
           <AnimatedSection animation="fade-up">
-            <DemoBookingForm />
+            <GHLChatWidget />
           </AnimatedSection>
         </div>
       </section>
