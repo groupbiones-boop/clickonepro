@@ -208,6 +208,65 @@ export type Database = {
           },
         ]
       }
+      demo_bookings: {
+        Row: {
+          company: string | null
+          confirmation_sent_at: string | null
+          created_at: string
+          email: string
+          id: string
+          lead_id: string | null
+          name: string | null
+          notes: string | null
+          phone: string | null
+          scheduled_at: string
+          source: string | null
+          status: string
+          timezone: string | null
+          updated_at: string
+        }
+        Insert: {
+          company?: string | null
+          confirmation_sent_at?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          lead_id?: string | null
+          name?: string | null
+          notes?: string | null
+          phone?: string | null
+          scheduled_at: string
+          source?: string | null
+          status?: string
+          timezone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          company?: string | null
+          confirmation_sent_at?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          lead_id?: string | null
+          name?: string | null
+          notes?: string | null
+          phone?: string | null
+          scheduled_at?: string
+          source?: string | null
+          status?: string
+          timezone?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "demo_bookings_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       landing_pages: {
         Row: {
           content: Json
