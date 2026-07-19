@@ -78,12 +78,12 @@ const NegociosLocais = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
-                  <Link to="/agendar-demo">
+                  <Link to="/contato">
                     {t("localBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/agendar-demo">{t("localBusiness.ctaSecondary")}</Link>
+                  <Link to="/contato">{t("localBusiness.ctaSecondary")}</Link>
                 </Button>
               </div>
             </AnimatedSection>
@@ -235,7 +235,7 @@ const NegociosLocais = () => {
               {t("localBusiness.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
-              <Link to="/agendar-demo">
+              <Link to="/contato">
                 {t("localBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

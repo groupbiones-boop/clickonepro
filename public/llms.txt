@@ -9,7 +9,7 @@ ClickOne AI provides a voice + conversational AI receptionist designed for small
 - [Home](/): Overview of the AI receptionist product and outcomes.
 - [About](/sobre): Company story, mission, and team.
 - [Contact](/contato): Phone, email, location, and FAQ.
-- [Book a Demo](/agendar-demo): Schedule a consultative demo.
+- [Book a Demo](/contato): Schedule a consultative demo.
 - [Blog](/blog): Articles on customer experience, AI, and operations.
 
 ## Product

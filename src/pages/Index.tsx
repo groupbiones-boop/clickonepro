@@ -172,7 +172,7 @@ const Index = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="group text-base px-8 py-6 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all" asChild>
-                <Link to="/agendar-demo">
+                <Link to="/contato">
                   {t("hero.cta")}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -354,7 +354,7 @@ const Index = () => {
               {t("audioDemo.impressed")}
             </p>
             <Button asChild>
-              <Link to="/agendar-demo">
+              <Link to="/contato">
                 {t("audioDemo.cta")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -456,7 +456,7 @@ const Index = () => {
                 {/* CTA inside solution */}
                 <div className="mt-8 pt-6 border-t border-primary/20">
                   <Button className="w-full group" asChild>
-                    <Link to="/agendar-demo">
+                    <Link to="/contato">
                       {t("solution.cta")}
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -580,7 +580,7 @@ const Index = () => {
                 </li>
               </ul>
               <Button asChild>
-                <Link to="/agendar-demo">{t("mobileApp.cta")}</Link>
+                <Link to="/contato">{t("mobileApp.cta")}</Link>
               </Button>
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={200}>
@@ -656,7 +656,7 @@ const Index = () => {
             {t("finalCta.subtitle")}
           </p>
           <Button size="lg" variant="secondary" asChild>
-            <Link to="/agendar-demo">
+            <Link to="/contato">
               {t("finalCta.cta")}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

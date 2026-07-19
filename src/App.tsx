@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 import ScrollToTop from "./components/ScrollToTop";
 import PageLoader from "./components/PageLoader";
+import GHLChatWidget from "./components/GHLChatWidget";
 
 // Lazy load all pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -18,7 +19,7 @@ const InfraestruturaVertical = lazy(() => import("./pages/produto/Infraestrutura
 const Setores = lazy(() => import("./pages/setores/Setores"));
 const SetorDetalhe = lazy(() => import("./pages/setores/SetorDetalhe"));
 const Sobre = lazy(() => import("./pages/Sobre"));
-const AgendarDemo = lazy(() => import("./pages/AgendarDemo"));
+
 const Contato = lazy(() => import("./pages/Contato"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -50,6 +51,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <GHLChatWidget />
           <BrowserRouter>
             <ScrollToTop />
             <Suspense fallback={<PageLoader />}>
@@ -65,7 +67,7 @@ const App = () => (
                 <Route path="/empresas/negocios-locais" element={<NegociosLocais />} />
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/contato" element={<Contato />} />
-                <Route path="/agendar-demo" element={<AgendarDemo />} />
+                
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/obrigado" element={<Obrigado />} />

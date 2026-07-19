@@ -6,7 +6,7 @@
 
 export const EXTERNAL_URLS = {
   // Demo Booking - native page (GHL widget URL is currently returning 404)
-  GHL_BOOKING: "/agendar-demo",
+  GHL_BOOKING: "/contato",
   
   // App Login
   APP_LOGIN: "https://app.clickonepro.com/",

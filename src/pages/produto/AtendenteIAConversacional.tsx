@@ -152,7 +152,7 @@ const AtendenteIAConversacional = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
-                  <Link to="/agendar-demo">
+                  <Link to="/contato">
                     {t("common.bookFreeDemo")}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -296,7 +296,7 @@ const AtendenteIAConversacional = () => {
                 ))}
               </ul>
               <Button className="mt-8" asChild>
-                <Link to="/agendar-demo">
+                <Link to="/contato">
                   {t("chatProduct.viewDemo")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -342,7 +342,7 @@ const AtendenteIAConversacional = () => {
               {t("chatProduct.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/agendar-demo">
+              <Link to="/contato">
                 {t("common.bookFreeDemo")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

@@ -126,7 +126,7 @@ const BlogPost = () => {
             <div className="mt-12 pt-8 border-t">
               <h3 className="text-xl font-semibold mb-4">Pronto para transformar seu atendimento?</h3>
               <Button asChild>
-                <Link to="/agendar-demo">Agendar Demo Grátis</Link>
+                <Link to="/contato">Agendar Demo Grátis</Link>
               </Button>
             </div>
           </AnimatedSection>

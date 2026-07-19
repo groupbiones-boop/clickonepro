@@ -150,13 +150,13 @@ const InfraestruturaVertical = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                <Link to="/agendar-demo">
+                <Link to="/contato">
                   {t("verticalInfra.cta")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="hero">
-                <Link to="/agendar-demo">
+                <Link to="/contato">
                   {t("verticalInfra.ctaSecondary")}
                 </Link>
               </Button>
@@ -306,7 +306,7 @@ const InfraestruturaVertical = () => {
               {t("verticalInfra.ctaSubtitle")}
             </p>
             <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-              <Link to="/agendar-demo">
+              <Link to="/contato">
                 {t("verticalInfra.cta")}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
