@@ -5,15 +5,16 @@ import listLeadsTool from "./tools/list-leads";
 import getLeadTool from "./tools/get-lead";
 import createLeadTool from "./tools/create-lead";
 import updateLeadStatusTool from "./tools/update-lead-status";
+import createBlogPostTool from "./tools/create-blog-post";
 
 const projectRef = import.meta.env.VITE_SUPABASE_PROJECT_ID ?? "project-ref-unset";
 
 export default defineMcp({
   name: "clickonepro-mcp",
   title: "ClickOne Pro MCP",
-  version: "0.2.0",
+  version: "0.3.0",
   instructions:
-    "Tools for the ClickOne Pro CRM and blog. Blog: `list_blog_posts`, `get_blog_post`. Leads (admin, RLS-enforced): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`.",
+    "Tools for the ClickOne Pro CRM and blog. Blog: `list_blog_posts`, `get_blog_post`, `create_blog_post` (admin). Leads (admin, RLS-enforced): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated",
@@ -21,6 +22,7 @@ export default defineMcp({
   tools: [
     listBlogPostsTool,
     getBlogPostTool,
+    createBlogPostTool,
     listLeadsTool,
     getLeadTool,
     createLeadTool,

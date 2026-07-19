@@ -12,7 +12,7 @@
   "mcp": {
     "server": {
       "name": "clickonepro-mcp",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "title": "ClickOne Pro MCP"
     },
     "tools": [
@@ -70,6 +70,78 @@
           },
           "required": [
             "slug"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_blog_post",
+        "title": "Create blog post",
+        "description": "Create a new blog post. Provide title and content (Markdown or HTML). Slug is auto-generated from the title if omitted. Set status='published' to publish immediately (published_at is set to now); otherwise it stays as draft. Requires admin (RLS).",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 3,
+              "description": "Post title."
+            },
+            "content": {
+              "type": "string",
+              "minLength": 10,
+              "description": "Full post body (Markdown or HTML)."
+            },
+            "slug": {
+              "type": "string",
+              "description": "URL slug. Auto-generated from title if omitted."
+            },
+            "excerpt": {
+              "type": "string",
+              "description": "Short summary shown in listings."
+            },
+            "cover_image": {
+              "type": "string",
+              "format": "uri",
+              "description": "Cover image URL."
+            },
+            "category_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "author": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "draft",
+                "published"
+              ],
+              "description": "Default 'draft'."
+            },
+            "meta_title": {
+              "type": "string"
+            },
+            "meta_description": {
+              "type": "string"
+            },
+            "read_time": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 120
+            }
+          },
+          "required": [
+            "title",
+            "content"
           ],
           "additionalProperties": false,
           "$schema": "http://json-schema.org/draft-07/schema#"
