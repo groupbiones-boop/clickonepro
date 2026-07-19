@@ -22,8 +22,12 @@ interface ContactPayload {
   utm_campaign?: string;
 }
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// E.164-ish: optional leading +, 8-15 digits (allow spaces/dashes/parens on input)
+const PHONE_RE = /^\+?[1-9]\d{7,14}$/;
+
 function isEmail(v: unknown): v is string {
-  return typeof v === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) && v.length <= 255;
+  return typeof v === "string" && EMAIL_RE.test(v.trim()) && v.trim().length <= 255;
 }
 
 function sanitize(v: unknown, max = 255): string | undefined {
@@ -32,14 +36,40 @@ function sanitize(v: unknown, max = 255): string | undefined {
   return t.length ? t : undefined;
 }
 
+/** Normalizes phone to E.164-compatible digits (keeps leading +). Returns undefined if invalid. */
+function normalizePhone(v: unknown): string | undefined {
+  const s = sanitize(v, 40);
+  if (!s) return undefined;
+  const cleaned = s.replace(/[\s().-]/g, "");
+  if (!PHONE_RE.test(cleaned)) return undefined;
+  return cleaned.startsWith("+") ? cleaned : `+${cleaned}`;
+}
+
+/** Splits a full name into first/last preserving multi-word last names. */
+function splitName(full?: string): { firstName?: string; lastName?: string } {
+  if (!full) return {};
+  const parts = full.trim().split(/\s+/);
+  if (parts.length === 1) return { firstName: parts[0] };
+  return { firstName: parts[0], lastName: parts.slice(1).join(" ") };
+}
+
 function validate(body: unknown): ContactPayload {
   if (!body || typeof body !== "object") throw new Error("Invalid body");
   const b = body as Record<string, unknown>;
-  if (!isEmail(b.email)) throw new Error("Valid email required");
+  const email = typeof b.email === "string" ? b.email.trim() : "";
+  if (!isEmail(email)) throw new Error("Valid email required");
+
+  // Phone is optional, but if provided must be a valid format
+  let phone: string | undefined;
+  if (b.phone !== undefined && b.phone !== null && b.phone !== "") {
+    phone = normalizePhone(b.phone);
+    if (!phone) throw new Error("Invalid phone format (use international format, e.g. +15551234567)");
+  }
+
   return {
-    email: b.email as string,
+    email,
     name: sanitize(b.name, 200),
-    phone: sanitize(b.phone, 40),
+    phone,
     company: sanitize(b.company, 200),
     message: sanitize(b.message, 2000),
     source: sanitize(b.source, 100) || "website-contact-form",
@@ -50,20 +80,25 @@ function validate(body: unknown): ContactPayload {
 }
 
 async function ghlUpsert(pit: string, locationId: string, p: ContactPayload) {
-  const [firstName, ...rest] = (p.name || "").split(" ");
-  const lastName = rest.join(" ");
+  const { firstName, lastName } = splitName(p.name);
 
+  // GHL v2 Contacts Upsert — map to the canonical field names.
+  // Ref: POST /contacts/upsert on services.leadconnectorhq.com
   const payload: Record<string, unknown> = {
     locationId,
     email: p.email,
-    firstName: firstName || undefined,
-    lastName: lastName || undefined,
-    name: p.name || undefined,
+    firstName,
+    lastName,
+    name: p.name,
     phone: p.phone,
     companyName: p.company,
     source: p.source,
     tags: ["website-form"],
   };
+
+  // Drop undefined keys so GHL doesn't overwrite existing fields with nulls on update
+  Object.keys(payload).forEach((k) => payload[k] === undefined && delete payload[k]);
+
 
   const res = await fetch(`${GHL_API}/contacts/upsert`, {
     method: "POST",
