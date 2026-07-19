@@ -99,7 +99,7 @@ const PerdendoClientes = () => {
       campaign: utmParams.utm_campaign || "perdendo_clientes",
       content: ctaLocation,
     });
-    window.open(bookingUrl, "_blank");
+    window.location.href = bookingUrl;
   };
 
   const industries = [

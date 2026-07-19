@@ -26,7 +26,7 @@ const LPFloatingCTA = ({ onCtaClick }: LPFloatingCTAProps) => {
     if (onCtaClick) {
       onCtaClick();
     }
-    window.open(EXTERNAL_URLS.GHL_BOOKING, "_blank");
+    window.location.href = EXTERNAL_URLS.GHL_BOOKING;
   };
 
   if (!isVisible) return null;

@@ -5,6 +5,7 @@ import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { EXTERNAL_URLS, CONTACT_INFO } from "@/lib/external-urls";
+import DemoBookingForm from "@/components/DemoBookingForm";
 
 const AgendarDemo = () => {
   const { t } = useTranslation();
@@ -116,9 +117,7 @@ const AgendarDemo = () => {
               <div className="flex justify-center mb-10">
                 <Button asChild size="lg" className="h-16 px-16 text-lg tracking-wide">
                   <a 
-                    href={EXTERNAL_URLS.GHL_BOOKING}
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                    href="#demo-booking-form"
                     className="flex items-center gap-3"
                   >
                     {t("agendarDemo.ctaButton")}
@@ -164,6 +163,14 @@ const AgendarDemo = () => {
               </div>
             </AnimatedSection>
           </div>
+        </div>
+      </section>
+
+      <section id="demo-booking-form" className="py-16 bg-background scroll-mt-24">
+        <div className="container max-w-3xl">
+          <AnimatedSection animation="fade-up">
+            <DemoBookingForm />
+          </AnimatedSection>
         </div>
       </section>
 

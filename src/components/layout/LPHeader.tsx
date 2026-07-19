@@ -17,7 +17,7 @@ const LPHeader = ({ onCtaClick }: LPHeaderProps) => {
     if (onCtaClick) {
       onCtaClick();
     }
-    window.open(EXTERNAL_URLS.GHL_BOOKING, "_blank");
+    window.location.href = EXTERNAL_URLS.GHL_BOOKING;
   };
 
   return (

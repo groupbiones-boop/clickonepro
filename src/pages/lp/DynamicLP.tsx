@@ -92,7 +92,7 @@ const DynamicLP = () => {
       campaign: utmParams.utm_campaign || slug || "dynamic_lp",
       content: ctaLocation,
     });
-    window.open(bookingUrl, "_blank");
+    window.location.href = bookingUrl;
   };
 
   if (isLoading || isTestLoading) {

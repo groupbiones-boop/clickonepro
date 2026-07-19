@@ -16,6 +16,8 @@ interface ContactPayload {
   phone?: string;
   company?: string;
   message?: string;
+  preferredDate?: string;
+  preferredTime?: string;
   source?: string;
   utm_source?: string;
   utm_medium?: string;
@@ -72,6 +74,8 @@ export function validate(body: unknown): ContactPayload {
     phone,
     company: sanitize(b.company, 200),
     message: sanitize(b.message, 2000),
+    preferredDate: sanitize(b.preferredDate, 20),
+    preferredTime: sanitize(b.preferredTime, 20),
     source: sanitize(b.source, 100) || "website-contact-form",
     utm_source: sanitize(b.utm_source, 100),
     utm_medium: sanitize(b.utm_medium, 100),
@@ -101,6 +105,8 @@ export function buildGhlPayload(locationId: string, p: ContactPayload): Record<s
 export function buildNoteBody(p: ContactPayload): string | undefined {
   const lines = [
     p.message && `Message:\n${p.message}`,
+    p.preferredDate && `preferred_date: ${p.preferredDate}`,
+    p.preferredTime && `preferred_time: ${p.preferredTime}`,
     (p.source || p.utm_source || p.utm_medium || p.utm_campaign) && "— Attribution —",
     p.source && `source: ${p.source}`,
     p.utm_source && `utm_source: ${p.utm_source}`,
@@ -108,6 +114,29 @@ export function buildNoteBody(p: ContactPayload): string | undefined {
     p.utm_campaign && `utm_campaign: ${p.utm_campaign}`,
   ].filter(Boolean) as string[];
   return lines.length ? lines.join("\n") : undefined;
+}
+
+export function buildAppointmentPayload(
+  calendarId: string,
+  locationId: string,
+  contactId: string,
+  p: ContactPayload,
+): Record<string, unknown> | undefined {
+  if (!p.preferredDate || !p.preferredTime) return undefined;
+
+  const startTime = `${p.preferredDate}T${p.preferredTime.length === 5 ? `${p.preferredTime}:00` : p.preferredTime}`;
+  const payload: Record<string, unknown> = {
+    calendarId,
+    locationId,
+    contactId,
+    startTime,
+    title: `ClickOne Pro demo${p.company ? ` - ${p.company}` : ""}`,
+    appointmentStatus: "new",
+    ignoreDateRange: true,
+  };
+
+  Object.keys(payload).forEach((k) => payload[k] === undefined && delete payload[k]);
+  return payload;
 }
 
 async function ghlUpsert(pit: string, locationId: string, p: ContactPayload) {
@@ -149,6 +178,32 @@ async function ghlUpsert(pit: string, locationId: string, p: ContactPayload) {
   return { contactId, raw: data };
 }
 
+async function ghlCreateAppointment(
+  pit: string,
+  calendarId: string,
+  locationId: string,
+  contactId: string,
+  p: ContactPayload,
+) {
+  const payload = buildAppointmentPayload(calendarId, locationId, contactId, p);
+  if (!payload) return null;
+
+  const res = await fetch(`${GHL_API}/calendars/events/appointments`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${pit}`,
+      Version: GHL_VERSION,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const text = await res.text();
+  if (!res.ok) throw new Error(`GHL appointment failed (${res.status}): ${text}`);
+  return JSON.parse(text);
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   if (req.method !== "POST") {
@@ -161,6 +216,7 @@ serve(async (req) => {
   try {
     const pit = Deno.env.get("GHL_PIT_TOKEN");
     const locationId = Deno.env.get("GHL_LOCATION_ID");
+    const calendarId = Deno.env.get("GHL_CALENDAR_ID");
     if (!pit || !locationId) throw new Error("GHL credentials not configured");
 
     const payload = validate(await req.json());
@@ -173,6 +229,8 @@ serve(async (req) => {
 
     let contactId: string | undefined;
     let ghlRaw: unknown = null;
+    let appointmentRaw: unknown = null;
+    let appointmentError: string | null = null;
     let syncStatus: "created" | "updated" | "failed" = "failed";
     let ghlError: string | null = null;
 
@@ -183,6 +241,15 @@ serve(async (req) => {
       // GHL upsert returns `new: true` when a new contact was created
       const isNew = (result.raw as { new?: boolean } | null)?.new === true;
       syncStatus = isNew ? "created" : "updated";
+
+      if (calendarId && contactId && payload.preferredDate && payload.preferredTime) {
+        try {
+          appointmentRaw = await ghlCreateAppointment(pit, calendarId, locationId, contactId, payload);
+        } catch (e) {
+          appointmentError = e instanceof Error ? e.message : String(e);
+          console.error("GHL appointment error:", appointmentError);
+        }
+      }
     } catch (e) {
       ghlError = e instanceof Error ? e.message : String(e);
       console.error("GHL upsert error:", ghlError);
@@ -203,7 +270,7 @@ serve(async (req) => {
         ghl_contact_id: contactId ?? null,
         ghl_sync_status: syncStatus,
         ghl_response: ghlRaw,
-        ghl_error: ghlError,
+        ghl_error: [ghlError, appointmentError].filter(Boolean).join(" | ") || null,
         last_synced_at: new Date().toISOString(),
       });
     } catch (e) {
@@ -217,7 +284,7 @@ serve(async (req) => {
       });
     }
 
-    return new Response(JSON.stringify({ success: true, contactId, syncStatus }), {
+    return new Response(JSON.stringify({ success: true, contactId, syncStatus, appointment: appointmentRaw, appointmentError }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
