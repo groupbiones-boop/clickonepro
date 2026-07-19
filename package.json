@@ -87,6 +87,7 @@
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/typography": "^0.5.16",
     "@types/dompurify": "^3.2.0",
     "@types/node": "^22.16.5",
