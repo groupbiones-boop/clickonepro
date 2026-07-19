@@ -9,10 +9,18 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { Loader2, Send, CheckCircle2 } from "lucide-react";
 
+const phoneRegex = /^\+?[1-9][\d\s().-]{7,20}$/;
+
 const schema = z.object({
   name: z.string().trim().min(2, "Nome muito curto").max(120),
   email: z.string().trim().email("Email inválido").max(255),
-  phone: z.string().trim().max(40).optional().or(z.literal("")),
+  phone: z
+    .string()
+    .trim()
+    .max(40)
+    .regex(phoneRegex, "Telefone inválido (use formato internacional, ex: +1 555 123 4567)")
+    .optional()
+    .or(z.literal("")),
   company: z.string().trim().max(200).optional().or(z.literal("")),
   message: z.string().trim().max(2000).optional().or(z.literal("")),
 });
