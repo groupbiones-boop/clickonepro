@@ -22,6 +22,38 @@ interface ContactPayload {
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
+  tags?: string[];
+}
+
+/** Normalize an arbitrary string into a safe GHL tag slug. */
+function slugTag(v: string): string {
+  return v
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 60);
+}
+
+/** Sanitize an incoming tag array (max 20 tags, each <=60 chars). */
+function sanitizeTags(v: unknown): string[] | undefined {
+  if (!Array.isArray(v)) return undefined;
+  const clean = v
+    .filter((t) => typeof t === "string")
+    .map((t) => slugTag(t as string))
+    .filter((t) => t.length > 0);
+  return clean.length ? Array.from(new Set(clean)).slice(0, 20) : undefined;
+}
+
+/** Server-side default tags derived from source + UTMs, always applied. */
+export function buildDefaultTags(p: ContactPayload): string[] {
+  const tags = new Set<string>(["website-form"]);
+  if (p.source) tags.add(`src-${slugTag(p.source)}`);
+  if (p.utm_source) tags.add(`utm-source-${slugTag(p.utm_source)}`);
+  if (p.utm_medium) tags.add(`utm-medium-${slugTag(p.utm_medium)}`);
+  if (p.utm_campaign) tags.add(`utm-campaign-${slugTag(p.utm_campaign)}`);
+  return Array.from(tags);
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -80,12 +112,15 @@ export function validate(body: unknown): ContactPayload {
     utm_source: sanitize(b.utm_source, 100),
     utm_medium: sanitize(b.utm_medium, 100),
     utm_campaign: sanitize(b.utm_campaign, 100),
+    tags: sanitizeTags(b.tags),
   };
 }
 
 /** Builds the GHL v2 contacts/upsert payload. Exported for testing. */
 export function buildGhlPayload(locationId: string, p: ContactPayload): Record<string, unknown> {
   const { firstName, lastName } = splitName(p.name);
+  // Merge server-default tags (source + UTMs) with any client-provided tags
+  const merged = new Set<string>([...buildDefaultTags(p), ...(p.tags ?? [])]);
   const payload: Record<string, unknown> = {
     locationId,
     email: p.email,
@@ -95,7 +130,7 @@ export function buildGhlPayload(locationId: string, p: ContactPayload): Record<s
     phone: p.phone,
     companyName: p.company,
     source: p.source,
-    tags: ["website-form"],
+    tags: Array.from(merged),
   };
   Object.keys(payload).forEach((k) => payload[k] === undefined && delete payload[k]);
   return payload;

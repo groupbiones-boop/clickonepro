@@ -132,7 +132,7 @@ Deno.test("validate: rejects invalid phone but allows empty/missing", () => {
 });
 
 // --- buildGhlPayload ---
-Deno.test("buildGhlPayload: maps fields to GHL canonical names", () => {
+Deno.test("buildGhlPayload: maps fields to GHL canonical names + source tag", () => {
   const payload = buildGhlPayload("loc_123", {
     email: "ana@example.com",
     name: "Ana Silva Santos",
@@ -148,7 +148,26 @@ Deno.test("buildGhlPayload: maps fields to GHL canonical names", () => {
   assertEquals(payload.phone, "+15551234567");
   assertEquals(payload.companyName, "Acme Inc");
   assertEquals(payload.source, "contact-page");
-  assertEquals(payload.tags, ["website-form"]);
+  assertEquals(payload.tags, ["website-form", "src-contact-page"]);
+});
+
+Deno.test("buildGhlPayload: merges client-provided tags with server defaults + UTMs", () => {
+  const payload = buildGhlPayload("loc_123", {
+    email: "a@b.co",
+    source: "lp-perdendo-clientes",
+    utm_source: "google",
+    utm_campaign: "launch",
+    tags: ["page-lp-perdendo-clientes", "custom-tag"],
+  });
+  const tags = payload.tags as string[];
+  assertEquals(tags.includes("website-form"), true);
+  assertEquals(tags.includes("src-lp-perdendo-clientes"), true);
+  assertEquals(tags.includes("utm-source-google"), true);
+  assertEquals(tags.includes("utm-campaign-launch"), true);
+  assertEquals(tags.includes("page-lp-perdendo-clientes"), true);
+  assertEquals(tags.includes("custom-tag"), true);
+  // dedupe check
+  assertEquals(new Set(tags).size, tags.length);
 });
 
 Deno.test("buildGhlPayload: drops undefined keys to avoid nulling GHL fields", () => {
