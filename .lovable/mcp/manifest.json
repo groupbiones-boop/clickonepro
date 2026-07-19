@@ -12,7 +12,7 @@
   "mcp": {
     "server": {
       "name": "clickonepro-mcp",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "title": "ClickOne Pro MCP"
     },
     "tools": [
@@ -280,6 +280,59 @@
           "required": [
             "id",
             "status"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "schedule_demo",
+        "title": "Schedule demo",
+        "description": "Register a demo booking for a lead and send a confirmation email. Auto-creates or updates the linked lead (status → 'demo_scheduled'). Public tool: no login required.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "Lead email (required)."
+            },
+            "scheduled_at": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO 8601 date-time of the demo (e.g. 2026-07-25T14:00:00Z)."
+            },
+            "name": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "company": {
+              "type": "string"
+            },
+            "timezone": {
+              "type": "string",
+              "description": "IANA timezone. Default 'America/Sao_Paulo'."
+            },
+            "notes": {
+              "type": "string"
+            },
+            "send_confirmation": {
+              "type": "boolean",
+              "description": "Send confirmation email (default true)."
+            }
+          },
+          "required": [
+            "email",
+            "scheduled_at"
           ],
           "additionalProperties": false,
           "$schema": "http://json-schema.org/draft-07/schema#"

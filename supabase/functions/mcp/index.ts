@@ -299,13 +299,154 @@ var create_blog_post_default = defineTool7({
   }
 });
 
+// src/lib/mcp/tools/schedule-demo.ts
+import { createClient as createClient8 } from "npm:@supabase/supabase-js@^2.89.0";
+import { defineTool as defineTool8 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z8 } from "npm:zod@^3.25.76";
+function supabaseAnon() {
+  return createClient8(getEnv("SUPABASE_URL"), getEnv("SUPABASE_PUBLISHABLE_KEY"), {
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+}
+function supabaseService() {
+  return createClient8(getEnv("SUPABASE_URL"), getEnv("SUPABASE_SERVICE_ROLE_KEY"), {
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+}
+async function sendConfirmationEmail(params) {
+  const lovableKey = getEnv("LOVABLE_API_KEY");
+  const resendKey = getEnv("RESEND_API_KEY");
+  const when = new Date(params.scheduledAt).toLocaleString("pt-BR", {
+    timeZone: params.timezone,
+    dateStyle: "full",
+    timeStyle: "short"
+  });
+  const html = `
+    <div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;padding:24px;background:#ffffff;color:#111827">
+      <h1 style="color:#7c3aed;margin:0 0 12px">Demonstra\xE7\xE3o ClickOne Pro confirmada</h1>
+      <p>Ol\xE1${params.name ? ` ${params.name}` : ""},</p>
+      <p>Sua demonstra\xE7\xE3o est\xE1 agendada para:</p>
+      <p style="font-size:18px;font-weight:600;background:#f5f3ff;padding:12px 16px;border-radius:8px;color:#4c1d95">${when}</p>
+      ${params.notes ? `<p><strong>Observa\xE7\xF5es:</strong> ${params.notes}</p>` : ""}
+      <p>Nossa equipe entrar\xE1 em contato para confirmar os detalhes. Se precisar reagendar, responda este e-mail.</p>
+      <p style="margin-top:24px;color:#6b7280;font-size:13px">\u2014 Equipe ClickOne Pro \xB7 https://clickonepro.com</p>
+    </div>`.trim();
+  const res = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${lovableKey}`,
+      "X-Connection-Api-Key": resendKey
+    },
+    body: JSON.stringify({
+      from: "ClickOne Pro <onboarding@resend.dev>",
+      to: [params.to],
+      subject: "Sua demonstra\xE7\xE3o ClickOne Pro est\xE1 agendada",
+      html
+    })
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`Resend ${res.status}: ${body}`);
+  }
+  return true;
+}
+var schedule_demo_default = defineTool8({
+  name: "schedule_demo",
+  title: "Schedule demo",
+  description: "Register a demo booking for a lead and send a confirmation email. Auto-creates or updates the linked lead (status \u2192 'demo_scheduled'). Public tool: no login required.",
+  inputSchema: {
+    email: z8.string().email().describe("Lead email (required)."),
+    scheduled_at: z8.string().datetime().describe("ISO 8601 date-time of the demo (e.g. 2026-07-25T14:00:00Z)."),
+    name: z8.string().optional(),
+    phone: z8.string().optional(),
+    company: z8.string().optional(),
+    timezone: z8.string().optional().describe("IANA timezone. Default 'America/Sao_Paulo'."),
+    notes: z8.string().optional(),
+    send_confirmation: z8.boolean().optional().describe("Send confirmation email (default true).")
+  },
+  annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: true },
+  handler: async (input, _ctx) => {
+    const timezone = input.timezone ?? "America/Sao_Paulo";
+    const anon = supabaseAnon();
+    const service = supabaseService();
+    const { data: existingLead } = await service.from("leads").select("id").eq("email", input.email).maybeSingle();
+    let leadId = existingLead?.id;
+    if (leadId) {
+      await service.from("leads").update({
+        status: "demo_scheduled",
+        name: input.name ?? void 0,
+        phone: input.phone ?? void 0,
+        company: input.company ?? void 0
+      }).eq("id", leadId);
+    } else {
+      const { data: newLead, error: leadErr } = await service.from("leads").insert({
+        email: input.email,
+        name: input.name,
+        phone: input.phone,
+        company: input.company,
+        source: "mcp:schedule_demo",
+        status: "demo_scheduled"
+      }).select("id").single();
+      if (leadErr) {
+        return { content: [{ type: "text", text: `Lead upsert failed: ${leadErr.message}` }], isError: true };
+      }
+      leadId = newLead.id;
+    }
+    const { data: booking, error: bookErr } = await anon.from("demo_bookings").insert({
+      lead_id: leadId,
+      email: input.email,
+      name: input.name,
+      phone: input.phone,
+      company: input.company,
+      scheduled_at: input.scheduled_at,
+      timezone,
+      notes: input.notes,
+      source: "mcp",
+      status: "scheduled"
+    }).select().single();
+    if (bookErr) {
+      return { content: [{ type: "text", text: `Booking insert failed: ${bookErr.message}` }], isError: true };
+    }
+    let emailSent = false;
+    let emailError;
+    if (input.send_confirmation !== false) {
+      try {
+        await sendConfirmationEmail({
+          to: input.email,
+          name: input.name,
+          scheduledAt: input.scheduled_at,
+          timezone,
+          notes: input.notes
+        });
+        emailSent = true;
+        await service.from("demo_bookings").update({ confirmation_sent_at: (/* @__PURE__ */ new Date()).toISOString() }).eq("id", booking.id);
+      } catch (err) {
+        emailError = err instanceof Error ? err.message : String(err);
+      }
+    }
+    const summary = {
+      booking_id: booking.id,
+      lead_id: leadId,
+      scheduled_at: input.scheduled_at,
+      timezone,
+      email_sent: emailSent,
+      email_error: emailError
+    };
+    return {
+      content: [{ type: "text", text: JSON.stringify(summary, null, 2) }],
+      structuredContent: summary
+    };
+  }
+});
+
 // src/lib/mcp/index.ts
 var projectRef = "ojyzegzdlpjlbdhvqhav";
 var mcp_default = defineMcp({
   name: "clickonepro-mcp",
   title: "ClickOne Pro MCP",
-  version: "0.3.0",
-  instructions: "Tools for the ClickOne Pro CRM and blog. Blog: `list_blog_posts`, `get_blog_post`, `create_blog_post` (admin). Leads (admin, RLS-enforced): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`.",
+  version: "0.4.0",
+  instructions: "Tools for the ClickOne Pro CRM and blog. Blog (admin): `list_blog_posts`, `get_blog_post`, `create_blog_post`. Leads (admin): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`. Public: `schedule_demo` books a demo and emails a confirmation.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated"
@@ -317,7 +458,8 @@ var mcp_default = defineMcp({
     list_leads_default,
     get_lead_default,
     create_lead_default,
-    update_lead_status_default
+    update_lead_status_default,
+    schedule_demo_default
   ]
 });
 
