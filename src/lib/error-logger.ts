@@ -34,6 +34,19 @@ function persist(entry: LoggedError) {
   }
 }
 
+async function reportToSentry(entry: LoggedError) {
+  if (!import.meta.env.VITE_SENTRY_DSN) return;
+  try {
+    const { Sentry } = await import("./sentry");
+    Sentry.captureMessage(`[${entry.type}] ${entry.message}`, {
+      level: "error",
+      extra: entry as unknown as Record<string, unknown>,
+    });
+  } catch {
+    // Sentry indisponível — ignorar
+  }
+}
+
 export function logError(
   input: Partial<LoggedError> & Pick<LoggedError, "type" | "message">,
 ) {
@@ -46,6 +59,7 @@ export function logError(
   // Console visível em produção também (não usa console.debug)
   console.error(`[app-error:${entry.type}]`, entry);
   persist(entry);
+  void reportToSentry(entry);
 }
 
 let installed = false;
