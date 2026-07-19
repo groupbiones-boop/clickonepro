@@ -116,7 +116,7 @@ const RecepcionistaIAVoz = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
-                  <Link to="/agendar-demo">
+                  <Link to="/contato">
                     {t("common.bookFreeDemo")}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -308,7 +308,7 @@ const RecepcionistaIAVoz = () => {
               {t("voiceProduct.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/agendar-demo">
+              <Link to="/contato">
                 {t("common.bookFreeDemo")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

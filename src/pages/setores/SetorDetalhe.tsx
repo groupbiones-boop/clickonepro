@@ -218,7 +218,7 @@ const SetorDetalhe = () => {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" variant="secondary" asChild className="font-semibold">
-                  <Link to="/agendar-demo">
+                  <Link to="/contato">
                     {getStarted}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -499,7 +499,7 @@ const SetorDetalhe = () => {
                 {t('common.stillHaveQuestions', { defaultValue: 'Ainda tem dúvidas? Fale com nossa equipe.' })}
               </p>
               <Button variant="outline" asChild>
-                <Link to="/agendar-demo">{t('common.getInTouch', { defaultValue: 'Entrar em Contato' })}</Link>
+                <Link to="/contato">{t('common.getInTouch', { defaultValue: 'Entrar em Contato' })}</Link>
               </Button>
             </div>
           </AnimatedSection>
@@ -528,7 +528,7 @@ const SetorDetalhe = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/agendar-demo">
+                <Link to="/contato">
                   {bookFreeDemo}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>

@@ -427,7 +427,7 @@ const Sobre = () => {
               <p className="text-xl text-primary-foreground/80 mb-8">
                 {t("whyClickone.ctaSubtitle")}
               </p>
-              <Link to="/agendar-demo">
+              <Link to="/contato">
                 <Button size="lg" variant="secondary" className="text-lg px-8">
                   {t("common.bookFreeDemo")}
                   <ArrowRight className="ml-2 h-5 w-5" />

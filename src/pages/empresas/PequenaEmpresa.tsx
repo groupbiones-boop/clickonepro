@@ -99,12 +99,12 @@ const PequenaEmpresa = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
-                  <Link to="/agendar-demo">
+                  <Link to="/contato">
                     {t("smallBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="bg-background/50 backdrop-blur-sm" asChild>
-                  <Link to="/agendar-demo">{t("smallBusiness.ctaSecondary")}</Link>
+                  <Link to="/contato">{t("smallBusiness.ctaSecondary")}</Link>
                 </Button>
               </div>
             </AnimatedSection>
@@ -282,7 +282,7 @@ const PequenaEmpresa = () => {
               {t("smallBusiness.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
-              <Link to="/agendar-demo">
+              <Link to="/contato">
                 {t("smallBusiness.cta")} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

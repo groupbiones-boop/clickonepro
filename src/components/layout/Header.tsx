@@ -183,7 +183,7 @@ const Header = () => {
                         </p>
                       </div>
                       <Button asChild size="sm" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full">
-                        <Link to="/agendar-demo" className="flex items-center gap-2">
+                        <Link to="/contato" className="flex items-center gap-2">
                           {t("megaMenu.product.cta")}
                           <ArrowRight className="h-4 w-4" />
                         </Link>
