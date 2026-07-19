@@ -5,7 +5,7 @@ import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { EXTERNAL_URLS, CONTACT_INFO } from "@/lib/external-urls";
-import DemoBookingForm from "@/components/DemoBookingForm";
+import GHLChatWidget from "@/components/GHLChatWidget";
 
 const AgendarDemo = () => {
   const { t } = useTranslation();
