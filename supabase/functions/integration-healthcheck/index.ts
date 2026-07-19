@@ -147,9 +147,6 @@ serve(async (req) => {
         nativeContactFunction: "ghl-upsert-contact",
         legacyWidgetUrl: LEGACY_WIDGET_URL,
         appLogin: "https://app.clickonepro.com/",
-        chatWidgetScript: "https://beta.leadconnectorhq.com/loader.js",
-        chatWidgetResources: "https://beta.leadconnectorhq.com/chat-widget/loader.js",
-        chatWidgetId: "6958160ae056feed599822d0",
       },
       timestamps: {
         latestLeadCreatedAt: latestLeads?.[0]?.created_at ?? null,
