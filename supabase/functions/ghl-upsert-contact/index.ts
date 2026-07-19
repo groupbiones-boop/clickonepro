@@ -254,12 +254,9 @@ serve(async (req) => {
       syncStatus = isNew ? "created" : "updated";
 
       if (calendarId && contactId && payload.preferredDate && payload.preferredTime) {
-        try {
-          appointmentRaw = await ghlCreateAppointment(pit, calendarId, locationId, contactId, payload);
-        } catch (e) {
-          appointmentError = e instanceof Error ? e.message : String(e);
-          console.error("GHL appointment error:", appointmentError);
-        }
+        // Calendar appointment creation is temporarily suspended.
+        // Booking now happens through the embedded GHL chat widget on /agendar-demo.
+        appointmentError = "calendar_integration_suspended";
       }
     } catch (e) {
       ghlError = e instanceof Error ? e.message : String(e);
