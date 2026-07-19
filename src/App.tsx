@@ -18,7 +18,7 @@ const InfraestruturaVertical = lazy(() => import("./pages/produto/Infraestrutura
 const Setores = lazy(() => import("./pages/setores/Setores"));
 const SetorDetalhe = lazy(() => import("./pages/setores/SetorDetalhe"));
 const Sobre = lazy(() => import("./pages/Sobre"));
-const AgendarDemo = lazy(() => import("./pages/AgendarDemo"));
+
 const Contato = lazy(() => import("./pages/Contato"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
