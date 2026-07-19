@@ -299,17 +299,262 @@ var create_blog_post_default = defineTool7({
   }
 });
 
-// src/lib/mcp/tools/schedule-demo.ts
+// src/lib/mcp/tools/update-blog-post.ts
 import { createClient as createClient8 } from "npm:@supabase/supabase-js@^2.89.0";
 import { defineTool as defineTool8 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z as z8 } from "npm:zod@^3.25.76";
-function supabaseAnon() {
+function supabaseForUser8(ctx) {
   return createClient8(getEnv("SUPABASE_URL"), getEnv("SUPABASE_PUBLISHABLE_KEY"), {
+    global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+}
+function slugify2(input) {
+  return input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-").replace(/-+/g, "-").slice(0, 80);
+}
+var update_blog_post_default = defineTool8({
+  name: "update_blog_post",
+  title: "Update blog post",
+  description: "Update an existing blog post by id or current slug. Any field (title, slug, content, excerpt, cover_image, meta_*, read_time) may be omitted to keep the current value. Toggle publish state with status='draft'|'published' \u2014 switching to 'published' sets published_at=now if it was empty; switching to 'draft' clears published_at. Requires admin (RLS).",
+  inputSchema: {
+    id: z8.string().uuid().optional().describe("Post id. Provide id OR slug."),
+    slug: z8.string().optional().describe("Current slug. Provide id OR slug."),
+    title: z8.string().min(3).optional(),
+    new_slug: z8.string().optional().describe("New URL slug. If omitted, slug is unchanged."),
+    content: z8.string().min(10).optional(),
+    excerpt: z8.string().optional(),
+    cover_image: z8.string().url().optional(),
+    category_id: z8.string().uuid().optional(),
+    author: z8.string().optional(),
+    status: z8.enum(["draft", "published"]).optional(),
+    meta_title: z8.string().optional(),
+    meta_description: z8.string().optional(),
+    read_time: z8.number().int().min(1).max(120).optional(),
+    regenerate_slug_from_title: z8.boolean().optional().describe("If true and new_slug omitted, regenerate slug from the (new or existing) title.")
+  },
+  annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
+  handler: async (input, ctx) => {
+    if (!ctx.isAuthenticated()) {
+      return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
+    }
+    if (!input.id && !input.slug) {
+      return { content: [{ type: "text", text: "Provide either id or slug." }], isError: true };
+    }
+    const supabase = supabaseForUser8(ctx);
+    const q = supabase.from("blog_posts").select("*").limit(1);
+    const { data: existing, error: fetchErr } = input.id ? await q.eq("id", input.id).maybeSingle() : await q.eq("slug", input.slug).maybeSingle();
+    if (fetchErr) return { content: [{ type: "text", text: fetchErr.message }], isError: true };
+    if (!existing) return { content: [{ type: "text", text: "Post not found." }], isError: true };
+    const patch = {};
+    if (input.title !== void 0) patch.title = input.title;
+    if (input.content !== void 0) patch.content = input.content;
+    if (input.excerpt !== void 0) patch.excerpt = input.excerpt;
+    if (input.cover_image !== void 0) patch.cover_image = input.cover_image;
+    if (input.category_id !== void 0) patch.category_id = input.category_id;
+    if (input.author !== void 0) patch.author = input.author;
+    if (input.meta_title !== void 0) patch.meta_title = input.meta_title;
+    if (input.meta_description !== void 0) patch.meta_description = input.meta_description;
+    if (input.read_time !== void 0) patch.read_time = input.read_time;
+    if (input.new_slug) {
+      patch.slug = input.new_slug.trim();
+    } else if (input.regenerate_slug_from_title) {
+      patch.slug = slugify2(input.title ?? existing.title);
+    }
+    if (input.status !== void 0 && input.status !== existing.status) {
+      patch.status = input.status;
+      if (input.status === "published") {
+        if (!existing.published_at) patch.published_at = (/* @__PURE__ */ new Date()).toISOString();
+      } else {
+        patch.published_at = null;
+      }
+    }
+    if (Object.keys(patch).length === 0) {
+      return { content: [{ type: "text", text: "No changes provided." }], isError: true };
+    }
+    const { data, error } = await supabase.from("blog_posts").update(patch).eq("id", existing.id).select().single();
+    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
+    return {
+      content: [{ type: "text", text: JSON.stringify(data, null, 2) }],
+      structuredContent: { post: data, changed_fields: Object.keys(patch) }
+    };
+  }
+});
+
+// src/lib/mcp/tools/preview-blog-post.ts
+import { defineTool as defineTool9 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z9 } from "npm:zod@^3.25.76";
+function escapeHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+function renderInline(text) {
+  let s = escapeHtml(text);
+  s = s.replace(
+    /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g,
+    (_m, alt, url, title) => `<img src="${url}" alt="${alt}"${title ? ` title="${title}"` : ""} />`
+  );
+  s = s.replace(
+    /\[([^\]]+)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g,
+    (_m, t, url, title) => `<a href="${url}"${title ? ` title="${title}"` : ""}>${t}</a>`
+  );
+  s = s.replace(/`([^`]+)`/g, (_m, c) => `<code>${c}</code>`);
+  s = s.replace(/(\*\*|__)(.+?)\1/g, "<strong>$2</strong>");
+  s = s.replace(/(^|[\s(])(\*|_)([^*_\n]+)\2/g, "$1<em>$3</em>");
+  return s;
+}
+function renderMarkdown(md) {
+  if (/^\s*<[a-zA-Z!]/.test(md)) return md;
+  const lines = md.replace(/\r\n?/g, "\n").split("\n");
+  const out = [];
+  let i = 0;
+  let inList = null;
+  const closeList = () => {
+    if (inList) {
+      out.push(`</${inList}>`);
+      inList = null;
+    }
+  };
+  while (i < lines.length) {
+    const line = lines[i];
+    const fence = line.match(/^```(\w*)\s*$/);
+    if (fence) {
+      closeList();
+      const lang = fence[1] || "";
+      const buf2 = [];
+      i++;
+      while (i < lines.length && !/^```\s*$/.test(lines[i])) {
+        buf2.push(lines[i]);
+        i++;
+      }
+      i++;
+      out.push(`<pre><code${lang ? ` class="language-${lang}"` : ""}>${escapeHtml(buf2.join("\n"))}</code></pre>`);
+      continue;
+    }
+    if (/^\s*$/.test(line)) {
+      closeList();
+      i++;
+      continue;
+    }
+    const h = line.match(/^(#{1,6})\s+(.*)$/);
+    if (h) {
+      closeList();
+      out.push(`<h${h[1].length}>${renderInline(h[2])}</h${h[1].length}>`);
+      i++;
+      continue;
+    }
+    if (/^\s*(?:---|\*\*\*|___)\s*$/.test(line)) {
+      closeList();
+      out.push("<hr />");
+      i++;
+      continue;
+    }
+    if (/^>\s?/.test(line)) {
+      closeList();
+      const buf2 = [];
+      while (i < lines.length && /^>\s?/.test(lines[i])) {
+        buf2.push(lines[i].replace(/^>\s?/, ""));
+        i++;
+      }
+      out.push(`<blockquote>${renderInline(buf2.join(" "))}</blockquote>`);
+      continue;
+    }
+    if (/^\s*[-*+]\s+/.test(line)) {
+      if (inList !== "ul") {
+        closeList();
+        out.push("<ul>");
+        inList = "ul";
+      }
+      out.push(`<li>${renderInline(line.replace(/^\s*[-*+]\s+/, ""))}</li>`);
+      i++;
+      continue;
+    }
+    if (/^\s*\d+\.\s+/.test(line)) {
+      if (inList !== "ol") {
+        closeList();
+        out.push("<ol>");
+        inList = "ol";
+      }
+      out.push(`<li>${renderInline(line.replace(/^\s*\d+\.\s+/, ""))}</li>`);
+      i++;
+      continue;
+    }
+    closeList();
+    const buf = [line];
+    i++;
+    while (i < lines.length && !/^\s*$/.test(lines[i]) && !/^(#{1,6}\s|>|```|\s*[-*+]\s+|\s*\d+\.\s+)/.test(lines[i])) {
+      buf.push(lines[i]);
+      i++;
+    }
+    out.push(`<p>${renderInline(buf.join(" "))}</p>`);
+  }
+  closeList();
+  return out.join("\n");
+}
+function stripHtml(html) {
+  return html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+}
+function estimateReadTime(plainText, wpm = 220) {
+  const words = plainText ? plainText.split(/\s+/).filter(Boolean).length : 0;
+  return { words, read_time_minutes: Math.max(1, Math.round(words / wpm)) };
+}
+var preview_blog_post_default = defineTool9({
+  name: "preview_blog_post",
+  title: "Preview blog post",
+  description: "Render a blog post preview WITHOUT saving. Converts Markdown to HTML (or passes HTML through), returns a plain-text excerpt, word count, and estimated read time (minutes). Use before `create_blog_post` or `update_blog_post` to review output. `intended_status` and `intended_slug` are echoed back so agents can chain into a save call.",
+  inputSchema: {
+    title: z9.string().min(1),
+    content: z9.string().min(1).describe("Markdown or HTML."),
+    excerpt: z9.string().optional(),
+    intended_status: z9.enum(["draft", "published"]).optional(),
+    intended_slug: z9.string().optional(),
+    words_per_minute: z9.number().int().min(80).max(400).optional().describe("Reading speed (default 220 wpm).")
+  },
+  annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  handler: (input) => {
+    const html = renderMarkdown(input.content);
+    const plain = stripHtml(html);
+    const { words, read_time_minutes } = estimateReadTime(plain, input.words_per_minute ?? 220);
+    const auto_excerpt = input.excerpt?.trim() || (plain.length > 200 ? plain.slice(0, 200).trim() + "\u2026" : plain);
+    const characters = plain.length;
+    const preview = {
+      title: input.title,
+      intended_status: input.intended_status ?? "draft",
+      intended_slug: input.intended_slug,
+      html,
+      plain_text: plain,
+      excerpt: auto_excerpt,
+      stats: { words, characters, read_time_minutes }
+    };
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Preview of "${input.title}"
+Status (intended): ${preview.intended_status}
+Slug (intended): ${preview.intended_slug ?? "(auto from title)"}
+Words: ${words} \u2022 Read time: ~${read_time_minutes} min
+
+Excerpt: ${auto_excerpt}
+
+--- HTML ---
+${html}`
+        }
+      ],
+      structuredContent: preview
+    };
+  }
+});
+
+// src/lib/mcp/tools/schedule-demo.ts
+import { createClient as createClient9 } from "npm:@supabase/supabase-js@^2.89.0";
+import { defineTool as defineTool10 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z10 } from "npm:zod@^3.25.76";
+function supabaseAnon() {
+  return createClient9(getEnv("SUPABASE_URL"), getEnv("SUPABASE_PUBLISHABLE_KEY"), {
     auth: { persistSession: false, autoRefreshToken: false }
   });
 }
 function supabaseService() {
-  return createClient8(getEnv("SUPABASE_URL"), getEnv("SUPABASE_SERVICE_ROLE_KEY"), {
+  return createClient9(getEnv("SUPABASE_URL"), getEnv("SUPABASE_SERVICE_ROLE_KEY"), {
     auth: { persistSession: false, autoRefreshToken: false }
   });
 }
@@ -351,19 +596,19 @@ async function sendConfirmationEmail(params) {
   }
   return true;
 }
-var schedule_demo_default = defineTool8({
+var schedule_demo_default = defineTool10({
   name: "schedule_demo",
   title: "Schedule demo",
   description: "Register a demo booking for a lead and send a confirmation email. Auto-creates or updates the linked lead (status \u2192 'demo_scheduled'). Public tool: no login required.",
   inputSchema: {
-    email: z8.string().email().describe("Lead email (required)."),
-    scheduled_at: z8.string().datetime().describe("ISO 8601 date-time of the demo (e.g. 2026-07-25T14:00:00Z)."),
-    name: z8.string().optional(),
-    phone: z8.string().optional(),
-    company: z8.string().optional(),
-    timezone: z8.string().optional().describe("IANA timezone. Default 'America/Sao_Paulo'."),
-    notes: z8.string().optional(),
-    send_confirmation: z8.boolean().optional().describe("Send confirmation email (default true).")
+    email: z10.string().email().describe("Lead email (required)."),
+    scheduled_at: z10.string().datetime().describe("ISO 8601 date-time of the demo (e.g. 2026-07-25T14:00:00Z)."),
+    name: z10.string().optional(),
+    phone: z10.string().optional(),
+    company: z10.string().optional(),
+    timezone: z10.string().optional().describe("IANA timezone. Default 'America/Sao_Paulo'."),
+    notes: z10.string().optional(),
+    send_confirmation: z10.boolean().optional().describe("Send confirmation email (default true).")
   },
   annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: true },
   handler: async (input, _ctx) => {
@@ -445,8 +690,8 @@ var projectRef = "ojyzegzdlpjlbdhvqhav";
 var mcp_default = defineMcp({
   name: "clickonepro-mcp",
   title: "ClickOne Pro MCP",
-  version: "0.4.0",
-  instructions: "Tools for the ClickOne Pro CRM and blog. Blog (admin): `list_blog_posts`, `get_blog_post`, `create_blog_post`. Leads (admin): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`. Public: `schedule_demo` books a demo and emails a confirmation.",
+  version: "0.5.0",
+  instructions: "Tools for the ClickOne Pro CRM and blog. Blog (admin write): `list_blog_posts`, `get_blog_post`, `create_blog_post`, `update_blog_post`. Blog utility (no auth needed): `preview_blog_post` renders Markdown\u2192HTML and estimates read_time before saving. Leads (admin): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`. Public: `schedule_demo` books a demo and emails a confirmation.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated"
@@ -455,6 +700,8 @@ var mcp_default = defineMcp({
     list_blog_posts_default,
     get_blog_post_default,
     create_blog_post_default,
+    update_blog_post_default,
+    preview_blog_post_default,
     list_leads_default,
     get_lead_default,
     create_lead_default,
