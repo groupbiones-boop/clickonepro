@@ -59,6 +59,7 @@ export function logError(
   // Console visível em produção também (não usa console.debug)
   console.error(`[app-error:${entry.type}]`, entry);
   persist(entry);
+  void reportToSentry(entry);
 }
 
 let installed = false;
