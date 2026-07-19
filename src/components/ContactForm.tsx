@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,56 +7,40 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
 import { Loader2, Send, CheckCircle2 } from "lucide-react";
+import {
+  contactFormSchema,
+  buildLeadTags,
+  readUTMs,
+  type ContactFormValues,
+} from "@/lib/ghl-field-mapping";
 
-const phoneRegex = /^\+?[1-9][\d\s().-]{7,20}$/;
-
-const schema = z.object({
-  name: z.string().trim().min(2, "Nome muito curto").max(120),
-  email: z.string().trim().email("Email inválido").max(255),
-  phone: z
-    .string()
-    .trim()
-    .max(40)
-    .regex(phoneRegex, "Telefone inválido (use formato internacional, ex: +1 555 123 4567)")
-    .optional()
-    .or(z.literal("")),
-  company: z.string().trim().max(200).optional().or(z.literal("")),
-  message: z.string().trim().max(2000).optional().or(z.literal("")),
-});
-
-type FormValues = z.infer<typeof schema>;
-
-function getUTMs() {
-  if (typeof window === "undefined") return {};
-  const p = new URLSearchParams(window.location.search);
-  return {
-    utm_source: p.get("utm_source") || undefined,
-    utm_medium: p.get("utm_medium") || undefined,
-    utm_campaign: p.get("utm_campaign") || undefined,
-  };
+interface ContactFormProps {
+  /** Logical source label (becomes a `src-...` tag in GHL). Defaults to "contact-page". */
+  source?: string;
 }
 
-export default function ContactForm() {
+export default function ContactForm({ source = "contact-page" }: ContactFormProps) {
   const { t } = useTranslation();
-  const [values, setValues] = useState<FormValues>({
+  const [values, setValues] = useState<ContactFormValues>({
     name: "", email: "", phone: "", company: "", message: "",
   });
-  const [errors, setErrors] = useState<Partial<Record<keyof FormValues, string>>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormValues, string>>>({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const set = (k: keyof FormValues) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const set = (k: keyof ContactFormValues) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setValues((v) => ({ ...v, [k]: e.target.value }));
     if (errors[k]) setErrors((prev) => ({ ...prev, [k]: undefined }));
   };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const parsed = schema.safeParse(values);
+    // Client-side validation before hitting the edge function
+    const parsed = contactFormSchema.safeParse(values);
     if (!parsed.success) {
-      const fieldErrors: Partial<Record<keyof FormValues, string>> = {};
+      const fieldErrors: Partial<Record<keyof ContactFormValues, string>> = {};
       parsed.error.issues.forEach((i) => {
-        const k = i.path[0] as keyof FormValues;
+        const k = i.path[0] as keyof ContactFormValues;
         if (!fieldErrors[k]) fieldErrors[k] = i.message;
       });
       setErrors(fieldErrors);
@@ -66,8 +49,12 @@ export default function ContactForm() {
 
     setLoading(true);
     try {
+      const utms = readUTMs();
+      const path = typeof window !== "undefined" ? window.location.pathname : undefined;
+      const tags = buildLeadTags({ source, path, ...utms });
+
       const { data, error } = await supabase.functions.invoke("ghl-upsert-contact", {
-        body: { ...parsed.data, source: "contact-page", ...getUTMs() },
+        body: { ...parsed.data, source, tags, ...utms },
       });
       if (error || !data?.success) throw new Error(data?.error || error?.message || "Falha no envio");
 
