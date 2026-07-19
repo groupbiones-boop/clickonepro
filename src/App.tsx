@@ -38,6 +38,7 @@ const PrivacyPolicy = lazy(() => import("./pages/legal/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/legal/TermsOfService"));
 const PerdendoClientes = lazy(() => import("./pages/lp/PerdendoClientes"));
 const DynamicLP = lazy(() => import("./pages/lp/DynamicLP"));
+const OAuthConsent = lazy(() => import("./pages/OAuthConsent"));
 
 // QueryClient with default settings
 const queryClient = new QueryClient();
@@ -81,6 +82,7 @@ const App = () => (
                 <Route path="/admin/blog" element={<BlogManager />} />
                 <Route path="/admin/blog/new" element={<BlogEditor />} />
                 <Route path="/admin/blog/edit/:id" element={<BlogEditor />} />
+                <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

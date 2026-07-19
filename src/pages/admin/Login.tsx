@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useAdminAuth } from "@/contexts/AdminAuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,13 +17,18 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn, signUp, user, isAdmin, isLoading: authLoading } = useAdminAuth();
   const navigate = useNavigate();
+  const [params] = useSearchParams();
   const { toast } = useToast();
+
+  // Only accept same-origin relative paths as `next`.
+  const rawNext = params.get("next") ?? "";
+  const nextPath = rawNext.startsWith("/") && !rawNext.startsWith("//") ? rawNext : "";
 
   useEffect(() => {
     if (!authLoading && user && isAdmin) {
-      navigate("/admin/dashboard");
+      navigate(nextPath || "/admin/dashboard");
     }
-  }, [user, isAdmin, authLoading, navigate]);
+  }, [user, isAdmin, authLoading, navigate, nextPath]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
