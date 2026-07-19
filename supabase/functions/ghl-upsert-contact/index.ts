@@ -116,16 +116,18 @@ async function ghlUpsert(pit: string, locationId: string, p: ContactPayload) {
   const data = JSON.parse(text);
   const contactId = data?.contact?.id || data?.new?.id || data?.id;
 
-  // Attach note with message + UTMs
-  if (contactId && (p.message || p.utm_source || p.utm_campaign)) {
-    const noteBody = [
-      p.message && `Message: ${p.message}`,
+  // Attach a note capturing the free-text message and attribution (UTMs / source)
+  if (contactId) {
+    const lines = [
+      p.message && `Message:\n${p.message}`,
+      (p.source || p.utm_source || p.utm_medium || p.utm_campaign) && "— Attribution —",
+      p.source && `source: ${p.source}`,
       p.utm_source && `utm_source: ${p.utm_source}`,
       p.utm_medium && `utm_medium: ${p.utm_medium}`,
       p.utm_campaign && `utm_campaign: ${p.utm_campaign}`,
-    ].filter(Boolean).join("\n");
+    ].filter(Boolean);
 
-    if (noteBody) {
+    if (lines.length) {
       await fetch(`${GHL_API}/contacts/${contactId}/notes`, {
         method: "POST",
         headers: {
@@ -133,10 +135,11 @@ async function ghlUpsert(pit: string, locationId: string, p: ContactPayload) {
           Version: GHL_VERSION,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ body: noteBody }),
+        body: JSON.stringify({ body: lines.join("\n") }),
       }).catch((e) => console.warn("Note create failed:", e));
     }
   }
+
 
   return { contactId, raw: data };
 }
