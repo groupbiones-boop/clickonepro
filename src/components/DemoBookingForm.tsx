@@ -90,6 +90,8 @@ export default function DemoBookingForm() {
           email: payload.email,
           phone: payload.phone,
           company: payload.company,
+          preferredDate: payload.preferredDate,
+          preferredTime: payload.preferredTime,
           message,
           source: "demo-booking-page",
           ...getUTMs(),

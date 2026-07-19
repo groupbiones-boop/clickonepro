@@ -11,6 +11,7 @@ import {
   isEmail,
   buildGhlPayload,
   buildNoteBody,
+  buildAppointmentPayload,
 } from "./index.ts";
 
 // --- isEmail ---
@@ -71,6 +72,8 @@ Deno.test("validate: happy path with all fields + UTMs", () => {
     utm_source: "google",
     utm_medium: "cpc",
     utm_campaign: "launch",
+    preferredDate: "2026-07-20",
+    preferredTime: "14:30",
   });
   assertEquals(out.email, "ana@example.com");
   assertEquals(out.name, "Ana Silva");
@@ -81,6 +84,8 @@ Deno.test("validate: happy path with all fields + UTMs", () => {
   assertEquals(out.utm_source, "google");
   assertEquals(out.utm_medium, "cpc");
   assertEquals(out.utm_campaign, "launch");
+  assertEquals(out.preferredDate, "2026-07-20");
+  assertEquals(out.preferredTime, "14:30");
 });
 
 Deno.test("validate: defaults source when omitted", () => {
@@ -88,6 +93,26 @@ Deno.test("validate: defaults source when omitted", () => {
   assertEquals(out.source, "website-contact-form");
   assertEquals(out.phone, undefined);
   assertEquals(out.name, undefined);
+});
+
+Deno.test("buildAppointmentPayload: maps preferred date/time to calendar appointment", () => {
+  const payload = buildAppointmentPayload("cal_123", "loc_123", "contact_123", {
+    email: "ana@example.com",
+    company: "Acme Inc",
+    preferredDate: "2026-07-20",
+    preferredTime: "14:30",
+  });
+
+  assertEquals(payload?.calendarId, "cal_123");
+  assertEquals(payload?.locationId, "loc_123");
+  assertEquals(payload?.contactId, "contact_123");
+  assertEquals(payload?.startTime, "2026-07-20T14:30:00");
+  assertEquals(payload?.title, "ClickOne Pro demo - Acme Inc");
+  assertEquals(payload?.appointmentStatus, "new");
+});
+
+Deno.test("buildAppointmentPayload: returns undefined without date/time", () => {
+  assertEquals(buildAppointmentPayload("cal_123", "loc_123", "contact_123", { email: "a@b.co" }), undefined);
 });
 
 Deno.test("validate: rejects missing/invalid email", () => {
