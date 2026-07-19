@@ -205,8 +205,9 @@ const DashboardContent = () => {
               isTransitioning ? "opacity-50" : "opacity-100 animate-fade-in"
             )}
           >
-            {renderTab()}
+            <Suspense fallback={<TabFallback />}>{renderTab()}</Suspense>
           </div>
+
         </main>
 
         {/* Bottom Navigation - Mobile Only */}
