@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, lazy, Suspense } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAdminAuth, AdminAuthProvider } from "@/contexts/AdminAuthContext";
 import Sidebar from "./components/Sidebar";
 import MobileSidebar from "./components/MobileSidebar";
@@ -8,7 +8,7 @@ import NotificationCenter from "./components/NotificationCenter";
 import DarkModeToggle from "@/components/DarkModeToggle";
 import { OfflineIndicator } from "@/components/OfflineIndicator";
 import { useRealtimeDashboard } from "@/hooks/useRealtimeDashboard";
-import { Loader2, LayoutDashboard, BarChart3, Users, TrendingUp, Target, FlaskConical } from "lucide-react";
+import { Loader2, LayoutDashboard, BarChart3, Users, TrendingUp, Target, FlaskConical, PlugZap } from "lucide-react";
 import { subDays, startOfDay, endOfDay } from "date-fns";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +21,7 @@ const AudienceTab = lazy(() => import("./components/AudienceTab"));
 const AcquisitionTab = lazy(() => import("./components/AcquisitionTab"));
 const BlogTab = lazy(() => import("./components/BlogTab"));
 const AlertsTab = lazy(() => import("./components/AlertsTab"));
+const IntegrationsTab = lazy(() => import("./components/IntegrationsTab"));
 const CampaignsTab = lazy(() =>
   import("./components/CampaignsTab").then((m) => ({ default: m.CampaignsTab })),
 );
@@ -36,7 +37,8 @@ const TabFallback = () => (
 const DashboardContent = () => {
   const { user, isAdmin, isLoading } = useAdminAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("dashboard");
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState(location.pathname === "/admin/integrations" ? "integrations" : "dashboard");
   const [startDate, setStartDate] = useState(startOfDay(subDays(new Date(), 30)));
   const [endDate, setEndDate] = useState(endOfDay(new Date()));
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -80,6 +82,7 @@ const DashboardContent = () => {
     { id: "campaigns", icon: Target, label: "Campanhas" },
     { id: "overview", icon: BarChart3, label: "Visão Geral" },
     { id: "acquisition", icon: TrendingUp, label: "Aquisição" },
+    { id: "integrations", icon: PlugZap, label: "Integrações" },
   ];
 
   useEffect(() => {
@@ -133,6 +136,8 @@ const DashboardContent = () => {
         return <BlogTab filters={filters} />;
       case "alerts":
         return <AlertsTab />;
+      case "integrations":
+        return <IntegrationsTab />;
       default:
         return (
           <DashboardTab 
@@ -154,6 +159,7 @@ const DashboardContent = () => {
     acquisition: "Aquisição",
     blog: "Analytics do Blog",
     alerts: "Alertas",
+    integrations: "Integrações",
   };
 
   return (
