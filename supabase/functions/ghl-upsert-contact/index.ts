@@ -123,14 +123,30 @@ serve(async (req) => {
     const payload = validate(await req.json());
     console.log("Upserting contact:", payload.email);
 
-    const { contactId } = await ghlUpsert(pit, locationId, payload);
+    const supabase = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+    );
 
-    // Mirror lead to Supabase (best-effort)
+    let contactId: string | undefined;
+    let ghlRaw: unknown = null;
+    let syncStatus: "created" | "updated" | "failed" = "failed";
+    let ghlError: string | null = null;
+
     try {
-      const supabase = createClient(
-        Deno.env.get("SUPABASE_URL")!,
-        Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
-      );
+      const result = await ghlUpsert(pit, locationId, payload);
+      contactId = result.contactId;
+      ghlRaw = result.raw;
+      // GHL upsert returns `new: true` when a new contact was created
+      const isNew = (result.raw as { new?: boolean } | null)?.new === true;
+      syncStatus = isNew ? "created" : "updated";
+    } catch (e) {
+      ghlError = e instanceof Error ? e.message : String(e);
+      console.error("GHL upsert error:", ghlError);
+    }
+
+    // Mirror lead + sync status to Supabase (best-effort)
+    try {
       await supabase.from("leads").insert({
         name: payload.name ?? null,
         email: payload.email,
@@ -140,13 +156,25 @@ serve(async (req) => {
         utm_source: payload.utm_source ?? null,
         utm_medium: payload.utm_medium ?? null,
         utm_campaign: payload.utm_campaign ?? null,
-        status: "new",
+        status: syncStatus === "failed" ? "failed" : "new",
+        ghl_contact_id: contactId ?? null,
+        ghl_sync_status: syncStatus,
+        ghl_response: ghlRaw,
+        ghl_error: ghlError,
+        last_synced_at: new Date().toISOString(),
       });
     } catch (e) {
       console.warn("Lead mirror failed:", e);
     }
 
-    return new Response(JSON.stringify({ success: true, contactId }), {
+    if (syncStatus === "failed") {
+      return new Response(JSON.stringify({ success: false, error: ghlError, syncStatus }), {
+        status: 502,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    return new Response(JSON.stringify({ success: true, contactId, syncStatus }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });

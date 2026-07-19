@@ -305,7 +305,12 @@ export type Database = {
           company: string | null
           created_at: string | null
           email: string
+          ghl_contact_id: string | null
+          ghl_error: string | null
+          ghl_response: Json | null
+          ghl_sync_status: string | null
           id: string
+          last_synced_at: string | null
           name: string | null
           phone: string | null
           source: string | null
@@ -318,7 +323,12 @@ export type Database = {
           company?: string | null
           created_at?: string | null
           email: string
+          ghl_contact_id?: string | null
+          ghl_error?: string | null
+          ghl_response?: Json | null
+          ghl_sync_status?: string | null
           id?: string
+          last_synced_at?: string | null
           name?: string | null
           phone?: string | null
           source?: string | null
@@ -331,7 +341,12 @@ export type Database = {
           company?: string | null
           created_at?: string | null
           email?: string
+          ghl_contact_id?: string | null
+          ghl_error?: string | null
+          ghl_response?: Json | null
+          ghl_sync_status?: string | null
           id?: string
+          last_synced_at?: string | null
           name?: string | null
           phone?: string | null
           source?: string | null
