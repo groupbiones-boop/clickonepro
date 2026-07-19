@@ -33,3 +33,6 @@ verify_jwt = false
 
 [functions.generate-lp-images]
 verify_jwt = false
+
+[functions.gsc-verify]
+verify_jwt = false
