@@ -39,3 +39,6 @@ verify_jwt = false
 
 [functions.ghl-upsert-contact]
 verify_jwt = false
+
+[functions.integration-healthcheck]
+verify_jwt = false

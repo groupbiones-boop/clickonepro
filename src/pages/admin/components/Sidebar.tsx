@@ -8,6 +8,7 @@ import {
   TrendingUp,
   FileText,
   Bell,
+  PlugZap,
   LogOut,
   PenSquare,
   Target,
@@ -31,6 +32,7 @@ const menuItems = [
   { id: "acquisition", label: "Aquisição", icon: TrendingUp },
   { id: "blog", label: "Analytics do Blog", icon: FileText },
   { id: "alerts", label: "Alertas", icon: Bell },
+  { id: "integrations", label: "Integrações", icon: PlugZap },
 ];
 
 const Sidebar = ({ activeTab, onTabChange }: SidebarProps) => {
