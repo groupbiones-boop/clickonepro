@@ -544,17 +544,363 @@ ${html}`
   }
 });
 
-// src/lib/mcp/tools/schedule-demo.ts
-import { createClient as createClient9 } from "npm:@supabase/supabase-js@^2.89.0";
+// src/lib/mcp/tools/seo-checklist-blog-post.ts
 import { defineTool as defineTool10 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z as z10 } from "npm:zod@^3.25.76";
-function supabaseAnon() {
+var STOP_WORDS = /* @__PURE__ */ new Set([
+  // pt-BR
+  "a",
+  "o",
+  "as",
+  "os",
+  "um",
+  "uma",
+  "uns",
+  "umas",
+  "de",
+  "do",
+  "da",
+  "dos",
+  "das",
+  "em",
+  "no",
+  "na",
+  "nos",
+  "nas",
+  "para",
+  "por",
+  "pelo",
+  "pela",
+  "com",
+  "sem",
+  "que",
+  "se",
+  "e",
+  "ou",
+  "mas",
+  "como",
+  "mais",
+  "menos",
+  "muito",
+  "muita",
+  "muitos",
+  "muitas",
+  "ao",
+  "aos",
+  "\xE0",
+  "\xE0s",
+  "ser",
+  "\xE9",
+  "s\xE3o",
+  "era",
+  "foi",
+  "ter",
+  "tem",
+  "t\xEAm",
+  "h\xE1",
+  "seu",
+  "sua",
+  "seus",
+  "suas",
+  "meu",
+  "minha",
+  "nosso",
+  "nossa",
+  "este",
+  "esta",
+  "esse",
+  "essa",
+  "isso",
+  "aquele",
+  "aquela",
+  "aquilo",
+  "n\xE3o",
+  "sim",
+  "tamb\xE9m",
+  "j\xE1",
+  "ainda",
+  "sobre",
+  "entre",
+  "at\xE9",
+  "quando",
+  "onde",
+  "porque",
+  "porqu\xEA",
+  "pois",
+  // en
+  "the",
+  "a",
+  "an",
+  "and",
+  "or",
+  "but",
+  "if",
+  "then",
+  "of",
+  "in",
+  "on",
+  "at",
+  "to",
+  "for",
+  "with",
+  "without",
+  "is",
+  "are",
+  "was",
+  "were",
+  "be",
+  "been",
+  "being",
+  "this",
+  "that",
+  "these",
+  "those",
+  "it",
+  "its",
+  "as",
+  "by",
+  "from",
+  "into",
+  "about",
+  "over",
+  "under",
+  "between",
+  "not",
+  "no",
+  "yes",
+  "so",
+  "than",
+  "too",
+  "very",
+  "can",
+  "will",
+  "just",
+  "also",
+  "have",
+  "has",
+  "had",
+  "do",
+  "does",
+  "did",
+  "you",
+  "your",
+  "we",
+  "our",
+  "they",
+  "their"
+]);
+function stripHtml2(input) {
+  return input.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&[a-z#0-9]+;/gi, " ");
+}
+function tokenize(text) {
+  return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9\s-]/g, " ").split(/\s+/).filter((w) => w.length >= 3 && !STOP_WORDS.has(w) && !/^\d+$/.test(w));
+}
+function extractHeadings(md) {
+  const headings = [];
+  const lines = md.replace(/\r\n?/g, "\n").split("\n");
+  let inFence = false;
+  for (const line of lines) {
+    if (/^```/.test(line)) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+    const mMd = line.match(/^(#{1,6})\s+(.*)$/);
+    if (mMd) {
+      headings.push({ level: mMd[1].length, text: mMd[2].trim() });
+      continue;
+    }
+    const mHtml = line.match(/<h([1-6])[^>]*>([\s\S]*?)<\/h\1>/i);
+    if (mHtml) headings.push({ level: parseInt(mHtml[1], 10), text: stripHtml2(mHtml[2]).trim() });
+  }
+  return headings;
+}
+function truncate(s, max) {
+  const t = s.trim().replace(/\s+/g, " ");
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max - 1);
+  const lastSpace = cut.lastIndexOf(" ");
+  return (lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut) + "\u2026";
+}
+var seo_checklist_blog_post_default = defineTool10({
+  name: "seo_checklist_blog_post",
+  title: "SEO checklist for a blog post",
+  description: "Analyze a draft post BEFORE saving and return an SEO checklist: suggested meta_title (\u226460), meta_description (\u2264160), heading structure audit (single H1, hierarchy), top keywords with density, and pass/fail checks. Purely computational \u2014 does not touch the database.",
+  inputSchema: {
+    title: z10.string().min(1),
+    content: z10.string().min(10).describe("Markdown or HTML."),
+    excerpt: z10.string().optional(),
+    focus_keyword: z10.string().optional().describe("Primary keyword to target. If omitted, the tool infers one from the title/content."),
+    top_n_keywords: z10.number().int().min(3).max(25).optional()
+  },
+  annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  handler: (input) => {
+    const headings = extractHeadings(input.content);
+    const plain = stripHtml2(input.content).replace(/\s+/g, " ").trim();
+    const tokens = tokenize(`${input.title} ${plain}`);
+    const totalWords = tokens.length;
+    const freq = /* @__PURE__ */ new Map();
+    for (const t of tokens) freq.set(t, (freq.get(t) ?? 0) + 1);
+    const topN = input.top_n_keywords ?? 10;
+    const top_keywords = [...freq.entries()].sort((a, b) => b[1] - a[1]).slice(0, topN).map(([keyword, count]) => ({
+      keyword,
+      count,
+      density_pct: totalWords ? +(count / totalWords * 100).toFixed(2) : 0
+    }));
+    const focus = (input.focus_keyword ?? top_keywords[0]?.keyword ?? "").toLowerCase();
+    const focusTokens = tokenize(focus);
+    const focusInTitle = focusTokens.length > 0 && focusTokens.every((t) => input.title.toLowerCase().includes(t));
+    const focusInFirstParagraph = (() => {
+      const first = plain.slice(0, 300).toLowerCase();
+      return focusTokens.length > 0 && focusTokens.every((t) => first.includes(t));
+    })();
+    const focusEntry = top_keywords.find((k) => k.keyword === focus);
+    const focus_density_pct = focusEntry?.density_pct ?? 0;
+    const h1Count = headings.filter((h) => h.level === 1).length;
+    const h2Count = headings.filter((h) => h.level === 2).length;
+    let hierarchy_ok = true;
+    let prev = 0;
+    for (const h of headings) {
+      if (prev > 0 && h.level > prev + 1) {
+        hierarchy_ok = false;
+        break;
+      }
+      prev = h.level;
+    }
+    const suggested_meta_title = truncate(
+      focus && !input.title.toLowerCase().includes(focus) ? `${input.title} \u2014 ${focus}` : input.title,
+      60
+    );
+    const descBase = (input.excerpt?.trim() || plain).replace(/\s+/g, " ").trim();
+    const suggested_meta_description = truncate(
+      focus && !descBase.toLowerCase().includes(focus) ? `${focus}: ${descBase}` : descBase,
+      160
+    );
+    const checks = [
+      { id: "title_length", label: "Title length 30\u201365 chars", pass: input.title.length >= 30 && input.title.length <= 65, detail: `${input.title.length} chars` },
+      { id: "meta_title_length", label: "Suggested meta_title \u2264 60 chars", pass: suggested_meta_title.length <= 60, detail: `${suggested_meta_title.length} chars` },
+      { id: "meta_description_length", label: "Suggested meta_description 120\u2013160 chars", pass: suggested_meta_description.length >= 120 && suggested_meta_description.length <= 160, detail: `${suggested_meta_description.length} chars` },
+      { id: "single_h1", label: "Exactly one H1", pass: h1Count === 1, detail: `H1 count: ${h1Count}` },
+      { id: "has_h2", label: "At least 2 H2 sections", pass: h2Count >= 2, detail: `H2 count: ${h2Count}` },
+      { id: "heading_hierarchy", label: "No heading-level jumps", pass: hierarchy_ok, detail: hierarchy_ok ? "ok" : "found level jump > 1" },
+      { id: "min_words", label: "At least 300 words", pass: totalWords >= 300, detail: `${totalWords} content words` },
+      { id: "focus_in_title", label: "Focus keyword appears in title", pass: focusInTitle, detail: focus || "(none)" },
+      { id: "focus_in_intro", label: "Focus keyword appears in first paragraph", pass: focusInFirstParagraph, detail: focus || "(none)" },
+      { id: "focus_density", label: "Focus keyword density 0.5\u20132.5%", pass: focus_density_pct >= 0.5 && focus_density_pct <= 2.5, detail: `${focus_density_pct}%` }
+    ];
+    const passed = checks.filter((c) => c.pass).length;
+    const score = Math.round(passed / checks.length * 100);
+    const structured = {
+      focus_keyword: focus || null,
+      suggested_meta_title,
+      suggested_meta_description,
+      headings,
+      stats: { total_words: totalWords, h1: h1Count, h2: h2Count, heading_count: headings.length },
+      top_keywords,
+      focus_density_pct,
+      checks,
+      score
+    };
+    const text = `SEO checklist for "${input.title}"
+Score: ${score}/100 (${passed}/${checks.length} checks passed)
+Focus keyword: ${focus || "(none)"}  \u2022  Density: ${focus_density_pct}%
+
+Suggested meta_title  (${suggested_meta_title.length}/60): ${suggested_meta_title}
+Suggested meta_desc   (${suggested_meta_description.length}/160): ${suggested_meta_description}
+
+Headings (${headings.length}): H1=${h1Count}, H2=${h2Count}
+` + headings.map((h) => `  ${"#".repeat(h.level)} ${h.text}`).join("\n") + `
+
+Top keywords:
+` + top_keywords.map((k) => `  \u2022 ${k.keyword} \u2014 ${k.count} (${k.density_pct}%)`).join("\n") + `
+
+Checks:
+` + checks.map((c) => `  ${c.pass ? "\u2713" : "\u2717"} ${c.label} \u2014 ${c.detail}`).join("\n");
+    return { content: [{ type: "text", text }], structuredContent: structured };
+  }
+});
+
+// src/lib/mcp/tools/schedule-blog-post-publish.ts
+import { createClient as createClient9 } from "npm:@supabase/supabase-js@^2.89.0";
+import { defineTool as defineTool11 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z11 } from "npm:zod@^3.25.76";
+function supabaseForUser9(ctx) {
   return createClient9(getEnv("SUPABASE_URL"), getEnv("SUPABASE_PUBLISHABLE_KEY"), {
+    global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+}
+var schedule_blog_post_publish_default = defineTool11({
+  name: "schedule_blog_post_publish",
+  title: "Schedule blog post publication",
+  description: "Schedule a blog post to auto-publish at a future date. Sets status='draft' and published_at=<publish_at>. A backend cron job (every 5 minutes) flips status to 'published' once the scheduled time is reached. Pass `cancel: true` to cancel a schedule (clears published_at and keeps draft). Pass a past date to publish immediately. Requires admin (RLS).",
+  inputSchema: {
+    id: z11.string().uuid().optional().describe("Post id. Provide id OR slug."),
+    slug: z11.string().optional().describe("Current slug. Provide id OR slug."),
+    publish_at: z11.string().datetime().optional().describe("ISO 8601 timestamp for auto-publish. Required unless cancel=true."),
+    cancel: z11.boolean().optional().describe("If true, clears the schedule and keeps the post as draft.")
+  },
+  annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  handler: async (input, ctx) => {
+    if (!ctx.isAuthenticated()) {
+      return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
+    }
+    if (!input.id && !input.slug) {
+      return { content: [{ type: "text", text: "Provide either id or slug." }], isError: true };
+    }
+    if (!input.cancel && !input.publish_at) {
+      return { content: [{ type: "text", text: "Provide publish_at (ISO 8601) or set cancel=true." }], isError: true };
+    }
+    const supabase = supabaseForUser9(ctx);
+    const q = supabase.from("blog_posts").select("id, title, slug, status, published_at").limit(1);
+    const { data: existing, error: fetchErr } = input.id ? await q.eq("id", input.id).maybeSingle() : await q.eq("slug", input.slug).maybeSingle();
+    if (fetchErr) return { content: [{ type: "text", text: fetchErr.message }], isError: true };
+    if (!existing) return { content: [{ type: "text", text: "Post not found." }], isError: true };
+    let patch;
+    let action;
+    if (input.cancel) {
+      patch = { status: "draft", published_at: null };
+      action = "cancelled";
+    } else {
+      const when = new Date(input.publish_at);
+      if (Number.isNaN(when.getTime())) {
+        return { content: [{ type: "text", text: "Invalid publish_at (expected ISO 8601)." }], isError: true };
+      }
+      const now = /* @__PURE__ */ new Date();
+      if (when.getTime() <= now.getTime()) {
+        patch = { status: "published", published_at: when.toISOString() };
+        action = "published_now";
+      } else {
+        patch = { status: "draft", published_at: when.toISOString() };
+        action = "scheduled";
+      }
+    }
+    const { data, error } = await supabase.from("blog_posts").update(patch).eq("id", existing.id).select("id, title, slug, status, published_at, updated_at").single();
+    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
+    const structured = {
+      action,
+      post: data,
+      scheduled_for: action === "scheduled" ? data.published_at : null,
+      note: action === "scheduled" ? "Post kept as draft. A cron job runs every 5 minutes and will flip it to 'published' at the scheduled time." : action === "published_now" ? "publish_at was in the past \u2014 the post is now published." : "Schedule cancelled. Post remains a draft with no scheduled publish time."
+    };
+    return {
+      content: [{ type: "text", text: JSON.stringify(structured, null, 2) }],
+      structuredContent: structured
+    };
+  }
+});
+
+// src/lib/mcp/tools/schedule-demo.ts
+import { createClient as createClient10 } from "npm:@supabase/supabase-js@^2.89.0";
+import { defineTool as defineTool12 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z12 } from "npm:zod@^3.25.76";
+function supabaseAnon() {
+  return createClient10(getEnv("SUPABASE_URL"), getEnv("SUPABASE_PUBLISHABLE_KEY"), {
     auth: { persistSession: false, autoRefreshToken: false }
   });
 }
 function supabaseService() {
-  return createClient9(getEnv("SUPABASE_URL"), getEnv("SUPABASE_SERVICE_ROLE_KEY"), {
+  return createClient10(getEnv("SUPABASE_URL"), getEnv("SUPABASE_SERVICE_ROLE_KEY"), {
     auth: { persistSession: false, autoRefreshToken: false }
   });
 }
@@ -596,19 +942,19 @@ async function sendConfirmationEmail(params) {
   }
   return true;
 }
-var schedule_demo_default = defineTool10({
+var schedule_demo_default = defineTool12({
   name: "schedule_demo",
   title: "Schedule demo",
   description: "Register a demo booking for a lead and send a confirmation email. Auto-creates or updates the linked lead (status \u2192 'demo_scheduled'). Public tool: no login required.",
   inputSchema: {
-    email: z10.string().email().describe("Lead email (required)."),
-    scheduled_at: z10.string().datetime().describe("ISO 8601 date-time of the demo (e.g. 2026-07-25T14:00:00Z)."),
-    name: z10.string().optional(),
-    phone: z10.string().optional(),
-    company: z10.string().optional(),
-    timezone: z10.string().optional().describe("IANA timezone. Default 'America/Sao_Paulo'."),
-    notes: z10.string().optional(),
-    send_confirmation: z10.boolean().optional().describe("Send confirmation email (default true).")
+    email: z12.string().email().describe("Lead email (required)."),
+    scheduled_at: z12.string().datetime().describe("ISO 8601 date-time of the demo (e.g. 2026-07-25T14:00:00Z)."),
+    name: z12.string().optional(),
+    phone: z12.string().optional(),
+    company: z12.string().optional(),
+    timezone: z12.string().optional().describe("IANA timezone. Default 'America/Sao_Paulo'."),
+    notes: z12.string().optional(),
+    send_confirmation: z12.boolean().optional().describe("Send confirmation email (default true).")
   },
   annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: true },
   handler: async (input, _ctx) => {
@@ -690,8 +1036,8 @@ var projectRef = "ojyzegzdlpjlbdhvqhav";
 var mcp_default = defineMcp({
   name: "clickonepro-mcp",
   title: "ClickOne Pro MCP",
-  version: "0.5.0",
-  instructions: "Tools for the ClickOne Pro CRM and blog. Blog (admin write): `list_blog_posts`, `get_blog_post`, `create_blog_post`, `update_blog_post`. Blog utility (no auth needed): `preview_blog_post` renders Markdown\u2192HTML and estimates read_time before saving. Leads (admin): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`. Public: `schedule_demo` books a demo and emails a confirmation.",
+  version: "0.6.0",
+  instructions: "Tools for the ClickOne Pro CRM and blog. Blog (admin write): `list_blog_posts`, `get_blog_post`, `create_blog_post`, `update_blog_post`, `schedule_blog_post_publish`. Blog utilities (no auth needed): `preview_blog_post` renders Markdown\u2192HTML and estimates read_time; `seo_checklist_blog_post` audits meta tags, headings and keyword density before saving. Leads (admin): `list_leads`, `get_lead`, `create_lead`, `update_lead_status`. Public: `schedule_demo` books a demo and emails a confirmation.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated"
@@ -702,6 +1048,8 @@ var mcp_default = defineMcp({
     create_blog_post_default,
     update_blog_post_default,
     preview_blog_post_default,
+    seo_checklist_blog_post_default,
+    schedule_blog_post_publish_default,
     list_leads_default,
     get_lead_default,
     create_lead_default,
