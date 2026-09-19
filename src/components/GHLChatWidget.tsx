@@ -35,6 +35,7 @@ const GHLChatWidget = () => {
     return () => {
       document.querySelector(CONTAINER_SELECTOR)?.remove();
       document.getElementById(SCRIPT_ID)?.remove();
+      document.querySelectorAll("chat-widget").forEach((element) => element.remove());
       document.querySelectorAll(`iframe[src*="${GHL_CHAT_WIDGET.ID}"]`).forEach((element) => element.remove());
     };
   }, [isPrivatePage]);
