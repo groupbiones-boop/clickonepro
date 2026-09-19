@@ -12,6 +12,14 @@ export const EXTERNAL_URLS = {
   APP_LOGIN: "https://app.clickonepro.com/",
 } as const;
 
+// GoHighLevel chat widget
+export const GHL_CHAT_WIDGET = {
+  ID: "6958160ae056feed599822d0",
+  LOCATION_ID: "yUk5li3I0wg4YGcbKlSF",
+  LOADER_URL: "https://widgets.leadconnectorhq.com/loader.js",
+  RESOURCES_URL: "https://widgets.leadconnectorhq.com/chat-widget/loader.js",
+} as const;
+
 // Contact Information
 export const CONTACT_INFO = {
   EMAIL: "info@clickonepro.com",
