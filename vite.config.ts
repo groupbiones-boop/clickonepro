@@ -50,6 +50,9 @@ export default defineConfig(({ mode }) => ({
     // mcpPlugin(),
     mode === "development" && componentTagger(),
     VitePWA({
+      // The precached index.html kept returning visitors on an old build (its revision never changed
+      // between deploys). selfDestroying ships a sw.js that unregisters itself and clears its caches.
+      selfDestroying: true,
       registerType: "autoUpdate",
       includeAssets: ["favicon.png", "robots.txt"],
       manifest: {
