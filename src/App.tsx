@@ -9,6 +9,8 @@ import { AdminAuthProvider } from "./contexts/AdminAuthContext";
 import ScrollToTop from "./components/ScrollToTop";
 import PageLoader from "./components/PageLoader";
 import GHLChatWidget from "./components/GHLChatWidget";
+import GHLExternalTracking from "./components/GHLExternalTracking";
+import AdminNoIndex from "./components/AdminNoIndex";
 
 
 // Lazy load all pages for better performance
@@ -22,6 +24,8 @@ const SetorDetalhe = lazy(() => import("./pages/setores/SetorDetalhe"));
 const Sobre = lazy(() => import("./pages/Sobre"));
 
 const Contato = lazy(() => import("./pages/Contato"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const BookADemo = lazy(() => import("./pages/BookADemo"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Obrigado = lazy(() => import("./pages/Obrigado"));
@@ -55,7 +59,9 @@ const App = () => (
           
           <BrowserRouter>
             <ScrollToTop />
+            <AdminNoIndex />
             <GHLChatWidget />
+            <GHLExternalTracking />
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/" element={<Index />} />
@@ -69,6 +75,8 @@ const App = () => (
                 <Route path="/empresas/negocios-locais" element={<NegociosLocais />} />
                 <Route path="/sobre" element={<Sobre />} />
                 <Route path="/contato" element={<Contato />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/book-a-demo" element={<BookADemo />} />
                 
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />

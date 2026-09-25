@@ -49,7 +49,8 @@ export const OptimizedImage = ({
         height={height}
         loading={priority ? "eager" : "lazy"}
         decoding={priority ? "sync" : "async"}
-        fetchPriority={priority ? "high" : "auto"}
+        // Lowercase attribute: React 18 warns on the camelCase fetchPriority prop.
+        {...{ fetchpriority: priority ? "high" : "auto" }}
       />
     </picture>
   );

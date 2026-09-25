@@ -7,10 +7,6 @@ import {
   Menu, 
   X, 
   ChevronDown, 
-  Phone, 
-  MessageSquare, 
-  Layers, 
-  Award,
   Sparkles,
   Wind,
   Wrench,
@@ -31,9 +27,6 @@ import {
   Bug,
   Key,
   ClipboardCheck,
-  Building,
-  Building2,
-  MapPin,
   ArrowRight
 } from "lucide-react";
 import {
@@ -51,39 +44,10 @@ const Header = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [productDropdownOpen, setProductDropdownOpen] = useState(false);
   const [whoWeServeDropdownOpen, setWhoWeServeDropdownOpen] = useState(false);
 
   const isActive = (path: string) => location.pathname === path;
   const isActivePrefix = (prefix: string) => location.pathname.startsWith(prefix);
-
-  // Product menu items with icons
-  const productItems = [
-    { 
-      name: t("nav.voiceReceptionist"), 
-      desc: t("megaMenu.product.voiceDesc"),
-      slug: "/produto/recepcionista-ia-voz", 
-      icon: Phone 
-    },
-    { 
-      name: t("nav.chatAttendant"), 
-      desc: t("megaMenu.product.chatDesc"),
-      slug: "/produto/atendente-ia-conversacional", 
-      icon: MessageSquare 
-    },
-    { 
-      name: t("megaMenu.product.verticalInfra"), 
-      desc: t("megaMenu.product.verticalInfraDesc"),
-      slug: "/produto/infraestrutura-vertical", 
-      icon: Layers 
-    },
-    { 
-      name: t("megaMenu.product.whyClickone"), 
-      desc: t("megaMenu.product.whyClickoneDesc"),
-      slug: "/sobre", 
-      icon: Award 
-    },
-  ];
 
   // Sectors organized by category
   const sectorCategories = [
@@ -124,11 +88,20 @@ const Header = () => {
     }
   ];
 
-  const businessTypes = [
-    { name: t("nav.smallBusiness"), slug: "/empresas/pequena-empresa", icon: Building },
-    { name: t("nav.mediumBusiness"), slug: "/empresas/media-empresa", icon: Building2 },
-    { name: t("nav.localBusiness"), slug: "/empresas/negocios-locais", icon: MapPin },
-  ];
+  // Main links: Home · How it works · Pricing · Industries (menu) · About
+  const linkClass = (active: boolean) =>
+    `text-sm font-medium transition-colors relative ${
+      active
+        ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full"
+        : "text-primary-foreground/80 hover:text-primary-foreground"
+    }`;
+  const mobileLinkClass = (active: boolean) =>
+    `text-sm font-medium py-2 border-l-2 pl-3 ${
+      active
+        ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10"
+        : "text-primary-foreground/80 border-transparent"
+    }`;
+  const isHowItWorks = location.pathname === "/" && location.hash === "#how-it-works";
 
   return (
     <header className="sticky top-0 z-50 w-full bg-primary">
@@ -139,85 +112,25 @@ const Header = () => {
 
         {/* Desktop Navigation - Center Menu */}
         <nav className="hidden md:flex flex-1 items-center justify-center gap-8">
-          <Link 
-            to="/" 
-            aria-current={isActive("/") ? "page" : undefined}
-            className={`text-sm font-medium transition-colors relative ${
-              isActive("/") 
-                ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
-                : "text-primary-foreground/80 hover:text-primary-foreground"
-            }`}
+          <Link
+            to="/"
+            aria-current={isActive("/") && !isHowItWorks ? "page" : undefined}
+            className={linkClass(isActive("/") && !isHowItWorks)}
           >
             Home
           </Link>
-          
-          {/* Produto Mega Menu */}
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger 
-                  className={`text-sm font-medium bg-transparent hover:bg-primary-foreground/10 data-[state=open]:bg-primary-foreground/10 ${
-                    isActivePrefix("/produto") 
-                      ? "text-primary-foreground" 
-                      : "text-primary-foreground/80 hover:text-primary-foreground"
-                  }`}
-                >
-                  <span className={`relative ${
-                    isActivePrefix("/produto") 
-                      ? "after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
-                      : ""
-                  }`}>
-                    {t("nav.product")}
-                  </span>
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="flex w-[600px] shadow-2xl rounded-lg overflow-hidden">
-                    {/* Left Panel - CTA */}
-                    <div className="w-1/3 bg-primary p-6 flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-lg font-bold text-primary-foreground mb-2">
-                          {t("megaMenu.product.title")}
-                        </h3>
-                        <p className="text-sm text-primary-foreground/80 mb-6">
-                          {t("megaMenu.product.description")}
-                        </p>
-                      </div>
-                      <Button asChild size="sm" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full">
-                        <Link to="/contato" className="flex items-center gap-2">
-                          {t("megaMenu.product.cta")}
-                          <ArrowRight className="h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </div>
-                    
-                    {/* Right Grid - Products */}
-                    <div className="w-2/3 bg-background p-4">
-                      <div className="grid grid-cols-2 gap-2">
-                        {productItems.map((item) => (
-                          <NavigationMenuLink asChild key={item.slug}>
-                            <Link
-                              to={item.slug}
-                              className={`flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-primary/5 group ${
-                                isActive(item.slug) ? "bg-primary/10" : ""
-                              }`}
-                            >
-                              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
-                                <item.icon className="h-5 w-5 text-primary" />
-                              </div>
-                              <div>
-                                <div className="text-sm font-semibold text-foreground">{item.name}</div>
-                                <p className="text-xs text-muted-foreground mt-0.5">{item.desc}</p>
-                              </div>
-                            </Link>
-                          </NavigationMenuLink>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+
+          <Link to="/#how-it-works" className={linkClass(isHowItWorks)}>
+            {t("nav.howItWorks")}
+          </Link>
+
+          <Link
+            to="/pricing"
+            aria-current={isActive("/pricing") ? "page" : undefined}
+            className={linkClass(isActive("/pricing"))}
+          >
+            {t("nav.pricing")}
+          </Link>
 
           {/* Setores Mega Menu */}
           <NavigationMenu>
@@ -225,13 +138,13 @@ const Header = () => {
               <NavigationMenuItem>
                 <NavigationMenuTrigger 
                   className={`text-sm font-medium bg-transparent hover:bg-primary-foreground/10 data-[state=open]:bg-primary-foreground/10 ${
-                    isActivePrefix("/setores") || isActivePrefix("/empresas")
+                    isActivePrefix("/setores")
                       ? "text-primary-foreground" 
                       : "text-primary-foreground/80 hover:text-primary-foreground"
                   }`}
                 >
                   <span className={`relative ${
-                    isActivePrefix("/setores") || isActivePrefix("/empresas")
+                    isActivePrefix("/setores")
                       ? "after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
                       : ""
                   }`}>
@@ -258,24 +171,6 @@ const Header = () => {
                           </Link>
                         </Button>
                         
-                        {/* Business Types */}
-                        <div className="pt-4 border-t border-primary-foreground/20">
-                          <p className="text-xs text-primary-foreground/60 uppercase tracking-wider mb-3">{t("nav.companies")}</p>
-                          <div className="space-y-2">
-                            {businessTypes.map((type) => (
-                              <Link
-                                key={type.slug}
-                                to={type.slug}
-                                className={`flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors ${
-                                  isActive(type.slug) ? "text-primary-foreground font-medium" : ""
-                                }`}
-                              >
-                                <type.icon className="h-4 w-4" />
-                                {type.name}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
                       </div>
                     </div>
                     
@@ -326,17 +221,6 @@ const Header = () => {
             {t("nav.about")}
           </Link>
 
-          <Link 
-            to="/contato" 
-            aria-current={isActive("/contato") ? "page" : undefined}
-            className={`text-sm font-medium transition-colors relative ${
-              isActive("/contato") 
-                ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
-                : "text-primary-foreground/80 hover:text-primary-foreground"
-            }`}
-          >
-            {t("nav.contact")}
-          </Link>
         </nav>
 
         {/* Desktop Right Group - Buttons + Flag */}
@@ -367,55 +251,33 @@ const Header = () => {
           <nav className="container py-4 flex flex-col gap-4">
             <Link
               to="/"
-              className={`text-sm font-medium py-2 border-l-2 pl-3 ${
-                isActive("/") 
-                  ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
-                  : "text-primary-foreground/80 border-transparent"
-              }`}
+              className={mobileLinkClass(isActive("/") && !isHowItWorks)}
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
             </Link>
-            
-            {/* Produto Dropdown Mobile */}
-            <div>
-              <button
-                className={`flex items-center justify-between w-full text-sm font-medium py-2 border-l-2 pl-3 ${
-                  isActivePrefix("/produto") 
-                    ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
-                    : "text-primary-foreground/80 border-transparent"
-                }`}
-                onClick={() => setProductDropdownOpen(!productDropdownOpen)}
-              >
-                {t("nav.product")}
-                <ChevronDown className={`h-4 w-4 transition-transform ${productDropdownOpen ? "rotate-180" : ""}`} />
-              </button>
-              {productDropdownOpen && (
-                <div className="pl-4 flex flex-col gap-1 mt-2">
-                  {productItems.map((item) => (
-                    <Link
-                      key={item.slug}
-                      to={item.slug}
-                      className={`flex items-center gap-3 text-sm py-2 pl-3 border-l-2 ${
-                        isActive(item.slug) 
-                          ? "text-primary-foreground border-primary-foreground font-medium" 
-                          : "text-primary-foreground/70 border-transparent"
-                      }`}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <item.icon className="h-4 w-4" />
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+
+            <Link
+              to="/#how-it-works"
+              className={mobileLinkClass(isHowItWorks)}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t("nav.howItWorks")}
+            </Link>
+
+            <Link
+              to="/pricing"
+              className={mobileLinkClass(isActive("/pricing"))}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t("nav.pricing")}
+            </Link>
 
             {/* A quem servimos Dropdown Mobile */}
             <div>
               <button
                 className={`flex items-center justify-between w-full text-sm font-medium py-2 border-l-2 pl-3 ${
-                  isActivePrefix("/setores") || isActivePrefix("/empresas")
+                  isActivePrefix("/setores")
                     ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
                     : "text-primary-foreground/80 border-transparent"
                 }`}
@@ -460,25 +322,7 @@ const Header = () => {
                     <ArrowRight className="h-4 w-4" />
                     {t("nav.viewAll")}
                   </Link>
-                  
-                  <span className="text-xs font-semibold text-primary-foreground/60 uppercase tracking-wider py-2 pl-3 mt-2 block">
-                    {t("nav.companies")}
-                  </span>
-                  {businessTypes.map((type) => (
-                    <Link
-                      key={type.slug}
-                      to={type.slug}
-                      className={`flex items-center gap-3 text-sm py-2 pl-3 border-l-2 ${
-                        isActive(type.slug) 
-                          ? "text-primary-foreground border-primary-foreground font-medium" 
-                          : "text-primary-foreground/70 border-transparent"
-                      }`}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <type.icon className="h-4 w-4" />
-                      {type.name}
-                    </Link>
-                  ))}
+
                 </div>
               )}
             </div>
@@ -495,18 +339,6 @@ const Header = () => {
               {t("nav.about")}
             </Link>
 
-            <Link
-              to="/contato"
-              className={`text-sm font-medium py-2 border-l-2 pl-3 ${
-                isActive("/contato") 
-                  ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
-                  : "text-primary-foreground/80 border-transparent"
-              }`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t("nav.contact")}
-            </Link>
-
             {/* Language Switcher Mobile */}
             <div className="py-2">
               <LanguageSwitcher />
@@ -519,7 +351,7 @@ const Header = () => {
                 </Link>
               </Button>
               <Button asChild variant="ghost" className="bg-primary-foreground/15 border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/25 hover:border-primary-foreground/60">
-                <a href="https://app.clickonepro.com/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
+                <a href={EXTERNAL_URLS.APP_LOGIN} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                   {t("nav.login")}
                 </a>
               </Button>

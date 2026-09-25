@@ -1,668 +1,481 @@
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import {
+  ArrowRight,
+  CheckCircle,
+  Headphones,
+  PlugZap,
+  Bot,
+  ClipboardList,
+  Languages,
+  MessageCircleQuestion,
+  ShieldCheck,
+  PhoneOff,
+  CalendarX,
+  Workflow,
+  BadgeCheck,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import Layout from "@/components/layout/Layout";
 import SEO from "@/components/SEO";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import AudioTranscriptPlayer from "@/components/AudioTranscriptPlayer";
 import { audioDemos } from "@/data/audioDemo";
-import {
-  Phone,
-  MessageSquare,
-  Calendar,
-  Users,
-  Clock,
-  TrendingUp,
-  CheckCircle,
-  ArrowRight,
-  Smartphone,
-  Bot,
-  Headphones,
-  Star,
-} from "lucide-react";
-// Hero images served from public folder for preload matching
-import mobileApp from "@/assets/mobile-app-clickone.jpg";
-import mobileAppWebp from "@/assets/mobile-app-clickone.webp";
-import industryCleaning from "@/assets/industry-cleaning.jpg";
-import industryCleaningWebp from "@/assets/industry-cleaning.webp";
-import industryConstruction from "@/assets/industry-construction.jpg";
-import industryConstructionWebp from "@/assets/industry-construction.webp";
+import MissedCallsCalculator from "@/components/MissedCallsCalculator";
+import { GEOFAQSection, getFAQItems } from "@/components/GEOFAQSection";
+import MoneyLeakChain from "@/components/home/MoneyLeakChain";
 import industryHvac from "@/assets/industry-hvac.jpg";
 import industryHvacWebp from "@/assets/industry-hvac.webp";
 import industryPlumbing from "@/assets/industry-plumbing-new.jpg";
 import industryPlumbingWebp from "@/assets/industry-plumbing-new.webp";
-import industryElectrical from "@/assets/industry-electrical.jpg";
-import industryElectricalWebp from "@/assets/industry-electrical.webp";
-import industryLandscaping from "@/assets/industry-landscaping.jpg";
-import industryLandscapingWebp from "@/assets/industry-landscaping.webp";
-import logoClutch from "@/assets/logo-clutch.svg";
-import logoG2 from "@/assets/logo-g2.svg";
-import logoCapterra from "@/assets/logo-capterra.svg";
-import logoTrustpilot from "@/assets/logo-trustpilot.svg";
+import industryRoofing from "@/assets/industry-roofing.jpg";
+import industryConstruction from "@/assets/industry-construction.jpg";
+import industryConstructionWebp from "@/assets/industry-construction.webp";
+
+// The demo recording shown when a visitor clicks "Hear our AI answer a call".
+const HERO_DEMO = audioDemos.find((demo) => demo.id === "plumbing") ?? audioDemos[0];
+
+const scrollToCalculator = (event: MouseEvent<HTMLAnchorElement>) => {
+  const target = document.getElementById("calculator");
+  if (!target) return;
+  event.preventDefault();
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
+const asList = (value: unknown): string[] => (Array.isArray(value) ? (value as string[]) : []);
 
 const Index = () => {
   const { t } = useTranslation();
-  const [selectedDemo, setSelectedDemo] = useState(audioDemos[0]);
+  const [demoOpen, setDemoOpen] = useState(false);
+  const [selectedDemoId, setSelectedDemoId] = useState(HERO_DEMO.id);
+  const activeDemo = audioDemos.find((demo) => demo.id === selectedDemoId) ?? HERO_DEMO;
 
   const industries = [
-    { name: t("industries.cleaning"), slug: "limpeza", image: industryCleaning, webp: industryCleaningWebp },
-    { name: t("industries.construction"), slug: "construcao", image: industryConstruction, webp: industryConstructionWebp },
-    { name: t("industries.hvac"), slug: "hvac", image: industryHvac, webp: industryHvacWebp },
-    { name: t("industries.plumbing"), slug: "encanamento", image: industryPlumbing, webp: industryPlumbingWebp },
-    { name: t("industries.electrical"), slug: "eletrica", image: industryElectrical, webp: industryElectricalWebp },
-    { name: t("industries.landscaping"), slug: "paisagismo", image: industryLandscaping, webp: industryLandscapingWebp },
-  ];
-
-  const features = [
-    {
-      icon: Clock,
-      title: t("features.feature1Title"),
-      description: t("features.feature1Desc"),
-    },
-    {
-      icon: Calendar,
-      title: t("features.feature2Title"),
-      description: t("features.feature2Desc"),
-    },
-    {
-      icon: Users,
-      title: t("features.feature3Title"),
-      description: t("features.feature3Desc"),
-    },
-    {
-      icon: TrendingUp,
-      title: t("features.feature4Title"),
-      description: t("features.feature4Desc"),
-    },
-  ];
-
-  const channels = [
-    { name: t("omnichannel.phone"), icon: Phone },
-    { name: t("omnichannel.sms"), icon: MessageSquare },
-    { name: t("omnichannel.whatsapp"), icon: Smartphone },
-    { name: "Instagram", icon: MessageSquare },
-    { name: "Facebook", icon: MessageSquare },
-    { name: t("omnichannel.webchat"), icon: Bot },
+    { name: t("home.industries.hvac"), slug: "hvac", image: industryHvac, webp: industryHvacWebp },
+    { name: t("home.industries.plumbing"), slug: "encanamento", image: industryPlumbing, webp: industryPlumbingWebp },
+    { name: t("home.industries.roofing"), slug: "telhados", image: industryRoofing, webp: undefined },
+    { name: t("home.industries.remodeling"), slug: "construcao", image: industryConstruction, webp: industryConstructionWebp },
   ];
 
   const steps = [
-    {
-      number: "01",
-      title: t("howItWorks.step1Title"),
-      description: t("howItWorks.step1Desc"),
-    },
-    {
-      number: "02",
-      title: t("howItWorks.step2Title"),
-      description: t("howItWorks.step2Desc"),
-    },
-    {
-      number: "03",
-      title: t("howItWorks.step3Title"),
-      description: t("howItWorks.step3Desc"),
-    },
-    {
-      number: "04",
-      title: t("howItWorks.step4Title"),
-      description: t("howItWorks.step4Desc"),
-    },
+    { icon: PlugZap, title: t("home.how.step1Title"), description: t("home.how.step1Desc") },
+    { icon: Bot, title: t("home.how.step2Title"), description: t("home.how.step2Desc") },
+    { icon: ClipboardList, title: t("home.how.step3Title"), description: t("home.how.step3Desc") },
   ];
+
+  const operatedIcons = [Languages, MessageCircleQuestion];
+  const operatedPoints = asList(t("home.operated.points", { returnObjects: true }));
+
+  const trust = [t("home.hero.trust1"), t("home.hero.trust3")];
+
+  const heroButtons = (variant: "hero" | "cta") => (
+    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+      <Button
+        size="lg"
+        asChild
+        className={
+          variant === "hero"
+            ? "group h-auto min-h-[52px] px-7 py-3.5 text-base shadow-lg shadow-primary/30"
+            : "group h-auto min-h-[52px] px-7 py-3.5 text-base bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+        }
+      >
+        <a href="#calculator" onClick={scrollToCalculator} data-testid={`${variant}-cta-calculator`}>
+          {t("home.hero.ctaCalculator")}
+          <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+        </a>
+      </Button>
+      <Button
+        size="lg"
+        variant="outline"
+        onClick={() => setDemoOpen(true)}
+        data-testid={`${variant}-cta-demo`}
+        className="h-auto min-h-[52px] whitespace-normal px-5 sm:px-7 py-3.5 text-sm sm:text-base leading-snug bg-white/10 border-white/30 text-white hover:bg-white/20 hover:text-white hover:border-white/50 backdrop-blur-sm"
+      >
+        <Headphones className="mr-2 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+        {t("home.hero.ctaDemo")}
+      </Button>
+    </div>
+  );
 
   return (
     <Layout>
-      <SEO 
-        titleKey="seo.home.title" 
-        descriptionKey="seo.home.description" 
+      <SEO
+        titleKey="seo.home.title"
+        descriptionKey="seo.home.description"
         schemaType="Organization"
+        additionalSchemas={[
+          {
+            type: "FAQPage",
+            data: { faqItems: getFAQItems(t) },
+          },
+        ]}
       />
-      {/* Hero Section - Enhanced */}
-      <section className="relative overflow-hidden py-16 md:py-40 min-h-[90vh] flex items-center">
-        {/* Background Image with Gradient Overlay - LCP Priority with Responsive srcset */}
-        {/* Using public paths to match preload in index.html */}
-        <picture className="absolute inset-0 w-full h-full">
-          <source 
+
+      {/* 1. Hero */}
+      <section className="relative overflow-hidden min-h-[88vh] flex items-center py-20 md:py-28">
+        <picture className="absolute inset-0 h-full w-full">
+          <source
             type="image/webp"
             srcSet="/assets/hero-home-sm.webp 896w, /assets/hero-home-md.webp 1024w, /assets/hero-home-optimized.webp 1920w"
             sizes="100vw"
           />
-          <img 
+          <img
             src="/assets/hero-home.jpg"
             alt={t("seo.home.heroAlt")}
             width={1920}
             height={1080}
-            fetchPriority="high"
+            // Lowercase attribute: React 18 warns on the camelCase fetchPriority prop.
+            {...{ fetchpriority: "high" }}
             decoding="sync"
-            className="w-full h-full object-cover object-center"
+            className="h-full w-full object-cover object-center"
           />
         </picture>
-        
-        {/* Animated Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-foreground/95 via-foreground/85 to-primary/40" />
-        
-        {/* Floating Glow Effects */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
-        
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, hsla(266, 60%, 6%, 0.85) 0%, transparent 70%), linear-gradient(135deg, hsla(266, 60%, 7%, 0.94) 0%, hsla(266, 60%, 10%, 0.88) 55%, hsla(266, 86%, 30%, 0.7) 100%)",
+          }}
+          aria-hidden="true"
+        />
+        <div className="absolute -top-24 left-1/4 h-96 w-96 rounded-full bg-primary/30 blur-3xl" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:56px_56px]" aria-hidden="true" />
+
         <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2 mb-8 -mt-8 md:-mt-12 animate-fade-in">
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm text-primary-foreground/90 font-medium">{t("hero.badge")}</span>
-            </div>
-            
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-background leading-tight">
-              {t("hero.title1")}{" "}
-              <span className="relative inline-block">
-                <span className="text-white font-extrabold [text-shadow:0_0_30px_hsl(var(--primary)),0_0_60px_hsl(var(--primary)/0.5)]">
-                  {t("hero.title2")}
-                </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-1.5 bg-white rounded-full shadow-[0_0_20px_hsl(var(--primary))]" />
-              </span>
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs sm:text-sm font-medium text-white/90 backdrop-blur-sm">
+              <span className="h-2 w-2 flex-shrink-0 rounded-full bg-emerald-400" aria-hidden="true" />
+              {t("home.hero.eyebrow")}
+            </p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white text-balance">
+              {t("home.hero.title")}
             </h1>
-            
-            <p className="text-lg md:text-xl text-background/70 mb-10 max-w-2xl mx-auto leading-relaxed">
-              {t("hero.subtitle")}
+            <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-white/75">
+              {t("home.hero.subtitle")}
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="group text-base px-8 py-6 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all" asChild>
-                <Link to="/contato">
-                  {t("hero.cta")}
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="text-base px-8 py-6 bg-background/10 border-background/30 text-background hover:bg-background/20 hover:border-background/50 backdrop-blur-sm" asChild>
-                <Link to="/setores">{t("hero.ctaSecondary")}</Link>
-              </Button>
-            </div>
-            
-            {/* Trust Indicators */}
-            <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-background/50">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="text-sm">{t("hero.trust1")}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="text-sm">{t("hero.trust2")}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="text-sm">{t("hero.trust3")}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Bottom Gradient Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-      </section>
-
-      {/* Social Proof Ratings - Animated Marquee */}
-      <section className="bg-foreground py-6 border-y border-border/20 overflow-hidden">
-        <div className="relative">
-          {/* Gradient masks for smooth edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-foreground to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-foreground to-transparent z-10" />
-          
-          {/* Scrolling container */}
-          <div className="flex animate-marquee">
-            {/* First set of items */}
-            <div className="flex items-center gap-12 md:gap-16 lg:gap-20 shrink-0 px-8">
-              {/* Clutch */}
-              <div className="flex items-center gap-3">
-                <span className="text-background/90 font-bold text-lg">4.8</span>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
-                  ))}
-                </div>
-                <img src={logoClutch} alt="Clutch" className="h-7" />
-              </div>
-              
-              {/* G2 */}
-              <div className="flex items-center gap-3">
-                <span className="text-background/90 font-bold text-lg">4.9</span>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
-                  ))}
-                </div>
-                <img src={logoG2} alt="G2" className="h-7" />
-              </div>
-              
-              {/* Capterra */}
-              <div className="flex items-center gap-3">
-                <span className="text-background/90 font-bold text-lg">4.8</span>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
-                  ))}
-                </div>
-                <img src={logoCapterra} alt="Capterra" className="h-7" />
-              </div>
-              
-              {/* Trustpilot */}
-              <div className="flex items-center gap-3">
-                <span className="text-background/90 font-bold text-lg">4.3</span>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className={`h-3.5 w-3.5 ${i < 4 ? 'fill-green-500 text-green-500' : 'fill-green-500/30 text-green-500/30'}`} />
-                  ))}
-                </div>
-                <img src={logoTrustpilot} alt="Trustpilot" className="h-7" />
-              </div>
-            </div>
-
-            {/* Duplicate set for seamless loop */}
-            <div className="flex items-center gap-12 md:gap-16 lg:gap-20 shrink-0 px-8">
-              {/* Clutch */}
-              <div className="flex items-center gap-3">
-                <span className="text-background/90 font-bold text-lg">4.8</span>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
-                  ))}
-                </div>
-                <img src={logoClutch} alt="Clutch" className="h-7" />
-              </div>
-              
-              {/* G2 */}
-              <div className="flex items-center gap-3">
-                <span className="text-background/90 font-bold text-lg">4.9</span>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
-                  ))}
-                </div>
-                <img src={logoG2} alt="G2" className="h-7" />
-              </div>
-              
-              {/* Capterra */}
-              <div className="flex items-center gap-3">
-                <span className="text-background/90 font-bold text-lg">4.8</span>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
-                  ))}
-                </div>
-                <img src={logoCapterra} alt="Capterra" className="h-7" />
-              </div>
-              
-              {/* Trustpilot */}
-              <div className="flex items-center gap-3">
-                <span className="text-background/90 font-bold text-lg">4.3</span>
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className={`h-3.5 w-3.5 ${i < 4 ? 'fill-green-500 text-green-500' : 'fill-green-500/30 text-green-500/30'}`} />
-                  ))}
-                </div>
-                <img src={logoTrustpilot} alt="Trustpilot" className="h-7" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Audio Demo Section */}
-      <section className="py-16 md:py-24 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.05),transparent_50%)]" />
-        
-        <div className="container relative">
-          <AnimatedSection className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
-              <Headphones className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">{t("audioDemo.badge")}</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("audioDemo.title")}
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              {t("audioDemo.subtitle")}
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection animation="fade-up" delay={100}>
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              {audioDemos.map((demo) => (
-                <Button
-                  key={demo.id}
-                  variant={selectedDemo.id === demo.id ? "default" : "outline"}
-                  onClick={() => setSelectedDemo(demo)}
-                  className="rounded-full px-6"
-                >
-                  {demo.title}
-                </Button>
+            <div className="mt-10">{heroButtons("hero")}</div>
+            <ul className="mt-10 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white/70">
+              {trust.map((item) => (
+                <li key={item} className="flex items-center gap-2">
+                  <CheckCircle className="h-4 w-4 flex-shrink-0 text-emerald-400" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
               ))}
-            </div>
-          </AnimatedSection>
+            </ul>
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" aria-hidden="true" />
+      </section>
 
-          <AnimatedSection animation="fade-up" delay={200}>
-            <div className="max-w-4xl mx-auto">
-              <AudioTranscriptPlayer demo={selectedDemo} />
-            </div>
-          </AnimatedSection>
+      {/* 2. The problem, with a sourced number */}
+      <section className="py-20 md:py-28 bg-background" aria-labelledby="problem-title">
+        <div className="container max-w-6xl">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <AnimatedSection animation="fade-left">
+              <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-destructive">
+                <span className="h-[2px] w-8 bg-destructive" aria-hidden="true" />
+                {t("home.problem.badge")}
+              </span>
+              <h2 id="problem-title" className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-foreground">
+                {t("home.problem.title")}
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                {t("home.problem.text")} <span className="whitespace-nowrap">{t("home.problem.source")}</span>
+              </p>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-right" delay={150}>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  { value: "52%", label: t("home.problem.stat1Label"), icon: PhoneOff },
+                  { value: "55%", label: t("home.problem.stat2Label"), icon: CalendarX },
+                ].map((stat) => (
+                  <figure key={stat.value} className="rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+                    <stat.icon className="h-6 w-6 text-destructive" aria-hidden="true" />
+                    <p className="mt-4 text-5xl md:text-6xl font-black tracking-tight text-foreground">{stat.value}</p>
+                    <figcaption className="mt-3 text-sm leading-snug text-muted-foreground">
+                      {stat.label}
+                      <span className="mt-2 block text-xs font-medium text-muted-foreground/80">{t("home.problem.source")}</span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
 
-          <AnimatedSection animation="fade-up" delay={300} className="text-center mt-10">
-            <p className="text-muted-foreground mb-4">
-              {t("audioDemo.impressed")}
-            </p>
-            <Button asChild>
-              <Link to="/contato">
-                {t("audioDemo.cta")}
-                <ArrowRight className="ml-2 h-4 w-4" />
+      {/* 3. Calculator (anchor target for the hero button) */}
+      <div id="calculator" className="scroll-mt-16">
+        <MissedCallsCalculator className="border-t border-border" />
+      </div>
+
+      {/* 4. Where the money leaks */}
+      <MoneyLeakChain />
+
+      {/* 5. How it works */}
+      <section id="how-it-works" className="scroll-mt-16 py-20 md:py-28 bg-background" aria-labelledby="how-title">
+        <div className="container max-w-6xl">
+          <AnimatedSection className="mx-auto mb-14 max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+              <Workflow className="h-3.5 w-3.5" aria-hidden="true" />
+              {t("home.how.badge")}
+            </span>
+            <h2 id="how-title" className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+              {t("home.how.title")}
+            </h2>
+          </AnimatedSection>
+          <div className="grid gap-6 md:grid-cols-3">
+            {steps.map((step, index) => (
+              <AnimatedSection key={step.title} animation="fade-up" delay={index * 100}>
+                <div className="relative h-full rounded-3xl border border-border bg-card p-7 shadow-sm">
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                      <step.icon className="h-6 w-6" aria-hidden="true" />
+                    </span>
+                    <span className="text-4xl font-black text-primary/15">0{index + 1}</span>
+                  </div>
+                  <h3 className="mt-6 text-xl font-bold text-foreground">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Two ways to start (no prices on the home page; prices live on /pricing) */}
+      <section id="plans" className="scroll-mt-16 py-20 md:py-28 bg-muted/30 border-y border-border" aria-labelledby="plans-title">
+        <div className="container max-w-5xl">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+              {t("home.plansSection.badge")}
+            </span>
+            <h2 id="plans-title" className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+              {t("home.plansSection.title")}
+            </h2>
+            <p className="mt-4 text-base md:text-lg text-muted-foreground">{t("home.plansSection.subtitle")}</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              { name: t("plans.recover.name"), desc: t("home.plansSection.recoverDesc"), highlighted: false },
+              { name: t("plans.frontOffice.name"), desc: t("home.plansSection.frontOfficeDesc"), highlighted: true },
+            ].map((plan) => (
+              <article
+                key={plan.name}
+                data-testid="home-plan-teaser"
+                className={
+                  plan.highlighted
+                    ? "relative rounded-3xl border-2 border-primary bg-card p-7 shadow-xl shadow-primary/10"
+                    : "relative rounded-3xl border border-border bg-card p-7 shadow-sm"
+                }
+              >
+                {plan.highlighted && (
+                  <span className="absolute -top-3.5 left-7 inline-flex items-center rounded-full bg-primary px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">
+                    {t("home.plansSection.mostComplete")}
+                  </span>
+                )}
+                <h3 className="text-2xl font-extrabold tracking-tight text-foreground">{plan.name}</h3>
+                <p className="mt-3 text-sm md:text-base leading-relaxed text-muted-foreground">{plan.desc}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+            <Button asChild size="lg" className="h-auto min-h-[48px] px-7 py-3">
+              <Link to="/pricing" data-testid="home-cta-pricing">
+                {t("home.plansSection.ctaPricing")}
+                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>
-          </AnimatedSection>
-        </div>
-      </section>
-      {/* Problem & Solution - Enhanced */}
-      <section className="py-20 md:py-32 bg-background relative overflow-hidden">
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.05),transparent_50%)]" />
-        
-        <div className="container relative">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
-            {/* Problem Card */}
-            <AnimatedSection animation="fade-left">
-              <div className="group relative h-full">
-              <div className="absolute -inset-1 bg-gradient-to-r from-destructive/20 to-destructive/5 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
-              <div className="relative bg-card rounded-2xl p-8 md:p-10 border border-border/50 h-full">
-                <div className="inline-flex items-center gap-2 text-destructive text-sm font-semibold mb-6 uppercase tracking-wide">
-                  <span className="w-8 h-[2px] bg-destructive" />
-                  {t("problem.label")}
-                </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 leading-tight">
-                  <span className="whitespace-nowrap">{t("problem.title")}</span> = <span className="text-destructive whitespace-nowrap">{t("problem.titleHighlight")}</span>
-                </h2>
-                <ul className="space-y-5">
-                  <li className="flex items-start gap-4 group/item">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold text-sm">✗</span>
-                    <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
-                      <strong className="text-foreground">62%</strong> {t("problem.stat1")}
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-4 group/item">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold text-sm">✗</span>
-                    <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
-                      <strong className="text-foreground">85%</strong> {t("problem.stat2")}
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-4 group/item">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center text-destructive font-bold text-sm">✗</span>
-                    <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
-                      {t("problem.stat3")} <strong className="text-foreground">{t("problem.stat3Bold")}</strong> {t("problem.stat3End")}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              </div>
-            </AnimatedSection>
-            
-            {/* Solution Card */}
-            <AnimatedSection animation="fade-right" delay={200}>
-              <div className="group relative h-full">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary/10 rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
-              <div className="relative bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-2xl p-8 md:p-10 border border-primary/20 h-full">
-                <div className="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-6 uppercase tracking-wide">
-                  <span className="w-8 h-[2px] bg-primary" />
-                  {t("solution.label")}
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
-                  {t("solution.title")} <br />
-                  <span className="text-primary">{t("solution.titleHighlight")}</span>
-                </h3>
-                <ul className="space-y-5">
-                  <li className="flex items-start gap-4 group/item">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-primary" />
-                    </span>
-                    <span className="text-foreground group-hover/item:text-primary transition-colors">
-                      {t("solution.benefit1")} <strong>{t("solution.benefit1Bold")}</strong>{t("solution.benefit1End")}
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-4 group/item">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-primary" />
-                    </span>
-                    <span className="text-foreground group-hover/item:text-primary transition-colors">
-                      <strong>{t("solution.benefit2Bold")}</strong> {t("solution.benefit2End")}
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-4 group/item">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-primary" />
-                    </span>
-                    <span className="text-foreground group-hover/item:text-primary transition-colors">
-                      {t("solution.benefit3")} <strong>{t("solution.benefit3Bold")}</strong>
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-4 group/item">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-primary" />
-                    </span>
-                    <span className="text-foreground group-hover/item:text-primary transition-colors">
-                      {t("solution.benefit4")} <strong>{t("solution.benefit4Bold")}</strong>
-                    </span>
-                  </li>
-                </ul>
-                
-                {/* CTA inside solution */}
-                <div className="mt-8 pt-6 border-t border-primary/20">
-                  <Button className="w-full group" asChild>
-                    <Link to="/contato">
-                      {t("solution.cta")}
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container">
-          <AnimatedSection className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("howItWorks.title")}</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              {t("howItWorks.subtitle")}
-            </p>
-          </AnimatedSection>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step, index) => (
-              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
-                <Card className="relative overflow-hidden h-full">
-                  <CardContent className="pt-6">
-                    <span className="text-5xl font-bold text-primary/20">{step.number}</span>
-                    <h3 className="text-xl font-semibold mt-2 mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground text-sm">{step.description}</p>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container">
-          <AnimatedSection className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("features.title")}
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              {t("features.subtitle")}
-            </p>
-          </AnimatedSection>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => (
-              <AnimatedSection key={index} animation="scale" delay={index * 100}>
-                <Card className="text-center h-full">
-                  <CardContent className="pt-6">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <feature.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-muted-foreground text-sm">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Omnichannel */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container">
-          <AnimatedSection className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("omnichannel.title")}
-            </h2>
-            <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-              {t("omnichannel.subtitle")}
-            </p>
-          </AnimatedSection>
-          <AnimatedSection animation="fade-up">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {channels.map((channel, index) => (
-                <div
-                  key={index}
-                  className="bg-primary-foreground/10 rounded-lg p-4 text-center hover:bg-primary-foreground/20 transition-colors"
-                >
-                  <channel.icon className="h-8 w-8 mx-auto mb-2" />
-                  <span className="text-sm font-medium">{channel.name}</span>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Mobile App */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <AnimatedSection animation="fade-left">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                {t("mobileApp.title")}
-              </h2>
-              <p className="text-muted-foreground text-lg mb-6">
-                {t("mobileApp.subtitle")}
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>{t("mobileApp.feature1")}</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>{t("mobileApp.feature2")}</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>{t("mobileApp.feature3")}</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>{t("mobileApp.feature4")}</span>
-                </li>
-              </ul>
-              <Button asChild>
-                <Link to="/contato">{t("mobileApp.cta")}</Link>
-              </Button>
-            </AnimatedSection>
-            <AnimatedSection animation="fade-right" delay={200}>
-              <div className="relative rounded-2xl overflow-hidden">
-                <picture>
-                  <source srcSet={mobileAppWebp} type="image/webp" />
-                  <img 
-                    src={mobileApp} 
-                    alt="Aplicativo mobile ClickOne AI mostrando notificações e agenda" 
-                    className="w-full h-auto rounded-2xl"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries Preview */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container">
-          <AnimatedSection className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("industries.title")}
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              {t("industries.subtitle")}
-            </p>
-          </AnimatedSection>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry, index) => (
-              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
-                <Link to={`/setores/${industry.slug}`}>
-                  <Card className="hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer h-full overflow-hidden">
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <picture>
-                        {industry.webp && <source srcSet={industry.webp} type="image/webp" />}
-                        <img 
-                          src={industry.image} 
-                          alt={industry.name} 
-                          className="w-full h-full object-cover transition-transform hover:scale-105"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </picture>
-                    </div>
-                    <CardContent className="pt-4">
-                      <h3 className="text-lg font-semibold">{industry.name}</h3>
-                      <span className="text-sm text-primary">{t("industries.learnMore")}</span>
-                    </CardContent>
-                  </Card>
-                </Link>
-              </AnimatedSection>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Button variant="outline" asChild>
-              <Link to="/setores">{t("industries.viewAll")}</Link>
+            <Button asChild size="lg" variant="outline" className="h-auto min-h-[48px] px-7 py-3 border-primary/40 text-primary hover:bg-primary/5 hover:text-primary">
+              <Link to="/book-a-demo">{t("home.plansSection.ctaDemo")}</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            {t("finalCta.title")}
-          </h2>
-          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-            {t("finalCta.subtitle")}
-          </p>
-          <Button size="lg" variant="secondary" asChild>
-            <Link to="/contato">
-              {t("finalCta.cta")}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+      {/* 7. Ongoing support ("You're never on your own") */}
+      <section className="py-20 md:py-28 bg-background" aria-labelledby="operated-title">
+        <div className="container max-w-6xl">
+          <div className="relative overflow-hidden rounded-[2rem] bg-[hsl(266_45%_10%)] px-6 py-12 sm:px-10 md:px-14 md:py-16 text-white">
+            <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-primary/40 blur-3xl" aria-hidden="true" />
+            <div className="relative grid gap-10 lg:grid-cols-5 lg:items-center">
+              <div className="lg:col-span-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-white/60">{t("home.operated.badge")}</span>
+                <h2 id="operated-title" className="mt-4 text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
+                  {t("home.operated.title")}
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-white/80">{t("home.operated.text")}</p>
+              </div>
+              <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-3">
+                {operatedPoints.map((point, index) => {
+                  const Icon = operatedIcons[index] ?? BadgeCheck;
+                  return (
+                    <li key={point} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <Icon className="h-5 w-5 text-emerald-300" aria-hidden="true" />
+                      <p className="mt-3 text-sm leading-relaxed text-white/85">{point}</p>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* 8. Works with your tools (text only, verified integrations) */}
+      <section className="pb-20 md:pb-28 bg-background" aria-labelledby="tools-title">
+        <div className="container max-w-5xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+            <PlugZap className="h-3.5 w-3.5" aria-hidden="true" />
+            {t("home.tools.badge")}
+          </span>
+          <h2 id="tools-title" className="mx-auto mt-4 max-w-3xl text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+            {t("home.tools.title")}
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg text-muted-foreground">{t("home.tools.text")}</p>
+          <div className="mt-10 grid gap-4 text-left sm:grid-cols-2">
+            <div className="rounded-3xl border border-primary/30 bg-primary/5 p-6">
+              <p className="text-xs font-bold uppercase tracking-wider text-primary">{t("home.tools.officialLabel")}</p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {["Jobber", "Housecall Pro", "QuickBooks"].map((tool) => (
+                  <li key={tool} className="rounded-full border border-primary/30 bg-card px-4 py-2 text-sm font-semibold text-foreground">
+                    {tool}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-3xl border border-border bg-card p-6">
+              <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{t("home.tools.automationLabel")}</p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {["ServiceTitan", "JobNimbus", "Roofr"].map((tool) => (
+                  <li key={tool} className="rounded-full border border-border bg-muted/40 px-4 py-2 text-sm font-medium text-foreground">
+                    {tool}
+                  </li>
+                ))}
+                <li className="px-2 py-2 text-sm text-muted-foreground">{t("home.tools.andMore")}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Guarantee */}
+      <section className="py-20 md:py-24 bg-muted/30 border-y border-border" aria-labelledby="guarantee-title">
+        <div className="container max-w-4xl">
+          <div className="flex flex-col items-center gap-6 rounded-[2rem] border-2 border-emerald-500/30 bg-card p-8 text-center shadow-lg sm:p-12">
+            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+              <ShieldCheck className="h-8 w-8" aria-hidden="true" />
+            </span>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{t("home.guarantee.badge")}</span>
+              <h2 id="guarantee-title" className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+                {t("home.guarantee.title")}
+              </h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-relaxed text-foreground">{t("home.guarantee.text")}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 10a. Industries highlight */}
+      <section className="py-20 md:py-28 bg-background" aria-labelledby="industries-title">
+        <div className="container max-w-6xl">
+          <AnimatedSection className="mx-auto mb-12 max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+              {t("home.industries.badge")}
+            </span>
+            <h2 id="industries-title" className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+              {t("home.industries.title")}
+            </h2>
+            <p className="mt-4 text-base md:text-lg text-muted-foreground">{t("home.industries.subtitle")}</p>
+          </AnimatedSection>
+          <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
+            {industries.map((industry, index) => (
+              <AnimatedSection key={industry.slug} animation="fade-up" delay={index * 80}>
+                <Link
+                  to={`/setores/${industry.slug}`}
+                  className="group block overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <picture>
+                      {industry.webp && <source srcSet={industry.webp} type="image/webp" />}
+                      <img
+                        src={industry.image}
+                        alt={industry.name}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
+                  </div>
+                  <div className="flex items-center justify-between gap-2 p-4">
+                    <h3 className="text-base md:text-lg font-bold text-foreground">{industry.name}</h3>
+                    <ArrowRight className="h-4 w-4 flex-shrink-0 text-primary transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Button variant="outline" asChild>
+              <Link to="/setores">{t("home.industries.viewAll")}</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* 10b. FAQ (also emitted as FAQPage JSON-LD) */}
+      <GEOFAQSection className="border-t border-border" />
+
+      {/* 10c. Final call to action */}
+      <section className="relative overflow-hidden bg-primary py-20 md:py-24 text-primary-foreground">
+        <div className="absolute -left-24 -bottom-24 h-80 w-80 rounded-full bg-white/10 blur-3xl" aria-hidden="true" />
+        <div className="container relative text-center">
+          <h2 className="mx-auto max-w-3xl text-3xl md:text-5xl font-extrabold tracking-tight text-balance">{t("home.finalCta.title")}</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">{t("home.finalCta.subtitle")}</p>
+          <div className="mt-10">{heroButtons("cta")}</div>
+        </div>
+      </section>
+
+      {/* Demo call player, opened by "Hear our AI answer a call" */}
+      <Dialog open={demoOpen} onOpenChange={setDemoOpen}>
+        <DialogContent className="w-[calc(100vw-2rem)] max-w-4xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
+          <DialogHeader>
+            <DialogTitle>{t("home.hero.demoTitle")}</DialogTitle>
+            <DialogDescription>{t("home.hero.demoSubtitle")}</DialogDescription>
+          </DialogHeader>
+          {demoOpen && (
+            <>
+              <div className="flex justify-center gap-2 pb-2" role="tablist" aria-label="Demo call examples">
+                {audioDemos.map((demo) => (
+                  <Button
+                    key={demo.id}
+                    type="button"
+                    size="sm"
+                    variant={demo.id === selectedDemoId ? "default" : "outline"}
+                    role="tab"
+                    aria-selected={demo.id === selectedDemoId}
+                    onClick={() => setSelectedDemoId(demo.id)}
+                  >
+                    {demo.title}
+                  </Button>
+                ))}
+              </div>
+              <AudioTranscriptPlayer demo={activeDemo} />
+            </>
+          )}
+          <div className="flex justify-center pt-2">
+            <Button asChild>
+              <Link to="/book-a-demo" onClick={() => setDemoOpen(false)}>
+                {t("home.hero.demoCta")}
+                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };

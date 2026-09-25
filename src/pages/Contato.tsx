@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/accordion";
 import { Phone, Mail, MapPin, Calendar, ArrowRight, Zap, MessageSquare } from "lucide-react";
 import { EXTERNAL_URLS, CONTACT_INFO } from "@/lib/external-urls";
-import ContactForm from "@/components/ContactForm";
+import GHLContactFormEmbed from "@/components/GHLContactFormEmbed";
 
 const Contato = () => {
   const { t } = useTranslation();
@@ -20,7 +20,7 @@ const Contato = () => {
   const contactInfo = [
     {
       icon: Phone,
-      label: t("contact.phone", { defaultValue: "Telefone" }),
+      label: t("contact.phone"),
       value: CONTACT_INFO.PHONE,
       href: CONTACT_INFO.PHONE_HREF,
     },
@@ -61,7 +61,7 @@ const Contato = () => {
         <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection animation="fade-up" className="text-center max-w-3xl mx-auto">
             <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              {t("contact.badge", { defaultValue: "Fale Conosco" })}
+              {t("contact.badge")}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               {t("contact.title")}
@@ -84,22 +84,22 @@ const Contato = () => {
                   <MessageSquare className="w-6 h-6 text-primary" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold">
-                  {t("contact.formTitle", { defaultValue: "Envie sua mensagem" })}
+                  {t("contact.formTitle")}
                 </h2>
               </div>
               <p className="text-muted-foreground mb-6">
-                {t("contact.formSubtitle", { defaultValue: "Preencha o formulário e nossa equipe entrará em contato rapidamente." })}
+                {t("contact.formSubtitle")}
               </p>
-              <ContactForm />
+              <GHLContactFormEmbed />
               <div className="mt-6 flex items-center gap-3 text-sm text-muted-foreground">
                 <Calendar className="w-4 h-4 text-primary" />
                 <span>
-                  {t("contact.orSchedule", { defaultValue: "Prefere agendar direto?" })}{" "}
+                  {t("contact.orSchedule")}{" "}
                   <Link
                     to={EXTERNAL_URLS.GHL_BOOKING}
                     className="text-primary font-medium hover:underline"
                   >
-                    {t("contact.ctaButton", { defaultValue: "Agendar Demo Gratuita" })}
+                    {t("contact.ctaButton")}
                     <ArrowRight className="inline ml-1 h-3 w-3" />
                   </Link>
                 </span>
@@ -111,7 +111,7 @@ const Contato = () => {
             <AnimatedSection animation="fade-left">
               <div className="space-y-6">
                 <h2 className="text-2xl md:text-3xl font-bold mb-8">
-                  {t("contact.contactInfoTitle", { defaultValue: "Outras formas de contato" })}
+                  {t("contact.contactInfoTitle")}
                 </h2>
 
                 <div className="space-y-4">
@@ -148,13 +148,13 @@ const Contato = () => {
                     </div>
                     <div>
                       <p className="font-semibold mb-1">
-                        {t("contact.responseTime", { defaultValue: "Tempo de resposta" })}
+                        {t("contact.responseTime")}
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        {t("contact.responseTimeDesc", { defaultValue: "Aqui você será atendido em até 10 segundos pela nossa Bia." })}
+                        {t("contact.responseTimeDesc")}
                       </p>
                       <p className="text-sm text-primary font-medium mt-2">
-                        {t("contact.responseTimeCta", { defaultValue: "Leve esse atendimento relâmpago para o seu negócio." })}
+                        {t("contact.responseTimeCta")}
                       </p>
                     </div>
                   </div>
@@ -200,14 +200,14 @@ const Contato = () => {
         <div className="container mx-auto px-4">
           <AnimatedSection animation="fade-up" className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("contact.ctaTitle", { defaultValue: "Pronto para transformar seu atendimento?" })}
+              {t("contact.ctaTitle")}
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              {t("contact.ctaSubtitle", { defaultValue: "Agende uma demo gratuita e veja como a ClickOne pode ajudar seu negócio." })}
+              {t("contact.ctaSubtitle")}
             </p>
             <Button asChild size="lg" className="tracking-wide text-lg px-8 py-6">
               <Link to={EXTERNAL_URLS.GHL_BOOKING}>
-                {t("contact.ctaButton", { defaultValue: "Agendar Demo Gratuita" })}
+                {t("contact.ctaButton")}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

@@ -44,26 +44,44 @@ export const GHL_FIELD_LABELS: Record<string, string> = {
 // ============================================
 // Validation (client-side, mirrors edge function)
 // ============================================
-const phoneRegex = /^\+?[1-9][\d\s().-]{7,20}$/;
+/**
+ * Normalizes a phone number to E.164.
+ * Accepts "(770) 501-7321", "770-501-7321", "7705017321", "1 770 501 7321" and "+1 770 501 7321".
+ * 10 digits are treated as US numbers (+1). Returns null when the number is not valid.
+ */
+export function normalizePhone(value: string): string | null {
+  const trimmed = value.trim();
+  if (!trimmed) return null;
+  const hasPlus = trimmed.startsWith("+");
+  if (/[^\d\s().+-]/.test(trimmed)) return null;
+  const digits = trimmed.replace(/\D/g, "");
+  if (!hasPlus && digits.length === 10 && /^[2-9]/.test(digits)) return `+1${digits}`;
+  if (!hasPlus && digits.length === 11 && digits.startsWith("1") && /^1[2-9]/.test(digits)) return `+${digits}`;
+  if (hasPlus && /^[1-9]\d{7,14}$/.test(digits)) return `+${digits}`;
+  return null;
+}
 
+/**
+ * Validation messages are translation keys under `contactForm.errors.*`,
+ * so the form shows them in the visitor's language.
+ */
 export const contactFormSchema = z.object({
-  name: z.string().trim().min(2, "Nome muito curto").max(120),
-  email: z.string().trim().email("Email inválido").max(255),
+  name: z.string().trim().min(2, "nameTooShort").max(120, "nameTooLong"),
+  email: z.string().trim().email("invalidEmail").max(255, "invalidEmail"),
   phone: z
     .string()
     .trim()
-    .max(40)
-    .regex(phoneRegex, "Telefone inválido (ex: +1 555 123 4567)")
-    .optional()
-    .or(z.literal("")),
+    .max(40, "invalidPhone")
+    .refine((v) => v === "" || normalizePhone(v) !== null, "invalidPhone")
+    .transform((v) => (v === "" ? "" : (normalizePhone(v) as string))),
   company: z.string().trim().max(200).optional().or(z.literal("")),
   message: z.string().trim().max(2000).optional().or(z.literal("")),
 });
 
-export type ContactFormValues = z.infer<typeof contactFormSchema>;
+export type ContactFormValues = z.input<typeof contactFormSchema>;
 
 // ============================================
-// Tag builder — attaches lead-source tags in GHL
+// Tag builder: attaches lead-source tags in GHL
 // ============================================
 export interface TagContext {
   /** Logical source of the form (e.g. "contact-page", "lp-perdendo-clientes"). */

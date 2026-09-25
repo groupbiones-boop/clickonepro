@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowRight, Users, Clock, TrendingUp, Headphones, Star, Quote } from "lucide-react";
+import { CheckCircle, ArrowRight, Users, Clock, TrendingUp, Headphones } from "lucide-react";
 import { Link } from "react-router-dom";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 import { AnimatedCounter } from "@/hooks/use-count-animation";
@@ -42,23 +42,6 @@ const PequenaEmpresa = () => {
     t("smallBusiness.useCase5")
   ];
 
-  const testimonials = [
-    {
-      name: "Marco Oliveira",
-      company: "Oliveira Plumbing LLC",
-      location: "Austin, TX",
-      text: t("bookDemo.testimonial1"),
-      rating: 5,
-    },
-    {
-      name: "Lucia Santos",
-      company: "Santos Cleaning Services",
-      location: "Miami, FL",
-      text: t("bookDemo.testimonial2"),
-      rating: 5,
-    }
-  ];
-
   const problemsWithoutAI = [
     t("smallBusiness.withoutAI1"),
     t("smallBusiness.withoutAI2"),
@@ -75,7 +58,7 @@ const PequenaEmpresa = () => {
 
   return (
     <Layout>
-      <SEO titleKey="seo.smallBusiness.title" descriptionKey="seo.smallBusiness.description" />
+      <SEO titleKey="seo.smallBusiness.title" descriptionKey="seo.smallBusiness.description" noIndex />
       {/* Hero Section */}
       <section className="py-20 md:py-32 relative overflow-hidden">
         {/* Background Image */}
@@ -115,30 +98,12 @@ const PequenaEmpresa = () => {
       {/* Stats Section */}
       <section className="py-12 bg-primary text-primary-foreground">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <AnimatedSection animation="scale" delay={0}>
-              <div className="text-3xl md:text-4xl font-bold mb-1">
-                <AnimatedCounter end={40} suffix="%" />
-              </div>
-              <p className="text-primary-foreground/80 text-sm">{t("smallBusiness.moreAppointments")}</p>
-            </AnimatedSection>
-            <AnimatedSection animation="scale" delay={100}>
-              <div className="text-3xl md:text-4xl font-bold mb-1">
-                <AnimatedCounter end={0} suffix="" prefix="$" />
-              </div>
-              <p className="text-primary-foreground/80 text-sm">{t("smallBusiness.extraSalaries")}</p>
-            </AnimatedSection>
+          <div className="grid grid-cols-1 gap-8 text-center max-w-sm mx-auto">
             <AnimatedSection animation="scale" delay={200}>
               <div className="text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedCounter end={24} suffix="/7" />
               </div>
               <p className="text-primary-foreground/80 text-sm">{t("smallBusiness.availability")}</p>
-            </AnimatedSection>
-            <AnimatedSection animation="scale" delay={300}>
-              <div className="text-3xl md:text-4xl font-bold mb-1">
-                <AnimatedCounter end={5} suffix="s" />
-              </div>
-              <p className="text-primary-foreground/80 text-sm">{t("smallBusiness.responseTime")}</p>
             </AnimatedSection>
           </div>
         </div>
@@ -230,40 +195,6 @@ const PequenaEmpresa = () => {
                 <div className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border">
                   <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
                   <span>{useCase}</span>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-16 bg-muted/30">
-        <div className="container">
-          <AnimatedSection animation="fade-up">
-            <h2 className="text-3xl font-bold text-center mb-12">
-              {t("smallBusiness.testimonialsTitle")}
-            </h2>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <AnimatedSection key={index} animation="fade-up" delay={index * 100}>
-                <div className="bg-card p-6 rounded-xl border border-border h-full">
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <div className="relative mb-4">
-                    <Quote className="absolute -top-2 -left-1 h-6 w-6 text-primary/20" />
-                    <p className="text-muted-foreground pl-4 italic">{testimonial.text}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                    <p className="text-xs text-muted-foreground">{testimonial.location}</p>
-                  </div>
                 </div>
               </AnimatedSection>
             ))}

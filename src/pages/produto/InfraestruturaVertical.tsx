@@ -112,13 +112,11 @@ const InfraestruturaVertical = () => {
   const stats = [
     { value: "5+", label: t("verticalInfra.stat1") },
     { value: "6+", label: t("verticalInfra.stat2") },
-    { value: "70%", label: t("verticalInfra.stat3") },
-    { value: "40%", label: t("verticalInfra.stat4") },
   ];
 
   return (
     <Layout>
-      <SEO titleKey="seo.verticalInfra.title" descriptionKey="seo.verticalInfra.description" />
+      <SEO titleKey="seo.verticalInfra.title" descriptionKey="seo.verticalInfra.description" noIndex />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground py-20 md:py-28 overflow-hidden">
         {/* Background Pattern */}
@@ -164,7 +162,7 @@ const InfraestruturaVertical = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 gap-6 mt-16 max-w-md mx-auto">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary-foreground">{stat.value}</div>

@@ -24,13 +24,18 @@ const Footer = () => {
             <h3 className="font-semibold text-lg">{t("footer.product")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/produto/recepcionista-ia-voz" className="text-background/70 hover:text-background text-sm transition-colors">
-                  {t("nav.voiceReceptionist")}
+                <Link to="/#how-it-works" className="text-background/70 hover:text-background text-sm transition-colors">
+                  {t("nav.howItWorks")}
                 </Link>
               </li>
               <li>
-                <Link to="/produto/atendente-ia-conversacional" className="text-background/70 hover:text-background text-sm transition-colors">
-                  {t("nav.chatAttendant")}
+                <Link to="/pricing" className="text-background/70 hover:text-background text-sm transition-colors">
+                  {t("nav.pricing")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/book-a-demo" className="text-background/70 hover:text-background text-sm transition-colors">
+                  {t("nav.bookDemo")}
                 </Link>
               </li>
             </ul>
@@ -41,23 +46,23 @@ const Footer = () => {
             <h3 className="font-semibold text-lg">{t("footer.sectors")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/setores/limpeza" className="text-background/70 hover:text-background text-sm transition-colors">
-                  {t("industries.cleaning")}
-                </Link>
-              </li>
-              <li>
-                <Link to="/setores/construcao" className="text-background/70 hover:text-background text-sm transition-colors">
-                  {t("industries.construction")}
-                </Link>
-              </li>
-              <li>
                 <Link to="/setores/hvac" className="text-background/70 hover:text-background text-sm transition-colors">
-                  {t("industries.hvac")}
+                  {t("home.industries.hvac")}
                 </Link>
               </li>
               <li>
                 <Link to="/setores/encanamento" className="text-background/70 hover:text-background text-sm transition-colors">
-                  {t("industries.plumbing")}
+                  {t("home.industries.plumbing")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/setores/telhados" className="text-background/70 hover:text-background text-sm transition-colors">
+                  {t("home.industries.roofing")}
+                </Link>
+              </li>
+              <li>
+                <Link to="/setores/construcao" className="text-background/70 hover:text-background text-sm transition-colors">
+                  {t("home.industries.remodeling")}
                 </Link>
               </li>
               <li>
@@ -116,9 +121,6 @@ const Footer = () => {
             </Link>
             <Link to="/terms-of-service" className="text-background/60 hover:text-background text-sm transition-colors">
               Terms of Service
-            </Link>
-            <Link to="/admin/login" className="text-background/40 hover:text-background text-sm transition-colors">
-              Intranet
             </Link>
           </div>
         </div>

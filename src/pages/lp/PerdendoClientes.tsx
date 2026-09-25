@@ -13,7 +13,6 @@ import {
   Headphones,
   Zap,
   Shield,
-  Star,
   ArrowRight,
   Smartphone,
   Timer,
@@ -33,17 +32,10 @@ import LPHeader from "@/components/layout/LPHeader";
 import LPFloatingCTA from "@/components/LPFloatingCTA";
 import Footer from "@/components/layout/Footer";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
-import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { supabase } from "@/integrations/supabase/client";
 import { useLPImages } from "@/hooks/use-lp-images";
 import { EXTERNAL_URLS, appendUTMParams } from "@/lib/external-urls";
 import { OptimizedImage } from "@/components/OptimizedImage";
-
-// Social proof logos
-import logoClutch from "@/assets/logo-clutch.svg";
-import logoG2 from "@/assets/logo-g2.svg";
-import logoCapterra from "@/assets/logo-capterra.svg";
-import logoTrustpilot from "@/assets/logo-trustpilot.svg";
 
 // Industry images
 import industryCleaning from "@/assets/industry-cleaning-new.jpg";
@@ -109,13 +101,6 @@ const PerdendoClientes = () => {
     { image: industryConstruction, key: "construction", slug: "construcao" },
     { image: industryPestControl, key: "pestControl", slug: "controle-pragas" },
     { image: industryMedical, key: "medicalClinic", slug: "clinica-medica" },
-  ];
-
-  const proofLogos = [
-    { src: logoClutch, alt: "Clutch", rating: "4.8" },
-    { src: logoG2, alt: "G2", rating: "4.9" },
-    { src: logoCapterra, alt: "Capterra", rating: "4.8" },
-    { src: logoTrustpilot, alt: "Trustpilot", rating: "4.3" },
   ];
 
   return (
@@ -293,10 +278,7 @@ const PerdendoClientes = () => {
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
                       <PhoneOff className="h-6 w-6 text-primary" />
                     </div>
-                    <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                      <AnimatedCounter end={80} suffix="%" />
-                    </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-base font-semibold text-foreground">
                       {t("lp.perdendoClientes.problem.stat1")}
                     </p>
                   </CardContent>
@@ -309,10 +291,7 @@ const PerdendoClientes = () => {
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
                       <DollarSign className="h-6 w-6 text-primary" />
                     </div>
-                    <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                      $500-$2,000
-                    </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-base font-semibold text-foreground">
                       {t("lp.perdendoClientes.problem.stat2")}
                     </p>
                   </CardContent>
@@ -325,10 +304,7 @@ const PerdendoClientes = () => {
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
                       <TrendingUp className="h-6 w-6 text-primary" />
                     </div>
-                    <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                      $<AnimatedCounter end={20} />k/mo
-                    </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-base font-semibold text-foreground">
                       {t("lp.perdendoClientes.problem.stat3")}
                     </p>
                   </CardContent>
@@ -633,29 +609,6 @@ const PerdendoClientes = () => {
               <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
                 {t("lp.perdendoClientes.aboutClickone.headline")}
               </h2>
-            </AnimatedSection>
-
-            {/* Social Proof */}
-            <AnimatedSection className="mb-10">
-              <div className="bg-card rounded-xl p-4 md:p-6 shadow-sm border">
-                <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-                  {proofLogos.map((logo) => (
-                    <div key={logo.alt} className="flex flex-col items-center gap-2">
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        className="h-8 md:h-10 w-auto"
-                      />
-                      <div className="flex items-center gap-1">
-                        <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-                        <span className="text-sm font-semibold text-foreground">
-                          {logo.rating}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </AnimatedSection>
 
             {/* Differentiators */}

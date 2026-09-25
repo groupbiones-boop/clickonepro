@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Play, Pause, RotateCcw, Bot, User, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 import type { AudioDemo, TranscriptMessage } from "@/data/audioDemo";
 
 interface AudioTranscriptPlayerProps {
@@ -9,6 +10,7 @@ interface AudioTranscriptPlayerProps {
 }
 
 const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
+  const { t } = useTranslation();
   const audioRef = useRef<HTMLAudioElement>(null);
   const transcriptRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -255,7 +257,7 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
       <div className="flex flex-col h-[300px] md:h-[400px]">
         <div className="p-4 border-b border-border/50 flex-shrink-0">
           <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
-            Real-Time Transcript
+            {t("home.hero.transcriptLabel")}
           </h4>
         </div>
         
@@ -268,7 +270,7 @@ const AudioTranscriptPlayer = ({ demo }: AudioTranscriptPlayerProps) => {
         >
           {visibleMessages.length === 0 ? (
             <div className="flex items-center justify-center h-full text-muted-foreground text-sm">
-              Click play to start the demonstration
+              {t("home.hero.transcriptEmpty")}
             </div>
           ) : (
             visibleMessages.map((msg, index) => (

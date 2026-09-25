@@ -16,11 +16,8 @@ import {
   Globe,
   BarChart3,
   Smartphone,
-  MessageCircle,
-  Instagram,
   Facebook,
   Monitor,
-  Search,
   type LucideIcon,
 } from "lucide-react";
 import heroChatAi from "@/assets/hero-chat-ai.jpg";
@@ -74,12 +71,9 @@ const AtendenteIAConversacional = () => {
   ];
 
   const channels: { name: string; icon: LucideIcon }[] = [
-    { name: t("chatProduct.sms"), icon: Smartphone },
-    { name: t("chatProduct.whatsapp"), icon: MessageCircle },
-    { name: t("chatProduct.instagramDm"), icon: Instagram },
+    { name: t("chatProduct.textMessages"), icon: Smartphone },
     { name: t("chatProduct.facebookMessenger"), icon: Facebook },
     { name: t("chatProduct.websiteChat"), icon: Monitor },
-    { name: t("chatProduct.googleBusiness"), icon: Search },
   ];
 
   const benefits = [
@@ -118,13 +112,13 @@ const AtendenteIAConversacional = () => {
       <SEO 
         titleKey="seo.chatProduct.title" 
         descriptionKey="seo.chatProduct.description"
+        noIndex
         schemaType="SoftwareApplication"
         schemaData={{
           productName: t("chatProduct.title"),
           productDescription: t("chatProduct.subtitle"),
           applicationCategory: "BusinessApplication",
           operatingSystem: "Web, iOS, Android",
-          aggregateRating: { ratingValue: 4.9, reviewCount: 200 }
         }}
         additionalSchemas={[
           {
@@ -178,25 +172,7 @@ const AtendenteIAConversacional = () => {
       {/* Stats Section */}
       <section className="py-12 bg-primary text-primary-foreground">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <AnimatedSection animation="scale" delay={0}>
-              <div className="text-4xl md:text-5xl font-bold mb-2">
-                <AnimatedCounter end={100} suffix="%" />
-              </div>
-              <p className="text-primary-foreground/80 text-sm">{t("chatProduct.responseRate")}</p>
-            </AnimatedSection>
-            <AnimatedSection animation="scale" delay={100}>
-              <div className="text-4xl md:text-5xl font-bold mb-2">
-                <AnimatedCounter end={3} suffix="s" />
-              </div>
-              <p className="text-primary-foreground/80 text-sm">{t("chatProduct.responseTime")}</p>
-            </AnimatedSection>
-            <AnimatedSection animation="scale" delay={200}>
-              <div className="text-4xl md:text-5xl font-bold mb-2">
-                <AnimatedCounter end={60} suffix="%" />
-              </div>
-              <p className="text-primary-foreground/80 text-sm">{t("chatProduct.moreEngagement")}</p>
-            </AnimatedSection>
+          <div className="grid grid-cols-1 gap-8 text-center max-w-sm mx-auto">
             <AnimatedSection animation="scale" delay={300}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
                 <AnimatedCounter end={6} suffix="+" />

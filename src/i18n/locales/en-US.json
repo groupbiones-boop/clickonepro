@@ -1,6 +1,6 @@
 {
   "common": {
-    "bookFreeDemo": "Book Free Demo"
+    "bookFreeDemo": "Book a demo"
   },
   "nav": {
     "product": "Product",
@@ -15,12 +15,15 @@
     "smallBusiness": "Small Business",
     "mediumBusiness": "Medium Business",
     "localBusiness": "Local Business",
-    "franchiseNetwork": "Franchise Network",
     "about": "About",
     "blog": "Blog",
     "contact": "Contact",
-    "bookDemo": "Book Demo",
-    "login": "Login"
+    "bookDemo": "Book a demo",
+    "login": "Login",
+    "howItWorks": "How it works",
+    "pricing": "Pricing",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "megaMenu": {
     "product": {
@@ -36,98 +39,12 @@
     },
     "sectors": {
       "title": "Solutions for Your Industry",
-      "description": "AI specifically trained for your market segment.",
+      "description": "AI set up for your type of business.",
       "cta": "View All Industries",
       "homeServices": "Home Services",
       "healthWellness": "Health & Wellness",
       "constructionOthers": "Construction & Others"
     }
-  },
-  "hero": {
-    "badge": "AI Receptionist for Service Businesses",
-    "title1": "Never Miss A Call.",
-    "title2": "Never Lose A Customer.",
-    "subtitle": "Virtual receptionist powered by artificial intelligence that answers calls, qualifies leads and schedules services 24 hours a day, 7 days a week.",
-    "cta": "Book Free Demo",
-    "ctaSecondary": "View Industries Served",
-    "trust1": "Setup in 72h",
-    "trust2": "No long contracts",
-    "trust3": "English support"
-  },
-  "audioDemo": {
-    "badge": "Live Demonstration",
-    "title": "Hear Our AI in Action",
-    "subtitle": "Listen to real demonstrations of how ClickOne AI answers calls and qualifies leads for different types of businesses.",
-    "impressed": "Impressed? See how this can work for your business.",
-    "cta": "Schedule My Personalized Demo"
-  },
-  "problem": {
-    "label": "The Problem",
-    "title": "Missed Calls",
-    "titleHighlight": "Lost Revenue",
-    "stat1": "of calls to small businesses go unanswered",
-    "stat2": "of customers don't call back after a missed call",
-    "stat3": "You're at work and",
-    "stat3Bold": "can't answer",
-    "stat3End": "the phone"
-  },
-  "solution": {
-    "label": "The Solution",
-    "title": "ClickOne AI",
-    "titleHighlight": "Works For You",
-    "benefit1": "Instant response",
-    "benefit1Bold": "24/7",
-    "benefit1End": ", no waiting",
-    "benefit2Bold": "Automatic qualification",
-    "benefit2End": "of leads",
-    "benefit3": "Scheduling",
-    "benefit3Bold": "integrated with your calendar",
-    "benefit4": "You work while the",
-    "benefit4Bold": "AI answers",
-    "cta": "Get Started"
-  },
-  "howItWorks": {
-    "title": "How It Works",
-    "subtitle": "In 4 simple steps, you turn every call into a business opportunity.",
-    "step1Title": "Customer Calls",
-    "step1Desc": "Your customer calls or sends a message at any time.",
-    "step2Title": "AI Answers",
-    "step2Desc": "Our AI answers instantly, with no wait time.",
-    "step3Title": "Qualifies & Schedules",
-    "step3Desc": "The AI collects information and schedules the service.",
-    "step4Title": "You Receive",
-    "step4Desc": "You receive the qualified and scheduled lead."
-  },
-  "features": {
-    "title": "Powerful AI Features",
-    "subtitle": "Cutting-edge technology to maximize your customer service and conversions.",
-    "feature1Title": "24/7 Service",
-    "feature1Desc": "Never miss a call, even outside business hours.",
-    "feature2Title": "Auto Scheduling",
-    "feature2Desc": "AI schedules services directly to your calendar.",
-    "feature3Title": "Lead Qualification",
-    "feature3Desc": "Automatically identifies and prioritizes the best customers.",
-    "feature4Title": "Increased Conversions",
-    "feature4Desc": "More leads converted into paying customers."
-  },
-  "omnichannel": {
-    "title": "Omnichannel Service",
-    "subtitle": "Be present on all channels where your customers are.",
-    "phone": "Phone",
-    "sms": "SMS",
-    "whatsapp": "WhatsApp",
-    "instagram": "Instagram",
-    "facebook": "Facebook",
-    "webchat": "Website Chat"
-  },
-  "mobileApp": {
-    "title": "Mobile App for Field Professionals",
-    "subtitle": "Receive instant notifications of new leads, manage schedules and track metrics in real time, all in the palm of your hand.",
-    "feature1": "Push notifications for new leads",
-    "feature2": "Real-time schedule management",
-    "feature3": "Customer conversation history",
-    "feature4": "Metrics and performance dashboard",
-    "cta": "Learn More"
   },
   "industries": {
     "title": "Industries We Serve",
@@ -141,13 +58,8 @@
     "learnMore": "Learn more →",
     "viewAll": "View All Industries"
   },
-  "finalCta": {
-    "title": "Ready to Transform Your Customer Service?",
-    "subtitle": "Schedule a free demo and see how ClickOne AI can increase your conversions by up to 40%.",
-    "cta": "Book Free Demo"
-  },
   "footer": {
-    "description": "Transforming customer service with artificial intelligence for service businesses.",
+    "description": "The AI front office for HVAC, plumbing, roofing and remodeling contractors in Georgia and Florida.",
     "product": "Product",
     "sectors": "Industries",
     "contact": "Contact",
@@ -159,63 +71,30 @@
     "callUs": "Call ClickOne AI",
     "emailUs": "Email ClickOne AI"
   },
-  "about": {
-    "title": "About ClickOne AI",
-    "subtitle": "Transforming customer service with artificial intelligence.",
-    "activeClients": "Active Clients",
-    "callsAnswered": "Calls Answered",
-    "satisfactionRate": "Satisfaction Rate",
-    "supportAvailable": "Support Available",
-    "missionTitle": "Our Mission",
-    "missionText": "Help service businesses answer, respond and follow up with customers automatically and intelligently, using artificial intelligence to increase efficiency, organization and conversion.",
-    "visionTitle": "Our Vision",
-    "visionText": "To be the leading artificial intelligence platform for customer service and operations for service businesses, eliminating human failures in the response, follow-up and scheduling process.",
-    "valuesTitle": "What guides our decisions",
-    "value1": "Immediate and continuous service",
-    "value2": "Practical use of artificial intelligence",
-    "value3": "Operational simplicity",
-    "value4": "Measurable results",
-    "practiceTitle": "How we put this into practice",
-    "practiceIntro": "ClickOne AI automates:",
-    "practice1": "Multichannel service",
-    "practice2": "Real-time responses",
-    "practice3": "Lead qualification",
-    "practice4": "Scheduling",
-    "practice5": "Continuous follow-up",
-    "practiceConclusion": "All integrated into a single platform, created to operate at the pace of service businesses.",
-    "resultTitle": "The result",
-    "result1": "Less operational effort.",
-    "result2": "More control.",
-    "result3": "More conversions."
-  },
   "whyClickone": {
     "heroTitle": "About ClickOne",
-    "heroSubtitle": "ClickOne was born from over 30 years of real experience in the service industry.",
+    "heroSubtitle": "ClickOne was born from over 20 years of real experience in the service industry.",
     "heroCta": "Get in touch",
-    
     "storyLabel": "Our Story",
     "storyTitle": "How It All Started",
-    "storyP1": "ClickOne was born from real experience — over 30 years working with service businesses. In Brazil, we spent decades managing businesses, building and leading sales teams that achieved outstanding results, and implementing companies from the ground up across various segments.",
-    "storyP2": "This expertise was brought to the United States, where the reality of service business owners — especially immigrants — showed the same challenges: lack of time, missed calls, clients who won't wait.",
+    "storyP1": "ClickOne was born from real experience: over 20 years working with service businesses. In Brazil, we spent decades managing businesses, building and leading sales teams, and setting up companies from the ground up across various segments.",
+    "storyP2": "This expertise was brought to the United States, where the reality of service business owners, especially immigrants, showed the same challenges: lack of time, missed calls, clients who won't wait.",
     "storyP3": "Over that time, we saw many dedicated business owners losing clients simply because they couldn't answer the phone while working. It wasn't a lack of quality. It was a lack of time.",
     "storyP4": "Many of these entrepreneurs are immigrants who built everything from scratch. We know this reality because we're part of it.",
-    
     "whyTitle": "Why does ClickOne exist?",
     "whyP1": "ClickOne exists to solve a specific problem: making sure service businesses don't lose customers because they can't answer the phone.",
     "whyP2": "We use technology to do that. But we're not a tech company trying to sell tools. We're people who know the industry and put together a solution that works.",
-    
     "commitmentLabel": "Our Commitment",
-    "commitmentTitle": "Real Support. Real Results.",
-    "commitmentIntro": "We don't believe in chatbot-only support. When you work with ClickOne, you get a real team that speaks your language — literally. Our support specialists understand service businesses because many of them came from service businesses.",
+    "commitmentTitle": "Real Support. Clear Reporting.",
+    "commitmentIntro": "We don't believe in chatbot-only support. When you work with ClickOne, you get a real team that speaks English, Spanish and Portuguese.",
     "commitment1": "Real human support, not just bots",
-    "commitment2": "Setup in 72 hours or less",
+    "commitment2": "Live in 7 days",
     "commitment3": "No long-term contracts",
     "commitment4": "Transparent pricing, no hidden fees",
     "commitment5": "Ongoing optimization and training",
-    
     "problemLabel": "The Challenge",
     "problemTitle": "Do You Know This Reality?",
-    "problemSubtitle": "Service businesses lose up to 40% of leads by not being able to answer or respond on time. That means money left on the table every day.",
+    "problemSubtitle": "Service businesses lose leads when they can't answer or respond on time. That means money left on the table every day.",
     "withoutTitle": "Without ClickOne AI",
     "without1": "Missed calls while you're working",
     "without2": "Forgotten leads without follow-up",
@@ -226,19 +105,19 @@
     "with1": "24/7 service without missing any calls",
     "with2": "Automatic follow-up for every lead",
     "with3": "Smart and synchronized scheduling",
-    "with4": "Instant responses across all channels",
-    "with5": "Maximized conversions all the time",
+    "with4": "Fast replies by phone, text and web forms",
+    "with5": "A monthly report of what was recovered",
     "diffLabel": "Our Differentiators",
     "diffTitle": "What Makes ClickOne Unique",
     "diffSubtitle": "We're not just another tool. We're a complete ecosystem built specifically for service businesses.",
-    "diff1Title": "Service-Specialized AI",
-    "diff1Desc": "Our AI was trained exclusively to understand and serve the service sector, from plumbing to cleaning.",
-    "diff2Title": "Native Omnichannel",
-    "diff2Desc": "Phone, SMS, WhatsApp, Instagram, Facebook, and website chat — all in one platform.",
+    "diff1Title": "Built for Home Service Contractors",
+    "diff1Desc": "We set up the AI with your services, prices and rules, for HVAC, plumbing, roofing and remodeling companies.",
+    "diff2Title": "Every Lead in One Place",
+    "diff2Desc": "Phone, text messages, web forms, Google and Facebook leads, all in one place.",
     "diff3Title": "Dedicated Support",
-    "diff3Desc": "Team of specialists who speak your language and understand your business, with real and humanized support.",
-    "diff4Title": "Measurable Results",
-    "diff4Desc": "Complete dashboard with real-time performance, conversion, and ROI metrics.",
+    "diff3Desc": "A real team that speaks English, Spanish and Portuguese and reviews how your front office is doing.",
+    "diff4Title": "Monthly Report",
+    "diff4Desc": "Every month you get a report of calls answered, response time and appointments recovered.",
     "ecoLabel": "Complete Platform",
     "ecoTitle": "Everything You Need in One Place",
     "ecoSubtitle": "Eliminate the complexity of managing multiple tools. ClickOne AI integrates everything your service business needs to grow.",
@@ -250,21 +129,14 @@
     "eco6": "Team Management",
     "ecoExplore": "Discover Complete Infrastructure",
     "platformTitle": "Unified Platform",
-    "platform1Title": "Enterprise Security",
-    "platform1Desc": "Data protected with end-to-end encryption",
-    "platform2Title": "72-hour Setup",
+    "platform1Title": "Data Protection",
+    "platform1Desc": "Your data stays protected on secure infrastructure",
+    "platform2Title": "Live in 7 Days",
     "platform2Desc": "Fast implementation without interrupting your operations",
     "platform3Title": "No Long Contracts",
     "platform3Desc": "Total flexibility to scale according to your demand",
-    "testimonialsLabel": "Testimonials",
-    "testimonialsTitle": "What Our Customers Say",
-    "testimonial1": "Since implementing ClickOne AI, our service scheduling increased by 45%. The AI serves our customers perfectly in English and Spanish.",
-    "testimonial2": "I used to miss calls all the time while on the job. Now ClickOne AI answers everything and sends me qualified leads straight to my phone.",
-    "testimonial3": "The best decision I made for my business. The support team made all the difference in implementation. I recommend it to any service business.",
     "ctaTitle": "Want to know more?",
-    "ctaSubtitle": "Talk to us and see if ClickOne makes sense for your business.",
-    "trustedBy": "Recognized by leading review platforms",
-    "topRated": "Top Rated 2024"
+    "ctaSubtitle": "Talk to us and see if ClickOne makes sense for your business."
   },
   "contact": {
     "title": "Contact Us",
@@ -272,52 +144,30 @@
     "badge": "Get in Touch",
     "phone": "Phone",
     "scheduleTitle": "Schedule a Call",
-    "scheduleSubtitle": "Choose the best time for a free 30-minute demo. A specialist will show you how ClickOne AI can transform your customer service.",
+    "scheduleSubtitle": "Choose the best time for a free 30-minute demo. We'll show you how ClickOne answers, follows up and books your leads.",
     "contactInfoTitle": "Other ways to reach us",
     "responseTime": "Response time",
-    "responseTimeDesc": "Here you'll be served within 10 seconds by our Bia.",
-    "responseTimeCta": "Bring this lightning-fast service to your business.",
+    "responseTimeDesc": "Here you'll be served by our Bia.",
+    "responseTimeCta": "Want this for your business? Book a 30-minute demo.",
     "ctaTitle": "Ready to transform your customer service?",
     "ctaSubtitle": "Schedule a free demo and see how ClickOne can help your business.",
-    "ctaButton": "Book Free Demo",
+    "ctaButton": "Book a demo",
     "faqTitle": "Frequently Asked Questions",
     "faq1Question": "How long does setup take?",
-    "faq1Answer": "Setup is quick and simple. In most cases, your AI is operational within 72 hours after onboarding.",
+    "faq1Answer": "Setup is quick and simple. Your AI goes live in 7 days.",
     "faq2Question": "Do I need a long-term contract?",
     "faq2Answer": "No! We offer flexible plans with no long-term commitment. You can cancel anytime.",
-    "faq3Question": "Does the AI work in my language?",
-    "faq3Answer": "Yes! Our AI supports dozens of languages, including Portuguese, English, and Spanish.",
+    "faq3Question": "Which languages does the AI speak?",
+    "faq3Answer": "English, Spanish and Portuguese.",
     "faq4Question": "How does the free demo work?",
-    "faq4Answer": "In the 30-minute demo, a specialist will understand your business and show how our AI can increase your conversions. No commitment required.",
+    "faq4Answer": "In the 30-minute demo, we learn about your business and you hear our AI answer a call. No commitment required.",
     "faq5Question": "Can I integrate with my current tools?",
-    "faq5Answer": "Absolutely! ClickOne connects with various social networks like Facebook and Instagram, Google My Business, and multiple calendar types, including our native platform calendar.",
+    "faq5Answer": "Works with Jobber, Housecall Pro and QuickBooks. Connects to ServiceTitan, JobNimbus, Roofr and more through automation.",
     "loadingForm": "Loading form...",
-    "location": "Location"
-  },
-  "bookDemo": {
-    "badge": "Transform your service today",
-    "title": "Schedule Your",
-    "titleHighlight": "Free Demo",
-    "subtitle": "See ClickOne AI in action and discover how we can transform your customer service. Never lose a customer due to lack of response again.",
-    "formTitle": "Fill out the form",
-    "formSubtitle": "Our team will contact you within 24 hours.",
-    
-    "benefit1": "30-minute personalized demo",
-    "benefit2": "100% free",
-    "benefit3": "No commitment",
-    "benefitsTitle": "What you'll receive in the demo",
-    "benefitCard1Title": "30-minute personalized demo",
-    "benefitCard1Desc": "A specialist will understand your business and show how AI can help.",
-    "benefitCard2Title": "No commitment",
-    "benefitCard2Desc": "Get to know the platform without any obligation.",
-    "benefitCard3Title": "See AI in action",
-    "benefitCard3Desc": "Real simulation of how ClickOne AI would serve your customers.",
-    "testimonialsTitle": "What our customers say",
-    "testimonialsBadge": "Satisfied customers",
-    "companiesServed": "Companies served",
-    "automatedCalls": "Automated calls",
-    "customerSatisfaction": "Customer satisfaction",
-    "activeService": "Active service"
+    "location": "Location",
+    "formTitle": "Send us a message",
+    "formSubtitle": "Fill out the form and our team will get back to you.",
+    "orSchedule": "Prefer to book directly?"
   },
   "notFound": {
     "title": "404",
@@ -377,42 +227,42 @@
     "badge": "AI Voice Receptionist",
     "title": "Intelligent Phone Service",
     "titleHighlight": "24 Hours a Day",
-    "subtitle": "Our voice AI answers calls, qualifies leads and schedules services automatically. Never lose a customer for not answering the phone again.",
+    "subtitle": "Our AI voice answers calls, qualifies leads and books jobs, 24/7. On Front Office: 100% of your calls answered, or that month is on us.",
     "cta": "Book Free Demo",
     "ctaSecondary": "View Industries Served",
     "lessMissedCalls": "Fewer Missed Calls",
     "moreConversions": "More Conversions",
-    "quickSetup": "Quick Setup",
-    "integrations": "Integrations",
+    "quickSetup": "Days to go live",
+    "integrations": "Always answering",
     "featuresTitle": "Advanced Voice Features",
     "featuresSubtitle": "Cutting-edge technology for impeccable phone service.",
     "feature1Title": "Natural and Humanized Voice",
-    "feature1Desc": "Conversational AI with natural voice that your customers won't realize is a robot.",
+    "feature1Desc": "Natural voice. It always tells callers it is an AI, and a person is one step away.",
     "feature2Title": "Available 24/7",
     "feature2Desc": "Uninterrupted service, including nights, weekends and holidays.",
     "feature3Title": "Auto Scheduling",
-    "feature3Desc": "Integrates with your calendar and schedules services automatically.",
+    "feature3Desc": "Books jobs on your calendar while the customer is on the line.",
     "feature4Title": "Lead Qualification",
     "feature4Desc": "Collects essential information before transferring to you.",
-    "feature5Title": "Multiple Languages",
-    "feature5Desc": "Service in Portuguese, English, Spanish and other languages.",
-    "feature6Title": "Detailed Analytics",
-    "feature6Desc": "Complete dashboard with call and conversion metrics.",
+    "feature5Title": "3 Languages",
+    "feature5Desc": "Answers in English, Spanish and Portuguese.",
+    "feature6Title": "Monthly Report",
+    "feature6Desc": "Calls answered, response time and appointments recovered, every month.",
     "howItWorksTitle": "How Voice Service Works",
     "step1Title": "Customer Calls Your Number",
-    "step1Desc": "The call is automatically directed to our AI.",
+    "step1Desc": "Your calls are answered by the AI when you can't pick up.",
     "step2Title": "AI Answers with Natural Voice",
-    "step2Desc": "Personalized greeting and fluid conversation like a human.",
+    "step2Desc": "A personalized greeting and a clear conversation. It always says it is an AI.",
     "step3Title": "Qualifies and Collects Information",
     "step3Desc": "Service type, address, availability and urgency.",
     "step4Title": "Schedules or Transfers",
     "step4Desc": "Books in your calendar or transfers to you if necessary.",
-    "benefitsTitle": "Proven Benefits",
-    "benefit1": "80% reduction in missed calls",
-    "benefit2": "40% increase in conversion rate",
-    "benefit3": "Up to 70% savings compared to traditional receptionists",
-    "benefit4": "Setup in less than 72 hours",
-    "benefit5": "Integration with over 50 tools",
+    "benefitsTitle": "What you get",
+    "benefit1": "Fewer missed calls, even when you are on a job",
+    "benefit2": "Faster replies that help turn more calls into booked jobs",
+    "benefit3": "A lower-cost alternative to a full-time receptionist",
+    "benefit4": "Live in 7 days",
+    "benefit5": "Works with Jobber, Housecall Pro and QuickBooks. Connects to ServiceTitan, JobNimbus, Roofr and more through automation.",
     "benefit6": "Dedicated technical support",
     "ctaTitle": "Ready to Automate Your Phone Service?",
     "ctaSubtitle": "Schedule a free demo and hear our AI in action.",
@@ -420,23 +270,23 @@
     "faq": [
       {
         "question": "How does the voice AI answer calls?",
-        "answer": "The AI answers with a natural voice, collects customer information, qualifies leads, and schedules services automatically."
+        "answer": "The AI answers with a natural voice and says it is an AI, collects the customer's details, qualifies the job and books it on your calendar."
       },
       {
         "question": "Can the AI transfer calls to humans?",
-        "answer": "Yes! Urgent or complex calls are transferred to your team in real-time."
+        "answer": "Yes. Urgent calls are passed to a person on your team."
       },
       {
         "question": "How long does setup take?",
-        "answer": "Complete implementation takes up to 72 hours, including script customization and integration."
+        "answer": "On Front Office, your AI voice is live in 7 days, including script customization."
       },
       {
         "question": "Does it work with my current scheduling system?",
-        "answer": "Yes! We integrate with 50+ tools including Google Calendar, Calendly, HouseCall Pro, and more."
+        "answer": "Works with Jobber, Housecall Pro and QuickBooks. Connects to ServiceTitan, JobNimbus, Roofr and more through automation."
       },
       {
-        "question": "Does the AI speak other languages?",
-        "answer": "Yes! We support English, Portuguese, Spanish, and other languages with natural voice."
+        "question": "Which languages does the AI speak?",
+        "answer": "English, Spanish and Portuguese, with a natural voice."
       }
     ]
   },
@@ -444,7 +294,7 @@
     "badge": "AI Conversational Attendant",
     "title": "Chat and Message Automation",
     "titleHighlight": "on All Channels",
-    "subtitle": "Our AI responds to text messages, qualifies leads and does automatic follow-up on SMS, WhatsApp, Instagram and more.",
+    "subtitle": "Our AI replies to text messages, web forms, Google and Facebook leads, qualifies them and follows up automatically.",
     "cta": "Book Free Demo",
     "ctaSecondary": "View Industries Served",
     "responseRate": "Response Rate",
@@ -454,41 +304,39 @@
     "channelsTitle": "One Attendant for All Channels",
     "channelsSubtitle": "Centralize all your conversations on a single intelligent platform.",
     "sms": "SMS",
-    "whatsapp": "WhatsApp",
-    "instagramDm": "Instagram DM",
     "facebookMessenger": "Facebook Messenger",
     "websiteChat": "Website Chat",
     "googleBusiness": "Google Business",
     "featuresTitle": "Advanced Conversation Features",
     "featuresSubtitle": "Cutting-edge technology for natural and efficient conversations.",
     "feature1Title": "Multi-Channel",
-    "feature1Desc": "SMS, WhatsApp, Instagram, Facebook Messenger and website chat in one platform.",
+    "feature1Desc": "Text messages, web forms, Facebook and website chat in one place.",
     "feature2Title": "Instant Responses",
-    "feature2Desc": "Response time of less than 3 seconds, 24 hours a day.",
+    "feature2Desc": "Instant replies, 24 hours a day.",
     "feature3Title": "Chat Scheduling",
     "feature3Desc": "Customers schedule services directly through conversation.",
     "feature4Title": "Automatic Follow-up",
     "feature4Desc": "Message sequences to nurture leads and recover customers.",
     "feature5Title": "Multiple Languages",
     "feature5Desc": "Natural conversation in Portuguese, English, Spanish and more.",
-    "feature6Title": "Real-Time Metrics",
-    "feature6Desc": "Track conversions, response time and satisfaction.",
+    "feature6Title": "Monthly Report",
+    "feature6Desc": "Leads recovered and booked, every month.",
     "useCasesTitle": "Popular Use Cases",
     "useCase1Title": "Auto Lead Response",
-    "useCase1Desc": "Respond to website forms in seconds, not hours.",
+    "useCase1Desc": "Reply to website forms right away, not hours later.",
     "useCase2Title": "Customer Reactivation",
     "useCase2Desc": "Send reminders and offers to inactive customers.",
     "useCase3Title": "Appointment Confirmation",
     "useCase3Desc": "Reduce no-shows with automatic reminders.",
     "useCase4Title": "Review Collection",
     "useCase4Desc": "Request reviews after each completed service.",
-    "benefitsTitle": "Proven Benefits",
-    "benefit1": "100% response rate on all channels",
-    "benefit2": "60% increase in lead engagement",
-    "benefit3": "50% reduction in conversion time",
+    "benefitsTitle": "What you get",
+    "benefit1": "Replies on every channel, 24/7",
+    "benefit2": "More leads engaged with instant replies",
+    "benefit3": "Shorter time from first contact to booked appointment",
     "benefit4": "Integration with CRM and existing tools",
     "benefit5": "Customizable templates for your business",
-    "benefit6": "Unlimited conversation scalability",
+    "benefit6": "A monthly report",
     "viewDemo": "View Demo",
     "ctaTitle": "Ready to Automate Your Conversations?",
     "ctaSubtitle": "Schedule a free demo and see AI talking to your customers.",
@@ -496,7 +344,7 @@
     "faq": [
       {
         "question": "Which chat channels are supported?",
-        "answer": "WhatsApp, SMS, Instagram DM, Facebook Messenger, website chat, and Google Business Messages."
+        "answer": "Text messages, web forms, Facebook Messenger and website chat."
       },
       {
         "question": "Does the AI respond 24/7?",
@@ -514,7 +362,9 @@
         "question": "Does it integrate with my CRM?",
         "answer": "Yes! We integrate with HubSpot, Salesforce, Pipedrive, GoHighLevel, and many other CRMs."
       }
-    ]
+    ],
+    "textMessages": "Text messages",
+    "webForms": "Web forms"
   },
   "smallBusiness": {
     "badge": "For companies with 1-10 employees",
@@ -535,26 +385,25 @@
     "withoutAI3": "Leads going to competition",
     "withoutAI4": "Nights and weekends without service",
     "withClickOne": "With ClickOne AI",
-    "withClickOne1": "100% of calls answered, always",
-    "withClickOne2": "Instant WhatsApp responses",
+    "withClickOne1": "100% of calls answered, or that month is on us",
+    "withClickOne2": "Automatic replies to text messages",
     "withClickOne3": "Automatic scheduling",
     "withClickOne4": "24/7 service, 365 days a year",
     "benefitsTitle": "Why small businesses choose ClickOne AI",
     "benefit1Title": "24/7 Service",
-    "benefit1Desc": "Never miss a call, even outside business hours or on weekends.",
+    "benefit1Desc": "Calls answered even outside business hours or on weekends.",
     "benefit2Title": "No need to hire",
     "benefit2Desc": "Save on salaries, taxes and training for customer service staff.",
     "benefit3Title": "Increase conversions",
-    "benefit3Desc": "Respond to leads in seconds and schedule more customers automatically.",
+    "benefit3Desc": "Reply to leads fast and book more customers automatically.",
     "benefit4Title": "Professional service",
     "benefit4Desc": "AI trained to represent your company with quality and friendliness.",
     "useCasesTitle": "What AI does for you",
     "useCase1": "Answer calls when you're working",
-    "useCase2": "Respond to WhatsApp messages instantly",
+    "useCase2": "Reply to text messages automatically",
     "useCase3": "Schedule customers without interrupting your work",
     "useCase4": "Automatic follow-up with leads",
     "useCase5": "Qualify customers before returning the call",
-    "testimonialsTitle": "Small entrepreneur stories",
     "ctaTitle": "Ready to grow without hiring?",
     "ctaSubtitle": "Schedule a free demo and see how ClickOne AI can transform your small business service."
   },
@@ -562,11 +411,11 @@
     "badge": "For companies with 11-50 employees",
     "title": "AI Service for",
     "titleHighlight": "Medium Businesses",
-    "subtitle": "Scale your service operation without increasing fixed costs. Consistent and professional service at any volume.",
+    "subtitle": "Scale your front office without adding fixed costs. Consistent, professional service as you grow.",
     "cta": "Book Free Demo",
     "ctaSecondary": "Talk to Specialist",
     "costReduction": "Cost reduction",
-    "callsAnswered": "Calls answered",
+    "callsAnswered": "of calls answered, or that month is on us",
     "moreCapacity": "More capacity",
     "initialSetup": "Initial setup",
     "problemTitle": "The challenges of scaling service",
@@ -578,7 +427,7 @@
     "challenge3": "Inconsistent service between employees",
     "challenge4": "Difficulty scaling during demand peaks",
     "challenge5": "Lost leads outside business hours",
-    "solution1": "AI handles unlimited volume simultaneously",
+    "solution1": "AI answers several calls at the same time",
     "solution2": "Predictable fixed cost, no labor charges",
     "solution3": "Standardized and professional service always",
     "solution4": "Instant scalability at any time",
@@ -592,7 +441,6 @@
     "benefit3Desc": "Connect AI to your current system without complications.",
     "benefit4Title": "Advanced customization",
     "benefit4Desc": "Custom scripts and flows for your specific operation.",
-    "testimonialsTitle": "What our customers say",
     "ctaTitle": "Ready to scale your service?",
     "ctaSubtitle": "Schedule a free demo and discover how ClickOne AI can help your company grow without complications."
   },
@@ -619,111 +467,14 @@
     "benefitsSubtitle": "Instant service that turns leads into loyal customers in your region.",
     "benefit1Title": "Strong local presence",
     "benefit1Desc": "Service that knows your region and speaks your customers' language.",
-    "benefit2Title": "Never miss a call",
-    "benefit2Desc": "100% of calls answered, even when you're in service.",
+    "benefit2Title": "Calls answered",
+    "benefit2Desc": "Calls answered even when you're on a job. 100% of calls answered, or that month is on us.",
     "benefit3Title": "Automatic scheduling",
     "benefit3Desc": "Customers book directly in your calendar without your intervention.",
     "benefit4Title": "Integrated multichannel",
-    "benefit4Desc": "Phone, WhatsApp, Instagram and Facebook on one platform.",
-    "testimonialsTitle": "Local businesses dominating their regions",
+    "benefit4Desc": "Phone, text messages and web forms in one place.",
     "ctaTitle": "Dominate your region's market",
     "ctaSubtitle": "Schedule a free demo and see how ClickOne AI can make you be the first to respond, always."
-  },
-  "franchiseNetwork": {
-    "badge": "Enterprise solutions for multiple locations",
-    "title": "AI Service for",
-    "titleHighlight": "Franchise Networks",
-    "subtitle": "Standardize service across your entire network. Centralized control, guaranteed quality at each location.",
-    "cta": "Schedule Enterprise Demo",
-    "ctaSecondary": "Talk to Specialist",
-    "networksServed": "Networks served",
-    "uptime": "Guaranteed uptime",
-    "satisfactionIncrease": "Satisfaction increase",
-    "dedicatedSupport": "Dedicated support",
-    "problemTitle": "The challenge of managing multiple locations",
-    "problemSubtitle": "Each franchise is an extension of your brand. Inconsistent service affects the entire network.",
-    "withoutStandard": "Without standardization",
-    "challenge1": "Service quality varies between locations",
-    "challenge2": "Difficult to monitor each franchise's performance",
-    "challenge3": "Inconsistent operational costs",
-    "challenge4": "Constant employee training",
-    "withClickOneEnterprise": "With ClickOne AI Enterprise",
-    "solution1": "Identical service at all locations",
-    "solution2": "Centralized dashboard with metrics by branch",
-    "solution3": "Predictable and scalable cost",
-    "solution4": "Zero training, immediate quality",
-    "benefitsTitle": "Enterprise Features",
-    "benefit1Title": "Standardized service",
-    "benefit1Desc": "Same quality at all locations, ensuring brand consistency.",
-    "benefit2Title": "Centralized dashboard",
-    "benefit2Desc": "Complete view of all locations' performance in real time.",
-    "benefit3Title": "Quality control",
-    "benefit3Desc": "Monitor and ensure service standards across the entire network.",
-    "benefit4Title": "Dedicated support",
-    "benefit4Desc": "Exclusive account manager and priority support for your network.",
-    "enterpriseFeaturesTitle": "Features included in Enterprise plan",
-    "enterpriseFeature1": "Centralized configuration for entire network",
-    "enterpriseFeature2": "Custom scripts by location or region",
-    "enterpriseFeature3": "Consolidated and per-branch reports",
-    "enterpriseFeature4": "Integration with franchise systems",
-    "enterpriseFeature5": "Training and onboarding for franchisees",
-    "enterpriseFeature6": "Guaranteed SLA with 99.9% uptime",
-    "testimonialsTitle": "Networks that trust ClickOne AI",
-    "testimonial1": "Managing service for 15 locations was a nightmare. With ClickOne AI, we have standards at all franchises and full visibility in one dashboard.",
-    "testimonial2": "Our franchisees loved it. They focus on service while AI handles customer service. Customer satisfaction increased 40% across the network.",
-    "ctaTitle": "Ready to standardize your network?",
-    "ctaSubtitle": "Schedule an enterprise demo and discover how ClickOne AI can transform service across your entire franchise network."
-  },
-  "agendarDemo": {
-    "hero": {
-      "badge": "Transform your service today",
-      "title": "Schedule Your",
-      "titleHighlight": "Free Demo",
-      "subtitle": "See ClickOne AI in action and discover how we can transform your service. Never lose a customer due to lack of response again."
-    },
-    "form": {
-      "title": "Fill out the form",
-      "subtitle": "Our team will contact you within 24 hours."
-    },
-    "quickBenefits": {
-      "demo30min": "30-minute personalized demo",
-      "free": "100% free",
-      "noCommitment": "No commitment"
-    },
-    "benefits": {
-      "personalizedDemo": {
-        "title": "30-minute personalized demo",
-        "description": "A specialist will understand your business and show how AI can help."
-      },
-      "noCommitment": {
-        "title": "No commitment",
-        "description": "Get to know the platform without any obligation."
-      },
-      "seeAiInAction": {
-        "title": "See AI in action",
-        "description": "Real simulation of how ClickOne AI would serve your customers."
-      }
-    },
-    "benefitsSection": {
-      "title": "What you'll receive in the demo"
-    },
-    "testimonialsSection": {
-      "badge": "Satisfied customers",
-      "title": "What our customers say"
-    },
-    "testimonials": {
-      "carlos": "The demo was amazing! In 30 minutes, I understood exactly how AI would work for my cleaning company.",
-      "roberto": "After the demo, it became clear how much I was losing in unanswered calls. I signed up the same day.",
-      "ana": "The team was very attentive and the demo was super personalized for my business.",
-      "diego": "I never thought automating my service would be so simple. The demo convinced me!"
-    },
-    "stats": {
-      "companiesServed": "Companies served",
-      "callsAutomated": "Calls automated",
-      "satisfaction": "Customer satisfaction",
-      "activeSupport": "Active support"
-    },
-    "ctaButton": "Send Your Details"
   },
   "verticalInfra": {
     "badge": "Complete Ecosystem",
@@ -742,7 +493,7 @@
       "omnichannel": {
         "title": "Omnichannel",
         "subtitle": "All Channels in One Place",
-        "desc": "Centralize all conversations from phone, SMS, WhatsApp, Instagram, Facebook Messenger and website chat in a single panel.",
+        "desc": "Keep conversations from phone, text messages, Facebook Messenger and website chat in a single panel.",
         "feature1": "Unified inbox for all messages",
         "feature2": "Complete history of each customer",
         "feature3": "Smart automatic responses"
@@ -756,12 +507,12 @@
         "feature3": "Integrated post scheduling"
       },
       "googleBusiness": {
-        "title": "Google My Business AI",
+        "title": "Google Reviews",
         "subtitle": "Growth and Performance on Google",
         "desc": "Automated monitoring and service to optimize your Google presence and increase positive reviews.",
         "feature1": "Automatic review responses",
         "feature2": "Question management",
-        "feature3": "Real-time visibility metrics"
+        "feature3": "Review requests after each job"
       },
       "emailMarketing": {
         "title": "Integrated Email Marketing",
@@ -816,22 +567,48 @@
         "title": "2. Information We Collect",
         "personal": "2.1 Personal Information You Provide",
         "personalDesc": "We collect information you voluntarily provide when using our Services, including:",
-        "personalItems": ["Contact information (name, email address, phone number)", "Business information (company name, industry, company size)", "Account credentials (username and password)", "Communication preferences", "Information provided through our contact forms, demo requests, or customer support inquiries"],
+        "personalItems": [
+          "Contact information (name, email address, phone number)",
+          "Business information (company name, industry, company size)",
+          "Account credentials (username and password)",
+          "Communication preferences",
+          "Information provided through our contact forms, demo requests, or customer support inquiries"
+        ],
         "automatic": "2.2 Information Collected Automatically",
         "automaticDesc": "When you access our Services, we automatically collect certain information, including:",
-        "automaticItems": ["Device information (IP address, browser type, operating system)", "Usage data (pages visited, time spent, click patterns)", "Cookies and similar tracking technologies", "Referral source and navigation patterns"],
+        "automaticItems": [
+          "Device information (IP address, browser type, operating system)",
+          "Usage data (pages visited, time spent, click patterns)",
+          "Cookies and similar tracking technologies",
+          "Referral source and navigation patterns"
+        ],
         "thirdParty": "2.3 Information from Third Parties",
         "thirdPartyDesc": "We may receive information about you from third-party sources, including business partners, marketing partners, and publicly available sources."
       },
       "use": {
         "title": "3. How We Use Your Information",
         "desc": "We use the collected information for the following purposes:",
-        "items": ["To provide, maintain, and improve our Services", "To process transactions and send related information", "To send promotional communications (with your consent where required)", "To respond to your inquiries and provide customer support", "To analyze usage patterns and improve user experience", "To detect, prevent, and address technical issues or fraud", "To comply with legal obligations", "To enforce our Terms of Service"]
+        "items": [
+          "To provide, maintain, and improve our Services",
+          "To process transactions and send related information",
+          "To send promotional communications (with your consent where required)",
+          "To respond to your inquiries and provide customer support",
+          "To analyze usage patterns and improve user experience",
+          "To detect, prevent, and address technical issues or fraud",
+          "To comply with legal obligations",
+          "To enforce our Terms of Service"
+        ]
       },
       "disclosure": {
         "title": "4. Disclosure of Your Information",
         "desc": "We may share your information in the following circumstances:",
-        "items": ["Service Providers: Third-party vendors who perform services on our behalf (hosting, analytics, payment processing)", "Business Transfers: In connection with a merger, acquisition, or sale of assets", "Legal Requirements: When required by law, court order, or governmental authority", "Protection of Rights: To protect our rights, privacy, safety, or property", "With Your Consent: When you have given us permission to share your information"],
+        "items": [
+          "Service Providers: Third-party vendors who perform services on our behalf (hosting, analytics, payment processing)",
+          "Business Transfers: In connection with a merger, acquisition, or sale of assets",
+          "Legal Requirements: When required by law, court order, or governmental authority",
+          "Protection of Rights: To protect our rights, privacy, safety, or property",
+          "With Your Consent: When you have given us permission to share your information"
+        ],
         "noSell": "We do not sell your personal information to third parties for their direct marketing purposes."
       },
       "security": {
@@ -845,7 +622,13 @@
       "rights": {
         "title": "7. Your Privacy Rights",
         "desc": "Depending on your location, you may have the following rights regarding your personal information:",
-        "items": ["Right to Know: Request information about the categories and specific pieces of personal information we have collected", "Right to Delete: Request deletion of your personal information, subject to certain exceptions", "Right to Correct: Request correction of inaccurate personal information", "Right to Opt-Out: Opt out of the sale or sharing of your personal information", "Right to Non-Discrimination: Exercise your rights without discriminatory treatment"],
+        "items": [
+          "Right to Know: Request information about the categories and specific pieces of personal information we have collected",
+          "Right to Delete: Request deletion of your personal information, subject to certain exceptions",
+          "Right to Correct: Request correction of inaccurate personal information",
+          "Right to Opt-Out: Opt out of the sale or sharing of your personal information",
+          "Right to Non-Discrimination: Exercise your rights without discriminatory treatment"
+        ],
         "contact": "To exercise these rights, please contact us at info@clickonepro.com or call +1 (770) 501-7321."
       },
       "california": {
@@ -855,7 +638,11 @@
       "cookies": {
         "title": "9. Cookies and Tracking Technologies",
         "desc": "We use cookies and similar tracking technologies to collect and track information and to improve our Services. Types of cookies we use include:",
-        "items": ["Essential Cookies: Necessary for the website to function properly", "Analytics Cookies: Help us understand how visitors interact with our website", "Marketing Cookies: Used to deliver relevant advertisements"],
+        "items": [
+          "Essential Cookies: Necessary for the website to function properly",
+          "Analytics Cookies: Help us understand how visitors interact with our website",
+          "Marketing Cookies: Used to deliver relevant advertisements"
+        ],
         "control": "You can control cookies through your browser settings. However, disabling cookies may affect the functionality of our Services."
       },
       "thirdPartyLinks": {
@@ -889,13 +676,25 @@
       "description": {
         "title": "2. Description of Services",
         "desc": "ClickOne AI provides AI-powered communication and customer service automation solutions, including but not limited to:",
-        "items": ["AI Voice Receptionist for automated phone call handling", "Conversational AI Attendant for multi-channel messaging", "Automated appointment scheduling and management", "Customer relationship management integrations", "Analytics and reporting dashboards"],
+        "items": [
+          "AI Voice Receptionist for automated phone call handling",
+          "Conversational AI Attendant for multi-channel messaging",
+          "Automated appointment scheduling and management",
+          "Customer relationship management integrations",
+          "Analytics and reporting dashboards"
+        ],
         "note": "The specific features and functionalities available to you depend on your subscription plan and may be modified by us from time to time."
       },
       "account": {
         "title": "3. Account Registration and Security",
         "desc": "To access certain features of our Services, you must register for an account. When registering, you agree to:",
-        "items": ["Provide accurate, current, and complete information", "Maintain and promptly update your account information", "Keep your login credentials confidential and secure", "Notify us immediately of any unauthorized access to your account", "Accept responsibility for all activities under your account"],
+        "items": [
+          "Provide accurate, current, and complete information",
+          "Maintain and promptly update your account information",
+          "Keep your login credentials confidential and secure",
+          "Notify us immediately of any unauthorized access to your account",
+          "Accept responsibility for all activities under your account"
+        ],
         "note": "We reserve the right to suspend or terminate accounts that violate these Terms or for any other reason at our sole discretion."
       },
       "subscription": {
@@ -904,14 +703,29 @@
         "plansDesc": "Access to our Services requires a paid subscription. Subscription plans, pricing, and features are described during the registration process or provided to you directly by our sales team. We reserve the right to modify pricing and features upon reasonable notice.",
         "payment": "4.2 Payment Terms",
         "paymentDesc": "By subscribing to our Services, you agree to pay all applicable fees. Payment terms include:",
-        "paymentItems": ["Fees are billed in advance on a monthly or annual basis", "All payments are non-refundable unless otherwise specified", "You authorize us to charge your payment method on file", "Failed payments may result in service suspension"],
+        "paymentItems": [
+          "Fees are billed in advance on a monthly or annual basis",
+          "All payments are non-refundable unless otherwise specified",
+          "You authorize us to charge your payment method on file",
+          "Failed payments may result in service suspension"
+        ],
         "cancellation": "4.3 Cancellation",
         "cancellationDesc": "You may cancel your subscription at any time through your account settings or by contacting customer support. Cancellation will be effective at the end of the current billing period. No refunds will be provided for partial periods."
       },
       "acceptable": {
         "title": "5. Acceptable Use Policy",
         "desc": "You agree to use our Services only for lawful purposes and in accordance with these Terms. You agree NOT to:",
-        "items": ["Violate any applicable federal, state, local, or international law or regulation", "Send unsolicited communications (spam) or violate TCPA, CAN-SPAM, or similar laws", "Impersonate or attempt to impersonate another person or entity", "Engage in any conduct that restricts or inhibits anyone's use of the Services", "Use the Services to transmit malware, viruses, or harmful code", "Attempt to gain unauthorized access to our systems or other users' accounts", "Collect or harvest user information without consent", "Use automated scripts to collect information or interact with the Services", "Interfere with or disrupt the integrity or performance of the Services"]
+        "items": [
+          "Violate any applicable federal, state, local, or international law or regulation",
+          "Send unsolicited communications (spam) or violate TCPA, CAN-SPAM, or similar laws",
+          "Impersonate or attempt to impersonate another person or entity",
+          "Engage in any conduct that restricts or inhibits anyone's use of the Services",
+          "Use the Services to transmit malware, viruses, or harmful code",
+          "Attempt to gain unauthorized access to our systems or other users' accounts",
+          "Collect or harvest user information without consent",
+          "Use automated scripts to collect information or interact with the Services",
+          "Interfere with or disrupt the integrity or performance of the Services"
+        ]
       },
       "ip": {
         "title": "6. Intellectual Property Rights",
@@ -965,23 +779,29 @@
       },
       "general": {
         "title": "16. General Provisions",
-        "items": ["Entire Agreement: These Terms, together with the Privacy Policy, constitute the entire agreement between you and ClickOne AI.", "Severability: If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions will continue in full force and effect.", "Waiver: Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.", "Assignment: You may not assign or transfer these Terms without our prior written consent. We may assign these Terms without restriction.", "Force Majeure: We shall not be liable for any failure to perform due to causes beyond our reasonable control."]
+        "items": [
+          "Entire Agreement: These Terms, together with the Privacy Policy, constitute the entire agreement between you and ClickOne AI.",
+          "Severability: If any provision of these Terms is held to be invalid or unenforceable, the remaining provisions will continue in full force and effect.",
+          "Waiver: Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.",
+          "Assignment: You may not assign or transfer these Terms without our prior written consent. We may assign these Terms without restriction.",
+          "Force Majeure: We shall not be liable for any failure to perform due to causes beyond our reasonable control."
+        ]
       },
       "contact": {
         "title": "17. Contact Information",
         "desc": "If you have any questions about these Terms, please contact us at:"
       }
     }
-    },
-    "seo": {
+  },
+  "seo": {
     "home": {
-      "title": "ClickOne AI - Virtual Receptionist with Artificial Intelligence",
-      "description": "AI-powered virtual receptionist that answers calls, qualifies leads, and schedules services 24/7. Never miss a call again.",
+      "title": "ClickOne AI | AI front office for home service contractors",
+      "description": "Stop losing jobs you already paid to get. ClickOne answers, follows up and books your leads 24/7 in English, Spanish and Portuguese.",
       "heroAlt": "Modern office with AI receptionist answering calls"
     },
     "voiceProduct": {
       "title": "Voice AI Receptionist | ClickOne AI",
-      "description": "Answer 100% of calls with human-like voice and advanced AI. Schedule, qualify, and convert leads 24/7."
+      "description": "AI voice that answers your calls 24/7 in English, Spanish and Portuguese and books jobs. Live in 7 days on Front Office."
     },
     "chatProduct": {
       "title": "Conversational AI Attendant | ClickOne AI",
@@ -993,7 +813,7 @@
     },
     "sectors": {
       "title": "Industries Served | ClickOne AI",
-      "description": "Customized AI solutions for 20+ industries: healthcare, services, beauty, and more."
+      "description": "ClickOne AI for HVAC, plumbing, roofing, remodeling and other home service contractors in Georgia and Florida."
     },
     "sectorDetail": {
       "title": "{{sector}} | ClickOne AI",
@@ -1021,7 +841,7 @@
     },
     "localBusiness": {
       "title": "AI for Local Businesses | ClickOne AI",
-      "description": "Virtual receptionist for local businesses. Never lose a customer due to missed calls."
+      "description": "AI front office for local service businesses. Calls answered, leads followed up and jobs booked."
     },
     "contact": {
       "title": "Contact | ClickOne AI",
@@ -1045,7 +865,15 @@
     },
     "lpPerdendoClientes": {
       "title": "Are You Losing Customers? | ClickOne AI",
-      "description": "Discover how to stop losing $20,000/month on unanswered calls. 24/7 AI Receptionist for service businesses."
+      "description": "Stop losing customers to unanswered calls. 24/7 AI Receptionist for service businesses."
+    },
+    "pricing": {
+      "title": "Pricing | ClickOne AI",
+      "description": "Two plans for home service contractors: Recover at $497/month and Front Office at $997/month, set up in 7 days."
+    },
+    "bookADemo": {
+      "title": "Book a 30-Minute Demo | ClickOne AI",
+      "description": "Hear our AI answer a call for your business. A 30-minute demo for HVAC, plumbing, roofing and remodeling companies."
     }
   },
   "lp": {
@@ -1053,17 +881,17 @@
       "floatingCta": "Book Demo",
       "seo": {
         "title": "Are You Losing Customers? | ClickOne AI",
-        "description": "Discover how to stop losing $20,000/month on unanswered calls. 24/7 AI Receptionist."
+        "description": "Stop losing customers to unanswered calls. 24/7 AI Receptionist."
       },
       "hero": {
-        "badge": "3 min read | 72h Setup",
+        "badge": "3 min read | Live in 7 days",
         "title": "You're Losing Customers Right Now",
         "subtitle": "While you're working, customers call, send messages... and give up. Discover how to capture every opportunity automatically, 24 hours a day.",
         "cta": "I Want to Stop Losing Customers"
       },
       "hook": {
         "title": "Your Phone Rings. You Can't Answer.",
-        "text": "Just like that, a customer who could have been $2,000 in services... went to the competition. This happens every day to thousands of service businesses. The good news? There's a simple solution that works while you work."
+        "text": "Just like that, a customer who could have become a new job... went to the competition. The good news? There's a simple solution that works while you work."
       },
       "dayInLife": {
         "title": "A Day in the Life of Someone Always on the Go",
@@ -1076,9 +904,9 @@
       },
       "problem": {
         "title": "The Problem Isn't Lack of Customers. It's Lack of Response.",
-        "stat1": "of missed calls never return",
-        "stat2": "lost per unanswered call",
-        "stat3": "escaping your business every month",
+        "stat1": "Many callers who reach voicemail never call back",
+        "stat2": "Every unanswered call can be a lost job",
+        "stat3": "Missed calls add up to lost revenue every month",
         "support": "Customers want immediate response. Weekends and nights are when they search most - and when you're least able to answer.",
         "cta": "I Want to Fix This"
       },
@@ -1091,31 +919,31 @@
         },
         "card2": {
           "title": "Can't hire right now",
-          "text": "An employee costs $3,000+ per month"
+          "text": "A receptionist in Atlanta costs about $3,100 a month (BLS, 2025)"
         },
         "card3": {
           "title": "Customers don't wait",
-          "text": "In 5 minutes, they've called someone else"
+          "text": "They call the next company on the list"
         }
       },
       "solution": {
         "title": "The Solution: A Receptionist That Never Sleeps",
-        "subtitle": "Imagine having someone who answers ALL your calls and messages, 24 hours a day, 7 days a week. Who qualifies leads, schedules services, and never asks for vacation.",
+        "subtitle": "Imagine having someone who answers your calls and messages, 24 hours a day, 7 days a week. Who qualifies leads, books jobs and never takes a vacation.",
         "feature1": {
           "title": "24/7 Service",
           "text": "Works while you sleep"
         },
         "feature2": {
           "title": "Natural Voice",
-          "text": "Customers can't tell it's AI"
+          "text": "Natural voice. It always tells callers it is an AI, and a person is one step away."
         },
         "feature3": {
-          "title": "All Channels",
-          "text": "Phone, WhatsApp, SMS, social media"
+          "title": "Calls, Texts and Forms",
+          "text": "Phone, text messages, web forms, Google and Facebook"
         },
         "feature4": {
           "title": "Auto Scheduling",
-          "text": "Integrates with your calendar"
+          "text": "Books jobs straight into your schedule"
         }
       },
       "howItWorks": {
@@ -1137,12 +965,12 @@
       "whatChanges": {
         "title": "The Impact on Your Wallet (and Your Life)",
         "benefit1": {
-          "title": "Zero Missed Calls",
+          "title": "Calls Answered",
           "text": "Every lead is captured"
         },
         "benefit2": {
-          "title": "Responses in Seconds",
-          "text": "3x more likely to close"
+          "title": "Fast Replies",
+          "text": "Better chances to close"
         },
         "benefit3": {
           "title": "Organized Leads",
@@ -1168,20 +996,20 @@
       },
       "aboutClickone": {
         "tagline": "AI Receptionist for Service Businesses",
-        "headline": "Never Miss a Call. Never Lose a Customer.",
+        "headline": "100% of your calls answered, or that month is on us.",
         "diff1": {
           "title": "Built for Business Owners",
           "text": "Not for large corporations"
         },
         "diff2": {
-          "title": "Results-Focused",
-          "text": "More leads, more sales"
+          "title": "Ongoing Support",
+          "text": "Ongoing maintenance, optimization and training by our team"
         },
         "diff3": {
           "title": "Dedicated Support",
           "text": "Human help when you need it"
         },
-        "badge": "72h Setup | No long contracts | Dedicated support"
+        "badge": "Live in 7 days | No long contracts | Dedicated support"
       },
       "finalCta": {
         "title": "Stop Losing Customers. Start Today.",
@@ -1192,19 +1020,414 @@
         },
         "pillar2": {
           "title": "Works on Its Own",
-          "text": "Zero maintenance needed"
+          "text": "Ongoing support from our team"
         },
         "pillar3": {
-          "title": "Real Results",
-          "text": "More leads in the first month"
+          "title": "Monthly Report",
+          "text": "See what was recovered each month"
         },
         "appMention": {
           "title": "Mobile App",
           "text": "Get lead notifications right on your phone"
         },
         "cta": "Book My Free Demo",
-        "support": "15 minutes. No commitment. See how it works."
+        "support": "30 minutes. No commitment. See how it works."
       }
+    }
+  },
+  "calculator": {
+    "badge": "Missed Call Revenue Calculator",
+    "title": "How much is your phone",
+    "titleHighlight": "costing you?",
+    "subtitle": "Move the sliders to match your business. The math uses only the numbers you enter.",
+    "callsLabel": "Missed calls per week",
+    "callsHelper": "Count calls that hit voicemail or were never called back.",
+    "callsValue_one": "{{count}} call",
+    "callsValue_other": "{{count}} calls",
+    "callsMin": "0",
+    "callsMax": "40",
+    "jobLabel": "Average job value",
+    "jobHelper": "What a typical job is worth to your business.",
+    "rateLabel": "Your recovery estimate",
+    "rateHelper": "Your estimate: how many of those calls would turn into jobs if someone answered. A cautious start is 20 to 30%.",
+    "resultHeader": "Your Estimate",
+    "monthlyLabel": "Monthly revenue you could recover",
+    "annualLabel": "Over a full year",
+    "month": "mo",
+    "year": "year",
+    "paybackHeader": "With ClickOne AI",
+    "ctaButton": "Book a 30-minute demo",
+    "ariaDecreaseCalls": "Decrease missed calls per week",
+    "ariaIncreaseCalls": "Increase missed calls per week",
+    "ariaDecreaseJob": "Decrease average job value",
+    "ariaIncreaseJob": "Increase average job value",
+    "ariaDecreaseRate": "Decrease recovery estimate",
+    "ariaIncreaseRate": "Increase recovery estimate",
+    "zeroPrompt": "Move the missed calls slider to see what you could recover.",
+    "paybackPrompt": "See how many recovered jobs cover a plan.",
+    "paybackLink": "See plans and pricing"
+  },
+  "faq": {
+    "badge": "Frequently Asked Questions",
+    "title": "Everything You Need to Know About",
+    "titleHighlight": "AI Receptionists",
+    "subtitle": "Clear, direct answers on how ClickOne AI answers every call, handles after-hours calls, and helps service businesses grow.",
+    "q1": "What is an AI receptionist for service businesses and how does it work?",
+    "a1": "An AI receptionist is a voice and chat assistant that answers customer calls 24/7. It speaks with a natural voice, understands what the caller needs, qualifies the job, collects the address, and books appointments directly into your calendar.",
+    "q2": "How does ClickOne AI handle emergency calls after hours?",
+    "a2": "ClickOne AI works 24/7. After hours, it listens for urgent situations (such as an active water leak, a heating or cooling failure in extreme weather, or a safety issue) and transfers the caller or sends a priority SMS alert to your on-call technician, while routine requests are booked for regular hours.",
+    "q3": "Can ClickOne AI integrate with my existing scheduling calendar or CRM?",
+    "a3": "Yes. ClickOne works with Jobber, Housecall Pro and QuickBooks, and connects to ServiceTitan, JobNimbus, Roofr and more through automation. It books appointments on your calendar, logs the lead details and sends confirmations to your team and the customer.",
+    "q4": "How much revenue can a local service business lose from missed calls?",
+    "a4": "It depends on your numbers. For example, a business that misses 5 calls a week, where about 20% of those calls would turn into jobs if someone answered, and an average job is worth $800, could be leaving about $3,464 a month on the table (5 x 4.33 x 20% x $800). Use the calculator on this page to run your own numbers.",
+    "q5": "How fast can ClickOne AI be set up for my business?",
+    "a5": "Recover is set up in 7 days. On Front Office, your AI voice receptionist is live in 7 days. We customize the voice, service menu, pricing details, FAQs and routing rules for your business, so you don't need any technical skills. Text messages switch on once US carriers approve your number, which usually takes 10+ business days.",
+    "q6": "What happens if the caller asks a complex question the AI cannot answer?",
+    "a6": "If a customer asks something the AI doesn't know, it politely collects their details, summarizes the request, and notifies your team for a personal follow-up, so no customer is left without an answer.",
+    "stillHaveQuestions": "Still have questions about how AI fits your business?",
+    "speakWithSpecialist": "Talk with our team and see a live demonstration."
+  },
+  "emergency": {
+    "badge": "24/7 Call Routing",
+    "title": "Never Lose Sleep Over",
+    "titleHighlight": "After-Hours & Urgent Calls",
+    "subtitle": "ClickOne AI works around the clock to capture evening leads, book weekend appointments, and route urgent calls to your team.",
+    "routineLabel": "Routine Inquiries",
+    "routineTitle": "After-Hours Quotes & Booking",
+    "routineDesc": "Non-urgent callers asking for estimates or service later in the week are qualified and scheduled automatically without waking you up.",
+    "routineStep1": "Answers with a natural voice at 11 PM or on a Sunday",
+    "routineStep2": "Collects the homeowner's name, property address, and service needed",
+    "routineStep3": "Books an open slot in your calendar and sends a confirmation",
+    "routineOutcome": "Result: wake up to qualified, confirmed appointments on your schedule.",
+    "criticalLabel": "Urgent Calls",
+    "criticalTitle": "Emergency Triage During the Call",
+    "criticalDesc": "When a customer has a burst pipe, a heating outage in winter, or an active leak, the AI recognizes the urgency and alerts your on-call crew.",
+    "criticalStep1": "Recognizes urgent situations while talking with the caller",
+    "criticalStep2": "Collects the location, the caller's phone number, and details of the problem",
+    "criticalStep3": "Transfers the call or alerts your on-call technician with a summary",
+    "criticalOutcome": "Result: urgent jobs reach your on-call technician instead of voicemail.",
+    "footerNote": "Routing rules set up around your business hours, technician schedules, and priority services."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "For HVAC, plumbing, roofing and remodeling in Georgia and Florida",
+      "title": "Stop losing jobs you already paid to get.",
+      "subtitle": "ClickOne answers, follows up and books every lead your ads, Google profile and referrals bring in. 24/7, in English, Spanish and Portuguese. Built and run for you.",
+      "ctaCalculator": "See how much you're losing",
+      "ctaDemo": "Hear our AI answer a call",
+      "trust1": "AI answering in 7 days",
+      "trust3": "Works with Jobber, Housecall Pro and QuickBooks",
+      "demoTitle": "Hear our AI answer a call",
+      "demoSubtitle": "A sample call for a plumbing company. Press play and follow the transcript.",
+      "demoCta": "Book a 30-minute demo",
+      "transcriptLabel": "Transcript",
+      "transcriptEmpty": "Press play to start the sample call"
+    },
+    "problem": {
+      "badge": "The problem",
+      "title": "Almost half of your calls never reach a person.",
+      "text": "Only 52% of home service calls are answered by a person, and 55% of businesses never ask for the booking.",
+      "stat1Label": "of home service calls are answered by a person",
+      "stat2Label": "of businesses never ask for the booking on the call",
+      "source": "(Invoca, 2026)"
+    },
+    "leak": {
+      "badge": "Where the money leaks",
+      "title": "Every \"no\" in this chain is money walking out the door.",
+      "subtitle": "Tap or hover each step to see how ClickOne closes that gap.",
+      "fixLabel": "How ClickOne fixes it",
+      "steps": [
+        {
+          "label": "Call missed",
+          "fix": "A missed call gets an automatic text back (once carriers approve your number). On Front Office, the AI answers the call itself, 24/7."
+        },
+        {
+          "label": "No reply to the form",
+          "fix": "Forms from your website, Google and Facebook get an instant reply, day or night."
+        },
+        {
+          "label": "Estimate never followed up",
+          "fix": "Open estimates get automatic follow-ups, so the customer hears from you again."
+        },
+        {
+          "label": "No-show",
+          "fix": "Confirmations and reminders go out before the visit, and no-shows get a message to rebook."
+        },
+        {
+          "label": "No review asked",
+          "fix": "Every finished job gets a Google review request."
+        },
+        {
+          "label": "Customer never comes back",
+          "fix": "On Front Office, one reactivation campaign each quarter brings past customers back."
+        }
+      ]
+    },
+    "how": {
+      "badge": "How it works",
+      "title": "From missed call to booked job in 3 steps",
+      "step1Title": "We plug into what you already use",
+      "step1Desc": "Your phone, calendar and Jobber, Housecall Pro or QuickBooks. AI answering in 7 days, texting as soon as carriers approve your number.",
+      "step2Title": "AI answers and follows up, 24/7",
+      "step2Desc": "Calls, texts, web forms, Google and Facebook. Urgent calls go to a person.",
+      "step3Title": "You get booked jobs and a monthly report",
+      "step3Desc": "Calls answered, response time, appointments recovered."
+    },
+    "plansSection": {
+      "badge": "Two ways to start",
+      "title": "Two ways to start",
+      "subtitle": "Pick the plan that fits how you lose leads today.",
+      "recoverDesc": "Missed-call text back, instant replies to new leads, follow-up and booking, and Google review requests.",
+      "frontOfficeDesc": "Everything in Recover, plus AI voice answering 24/7 in English, Spanish and Portuguese.",
+      "mostComplete": "Most complete",
+      "ctaPricing": "See plans and pricing",
+      "ctaDemo": "Book a 30-minute demo"
+    },
+    "operated": {
+      "badge": "Ongoing support",
+      "title": "You're never on your own",
+      "points": [
+        "English, Spanish and Portuguese, for your crews and your customers",
+        "Your AI always says it is an AI, and a person is one step away"
+      ],
+      "text": "You're never on your own after setup. Our team supports every ClickOne client on an ongoing basis, handling the maintenance, optimization and training needed to keep your AI system working the way your business needs."
+    },
+    "tools": {
+      "badge": "Works with your tools",
+      "title": "Jobber and Housecall Pro run your jobs. ClickOne runs your front office.",
+      "text": "Works with Jobber, Housecall Pro and QuickBooks. Connects to ServiceTitan, JobNimbus, Roofr and more through automation.",
+      "officialLabel": "Official integration",
+      "automationLabel": "Through automation",
+      "andMore": "and more"
+    },
+    "guarantee": {
+      "badge": "Our guarantee",
+      "title": "We take the risk, not you.",
+      "text": "Set up in 7 days, or your first month is on us. On Front Office: 100% of your calls answered, or that month is on us."
+    },
+    "industries": {
+      "badge": "Industries",
+      "title": "Built for the trades that live on the phone",
+      "subtitle": "HVAC, plumbing, roofing and remodeling companies in Georgia and Florida.",
+      "hvac": "HVAC",
+      "plumbing": "Plumbing",
+      "roofing": "Roofing",
+      "remodeling": "Remodeling",
+      "learnMore": "Learn more",
+      "viewAll": "See all industries"
+    },
+    "finalCta": {
+      "title": "Find out what your phone is costing you",
+      "subtitle": "Run your numbers in the calculator, or hear our AI answer a call."
+    }
+  },
+  "plans": {
+    "perMonth": "/month",
+    "mostComplete": "Most complete",
+    "includedLabel": "Included",
+    "notIncludedLabel": "Not included",
+    "guaranteeLabel": "Guarantee",
+    "smsNotice": "Text messages switch on once US carriers approve your business number (A2P 10DLC), which usually takes 10+ business days. Carrier registration and phone fees are billed at cost, separately.",
+    "recover": {
+      "name": "Recover",
+      "tagline": "For businesses that get calls and forms and lose some of them.",
+      "price": "$497",
+      "setup": "$997 setup",
+      "delivery": "Set up in 7 days",
+      "cta": "Start now",
+      "features": [
+        "A missed call gets an automatic text back, and the AI keeps the conversation going by text",
+        "Instant reply to forms from your website, Google and Facebook",
+        "Lead pipeline, booking, confirmations and reminders",
+        "Win back no-shows and follow up on open estimates",
+        "Google review request after the job",
+        "Ongoing maintenance, optimization and training by our team",
+        "Monthly report of leads recovered and booked"
+      ],
+      "excluded": [
+        "AI voice answering"
+      ],
+      "guarantee": "Set up in 7 days, or your first month is on us."
+    },
+    "frontOffice": {
+      "name": "Front Office",
+      "tagline": "For businesses that miss calls on the job, at night and on weekends.",
+      "price": "$997",
+      "setup": "$1,497 setup",
+      "delivery": "AI voice live in 7 days",
+      "cta": "Book a 30-minute demo",
+      "features": [
+        "Everything in Recover (texting follows the same carrier approval)",
+        "AI voice answering 24/7, in English, Spanish and Portuguese",
+        "The AI qualifies, gets the address, books and passes urgent calls to a person",
+        "AI replies to your Google reviews",
+        "Ongoing maintenance, optimization and training by our team",
+        "Official integration with Jobber, Housecall Pro or QuickBooks. Other tools through automation (Zapier).",
+        "1 reactivation campaign per quarter",
+        "500 voice minutes a month included, then $0.25 per minute"
+      ],
+      "guarantee": "100% of your calls answered, or that month is on us."
+    },
+    "compare": {
+      "title": "Compare the plans",
+      "featureHeader": "What's included",
+      "yes": "Included",
+      "no": "Not included",
+      "rows": [
+        {
+          "label": "Setup",
+          "recover": "$997",
+          "frontOffice": "$1,497"
+        },
+        {
+          "label": "Phone and A2P registration fees",
+          "recover": "Paid by you, at cost",
+          "frontOffice": "Paid by you, at cost"
+        },
+        {
+          "label": "Monthly fee",
+          "recover": "$497",
+          "frontOffice": "$997"
+        },
+        {
+          "label": "Missed-call text-back",
+          "recover": "yes",
+          "frontOffice": "yes"
+        },
+        {
+          "label": "Instant reply to forms",
+          "recover": "yes",
+          "frontOffice": "yes"
+        },
+        {
+          "label": "Booking and reminders",
+          "recover": "yes",
+          "frontOffice": "yes"
+        },
+        {
+          "label": "Estimate follow-up",
+          "recover": "yes",
+          "frontOffice": "yes"
+        },
+        {
+          "label": "Review requests",
+          "recover": "yes",
+          "frontOffice": "yes"
+        },
+        {
+          "label": "AI voice answering 24/7 (3 languages)",
+          "recover": "no",
+          "frontOffice": "yes"
+        },
+        {
+          "label": "Voice minutes",
+          "recover": "no",
+          "frontOffice": "500 included, then $0.25/min"
+        },
+        {
+          "label": "AI replies to reviews",
+          "recover": "no",
+          "frontOffice": "yes"
+        },
+        {
+          "label": "Ongoing maintenance, optimization and training by our team",
+          "recover": "yes",
+          "frontOffice": "yes"
+        },
+        {
+          "label": "Jobber, Housecall Pro or QuickBooks integration",
+          "recover": "no",
+          "frontOffice": "yes"
+        },
+        {
+          "label": "Reactivation campaign",
+          "recover": "no",
+          "frontOffice": "1 per quarter"
+        },
+        {
+          "label": "Monthly report",
+          "recover": "yes",
+          "frontOffice": "yes"
+        },
+        {
+          "label": "How to start",
+          "recover": "Start now",
+          "frontOffice": "30-minute demo"
+        }
+      ]
+    }
+  },
+  "pricingPage": {
+    "badge": "Pricing",
+    "title": "Simple pricing.",
+    "subtitle": "Two plans for home service contractors. Set up in 7 days.",
+    "guaranteeTitle": "The guarantee",
+    "faqBadge": "Pricing questions",
+    "faqTitle": "Questions about pricing",
+    "faq": [
+      {
+        "q": "What's included in the setup fee?",
+        "a": "We build everything for you: missed-call text-back, instant form replies, your lead pipeline, booking, confirmations, reminders, review requests and your monthly report. On Front Office we also set up your AI voice agent and connect Jobber, Housecall Pro or QuickBooks. Recover is set up in 7 days, and on Front Office your AI voice is live in 7 days."
+      },
+      {
+        "q": "When do text messages start, and who pays the carrier fees?",
+        "a": "Text messages switch on once US carriers approve your business number (A2P 10DLC), which usually takes 10+ business days. Carrier registration and phone fees are billed at cost, separately from your monthly fee."
+      },
+      {
+        "q": "What happens if I use more than 500 voice minutes?",
+        "a": "Front Office includes 500 AI voice minutes a month. Extra minutes are $0.25 each. Recover does not include AI voice answering."
+      },
+      {
+        "q": "Is there a contract? Can I cancel?",
+        "a": "No long-term contract. You can cancel anytime."
+      },
+      {
+        "q": "Which tools does ClickOne work with?",
+        "a": "Works with Jobber, Housecall Pro and QuickBooks. Connects to ServiceTitan, JobNimbus, Roofr and more through automation. The official Jobber, Housecall Pro or QuickBooks integration is part of Front Office."
+      },
+      {
+        "q": "Which languages does it speak?",
+        "a": "English, Spanish and Portuguese. On Front Office, the AI voice answers your calls 24/7 in all three."
+      }
+    ],
+    "ctaTitle": "Not sure which plan fits?",
+    "ctaSubtitle": "Book a 30-minute demo and hear our AI answer a call for your business."
+  },
+  "bookDemoPage": {
+    "badge": "30-minute demo",
+    "title": "Hear our AI answer a call for your business. 30 minutes.",
+    "subtitle": "We show you how ClickOne answers, follows up and books your leads, using your own services as the example.",
+    "planSelected": "You picked the {{plan}} plan. We will walk you through it on the call.",
+    "points": [
+      "Hear the AI answer a call like one of your customers",
+      "See how missed calls, forms and estimates get followed up",
+      "Get clear pricing for your business"
+    ],
+    "formTitle": "Tell us how to reach you",
+    "formSubtitle": "Leave your details and we will contact you to set up your 30-minute demo.",
+    "callUs": "Prefer to talk now? Call us at",
+    "prefillMessage": "I'm interested in the {{plan}} plan."
+  },
+  "contactForm": {
+    "name": "Name",
+    "phone": "Phone",
+    "company": "Company",
+    "message": "Message",
+    "submit": "Send message",
+    "sending": "Sending...",
+    "successTitle": "Message sent!",
+    "successDesc": "Our team will get back to you soon.",
+    "errorTitle": "Could not send",
+    "sendAnother": "Send another message",
+    "smsConsent": "By submitting, you agree to receive calls and text messages from ClickOne AI about your request. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help. See our",
+    "privacyLink": "Privacy Policy",
+    "errors": {
+      "nameTooShort": "Please enter your name.",
+      "nameTooLong": "Name is too long.",
+      "invalidEmail": "Please enter a valid email.",
+      "invalidPhone": "Please enter a valid phone number, for example (770) 501-7321.",
+      "generic": "Please check this field.",
+      "sendFailed": "Please try again, or call us at (770) 501-7321."
     }
   }
 }

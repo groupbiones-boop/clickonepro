@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { ChevronDown } from 'lucide-react';
 
 const languages = [
-  { code: 'pt-BR', name: 'Português', flag: '🇧🇷' },
   { code: 'en-US', name: 'English', flag: '🇺🇸' },
   { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'pt-BR', name: 'Português', flag: '🇧🇷' },
 ];
 
 const LanguageSwitcher = () => {
@@ -35,6 +35,7 @@ const LanguageSwitcher = () => {
   return (
     <div className="relative" ref={dropdownRef}>
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1.5 px-2 py-1.5 rounded-md hover:bg-background/10 transition-colors text-background"
         aria-label="Select language"
@@ -47,8 +48,10 @@ const LanguageSwitcher = () => {
         <div className="absolute right-0 top-full mt-2 bg-card border border-border rounded-lg shadow-lg overflow-hidden z-50 min-w-[64px]">
           {languages.map((lang) => (
             <button
+              type="button"
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
+              aria-label={lang.name}
               className={`w-full flex items-center justify-center px-3 py-2.5 hover:bg-muted transition-colors ${
                 currentLanguage.code === lang.code ? 'bg-muted' : ''
               }`}

@@ -5,9 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Layout from "@/components/layout/Layout";
 import SEO from "@/components/SEO";
-import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
-import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import {
   Accordion,
@@ -106,6 +104,9 @@ const defaultFeatureIcons = [Phone, Calendar, Users, BarChart3, MessageSquare, Z
 // How it works step icons
 const stepIcons = [Settings, Headphones, Target, Rocket];
 
+// Sectors outside the home services focus: kept reachable, but not indexed.
+const NOINDEX_SECTORS = ["dentista", "clinica-medica", "veterinario", "quiropraxia", "salao-beleza", "spa-massagem"];
+
 const SetorDetalhe = () => {
   const { slug } = useParams();
   const { t } = useTranslation('industries');
@@ -138,9 +139,7 @@ const SetorDetalhe = () => {
   const solutionDescription = t(`${industryKey}.solutionDescription`);
   const solutions = t(`${industryKey}.solutions`, { returnObjects: true }) as Array<{ title: string; description: string }>;
   const features = t(`${industryKey}.features`, { returnObjects: true }) as Array<{ title: string; description: string }>;
-  const stats = t(`${industryKey}.stats`, { returnObjects: true }) as Array<{ value: string; label: string }>;
   const useCases = t(`${industryKey}.useCases`, { returnObjects: true }) as Array<{ title: string; description: string }>;
-  const testimonials = t(`${industryKey}.testimonials`, { returnObjects: true }) as Array<{ quote: string; author: string; role?: string; company: string; location?: string }>;
   const faqs = t(`${industryKey}.faqs`, { returnObjects: true }) as Array<{ question: string; answer: string }>;
   const howItWorks = t('common.howItWorks', { returnObjects: true }) as Array<{ title: string; description: string }>;
 
@@ -150,7 +149,6 @@ const SetorDetalhe = () => {
   const getStarted = t('common.getStarted');
   const learnMore = t('common.learnMore');
   const keyFeatures = t('common.keyFeatures');
-  const marketStats = t('common.marketStats');
   const popularUseCases = t('common.popularUseCases');
   const faq = t('common.faq');
   const readyToTransform = t('common.readyToTransform');
@@ -166,16 +164,17 @@ const SetorDetalhe = () => {
     <Layout>
       <SEO 
         title={`${name} | ClickOne AI`}
-        description={heroSubtitle}
+        description={heroDescription.length > 160 ? `${heroDescription.slice(0, 157).trimEnd()}...` : heroDescription}
+        noIndex={NOINDEX_SECTORS.includes(industryKey)}
         schemaType="Service"
         schemaData={{
           serviceName: name,
           serviceDescription: heroDescription,
           provider: "ClickOne AI",
-          areaServed: "Brazil, United States, Latin America"
+          areaServed: "United States (Georgia and Florida)"
         }}
       />
-      {/* FOLD 1: Hero Section with 72h Badge */}
+      {/* FOLD 1: Hero Section with 7-day Badge */}
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Background Image */}
         <div 
@@ -195,7 +194,7 @@ const SetorDetalhe = () => {
                 {heroSubtitle}
               </span>
               
-              {/* 72h Implementation Badge */}
+              {/* 7-day Implementation Badge */}
               <div className="mb-4">
                 <Badge className="bg-secondary text-secondary-foreground px-4 py-2 text-sm font-semibold animate-pulse">
                   <Clock className="w-4 h-4 mr-2" />
@@ -293,7 +292,7 @@ const SetorDetalhe = () => {
         </div>
       </section>
 
-      {/* FOLD 3: How It Works - Step by Step with 72h Highlight */}
+      {/* FOLD 3: How It Works - Step by Step with 7-day Highlight */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container">
           <div className="text-center mb-12">
@@ -322,7 +321,7 @@ const SetorDetalhe = () => {
                       <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                         <Badge className="bg-primary text-primary-foreground px-3 py-1 text-xs font-semibold">
                           <Clock className="w-3 h-3 mr-1" />
-                          72h
+                          {t('common.setupBadge')}
                         </Badge>
                       </div>
                     )}
@@ -378,56 +377,6 @@ const SetorDetalhe = () => {
         </div>
       </section>
 
-      {/* FOLD 5: Market Stats with 72h Highlight */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container">
-          <AnimatedSection animation="fade">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-              {marketStats}
-            </h2>
-            <p className="text-primary-foreground/80 text-center mb-12 max-w-2xl mx-auto">
-              {t('common.statsSubtitle', { defaultValue: 'Dados de mercado que demonstram a importância do atendimento rápido' })}
-            </p>
-          </AnimatedSection>
-          
-          <div className="grid md:grid-cols-4 gap-8">
-            {/* 72h Implementation Stat */}
-            <AnimatedSection animation="scale" className="text-center">
-              <span className="text-5xl md:text-6xl font-bold block mb-4">
-                72h
-              </span>
-              <p className="text-primary-foreground/80">
-                {t('common.implementationTime', { defaultValue: 'Tempo máximo de implementação da ClickOne AI' })}
-              </p>
-            </AnimatedSection>
-            
-            {Array.isArray(stats) && stats.map((stat, index) => {
-              const numericMatch = stat.value.match(/^(\d+\.?\d*)(.*)$/);
-              const numericValue = numericMatch ? parseFloat(numericMatch[1]) : 0;
-              const suffix = numericMatch ? numericMatch[2] : stat.value;
-              
-              return (
-                <AnimatedSection 
-                  key={index} 
-                  animation="scale"
-                  delay={(index + 1) * 150}
-                  className="text-center"
-                >
-                  <span className="text-5xl md:text-6xl font-bold block mb-4">
-                    {numericValue > 0 ? (
-                      <AnimatedCounter end={numericValue} suffix={suffix} duration={2500} />
-                    ) : (
-                      stat.value
-                    )}
-                  </span>
-                  <p className="text-primary-foreground/80">{stat.label}</p>
-                </AnimatedSection>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* FOLD 6: Use Cases */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container">
@@ -456,11 +405,6 @@ const SetorDetalhe = () => {
           </div>
         </div>
       </section>
-
-      {/* FOLD 7: Testimonials Carousel */}
-      {Array.isArray(testimonials) && testimonials.length > 0 && (
-        <TestimonialsCarousel testimonials={testimonials} industry={name} />
-      )}
 
       {/* FOLD 8: FAQ Section */}
       <section className="py-16 md:py-24 bg-background">
@@ -506,11 +450,11 @@ const SetorDetalhe = () => {
         </div>
       </section>
 
-      {/* FOLD 9: Final CTA with 72h Highlight */}
+      {/* FOLD 9: Final CTA with 7-day Highlight */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container text-center">
           <AnimatedSection animation="scale">
-            {/* 72h Badge */}
+            {/* 7-day Badge */}
             <Badge className="bg-secondary text-secondary-foreground px-4 py-2 text-sm font-semibold mb-6 inline-flex items-center">
               <Rocket className="w-4 h-4 mr-2" />
               {implementationBadge}

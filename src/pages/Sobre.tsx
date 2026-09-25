@@ -13,21 +13,15 @@ import {
   Users, 
   Award,
   ArrowRight,
-  Star,
   Globe,
   Brain,
   Headphones,
   BarChart3
 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
-import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import logoClutch from "@/assets/logo-clutch.svg";
-import logoG2 from "@/assets/logo-g2.svg";
-import logoCapterra from "@/assets/logo-capterra.svg";
-import logoTrustpilot from "@/assets/logo-trustpilot.svg";
 import officeImage from "@/assets/office-tech.jpg";
 
 const Sobre = () => {
@@ -68,40 +62,12 @@ const Sobre = () => {
     { icon: Users, label: t("whyClickone.eco6") }
   ];
 
-  const stats = [
-    { value: 500, suffix: "+", label: t("about.activeClients") },
-    { value: 1, suffix: "M+", label: t("about.callsAnswered") },
-    { value: 98, suffix: "%", label: t("about.satisfactionRate") },
-    { value: 24, suffix: "/7", label: t("about.supportAvailable") }
-  ];
-
   const commitments = [
     t("whyClickone.commitment1"),
     t("whyClickone.commitment2"),
     t("whyClickone.commitment3"),
     t("whyClickone.commitment4"),
     t("whyClickone.commitment5")
-  ];
-
-  const testimonials = [
-    {
-      name: "Carlos Rodriguez",
-      company: "Clean Pro Services LLC",
-      location: "Miami, FL",
-      quote: t("whyClickone.testimonial1")
-    },
-    {
-      name: "Maria Santos",
-      company: "Santos Plumbing Inc",
-      location: "Houston, TX",
-      quote: t("whyClickone.testimonial2")
-    },
-    {
-      name: "José Fernandez",
-      company: "Fernandez HVAC Solutions",
-      location: "Dallas, TX",
-      quote: t("whyClickone.testimonial3")
-    }
   ];
 
   return (
@@ -129,7 +95,7 @@ const Sobre = () => {
                   src={officeImage} 
                   alt="Equipe ClickOne AI em ambiente de trabalho moderno" 
                   className="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
-                  fetchPriority="high"
+                  {...{ fetchpriority: "high" }}
                   decoding="async"
                 />
               </div>
@@ -175,63 +141,6 @@ const Sobre = () => {
               </Card>
             </AnimatedSection>
           </div>
-        </div>
-      </section>
-
-      {/* Stats Bar */}
-      <section className="py-12 bg-primary text-primary-foreground">
-        <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, i) => (
-              <AnimatedSection key={i} animation="scale" delay={i * 100}>
-                <div className="text-4xl md:text-5xl font-bold mb-2">
-                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                </div>
-                <p className="text-primary-foreground/80 text-sm">{stat.label}</p>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof Logos */}
-      <section className="py-12 bg-background border-y border-border/50">
-        <div className="container">
-          <AnimatedSection animation="fade-up">
-            <div className="text-center mb-8">
-              <p className="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-                {t("whyClickone.trustedBy")}
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
-                <img src={logoClutch} alt="Clutch" className="h-8 md:h-10 w-auto" />
-              </div>
-              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
-                <img src={logoG2} alt="G2" className="h-8 md:h-10 w-auto" />
-              </div>
-              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
-                <img src={logoCapterra} alt="Capterra" className="h-8 md:h-10 w-auto" />
-              </div>
-              <div className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-opacity">
-                <img src={logoTrustpilot} alt="Trustpilot" className="h-8 md:h-10 w-auto" />
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50">
-                <Star className="h-4 w-4 fill-primary text-primary" />
-                <span className="text-sm font-medium">4.9/5 Clutch</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50">
-                <Star className="h-4 w-4 fill-primary text-primary" />
-                <span className="text-sm font-medium">4.8/5 G2</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50">
-                <Award className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium">{t("whyClickone.topRated")}</span>
-              </div>
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 
@@ -373,44 +282,6 @@ const Sobre = () => {
                 </div>
               </Card>
             </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-background">
-        <div className="container">
-          <AnimatedSection animation="fade-up">
-            <div className="text-center mb-16">
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-                {t("whyClickone.testimonialsLabel")}
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-4">
-                {t("whyClickone.testimonialsTitle")}
-              </h2>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, i) => (
-              <AnimatedSection key={i} animation="fade-up" delay={i * 100}>
-                <Card className="p-6 h-full flex flex-col">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="h-5 w-5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-6 flex-grow italic">
-                    "{testimonial.quote}"
-                  </p>
-                  <div className="border-t pt-4">
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.company}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                  </div>
-                </Card>
-              </AnimatedSection>
-            ))}
           </div>
         </div>
       </section>

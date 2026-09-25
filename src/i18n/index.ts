@@ -30,14 +30,17 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: 'pt-BR',
+    // English is the default for new visitors. A language picked in the switcher
+    // is stored in localStorage and wins on the next visit.
+    fallbackLng: 'en-US',
+    supportedLngs: ['en-US', 'es', 'pt-BR'],
     ns: ['translation', 'industries'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false,
     },
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['localStorage'],
       caches: ['localStorage'],
     },
   });

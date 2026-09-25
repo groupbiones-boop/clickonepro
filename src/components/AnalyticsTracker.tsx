@@ -100,8 +100,6 @@ const AnalyticsTracker = () => {
       country: geoData?.country || null,
       region: geoData?.region || null,
       city: geoData?.city || null,
-      lat: geoData?.lat || null,
-      lon: geoData?.lon || null,
       ...additionalData,
     };
 

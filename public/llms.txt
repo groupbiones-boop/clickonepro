@@ -1,33 +1,33 @@
 # ClickOne AI
 
-> AI virtual receptionist that answers calls, schedules appointments, and automatically follows up leads 24/7 for US service businesses.
+> The AI front office for HVAC, plumbing, roofing and remodeling contractors in Georgia and Florida. ClickOne answers, follows up and books leads 24/7 in English, Spanish and Portuguese. Built and run for you.
 
-ClickOne AI provides a voice + conversational AI receptionist designed for small and mid-sized service businesses (cleaning, HVAC, plumbing, electrical, roofing, dental, veterinary, and more). The platform answers every call within seconds, books visits, and runs automatic follow-up so businesses never miss a lead. Bookings are handled through a consultative demo flow rather than self-serve checkout.
+ClickOne AI sells two plans. Every client gets ongoing maintenance, optimization and training by the ClickOne team.
+
+- Recover ($497/month, $997 setup, set up in 7 days): automatic text back for missed calls, instant replies to web, Google and Facebook forms, booking, confirmations and reminders, no-show and estimate follow-up, Google review requests and a monthly report. Text messages switch on once US carriers approve the business number (A2P 10DLC), which usually takes 10+ business days.
+- Front Office ($997/month, $1,497 setup, AI voice live in 7 days): everything in Recover plus AI voice answering 24/7 in English, Spanish and Portuguese, AI replies to Google reviews, one reactivation campaign per quarter and 500 voice minutes a month (then $0.25 per minute).
+
+Works with Jobber, Housecall Pro and QuickBooks. Connects to ServiceTitan, JobNimbus, Roofr and more through automation. The AI always says it is an AI, and a person is one step away.
 
 ## Pages
 
-- [Home](/): Overview of the AI receptionist product and outcomes.
-- [About](/sobre): Company story, mission, and team.
-- [Contact](/contato): Phone, email, location, and FAQ.
-- [Book a Demo](/contato): Schedule a consultative demo.
-- [Blog](/blog): Articles on customer experience, AI, and operations.
-
-## Product
-
-- [AI Voice Receptionist](/produto/recepcionista-ia-voz): 24/7 voice AI that answers and qualifies calls.
-- [Conversational AI Agent](/produto/atendente-ia-conversacional): Multichannel chat AI for follow-up.
-- [Vertical Infrastructure](/produto/infraestrutura-vertical): Industry-specific AI deployment.
-
-## By Business Size
-
-- [Small Business](/empresas/pequena-empresa): Solo operators and small teams.
-- [Mid-Sized Business](/empresas/media-empresa): Growing service companies.
-- [Local Businesses](/empresas/negocios-locais): Neighborhood-focused operations.
+- [Home](/): The offer, the missed-call calculator and FAQ.
+- [Pricing](/pricing): Both plans, comparison table, guarantee and pricing FAQ.
+- [Book a demo](/book-a-demo): 15-minute demo.
+- [AI Voice Receptionist](/produto/recepcionista-ia-voz): How the AI voice answers calls.
+- [About](/sobre): Company story.
+- [Contact](/contato): Phone, email and contact form.
+- [Blog](/blog): Articles.
 
 ## Industries
 
-- [All Industries](/setores): Index of supported verticals.
-- [HVAC](/setores/hvac), [Plumbing](/setores/encanamento), [Electrical](/setores/eletrica), [Cleaning](/setores/limpeza), [Construction](/setores/construcao), [Roofing](/setores/telhado), [Landscaping](/setores/paisagismo), [Pool Service](/setores/piscina), [Moving](/setores/mudanca), [Pest Control](/setores/controle-pragas), [Locksmith](/setores/chaveiro), [Painters](/setores/pintores), [Dental](/setores/dentista), [Chiropractic](/setores/quiropraxia), [Veterinary](/setores/veterinario), [Medical Clinic](/setores/clinica-medica), [Hair Salon](/setores/salao-cabelo), [Spa & Massage](/setores/spa-massagem), [Home Inspection](/setores/inspecao-residencial), [Flooring](/setores/pisos)
+- [HVAC](/setores/hvac), [Plumbing](/setores/encanamento), [Roofing](/setores/telhados), [Remodeling](/setores/construcao), [All industries](/setores)
+
+## Contact
+
+- Phone: +1 (770) 501-7321
+- Email: info@clickonepro.com
+- Location: Woodstock, GA
 
 ## Optional
 

@@ -88,7 +88,6 @@ const RecepcionistaIAVoz = () => {
           productDescription: t("voiceProduct.subtitle"),
           applicationCategory: "BusinessApplication",
           operatingSystem: "Web, iOS, Android",
-          aggregateRating: { ratingValue: 4.8, reviewCount: 150 }
         }}
         additionalSchemas={[
           {
@@ -142,28 +141,16 @@ const RecepcionistaIAVoz = () => {
       {/* Stats Section */}
       <section className="py-12 bg-primary text-primary-foreground">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <AnimatedSection animation="scale" delay={0}>
-              <div className="text-4xl md:text-5xl font-bold mb-2">
-                <AnimatedCounter end={80} suffix="%" />
-              </div>
-              <p className="text-primary-foreground/80 text-sm">{t("voiceProduct.lessMissedCalls")}</p>
-            </AnimatedSection>
-            <AnimatedSection animation="scale" delay={100}>
-              <div className="text-4xl md:text-5xl font-bold mb-2">
-                <AnimatedCounter end={40} suffix="%" />
-              </div>
-              <p className="text-primary-foreground/80 text-sm">{t("voiceProduct.moreConversions")}</p>
-            </AnimatedSection>
+          <div className="grid grid-cols-2 gap-8 text-center max-w-2xl mx-auto">
             <AnimatedSection animation="scale" delay={200}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
-                <AnimatedCounter end={24} suffix="h" />
+                <AnimatedCounter end={7} />
               </div>
               <p className="text-primary-foreground/80 text-sm">{t("voiceProduct.quickSetup")}</p>
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={300}>
               <div className="text-4xl md:text-5xl font-bold mb-2">
-                <AnimatedCounter end={50} suffix="+" />
+                <AnimatedCounter end={24} suffix="/7" />
               </div>
               <p className="text-primary-foreground/80 text-sm">{t("voiceProduct.integrations")}</p>
             </AnimatedSection>

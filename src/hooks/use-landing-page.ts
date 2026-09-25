@@ -93,7 +93,7 @@ export interface LandingPage {
 // Default LP content template based on PerdendoClientes
 export const DEFAULT_LP_CONTENT: LPContent = {
   hero: {
-    badge: "Leitura de 3 min | Setup em 72h",
+    badge: "Leitura de 3 min | No ar em 7 dias",
     title: "Você Está Perdendo Clientes Agora",
     subtitle: "Enquanto você trabalha, ligações não atendidas estão custando seu negócio. Descubra como capturar cada oportunidade automaticamente.",
     cta: "Quero Parar de Perder Clientes"
@@ -116,11 +116,11 @@ export const DEFAULT_LP_CONTENT: LPContent = {
   problem: {
     title: "O verdadeiro custo das chamadas perdidas",
     stats: [
-      { value: "80%", label: "dos clientes não ligam de volta" },
-      { value: "$500-$2,000", label: "valor médio por serviço perdido" },
-      { value: "$20k/mês", label: "potencial de receita perdida" }
+      { value: "Caixa postal", label: "muitos clientes não deixam recado nem ligam de volta" },
+      { value: "Concorrência", label: "quem atende primeiro costuma fechar o serviço" },
+      { value: "Receita", label: "cada chamada perdida pode ser um serviço perdido" }
     ],
-    support: "Esses números são baseados em dados reais de empresas de serviços como a sua.",
+    support: "Cada ligação sem resposta é uma oportunidade que pode ir para o concorrente.",
     cta: "Ver como resolver isso"
   },
   whyHappens: {
@@ -138,7 +138,7 @@ export const DEFAULT_LP_CONTENT: LPContent = {
     features: [
       { title: "24/7", text: "Atende a qualquer hora" },
       { title: "Voz natural", text: "Conversação humanizada" },
-      { title: "Multicanal", text: "Telefone, WhatsApp e chat" },
+      { title: "Multicanal", text: "Telefone, mensagem de texto e chat" },
       { title: "Agendamento", text: "Marca serviços no seu calendário" }
     ]
   },
@@ -168,21 +168,21 @@ export const DEFAULT_LP_CONTENT: LPContent = {
   },
   aboutCompany: {
     tagline: "Tecnologia a serviço do seu negócio",
-    headline: "Por que empresas confiam em nós",
+    headline: "Por que escolher a ClickOne AI",
     differentiators: [
-      { title: "+500 empresas", text: "Já transformaram seu atendimento" },
-      { title: "+30% receita", text: "Aumento médio em 6 meses" },
+      { title: "Feita para serviços", text: "Pensada para quem trabalha em campo" },
+      { title: "No ar em 7 dias", text: "Configuramos tudo para você" },
       { title: "Suporte humano", text: "Equipe dedicada ao seu sucesso" }
     ],
-    badge: "Setup em 72 horas • Sem contrato de fidelidade"
+    badge: "No ar em 7 dias • Sem contrato de fidelidade"
   },
   finalCta: {
     title: "Está pronto para parar de perder clientes?",
     text: "Agende uma demonstração gratuita e veja como a IA pode transformar seu negócio.",
     pillars: [
-      { title: "Setup rápido", text: "Funcionando em 72h" },
-      { title: "Sem risco", text: "Teste grátis por 14 dias" },
-      { title: "ROI garantido", text: "Ou seu dinheiro de volta" }
+      { title: "No ar em 7 dias", text: "Configuramos tudo para você" },
+      { title: "Garantia", text: "100% das ligações atendidas, ou o mês é por nossa conta" },
+      { title: "Atendimento 24/7", text: "Sua IA atende a qualquer hora" }
     ],
     cta: "Agendar Demonstração Gratuita",
     support: "Sem compromisso • Leva apenas 15 minutos"

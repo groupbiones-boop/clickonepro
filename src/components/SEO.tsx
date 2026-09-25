@@ -35,14 +35,6 @@ interface SEOProps {
     productDescription?: string;
     applicationCategory?: string;
     operatingSystem?: string;
-    offers?: {
-      price?: string;
-      priceCurrency?: string;
-    };
-    aggregateRating?: {
-      ratingValue: number;
-      reviewCount: number;
-    };
     // For Service
     serviceName?: string;
     serviceDescription?: string;
@@ -65,7 +57,6 @@ interface SEOProps {
 }
 
 const BASE_URL = "https://clickonepro.com";
-const SUPPORTED_LANGUAGES = ["pt-BR", "en-US", "es"];
 
 const SEO = ({
   titleKey,
@@ -97,12 +88,6 @@ const SEO = ({
   const autoCanonical = `${BASE_URL}${currentPath === '/' ? '' : currentPath}`;
   const finalCanonical = canonicalUrl || autoCanonical;
 
-  // Generate hreflang URLs for all supported languages
-  const hreflangUrls = SUPPORTED_LANGUAGES.map(lang => ({
-    lang,
-    url: `${BASE_URL}${currentPath === '/' ? '' : currentPath}`
-  }));
-
   // Generate JSON-LD based on schema type
   const generateJsonLd = (type?: SchemaType, data?: SEOProps["schemaData"]) => {
     const baseOrganization = {
@@ -111,12 +96,18 @@ const SEO = ({
       "url": "https://clickonepro.com",
       "logo": "https://clickonepro.com/favicon.png",
       "sameAs": [
-        "https://www.linkedin.com/company/clickone-ai",
-        "https://twitter.com/clickoneai"
+        "https://www.facebook.com/310455115479921",
+        "https://www.instagram.com/clickoneai"
       ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Woodstock",
+        "addressRegion": "GA",
+        "addressCountry": "US"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+1-800-CLICKONE",
+        "telephone": "+1-770-501-7321",
         "contactType": "sales",
         "availableLanguage": ["English", "Portuguese", "Spanish"]
       }
@@ -146,21 +137,6 @@ const SEO = ({
           "description": data?.productDescription || description,
           "applicationCategory": data?.applicationCategory || "BusinessApplication",
           "operatingSystem": data?.operatingSystem || "Web, iOS, Android",
-          "offers": {
-            "@type": "Offer",
-            "price": data?.offers?.price || "0",
-            "priceCurrency": data?.offers?.priceCurrency || "USD",
-            "availability": "https://schema.org/InStock"
-          },
-          ...(data?.aggregateRating && {
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": data.aggregateRating.ratingValue,
-              "reviewCount": data.aggregateRating.reviewCount,
-              "bestRating": "5",
-              "worstRating": "1"
-            }
-          }),
           "publisher": baseOrganization
         };
 
@@ -173,22 +149,6 @@ const SEO = ({
           "brand": {
             "@type": "Brand",
             "name": "ClickOne AI"
-          },
-          ...(data?.aggregateRating && {
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": data.aggregateRating.ratingValue,
-              "reviewCount": data.aggregateRating.reviewCount,
-              "bestRating": "5",
-              "worstRating": "1"
-            }
-          }),
-          "offers": {
-            "@type": "Offer",
-            "price": data?.offers?.price || "0",
-            "priceCurrency": data?.offers?.priceCurrency || "USD",
-            "availability": "https://schema.org/InStock",
-            "seller": baseOrganization
           }
         };
 
@@ -203,7 +163,7 @@ const SEO = ({
             "name": data?.provider || "ClickOne AI",
             "url": "https://clickonepro.com"
           },
-          "areaServed": data?.areaServed || "Worldwide",
+          "areaServed": data?.areaServed || "United States (Georgia and Florida)",
           "serviceType": "AI Virtual Receptionist"
         };
 
@@ -291,12 +251,6 @@ const SEO = ({
       
       {/* Canonical */}
       <link rel="canonical" href={finalCanonical} />
-
-      {/* Hreflang tags for international SEO */}
-      {hreflangUrls.map(({ lang, url }) => (
-        <link key={lang} rel="alternate" hrefLang={lang} href={url} />
-      ))}
-      <link rel="alternate" hrefLang="x-default" href={`${BASE_URL}${currentPath === '/' ? '' : currentPath}`} />
 
       {/* JSON-LD Structured Data - Support for multiple schemas */}
       {schemas.map((schema, index) => (

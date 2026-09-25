@@ -193,7 +193,7 @@ Deno.test("buildNoteBody: combines message + attribution", () => {
     utm_campaign: "launch",
   });
   assertMatch(body!, /Message:\nPreciso de ajuda/);
-  assertMatch(body!, /— Attribution —/);
+  assertMatch(body!, /--- Attribution ---/);
   assertMatch(body!, /source: contact-page/);
   assertMatch(body!, /utm_source: google/);
   assertMatch(body!, /utm_medium: cpc/);
@@ -208,4 +208,14 @@ Deno.test("buildNoteBody: message-only (no attribution header)", () => {
 
 Deno.test("buildNoteBody: returns undefined when nothing to note", () => {
   assertEquals(buildNoteBody({ email: "a@b.co" }), undefined);
+});
+
+Deno.test("normalizePhone: US formats become E.164 with +1", () => {
+  assertEquals(normalizePhone("(770) 501-7321"), "+17705017321");
+  assertEquals(normalizePhone("770-501-7321"), "+17705017321");
+  assertEquals(normalizePhone("7705017321"), "+17705017321");
+  assertEquals(normalizePhone("+1 770 501 7321"), "+17705017321");
+  assertEquals(normalizePhone("1 770 501 7321"), "+17705017321");
+  assertEquals(normalizePhone("12345"), undefined);
+  assertEquals(normalizePhone("call me"), undefined);
 });

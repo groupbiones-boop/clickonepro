@@ -70,13 +70,23 @@ export function sanitize(v: unknown, max = 255): string | undefined {
   return t.length ? t : undefined;
 }
 
-/** Normalizes phone to E.164-compatible digits (keeps leading +). Returns undefined if invalid. */
+/**
+ * Normalizes phone to E.164. Returns undefined if invalid.
+ * 10 digits without "+" are US numbers ("7705017321" and "(770) 501-7321" become "+17705017321");
+ * 11 digits starting with 1 get a "+"; numbers typed with "+" keep their country code.
+ */
 export function normalizePhone(v: unknown): string | undefined {
   const s = sanitize(v, 40);
   if (!s) return undefined;
-  const cleaned = s.replace(/[\s().-]/g, "");
-  if (!PHONE_RE.test(cleaned)) return undefined;
-  return cleaned.startsWith("+") ? cleaned : `+${cleaned}`;
+  if (/[^\d\s().+-]/.test(s)) return undefined;
+  const hasPlus = s.trim().startsWith("+");
+  const digits = s.replace(/\D/g, "");
+  let e164: string;
+  if (!hasPlus && digits.length === 10 && /^[2-9]/.test(digits)) e164 = `+1${digits}`;
+  else if (!hasPlus && digits.length === 11 && /^1[2-9]/.test(digits)) e164 = `+${digits}`;
+  else if (hasPlus) e164 = `+${digits}`;
+  else return undefined;
+  return PHONE_RE.test(e164) ? e164 : undefined;
 }
 
 /** Splits a full name into first/last preserving multi-word last names. */
@@ -142,7 +152,7 @@ export function buildNoteBody(p: ContactPayload): string | undefined {
     p.message && `Message:\n${p.message}`,
     p.preferredDate && `preferred_date: ${p.preferredDate}`,
     p.preferredTime && `preferred_time: ${p.preferredTime}`,
-    (p.source || p.utm_source || p.utm_medium || p.utm_campaign) && "— Attribution —",
+    (p.source || p.utm_source || p.utm_medium || p.utm_campaign) && "--- Attribution ---",
     p.source && `source: ${p.source}`,
     p.utm_source && `utm_source: ${p.utm_source}`,
     p.utm_medium && `utm_medium: ${p.utm_medium}`,
