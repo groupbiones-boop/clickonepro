@@ -143,7 +143,7 @@ serve(async (req) => {
       },
       links: {
         activeBookingPage: "/agendar-demo",
-        contactPage: "/contato",
+        contactPage: "/contact",
         nativeContactFunction: "ghl-upsert-contact",
         legacyWidgetUrl: LEGACY_WIDGET_URL,
         appLogin: "https://app.clickonepro.com/",

@@ -34,6 +34,7 @@ import industryHairSalon from "@/assets/industry-hair-salon.jpg";
 import industrySpaMassage from "@/assets/industry-spa-massage.jpg";
 import industryHomeInspection from "@/assets/industry-home-inspection.jpg";
 import industryFlooring from "@/assets/industry-flooring.jpg";
+import { industryPath } from "@/lib/site-routes";
 
 const Setores = () => {
   const { t } = useTranslation();
@@ -100,7 +101,7 @@ const Setores = () => {
             </p>
             <div className="flex flex-wrap gap-3">
               {filteredIndustries.map((industry) => (
-                <Link key={industry.slug} to={`/setores/${industry.slug}`}>
+                <Link key={industry.slug} to={industryPath(industry.slug)}>
                   <Button
                     variant="outline"
                     className="bg-background text-foreground border-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all"
@@ -120,7 +121,7 @@ const Setores = () => {
             {filteredIndustries.map((industry, index) => (
               <AnimatedSection key={industry.slug} animation="fade-up" delay={index % 6 * 100}>
                 <Link 
-                  to={`/setores/${industry.slug}`}
+                  to={industryPath(industry.slug)}
                   className="group block"
                 >
                   <div className="overflow-hidden rounded-xl mb-4">
@@ -154,7 +155,7 @@ const Setores = () => {
               {t("sectors.ctaSubtitle")}
             </p>
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/contato">
+              <Link to="/contact">
                 {t("sectors.ctaButton")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { CheckCircle, Headphones, Phone } from "lucide-react";
@@ -5,6 +6,7 @@ import Layout from "@/components/layout/Layout";
 import SEO from "@/components/SEO";
 import ContactForm from "@/components/ContactForm";
 import BookingCalendar, { hasBookingCalendar } from "@/components/BookingCalendar";
+import DemoLeadForm, { type DemoLead } from "@/components/DemoLeadForm";
 import { CONTACT_INFO } from "@/lib/external-urls";
 
 const PLAN_KEYS = {
@@ -25,6 +27,7 @@ const BookADemo = () => {
   const plan = isPlanSlug(planParam) ? planParam : null;
   const planName = plan ? t(`plans.${PLAN_KEYS[plan]}.name`) : null;
   const points = asList(t("bookDemoPage.points", { returnObjects: true }));
+  const [lead, setLead] = useState<DemoLead | null>(null);
 
   return (
     <Layout>
@@ -75,7 +78,17 @@ const BookADemo = () => {
             {/* Right: calendar when configured, contact form otherwise */}
             <div className="lg:col-span-3">
               {hasBookingCalendar ? (
-                <BookingCalendar />
+                lead ? (
+                  <div data-testid="book-demo-calendar">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-primary">{t("bookDemoPage.lead.step2")}</p>
+                    <h2 className="mt-2 mb-4 text-xl md:text-2xl font-bold text-foreground">
+                      {t("bookDemoPage.lead.calendarTitle", { name: lead.firstName })}
+                    </h2>
+                    <BookingCalendar prefill={lead} />
+                  </div>
+                ) : (
+                  <DemoLeadForm initialPlan={plan ?? "not-sure"} onSubmitted={setLead} />
+                )
               ) : (
                 <div data-testid="book-demo-form">
                   <h2 className="text-xl md:text-2xl font-bold text-foreground">{t("bookDemoPage.formTitle")}</h2>

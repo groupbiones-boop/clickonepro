@@ -5,6 +5,7 @@ import { getGeoLocation, GeoData } from "@/lib/geolocation";
 import { useVisitorPresence } from "@/hooks/useVisitorPresence";
 
 const generateSessionId = (): string => {
+  if (typeof window === "undefined") return ""; // build-time prerender: no session yet
   const stored = sessionStorage.getItem("analytics_session_id");
   if (stored) return stored;
   const newId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;

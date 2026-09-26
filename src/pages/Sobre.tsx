@@ -203,7 +203,7 @@ const Sobre = () => {
                 ))}
               </div>
 
-              <Link to="/produto/infraestrutura-vertical" className="mt-8 inline-block">
+              <Link to="/how-it-works" className="mt-8 inline-block">
                 <Button size="lg" variant="outline" className="group">
                   {t("whyClickone.ecoExplore")}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -298,7 +298,7 @@ const Sobre = () => {
               <p className="text-xl text-primary-foreground/80 mb-8">
                 {t("whyClickone.ctaSubtitle")}
               </p>
-              <Link to="/contato">
+              <Link to="/contact">
                 <Button size="lg" variant="secondary" className="text-lg px-8">
                   {t("common.bookFreeDemo")}
                   <ArrowRight className="ml-2 h-5 w-5" />

@@ -9,16 +9,19 @@ import { VitePWA } from "vite-plugin-pwa";
 // import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, isSsrBuild }) => ({
   server: {
     host: "::",
     port: 8080,
   },
+  // The prerender bundle includes its dependencies, so CommonJS packages load cleanly in Node.
+  ssr: { noExternal: true },
   build: {
     // Code splitting for better caching
     rollupOptions: {
       output: {
-        manualChunks: {
+        // The build-time prerender bundle (vite build --ssr) needs no chunk splitting.
+        manualChunks: isSsrBuild ? undefined : {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'ui-vendor': [
             '@radix-ui/react-dialog',
@@ -49,7 +52,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     // mcpPlugin(),
     mode === "development" && componentTagger(),
-    VitePWA({
+    !isSsrBuild && VitePWA({
       // The precached index.html kept returning visitors on an old build (its revision never changed
       // between deploys). selfDestroying ships a sw.js that unregisters itself and clears its caches.
       selfDestroying: true,

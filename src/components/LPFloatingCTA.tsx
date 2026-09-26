@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EXTERNAL_URLS } from "@/lib/external-urls";
+import { withLanguagePrefix } from "@/i18n/lang-prefix";
 
 interface LPFloatingCTAProps {
   onCtaClick?: () => void;
@@ -26,7 +27,7 @@ const LPFloatingCTA = ({ onCtaClick }: LPFloatingCTAProps) => {
     if (onCtaClick) {
       onCtaClick();
     }
-    window.location.href = EXTERNAL_URLS.GHL_BOOKING;
+    window.location.href = withLanguagePrefix(EXTERNAL_URLS.GHL_BOOKING);
   };
 
   if (!isVisible) return null;

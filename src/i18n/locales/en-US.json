@@ -1264,7 +1264,7 @@
         "Ongoing maintenance, optimization and training by our team",
         "Official integration with Jobber, Housecall Pro or QuickBooks. Other tools through automation (Zapier).",
         "1 reactivation campaign per quarter",
-        "500 voice minutes a month included, then $0.25 per minute"
+        "300 voice minutes a month included, then $0.25 per minute"
       ],
       "guarantee": "100% of your calls answered, or that month is on us."
     },
@@ -1322,7 +1322,7 @@
         {
           "label": "Voice minutes",
           "recover": "no",
-          "frontOffice": "500 included, then $0.25/min"
+          "frontOffice": "300 included, then $0.25/min"
         },
         {
           "label": "AI replies to reviews",
@@ -1374,8 +1374,8 @@
         "a": "Text messages switch on once US carriers approve your business number (A2P 10DLC), which usually takes 10+ business days. Carrier registration and phone fees are billed at cost, separately from your monthly fee."
       },
       {
-        "q": "What happens if I use more than 500 voice minutes?",
-        "a": "Front Office includes 500 AI voice minutes a month. Extra minutes are $0.25 each. Recover does not include AI voice answering."
+        "q": "What happens if I use more than 300 voice minutes?",
+        "a": "Front Office includes 300 AI voice minutes a month. Extra minutes are $0.25 each. Recover does not include AI voice answering."
       },
       {
         "q": "Is there a contract? Can I cancel?",
@@ -1406,7 +1406,36 @@
     "formTitle": "Tell us how to reach you",
     "formSubtitle": "Leave your details and we will contact you to set up your 30-minute demo.",
     "callUs": "Prefer to talk now? Call us at",
-    "prefillMessage": "I'm interested in the {{plan}} plan."
+    "prefillMessage": "I'm interested in the {{plan}} plan.",
+    "lead": {
+      "step": "Step 1 of 2",
+      "step2": "Step 2 of 2",
+      "title": "Tell us about your business",
+      "subtitle": "Then pick a time for your 30-minute demo.",
+      "trade": "Your trade",
+      "tradePlaceholder": "Choose one",
+      "plan": "Plan you're interested in",
+      "submit": "Continue to pick a time",
+      "calendarTitle": "Thanks, {{name}}. Now pick a time.",
+      "trades": {
+        "hvac": "HVAC",
+        "plumbing": "Plumbing",
+        "roofing": "Roofing",
+        "remodeling": "Remodeling",
+        "electrical": "Electrical",
+        "cleaning": "Cleaning",
+        "landscaping": "Landscaping",
+        "other": "Other"
+      },
+      "plans": {
+        "recover": "Recover",
+        "front-office": "Front Office",
+        "not-sure": "Not sure yet"
+      },
+      "errors": {
+        "trade": "Please choose your trade."
+      }
+    }
   },
   "contactForm": {
     "name": "Name",
@@ -1428,6 +1457,64 @@
       "invalidPhone": "Please enter a valid phone number, for example (770) 501-7321.",
       "generic": "Please check this field.",
       "sendFailed": "Please try again, or call us at (770) 501-7321."
+    }
+  },
+  "howItWorksPage": {
+    "seo": {
+      "title": "How ClickOne works | AI answering, texting and follow-up",
+      "description": "From missed call to booked job without you picking up the phone. ClickOne answers, texts and books your leads 24/7 in English, Spanish and Portuguese."
+    },
+    "hero": {
+      "badge": "How it works",
+      "title": "From missed call to booked job, without you picking up the phone.",
+      "subtitle": "ClickOne answers your calls, texts and web forms, finds out what the customer needs and puts the job on your calendar. Our team sets it up and keeps it running."
+    },
+    "parts": {
+      "badge": "What does the work",
+      "title": "One front office, three jobs",
+      "items": [
+        {
+          "title": "AI voice that answers every call",
+          "plan": "Front Office",
+          "points": [
+            "Answers 24/7 in English, Spanish and Portuguese",
+            "Asks what the job is and takes the address",
+            "Books the visit on your calendar",
+            "Sends urgent calls to a person right away"
+          ]
+        },
+        {
+          "title": "Texts and chat that reply in seconds",
+          "plan": "Recover and Front Office",
+          "points": [
+            "A missed call turns into a text in seconds",
+            "Instant reply to your website form, Google and Facebook",
+            "The AI keeps the conversation going by text",
+            "Texting starts once US carriers approve your number"
+          ]
+        },
+        {
+          "title": "Follow-up nobody forgets",
+          "plan": "Recover and Front Office",
+          "points": [
+            "Confirmations and reminders before each visit",
+            "Follow-up on no-shows and estimates that did not close",
+            "A Google review request after the job",
+            "A monthly report of recovered and booked leads"
+          ]
+        }
+      ]
+    },
+    "demos": {
+      "badge": "Demo calls",
+      "title": "Hear it for yourself",
+      "text": "Recorded demo calls, answered the way the AI would answer for your business."
+    },
+    "cta": {
+      "title": "See which plan fits you",
+      "text": "Recover covers texting, follow-up and reviews. Front Office adds the AI voice, 24/7.",
+      "pricing": "See plans and pricing",
+      "book": "Book a 30-minute demo"
     }
   }
 }

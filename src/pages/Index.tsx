@@ -33,6 +33,7 @@ import industryPlumbingWebp from "@/assets/industry-plumbing-new.webp";
 import industryRoofing from "@/assets/industry-roofing.jpg";
 import industryConstruction from "@/assets/industry-construction.jpg";
 import industryConstructionWebp from "@/assets/industry-construction.webp";
+import { industryPath } from "@/lib/site-routes";
 
 // The demo recording shown when a visitor clicks "Hear our AI answer a call".
 const HERO_DEMO = audioDemos.find((demo) => demo.id === "plumbing") ?? audioDemos[0];
@@ -395,7 +396,7 @@ const Index = () => {
             {industries.map((industry, index) => (
               <AnimatedSection key={industry.slug} animation="fade-up" delay={index * 80}>
                 <Link
-                  to={`/setores/${industry.slug}`}
+                  to={industryPath(industry.slug)}
                   className="group block overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
                 >
                   <div className="aspect-[4/3] overflow-hidden">
@@ -420,7 +421,7 @@ const Index = () => {
           </div>
           <div className="mt-10 text-center">
             <Button variant="outline" asChild>
-              <Link to="/setores">{t("home.industries.viewAll")}</Link>
+              <Link to="/industries">{t("home.industries.viewAll")}</Link>
             </Button>
           </div>
         </div>

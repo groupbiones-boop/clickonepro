@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import AnalyticsTracker from "../AnalyticsTracker";
+import ClientOnly from "../ClientOnly";
 import FloatingDashboardButton from "../FloatingDashboardButton";
 import { useThemeInit } from "@/hooks/useThemeInit";
 
@@ -14,7 +15,9 @@ const Layout = ({ children }: LayoutProps) => {
   
   return (
     <div className="min-h-screen flex flex-col">
-      <AnalyticsTracker />
+      <ClientOnly>
+        <AnalyticsTracker />
+      </ClientOnly>
       <Header />
       <main role="main" className="flex-1">{children}</main>
       <Footer />

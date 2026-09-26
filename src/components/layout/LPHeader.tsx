@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import clickoneLogoOfficialWhite from "@/assets/clickone-logo-official-white.png";
 import { EXTERNAL_URLS } from "@/lib/external-urls";
+import { withLanguagePrefix } from "@/i18n/lang-prefix";
 
 interface LPHeaderProps {
   onCtaClick?: () => void;
@@ -17,7 +18,7 @@ const LPHeader = ({ onCtaClick }: LPHeaderProps) => {
     if (onCtaClick) {
       onCtaClick();
     }
-    window.location.href = EXTERNAL_URLS.GHL_BOOKING;
+    window.location.href = withLanguagePrefix(EXTERNAL_URLS.GHL_BOOKING);
   };
 
   return (

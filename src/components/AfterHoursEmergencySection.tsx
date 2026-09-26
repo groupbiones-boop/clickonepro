@@ -125,7 +125,7 @@ export const AfterHoursEmergencySection = ({ className = "" }: AfterHoursEmergen
             {t("emergency.footerNote")}
           </p>
           <Button asChild size="lg" className="shadow-lg shadow-primary/20">
-            <Link to="/contato">
+            <Link to="/contact">
               {t("common.bookFreeDemo")}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Link>

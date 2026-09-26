@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { SOCIAL_LINKS } from "@/lib/external-urls";
+import { localizedPath, type SiteLanguage } from "@/i18n/lang-prefix";
 
 // Schema.org types
 type SchemaType = 
@@ -85,9 +86,20 @@ const SEO = ({
   const description = directDescription || (descriptionKey ? t(descriptionKey) : t("seo.home.description"));
 
   // Generate canonical URL automatically if not provided
+  // location.pathname is relative to the router basename (/es, /pt), so add the prefix back.
   const currentPath = location.pathname.replace(/\/$/, '') || '/';
-  const autoCanonical = `${BASE_URL}${currentPath === '/' ? '' : currentPath}`;
+  const urlFor = (language: SiteLanguage) => {
+    const path = localizedPath(currentPath, language);
+    return `${BASE_URL}${path === '/' ? '' : path}`;
+  };
+  const autoCanonical = urlFor(i18n.language as SiteLanguage);
   const finalCanonical = canonicalUrl || autoCanonical;
+  const alternates: Array<[string, string]> = [
+    ["en-US", urlFor("en-US")],
+    ["es", urlFor("es")],
+    ["pt-BR", urlFor("pt-BR")],
+    ["x-default", urlFor("en-US")],
+  ];
 
   // Generate JSON-LD based on schema type
   const generateJsonLd = (type?: SchemaType, data?: SEOProps["schemaData"]) => {
@@ -249,6 +261,10 @@ const SEO = ({
       
       {/* Canonical */}
       <link rel="canonical" href={finalCanonical} />
+      {!noIndex && !canonicalUrl && !/^\/(lp|blog)\//.test(currentPath) &&
+        alternates.map(([hreflang, href]) => (
+          <link key={hreflang} rel="alternate" hrefLang={hreflang} href={href} />
+        ))}
 
       {/* JSON-LD Structured Data - Support for multiple schemas */}
       {schemas.map((schema, index) => (

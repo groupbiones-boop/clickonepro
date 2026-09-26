@@ -46,7 +46,7 @@ const Footer = () => {
             <h3 className="font-semibold text-lg">{t("footer.product")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/#how-it-works" className="text-background/70 hover:text-background text-sm transition-colors">
+                <Link to="/how-it-works" className="text-background/70 hover:text-background text-sm transition-colors">
                   {t("nav.howItWorks")}
                 </Link>
               </li>
@@ -68,27 +68,27 @@ const Footer = () => {
             <h3 className="font-semibold text-lg">{t("footer.sectors")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/setores/hvac" className="text-background/70 hover:text-background text-sm transition-colors">
+                <Link to="/industries/hvac" className="text-background/70 hover:text-background text-sm transition-colors">
                   {t("home.industries.hvac")}
                 </Link>
               </li>
               <li>
-                <Link to="/setores/encanamento" className="text-background/70 hover:text-background text-sm transition-colors">
+                <Link to="/industries/plumbing" className="text-background/70 hover:text-background text-sm transition-colors">
                   {t("home.industries.plumbing")}
                 </Link>
               </li>
               <li>
-                <Link to="/setores/telhados" className="text-background/70 hover:text-background text-sm transition-colors">
+                <Link to="/industries/roofing" className="text-background/70 hover:text-background text-sm transition-colors">
                   {t("home.industries.roofing")}
                 </Link>
               </li>
               <li>
-                <Link to="/setores/construcao" className="text-background/70 hover:text-background text-sm transition-colors">
+                <Link to="/industries/remodeling" className="text-background/70 hover:text-background text-sm transition-colors">
                   {t("home.industries.remodeling")}
                 </Link>
               </li>
               <li>
-                <Link to="/setores" className="text-background font-bold hover:text-background/80 text-sm transition-colors">
+                <Link to="/industries" className="text-background font-bold hover:text-background/80 text-sm transition-colors">
                   {t("footer.viewAllSectors")}
                 </Link>
               </li>
@@ -132,7 +132,7 @@ const Footer = () => {
             © {new Date().getFullYear()} ClickOne AI. {t("footer.rights")}
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <Link to="/sobre" className="text-background/60 hover:text-background text-sm transition-colors">
+            <Link to="/about" className="text-background/60 hover:text-background text-sm transition-colors">
               {t("footer.about")}
             </Link>
             <Link to="/blog" className="text-background/60 hover:text-background text-sm transition-colors">

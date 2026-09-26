@@ -1264,7 +1264,7 @@
         "Manutenção, otimização e treinamento contínuos pela nossa equipe",
         "Integração oficial com Jobber, Housecall Pro ou QuickBooks. Outras ferramentas por automação (Zapier).",
         "1 campanha de reativação por trimestre",
-        "500 minutos de voz por mês incluídos, depois $0,25 por minuto"
+        "300 minutos de voz por mês incluídos, depois $0,25 por minuto"
       ],
       "guarantee": "100% das ligações atendidas, ou o mês é por nossa conta."
     },
@@ -1322,7 +1322,7 @@
         {
           "label": "Minutos de voz",
           "recover": "no",
-          "frontOffice": "500 incluídos, depois $0,25/min"
+          "frontOffice": "300 incluídos, depois $0,25/min"
         },
         {
           "label": "Resposta com IA às avaliações",
@@ -1374,8 +1374,8 @@
         "a": "As mensagens de texto começam quando as operadoras dos EUA aprovam o número da sua empresa (A2P 10DLC), o que normalmente leva mais de 10 dias úteis. O registro nas operadoras e as taxas de telefone são cobrados pelo custo, à parte da mensalidade."
       },
       {
-        "q": "O que acontece se eu passar de 500 minutos de voz?",
-        "a": "O Front Office inclui 500 minutos de IA de voz por mês. Cada minuto extra custa $0,25. O Recover não inclui IA de voz atendendo ligação."
+        "q": "O que acontece se eu passar de 300 minutos de voz?",
+        "a": "O Front Office inclui 300 minutos de IA de voz por mês. Cada minuto extra custa $0,25. O Recover não inclui IA de voz atendendo ligação."
       },
       {
         "q": "Tem contrato? Posso cancelar?",
@@ -1406,7 +1406,36 @@
     "formTitle": "Diga como falar com você",
     "formSubtitle": "Deixe seus dados e entraremos em contato para marcar sua demo de 30 minutos.",
     "callUs": "Prefere falar agora? Ligue para",
-    "prefillMessage": "Tenho interesse no plano {{plan}}."
+    "prefillMessage": "Tenho interesse no plano {{plan}}.",
+    "lead": {
+      "step": "Passo 1 de 2",
+      "step2": "Passo 2 de 2",
+      "title": "Conte um pouco sobre a sua empresa",
+      "subtitle": "Depois escolha o horário da sua demo de 30 minutos.",
+      "trade": "Seu ramo",
+      "tradePlaceholder": "Escolha um",
+      "plan": "Plano de interesse",
+      "submit": "Continuar para escolher o horário",
+      "calendarTitle": "Obrigado, {{name}}. Agora escolha o horário.",
+      "trades": {
+        "hvac": "HVAC",
+        "plumbing": "Encanamento",
+        "roofing": "Telhados",
+        "remodeling": "Reforma",
+        "electrical": "Elétrica",
+        "cleaning": "Limpeza",
+        "landscaping": "Paisagismo",
+        "other": "Outro"
+      },
+      "plans": {
+        "recover": "Recover",
+        "front-office": "Front Office",
+        "not-sure": "Ainda não sei"
+      },
+      "errors": {
+        "trade": "Escolha o seu ramo."
+      }
+    }
   },
   "contactForm": {
     "name": "Nome",
@@ -1428,6 +1457,64 @@
       "invalidPhone": "Digite um telefone válido, por exemplo (770) 501-7321.",
       "generic": "Confira este campo.",
       "sendFailed": "Tente de novo, ou ligue para (770) 501-7321."
+    }
+  },
+  "howItWorksPage": {
+    "seo": {
+      "title": "Como a ClickOne funciona | Atendimento com IA, mensagens e acompanhamento",
+      "description": "Da ligação perdida ao serviço agendado sem você atender o telefone. A ClickOne atende, responde e agenda seus clientes 24h em inglês, espanhol e português."
+    },
+    "hero": {
+      "badge": "Como funciona",
+      "title": "Da ligação perdida ao serviço agendado, sem você atender o telefone.",
+      "subtitle": "A ClickOne atende suas ligações, mensagens e formulários, entende o que o cliente precisa e coloca o serviço na sua agenda. Nossa equipe monta e mantém tudo funcionando."
+    },
+    "parts": {
+      "badge": "Quem faz o trabalho",
+      "title": "Um atendimento, três tarefas",
+      "items": [
+        {
+          "title": "Voz com IA que atende toda ligação",
+          "plan": "Front Office",
+          "points": [
+            "Atende 24h em inglês, espanhol e português",
+            "Pergunta qual é o serviço e anota o endereço",
+            "Agenda a visita na sua agenda",
+            "Passa ligações urgentes para uma pessoa na hora"
+          ]
+        },
+        {
+          "title": "Mensagens e chat que respondem em segundos",
+          "plan": "Recover e Front Office",
+          "points": [
+            "Ligação perdida vira mensagem em segundos",
+            "Resposta imediata ao formulário do site, Google e Facebook",
+            "A IA continua a conversa por mensagem",
+            "O SMS começa depois que as operadoras dos EUA aprovam o seu número"
+          ]
+        },
+        {
+          "title": "Acompanhamento que ninguém esquece",
+          "plan": "Recover e Front Office",
+          "points": [
+            "Confirmação e lembrete antes de cada visita",
+            "Acompanhamento de quem faltou e de orçamento não fechado",
+            "Pedido de avaliação no Google depois do serviço",
+            "Relatório mensal de clientes recuperados e agendados"
+          ]
+        }
+      ]
+    },
+    "demos": {
+      "badge": "Ligações de demonstração",
+      "title": "Ouça você mesmo",
+      "text": "Ligações de demonstração gravadas, atendidas do jeito que a IA atenderia a sua empresa."
+    },
+    "cta": {
+      "title": "Veja qual plano combina com você",
+      "text": "O Recover cobre mensagens, acompanhamento e avaliações. O Front Office soma a voz com IA, 24h.",
+      "pricing": "Ver planos e preços",
+      "book": "Agendar demo de 30 minutos"
     }
   }
 }

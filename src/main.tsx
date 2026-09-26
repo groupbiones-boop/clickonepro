@@ -1,4 +1,4 @@
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import "./i18n";
@@ -14,8 +14,16 @@ document.documentElement.classList.remove("dark");
 // Captura window.error + unhandledrejection e persiste em localStorage
 installGlobalErrorLogger();
 
-createRoot(document.getElementById("root")!).render(
+const container = document.getElementById("root")!;
+const app = (
   <ErrorBoundary>
     <App />
-  </ErrorBoundary>,
+  </ErrorBoundary>
 );
+
+// Pages prerendered at build time (scripts/prerender.mjs) are hydrated; everything else renders fresh.
+if (container.hasAttribute("data-prerendered") && container.firstElementChild) {
+  hydrateRoot(container, app);
+} else {
+  createRoot(container).render(app);
+}

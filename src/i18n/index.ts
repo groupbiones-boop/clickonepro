@@ -1,6 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import { INITIAL_LANGUAGE } from './lang-prefix';
 
 import ptBR from './locales/pt-BR.json';
 import enUS from './locales/en-US.json';
@@ -26,22 +26,17 @@ const resources = {
 };
 
 i18n
-  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
-    // English is the default for new visitors. A language picked in the switcher
-    // is stored in localStorage and wins on the next visit.
+    // The URL decides the language (/es, /pt, or no prefix for English). See lang-prefix.ts.
+    lng: INITIAL_LANGUAGE,
     fallbackLng: 'en-US',
     supportedLngs: ['en-US', 'es', 'pt-BR'],
     ns: ['translation', 'industries'],
     defaultNS: 'translation',
     interpolation: {
       escapeValue: false,
-    },
-    detection: {
-      order: ['localStorage'],
-      caches: ['localStorage'],
     },
   });
 

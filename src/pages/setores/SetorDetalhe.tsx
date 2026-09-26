@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { industryKeyFromUrl } from "@/lib/site-routes";
 import Layout from "@/components/layout/Layout";
 import SEO from "@/components/SEO";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
@@ -112,7 +113,7 @@ const SetorDetalhe = () => {
   const { t } = useTranslation('industries');
 
   // Check if industry exists using the images map
-  const industryKey = slug || '';
+  const industryKey = industryKeyFromUrl(slug);
   const images = industryImages[industryKey];
 
   if (!images) {
@@ -121,7 +122,7 @@ const SetorDetalhe = () => {
         <div className="container py-24 text-center">
           <h1 className="text-3xl font-bold mb-4">{t('common.industryNotFound', { defaultValue: 'Setor não encontrado' })}</h1>
           <Button asChild>
-            <Link to="/setores">{t('common.backToIndustries', { defaultValue: 'Voltar para Setores' })}</Link>
+            <Link to="/industries">{t('common.backToIndustries', { defaultValue: 'Voltar para Setores' })}</Link>
           </Button>
         </div>
       </Layout>
@@ -217,13 +218,13 @@ const SetorDetalhe = () => {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" variant="secondary" asChild className="font-semibold">
-                  <Link to="/contato">
+                  <Link to="/contact">
                     {getStarted}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="hero" asChild>
-                  <Link to="/produto/recepcionista-ia-voz">{learnMore}</Link>
+                  <Link to="/how-it-works">{learnMore}</Link>
                 </Button>
               </div>
             </div>
@@ -443,7 +444,7 @@ const SetorDetalhe = () => {
                 {t('common.stillHaveQuestions', { defaultValue: 'Ainda tem dúvidas? Fale com nossa equipe.' })}
               </p>
               <Button variant="outline" asChild>
-                <Link to="/contato">{t('common.getInTouch', { defaultValue: 'Entrar em Contato' })}</Link>
+                <Link to="/contact">{t('common.getInTouch', { defaultValue: 'Entrar em Contato' })}</Link>
               </Button>
             </div>
           </AnimatedSection>
@@ -472,13 +473,13 @@ const SetorDetalhe = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/contato">
+                <Link to="/contact">
                   {bookFreeDemo}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="hero" asChild>
-                <Link to="/setores">{t('common.viewOtherIndustries', { defaultValue: 'Ver Outros Setores' })}</Link>
+                <Link to="/industries">{t('common.viewOtherIndustries', { defaultValue: 'Ver Outros Setores' })}</Link>
               </Button>
             </div>
           </AnimatedSection>

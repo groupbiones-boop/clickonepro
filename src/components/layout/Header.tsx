@@ -39,6 +39,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import clickoneLogoOfficialWhite from "@/assets/clickone-logo-official-white.png";
+import { industryPath } from "@/lib/site-routes";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -101,7 +102,7 @@ const Header = () => {
         ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10"
         : "text-primary-foreground/80 border-transparent"
     }`;
-  const isHowItWorks = location.pathname === "/" && location.hash === "#how-it-works";
+  const isHowItWorks = location.pathname === "/how-it-works";
 
   return (
     <header className="sticky top-0 z-50 w-full bg-primary">
@@ -120,7 +121,7 @@ const Header = () => {
             Home
           </Link>
 
-          <Link to="/#how-it-works" className={linkClass(isHowItWorks)}>
+          <Link to="/how-it-works" className={linkClass(isHowItWorks)}>
             {t("nav.howItWorks")}
           </Link>
 
@@ -138,13 +139,13 @@ const Header = () => {
               <NavigationMenuItem>
                 <NavigationMenuTrigger 
                   className={`text-sm font-medium bg-transparent hover:bg-primary-foreground/10 data-[state=open]:bg-primary-foreground/10 ${
-                    isActivePrefix("/setores")
+                    isActivePrefix("/industries")
                       ? "text-primary-foreground" 
                       : "text-primary-foreground/80 hover:text-primary-foreground"
                   }`}
                 >
                   <span className={`relative ${
-                    isActivePrefix("/setores")
+                    isActivePrefix("/industries")
                       ? "after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
                       : ""
                   }`}>
@@ -165,7 +166,7 @@ const Header = () => {
                       </div>
                       <div className="space-y-3">
                         <Button asChild size="sm" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full">
-                          <Link to="/setores" className="flex items-center gap-2">
+                          <Link to="/industries" className="flex items-center gap-2">
                             {t("megaMenu.sectors.cta")}
                             <ArrowRight className="h-4 w-4" />
                           </Link>
@@ -186,9 +187,9 @@ const Header = () => {
                               {category.items.map((item) => (
                                 <NavigationMenuLink asChild key={item.slug}>
                                   <Link
-                                    to={`/setores/${item.slug}`}
+                                    to={industryPath(item.slug)}
                                     className={`flex items-center gap-2.5 py-2 px-2 rounded-md transition-colors hover:bg-primary/5 group ${
-                                      isActive(`/setores/${item.slug}`) ? "bg-primary/10" : ""
+                                      isActive(industryPath(item.slug)) ? "bg-primary/10" : ""
                                     }`}
                                   >
                                     <div className="flex-shrink-0 w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
@@ -210,10 +211,10 @@ const Header = () => {
           </NavigationMenu>
 
           <Link 
-            to="/sobre" 
-            aria-current={isActive("/sobre") ? "page" : undefined}
+            to="/about" 
+            aria-current={isActive("/about") ? "page" : undefined}
             className={`text-sm font-medium transition-colors relative ${
-              isActive("/sobre") 
+              isActive("/about") 
                 ? "text-primary-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary-foreground after:rounded-full" 
                 : "text-primary-foreground/80 hover:text-primary-foreground"
             }`}
@@ -258,7 +259,7 @@ const Header = () => {
             </Link>
 
             <Link
-              to="/#how-it-works"
+              to="/how-it-works"
               className={mobileLinkClass(isHowItWorks)}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -277,7 +278,7 @@ const Header = () => {
             <div>
               <button
                 className={`flex items-center justify-between w-full text-sm font-medium py-2 border-l-2 pl-3 ${
-                  isActivePrefix("/setores")
+                  isActivePrefix("/industries")
                     ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
                     : "text-primary-foreground/80 border-transparent"
                 }`}
@@ -296,9 +297,9 @@ const Header = () => {
                       {category.items.slice(0, 3).map((item) => (
                         <Link
                           key={item.slug}
-                          to={`/setores/${item.slug}`}
+                          to={industryPath(item.slug)}
                           className={`flex items-center gap-3 text-sm py-2 pl-3 border-l-2 ${
-                            isActive(`/setores/${item.slug}`) 
+                            isActive(industryPath(item.slug)) 
                               ? "text-primary-foreground border-primary-foreground font-medium" 
                               : "text-primary-foreground/70 border-transparent"
                           }`}
@@ -311,9 +312,9 @@ const Header = () => {
                     </div>
                   ))}
                   <Link
-                    to="/setores"
+                    to="/industries"
                     className={`flex items-center gap-2 text-sm font-medium py-2 pl-3 border-l-2 mt-2 ${
-                      isActive("/setores") 
+                      isActive("/industries") 
                         ? "text-primary-foreground border-primary-foreground" 
                         : "text-primary-foreground border-transparent"
                     }`}
@@ -328,9 +329,9 @@ const Header = () => {
             </div>
 
             <Link
-              to="/sobre"
+              to="/about"
               className={`text-sm font-medium py-2 border-l-2 pl-3 ${
-                isActive("/sobre") 
+                isActive("/about") 
                   ? "text-primary-foreground border-primary-foreground bg-primary-foreground/10" 
                   : "text-primary-foreground/80 border-transparent"
               }`}

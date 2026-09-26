@@ -48,6 +48,8 @@ import industryMedical from "@/assets/industry-medical-clinic.jpg";
 // Mobile app
 import mobileApp from "@/assets/mobile-app-clickone.jpg";
 import clickoneLogoOfficialWhite from "@/assets/clickone-logo-official-white.png";
+import { industryPath } from "@/lib/site-routes";
+import { withLanguagePrefix } from "@/i18n/lang-prefix";
 
 const PerdendoClientes = () => {
   const { t } = useTranslation();
@@ -91,7 +93,7 @@ const PerdendoClientes = () => {
       campaign: utmParams.utm_campaign || "perdendo_clientes",
       content: ctaLocation,
     });
-    window.location.href = bookingUrl;
+    window.location.href = withLanguagePrefix(bookingUrl);
   };
 
   const industries = [
@@ -568,7 +570,7 @@ const PerdendoClientes = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
               {industries.map((industry, index) => (
                 <AnimatedSection key={industry.key} delay={index * 100}>
-                  <Link to={`/setores/${industry.slug}`}>
+                  <Link to={industryPath(industry.slug)}>
                     <Card className="overflow-hidden h-full group hover:shadow-lg transition-all cursor-pointer hover:scale-[1.02]">
                       <div className="aspect-[4/3] overflow-hidden">
                         <OptimizedImage
@@ -593,7 +595,7 @@ const PerdendoClientes = () => {
 
             <AnimatedSection className="text-center">
               <Button asChild>
-                <Link to="/setores">{t("lp.perdendoClientes.whoItsFor.viewAll")}</Link>
+                <Link to="/industries">{t("lp.perdendoClientes.whoItsFor.viewAll")}</Link>
               </Button>
             </AnimatedSection>
           </div>

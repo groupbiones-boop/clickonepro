@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChevronDown } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { localizedPath, type SiteLanguage } from '@/i18n/lang-prefix';
 
 const languages = [
   { code: 'en-US', name: 'English', flag: '🇺🇸' },
@@ -10,14 +12,18 @@ const languages = [
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
+  // The language lives in the URL, so switching loads the same page under /es, /pt or no prefix.
   const handleLanguageChange = (langCode: string) => {
-    i18n.changeLanguage(langCode);
     setIsOpen(false);
+    if (langCode === currentLanguage.code) return;
+    const target = localizedPath(location.pathname, langCode as SiteLanguage);
+    window.location.assign(`${target}${location.search}${location.hash}`);
   };
 
   // Close dropdown when clicking outside

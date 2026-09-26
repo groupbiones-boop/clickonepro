@@ -39,6 +39,8 @@ import { AnimatedCounter } from "@/hooks/use-count-animation";
 import { useLandingPageBySlug, LPContent } from "@/hooks/use-landing-page";
 import { useActiveABTest, assignVariant, recordConversion, getOrCreateSessionId } from "@/hooks/use-ab-tests";
 import { EXTERNAL_URLS, appendUTMParams } from "@/lib/external-urls";
+import { industryPath } from "@/lib/site-routes";
+import { withLanguagePrefix } from "@/i18n/lang-prefix";
 
 const DynamicLP = () => {
   const { slug } = useParams();
@@ -92,7 +94,7 @@ const DynamicLP = () => {
       campaign: utmParams.utm_campaign || slug || "dynamic_lp",
       content: ctaLocation,
     });
-    window.location.href = bookingUrl;
+    window.location.href = withLanguagePrefix(bookingUrl);
   };
 
   if (isLoading || isTestLoading) {
@@ -465,7 +467,7 @@ const DynamicLP = () => {
                 {content.industries.items.map((industry, index) => (
                   <AnimatedSection key={index} delay={index * 100}>
                     <Link 
-                      to={`/setores/${industry.slug}`}
+                      to={industryPath(industry.slug)}
                       className="group block"
                     >
                       <Card className="overflow-hidden h-full transition-all hover:shadow-lg hover:border-primary/50">

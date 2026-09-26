@@ -5,7 +5,7 @@
 ClickOne AI sells two plans. Every client gets ongoing maintenance, optimization and training by the ClickOne team.
 
 - Recover ($497/month, $997 setup, set up in 7 days): automatic text back for missed calls, instant replies to web, Google and Facebook forms, booking, confirmations and reminders, no-show and estimate follow-up, Google review requests and a monthly report. Text messages switch on once US carriers approve the business number (A2P 10DLC), which usually takes 10+ business days.
-- Front Office ($997/month, $1,497 setup, AI voice live in 7 days): everything in Recover plus AI voice answering 24/7 in English, Spanish and Portuguese, AI replies to Google reviews, one reactivation campaign per quarter and 500 voice minutes a month (then $0.25 per minute).
+- Front Office ($997/month, $1,497 setup, AI voice live in 7 days): everything in Recover plus AI voice answering 24/7 in English, Spanish and Portuguese, AI replies to Google reviews, one reactivation campaign per quarter and 300 voice minutes a month (then $0.25 per minute).
 
 Works with Jobber, Housecall Pro and QuickBooks. Connects to ServiceTitan, JobNimbus, Roofr and more through automation. The AI always says it is an AI, and a person is one step away.
 
@@ -14,14 +14,14 @@ Works with Jobber, Housecall Pro and QuickBooks. Connects to ServiceTitan, JobNi
 - [Home](/): The offer, the missed-call calculator and FAQ.
 - [Pricing](/pricing): Both plans, comparison table, guarantee and pricing FAQ.
 - [Book a demo](/book-a-demo): 15-minute demo.
-- [AI Voice Receptionist](/produto/recepcionista-ia-voz): How the AI voice answers calls.
-- [About](/sobre): Company story.
-- [Contact](/contato): Phone, email and contact form.
+- [How it works](/how-it-works): How the AI answers calls, texts and forms, with demo calls.
+- [About](/about): Company story.
+- [Contact](/contact): Phone, email and contact form.
 - [Blog](/blog): Articles.
 
 ## Industries
 
-- [HVAC](/setores/hvac), [Plumbing](/setores/encanamento), [Roofing](/setores/telhados), [Remodeling](/setores/construcao), [All industries](/setores)
+- [HVAC](/industries/hvac), [Plumbing](/industries/plumbing), [Roofing](/industries/roofing), [Remodeling](/industries/remodeling), [All industries](/industries)
 
 ## Contact
 
