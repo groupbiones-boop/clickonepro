@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { SOCIAL_LINKS } from "@/lib/external-urls";
 
 // Schema.org types
 type SchemaType = 
@@ -95,10 +96,7 @@ const SEO = ({
       "name": "ClickOne AI",
       "url": "https://clickonepro.com",
       "logo": "https://clickonepro.com/favicon.png",
-      "sameAs": [
-        "https://www.facebook.com/310455115479921",
-        "https://www.instagram.com/clickoneai"
-      ],
+      "sameAs": Object.values(SOCIAL_LINKS),
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Woodstock",

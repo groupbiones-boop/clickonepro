@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
 import clickoneLogoOfficialWhite from "@/assets/clickone-logo-official-white.png";
-import { CONTACT_INFO } from "@/lib/external-urls";
+import { CONTACT_INFO, SOCIAL_LINKS } from "@/lib/external-urls";
+
+const socialProfiles = [
+  { href: SOCIAL_LINKS.FACEBOOK, label: "ClickOne AI on Facebook", Icon: Facebook },
+  { href: SOCIAL_LINKS.INSTAGRAM, label: "ClickOne AI on Instagram", Icon: Instagram },
+  { href: SOCIAL_LINKS.YOUTUBE, label: "ClickOne AI on YouTube", Icon: Youtube },
+];
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -17,6 +23,22 @@ const Footer = () => {
             <p className="text-background/70 text-sm">
               {t("footer.description")}
             </p>
+            <ul className="flex items-center gap-3" aria-label="Social media">
+              {socialProfiles.map(({ href, label, Icon }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    title={label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-background/10 text-background/80 hover:bg-background/20 hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background"
+                  >
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Produto */}

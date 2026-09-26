@@ -43,6 +43,13 @@ export const CONTACT_INFO = {
   LOCATION: "Woodstock, GA",
 } as const;
 
+// Official ClickOne social profiles (footer icons + Organization schema sameAs)
+export const SOCIAL_LINKS = {
+  FACEBOOK: "https://www.facebook.com/310455115479921",
+  INSTAGRAM: "https://www.instagram.com/clickoneai",
+  YOUTUBE: "https://www.youtube.com/@clickonepro",
+} as const;
+
 // UTM Parameter Helper
 export interface UTMParams {
   source?: string;
