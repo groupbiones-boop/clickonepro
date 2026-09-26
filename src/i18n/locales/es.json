@@ -1433,8 +1433,11 @@
         "not-sure": "Todavía no sé"
       },
       "errors": {
-        "trade": "Por favor elige tu oficio."
-      }
+        "trade": "Por favor elige tu oficio.",
+        "fullName": "Escribe tu nombre y apellido.",
+        "company": "Escribe el nombre de tu empresa."
+      },
+      "fullName": "Nombre completo"
     }
   },
   "contactForm": {

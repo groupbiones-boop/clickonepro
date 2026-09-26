@@ -15,6 +15,7 @@ export interface DemoLead {
   lastName: string;
   email: string;
   phone: string;
+  company: string;
 }
 
 const TRADES = ["hvac", "plumbing", "roofing", "remodeling", "electrical", "cleaning", "landscaping", "other"] as const;
@@ -46,6 +47,8 @@ const DemoLeadForm = ({ initialPlan, onSubmitted }: DemoLeadFormProps) => {
     const phone = normalizePhone(values.phone);
     const nextErrors: Record<string, string> = {};
     if (name.length < 2) nextErrors.name = t("contactForm.errors.nameTooShort");
+    else if (name.split(/\s+/).length < 2) nextErrors.name = t("bookDemoPage.lead.errors.fullName");
+    if (!values.company.trim()) nextErrors.company = t("bookDemoPage.lead.errors.company");
     if (!EMAIL_RE.test(email)) nextErrors.email = t("contactForm.errors.invalidEmail");
     if (!phone) nextErrors.phone = t("contactForm.errors.invalidPhone");
     if (!values.trade) nextErrors.trade = t("bookDemoPage.lead.errors.trade");
@@ -91,7 +94,7 @@ const DemoLeadForm = ({ initialPlan, onSubmitted }: DemoLeadFormProps) => {
     }
 
     const [firstName, ...rest] = name.split(/\s+/);
-    onSubmitted({ firstName, lastName: rest.join(" "), email, phone: phone as string });
+    onSubmitted({ firstName, lastName: rest.join(" "), email, phone: phone as string, company: values.company.trim() });
     setLoading(false);
   };
 
@@ -107,13 +110,14 @@ const DemoLeadForm = ({ initialPlan, onSubmitted }: DemoLeadFormProps) => {
       </div>
       <div className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="demo-name">{t("contactForm.name")} *</Label>
+          <Label htmlFor="demo-name">{t("bookDemoPage.lead.fullName")} *</Label>
           <Input id="demo-name" autoComplete="name" value={values.name} onChange={set("name")} disabled={loading} maxLength={120} aria-invalid={!!errors.name} />
           {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="demo-company">{t("contactForm.company")}</Label>
-          <Input id="demo-company" autoComplete="organization" value={values.company} onChange={set("company")} disabled={loading} maxLength={200} />
+          <Label htmlFor="demo-company">{t("contactForm.company")} *</Label>
+          <Input id="demo-company" autoComplete="organization" value={values.company} onChange={set("company")} disabled={loading} maxLength={200} aria-invalid={!!errors.company} />
+          {errors.company && <p className="text-xs text-destructive">{errors.company}</p>}
         </div>
       </div>
       <div className="grid sm:grid-cols-2 gap-4">

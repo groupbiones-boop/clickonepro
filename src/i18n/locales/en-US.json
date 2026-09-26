@@ -1433,8 +1433,11 @@
         "not-sure": "Not sure yet"
       },
       "errors": {
-        "trade": "Please choose your trade."
-      }
+        "trade": "Please choose your trade.",
+        "fullName": "Please enter your first and last name.",
+        "company": "Please enter your company name."
+      },
+      "fullName": "Full name"
     }
   },
   "contactForm": {

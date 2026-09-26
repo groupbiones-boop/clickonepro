@@ -9,7 +9,7 @@ export const hasBookingCalendar = GHL_BOOKING_EMBED_URL.startsWith("https://");
 
 interface BookingCalendarProps {
   /** Contact details already collected on the page; the GHL widget pre-fills its form with them. */
-  prefill?: { firstName: string; lastName: string; email: string; phone: string };
+  prefill?: { firstName: string; lastName: string; email: string; phone: string; company?: string };
 }
 
 const buildCalendarUrl = (prefill?: BookingCalendarProps["prefill"]) => {
@@ -19,6 +19,7 @@ const buildCalendarUrl = (prefill?: BookingCalendarProps["prefill"]) => {
   if (prefill.lastName) url.searchParams.set("last_name", prefill.lastName);
   url.searchParams.set("email", prefill.email);
   url.searchParams.set("phone", prefill.phone);
+  if (prefill.company) url.searchParams.set("company_name", prefill.company);
   return url.toString();
 };
 

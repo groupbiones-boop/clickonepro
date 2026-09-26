@@ -1433,8 +1433,11 @@
         "not-sure": "Ainda não sei"
       },
       "errors": {
-        "trade": "Escolha o seu ramo."
-      }
+        "trade": "Escolha o seu ramo.",
+        "fullName": "Digite seu nome e sobrenome.",
+        "company": "Digite o nome da sua empresa."
+      },
+      "fullName": "Nome completo"
     }
   },
   "contactForm": {
