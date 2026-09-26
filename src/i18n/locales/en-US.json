@@ -1403,10 +1403,7 @@
       "See how missed calls, forms and estimates get followed up",
       "Get clear pricing for your business"
     ],
-    "formTitle": "Tell us how to reach you",
-    "formSubtitle": "Leave your details and we will contact you to set up your 30-minute demo.",
     "callUs": "Prefer to talk now? Call us at",
-    "prefillMessage": "I'm interested in the {{plan}} plan.",
     "lead": {
       "step": "Step 1 of 2",
       "step2": "Step 2 of 2",
@@ -1438,6 +1435,23 @@
         "company": "Please enter your company name."
       },
       "fullName": "Full name"
+    },
+    "slots": {
+      "timezone": "30 minutes. Times shown in your time zone ({{tz}}).",
+      "loading": "Loading open times...",
+      "days": "Available days",
+      "pick": "Pick a time above",
+      "confirm": "Book {{when}}",
+      "booking": "Booking your demo...",
+      "taken": "That time was just taken. Please pick another one.",
+      "failed": "We couldn't book that time. Please try another one, or call us.",
+      "error": "We couldn't load the calendar right now. Try again, or call us and we'll book it for you.",
+      "empty": "No open times in the next two weeks. Call us and we'll find a time.",
+      "retry": "Try again",
+      "bookedTitle": "You're booked, {{name}}!",
+      "bookedWhen": "Your ClickOne AI demo is on {{when}}.",
+      "bookedEmail": "We sent the details to {{email}}. Talk soon.",
+      "alreadyBooked": "You already have a demo booked. Check {{email}} for the details, or call us to change it."
     }
   },
   "contactForm": {

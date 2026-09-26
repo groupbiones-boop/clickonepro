@@ -1403,10 +1403,7 @@
       "Mira cómo se da seguimiento a llamadas perdidas, formularios y presupuestos",
       "Recibe un precio claro para tu empresa"
     ],
-    "formTitle": "Dinos cómo contactarte",
-    "formSubtitle": "Deja tus datos y te contactaremos para agendar tu demo de 30 minutos.",
     "callUs": "¿Prefieres hablar ahora? Llámanos al",
-    "prefillMessage": "Me interesa el plan {{plan}}.",
     "lead": {
       "step": "Paso 1 de 2",
       "step2": "Paso 2 de 2",
@@ -1438,6 +1435,23 @@
         "company": "Escribe el nombre de tu empresa."
       },
       "fullName": "Nombre completo"
+    },
+    "slots": {
+      "timezone": "30 minutos. Horarios en tu zona horaria ({{tz}}).",
+      "loading": "Cargando horarios disponibles...",
+      "days": "Días disponibles",
+      "pick": "Elige un horario arriba",
+      "confirm": "Reservar {{when}}",
+      "booking": "Reservando tu demo...",
+      "taken": "Ese horario se acaba de ocupar. Elige otro, por favor.",
+      "failed": "No pudimos reservar ese horario. Prueba otro o llámanos.",
+      "error": "No pudimos cargar el calendario ahora. Inténtalo de nuevo o llámanos y lo reservamos por ti.",
+      "empty": "No hay horarios en las próximas dos semanas. Llámanos y buscamos uno.",
+      "retry": "Intentar de nuevo",
+      "bookedTitle": "¡Listo, {{name}}!",
+      "bookedWhen": "Tu demo de ClickOne AI es el {{when}}.",
+      "bookedEmail": "Te enviamos los detalles a {{email}}. Hablamos pronto.",
+      "alreadyBooked": "Ya tienes una demo reservada. Revisa {{email}} para ver los detalles o llámanos para cambiarla."
     }
   },
   "contactForm": {
